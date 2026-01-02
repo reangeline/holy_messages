@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suporte - Holy Messages</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #FEF3C7 0%, #fff 50%, #FED7AA 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #B45309;
+        }
+        
+        .header h1 {
+            color: #B45309;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            color: #64748B;
+            font-size: 1.1em;
+        }
+        
+        .section {
+            margin-bottom: 35px;
+        }
+        
+        .section h2 {
+            color: #B45309;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section h3 {
+            color: #92400E;
+            font-size: 1.3em;
+            margin: 20px 0 10px 0;
+        }
+        
+        .section p {
+            margin-bottom: 15px;
+            text-align: justify;
+            color: #555;
+        }
+        
+        .contact-box {
+            background: linear-gradient(135deg, #FEF3C7, #FCD34D);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 30px 0;
+            border: 2px solid #B45309;
+        }
+        
+        .contact-box h3 {
+            color: #92400E;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        
+        .email-link {
+            display: inline-block;
+            background: #B45309;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: background 0.3s;
+        }
+        
+        .email-link:hover {
+            background: #92400E;
+        }
+        
+        .faq-item {
+            background: #FEF3C7;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 4px solid #B45309;
+        }
+        
+        .faq-item h4 {
+            color: #92400E;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .faq-item p {
+            color: #555;
+            margin: 0;
+        }
+        
+        .feature-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .feature-list li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #555;
+        }
+        
+        .feature-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #B45309;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        .footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 2px solid #FCD34D;
+            text-align: center;
+            color: #64748B;
+            font-size: 0.9em;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .section h2 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📱 Holy Messages</h1>
+            <p>Central de Suporte e Ajuda</p>
+        </div>
+
+        <div class="contact-box">
+            <h3>✉️ Entre em Contato</h3>
+            <p style="margin-bottom: 20px;">Precisa de ajuda? Envie um email para nossa equipe de suporte:</p>
+            <a href="mailto:resangeline@gmail.com" class="email-link">resangeline@gmail.com</a>
+        </div>
+
+        <div class="section">
+            <h2>❓ Perguntas Frequentes (FAQ)</h2>
+            
+            <div class="faq-item">
+                <h4>Como recebo o versículo do dia?</h4>
+                <p>O versículo do dia é atualizado automaticamente quando você abre o app. Para receber notificações, acesse Configurações → Notificações e escolha o horário preferido.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>Como salvar versículos favoritos?</h4>
+                <p>Toque no ícone de coração (⭐) em qualquer versículo para salvá-lo. Usuários gratuitos podem salvar até 5 favoritos. Premium tem favoritos ilimitados!</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>Como navegar pela Bíblia?</h4>
+                <p>No menu principal, toque em "Explorar Bíblia". Escolha o livro, depois o capítulo. Use as setas para navegar entre capítulos.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>O que é o Premium e quanto custa?</h4>
+                <p>Premium custa R$ 9,90 (pagamento único, sem mensalidades). Você ganha: sem anúncios, favoritos ilimitados, widgets personalizados e acesso prioritário.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>Como faço login?</h4>
+                <p>No menu hambúrguer (☰), toque em "Fazer Login". Você pode entrar com Google ou Apple. Isso sincroniza seus favoritos e compras entre dispositivos.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>Posso compartilhar versículos?</h4>
+                <p>Sim! Em qualquer versículo, toque no ícone de compartilhar (↗️) para enviar via WhatsApp, Instagram, email ou outras redes sociais.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>O app funciona offline?</h4>
+                <p>Sim! Toda a Bíblia é armazenada localmente no seu dispositivo. Você pode ler mesmo sem internet.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>Como cancelo ou restauro minha compra Premium?</h4>
+                <p>Premium é um pagamento único (não há assinatura). Para restaurar em outro dispositivo, faça login com a mesma conta Google/Apple e suas compras serão sincronizadas automaticamente.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🐛 Reportar Problema</h2>
+            <p>Encontrou um bug ou algo não está funcionando? Por favor, envie um email para <strong>resangeline@gmail.com</strong> incluindo:</p>
+            <ul class="feature-list">
+                <li>Descrição detalhada do problema</li>
+                <li>Modelo do seu celular (ex: iPhone 14, Samsung Galaxy S23)</li>
+                <li>Versão do sistema (iOS 17, Android 13)</li>
+                <li>Prints de tela, se possível</li>
+                <li>Passos para reproduzir o erro</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>💡 Sugestões e Feedback</h2>
+            <p>Sua opinião é muito importante! Quer sugerir um novo recurso ou melhorias? Envie suas ideias para <strong>resangeline@gmail.com</strong>.</p>
+            <p>Estamos sempre trabalhando para melhorar o Holy Messages e trazer a melhor experiência bíblica para você!</p>
+        </div>
+
+        <div class="section">
+            <h2>🌟 Recursos do App</h2>
+            <ul class="feature-list">
+                <li>📆 Versículo do Dia renovado diariamente</li>
+                <li>📚 Bíblia Sagrada completa em português</li>
+                <li>⭐ Sistema de favoritos para salvar versículos</li>
+                <li>🔔 Notificações personalizadas</li>
+                <li>🔍 Navegação fácil entre livros e capítulos</li>
+                <li>📤 Compartilhamento em redes sociais</li>
+                <li>🎨 Interface elegante e suave</li>
+                <li>🔐 Login seguro com Google ou Apple</li>
+                <li>☁️ Sincronização na nuvem</li>
+                <li>📱 Funciona offline</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>🔒 Privacidade</h2>
+            <p>Para informações sobre como tratamos seus dados, acesse nossa <a href="privacy_policy.html" style="color: #B45309; text-decoration: underline;">Política de Privacidade</a>.</p>
+        </div>
+
+        <div class="footer">
+            <p><strong>Holy Messages</strong> - Sua companhia diária de fé 🙏</p>
+            <p>Contato: <a href="mailto:resangeline@gmail.com" style="color: #B45309;">resangeline@gmail.com</a></p>
+            <p style="margin-top: 10px;">© 2026 Holy Messages. Todos os direitos reservados.</p>
+        </div>
+    </div>
+</body>
+</html>
