@@ -4,11 +4,17 @@ import '../models/verse_model.dart';
 
 class VerseMapper {
   static VerseEntity toEntity(VerseModel m) {
+    // Parse a key para extrair os versículos
+    // Formato pode ser "43:3:16" ou "43:3:16-18"
+    final parts = m.key.split(':');
+    String verseRange = parts.length >= 3 ? parts[2] : m.verse.toString();
+    
     return VerseEntity(
       ref: BibleRef(book: m.book, chapter: m.chapter, verse: m.verse),
-      textPt: m.textPt,
-      textEn: m.textEn,
+      verseText: m.verseText,
+      language: m.language,
       topics: m.topics,
+      verseRange: verseRange, // Passa o range completo
     );
   }
 
@@ -18,8 +24,8 @@ class VerseMapper {
       ..book = e.ref.book
       ..chapter = e.ref.chapter
       ..verse = e.ref.verse
-      ..textPt = e.textPt
-      ..textEn = e.textEn
+      ..verseText = e.verseText
+      ..language = e.language
       ..topics = e.topics;
     return m;
   }

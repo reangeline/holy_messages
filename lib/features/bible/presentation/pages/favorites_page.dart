@@ -5,6 +5,9 @@ import 'package:share_plus/share_plus.dart' as share_plus;
 import 'verse_detail_page.dart';
 import '../state/favorites_controller.dart';
 import '../../domain/entities/favorite.dart';
+import '../../../settings/state/premium_provider.dart';
+import '../widgets/background_selector_dialog.dart';
+import '../state/bible_providers.dart';
 
 class FavoritesPage extends ConsumerWidget {
   const FavoritesPage({super.key});
@@ -12,15 +15,17 @@ class FavoritesPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final favs = ref.watch(favoritesProvider);
+    final isPremium = ref.watch(premiumProvider);
+    final strings = ref.watch(appStringsProvider);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Meus Favoritos')),
+      appBar: AppBar(title: Text(strings.myFavorites)),
       body: favs.when(
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (e, _) => Center(child: Text('Erro: $e')),
         data: (list) {
           if (list.isEmpty) {
-            return const Center(child: Text('Nenhum favorito ainda.'));
+            return Center(child: Text(strings.noFavorites));
           }
           return ListView.separated(
             padding: const EdgeInsets.all(16),
@@ -47,10 +52,38 @@ class FavoritesPage extends ConsumerWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       IconButton(
-                        icon: const Icon(Icons.share),
+                        icon: Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            const Icon(Icons.share),
+                            if (isPremium)
+                              Positioned(
+                                top: 0,
+                                right: 0,
+                                child: Container(
+                                  width: 8,
+                                  height: 8,
+                                  decoration: const BoxDecoration(
+                                    color: Color(0xFF7C3AED),
+                                    shape: BoxShape.circle,
+                                  ),
+                                ),
+                              ),
+                          ],
+                        ),
                         onPressed: () {
-                          share_plus.Share.share('"${fav.verse}"\n\n— ${fav.reference}',
-                              subject: 'Versículo');
+                          if (isPremium) {
+                            showDialog(
+                              context: context,
+                              builder: (context) => BackgroundSelectorDialog(
+                                verse: fav.verse,
+                                reference: fav.reference,
+                              ),
+                            );
+                          } else {
+                            share_plus.Share.share('"${fav.verse}"\n\n— ${fav.reference}',
+                                subject: 'Versículo');
+                          }
                         },
                       ),
                       IconButton(
@@ -58,7 +91,7 @@ class FavoritesPage extends ConsumerWidget {
                         onPressed: () {
                           ref.read(favoritesProvider.notifier).removeFavorite(fav.id);
                           ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(content: Text('Removido dos favoritos')),
+                            SnackBar(content: Text(strings.removedFromFavorites)),
                           );
                         },
                       ),

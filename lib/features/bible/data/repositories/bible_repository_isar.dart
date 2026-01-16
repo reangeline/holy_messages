@@ -14,8 +14,9 @@ class BibleRepositoryIsar implements BibleRepository {
   Future<VerseEntity?> getDailyVerse({
     required DateTime date,
     required AppLanguage language,
+    bool forceRandom = false,
   }) async {
-    final m = await local.getDailyVerse(date: date, language: language);
+    final m = await local.getDailyVerse(date: date, language: language, forceRandom: forceRandom);
     if (m == null) return null;
     return VerseMapper.toEntity(m);
   }
@@ -47,7 +48,7 @@ class BibleRepositoryIsar implements BibleRepository {
     final list = await local.listByTopic(
       topicId: topicId,
       limit: limit,
-      offset: offset,
+      offset: offset, language: language,
     );
     return list.map(VerseMapper.toEntity).toList();
   }

@@ -10,7 +10,8 @@ class GetDailyVerseUseCase {
   Future<VerseEntity?> call({
     required DateTime date,
     required AppLanguage language,
+    bool forceRandom = false,
   }) {
-    return repository.getDailyVerse(date: date, language: language);
+    return repository.getDailyVerse(date: date, language: language, forceRandom: forceRandom);
   }
 }

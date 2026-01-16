@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../state/bible_providers.dart';
 import 'chapter_verses_page.dart';
+// premium gating removed; no settings CTA needed
 
 class ChapterSelectionPage extends ConsumerWidget {
   final String bookName;
@@ -14,6 +15,7 @@ class ChapterSelectionPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final chaptersAsync = ref.watch(getChaptersByBookProvider(bookName));
+    // Premium/online gating removed: chapters always accessible
 
     return Scaffold(
       body: Container(

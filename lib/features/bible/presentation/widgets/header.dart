@@ -1,20 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../state/bible_providers.dart';
 
-class Header extends StatefulWidget {
+class Header extends ConsumerStatefulWidget {
   final String title;
   final String? subtitle;
+  final bool translateTitle; // Se true, usa o título como está; se false, traduz
 
   const Header({
     super.key,
     required this.title,
     this.subtitle,
+    this.translateTitle = true, // Por padrão, usa o título fornecido diretamente
   });
 
   @override
-  State<Header> createState() => _HeaderState();
+  ConsumerState<Header> createState() => _HeaderState();
 }
 
-class _HeaderState extends State<Header> with SingleTickerProviderStateMixin {
+class _HeaderState extends ConsumerState<Header> with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
 
   @override
@@ -35,6 +39,7 @@ class _HeaderState extends State<Header> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    final strings = ref.watch(appStringsProvider);
     final fadeAnimation = Tween<double>(begin: 0, end: 1).animate(
       CurvedAnimation(parent: _animationController, curve: Curves.easeOut),
     );
@@ -64,7 +69,7 @@ class _HeaderState extends State<Header> with SingleTickerProviderStateMixin {
                   ),
                   const SizedBox(width: 8),
                   Text(
-                    'Palavra de Deus'.toUpperCase(),
+                    strings.wordOfGod.toUpperCase(),
                     style: const TextStyle(
                       fontSize: 12, 
                       fontFamily: 'Allura',

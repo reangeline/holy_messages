@@ -4,27 +4,40 @@ import 'app_language.dart';
 class VerseEntity {
   final BibleRef ref;
 
-  /// Textos (bilingue)
-  final String textPt;
-  final String textEn;
+  /// Texto do versículo
+  final String verseText;
+
+  /// Idioma do texto
+  final String language;
 
   /// ids de temas
   final List<String> topics;
+  
+  /// Range de versículos (ex: "16" ou "16-18")
+  final String? verseRange;
 
   const VerseEntity({
     required this.ref,
-    required this.textPt,
-    required this.textEn,
+    required this.verseText,
+    required this.language,
     this.topics = const [],
+    this.verseRange,
   });
 
-  String text(AppLanguage lang) =>
-      lang == AppLanguage.pt ? textPt : textEn;
+  String text(AppLanguage lang) {
+    // Por enquanto, retorna o texto único. Futuramente, pode suportar múltiplos idiomas.
+    return verseText;
+  }
 
   String get key => ref.key;
   
-  /// Referência com nome do livro (ex: "João 3:16")
-  String get keyWithBookName => ref.keyWithBookName;
+  /// Referência com nome do livro (ex: "João 3:16" ou "João 3:16-18")
+  String get keyWithBookName {
+    if (verseRange != null && verseRange!.isNotEmpty) {
+      return '${ref.bookName} ${ref.chapter}:$verseRange';
+    }
+    return ref.keyWithBookName;
+  }
   
   /// Capítulo
   int get chapter => ref.chapter;

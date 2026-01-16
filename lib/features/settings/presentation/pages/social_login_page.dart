@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -17,6 +18,39 @@ class _SocialLoginPageState extends ConsumerState<SocialLoginPage> {
   bool _isLoading = false;
   String? _error;
   final FirebaseAuth _auth = FirebaseAuth.instance;
+  User? _currentUser;
+
+  @override
+  void initState() {
+    super.initState();
+    _currentUser = _auth.currentUser;
+    _auth.authStateChanges().listen((user) {
+      if (mounted) {
+        setState(() => _currentUser = user);
+      }
+    });
+  }
+
+  Future<void> _handleAccountConflict(String email, String existingProvider) async {
+    if (!mounted) return;
+    
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('⚠️ Conta Já Existente'),
+        content: Text(
+          'O email $email já está associado ao método de login: $existingProvider.\n\n'
+          'Por favor, use o mesmo método de login que você usou anteriormente.',
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text('OK'),
+          ),
+        ],
+      ),
+    );
+  }
 
   Future<void> _signInWithGoogle() async {
     setState(() {
@@ -79,7 +113,27 @@ class _SocialLoginPageState extends ConsumerState<SocialLoginPage> {
         });
       }
     } on FirebaseAuthException catch (e) {
-      final errorMsg = 'Firebase Error (${e.code}): ${e.message}';
+      String errorMsg = 'Firebase Error (${e.code}): ${e.message}';
+      
+      // Detectar conflito de contas
+      if (e.code == 'account-exists-with-different-credential') {
+        final email = e.email ?? 'este email';
+        try {
+          final existingMethods = await _auth.fetchSignInMethodsForEmail(email);
+          final providerNames = existingMethods.map((method) {
+            if (method.contains('google')) return 'Google';
+            if (method.contains('apple')) return 'Apple';
+            if (method.contains('facebook')) return 'Facebook';
+            return method;
+          }).join(', ');
+          
+          await _handleAccountConflict(email, providerNames);
+        } catch (_) {
+          await _handleAccountConflict(email, 'outro método');
+        }
+        errorMsg = 'Esta conta já existe com outro método de login';
+      }
+      
       print('❌ $errorMsg');
       setState(() => _error = errorMsg);
     } catch (e, stackTrace) {
@@ -173,6 +227,7 @@ class _SocialLoginPageState extends ConsumerState<SocialLoginPage> {
     }
   }
 
+  // ignore: unused_element
   Future<void> _signInWithFacebook() async {
     setState(() {
       _isLoading = true;
@@ -237,6 +292,86 @@ class _SocialLoginPageState extends ConsumerState<SocialLoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    // Se já está logado, mostrar tela de logout
+    if (_currentUser != null) {
+      return Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back, color: Color(0xFFB45309)),
+            onPressed: () => Navigator.of(context).pop(),
+          ),
+        ),
+        body: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Icon(
+                  Icons.check_circle,
+                  size: 100,
+                  color: Colors.green,
+                ),
+                const SizedBox(height: 30),
+                const Text(
+                  'Você já está logado!',
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 10),
+                Text(
+                  _currentUser!.email ?? _currentUser!.uid,
+                  style: const TextStyle(fontSize: 16, color: Colors.grey),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 40),
+                ElevatedButton.icon(
+                  onPressed: () async {
+                    showDialog(
+                      context: context,
+                      builder: (context) => AlertDialog(
+                        title: const Text('Sair da Conta'),
+                        content: const Text('Tem certeza que deseja sair?'),
+                        actions: [
+                          TextButton(
+                            onPressed: () => Navigator.pop(context),
+                            child: const Text('Cancelar'),
+                          ),
+                          ElevatedButton(
+                            onPressed: () async {
+                              await _auth.signOut();
+                              if (context.mounted) {
+                                Navigator.pop(context);
+                                Navigator.pop(context);
+                              }
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.red,
+                            ),
+                            child: const Text('Sair'),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                  icon: const Icon(Icons.logout),
+                  label: const Text('Sair da Conta'),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.red,
+                    padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+    }
+    
+    // Tela de login normal
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -298,37 +433,39 @@ class _SocialLoginPageState extends ConsumerState<SocialLoginPage> {
             ),
             const SizedBox(height: 15),
 
-            // Apple Sign In
-            ElevatedButton.icon(
-              onPressed: _isLoading ? null : _signInWithApple,
-              icon: const Icon(Icons.apple),
-              label: const Text('Login com Apple'),
-              style: ElevatedButton.styleFrom(
-                padding: const EdgeInsets.symmetric(vertical: 15),
-                backgroundColor: Colors.black,
-                foregroundColor: Colors.white,
-              ),
-            ),
-            const SizedBox(height: 15),
-
-            // Facebook Login
-            ElevatedButton.icon(
-              onPressed: _isLoading ? null : _signInWithFacebook,
-              icon: const Text(
-                'f',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
+            // Apple Sign In (apenas iOS/macOS)
+            if (Platform.isIOS || Platform.isMacOS) ...[
+              ElevatedButton.icon(
+                onPressed: _isLoading ? null : _signInWithApple,
+                icon: const Icon(Icons.apple),
+                label: const Text('Login com Apple'),
+                style: ElevatedButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(vertical: 15),
+                  backgroundColor: Colors.black,
+                  foregroundColor: Colors.white,
                 ),
               ),
-              label: const Text('Login com Facebook'),
-              style: ElevatedButton.styleFrom(
-                padding: const EdgeInsets.symmetric(vertical: 15),
-                backgroundColor: const Color(0xFF1877F2),
-                foregroundColor: Colors.white,
-              ),
-            ),
+              const SizedBox(height: 15),
+            ],
+
+            // Facebook Login (oculto temporariamente)
+            // ElevatedButton.icon(
+            //   onPressed: _isLoading ? null : _signInWithFacebook,
+            //   icon: const Text(
+            //     'f',
+            //     style: TextStyle(
+            //       fontSize: 18,
+            //       fontWeight: FontWeight.bold,
+            //       color: Colors.white,
+            //     ),
+            //   ),
+            //   label: const Text('Login com Facebook'),
+            //   style: ElevatedButton.styleFrom(
+            //     padding: const EdgeInsets.symmetric(vertical: 15),
+            //     backgroundColor: const Color(0xFF1877F2),
+            //     foregroundColor: Colors.white,
+            //   ),
+            // ),
             const SizedBox(height: 30),
 
             // Loading Indicator

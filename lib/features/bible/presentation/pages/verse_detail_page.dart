@@ -10,6 +10,7 @@ import '../widgets/banner_ad_widget.dart';
 import 'chapter_verses_page.dart';
 import '../../../settings/state/premium_provider.dart';
 import '../../../settings/state/auth_provider.dart';
+import '../widgets/background_selector_dialog.dart';
 
 
 class VerseDetailPage extends ConsumerWidget {
@@ -262,10 +263,22 @@ class VerseDetailPage extends ConsumerWidget {
                                       color: Colors.transparent,
                                       child: InkWell(
                                         onTap: () {
-                                          share_plus.Share.share(
-                                            '$verseText\n\n— $reference',
-                                            subject: 'Versículo',
-                                          );
+                                          if (isPremium) {
+                                            // Premium: Mostrar dialog para escolher background
+                                            showDialog(
+                                              context: context,
+                                              builder: (context) => BackgroundSelectorDialog(
+                                                verse: verseText,
+                                                reference: reference,
+                                              ),
+                                            );
+                                          } else {
+                                            // Gratuito: Compartilhar texto apenas
+                                            share_plus.Share.share(
+                                              '$verseText\n\n— $reference',
+                                              subject: 'Versículo',
+                                            );
+                                          }
                                         },
                                         borderRadius: BorderRadius.circular(28),
                                         child: Container(
@@ -275,10 +288,38 @@ class VerseDetailPage extends ConsumerWidget {
                                             color: const Color(0xFFF1F5F9),
                                             borderRadius: BorderRadius.circular(28),
                                           ),
-                                          child: const Icon(
-                                            Icons.share,
-                                            size: 24,
-                                            color: Color(0xFF64748B),
+                                          child: Stack(
+                                            alignment: Alignment.center,
+                                            children: [
+                                              const Icon(
+                                                Icons.share,
+                                                size: 24,
+                                                color: Color(0xFF64748B),
+                                              ),
+                                              // Badge premium
+                                              if (isPremium)
+                                                Positioned(
+                                                  top: 8,
+                                                  right: 8,
+                                                  child: Container(
+                                                    width: 16,
+                                                    height: 16,
+                                                    decoration: BoxDecoration(
+                                                      color: const Color(0xFF7C3AED),
+                                                      shape: BoxShape.circle,
+                                                      border: Border.all(
+                                                        color: Colors.white,
+                                                        width: 2,
+                                                      ),
+                                                    ),
+                                                    child: const Icon(
+                                                      Icons.star,
+                                                      size: 8,
+                                                      color: Colors.white,
+                                                    ),
+                                                  ),
+                                                ),
+                                            ],
                                           ),
                                         ),
                                       ),

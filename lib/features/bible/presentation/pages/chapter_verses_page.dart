@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:flutter/foundation.dart';
+import '../../../../core/ads/ad_units.dart';
 import '../state/bible_providers.dart';
 import '../state/font_size_provider.dart';
 import 'verse_detail_page.dart';
+import '../../../settings/state/premium_provider.dart';
+// Premium gating for Bible removed; no settings CTA here
 
 // Provedor global para contar cliques de volta
 final backClickCountProvider = StateProvider<int>((ref) => 0);
@@ -27,6 +31,13 @@ class _ChapterVersesPageState extends ConsumerState<ChapterVersesPage> {
   bool _isAdLoaded = false;
 
   void _loadInterstitialAd() {
+    // Verificar se é Premium - se for, não mostrar anúncio
+    final isPremium = ref.read(premiumProvider);
+    if (isPremium) {
+      _navigateToNextChapter();
+      return;
+    }
+    
     // Mostrar dialog de carregamento
     showDialog(
       context: context,
@@ -46,8 +57,13 @@ class _ChapterVersesPageState extends ConsumerState<ChapterVersesPage> {
       },
     );
     
+    final id = AdUnits.interstitialId();
+    if (kReleaseMode && id.isEmpty) {
+      _navigateToNextChapter();
+      return;
+    }
     InterstitialAd.load(
-      adUnitId: 'ca-app-pub-3940256099942544/1033173712', // Test ad unit
+      adUnitId: id,
       request: const AdRequest(),
       adLoadCallback: InterstitialAdLoadCallback(
         onAdLoaded: (ad) {
@@ -104,6 +120,13 @@ class _ChapterVersesPageState extends ConsumerState<ChapterVersesPage> {
   }
 
   void _loadInterstitialAdForBack() {
+    // Verificar se é Premium - se for, não mostrar anúncio
+    final isPremium = ref.read(premiumProvider);
+    if (isPremium) {
+      Navigator.pop(context);
+      return;
+    }
+    
     // Incrementar o contador global
     ref.read(backClickCountProvider.notifier).state++;
     int clickCount = ref.read(backClickCountProvider);
@@ -133,8 +156,14 @@ class _ChapterVersesPageState extends ConsumerState<ChapterVersesPage> {
       },
     );
     
+    final id = AdUnits.interstitialId();
+    if (kReleaseMode && id.isEmpty) {
+      Navigator.pop(context);
+      Navigator.pop(context);
+      return;
+    }
     InterstitialAd.load(
-      adUnitId: 'ca-app-pub-3940256099942544/1033173712', // Test ad unit
+      adUnitId: id,
       request: const AdRequest(),
       adLoadCallback: InterstitialAdLoadCallback(
         onAdLoaded: (ad) {
@@ -187,7 +216,8 @@ class _ChapterVersesPageState extends ConsumerState<ChapterVersesPage> {
   @override
   Widget build(BuildContext context) {
     final versesAsync =
-        ref.watch(getVersesByChapterProvider((widget.bookName, widget.chapter)));
+      ref.watch(getVersesByChapterProvider((widget.bookName, widget.chapter)));
+    // Premium/online gating removed: verses always accessible
     final fontSize = ref.watch(fontSizeProvider);
 
     return Scaffold(
@@ -284,6 +314,7 @@ class _ChapterVersesPageState extends ConsumerState<ChapterVersesPage> {
                               '${widget.bookName} ${verseModel.chapter}:${verseModel.verse}';
                           final isLast = index == verseModels.length - 1;
 
+                          // Interactions are always allowed (no premium/online gating)
                           return Padding(
                             padding: EdgeInsets.only(bottom: isLast ? 32 : 20),
                             child: GestureDetector(
@@ -292,7 +323,7 @@ class _ChapterVersesPageState extends ConsumerState<ChapterVersesPage> {
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) => VerseDetailPage(
-                                      verseText: verseModel.textPt,
+                                      verseText: verseModel.verseText,
                                       reference: reference,
                                       bookName: widget.bookName,
                                       chapter: widget.chapter,
@@ -316,7 +347,7 @@ class _ChapterVersesPageState extends ConsumerState<ChapterVersesPage> {
                                     const TextSpan(text: '  '),
                                     // Texto do versículo
                                     TextSpan(
-                                      text: verseModel.textPt,
+                                      text: verseModel.verseText,
                                       style: TextStyle(
                                         fontSize: fontSize,
                                         color: const Color(0xFF1E293B),
@@ -343,46 +374,41 @@ class _ChapterVersesPageState extends ConsumerState<ChapterVersesPage> {
                           ),
                         ),
                         const SizedBox(height: 32),
-                        // Next chapter button
-                        FutureBuilder<List<int>>(
-                          future: ref
-                              .read(bibleLocalDataSourceProvider)
-                              .getChaptersByBook(widget.bookName),
-                          builder: (context, snapshot) {
-                            if (!snapshot.hasData) {
-                              return const SizedBox.shrink();
-                            }
+                        // Next chapter button (uses provider so offline/non-premium checks apply)
+                        Builder(builder: (context) {
+                          final chaptersAsync = ref.watch(getChaptersByBookProvider(widget.bookName));
+                          return chaptersAsync.when(
+                            loading: () => const SizedBox.shrink(),
+                            error: (_, __) => const SizedBox.shrink(),
+                            data: (chapters) {
+                              if (chapters.isEmpty) return const SizedBox.shrink();
+                              final hasNextChapter = widget.chapter < chapters.last;
+                              if (!hasNextChapter) return const SizedBox.shrink();
 
-                            final chapters = snapshot.data!;
-                            final hasNextChapter = widget.chapter < chapters.last;
-
-                            if (!hasNextChapter) {
-                              return const SizedBox.shrink();
-                            }
-
-                            return Center(
-                              child: ElevatedButton.icon(
-                                onPressed: () {
-                                  _loadInterstitialAd();
-                                },
-                                icon: const Icon(Icons.arrow_forward),
-                                label: const Text('Próximo Capítulo'),
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: const Color(0xFFFCD34D),
-                                  foregroundColor: const Color(0xFFB45309),
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 32,
-                                    vertical: 14,
+                              return Center(
+                                child: ElevatedButton.icon(
+                                  onPressed: () {
+                                    _loadInterstitialAd();
+                                  },
+                                  icon: const Icon(Icons.arrow_forward),
+                                  label: const Text('Próximo Capítulo'),
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: const Color(0xFFFCD34D),
+                                    foregroundColor: const Color(0xFFB45309),
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 32,
+                                      vertical: 14,
+                                    ),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(12),
+                                    ),
+                                    elevation: 2,
                                   ),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(12),
-                                  ),
-                                  elevation: 2,
                                 ),
-                              ),
-                            );
-                          },
-                        ),
+                              );
+                            },
+                          );
+                        }),
                         const SizedBox(height: 32),
                       ],
                     ),

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:holy_messages/core/ads/ad_units.dart';
 import 'package:holy_messages/core/utils/custom_snackbar.dart';
+import '../state/bible_providers.dart';
 
-class DailyVerseCard extends StatefulWidget {
+class DailyVerseCard extends ConsumerStatefulWidget {
   final String verse;
   final String reference;
   final String? reflection;
@@ -29,10 +32,10 @@ class DailyVerseCard extends StatefulWidget {
   });
 
   @override
-  State<DailyVerseCard> createState() => _DailyVerseCardState();
+  ConsumerState<DailyVerseCard> createState() => _DailyVerseCardState();
 }
 
-class _DailyVerseCardState extends State<DailyVerseCard>
+class _DailyVerseCardState extends ConsumerState<DailyVerseCard>
     with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
   late Animation<double> _opacityAnimation;
@@ -94,7 +97,7 @@ class _DailyVerseCardState extends State<DailyVerseCard>
     );
     
     InterstitialAd.load(
-      adUnitId: 'ca-app-pub-3940256099942544/1033173712', // Test ad unit
+      adUnitId: AdUnits.bannerId(),
       request: const AdRequest(),
       adLoadCallback: InterstitialAdLoadCallback(
         onAdLoaded: (ad) {
@@ -278,13 +281,18 @@ class _DailyVerseCardState extends State<DailyVerseCard>
               color: Color(0xFFB45309),
             ),
             const SizedBox(width: 8),
-            const Text(
-              'Mensagem do Dia',
-              style: TextStyle(
-                color: Color(0xFFB45309),
-                fontSize: 14,
-                fontWeight: FontWeight.w500,
-              ),
+            Consumer(
+              builder: (context, ref, child) {
+                final strings = ref.watch(appStringsProvider);
+                return Text(
+                  strings.messageOfTheDay,
+                  style: const TextStyle(
+                    color: Color(0xFFB45309),
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                  ),
+                );
+              },
             ),
             if (widget.onRefresh != null) ...[
               const SizedBox(width: 12),
@@ -427,7 +435,7 @@ class _DailyVerseCardState extends State<DailyVerseCard>
             ),
           ),
           const SizedBox(width: 16),
-          // Share button
+          // Share as text button
           Material(
             color: Colors.transparent,
             child: InkWell(

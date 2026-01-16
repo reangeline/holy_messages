@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>475899270664-d9mllk42r68td8djes4ub5n39uk3fn92.apps.googleusercontent.com</string>
+	<string>475899270664-9ooq6l7tlbi7of684u2pkhnh5i9gngae.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.475899270664-d9mllk42r68td8djes4ub5n39uk3fn92</string>
+	<string>com.googleusercontent.apps.475899270664-9ooq6l7tlbi7of684u2pkhnh5i9gngae</string>
 	<key>ANDROID_CLIENT_ID</key>
 	<string>475899270664-eo93br0a17r7jcsb1amsacvimh7fetir.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
@@ -15,7 +15,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.holyapp.messages</string>
+	<string>com.holymessages.app</string>
 	<key>PROJECT_ID</key>
 	<string>holymessages-a240d</string>
 	<key>STORAGE_BUCKET</key>
@@ -31,6 +31,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:475899270664:ios:6cfc059975d90515ac63bd</string>
+	<string>1:475899270664:ios:6ef5499d1460a2f7ac63bd</string>
 </dict>
 </plist>

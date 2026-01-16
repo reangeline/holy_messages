@@ -12,18 +12,19 @@ class BibleRef {
   /// Mapeamento de números de livros para nomes
   static const Map<int, String> bookNames = {
     1: 'Gênesis', 2: 'Êxodo', 3: 'Levítico', 4: 'Números', 5: 'Deuteronômio',
-    6: 'Josué', 7: 'Juízes', 8: '1 Samuel', 9: '2 Samuel', 10: '1 Reis',
-    11: '2 Reis', 12: '1 Crônicas', 13: '2 Crônicas', 14: 'Esdras', 15: 'Neemias',
-    16: 'Ester', 17: 'Jó', 18: 'Salmos', 19: 'Provérbios', 20: 'Eclesiastes',
-    21: 'Cânticos', 22: 'Isaías', 23: 'Jeremias', 24: 'Lamentações', 25: 'Ezequiel',
-    26: 'Daniel', 27: 'Oséias', 28: 'Joel', 29: 'Amós', 30: 'Obadias',
-    31: 'Jonas', 32: 'Miqueias', 33: 'Naum', 34: 'Habacuque', 35: 'Sofonias',
-    36: 'Ageu', 37: 'Zacarias', 38: 'Malaquias', 39: 'Mateus', 40: 'Marcos',
-    41: 'Lucas', 42: 'João', 43: 'Atos', 44: 'Romanos', 45: '1 Coríntios',
-    46: '2 Coríntios', 47: 'Gálatas', 48: 'Efésios', 49: 'Filipenses', 50: 'Colossenses',
-    51: '1 Tessalonicenses', 52: '2 Tessalonicenses', 53: '1 Timóteo', 54: '2 Timóteo', 
-    55: 'Tito', 56: 'Filêmon', 57: 'Hebreus', 58: 'Tiago', 59: '1 Pedro',
-    60: '2 Pedro', 61: '1 João', 62: '2 João', 63: '3 João', 64: 'Judas', 65: 'Apocalipse',
+    6: 'Josué', 7: 'Juízes', 8: 'Rute', 9: '1 Samuel', 10: '2 Samuel',
+    11: '1 Reis', 12: '2 Reis', 13: '1 Crônicas', 14: '2 Crônicas', 15: 'Esdras',
+    16: 'Neemias', 17: 'Ester', 18: 'Jó', 19: 'Salmos', 20: 'Provérbios',
+    21: 'Eclesiastes', 22: 'Cântico dos Cânticos', 23: 'Isaías', 24: 'Jeremias', 
+    25: 'Lamentações', 26: 'Ezequiel', 27: 'Daniel', 28: 'Oséias', 29: 'Joel',
+    30: 'Amós', 31: 'Obadias', 32: 'Jonas', 33: 'Miquéias', 34: 'Naum',
+    35: 'Habacuque', 36: 'Sofonias', 37: 'Ageu', 38: 'Zacarias', 39: 'Malaquias',
+    40: 'Mateus', 41: 'Marcos', 42: 'Lucas', 43: 'João', 44: 'Atos',
+    45: 'Romanos', 46: '1 Coríntios', 47: '2 Coríntios', 48: 'Gálatas', 49: 'Efésios',
+    50: 'Filipenses', 51: 'Colossenses', 52: '1 Tessalonicenses', 53: '2 Tessalonicenses',
+    54: '1 Timóteo', 55: '2 Timóteo', 56: 'Tito', 57: 'Filemon', 58: 'Hebreus',
+    59: 'Tiago', 60: '1 Pedro', 61: '2 Pedro', 62: '1 João', 63: '2 João',
+    64: '3 João', 65: 'Judas', 66: 'Apocalipse',
   };
 
   /// Obtém o nome do livro

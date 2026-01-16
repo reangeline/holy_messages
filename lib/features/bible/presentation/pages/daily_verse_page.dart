@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:holy_messages/features/bible/presentation/pages/verse_detail_page.dart';
 import 'package:holy_messages/features/bible/presentation/widgets/header.dart';
 import 'package:share_plus/share_plus.dart' as share_plus;
@@ -10,11 +11,14 @@ import '../state/bible_providers.dart';
 import '../state/daily_verse_controller.dart';
 import '../state/favorites_controller.dart';
 import '../widgets/daily_verse_card.dart';
-import '../widgets/banner_ad_widget.dart';
+// Global banner is shown in HomePage above bottom navigation bar
+import '../widgets/background_selector_dialog.dart';
+import '../../services/verse_image_service.dart';
 import '../../../settings/state/premium_provider.dart';
-import '../../../settings/state/in_app_purchase_provider.dart';
 import '../../../settings/state/auth_provider.dart';
 import '../../../settings/presentation/pages/social_login_page.dart';
+import '../../../liturgy/presentation/pages/liturgy_page.dart';
+import '../../../../core/utils/connectivity_helper.dart';
 
 class DailyVersePage extends ConsumerWidget {
   const DailyVersePage({super.key});
@@ -22,11 +26,12 @@ class DailyVersePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final lang = ref.watch(appLanguageProvider);
+    final strings = ref.watch(appStringsProvider);
     final daily = ref.watch(dailyVerseControllerProvider);
     final favoritesAsync = ref.watch(favoritesProvider);
     final isPremium = ref.watch(premiumProvider);
-    final authNotifier = ref.watch(authNotifierProvider);
-    final currentUser = authNotifier.getCurrentUser();
+    final authState = ref.watch(authStateProvider);
+    final currentUser = authState.value;
 
     return Scaffold(
       appBar: AppBar(
@@ -72,276 +77,116 @@ class DailyVersePage extends ConsumerWidget {
                       color: const Color(0xFFB45309),
                     ),
                     const SizedBox(height: 12),
-                    Text(
-                      isPremium ? 'Premium Ativo ✨' : 'Versão Gratuita',
-                      style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xFFB45309),
-                      ),
+                    Consumer(
+                      builder: (context, ref, child) {
+                        final strings = ref.watch(appStringsProvider);
+                        return Text(
+                          isPremium ? strings.premiumActive : strings.freeVersion,
+                          style: const TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xFFB45309),
+                          ),
+                        );
+                      },
                     ),
                   ],
                 ),
               ),
-              if (!isPremium)
-                Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text(
-                        'Desbloqueie Premium',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xFFB45309),
-                        ),
-                      ),
-                      const SizedBox(height: 12),
-                      const Text(
-                        '✓ Sem Anúncios\n✓ Widgets Personalizados\n✓ Acesso Ilimitado\n✓ Experiência Pura',
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: Color(0xFF64748B),
-                        ),
-                      ),
-                      const SizedBox(height: 16),
-                      SizedBox(
-                        width: double.infinity,
-                        child: ElevatedButton(
-                          onPressed: () async {
-                            // Verificar se está logado
-                            if (currentUser == null) {
-                              showDialog(
-                                context: context,
-                                builder: (context) => AlertDialog(
-                                  title: const Text('Cadastro Necessário'),
-                                  content: const Text(
-                                    'Para realizar uma compra, você precisa fazer o cadastro ou login em sua conta. Isso garante que suas compras sejam sincronizadas entre dispositivos.',
-                                  ),
-                                  actions: [
-                                    TextButton(
-                                      onPressed: () => Navigator.pop(context),
-                                      child: const Text('Cancelar'),
-                                    ),
-                                    ElevatedButton(
-                                      onPressed: () async {
-                                        Navigator.pop(context);
-                                        Navigator.pop(context); // Fecha o menu
-                                        
-                                        // Navegar para login e esperar resultado
-                                        final loginSuccess = await Navigator.of(context).push<bool>(
-                                          MaterialPageRoute(
-                                            builder: (context) => const SocialLoginPage(),
-                                          ),
-                                        );
 
-                                        // Se login foi bem-sucedido, mostrar diálogo de compra
-                                        if (loginSuccess == true && context.mounted) {
-                                          await Future.delayed(const Duration(milliseconds: 500));
-                                          ref.refresh(authNotifierProvider); // Atualizar estado de auth
-                                          
-                                          if (context.mounted) {
-                                            showDialog(
-                                              context: context,
-                                              builder: (context) => AlertDialog(
-                                                title: const Text('🎉 Bem-vindo!'),
-                                                content: const Text('Você está logado! Deseja comprar Premium agora?'),
-                                                actions: [
-                                                  TextButton(
-                                                    onPressed: () => Navigator.pop(context),
-                                                    child: const Text('Depois'),
-                                                  ),
-                                                  ElevatedButton(
-                                                    onPressed: () async {
-                                                      Navigator.pop(context);
-                                                      // Mostrar loading
-                                                      showDialog(
-                                                        context: context,
-                                                        barrierDismissible: false,
-                                                        builder: (context) => const Dialog(
-                                                          child: Padding(
-                                                            padding: EdgeInsets.all(20),
-                                                            child: Column(
-                                                              mainAxisSize: MainAxisSize.min,
-                                                              children: [
-                                                                CircularProgressIndicator(
-                                                                  valueColor: AlwaysStoppedAnimation<Color>(
-                                                                    Color(0xFFB45309),
-                                                                  ),
-                                                                ),
-                                                                SizedBox(height: 16),
-                                                                Text('Processando compra com Apple...'),
-                                                              ],
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      );
-                                                      
-                                                      // Fazer a compra
-                                                      await ref.read(inAppPurchaseProvider.notifier).purchasePremium();
-                                                      await Future.delayed(const Duration(milliseconds: 500));
-                                                      await ref.read(premiumProvider.notifier).purchasePremium();
-                                                      
-                                                      if (context.mounted) {
-                                                        Navigator.pop(context);
-                                                        ScaffoldMessenger.of(context).showSnackBar(
-                                                          const SnackBar(
-                                                            content: Text('🎉 Bem-vindo ao Premium!'),
-                                                            backgroundColor: Color(0xFFB45309),
-                                                          ),
-                                                        );
-                                                      }
-                                                    },
-                                                    style: ElevatedButton.styleFrom(
-                                                      backgroundColor: const Color(0xFFB45309),
-                                                    ),
-                                                    child: const Text('Comprar Premium'),
-                                                  ),
-                                                ],
-                                              ),
-                                            );
-                                          }
-                                        }
-                                      },
-                                      style: ElevatedButton.styleFrom(
-                                        backgroundColor: const Color(0xFFB45309),
-                                      ),
-                                      child: const Text('Fazer Login'),
-                                    ),
-                                  ],
-                                ),
-                              );
-                              return;
-                            }
+              // Premium promo removed from Drawer as requested
 
-                            Navigator.pop(context);
-                            // Mostrar loading
-                            showDialog(
-                              context: context,
-                              barrierDismissible: false,
-                              builder: (context) => const Dialog(
-                                child: Padding(
-                                  padding: EdgeInsets.all(20),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      CircularProgressIndicator(
-                                        valueColor: AlwaysStoppedAnimation<Color>(
-                                          Color(0xFFB45309),
-                                        ),
-                                      ),
-                                      SizedBox(height: 16),
-                                      Text('Processando compra com Apple...'),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            );
-                            
-                            // Fazer a compra pela Apple
-                            await ref.read(inAppPurchaseProvider.notifier).purchasePremium();
-                            
-                            // Depois que a Apple confirmar, atualizar o estado
-                            await Future.delayed(const Duration(milliseconds: 500));
-                            await ref.read(premiumProvider.notifier).purchasePremium();
-                            
-                            if (context.mounted) {
-                              Navigator.pop(context);
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
-                                  content: Text('🎉 Bem-vindo ao Premium!'),
-                                  backgroundColor:Color(0xFFB45309),
-                                ),
-                              );
-                            }
-                          },
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(0xFFFCD34D).withOpacity(0.8),
-                            foregroundColor:  Color(0xFFB45309),
-                            padding: const EdgeInsets.symmetric(vertical: 12),
-                          ),
-                          child: const Text(
-                            'Comprar - R\$ 9,90',
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
               if (isPremium)
                 Padding(
                   padding: const EdgeInsets.all(16),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
-                        'Você é Premium! 🌟',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xFFDCFA1F),
-                        ),
+                      Consumer(
+                        builder: (context, ref, child) {
+                          final strings = ref.watch(appStringsProvider);
+                          return Text(
+                            '${strings.premiumUnlocked} 🌟',
+                            style: const TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color:  Color(0xFFB45309),
+                            ),
+                          );
+                        },
                       ),
                       const SizedBox(height: 12),
-                      const Text(
-                        'Obrigado por apoiar nosso ministério!\n\nVocê desbloqueou:\n✓ Sem anúncios\n✓ Widgets personalizados\n✓ Acesso ilimitado\n✓ Experiência pura',
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: Color(0xFF64748B),
-                        ),
-                      ),
-                      const SizedBox(height: 16),
-                      SizedBox(
-                        width: double.infinity,
-                        child: ElevatedButton(
-                          onPressed: () {
-                            ref.read(premiumProvider.notifier).removePremium();
-                            Navigator.pop(context);
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                content: Text('Premium removido para teste'),
-                              ),
-                            );
-                          },
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.red.shade300,
-                            foregroundColor: Colors.red.shade900,
-                          ),
-                          child: const Text('Resetar Premium (Teste)'),
-                        ),
-                      ),
                     ],
                   ),
                 ),
-              const Divider(thickness: 2),
+
+              // divider removed as requested
               ListTile(
-                leading: const Icon(Icons.info, color: Color(0xFFB45309)),
-                title: const Text('Sobre'),
+                leading: const Icon(Icons.calendar_today, color: Color(0xFFB45309)),
+                title: Consumer(
+                  builder: (context, ref, child) {
+                    final strings = ref.watch(appStringsProvider);
+                    return Text(strings.dailyLiturgy);
+                  },
+                ),
+                subtitle: Consumer(
+                  builder: (context, ref, child) {
+                    final strings = ref.watch(appStringsProvider);
+                    return Text(strings.dailyReadings);
+                  },
+                ),
                 onTap: () {
                   Navigator.pop(context);
-                  showDialog(
-                    context: context,
-                    builder: (context) => AlertDialog(
-                      title: const Text('Sobre'),
-                      content: const Text(
-                        'Mensagens Sagradas\nVersão 1.0.0\n\nSua Bíblia diária com mensagens inspiradoras.',
-                      ),
-                      actions: [
-                        TextButton(
-                          onPressed: () => Navigator.pop(context),
-                          child: const Text('Fechar'),
-                        ),
-                      ],
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const LiturgyPage(),
                     ),
                   );
                 },
               ),
+              const Divider(thickness: 2),
+              ListTile(
+                leading: const Icon(Icons.info, color: Color(0xFFB45309)),
+                title: Consumer(
+                  builder: (context, ref, child) {
+                    final strings = ref.watch(appStringsProvider);
+                    return Text(strings.about);
+                  },
+                ),
+                onTap: () {
+                  Navigator.pop(context);
+                  showDialog(
+                    context: context,
+                    builder: (dialogContext) => Consumer(
+                      builder: (context, ref, child) {
+                        final strings = ref.watch(appStringsProvider);
+                        return AlertDialog(
+                          title: Text(strings.about),
+                          content: Text(
+                            '${strings.holyMessages}\n${strings.appVersion}\n\n${strings.dailyBibleDescription}',
+                          ),
+                          actions: [
+                            TextButton(
+                              onPressed: () => Navigator.pop(dialogContext),
+                              child: Text(strings.close),
+                            ),
+                          ],
+                        );
+                      },
+                    ),
+                  );
+                },
+              ),
+
               if (currentUser == null)
                 ListTile(
                   leading: const Icon(Icons.login, color:Color(0xFFB45309)),
-                  title: const Text('Login'),
+                  title: Consumer(
+                    builder: (context, ref, child) {
+                      final strings = ref.watch(appStringsProvider);
+                      return Text(strings.login);
+                    },
+                  ),
                   onTap: () {
                     Navigator.pop(context);
                     Navigator.of(context).push(
@@ -351,15 +196,95 @@ class DailyVersePage extends ConsumerWidget {
                     );
                   },
                 ),
+
+              if (currentUser != null) ...[
+                ListTile(
+                  leading: const Icon(Icons.account_circle, color: Color(0xFFB45309)),
+                  title: Consumer(
+                    builder: (context, ref, child) {
+                      final strings = ref.watch(appStringsProvider);
+                      return Text(strings.account);
+                    },
+                  ),
+                  subtitle: Text(currentUser.email ?? currentUser.uid,
+                    style: const TextStyle(fontSize: 12),
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
+                ListTile(
+                  leading: const Icon(Icons.logout, color: Colors.red),
+                  title: Consumer(
+                    builder: (context, ref, child) {
+                      final strings = ref.watch(appStringsProvider);
+                      return Text(strings.exit);
+                    },
+                  ),
+                  onTap: () {
+                    Navigator.pop(context);
+                    showDialog(
+                      context: context,
+                      builder: (dialogContext) => Consumer(
+                        builder: (context, ref, child) {
+                          final strings = ref.watch(appStringsProvider);
+                          return AlertDialog(
+                            title: Text(strings.logoutConfirm),
+                            content: Text(strings.logoutMessage),
+                            actions: [
+                              TextButton(
+                                onPressed: () => Navigator.pop(dialogContext),
+                                child: Text(strings.cancel),
+                              ),
+                              ElevatedButton(
+                                onPressed: () async {
+                                  await FirebaseAuth.instance.signOut();
+                                  ref.invalidate(authNotifierProvider);
+                                  if (context.mounted) {
+                                    Navigator.pop(dialogContext);
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        content: Consumer(
+                                          builder: (context, ref, child) {
+                                            final strings = ref.watch(appStringsProvider);
+                                            return Text(strings.logoutSuccess);
+                                          },
+                                        ),
+                                        backgroundColor: Colors.green,
+                                      ),
+                                    );
+                                  }
+                                },
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.red,
+                                ),
+                                child: Text(strings.exit),
+                              ),
+                            ],
+                          );
+                        },
+                      ),
+                    );
+                  },
+                ),
+              ],
             ],
           ),
         ),
       ),
       body: daily.when(
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (e, _) => Center(child: Text('Erro: $e')),
+        error: (e, _) => Center(child: Consumer(
+          builder: (context, ref, child) {
+            final strings = ref.watch(appStringsProvider);
+            return Text(strings.error(e.toString()));
+          },
+        )),
         data: (verse) {
-          if (verse == null) return const Center(child: Text('Sem dados.'));
+          if (verse == null) return Center(child: Consumer(
+            builder: (context, ref, child) {
+              final strings = ref.watch(appStringsProvider);
+              return Text(strings.noData);
+            },
+          ));
           final isFavorited = favoritesAsync.maybeWhen(
             data: (list) => list.whereType<Favorite>().any((f) => f.messageId == verse.key),
             orElse: () => false,
@@ -384,9 +309,9 @@ class DailyVersePage extends ConsumerWidget {
                     child: Column(
                       children: [
                         const SizedBox(height: 8),
-                        const Header(
-                          title: 'Versículo do Dia',
-                          subtitle: 'Inspiração diária para você',
+                        Header(
+                          title: strings.verseOfTheDay,
+                          subtitle: strings.dailyInspiration,
                         ),
                         const SizedBox(height: 16),
                        DailyVerseCard(
@@ -395,7 +320,14 @@ class DailyVersePage extends ConsumerWidget {
                           isFavorited: isFavorited,
                           isPremium: isPremium,
                           isLoggedIn: currentUser != null,
-                          onTap: () {
+                          onTap: () async {
+                            final online = await isOnlineNow().catchError((_) => false);
+                            if (!isPremium && !online) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(content: Text('Requer conexão ou Premium para ver detalhes')),
+                              );
+                              return;
+                            }
                             Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -413,7 +345,7 @@ class DailyVersePage extends ConsumerWidget {
                             if (isFavorited && existingFavorite != null) {
                               favNotifier.removeFavorite(existingFavorite.id);
                               ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(content: Text('Removido dos favoritos')),
+                                SnackBar(content: Text(strings.removedFromFavoritesSingle)),
                               );
                             } else {
                               final newFav = Favorite(
@@ -426,25 +358,61 @@ class DailyVersePage extends ConsumerWidget {
                               final success = await favNotifier.addFavorite(newFav, isPremium: isPremium);
                               if (success) {
                                 ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(content: Text('✅ Adicionado aos favoritos')),
+                                  SnackBar(content: Text(strings.addedToFavoritesSingle)),
                                 );
                               } else {
                                 ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
-                                    content: Text('❌ Limite de 5 favoritos atingido. Upgrade para Premium!'),
+                                  SnackBar(
+                                    content: Text(strings.favoriteLimitReached),
                                     backgroundColor: Colors.red,
                                   ),
                                 );
                               }
                             }
                           },
-                          onShare: () {
-                            share_plus.Share.share(
-                              '${verse.text(lang)}\n\n— ${verse.keyWithBookName}',
-                              subject: 'Versículo do Dia',
-                            );
+                          onShare: () async {
+                            if (isPremium) {
+                              // Premium: Show background selector
+                              final selectedBackground = await showDialog<String>(
+                                context: context,
+                                builder: (context) => BackgroundSelectorDialog(
+                                  verse: verse.text(lang),
+                                  reference: verse.keyWithBookName,
+                                ),
+                              );
+                              
+                              if (selectedBackground != null && context.mounted) {
+                                try {
+                                  await VerseImageService.shareVerseAsImage(
+                                    verse: verse.text(lang),
+                                    reference: verse.keyWithBookName,
+                                    context: context,
+                                    backgroundAsset: selectedBackground,
+                                  );
+                                } catch (e) {
+                                  if (context.mounted) {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(content: Text(strings.shareError(e.toString()))),
+                                    );
+                                  }
+                                }
+                              }
+                            } else {
+                              // Free: Share as text
+                              share_plus.Share.share(
+                                '${verse.text(lang)}\n\n— ${verse.keyWithBookName}',
+                                subject: strings.verseOfDayImage,
+                              );
+                            }
                           },
                           onRefresh: () async {
+                            final online = await isOnlineNow().catchError((_) => false);
+                            if (!isPremium && !online) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(content: Text('Requer conexão ou Premium para atualizar a mensagem do dia')),
+                              );
+                              return;
+                            }
                             await ref.read(dailyVerseControllerProvider.notifier).refresh();
                           },
                         ),
@@ -453,7 +421,7 @@ class DailyVersePage extends ConsumerWidget {
                   ),
                 ),
               ),
-              const BannerAdWidget(),
+              // Banner moved to HomePage bottomNavigationBar for consistent placement
             ],
           );
         },

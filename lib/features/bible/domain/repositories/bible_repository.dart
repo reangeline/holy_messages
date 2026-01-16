@@ -7,6 +7,7 @@ abstract class BibleRepository {
   Future<VerseEntity?> getDailyVerse({
     required DateTime date,
     required AppLanguage language,
+    bool forceRandom = false,
   });
 
   /// Busca por texto no idioma atual

@@ -1,8 +1,10 @@
 import 'dart:io';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../settings/state/premium_provider.dart';
+import '../../../../core/ads/ad_units.dart';
 
 class BannerAdWidget extends ConsumerStatefulWidget {
   const BannerAdWidget({super.key});
@@ -16,12 +18,18 @@ class _BannerAdWidgetState extends ConsumerState<BannerAdWidget> {
   bool _isLoaded = false;
 
   String get _adUnitId {
-    if (Platform.isAndroid) {
-      return 'ca-app-pub-3940256099942544/6300978111'; // test id Android
-    } else if (Platform.isIOS) {
-      return 'ca-app-pub-3940256099942544/2934735716'; // test id iOS
+    // In release: use configured real IDs; if empty, suppress ads to avoid 'Test mode' label
+    if (kReleaseMode) {
+      final id = AdUnits.bannerId();
+      return id;
     }
-    return 'ca-app-pub-3940256099942544/6300978111';
+    // In debug/profile: use AdMob test ids
+    if (Platform.isAndroid) {
+      return AdUnits.bannerId();
+    } else if (Platform.isIOS) {
+      return AdUnits.bannerId();
+    }
+    return '';
   }
 
   @override
@@ -29,6 +37,10 @@ class _BannerAdWidgetState extends ConsumerState<BannerAdWidget> {
     super.initState();
     final isPremium = ref.read(premiumProvider);
     if (!isPremium) {
+      if (kReleaseMode && _adUnitId.isEmpty) {
+        // No real id configured; do not load ads in release to avoid test-mode UI
+        return;
+      }
       _bannerAd = BannerAd(
         size: AdSize.banner,
         adUnitId: _adUnitId,

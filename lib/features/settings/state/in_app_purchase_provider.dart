@@ -7,9 +7,31 @@ final inAppPurchaseProvider =
   return InAppPurchaseNotifier();
 });
 
+// Provider para obter o preço do produto Premium
+final premiumProductProvider = FutureProvider<ProductDetails?>((ref) async {
+  try {
+    final iap = InAppPurchase.instance;
+    const productId = 'com.holymessages.app.premium_version';
+    
+    final productDetails = await iap.queryProductDetails({productId});
+    
+    if (productDetails.productDetails.isEmpty) {
+      print('⚠️ Produto Premium não encontrado');
+      return null;
+    }
+    
+    final product = productDetails.productDetails.first;
+    print('💰 Preço do Premium: ${product.price}');
+    return product;
+  } catch (e) {
+    print('❌ Erro ao buscar preço: $e');
+    return null;
+  }
+});
+
 class InAppPurchaseNotifier extends StateNotifier<AsyncValue<void>> {
   final InAppPurchase _iap = InAppPurchase.instance;
-  static const String premiumProductId = 'com.holyapp.premium';
+  static const String premiumProductId = 'com.holymessages.app.premium_version';
   Box<bool>? _purchaseBox;
 
   InAppPurchaseNotifier() : super(const AsyncValue.data(null)) {
@@ -86,7 +108,7 @@ class InAppPurchaseNotifier extends StateNotifier<AsyncValue<void>> {
       // Iniciar compra
       final purchaseParam = PurchaseParam(productDetails: productDetail);
       print('🛒 Abrindo dialog de compra da Apple...');
-      await _iap.buyConsumable(purchaseParam: purchaseParam);
+      await _iap.buyNonConsumable(purchaseParam: purchaseParam);
       
       state = const AsyncValue.data(null);
       print('✅ Compra iniciada!');
