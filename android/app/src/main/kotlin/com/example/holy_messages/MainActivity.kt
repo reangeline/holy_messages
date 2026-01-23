@@ -1,4 +1,4 @@
-package com.example.holy_messages
+package com.holymessages.app
 
 import io.flutter.embedding.android.FlutterActivity
 

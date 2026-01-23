@@ -2,12 +2,79 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import '../../state/premium_provider.dart';
+import '../../state/auth_provider.dart';
 import '../../../../core/l10n/app_localizations.dart';
 import 'notification_settings_page.dart';
 import 'language_selection_page.dart';
 import 'social_login_page.dart';
 
 class SettingsPage extends ConsumerWidget {
+
+  
+    void _showDeleteAccountDialog(BuildContext context) {
+      final l10n = AppLocalizations.of(context)!;
+
+      // final l10n = AppLocalizations.of(context)!
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text(l10n.deleteAccount),
+          content: Text(l10n.deleteAccountConfirmation),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: Text(l10n.cancel),
+            ),
+            ElevatedButton(
+              onPressed: () async {
+                final user = FirebaseAuth.instance.currentUser;
+                try {
+                  await user?.delete();
+                  Navigator.pop(context);
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(l10n.accountExcludedWithSuccess),
+                      backgroundColor: Colors.red,
+                    ),
+                  );
+                  await Future.delayed(const Duration(milliseconds: 300));
+                  Navigator.of(context).pushAndRemoveUntil(
+                    MaterialPageRoute(builder: (_) => const SocialLoginPage()),
+                    (route) => false,
+                  );
+                } on FirebaseAuthException catch (e) {
+                  if (e.code == 'requires-recent-login') {
+                    Navigator.pop(context);
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text(l10n.reloginToDeleteAccount),
+                        backgroundColor: Colors.orange,
+                      ),
+                    );
+                    Navigator.of(context).push(
+                      MaterialPageRoute(builder: (_) => const SocialLoginPage()),
+                    );
+                  } else {
+                    Navigator.pop(context);
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text(l10n.errorDeletingAccount(e.message ?? '')),
+                        backgroundColor: Colors.red,
+                      ),
+                    );
+                  }
+                }
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.red,
+                foregroundColor: Colors.white,
+              ),
+              child: Text(l10n.deleteAccount),
+            ),
+          ],
+        ),
+      );
+    }
   const SettingsPage({super.key});
 
   @override
@@ -32,7 +99,6 @@ class SettingsPage extends ConsumerWidget {
           child: Padding(
             padding: const EdgeInsets.all(24),
             child: ListView(
-              physics: const BouncingScrollPhysics(),
               children: [
                 const SizedBox(height: 32),
                 Text(
@@ -114,8 +180,8 @@ class SettingsPage extends ConsumerWidget {
                                   showDialog(
                                     context: context,
                                     builder: (context) => AlertDialog(
-                                      title: const Text('Login necessário'),
-                                      content: const Text('Você precisa estar logado para comprar o Premium e restaurar em outros dispositivos.'),
+                                      title: Text(l10n.loginRequired),
+                                      content: Text(l10n.loginRequiredMessage),
                                       actions: [
                                         TextButton(
                                           onPressed: () {
@@ -168,8 +234,8 @@ class SettingsPage extends ConsumerWidget {
                                 showDialog(
                                   context: context,
                                   builder: (context) => AlertDialog(
-                                    title: const Text('Login necessário'),
-                                    content: const Text('Você precisa estar logado para restaurar sua compra em outros dispositivos.'),
+                                    title: Text(l10n.loginRequired),
+                                    content: Text(l10n.loginRequiredMessage),
                                     actions: [
                                       TextButton(
                                         onPressed: () {
@@ -249,7 +315,7 @@ class SettingsPage extends ConsumerWidget {
                 _SettingsTile(
                   icon: Icons.info,
                   title: l10n.appVersion,
-                  subtitle: '1.0.1',
+                  subtitle: '1.0.2',
                 ),
                 const SizedBox(height: 12),
                 _SettingsTile(
@@ -267,13 +333,35 @@ class SettingsPage extends ConsumerWidget {
                       ),
                 ),
                 const SizedBox(height: 16),
-                if (FirebaseAuth.instance.currentUser != null)
-                  _SettingsTile(
-                    icon: Icons.logout,
-                    title: l10n.logout,
-                    subtitle: l10n.logoutSubtitle,
-                    onTap: () => _showLogoutDialog(context),
-                  ),
+                // ...apenas UM bloco dinâmico de conta (sair e excluir conta)
+                // ...existing code...
+                // Widgets dinâmicos de conta (sair e excluir) aparecem apenas uma vez
+                ...ref.watch(authStateProvider).when(
+                  data: (user) {
+                    if (user != null) {
+                      return [
+                        _SettingsTile(
+                          icon: Icons.delete_forever,
+                          title: l10n.deleteAccount,
+                          subtitle: l10n.deleteAccountConfirmation,
+                          onTap: () => _showDeleteAccountDialog(context),
+                        ),
+                        const SizedBox(height: 8),
+                        _SettingsTile(
+                          icon: Icons.logout,
+                          title: l10n.logout,
+                          subtitle: l10n.logoutSubtitle,
+                          onTap: () => _showLogoutDialog(context),
+                        ),
+                      ];
+                    } else {
+                      return [];
+                    }
+                  },
+                  loading: () => [const SizedBox(height: 32)],
+                  error: (e, _) => [],
+                ),
+                const SizedBox(height: 78),
               ],
             ),
           ),
@@ -282,33 +370,6 @@ class SettingsPage extends ConsumerWidget {
     );
   }
 
-  void _showPurchaseDialog(BuildContext context, WidgetRef ref) {
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: const Text('Comprar Premium'),
-        content: const Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text('Desbloqueie:'),
-            SizedBox(height: 12),
-            _PremiumBenefit(
-              icon: Icons.remove_circle,
-              title: 'Sem Anúncios',
-              subtitle: 'Leia em paz',
-            ),
-          ],
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: const Text('Fechar'),
-          ),
-        ],
-      ),
-    );
-  }
 
   void _showLogoutDialog(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;

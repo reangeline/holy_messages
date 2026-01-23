@@ -138,6 +138,8 @@ final getChaptersByBookProvider =
     FutureProvider.family<List<int>, String>((ref, bookName) async {
   final datasource = ref.read(bibleLocalDataSourceProvider);
   final lang = ref.watch(appLanguageProvider);
+  // Ensure local DB seeded for the requested language before querying
+  await datasource.ensureSeededFromAssets(forceRebuild: false, language: lang);
   return datasource.getChaptersByBook(bookName, langCode: lang.code);
 });
 
@@ -146,5 +148,7 @@ final getVersesByChapterProvider = FutureProvider.family<List, (String, int)>(
   final datasource = ref.read(bibleLocalDataSourceProvider);
   final lang = ref.watch(appLanguageProvider);
   final (bookName, chapter) = params;
+  // Ensure local DB seeded for the requested language before querying
+  await datasource.ensureSeededFromAssets(forceRebuild: false, language: lang);
   return datasource.getVersesByChapter(bookName, chapter, langCode: lang.code);
 });

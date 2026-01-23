@@ -2,7 +2,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/foundation.dart';
 
 import '../../domain/entities/verse_entity.dart';
-import '../../domain/entities/app_language.dart';
 import '../state/bible_providers.dart';
 // Premium/online gating removed for daily verse
 

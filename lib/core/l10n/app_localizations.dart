@@ -12,7 +12,7 @@ class AppLocalizations {
   static const LocalizationsDelegate<AppLocalizations> delegate =
       _AppLocalizationsDelegate();
 
-  static Map<String, Map<String, String>> _localizedValues = {
+  static final Map<String, Map<String, String>> _localizedValues = {
     'pt': {
       // Settings Page
       'settings_title': 'Configurações',
@@ -75,6 +75,15 @@ class AppLocalizations {
       'share': 'Compartilhar',
       'share_photo': 'Compartilhar Foto',
       'share_verses': 'Compartilhar Versículos com Imagens Personalizadas',
+
+      'delete_account': 'Excluir conta',
+      'delete_account_confirmation': 'Tem certeza que deseja excluir sua conta? Esta ação não poderá ser desfeita.',
+      'account_excluded_with_success': '✅ Conta excluída com sucesso!',
+      'relogin_to_delete_account': 'Faça login novamente para excluir sua conta.',
+      'error_deleting_account': 'Erro ao excluir conta: {error}',
+      'login_required': 'Login necessário',
+      'login_required_message': 'Você precisa estar logado para comprar o Premium e restaurar em outros dispositivos.',
+
     },
     'en': {
       // Settings Page
@@ -139,6 +148,17 @@ class AppLocalizations {
 
       'share_photo': 'Share Photo',
       'share_verses': 'Share Verses',
+
+      'delete_account': 'Delete Account',
+      'delete_account_confirmation': 'Are you sure you want to delete your account? This action cannot be undone.',
+      'account_excluded_with_success': '✅ Account successfully deleted!',
+      'relogin_to_delete_account': 'Please log in again to delete your account.',
+      'error_deleting_account': 'Error deleting account: {error}',
+      'login_required': 'Login Required',
+      'login_required_message': 'You need to be logged in to purchase Premium and restore on other devices.',
+
+
+
     },
   };
 
@@ -217,6 +237,18 @@ class AppLocalizations {
   String get tryAgain => translate('try_again');
   String get success => translate('success');
   String get share => translate('share');
+
+  String get deleteAccount => translate('delete_account');
+  String get deleteAccountConfirmation => translate('delete_account_confirmation');
+  String get accountExcludedWithSuccess => translate('account_excluded_with_success');
+  String get reloginToDeleteAccount => translate('relogin_to_delete_account');
+  String errorDeletingAccount(String errorMessage) {
+    return translate('error_deleting_account').replaceFirst('{error}', errorMessage);
+  }
+
+  String get loginRequired => translate('login_required');
+  String get loginRequiredMessage => translate('login_required_message');
+
 }
 
 class _AppLocalizationsDelegate

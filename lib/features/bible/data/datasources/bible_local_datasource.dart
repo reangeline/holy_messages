@@ -9,8 +9,6 @@ import '../../domain/entities/app_language.dart';
 import '../models/verse_model.dart';
 import '../models/holy_message_model.dart';
 import 'holy_messages_datasource.dart';
-import 'bible_remote_datasource.dart';
-import '../remote_config.dart';
 import '../book_names.dart';
 
 class BibleLocalDataSource {
@@ -57,291 +55,219 @@ class BibleLocalDataSource {
       return;
     }
 
+    // Always load verses from bundled assets (no CDN/network fetch).
     List<VerseModel> models = [];
-    // 1) Tenta CDN primeiro
     try {
-      debugPrint('ensureSeededFromAssets: tentando carregar do remoto (CDN)...');
-      // Escolhe a URL remota conforme idioma
-      final url = remoteVersesUrlFor(language.code);
-      final remote = BibleRemoteDataSource(url: url);
-      // If forceRebuild is requested, force remote fetch to bypass cached JSON
-      if (forceRebuild) {
-        try {
-          final cacheBox = await Hive.openBox('remote_cache');
-          await cacheBox.clear();
-          debugPrint('ensureSeededFromAssets: remote cache limpo devido a forceRebuild');
-        } catch (e) {
-          debugPrint('ensureSeededFromAssets: falha ao limpar remote_cache: $e');
-        }
+      final fallbackAsset = assetPath ?? (language == AppLanguage.pt ? 'assets/data/verses-pt-BR.json' : 'assets/data/verses-en-US.json');
+      final raw = await rootBundle.loadString(fallbackAsset);
+      final List<dynamic> list = json.decode(raw);
+      debugPrint('ensureSeededFromAssets: assets OK com ${list.length} versículos (asset=$fallbackAsset)');
+
+      int? extractInt(dynamic v) {
+        if (v is int) return v;
+        if (v is String) return int.tryParse(v);
+        return null;
       }
-      models = await remote.loadAllVerses(forceRefresh: forceRebuild);
-      debugPrint('ensureSeededFromAssets: remoto OK com ${models.length} versículos (url=$url)');
-      // Quick language detection: sample some verse texts and try to
-      // infer whether the remote JSON matches the requested language.
-      if (models.isNotEmpty) {
-        bool detectedMismatch = false;
-        String detected = 'unknown';
-        try {
-          final sampleCount = models.length < 200 ? models.length : 200;
-          final samples = models.take(sampleCount).map((m) => m.verseText).toList();
-          String detectLangFromSamples(List<String> texts) {
-            final combined = texts.join(' ').toLowerCase();
-            
-            // Palavras-chave específicas do português (não comuns em inglês)
-            final ptKeywords = [
-              'deus', 'senhor', 'cristo', 'jesus', 'espírito', 'santo', 'amor', 'fé', 'graça', 'pecado',
-              'oração', 'igreja', 'salvação', 'perdão', 'misericórdia', 'justiça', 'paz', 'alegria',
-              'esperança', 'fé', 'caridade', 'humildade', 'obediência', 'adoração', 'louvor',
-              'oração', 'jejum', 'arrependimento', 'conversão', 'batismo', 'comunhão', 'evangelho'
-            ];
-            
-            // Palavras-chave específicas do inglês (não comuns em português)
-            final enKeywords = [
-              'god', 'lord', 'christ', 'jesus', 'spirit', 'holy', 'love', 'faith', 'grace', 'sin',
-              'prayer', 'church', 'salvation', 'forgiveness', 'mercy', 'righteousness', 'peace', 'joy',
-              'hope', 'charity', 'humility', 'obedience', 'worship', 'praise',
-              'fasting', 'repentance', 'conversion', 'baptism', 'communion', 'gospel'
-            ];
-            
-            int ptScore = ptKeywords.fold<int>(0, (acc, word) => acc + (combined.contains(word) ? 1 : 0));
-            int enScore = enKeywords.fold<int>(0, (acc, word) => acc + (combined.contains(word) ? 1 : 0));
-            
-            // Count diacritics common in Portuguese
-            final diacriticMatches = RegExp(r'[áàâãéêíóôõúç]').allMatches(combined).length;
-            
-            // Boost Portuguese score for diacritics
-            if (diacriticMatches >= 3) ptScore += 2;
-            
-            debugPrint('ensureSeededFromAssets: detecção - ptScore=$ptScore, enScore=$enScore, diacritics=$diacriticMatches');
-            
-            if (ptScore > enScore && ptScore >= 3) return 'pt';
-            if (enScore > ptScore && enScore >= 3) return 'en';
-            
-            return 'unknown';
-          }
 
-          detected = detectLangFromSamples(samples);
-          debugPrint('ensureSeededFromAssets: linguagem detectada no remoto: $detected (requisitada=${language.code})');
-          if (detected != 'unknown' && !language.code.startsWith(detected)) {
-            debugPrint('ensureSeededFromAssets: conteúdo remoto NÃO parece corresponder ao idioma requisitado, forçando fallback para asset');
-            detectedMismatch = true;
-          }
-        } catch (detectErr) {
-          debugPrint('ensureSeededFromAssets: erro na detecção de idioma: $detectErr');
+      String? extractString(Map<String, dynamic> j, List<String> keys) {
+        for (final k in keys) {
+          final val = j[k];
+          if (val != null) return val.toString();
         }
-
-        if (detectedMismatch) {
-          // trigger outer catch to perform asset fallback
-          throw Exception('remote language mismatch');
-        }
-
-        // If we detected a language, store that tag on the models; otherwise
-        // default to requested language to preserve previous behavior.
-        try {
-          final assignLang = (detected != 'unknown') ? detected : language.code;
-          for (final m in models) {
-            m.language = assignLang;
-          }
-          if (models.isNotEmpty) {
-            final sample = models.first.verseText;
-            final preview = sample.length > 80 ? sample.substring(0, 80) + '...' : sample;
-            debugPrint('ensureSeededFromAssets: amostra do primeiro versículo após fetch: "$preview" (lang=$assignLang)');
-          }
-        } catch (setLangErr) {
-          debugPrint('ensureSeededFromAssets: aviso ao setar language nos modelos: $setLangErr');
-        }
+        return null;
       }
-      // Ensure stored models carry the requested language tag so later
-      // checks comparing existing language vs requested work correctly.
+
+      models = list.map((e) {
+        final Map<String, dynamic> j = Map<String, dynamic>.from(e);
+        final book = extractInt(j['book']) ?? 0;
+        final chapter = extractInt(j['chapter']) ?? 0;
+        final verse = extractInt(j['verse']) ?? 0;
+
+        final key = extractString(j, ['key', 'id']) ?? '$book:$chapter:$verse';
+        final text = extractString(j, ['text', 'textPt', 'text_pt', 'verseText', 'verse_text']) ?? '';
+        final languageFromJson = extractString(j, ['language', 'lang']) ?? language.code;
+        final topics = (j['topics'] is List) ? (j['topics'] as List).map((x) => x?.toString() ?? '').where((s) => s.isNotEmpty).toList() : <String>[];
+        final weight = (j['weight'] is int) ? (j['weight'] as int) : (j['weight'] is String ? int.tryParse(j['weight'] as String) : null) ?? 1;
+
+        final m = VerseModel()
+          ..book = book
+          ..chapter = chapter
+          ..verse = verse
+          ..key = key
+          ..verseText = text
+          ..language = languageFromJson
+          ..topics = topics
+          ..weight = weight;
+        return m;
+      }).toList();
+
+      // Normalize language tag to requested language for consistency
       try {
         for (final m in models) {
           m.language = language.code;
         }
-        if (models.isNotEmpty) {
-          final sample = models.first.verseText;
-          final preview = sample.length > 80 ? sample.substring(0, 80) + '...' : sample;
-          debugPrint('ensureSeededFromAssets: amostra do primeiro versículo após fetch: "$preview"');
-        }
       } catch (setLangErr) {
-        debugPrint('ensureSeededFromAssets: aviso ao setar language nos modelos: $setLangErr');
+        debugPrint('ensureSeededFromAssets: aviso ao setar language nos modelos (assets): $setLangErr');
       }
-    } catch (remoteErr) {
-      debugPrint('ensureSeededFromAssets: remoto falhou ($remoteErr). Tentando assets...');
-      // 2) Fallback para assets
-      try {
-        final fallbackAsset = assetPath ?? (language == AppLanguage.pt ? 'assets/data/verses-pt-BR.json' : 'assets/data/verses-en-US.json');
-        final raw = await rootBundle.loadString(fallbackAsset);
-        final List<dynamic> list = json.decode(raw);
-        debugPrint('ensureSeededFromAssets: assets OK com ${list.length} versículos');
+    } catch (assetErr) {
+      debugPrint('ensureSeededFromAssets: falha ao carregar assets: $assetErr');
+      // Try alternative asset candidates before giving up
+      final candidates = <String>[];
+      candidates.add(assetPath ?? (language == AppLanguage.pt ? 'assets/data/verses-pt-BR.json' : 'assets/data/verses-en-US.json'));
+      candidates.addAll([
+        'assets/data/holy_messages.json',
+        'assets/data/verses.json',
+      ]);
 
-        int? extractInt(dynamic v) {
-          if (v is int) return v;
-          if (v is String) return int.tryParse(v);
-          return null;
-        }
-
-        String? extractString(Map<String, dynamic> j, List<String> keys) {
-          for (final k in keys) {
-            final val = j[k];
-            if (val != null) return val.toString();
-          }
-          return null;
-        }
-
-        models = list.map((e) {
-          final Map<String, dynamic> j = Map<String, dynamic>.from(e);
-          final book = extractInt(j['book']) ?? 0;
-          final chapter = extractInt(j['chapter']) ?? 0;
-          final verse = extractInt(j['verse']) ?? 0;
-
-          final key = extractString(j, ['key', 'id']) ?? '$book:$chapter:$verse';
-          final text = extractString(j, ['text', 'textPt', 'text_pt', 'verseText', 'verse_text']) ?? '';
-          final language = extractString(j, ['language', 'lang']) ?? 'pt-BR';
-          final topics = (j['topics'] is List) ? (j['topics'] as List).map((x) => x?.toString() ?? '').where((s) => s.isNotEmpty).toList() : <String>[];
-          final weight = (j['weight'] is int) ? (j['weight'] as int) : (j['weight'] is String ? int.tryParse(j['weight'] as String) : null) ?? 1;
-
-          final m = VerseModel()
-            ..book = book
-            ..chapter = chapter
-            ..verse = verse
-            ..key = key
-            ..verseText = text
-            ..language = language
-            ..topics = topics
-            ..weight = weight;
-          return m;
-        }).toList();
-        // Normalize language tag to requested language for consistency
+      String? rawAlt;
+      String? usedCandidate;
+      for (final c in candidates) {
         try {
-          for (final m in models) {
-            m.language = language.code;
-          }
-        } catch (setLangErr) {
-          debugPrint('ensureSeededFromAssets: aviso ao setar language nos modelos (assets): $setLangErr');
+          rawAlt = await rootBundle.loadString(c);
+          usedCandidate = c;
+          debugPrint('ensureSeededFromAssets: achei asset alternativo: $c');
+          break;
+        } catch (e) {
+          debugPrint('ensureSeededFromAssets: asset não encontrado: $c');
         }
-      } catch (assetErr) {
-        debugPrint('ensureSeededFromAssets: assets falharam para o caminho inicial: $assetErr');
-        // Try alternative asset candidates before giving up
-        final candidates = <String>[];
-        candidates.add(assetPath ?? (language == AppLanguage.pt ? 'assets/data/verses-pt-BR.json' : 'assets/data/verses-en-US.json'));
-        candidates.addAll([
-          'assets/data/holy_messages.json',
-          'assets/data/verses.json',
-        ]);
+      }
 
-        String? rawAlt;
-        String? usedCandidate;
-        for (final c in candidates) {
-          try {
-            rawAlt = await rootBundle.loadString(c);
-            usedCandidate = c;
-            debugPrint('ensureSeededFromAssets: achei asset alternativo: $c');
-            break;
-          } catch (e) {
-            // ignore and try next
-            debugPrint('ensureSeededFromAssets: asset não encontrado: $c');
-          }
-        }
+      if (rawAlt != null) {
+        try {
+          final decoded = json.decode(rawAlt);
+          if (decoded is! List) {
+            debugPrint('ensureSeededFromAssets: asset alternativo não é uma lista, ignorando: $usedCandidate');
+            rawAlt = null;
+          } else {
+            final List<dynamic> list = decoded;
+            bool looksLikeVerses(List<dynamic> l) {
+              if (l.isEmpty) return false;
+              final sample = l.take(5).toList();
+              for (final item in sample) {
+                if (item is Map<String, dynamic>) {
+                  if (item.containsKey('book') || item.containsKey('verse') || item.containsKey('chapter')) return true;
+                  if (item.containsKey('verseText') || item.containsKey('text') || item.containsKey('textPt') || item.containsKey('verse_text')) return true;
+                  final keyVal = item['key'] ?? item['id'];
+                  if (keyVal is String && RegExp(r'^\d+:\d+:\d+').hasMatch(keyVal)) return true;
+                }
+              }
+              return false;
+            }
 
-        if (rawAlt != null) {
-          try {
-            final decoded = json.decode(rawAlt);
-            if (decoded is! List) {
-              debugPrint('ensureSeededFromAssets: asset alternativo não é uma lista, ignorando: $usedCandidate');
+            if (!looksLikeVerses(list)) {
+              debugPrint('ensureSeededFromAssets: asset alternativo NÃO parece conter versículos (ignorado): $usedCandidate');
               rawAlt = null;
             } else {
-              final List<dynamic> list = decoded;
-              // Quick heuristic: ensure this list looks like verses, not the holy_messages curated list
-              bool looksLikeVerses(List<dynamic> l) {
-                if (l.isEmpty) return false;
-                final sample = l.take(5).toList();
-                for (final item in sample) {
-                  if (item is Map<String, dynamic>) {
-                    if (item.containsKey('book') || item.containsKey('verse') || item.containsKey('chapter')) return true;
-                    if (item.containsKey('verseText') || item.containsKey('text') || item.containsKey('textPt') || item.containsKey('verse_text')) return true;
-                    final keyVal = item['key'] ?? item['id'];
-                    if (keyVal is String && RegExp(r'^\d+:\d+:\d+').hasMatch(keyVal)) return true;
-                  }
-                }
-                return false;
+              debugPrint('ensureSeededFromAssets: assets alternativo OK ($usedCandidate) com ${list.length} versículos');
+              int? extractInt(dynamic v) {
+                if (v is int) return v;
+                if (v is String) return int.tryParse(v);
+                return null;
               }
 
-              if (!looksLikeVerses(list)) {
-                debugPrint('ensureSeededFromAssets: asset alternativo NÃO parece conter versículos (ignorado): $usedCandidate');
-                rawAlt = null;
-              } else {
-                debugPrint('ensureSeededFromAssets: assets alternativo OK ($usedCandidate) com ${list.length} versículos');
-                // decode again safely to a List for parsing
-                int? extractInt(dynamic v) {
-                  if (v is int) return v;
-                  if (v is String) return int.tryParse(v);
-                  return null;
+              String? extractString(Map<String, dynamic> j, List<String> keys) {
+                for (final k in keys) {
+                  final val = j[k];
+                  if (val != null) return val.toString();
                 }
+                return null;
+              }
 
-                String? extractString(Map<String, dynamic> j, List<String> keys) {
-                  for (final k in keys) {
-                    final val = j[k];
-                    if (val != null) return val.toString();
-                  }
-                  return null;
+              models = list.map((e) {
+                final Map<String, dynamic> j = Map<String, dynamic>.from(e);
+                final book = extractInt(j['book']) ?? 0;
+                final chapter = extractInt(j['chapter']) ?? 0;
+                final verse = extractInt(j['verse']) ?? 0;
+
+                final key = extractString(j, ['key', 'id']) ?? '$book:$chapter:$verse';
+                final text = extractString(j, ['text', 'textPt', 'text_pt', 'verseText', 'verse_text']) ?? '';
+                final languageFromJson = extractString(j, ['language', 'lang']) ?? language.code;
+                final topics = (j['topics'] is List) ? (j['topics'] as List).map((x) => x?.toString() ?? '').where((s) => s.isNotEmpty).toList() : <String>[];
+                final weight = (j['weight'] is int) ? (j['weight'] as int) : (j['weight'] is String ? int.tryParse(j['weight'] as String) : null) ?? 1;
+
+                final m = VerseModel()
+                  ..book = book
+                  ..chapter = chapter
+                  ..verse = verse
+                  ..key = key
+                  ..verseText = text
+                  ..language = languageFromJson
+                  ..topics = topics
+                  ..weight = weight;
+                return m;
+              }).toList();
+
+              // Normalize language tag to requested language for consistency
+              try {
+                for (final m in models) {
+                  m.language = language.code;
                 }
-
-                models = list.map((e) {
-                  final Map<String, dynamic> j = Map<String, dynamic>.from(e);
-                  final book = extractInt(j['book']) ?? 0;
-                  final chapter = extractInt(j['chapter']) ?? 0;
-                  final verse = extractInt(j['verse']) ?? 0;
-
-                  final key = extractString(j, ['key', 'id']) ?? '$book:$chapter:$verse';
-                  final text = extractString(j, ['text', 'textPt', 'text_pt', 'verseText', 'verse_text']) ?? '';
-                  final languageFromJson = extractString(j, ['language', 'lang']) ?? language.code;
-                  final topics = (j['topics'] is List) ? (j['topics'] as List).map((x) => x?.toString() ?? '').where((s) => s.isNotEmpty).toList() : <String>[];
-                  final weight = (j['weight'] is int) ? (j['weight'] as int) : (j['weight'] is String ? int.tryParse(j['weight'] as String) : null) ?? 1;
-
-                  final m = VerseModel()
-                    ..book = book
-                    ..chapter = chapter
-                    ..verse = verse
-                    ..key = key
-                    ..verseText = text
-                    ..language = languageFromJson
-                    ..topics = topics
-                    ..weight = weight;
-                  return m;
-                }).toList();
-
-                // Normalize language tag to requested language for consistency
-                try {
-                  for (final m in models) {
-                    m.language = language.code;
-                  }
-                } catch (setLangErr) {
-                  debugPrint('ensureSeededFromAssets: aviso ao setar language nos modelos (assets alternativo): $setLangErr');
-                }
+              } catch (setLangErr) {
+                debugPrint('ensureSeededFromAssets: aviso ao setar language nos modelos (assets alternativo): $setLangErr');
               }
             }
-          } catch (parseErr) {
-            debugPrint('ensureSeededFromAssets: falha ao decodificar asset alternativo: $parseErr');
-            rethrow;
           }
+        } catch (parseErr) {
+          debugPrint('ensureSeededFromAssets: falha ao decodificar asset alternativo: $parseErr');
+          rethrow;
         }
-        if (rawAlt == null) {
-          // As a last resort, try remote one more time (force refresh) before failing
-          debugPrint('ensureSeededFromAssets: nenhum asset alternativo encontrado, tentando remoto novamente como último recurso');
-          try {
-            final url = remoteVersesUrlFor(language.code);
-            final remote = BibleRemoteDataSource(url: url);
-            models = await remote.loadAllVerses(forceRefresh: true);
-            // Force the requested language tag to avoid later mismatches
-            for (final m in models) {
-              m.language = language.code;
+      }
+      if (rawAlt == null) {
+        debugPrint('ensureSeededFromAssets: nenhum asset alternativo encontrado, tentando fallback por clone de outro idioma no DB...');
+
+        // Se não encontramos asset para o idioma solicitado, tentamos clonar
+        // dados de outro idioma já presente no banco (por exemplo 'en').
+        try {
+          final allKeys = box.keys.whereType<String>().toList();
+          // Encontrar prefixos distintos presentes no banco (ex: __en__, __pt__)
+          final prefixes = <String, int>{};
+          for (final k in allKeys) {
+            final m = RegExp(r'^__(\w{2})__').firstMatch(k);
+            if (m != null) {
+              prefixes.update(m.group(1)!, (v) => v + 1, ifAbsent: () => 1);
             }
-            debugPrint('ensureSeededFromAssets: fetch remoto (última tentativa) retornou ${models.length} versículos');
-          } catch (finalRemoteErr) {
-            debugPrint('ensureSeededFromAssets: última tentativa remota falhou: $finalRemoteErr');
-            rethrow;
           }
+
+          // Remove o idioma solicitado
+          prefixes.remove(langCode.toLowerCase());
+
+          if (prefixes.isNotEmpty) {
+            // Escolher o prefixo com mais ocorrências (provavelmente 'en')
+            final sourceLang = prefixes.entries.toList()..sort((a, b) => b.value.compareTo(a.value));
+            final src = sourceLang.first.key; // ex: 'en'
+            debugPrint('ensureSeededFromAssets: clonando dados do idioma encontrado "$src" para "$langCode"...');
+
+            final srcPrefix = '__${src.toLowerCase()}__';
+            final dstPrefix = _langPrefix(langCode);
+            int copied = 0;
+            for (final k in allKeys) {
+              if (k.startsWith(srcPrefix)) {
+                final v = box.get(k);
+                if (v == null) continue;
+                final newKey = k.replaceFirst(srcPrefix, dstPrefix);
+                final clone = VerseModel()
+                  ..book = v.book
+                  ..chapter = v.chapter
+                  ..verse = v.verse
+                  ..key = v.key
+                  ..verseText = v.verseText
+                  ..language = langCode
+                  ..topics = List<String>.from(v.topics)
+                  ..weight = v.weight
+                  ..verseRange = v.verseRange;
+                await box.put(newKey, clone);
+                copied++;
+              }
+            }
+            debugPrint('ensureSeededFromAssets: fallback clone completo — $copied versículos copiados para $langCode');
+            return;
+          }
+        } catch (cloneErr) {
+          debugPrint('ensureSeededFromAssets: falha ao tentar clone de fallback: $cloneErr');
         }
+
+        debugPrint('ensureSeededFromAssets: nenhum asset alternativo encontrado, abortando.');
+        return;
       }
     }
 
@@ -642,11 +568,15 @@ class BibleLocalDataSource {
   Future<List<int>> getChaptersByBook(String bookName, {String? langCode}) async {
     final box = _db;
     final verses = box.values.toList();
-    
+
     final bookNum = _getBookNumber(bookName, langCode: langCode);
     final chapters = <int>{};
-    
+
     for (final verse in verses) {
+      // Only consider verses matching the requested language (if provided)
+      if (langCode != null && !verse.language.toLowerCase().startsWith(langCode.toLowerCase())) {
+        continue;
+      }
       final parts = verse.key.split(':');
       if (parts.isNotEmpty) {
         final verseBookNum = int.tryParse(parts[0]);
@@ -674,7 +604,13 @@ class BibleLocalDataSource {
     
     final allVerses = box.values.toList();
     final filtered = allVerses
-        .where((v) => v.book == bookNum && v.chapter == chapter)
+        .where((v) {
+          if (v.book != bookNum || v.chapter != chapter) return false;
+          if (langCode != null) {
+            return v.language.toLowerCase().startsWith(langCode.toLowerCase());
+          }
+          return true;
+        })
         .toList();
     
     filtered.sort((a, b) => a.verse.compareTo(b.verse));
@@ -685,7 +621,9 @@ class BibleLocalDataSource {
   int _getBookNumber(String bookName, {String? langCode}) {
     // Support Portuguese and English lookup by delegating to helper
     try {
-      return getBookNumberByName(bookName, langCode: langCode ?? 'pt');
+      final num = getBookNumberByName(bookName, langCode: langCode ?? 'pt');
+      if (num <= 0) return 1;
+      return num;
     } catch (_) {
       return 1;
     }
