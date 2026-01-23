@@ -108,9 +108,7 @@ class _SocialLoginPageState extends ConsumerState<SocialLoginPage> {
             duration: const Duration(seconds: 2),
           ),
         );
-        Future.delayed(const Duration(seconds: 1), () {
-          if (mounted) Navigator.of(context).pop(true);
-        });
+        if (mounted) Navigator.of(context).pop(true);
       }
     } on FirebaseAuthException catch (e) {
       String errorMsg = 'Firebase Error (${e.code}): ${e.message}';
@@ -187,9 +185,7 @@ class _SocialLoginPageState extends ConsumerState<SocialLoginPage> {
             duration: const Duration(seconds: 2),
           ),
         );
-        Future.delayed(const Duration(seconds: 1), () {
-          if (mounted) Navigator.of(context).pop(true);
-        });
+        if (mounted) Navigator.of(context).pop(true);
       }
     } on SignInWithAppleAuthorizationException catch (e) {
       String errorMsg;
@@ -262,9 +258,7 @@ class _SocialLoginPageState extends ConsumerState<SocialLoginPage> {
               duration: const Duration(seconds: 2),
             ),
           );
-          Future.delayed(const Duration(seconds: 1), () {
-            if (mounted) Navigator.of(context).pop(true);
-          });
+          if (mounted) Navigator.of(context).pop(true);
         }
       } else if (result.status == LoginStatus.cancelled) {
         print('⚠️ Login com Facebook cancelado pelo usuário');

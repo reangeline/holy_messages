@@ -120,6 +120,8 @@ class AppStrings {
   String get searchVerses => _language == AppLanguage.pt 
       ? 'Pesquisar versículos' 
       : 'Search verses';
+    // Search hints
+    String get searchBooksHint => _language == AppLanguage.pt ? 'Buscar livros' : 'Search books';
 
   // Navigation to Bible chapter
   String get readFullChapter => _language == AppLanguage.pt 

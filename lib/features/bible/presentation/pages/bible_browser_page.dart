@@ -15,6 +15,8 @@ class BibleBrowserPage extends ConsumerStatefulWidget {
 
 class _BibleBrowserPageState extends ConsumerState<BibleBrowserPage> {
   // Per-page banner removed; global banner is shown in HomePage
+  final TextEditingController _searchCtrl = TextEditingController();
+  String _searchQuery = '';
 
   @override
   void initState() {
@@ -33,6 +35,7 @@ class _BibleBrowserPageState extends ConsumerState<BibleBrowserPage> {
 
   @override
   void dispose() {
+    _searchCtrl.dispose();
     super.dispose();
   }
 
@@ -121,7 +124,50 @@ class _BibleBrowserPageState extends ConsumerState<BibleBrowserPage> {
                               subtitle: ref.watch(appStringsProvider).book,
                             ),
                             const SizedBox(height: 24),
-                            ...books.map((bookName) {
+                            // Search field to filter books
+                            Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                              child: TextField(
+                                controller: _searchCtrl,
+                                onChanged: (v) {
+                                  setState(() {
+                                    _searchQuery = v.trim();
+                                  });
+                                },
+                                decoration: InputDecoration(
+                                  hintText: ref.watch(appStringsProvider).searchBooksHint ?? 'Buscar livros',
+                                  prefixIcon: const Icon(Icons.search),
+                                  suffixIcon: _searchQuery.isNotEmpty
+                                      ? IconButton(
+                                          onPressed: () {
+                                            _searchCtrl.clear();
+                                            setState(() => _searchQuery = '');
+                                          },
+                                          icon: const Icon(Icons.clear),
+                                        )
+                                      : null,
+                                  filled: true,
+                                  fillColor: Colors.white.withOpacity(0.9),
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(12),
+                                    borderSide: BorderSide.none,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            const SizedBox(height: 16),
+
+                            // Filter books by search query (case-insensitive)
+                            ...books
+                                .where((bookName) {
+                                  if (_searchQuery.isEmpty) return true;
+                                  final q = _searchQuery.toLowerCase();
+                                  final lang = ref.read(appLanguageProvider);
+                                  final bookNum = getBookNumberByName(bookName, langCode: lang.code);
+                                  final display = bookNum == -1 ? bookName : getBookNameByNumber(bookNum, langCode: lang.code);
+                                  return bookName.toLowerCase().contains(q) || display.toLowerCase().contains(q);
+                                })
+                                .map((bookName) {
                               final lang = ref.read(appLanguageProvider);
                               // Try to resolve the book number from the provider's name using
                               // the current app language; if not found, try the other language.
