@@ -11,7 +11,8 @@ import 'core/l10n/app_localizations.dart';
 import 'features/settings/state/locale_provider.dart';
 
 import 'features/bible/presentation/pages/home_page.dart';
-// import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'core/services/admob_detector.dart';
 
 
 Future<void> main() async {
@@ -23,6 +24,37 @@ Future<void> main() async {
   runZonedGuarded(() async {
     try {
       WidgetsFlutterBinding.ensureInitialized();
+
+      // IDs de dispositivo de teste - substitua pelos seus IDs reais.
+      // Para obter o ID do dispositivo, rode o app e verifique os logs de AdMob
+      // (procure por "Use RequestConfiguration to set test device IDs" ou o ID nos logs).
+      const List<String> testDeviceIds = [
+        'EMULATOR', // mantém o emulador como dispositivo de teste
+        'YOUR_DEVICE_ID_HERE',
+      ];
+
+      // Atualizar configuração de requisições com dispositivos de teste
+      try {
+        await MobileAds.instance.updateRequestConfiguration(
+          RequestConfiguration(testDeviceIds: testDeviceIds),
+        );
+        print('✅ RequestConfiguration atualizada com dispositivos de teste');
+      } catch (e) {
+        print('⚠️ Falha ao atualizar RequestConfiguration: $e');
+      }
+
+      // Inicializar Google Mobile Ads
+      try {
+        await MobileAds.instance.initialize();
+        print('✅ Mobile Ads inicializado');
+
+        // Tentar detectar e gravar device ID automaticamente (se necessário)
+        AdMobDetector.detectAndSaveTestDeviceId().catchError((e) {
+          print('⚠️ DetectAdMobDevice falhou: $e');
+        });
+      } catch (e) {
+        print('⚠️ Falha ao inicializar Mobile Ads: $e');
+      }
       
       // Inicializar Hive
       await Hive.initFlutter().catchError((e) {
