@@ -95,80 +95,95 @@ struct TodayRootView: View {
     }
 
     private var formationTeaserCard: some View {
-        // Hooks into Sources/Features/Formation once that work stream lands; visual only for now.
-        LiturgicalGradientCard(color: day.color) {
-            VStack(alignment: .leading, spacing: 6) {
-                Text("SUA TRILHA · PARTE 3 DE 14")
-                    .font(MissaleFont.body(11, weight: .semibold))
-                    .tracking(1.4)
-                    .foregroundStyle(Palette.goldBright)
-                Text("O Ato Penitencial")
-                    .font(MissaleFont.display(21, weight: .medium))
-                    .foregroundStyle(.white)
-                Text("A Missa, parte por parte · 4 min")
-                    .font(MissaleFont.body(15))
-                    .foregroundStyle(.white.opacity(0.88))
-                ProgressView(value: 3.0 / 14.0)
-                    .tint(Palette.goldBright)
-                    .padding(.top, 4)
+        NavigationLink {
+            FormationLessonView(lesson: MockFormation.atoPenitencial)
+        } label: {
+            LiturgicalGradientCard(color: day.color) {
+                VStack(alignment: .leading, spacing: 6) {
+                    Text("SUA TRILHA · PARTE 3 DE 14")
+                        .font(MissaleFont.body(11, weight: .semibold))
+                        .tracking(1.4)
+                        .foregroundStyle(Palette.goldBright)
+                    Text("O Ato Penitencial")
+                        .font(MissaleFont.display(21, weight: .medium))
+                        .foregroundStyle(.white)
+                    Text("A Missa, parte por parte · 4 min")
+                        .font(MissaleFont.body(15))
+                        .foregroundStyle(.white.opacity(0.88))
+                    ProgressView(value: 3.0 / 14.0)
+                        .tint(Palette.goldBright)
+                        .padding(.top, 4)
+                }
             }
         }
-        .opacity(0.85)
+        .buttonStyle(.plain)
     }
 
     private var wordOfDayTeaserCard: some View {
-        // Hooks into Sources/Features/WordOfDay once that work stream lands; visual only for now.
-        GlassCard {
-            VStack(alignment: .leading, spacing: 6) {
-                Eyebrow(text: "Palavra de hoje")
-                Text("“Como Moisés levantou a serpente no deserto, assim deve ser levantado o Filho do Homem.”")
-                    .font(MissaleFont.display(21, italic: true))
-                    .foregroundStyle(Palette.ink)
-                Text("João 3, 14")
-                    .font(MissaleFont.body(14))
-                    .foregroundStyle(Palette.ink.opacity(0.65))
+        NavigationLink {
+            WordOfDayView()
+        } label: {
+            GlassCard {
+                VStack(alignment: .leading, spacing: 6) {
+                    Eyebrow(text: "Palavra de hoje")
+                    Text("“Como Moisés levantou a serpente no deserto, assim deve ser levantado o Filho do Homem.”")
+                        .font(MissaleFont.display(21, italic: true))
+                        .foregroundStyle(Palette.ink)
+                    Text("João 3, 14")
+                        .font(MissaleFont.body(14))
+                        .foregroundStyle(Palette.ink.opacity(0.65))
+                }
             }
         }
+        .buttonStyle(.plain)
     }
 
     private var saintTeaserCard: some View {
-        // Hooks into Sources/Features/Saints once that work stream lands; visual only for now.
-        GlassCard {
-            HStack(spacing: 13) {
-                SaintPortraitPlaceholder()
-                    .frame(width: 50, height: 50)
-                VStack(alignment: .leading, spacing: 2) {
-                    Eyebrow(text: "Santo do dia")
-                    Text(MockSaints.notburga.name)
-                        .font(MissaleFont.body(17, weight: .medium))
-                        .foregroundStyle(Palette.ink)
-                    Text("\(MockSaints.notburga.role) · 3 min")
-                        .font(MissaleFont.body(14))
-                        .foregroundStyle(Palette.ink.opacity(0.65))
+        NavigationLink {
+            SaintDetailView(saint: MockSaints.notburga)
+        } label: {
+            GlassCard {
+                HStack(spacing: 13) {
+                    SaintPortraitPlaceholder()
+                        .frame(width: 50, height: 50)
+                    VStack(alignment: .leading, spacing: 2) {
+                        Eyebrow(text: "Santo do dia")
+                        Text(MockSaints.notburga.name)
+                            .font(MissaleFont.body(17, weight: .medium))
+                            .foregroundStyle(Palette.ink)
+                        Text("\(MockSaints.notburga.role) · 3 min")
+                            .font(MissaleFont.body(14))
+                            .foregroundStyle(Palette.ink.opacity(0.65))
+                    }
                 }
             }
         }
+        .buttonStyle(.plain)
     }
 
     private var rosaryTeaserCard: some View {
-        // Hooks into Sources/Features/Prayers once that work stream lands; visual only for now.
         let todays = MockRosary.todays
-        return GlassCard {
-            HStack {
-                VStack(alignment: .leading, spacing: 3) {
-                    Eyebrow(text: "Terço de hoje")
-                    Text("Mistérios \(todays.mysterySet.rawValue)")
-                        .font(MissaleFont.body(17, weight: .medium))
-                        .foregroundStyle(Palette.ink)
-                    Text("\(todays.dayLabel) · 18 min")
-                        .font(MissaleFont.body(14))
-                        .foregroundStyle(Palette.ink.opacity(0.65))
+        return NavigationLink {
+            RosaryMysteriesPickerView()
+        } label: {
+            GlassCard {
+                HStack {
+                    VStack(alignment: .leading, spacing: 3) {
+                        Eyebrow(text: "Terço de hoje")
+                        Text("Mistérios \(todays.mysterySet.rawValue)")
+                            .font(MissaleFont.body(17, weight: .medium))
+                            .foregroundStyle(Palette.ink)
+                        Text("\(todays.dayLabel) · 18 min")
+                            .font(MissaleFont.body(14))
+                            .foregroundStyle(Palette.ink.opacity(0.65))
+                    }
+                    Spacer()
+                    Image(systemName: "chevron.right")
+                        .foregroundStyle(Palette.wine)
                 }
-                Spacer()
-                Image(systemName: "chevron.right")
-                    .foregroundStyle(Palette.wine)
             }
         }
+        .buttonStyle(.plain)
     }
 
     private var complineCard: some View {

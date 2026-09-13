@@ -12,6 +12,7 @@ struct SaintDetailView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 14) {
                     SaintPortraitPlaceholder(cornerRadius: 18)
+                        .frame(maxWidth: .infinity)
                         .frame(height: 190)
 
                     HStack(spacing: 8) {
