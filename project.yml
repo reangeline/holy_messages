@@ -1,6 +1,6 @@
-name: HolyMessages
+name: Missale
 options:
-  bundleIdPrefix: com.holymessages
+  bundleIdPrefix: com.missale
   deploymentTarget:
     iOS: "17.0"
   developmentLanguage: en
@@ -13,7 +13,7 @@ settings:
     ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
 
 targets:
-  HolyMessages:
+  Missale:
     type: application
     platform: iOS
     sources:
@@ -21,11 +21,10 @@ targets:
     info:
       path: App/Info.plist
       properties:
-        CFBundleDisplayName: Holy Messages
+        CFBundleDisplayName: Missale
         CFBundleShortVersionString: "1.0"
         CFBundleVersion: "1"
-        UILaunchScreen:
-          UIImageName: SplashImage
+        UILaunchScreen: {}
         UISupportedInterfaceOrientations:
           - UIInterfaceOrientationPortrait
         UISupportedInterfaceOrientations~ipad:
@@ -33,37 +32,22 @@ targets:
           - UIInterfaceOrientationPortraitUpsideDown
           - UIInterfaceOrientationLandscapeLeft
           - UIInterfaceOrientationLandscapeRight
+        UIAppFonts:
+          - EBGaramond-Regular.ttf
+          - EBGaramond-Italic.ttf
+          - EBGaramond-Medium.ttf
+          - EBGaramond-MediumItalic.ttf
+          - EBGaramond-SemiBold.ttf
+          - CormorantGaramond-Regular.ttf
+          - CormorantGaramond-Italic.ttf
+          - CormorantGaramond-Medium.ttf
+          - CormorantGaramond-MediumItalic.ttf
+          - CormorantGaramond-SemiBold.ttf
     entitlements:
-      path: App/HolyMessages.entitlements
+      path: App/Missale.entitlements
       properties:
         com.apple.security.application-groups:
-          - group.com.holymessages.app
+          - group.com.missale.app
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.holymessages.app
-    dependencies:
-      - target: HolyMessagesWidgetExtension
-        embed: true
-
-  HolyMessagesWidgetExtension:
-    type: app-extension
-    platform: iOS
-    sources:
-      - path: Widget/Sources
-    info:
-      path: Widget/Info.plist
-      properties:
-        CFBundleDisplayName: Holy Messages
-        CFBundleShortVersionString: "1.0"
-        CFBundleVersion: "1"
-        NSExtension:
-          NSExtensionPointIdentifier: com.apple.widgetkit-extension
-    entitlements:
-      path: Widget/HolyMessagesWidget.entitlements
-      properties:
-        com.apple.security.application-groups:
-          - group.com.holymessages.app
-    settings:
-      base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.holymessages.app.HolyMessagesWidget
-        SKIP_INSTALL: true
+        PRODUCT_BUNDLE_IDENTIFIER: com.missale.app
