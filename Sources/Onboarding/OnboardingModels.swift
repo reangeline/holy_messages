@@ -7,7 +7,6 @@ enum OnboardingStep: Equatable {
     case spiritualIntro
     case spiritual(Int)
     case relief
-    case crisis
     case loader
     case synthesis
     case notificationTime

@@ -11,14 +11,6 @@ final class OnboardingViewModel: ObservableObject {
 
     var current: OnboardingStep { path.last ?? .feed }
 
-    private var crisisTriggered: Bool {
-        guard let answer = spiritualAnswers["spirit-3"] else { return false }
-        return MockOnboarding.spiritualQuestions
-            .first { $0.id == "spirit-3" }?
-            .options.first { $0.id == answer }?
-            .isCrisisTrigger ?? false
-    }
-
     var reliefContent: ReliefContent {
         OnboardingRelief.content(spirit2: spiritualAnswers["spirit-2"])
     }
@@ -58,11 +50,7 @@ final class OnboardingViewModel: ObservableObject {
         }
     }
 
-    func advanceFromRelief() {
-        push(crisisTriggered ? .crisis : .loader)
-    }
-
-    func advanceFromCrisis() { push(.loader) }
+    func advanceFromRelief() { push(.loader) }
 
     func advanceFromLoader() { push(.synthesis) }
 

@@ -4,7 +4,7 @@ import SwiftUI
 /// teaser cards, and the nightly Examen/Compline card.
 struct TodayRootView: View {
     @State private var showMoodSheet = false
-    @State private var showDebugMenu = false
+    @State private var showSettings = false
     @State private var navigateToExamen = false
 
     private let day = MockLiturgical.today
@@ -35,8 +35,8 @@ struct TodayRootView: View {
             .sheet(isPresented: $showMoodSheet) {
                 MoodCheckInSheet()
             }
-            .sheet(isPresented: $showDebugMenu) {
-                DebugMenuView()
+            .sheet(isPresented: $showSettings) {
+                SettingsView()
             }
         }
     }
@@ -57,7 +57,7 @@ struct TodayRootView: View {
             }
             Spacer()
             Button {
-                showDebugMenu = true
+                showSettings = true
             } label: {
                 Image(systemName: "gearshape.fill")
                     .font(.system(size: 15))
@@ -66,10 +66,6 @@ struct TodayRootView: View {
                     .background(.ultraThinMaterial, in: Circle())
                     .overlay(Circle().strokeBorder(Color.white.opacity(0.6), lineWidth: 1))
             }
-            // Debug-only entry point: screens 6, 7, 29 and 30 have no organic trigger in
-            // this mocked-data pass (they're meant to fire from longitudinal pattern
-            // detection, a repeated-question detector, and a schedule — none of which
-            // exist yet), so they're only reachable from here for QA.
         }
     }
 
@@ -214,32 +210,6 @@ struct TodayRootView: View {
             )
         }
         .buttonStyle(.plain)
-    }
-}
-
-/// Debug-only menu surfacing the screens that this mocked-data pass has no organic
-/// trigger for: pastoral nudge (6), scrupulosity redirect (7), Angelus nudge (29),
-/// subscription cancellation (30). Not part of the design itself.
-private struct DebugMenuView: View {
-    @Environment(\.dismiss) private var dismiss
-
-    var body: some View {
-        NavigationStack {
-            List {
-                Section("Sem gatilho automático ainda") {
-                    NavigationLink("Nota pastoral (tela 6)") { PastoralCareNudgeView() }
-                    NavigationLink("Redirecionamento de escrúpulo (tela 7)") { ScrupulosityRedirectView() }
-                    NavigationLink("Lembrete do Angelus (tela 29)") { AngelusNudgeView() }
-                    NavigationLink("Cancelar assinatura (tela 30)") { SubscriptionCancellationView() }
-                }
-            }
-            .navigationTitle("Debug")
-            .toolbar {
-                ToolbarItem(placement: .cancellationAction) {
-                    Button("Fechar") { dismiss() }
-                }
-            }
-        }
     }
 }
 

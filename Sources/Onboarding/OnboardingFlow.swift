@@ -43,9 +43,6 @@ struct OnboardingFlow: View {
             case .relief:
                 OnboardingReliefView(viewModel: viewModel, onBack: viewModel.back, onNext: viewModel.advanceFromRelief)
 
-            case .crisis:
-                OnboardingCrisisView(onNext: viewModel.advanceFromCrisis)
-
             case .loader:
                 OnboardingLoaderView(onFinished: viewModel.advanceFromLoader)
 
