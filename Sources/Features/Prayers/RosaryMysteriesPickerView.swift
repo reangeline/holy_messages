@@ -44,7 +44,9 @@ struct RosaryMysteriesPickerView: View {
                     }
 
                     VStack(spacing: 12) {
-                        NavigationLink(value: PrayersDestination.guided(selected, startDark: false)) {
+                        NavigationLink {
+                            RosaryGuidedPrayerView(mystery: selected)
+                        } label: {
                             Text("Começar")
                                 .font(MissaleFont.body(17, weight: .medium))
                                 .frame(maxWidth: .infinity)
@@ -52,7 +54,9 @@ struct RosaryMysteriesPickerView: View {
                                 .background(Palette.wine, in: Capsule())
                                 .foregroundStyle(.white)
                         }
-                        NavigationLink(value: PrayersDestination.guided(selected, startDark: true)) {
+                        NavigationLink {
+                            RosaryDarkModeView(mystery: selected, startIndex: 0)
+                        } label: {
                             Text("Começar com a tela apagada")
                                 .font(MissaleFont.body(16))
                                 .foregroundStyle(Palette.ink.opacity(0.65))
