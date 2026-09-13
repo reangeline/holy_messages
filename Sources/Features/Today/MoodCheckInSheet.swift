@@ -5,19 +5,31 @@ import SwiftUI
 struct MoodCheckInSheet: View {
     @Environment(\.dismiss) private var dismiss
     @State private var selected: MoodStateOption?
+    @State private var redirectToScrupulosity = false
     @State private var note: String = ""
+    @State private var showPastoralCare = false
 
     var body: some View {
         NavigationStack {
             ZStack {
                 Palette.parchment.ignoresSafeArea()
-                if let selected {
+                if redirectToScrupulosity {
+                    // Replaces relief outright once the pattern is established — the
+                    // point is to interrupt the cycle, not add another reassurance on top.
+                    ScrupulosityRedirectView()
+                } else if let selected {
                     MoodReliefView(state: selected) { dismiss() }
                 } else {
                     pickerBody
                 }
             }
         }
+    }
+
+    private func select(_ option: MoodStateOption) {
+        let count = MoodHistoryStore.shared.record(state: option, note: note.isEmpty ? nil : note)
+        redirectToScrupulosity = option.isScrupulosityTrigger && count >= 3
+        selected = option
     }
 
     private var pickerBody: some View {
@@ -35,11 +47,27 @@ struct MoodCheckInSheet: View {
 
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
+                    // Static, always here — not gated behind detecting a pattern.
+                    Button {
+                        showPastoralCare = true
+                    } label: {
+                        HStack {
+                            Text("Precisa de mais do que isto? Padre, diocese, ou uma crise")
+                                .font(MissaleFont.body(13))
+                                .foregroundStyle(Palette.ink.opacity(0.6))
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                                .font(.system(size: 11))
+                                .foregroundStyle(Palette.ink.opacity(0.4))
+                        }
+                    }
+                    .buttonStyle(.plain)
+
                     ForEach(MockMood.stateGroups) { group in
                         VStack(alignment: .leading, spacing: 8) {
                             Eyebrow(text: group.label)
                             FlowChips(items: group.items) { option in
-                                selected = option
+                                select(option)
                             }
                         }
                     }
@@ -53,6 +81,9 @@ struct MoodCheckInSheet: View {
         }
         .padding(.horizontal, 22)
         .padding(.bottom, 24)
+        .sheet(isPresented: $showPastoralCare) {
+            PastoralCareNudgeView()
+        }
     }
 }
 

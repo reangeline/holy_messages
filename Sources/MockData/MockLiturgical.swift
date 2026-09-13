@@ -1,5 +1,22 @@
 import Foundation
 
+/// Which Marian antiphon is prayed at the Angelus hours: Regina Caeli replaces the
+/// Angelus for the whole of Eastertide (Easter Sunday through Pentecost).
+enum MarianAntiphonPeriod {
+    case angelus
+    case reginaCaeli
+}
+
+extension MockLiturgical {
+    /// Stub: this pass has no real Easter-date computation (movable feasts aren't
+    /// modeled), so this always returns `.angelus`. Structured to take a `Date` so a
+    /// real liturgical calendar engine can replace the body later without touching
+    /// call sites (notably AngelusScheduler, which calls this once per scheduled day).
+    static func marianAntiphonPeriod(on date: Date) -> MarianAntiphonPeriod {
+        .angelus
+    }
+}
+
 enum MockLiturgical {
     /// The app's fixed "today" for this mocked-data pass, matching the design's demo day.
     static let today = LiturgicalDay(

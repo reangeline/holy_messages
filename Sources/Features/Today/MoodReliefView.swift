@@ -66,6 +66,14 @@ struct MoodReliefView: View {
                         }
                     }
 
+                    if state.isScrupulosityTrigger {
+                        DashedUtilityCard {
+                            Text(MockMood.confessorNudgeLine)
+                                .font(MissaleFont.body(14))
+                                .foregroundStyle(Palette.ink.opacity(0.72))
+                        }
+                    }
+
                     Text("Este registro entra no seu calendário. Ninguém além de você o vê — ele não sai deste aparelho.")
                         .font(MissaleFont.body(13))
                         .foregroundStyle(Palette.ink.opacity(0.55))

@@ -1,17 +1,23 @@
 import Foundation
 
-/// One tappable "Hoje eu estou…" chip. `isCrisisTrigger` marks the states that
-/// should surface the pastoral safety-net screen instead of just relief content
-/// (per the design spec: grief/loss, anger/resentment, guilt).
+/// One tappable "Hoje eu estou…" chip.
+/// - `isCrisisTrigger` marks states that pair with the onboarding crisis safety net
+///   (grief/loss, anger/resentment, guilt).
+/// - `isScrupulosityTrigger` marks states that feed the repeated-question counter:
+///   the 1st-2nd time within 14 days, relief content runs with a discreet nudge
+///   toward a confessor; the 3rd time within 14 days, the scrupulosity redirect
+///   replaces relief outright (see MoodHistoryStore.scrupulosityShouldRedirect).
 struct MoodStateOption: Identifiable, Codable, Hashable {
     let id: String
     let label: String
     let isCrisisTrigger: Bool
+    let isScrupulosityTrigger: Bool
 
-    init(id: String, label: String, isCrisisTrigger: Bool = false) {
+    init(id: String, label: String, isCrisisTrigger: Bool = false, isScrupulosityTrigger: Bool = false) {
         self.id = id
         self.label = label
         self.isCrisisTrigger = isCrisisTrigger
+        self.isScrupulosityTrigger = isScrupulosityTrigger
     }
 }
 

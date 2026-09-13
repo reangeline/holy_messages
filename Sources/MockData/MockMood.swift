@@ -17,9 +17,15 @@ enum MockMood {
             .init(id: "tired", label: "Cansado"),
             .init(id: "grief", label: "Enlutado", isCrisisTrigger: true),
             .init(id: "resentful", label: "Ressentido", isCrisisTrigger: true),
-            .init(id: "guilty", label: "Culpado", isCrisisTrigger: true),
+            .init(id: "guilty", label: "Culpado", isCrisisTrigger: true, isScrupulosityTrigger: true),
+            .init(id: "shame_confession", label: "Vergonha, faz tempo que não me confesso", isScrupulosityTrigger: true),
         ]),
     ]
+
+    /// Shown as a discreet, one-line nudge inside the relief screen the 1st/2nd time
+    /// a scrupulosity-trigger state is logged within 14 days (3rd time redirects
+    /// outright — see MoodHistoryStore.scrupulosityShouldRedirect).
+    static let confessorNudgeLine = "Se isso for sobre um pecado específico, um confessor fixo resolve melhor do que reler isto de novo."
 
     static let defaultRelief = ReliefContent(
         title: "Isso também é matéria de oração",
