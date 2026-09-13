@@ -58,6 +58,7 @@ struct ScrupulosityRedirectView: View {
                 .padding(.bottom, 30)
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 

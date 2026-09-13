@@ -51,6 +51,7 @@ struct RosaryGuidedPrayerView: View {
         }
         .navigationTitle("")
         .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden(true)
         .navigationDestination(isPresented: $navigateToDark) {
             RosaryDarkModeView(mystery: mystery, startIndex: index)
         }
