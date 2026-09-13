@@ -22,7 +22,7 @@ struct CalendarRootView: View {
                         legend
                     }
                     .padding(.horizontal, 20)
-                    .padding(.top, 60)
+                    .padding(.top, 12)
                     .padding(.bottom, 100)
                 }
             }
@@ -91,6 +91,7 @@ struct CalendarRootView: View {
             Text("\(mark.dayNumber)")
                 .font(.system(size: 14))
                 .foregroundStyle(mark.color == .white ? Palette.ink : Color.white)
+                .frame(maxHeight: .infinity, alignment: .top)
                 .padding(.top, 6)
             if mark.hasLoggedEntry {
                 RoundedRectangle(cornerRadius: 2)

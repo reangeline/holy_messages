@@ -57,7 +57,7 @@ struct RosaryDarkModeView: View {
                         .font(MissaleFont.body(11, weight: .semibold))
                         .tracking(1.2)
                         .foregroundStyle(.white.opacity(0.35))
-                        .padding(.top, 60)
+                        .padding(.top, 12)
                         .padding(.leading, 24)
                     Spacer()
                 }

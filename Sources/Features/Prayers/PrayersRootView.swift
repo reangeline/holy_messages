@@ -15,7 +15,7 @@ struct PrayersRootView: View {
                         row(title: "Outras orações", subtitle: "Angelus, Misericórdia, Completas, Exame, ladainhas", destination: .others)
                     }
                     .padding(.horizontal, 24)
-                    .padding(.top, 60)
+                    .padding(.top, 12)
                     .padding(.bottom, 110) // room for the floating glass tab bar
                 }
             }

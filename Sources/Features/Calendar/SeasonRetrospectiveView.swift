@@ -47,7 +47,7 @@ struct SeasonRetrospectiveView: View {
                         .foregroundStyle(Palette.ink.opacity(0.55))
                 }
                 .padding(20)
-                .padding(.top, 60)
+                .padding(.top, 12)
                 .padding(.bottom, 40)
             }
         }

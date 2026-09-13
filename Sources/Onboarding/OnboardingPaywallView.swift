@@ -18,7 +18,7 @@ struct OnboardingPaywallView: View {
                     Spacer()
                 }
                 .padding(.horizontal, 24)
-                .padding(.top, 60)
+                .padding(.top, 12)
 
                 ScrollView {
                     VStack(spacing: 14) {

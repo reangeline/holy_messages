@@ -69,7 +69,7 @@ struct SaintsArchiveView: View {
                 .listStyle(.plain)
                 .scrollContentBackground(.hidden)
             }
-            .padding(.top, 50)
+            .padding(.top, 8)
         }
         .navigationBarTitleDisplayMode(.inline)
     }

@@ -70,7 +70,7 @@ struct ExamenIntroView: View {
                 .padding(.bottom, 12)
             }
             .padding(.horizontal, 24)
-            .padding(.top, 60)
+            .padding(.top, 12)
         }
         .navigationBarBackButtonHidden(true)
         .navigationDestination(isPresented: $goToCompline) {

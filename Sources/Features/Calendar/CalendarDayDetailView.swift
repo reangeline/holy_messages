@@ -66,7 +66,7 @@ struct CalendarDayDetailView: View {
                     }
                 }
                 .padding(20)
-                .padding(.top, 50)
+                .padding(.top, 8)
             }
         }
         .navigationBarTitleDisplayMode(.inline)
