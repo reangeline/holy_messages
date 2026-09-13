@@ -27,6 +27,7 @@ struct ExamenIntroView: View {
                 Text("Como foi o seu dia diante de Deus?")
                     .font(MissaleFont.display(32, weight: .semibold))
                     .foregroundStyle(.white)
+                    .fixedSize(horizontal: false, vertical: true)
                 Text("Rever o dia, reconhecer onde houve consolação e onde houve desolação, e responder. É a prática inaciana, em quatro toques.")
                     .font(MissaleFont.body(16))
                     .foregroundStyle(.white.opacity(0.7))
@@ -39,9 +40,14 @@ struct ExamenIntroView: View {
                                 .foregroundStyle(Palette.goldBright)
                             VStack(alignment: .leading, spacing: 2) {
                                 Text(step.title).font(MissaleFont.body(17, weight: .medium)).foregroundStyle(.white)
-                                Text(step.subtitle).font(MissaleFont.body(15)).foregroundStyle(.white.opacity(0.62))
+                                Text(step.subtitle)
+                                    .font(MissaleFont.body(15))
+                                    .foregroundStyle(.white.opacity(0.62))
+                                    .fixedSize(horizontal: false, vertical: true)
                             }
+                            Spacer(minLength: 0)
                         }
+                        .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(14)
                         .background(Color.white.opacity(0.1), in: RoundedRectangle(cornerRadius: 16, style: .continuous))
                         .overlay(RoundedRectangle(cornerRadius: 16, style: .continuous).strokeBorder(Color.white.opacity(0.16), lineWidth: 1))

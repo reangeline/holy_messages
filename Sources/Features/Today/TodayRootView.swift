@@ -155,7 +155,9 @@ struct TodayRootView: View {
                             .font(MissaleFont.body(14))
                             .foregroundStyle(Palette.ink.opacity(0.65))
                     }
+                    Spacer(minLength: 0)
                 }
+                .frame(maxWidth: .infinity, alignment: .leading)
             }
         }
         .buttonStyle(.plain)

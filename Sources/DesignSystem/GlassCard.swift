@@ -9,6 +9,7 @@ struct GlassCard<Content: View>: View {
 
     var body: some View {
         content
+            .frame(maxWidth: .infinity, alignment: .leading)
             .padding(padding)
             .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: cornerRadius, style: .continuous))
             .background(Color.white.opacity(0.22))
@@ -31,6 +32,7 @@ struct LiturgicalGradientCard<Content: View>: View {
 
     var body: some View {
         content
+            .frame(maxWidth: .infinity, alignment: .leading)
             .padding(padding)
             .background(color.gradient)
             .clipShape(RoundedRectangle(cornerRadius: cornerRadius, style: .continuous))
@@ -50,6 +52,7 @@ struct DashedUtilityCard<Content: View>: View {
 
     var body: some View {
         content
+            .frame(maxWidth: .infinity, alignment: .leading)
             .padding(padding)
             .background(Color.white.opacity(0.3))
             .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))

@@ -75,6 +75,7 @@ struct FormationRootView: View {
                     .font(MissaleFont.body(13))
                     .foregroundStyle(Palette.ink.opacity(0.5))
             }
+            .frame(maxWidth: .infinity, alignment: .leading)
         }
         .opacity(isStarted ? 1 : 0.75)
     }
