@@ -1,8 +1,9 @@
 import SwiftUI
 import UIKit
 
-/// Screen 30 (eIs30) — subscription cancellation, "the door stays open". No
-/// retention discount, no guilt; billing management deep-links to system Settings.
+/// t5 screen 9 (fIs9) — cancellation detail: what happens, what stays yours
+/// forever, what pauses, and the hardship policy — no retention discount anywhere.
+/// Reached from Settings › Assinatura › "Cancelar a renovação".
 struct SubscriptionCancellationView: View {
     @Environment(\.dismiss) private var dismiss
 
@@ -10,29 +11,33 @@ struct SubscriptionCancellationView: View {
         ZStack {
             LiturgicalColor.red.pageBackground
             ScrollView {
-                VStack(alignment: .leading, spacing: 16) {
-                    HStack {
-                        Button("‹ Ajustes") { dismiss() }
-                            .font(MissaleFont.body(16))
-                            .foregroundStyle(Palette.wine)
-                        Spacer()
+                VStack(alignment: .leading, spacing: 14) {
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("Cancelar a renovação")
+                            .font(MissaleFont.display(28, weight: .semibold))
+                        Text("Sem perguntas de saída e sem oferta de desconto. Só o que muda e o que não muda.")
+                            .font(MissaleFont.body(15))
+                            .foregroundStyle(Palette.ink.opacity(0.68))
                     }
 
-                    Eyebrow(text: "Sua assinatura")
-                    Text("A porta fica aberta")
-                        .font(MissaleFont.display(28, weight: .semibold))
-                        .foregroundStyle(Palette.ink)
-                    Text("Você desligou a renovação. O acesso completo continua até \(MockSubscription.renewalOffDate), e depois disso nada é cobrado.")
-                        .font(MissaleFont.body(16))
-                        .foregroundStyle(Palette.ink.opacity(0.75))
+                    GlassCard {
+                        VStack(alignment: .leading, spacing: 9) {
+                            Eyebrow(text: "O que acontece")
+                            ForEach(MockSubscription.cancelWhatHappens, id: \.self) { line in
+                                Text(line)
+                                    .font(MissaleFont.body(16))
+                                    .foregroundStyle(Palette.ink.opacity(0.84))
+                            }
+                        }
+                    }
 
                     GlassCard {
-                        VStack(alignment: .leading, spacing: 10) {
-                            Eyebrow(text: "O que continua seu, para sempre")
+                        VStack(alignment: .leading, spacing: 9) {
+                            Eyebrow(text: "Continua seu, para sempre")
                             ForEach(MockSubscription.keepsForever, id: \.self) { line in
                                 HStack(alignment: .top, spacing: 8) {
                                     Text("•").foregroundStyle(Palette.wine)
-                                    Text(line).font(MissaleFont.body(15)).foregroundStyle(Palette.ink.opacity(0.82))
+                                    Text(line).font(MissaleFont.body(16)).foregroundStyle(Palette.ink.opacity(0.86))
                                 }
                             }
                         }
@@ -40,51 +45,64 @@ struct SubscriptionCancellationView: View {
 
                     DashedUtilityCard {
                         VStack(alignment: .leading, spacing: 6) {
-                            Text("Se o motivo for dinheiro, escreva para nós: acesso completo, liberado sem perguntas e sem comprovação. Isso não é exceção, é política.")
-                                .font(MissaleFont.body(15))
-                                .foregroundStyle(Palette.ink.opacity(0.8))
-                            Text(MockSubscription.hardshipEmail)
-                                .font(MissaleFont.body(15, weight: .medium))
-                                .foregroundStyle(Palette.wine)
+                            Eyebrow(text: "Fica em pausa")
+                            Text(MockSubscription.cancelPausedNote)
+                                .font(MissaleFont.body(16))
+                                .foregroundStyle(Palette.ink.opacity(0.82))
                         }
                     }
 
-                    Text("A cobrança é feita pela App Store. O cancelamento acontece nos ajustes do sistema, e este botão leva direto para lá.")
-                        .font(MissaleFont.body(13))
-                        .foregroundStyle(Palette.ink.opacity(0.55))
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("Se o motivo for dinheiro, não cancele: escreva e liberamos o acesso completo, sem comprovação e sem prazo.")
+                            .font(MissaleFont.body(16))
+                            .foregroundStyle(Palette.ink.opacity(0.84))
+                        Text(MockSubscription.hardshipEmail)
+                            .font(MissaleFont.body(16, weight: .medium))
+                            .foregroundStyle(Palette.wine)
+                    }
+                    .padding(16)
+                    .background(Palette.wine.opacity(0.1))
+                    .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
+                    .overlay(RoundedRectangle(cornerRadius: 18, style: .continuous).strokeBorder(Palette.wine.opacity(0.26), lineWidth: 1))
 
                     VStack(spacing: 10) {
-                        Button {
-                            dismiss()
-                        } label: {
-                            Text("Voltar ao app")
-                                .font(MissaleFont.body(17))
-                                .frame(maxWidth: .infinity)
-                                .padding(16)
-                                .background(.ultraThinMaterial, in: Capsule())
-                                .overlay(Capsule().strokeBorder(Color.white.opacity(0.7), lineWidth: 1))
-                                .foregroundStyle(Palette.ink)
-                        }
                         Button {
                             if let url = URL(string: UIApplication.openSettingsURLString) {
                                 UIApplication.shared.open(url)
                             }
                         } label: {
-                            Text("Gerenciar nos ajustes do iPhone")
-                                .font(MissaleFont.body(16))
-                                .foregroundStyle(Palette.wine)
+                            Text("Cancelar nos ajustes do iPhone")
+                                .font(MissaleFont.body(17))
+                                .frame(maxWidth: .infinity)
+                                .padding(16)
+                                .background(Palette.wine, in: Capsule())
+                                .foregroundStyle(.white)
                         }
+                        Button {
+                            dismiss()
+                        } label: {
+                            Text("Manter minha assinatura")
+                                .font(MissaleFont.body(16))
+                                .foregroundStyle(Palette.ink.opacity(0.65))
+                        }
+                        Text("O cancelamento é feito pela App Store. Este botão abre a tela do sistema.")
+                            .font(MissaleFont.body(13))
+                            .foregroundStyle(Palette.ink.opacity(0.55))
+                            .multilineTextAlignment(.center)
                     }
-                    .padding(.top, 6)
+                    .frame(maxWidth: .infinity)
+                    .padding(.top, 4)
                 }
                 .padding(.horizontal, 24)
                 .padding(.top, 12)
                 .padding(.bottom, 30)
             }
         }
+        .navigationTitle("")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
 #Preview {
-    SubscriptionCancellationView()
+    NavigationStack { SubscriptionCancellationView() }
 }
