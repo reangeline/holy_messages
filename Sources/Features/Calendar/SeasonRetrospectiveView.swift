@@ -24,7 +24,7 @@ struct SeasonRetrospectiveView: View {
 
                     GlassCard {
                         VStack(alignment: .leading, spacing: 10) {
-                            Eyebrow(text: "O que acompanhou o caminho")
+                            Eyebrow(text: L.string( "What accompanied the way", table: "CalendarSaints"))
                             VStack(alignment: .leading, spacing: 9) {
                                 ForEach(retrospective.accompaniments, id: \.self) { line in
                                     Text(line).font(MissaleFont.body(16))
@@ -54,7 +54,7 @@ struct SeasonRetrospectiveView: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .principal) {
-                Text("A jornada").font(MissaleFont.body(15, weight: .medium))
+                Text("The Journey", tableName: "CalendarSaints").font(MissaleFont.body(15, weight: .medium))
             }
         }
     }

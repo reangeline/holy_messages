@@ -22,14 +22,14 @@ struct RegionalCalendarView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 12) {
                     VStack(alignment: .leading, spacing: 4) {
-                        Text("Calendário litúrgico")
+                        Text("Liturgical calendar", tableName: "SettingsDetail")
                             .font(MissaleFont.display(29, weight: .semibold))
-                        Text("Cada país tem seu calendário próprio sobre o romano geral. Isso muda o santo do dia e as solenidades.")
+                        Text("Each country has its own calendar over the general Roman one. This changes the saint of the day and the solemnities.", tableName: "SettingsDetail")
                             .font(MissaleFont.body(15))
                             .foregroundStyle(Palette.ink.opacity(0.68))
                     }
 
-                    TextField("Buscar país ou diocese", text: $search)
+                    TextField(L.string( "Search country or diocese", table: "SettingsDetail"), text: $search)
                         .font(MissaleFont.body(15))
                         .padding(13)
                         .background(Color.white.opacity(0.42), in: RoundedRectangle(cornerRadius: 14, style: .continuous))
@@ -62,7 +62,10 @@ struct RegionalCalendarView: View {
                     }
 
                     DashedUtilityCard {
-                        Text("Com **\(selectedName)** selecionado: \(MockSettings.regionalEffectNote)")
+                        // Note: dropped the bold-name markdown styling to compose this
+                        // cleanly as a localized format string + the (not-mine)
+                        // regionalEffectNote content — judgment call, flagged in report.
+                        Text("\(L.string("With {region} selected:", table: "SettingsDetail").replacingOccurrences(of: "{region}", with: selectedName)) \(MockSettings.regionalEffectNote)")
                             .font(MissaleFont.body(15))
                             .foregroundStyle(Palette.ink.opacity(0.8))
                     }

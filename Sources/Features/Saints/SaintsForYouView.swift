@@ -7,9 +7,9 @@ struct SaintsForYouView: View {
             LiturgicalColor.red.pageBackground
             ScrollView {
                 VStack(alignment: .leading, spacing: 12) {
-                    Text("Santos para o que você carrega")
+                    Text("Saints for what you carry", tableName: "CalendarSaints")
                         .font(MissaleFont.display(29))
-                    Text("A partir do que você registrou: aridez na oração.")
+                    Text("Based on what you logged: dryness in prayer.", tableName: "CalendarSaints")
                         .font(MissaleFont.body(16))
                         .foregroundStyle(Palette.ink.opacity(0.7))
 

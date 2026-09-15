@@ -43,12 +43,12 @@ struct CalendarRootView: View {
         HStack(alignment: .firstTextBaseline) {
             VStack(alignment: .leading, spacing: 4) {
                 Eyebrow(text: MockLiturgical.today.seasonName)
-                Text("Setembro")
+                Text("September", tableName: "CalendarSaints")
                     .font(MissaleFont.display(28))
             }
             Spacer()
             NavigationLink(value: CalendarDestination.journey) {
-                Text("A jornada ›")
+                Text("The journey ›", tableName: "CalendarSaints")
                     .font(MissaleFont.body(15))
                     .foregroundStyle(Palette.wine)
             }
@@ -107,17 +107,17 @@ struct CalendarRootView: View {
     private var legend: some View {
         VStack(alignment: .leading, spacing: 8) {
             HStack(spacing: 14) {
-                legendSwatch(color: Palette.green, label: "Tempo Comum")
-                legendSwatch(color: Palette.wine, label: "Festa, vermelho")
-                legendSwatch(color: .white, bordered: true, label: "Branco")
+                legendSwatch(color: Palette.green, label: L.string( "Ordinary Time", table: "CalendarSaints"))
+                legendSwatch(color: Palette.wine, label: L.string( "Feast, red", table: "CalendarSaints"))
+                legendSwatch(color: .white, bordered: true, label: L.string( "White", table: "CalendarSaints"))
             }
             HStack(spacing: 6) {
                 RoundedRectangle(cornerRadius: 2).fill(Palette.ink.opacity(0.45)).frame(width: 16, height: 3)
-                Text("marca discreta = você registrou algo naquele dia")
+                Text("discreet mark = you logged something that day", tableName: "CalendarSaints")
                     .font(MissaleFont.body(13))
                     .foregroundStyle(Palette.ink.opacity(0.7))
             }
-            Text("Sem mapa de calor e sem cores de bom e mau dia: a cor é da liturgia, a marca é sua.")
+            Text("No heat map and no good-day/bad-day colors: the color is the liturgy's, the mark is yours.", tableName: "CalendarSaints")
                 .font(MissaleFont.body(13))
                 .foregroundStyle(Palette.ink.opacity(0.55))
         }

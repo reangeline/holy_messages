@@ -13,8 +13,12 @@ struct RosaryMysteriesPickerView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 18) {
                     VStack(alignment: .leading, spacing: 5) {
-                        Text("Mistérios de hoje")
+                        Text("Today's Mysteries", tableName: "Prayers")
                             .font(MissaleFont.display(28))
+                        // Kept as-is (not localized): mixes today's specific day+mystery
+                        // names (content) with an instruction in one hardcoded sentence
+                        // that isn't cleanly separable without restructuring into a
+                        // dynamic template — judgment call, flagged in my report.
                         Text("Segunda-feira: Gozosos. Pode trocar, se quiser rezar outros.")
                             .font(MissaleFont.body(15))
                             .foregroundStyle(Palette.ink.opacity(0.7))
@@ -28,18 +32,18 @@ struct RosaryMysteriesPickerView: View {
 
                     GlassCard {
                         VStack(spacing: 14) {
-                            Toggle("Modo iniciante", isOn: $beginnerMode)
+                            Toggle(L.string( "Beginner mode", table: "Prayers"), isOn: $beginnerMode)
                                 .font(MissaleFont.body(16, weight: .medium))
                                 .tint(Palette.wine)
                             Divider()
-                            Toggle("Voz humana guiando", isOn: $voiceGuiding)
+                            Toggle(L.string( "Human voice guiding", table: "Prayers"), isOn: $voiceGuiding)
                                 .font(MissaleFont.body(16, weight: .medium))
                                 .tint(Palette.wine)
                         }
                     }
 
                     GlassCard {
-                        TextField("Intenção deste terço (opcional) — \"rezei por…\"", text: $intention)
+                        TextField(L.string( "Intention for this rosary (optional) — \"I prayed for…\"", table: "Prayers"), text: $intention)
                             .font(MissaleFont.body(16))
                     }
 
@@ -47,7 +51,7 @@ struct RosaryMysteriesPickerView: View {
                         NavigationLink {
                             RosaryGuidedPrayerView(mystery: selected)
                         } label: {
-                            Text("Começar")
+                            Text("Start", tableName: "Prayers")
                                 .font(MissaleFont.body(17, weight: .medium))
                                 .frame(maxWidth: .infinity)
                                 .padding(.vertical, 16)
@@ -57,7 +61,7 @@ struct RosaryMysteriesPickerView: View {
                         NavigationLink {
                             RosaryDarkModeView(mystery: selected, startIndex: 0)
                         } label: {
-                            Text("Começar com a tela apagada")
+                            Text("Start with the screen off", tableName: "Prayers")
                                 .font(MissaleFont.body(16))
                                 .foregroundStyle(Palette.ink.opacity(0.65))
                         }
@@ -80,7 +84,7 @@ struct RosaryMysteriesPickerView: View {
         } label: {
             HStack {
                 VStack(alignment: .leading, spacing: 3) {
-                    Text("Mistérios \(mystery.mysterySet.rawValue)")
+                    Text("\(L.string( "Mysteries", table: "Prayers")) \(mystery.mysterySet.rawValue)")
                         .font(MissaleFont.body(17, weight: .medium))
                         .foregroundStyle(isSelected ? .white : Palette.ink)
                     Text(mystery.dayLabel)

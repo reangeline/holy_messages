@@ -14,17 +14,17 @@ struct RemindersSettingsView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 14) {
                     VStack(alignment: .leading, spacing: 4) {
-                        Text("Horários e lembretes")
+                        Text("Schedules and reminders", tableName: "SettingsDetail")
                             .font(MissaleFont.display(29, weight: .semibold))
-                        Text("Nos horários da Igreja. Cada um pode ficar desligado.")
+                        Text("At the Church's hours. Each one can be turned off.", tableName: "SettingsDetail")
                             .font(MissaleFont.body(15))
                             .foregroundStyle(Palette.ink.opacity(0.68))
                     }
 
                     GlassCard {
                         VStack(alignment: .leading, spacing: 8) {
-                            Eyebrow(text: "Leitura diária")
-                            Text("A palavra e o santo do dia")
+                            Eyebrow(text: L.string( "Daily reading", table: "SettingsDetail"))
+                            Text("The word and saint of the day", tableName: "SettingsDetail")
                                 .font(MissaleFont.body(18, weight: .medium))
                             HStack(spacing: 8) {
                                 ForEach(MockSettings.dailyReadingHours, id: \.id) { hour in
@@ -43,7 +43,7 @@ struct RemindersSettingsView: View {
                                     .buttonStyle(.plain)
                                 }
                             }
-                            Text("Uma notificação por dia, no fuso do aparelho. Nada de insistência se você não abrir.")
+                            Text("One notification a day, in your device's time zone. No nagging if you don't open it.", tableName: "SettingsDetail")
                                 .font(MissaleFont.body(15))
                                 .foregroundStyle(Palette.ink.opacity(0.66))
                         }
@@ -75,7 +75,7 @@ struct RemindersSettingsView: View {
 
                     DashedUtilityCard {
                         VStack(alignment: .leading, spacing: 6) {
-                            Eyebrow(text: "Silêncio")
+                            Eyebrow(text: L.string( "Silence", table: "SettingsDetail"))
                             Text(MockSettings.quietHoursNote)
                                 .font(MissaleFont.body(16))
                                 .foregroundStyle(Palette.ink.opacity(0.8))

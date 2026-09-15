@@ -19,7 +19,7 @@ struct AppRootView: View {
         }
         // Unifies onboarding and the main app under one language, detected from
         // the device by default with a manual override in Settings. Applying it
-        // here (not per-screen) means every Text/String(localized:) below updates
+        // here (not per-screen) means every Text/L.string() below updates
         // live the moment the override changes — no restart needed.
         .environment(\.locale, resolvedLanguage.locale)
         // Rolling-window notifications need refreshing on every foreground, not just

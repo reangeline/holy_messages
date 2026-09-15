@@ -37,7 +37,7 @@ struct SaintDetailView: View {
 
                     GlassCard {
                         VStack(alignment: .leading, spacing: 6) {
-                            Eyebrow(text: "Por que ela importa hoje")
+                            Eyebrow(text: L.string( "Why she matters today", table: "CalendarSaints"))
                             Text(saint.whyItMattersToday)
                                 .font(MissaleFont.body(16))
                                 .foregroundStyle(Palette.ink.opacity(0.78))
@@ -46,7 +46,7 @@ struct SaintDetailView: View {
 
                     LiturgicalGradientCard(color: .red) {
                         VStack(alignment: .leading, spacing: 8) {
-                            Eyebrow(text: "Oração", color: Palette.goldBright)
+                            Eyebrow(text: L.string( "Prayer", table: "CalendarSaints"), color: Palette.goldBright)
                             Text(saint.prayer)
                                 .font(MissaleFont.display(20, italic: true))
                                 .foregroundStyle(.white)
@@ -58,7 +58,7 @@ struct SaintDetailView: View {
                     } label: {
                         GlassCard {
                             HStack {
-                                Text("Santos para o que você carrega")
+                                Text("Saints for what you carry", tableName: "CalendarSaints")
                                     .font(MissaleFont.body(17))
                                     .foregroundStyle(Palette.ink)
                                 Spacer()
@@ -75,7 +75,7 @@ struct SaintDetailView: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
-                NavigationLink("Arquivo ›") {
+                NavigationLink(L.string( "Archive ›", table: "CalendarSaints")) {
                     SaintsArchiveView()
                 }
                 .font(MissaleFont.body(15))

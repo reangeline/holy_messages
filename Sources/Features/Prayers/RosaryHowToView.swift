@@ -12,11 +12,11 @@ struct RosaryHowToView: View {
 
     private var diagram: [DiagramItem] {
         [
-            .init(label: "Crucifixo", detail: "o Credo", size: 22, color: Palette.ink.opacity(0.7)),
-            .init(label: "Conta maior", detail: "um Pai-Nosso", size: 16, color: Palette.goldMuted),
-            .init(label: "Três contas", detail: "três Ave-Marias, pela fé, esperança e caridade", size: 11, color: Palette.wine.opacity(0.6)),
-            .init(label: "Medalha", detail: "anuncia-se o mistério", size: 18, color: Palette.goldMuted),
-            .init(label: "Dezena", detail: "dez Ave-Marias, e o Glória fecha", size: 11, color: Palette.wine.opacity(0.6)),
+            .init(label: L.string( "Crucifix", table: "Prayers"), detail: L.string( "the Creed", table: "Prayers"), size: 22, color: Palette.ink.opacity(0.7)),
+            .init(label: L.string( "Larger bead", table: "Prayers"), detail: L.string( "one Our Father", table: "Prayers"), size: 16, color: Palette.goldMuted),
+            .init(label: L.string( "Three beads", table: "Prayers"), detail: L.string( "three Hail Marys, for faith, hope, and charity", table: "Prayers"), size: 11, color: Palette.wine.opacity(0.6)),
+            .init(label: L.string( "Medal", table: "Prayers"), detail: L.string( "the mystery is announced", table: "Prayers"), size: 18, color: Palette.goldMuted),
+            .init(label: L.string( "Decade", table: "Prayers"), detail: L.string( "ten Hail Marys, and the Glory Be closes it", table: "Prayers"), size: 11, color: Palette.wine.opacity(0.6)),
         ]
     }
 

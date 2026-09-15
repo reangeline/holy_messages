@@ -10,9 +10,9 @@ struct PrayersRootView: View {
                     VStack(alignment: .leading, spacing: 16) {
                         header
                         rosaryTeaserCard
-                        row(title: "Como rezar o Terço", subtitle: "O objeto, a mecânica, o que fazer com a mente", destination: .howTo)
-                        row(title: "Terços rezados", subtitle: "Histórico e novenas em curso", destination: .log)
-                        row(title: "Outras orações", subtitle: "Angelus, Misericórdia, Completas, Exame, ladainhas", destination: .others)
+                        row(title: L.string( "How to pray the Rosary", table: "Prayers"), subtitle: L.string( "The object, the mechanics, what to do with your mind", table: "Prayers"), destination: .howTo)
+                        row(title: L.string( "Rosaries prayed", table: "Prayers"), subtitle: L.string( "History and novenas in progress", table: "Prayers"), destination: .log)
+                        row(title: L.string( "Other prayers", table: "Prayers"), subtitle: L.string( "Angelus, Divine Mercy, Compline, Examen, litanies", table: "Prayers"), destination: .others)
                     }
                     .padding(.horizontal, 24)
                     .padding(.top, 12)
@@ -43,10 +43,10 @@ struct PrayersRootView: View {
 
     private var header: some View {
         VStack(alignment: .leading, spacing: 5) {
-            Eyebrow(text: "Prayers")
-            Text("Orações")
+            Eyebrow(text: L.string( "Prayers", table: "Prayers"))
+            Text("Prayers", tableName: "Prayers")
                 .font(MissaleFont.display(28))
-            Text("Tudo funciona offline. Uma só tradução em todo o app.")
+            Text("Everything works offline. One translation across the whole app.", tableName: "Prayers")
                 .font(MissaleFont.body(14))
                 .foregroundStyle(Palette.ink.opacity(0.65))
         }
@@ -57,14 +57,14 @@ struct PrayersRootView: View {
         return NavigationLink(value: PrayersDestination.mysteries) {
             LiturgicalGradientCard(color: .red) {
                 VStack(alignment: .leading, spacing: 6) {
-                    Text("TERÇO DE HOJE · \(todays.dayLabel.uppercased())")
+                    Text("\(L.string( "TODAY'S ROSARY", table: "Prayers")) · \(todays.dayLabel.uppercased())")
                         .font(MissaleFont.body(11, weight: .semibold))
                         .tracking(1.4)
                         .foregroundStyle(Palette.goldBright)
-                    Text("Mistérios \(todays.mysterySet.rawValue)")
+                    Text("\(L.string( "Mysteries", table: "Prayers")) \(todays.mysterySet.rawValue)")
                         .font(MissaleFont.display(21, weight: .medium))
                         .foregroundStyle(.white)
-                    Text("Guiado, conta a conta · 18 min")
+                    Text("Guided, bead by bead · 18 min", tableName: "Prayers")
                         .font(MissaleFont.body(15))
                         .foregroundStyle(.white.opacity(0.88))
                 }

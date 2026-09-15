@@ -15,7 +15,7 @@ struct WordOfDayView: View {
                         NavigationLink {
                             ShareCardView()
                         } label: {
-                            Text("Compartilhar ›")
+                            Text("Share ›", tableName: "FormationWordOfDay")
                                 .font(MissaleFont.body(15))
                                 .foregroundStyle(Palette.wine)
                                 .frame(maxWidth: .infinity, alignment: .trailing)
@@ -23,7 +23,7 @@ struct WordOfDayView: View {
 
                         LiturgicalGradientCard(color: day.color) {
                             VStack(alignment: .leading, spacing: 10) {
-                                Text("PALAVRA DE HOJE")
+                                Text("WORD OF THE DAY", tableName: "FormationWordOfDay")
                                     .font(MissaleFont.body(11, weight: .semibold))
                                     .tracking(1.6)
                                     .foregroundStyle(Palette.goldBright)
@@ -38,7 +38,7 @@ struct WordOfDayView: View {
 
                         GlassCard {
                             VStack(alignment: .leading, spacing: 8) {
-                                Eyebrow(text: "O contexto")
+                                Eyebrow(text: L.string( "The context", table: "FormationWordOfDay"))
                                 Text(word.context)
                                     .font(MissaleFont.body(16))
                                     .foregroundStyle(Palette.ink.opacity(0.85))
@@ -52,10 +52,10 @@ struct WordOfDayView: View {
                             GlassCard {
                                 HStack {
                                     VStack(alignment: .leading, spacing: 3) {
-                                        Text("O que se lê hoje na Missa")
+                                        Text("What's read at Mass today", tableName: "FormationWordOfDay")
                                             .font(MissaleFont.body(17, weight: .medium))
                                             .foregroundStyle(Palette.ink)
-                                        Text("Primeira leitura, salmo e Evangelho")
+                                        Text("First reading, psalm, and Gospel", tableName: "FormationWordOfDay")
                                             .font(MissaleFont.body(14))
                                             .foregroundStyle(Palette.ink.opacity(0.65))
                                     }
@@ -71,7 +71,7 @@ struct WordOfDayView: View {
             .padding(.bottom, 40)
             }
         }
-        .navigationTitle("Palavra do dia")
+        .navigationTitle(L.string( "Word of the day", table: "FormationWordOfDay"))
         .navigationBarTitleDisplayMode(.inline)
     }
 }

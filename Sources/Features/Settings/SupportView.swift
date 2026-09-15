@@ -9,17 +9,17 @@ struct SupportView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 14) {
                     VStack(alignment: .leading, spacing: 4) {
-                        Text("Suporte")
+                        Text("Support", tableName: "SettingsDetail")
                             .font(MissaleFont.display(29, weight: .semibold))
-                        Text("Gente responde, não um formulário.")
+                        Text("People respond, not a form.", tableName: "SettingsDetail")
                             .font(MissaleFont.body(15))
                             .foregroundStyle(Palette.ink.opacity(0.68))
                     }
 
                     GlassCard {
                         VStack(alignment: .leading, spacing: 6) {
-                            Text("Escrever para nós").font(MissaleFont.body(18, weight: .medium))
-                            Text("Respondemos em até dois dias úteis, em português ou inglês. Quem responde é uma das três pessoas que fazem o app.")
+                            Text("Write to us", tableName: "SettingsDetail").font(MissaleFont.body(18, weight: .medium))
+                            Text("We respond within two business days, in Portuguese or English. One of the three people who make the app answers.", tableName: "SettingsDetail")
                                 .font(MissaleFont.body(15))
                                 .foregroundStyle(Palette.ink.opacity(0.74))
                             Text(MockSettings.supportEmail)
@@ -30,14 +30,14 @@ struct SupportView: View {
 
                     LiturgicalGradientCard(color: .red) {
                         VStack(alignment: .leading, spacing: 7) {
-                            Text("ACESSO GRATUITO")
+                            Text("FREE ACCESS", tableName: "SettingsDetail")
                                 .font(MissaleFont.body(11, weight: .semibold))
                                 .tracking(1.4)
                                 .foregroundStyle(Palette.goldBright)
-                            Text("Se o preço for o problema, ele deixa de ser")
+                            Text("If price is the problem, it stops being one", tableName: "SettingsDetail")
                                 .font(MissaleFont.body(19, weight: .medium))
                                 .foregroundStyle(.white)
-                            Text("Escreva pedindo e liberamos o acesso completo. Sem comprovação de renda, sem explicação e sem prazo. Isso não é exceção, é política — ninguém fica de fora da formação por dinheiro.")
+                            Text("Write in and we'll unlock full access. No proof of income, no explanation, no deadline. This isn't an exception, it's policy — no one is left out of formation because of money.", tableName: "SettingsDetail")
                                 .font(MissaleFont.body(16))
                                 .foregroundStyle(.white.opacity(0.92))
                             Text(MockSettings.accessEmail)
@@ -48,19 +48,19 @@ struct SupportView: View {
 
                     GlassCard {
                         VStack(alignment: .leading, spacing: 6) {
-                            Text("Paróquias e catequese").font(MissaleFont.body(18, weight: .medium))
-                            Text("Licenças em bloco para grupos, catecúmenos de OCIA e pastorais, também gratuitas. Fale com a gente.")
+                            Text("Parishes and catechesis", tableName: "SettingsDetail").font(MissaleFont.body(18, weight: .medium))
+                            Text("Bulk licenses for groups, OCIA catechumens, and pastoral teams, also free. Talk to us.", tableName: "SettingsDetail")
                                 .font(MissaleFont.body(15))
                                 .foregroundStyle(Palette.ink.opacity(0.74))
                         }
                     }
 
                     VStack(spacing: 0) {
-                        linkRow("Perguntas frequentes", destination: .faq)
+                        linkRow(L.string( "Frequently asked questions", table: "SettingsDetail"), destination: .faq)
                         Divider().opacity(0.5)
-                        linkRow("Termos de uso", destination: .termsPlaceholder("Termos de uso"))
+                        linkRow(L.string( "Terms of Use", table: "SettingsDetail"), destination: .termsPlaceholder(L.string( "Terms of Use", table: "SettingsDetail")))
                         Divider().opacity(0.5)
-                        linkRow("Política de privacidade", destination: .termsPlaceholder("Política de privacidade"))
+                        linkRow(L.string( "Privacy Policy", table: "SettingsDetail"), destination: .termsPlaceholder(L.string( "Privacy Policy", table: "SettingsDetail")))
                     }
                     .background(Color.white.opacity(0.4))
                     .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))

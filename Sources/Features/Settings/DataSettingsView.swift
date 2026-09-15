@@ -16,9 +16,9 @@ struct DataSettingsView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 14) {
                     VStack(alignment: .leading, spacing: 4) {
-                        Text("Seus dados")
+                        Text("Your data", tableName: "SettingsDetail")
                             .font(MissaleFont.display(29, weight: .semibold))
-                        Text("Tudo o que está aqui é seu, e sai daqui quando você quiser.")
+                        Text("Everything here is yours, and leaves whenever you want.", tableName: "SettingsDetail")
                             .font(MissaleFont.body(15))
                             .foregroundStyle(Palette.ink.opacity(0.68))
                     }
@@ -27,16 +27,20 @@ struct DataSettingsView: View {
                         VStack(alignment: .leading, spacing: 10) {
                             HStack {
                                 VStack(alignment: .leading, spacing: 2) {
-                                    Text("Sincronizar entre aparelhos")
+                                    Text("Sync across devices", tableName: "SettingsDetail")
                                         .font(MissaleFont.body(18, weight: .medium))
-                                    Text(syncEnabled ? "Ligada" : "Desligada")
+                                    Text(syncEnabled ? L.string( "On", table: "SettingsDetail") : L.string( "Off", table: "SettingsDetail"))
                                         .font(MissaleFont.body(15))
                                         .foregroundStyle(Palette.ink.opacity(0.66))
                                 }
                                 Spacer()
                                 Toggle("", isOn: $syncEnabled).labelsHidden().tint(Palette.wine)
                             }
-                            Text(MockSettings.dataSyncNote)
+                            // Original copy lives in MockSettings.dataSyncNote (not mine to
+                            // edit); translated it here under a new key with the same
+                            // meaning rather than leaving it Portuguese-only, per the
+                            // "policy/chrome, not devotional" guidance for this screen.
+                            Text("Even when on, your mood log and Examen notes never upload: they never leave this device. Your subscription, track progress, and rosaries prayed do sync.", tableName: "SettingsDetail")
                                 .font(MissaleFont.body(15))
                                 .foregroundStyle(Palette.ink.opacity(0.8))
                                 .padding(11)
@@ -48,9 +52,9 @@ struct DataSettingsView: View {
 
                     GlassCard {
                         VStack(alignment: .leading, spacing: 10) {
-                            Text("Exportar")
+                            Text("Export", tableName: "SettingsDetail")
                                 .font(MissaleFont.body(18, weight: .medium))
-                            Text(MockSettings.dataExportNote)
+                            Text("Your calendar, logs, intentions, and progress, in a readable file. No account and no cloud in between.", tableName: "SettingsDetail")
                                 .font(MissaleFont.body(15))
                                 .foregroundStyle(Palette.ink.opacity(0.72))
                             HStack(spacing: 9) {
@@ -61,16 +65,16 @@ struct DataSettingsView: View {
                     }
 
                     VStack(alignment: .leading, spacing: 10) {
-                        Text("Apagar tudo")
+                        Text("Delete everything", tableName: "SettingsDetail")
                             .font(MissaleFont.body(18, weight: .medium))
                             .foregroundStyle(Palette.wine)
-                        Text(MockSettings.dataDeleteNote)
+                        Text("Deletes your calendar, logs, notes, and progress on this device. It's immediate and can't be undone — export first if you want to keep a copy.", tableName: "SettingsDetail")
                             .font(MissaleFont.body(15))
                             .foregroundStyle(Palette.ink.opacity(0.8))
                         Button {
                             showDeleteConfirmation = true
                         } label: {
-                            Text(didDelete ? "Dados apagados" : "Apagar tudo deste aparelho")
+                            Text(didDelete ? L.string( "Data deleted", table: "SettingsDetail") : L.string( "Delete everything on this device", table: "SettingsDetail"))
                                 .font(MissaleFont.body(17))
                                 .frame(maxWidth: .infinity)
                                 .padding(14)
@@ -84,15 +88,15 @@ struct DataSettingsView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
                     .overlay(RoundedRectangle(cornerRadius: 18, style: .continuous).strokeBorder(Palette.wine.opacity(0.28), lineWidth: 1))
 
-                    Text(MockSettings.dataPrivacyNote)
+                    Text("We don't sell data, there are no third-party trackers, and there are no ads. Analytics are anonymous and can be turned off below.", tableName: "SettingsDetail")
                         .font(MissaleFont.body(14))
                         .foregroundStyle(Palette.ink.opacity(0.58))
 
                     HStack {
                         VStack(alignment: .leading, spacing: 2) {
-                            Text("Analítica anônima")
+                            Text("Anonymous analytics", tableName: "SettingsDetail")
                                 .font(MissaleFont.body(17))
-                            Text("Só telas abertas, sem conteúdo")
+                            Text("Screen views only, no content", tableName: "SettingsDetail")
                                 .font(MissaleFont.body(14))
                                 .foregroundStyle(Palette.ink.opacity(0.64))
                         }
@@ -111,14 +115,15 @@ struct DataSettingsView: View {
         }
         .navigationTitle("")
         .navigationBarTitleDisplayMode(.inline)
-        .alert("Apagar tudo deste aparelho?", isPresented: $showDeleteConfirmation) {
-            Button("Cancelar", role: .cancel) {}
-            Button("Apagar", role: .destructive) {
+        .alert(L.string( "Delete everything on this device?", table: "SettingsDetail"), isPresented: $showDeleteConfirmation) {
+            Button(L.string( "Cancel", table: "SettingsDetail"), role: .cancel) {}
+            Button(L.string( "Delete", table: "SettingsDetail"), role: .destructive) {
                 moodHistory.deleteAll()
                 didDelete = true
             }
         } message: {
-            Text("É imediato e não tem volta. Isso apaga \(moodHistory.entries.count) registro(s) de humor guardados neste aparelho.")
+            Text(L.string("This deletes {count} mood entry(ies) saved on this device. This is immediate and can't be undone.", table: "SettingsDetail")
+                .replacingOccurrences(of: "{count}", with: "\(moodHistory.entries.count)"))
         }
     }
 

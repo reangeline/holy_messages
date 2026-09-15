@@ -13,7 +13,9 @@ struct FormationLessonView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
                     HStack {
-                        Text("parte \(lesson.partNumber) de \(lesson.partsTotal)")
+                        Text(L.string("part {n} of {total}", table: "FormationWordOfDay")
+                            .replacingOccurrences(of: "{n}", with: "\(lesson.partNumber)")
+                            .replacingOccurrences(of: "{total}", with: "\(lesson.partsTotal)"))
                             .font(MissaleFont.body(13))
                             .foregroundStyle(Palette.ink.opacity(0.5))
                         Spacer()
@@ -63,7 +65,7 @@ struct FormationLessonView: View {
                     NavigationLink {
                         EndOfSessionView(lesson: lesson)
                     } label: {
-                        Text("Terminei esta parte")
+                        Text("I finished this part", tableName: "FormationWordOfDay")
                             .font(MissaleFont.body(17, weight: .medium))
                             .foregroundStyle(.white)
                             .frame(maxWidth: .infinity)

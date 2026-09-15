@@ -4,7 +4,7 @@ import SwiftUI
 struct SaintsArchiveView: View {
     @State private var query = ""
     @State private var selectedTab = 0
-    private let tabs = ["Setembro", "Buscar tudo"]
+    private let tabs = [L.string( "September", table: "CalendarSaints"), L.string( "Search all", table: "CalendarSaints")]
 
     private var filtered: [(name: String, subtitle: String, date: String)] {
         guard !query.isEmpty else { return MockSaints.archiveList }
@@ -15,7 +15,7 @@ struct SaintsArchiveView: View {
         ZStack {
             LiturgicalColor.red.pageBackground
             VStack(alignment: .leading, spacing: 14) {
-                Text("Arquivo de santos")
+                Text("Saints Archive", tableName: "CalendarSaints")
                     .font(MissaleFont.display(28))
                     .padding(.horizontal, 20)
 

@@ -10,9 +10,9 @@ struct FAQView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 10) {
                     VStack(alignment: .leading, spacing: 4) {
-                        Text("Perguntas frequentes")
+                        Text("Frequently asked questions", tableName: "SettingsDetail")
                             .font(MissaleFont.display(29, weight: .semibold))
-                        Text("Toque para abrir.")
+                        Text("Tap to open.", tableName: "SettingsDetail")
                             .font(MissaleFont.body(15))
                             .foregroundStyle(Palette.ink.opacity(0.68))
                     }
@@ -52,7 +52,8 @@ struct FAQView: View {
                     }
 
                     DashedUtilityCard {
-                        Text("Não achou? Escreva para \(MockSettings.supportEmail) — respondemos em até dois dias úteis.")
+                        Text(L.string("Didn't find it? Write to {email} — we respond within two business days.", table: "SettingsDetail")
+                            .replacingOccurrences(of: "{email}", with: MockSettings.supportEmail))
                             .font(MissaleFont.body(16))
                             .foregroundStyle(Palette.ink.opacity(0.8))
                     }

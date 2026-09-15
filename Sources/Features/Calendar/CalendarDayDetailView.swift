@@ -26,7 +26,7 @@ struct CalendarDayDetailView: View {
                     if let title = detail.loggedStateTitle {
                         GlassCard {
                             VStack(alignment: .leading, spacing: 6) {
-                                Eyebrow(text: "Você registrou")
+                                Eyebrow(text: L.string( "You logged", table: "CalendarSaints"))
                                 Text(title).font(MissaleFont.body(19, weight: .medium))
                                 if let note = detail.loggedNote {
                                     Text("\u{201C}\(note)\u{201D}")
@@ -39,7 +39,7 @@ struct CalendarDayDetailView: View {
 
                     LiturgicalGradientCard(color: .red) {
                         VStack(alignment: .leading, spacing: 8) {
-                            Eyebrow(text: "A passagem daquele dia", color: Palette.goldBright)
+                            Eyebrow(text: L.string( "That day's passage", table: "CalendarSaints"), color: Palette.goldBright)
                             Text(detail.psalmText)
                                 .font(MissaleFont.display(21, italic: true))
                                 .foregroundStyle(.white)
@@ -51,7 +51,7 @@ struct CalendarDayDetailView: View {
 
                     GlassCard {
                         VStack(alignment: .leading, spacing: 6) {
-                            Eyebrow(text: "Naquele dia na liturgia")
+                            Eyebrow(text: L.string( "That day in the liturgy", table: "CalendarSaints"))
                             Text(detail.liturgyNote).font(MissaleFont.body(17))
                         }
                     }
@@ -59,7 +59,7 @@ struct CalendarDayDetailView: View {
                     if let other = detail.otherActivity {
                         GlassCard {
                             VStack(alignment: .leading, spacing: 6) {
-                                Eyebrow(text: "Também naquele dia")
+                                Eyebrow(text: L.string( "Also that day", table: "CalendarSaints"))
                                 Text(other).font(MissaleFont.body(17))
                             }
                         }
@@ -72,7 +72,7 @@ struct CalendarDayDetailView: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .principal) {
-                Text("Setembro").font(MissaleFont.body(15, weight: .medium))
+                Text("September", tableName: "CalendarSaints").font(MissaleFont.body(15, weight: .medium))
             }
         }
     }

@@ -26,7 +26,7 @@ struct FormationRootView: View {
                         } label: {
                             DashedUtilityCard {
                                 HStack {
-                                    Text("Glossário e \u{201C}por que hoje é vermelho?\u{201D}")
+                                    Text("Glossary and \u{201C}why is today red?\u{201D}", tableName: "FormationWordOfDay")
                                         .font(MissaleFont.body(15))
                                         .foregroundStyle(Palette.ink.opacity(0.75))
                                     Spacer()
@@ -49,9 +49,13 @@ struct FormationRootView: View {
 
     private var header: some View {
         VStack(alignment: .leading, spacing: 5) {
-            Eyebrow(text: "Formation")
-            Text("Trilhas")
+            Eyebrow(text: L.string( "Formation", table: "FormationWordOfDay"))
+            Text("Tracks", tableName: "FormationWordOfDay")
                 .font(MissaleFont.display(28))
+            // "reviewerCredit" (e.g. "Revisão de conteúdo por Pe. Daniel Vasconcelos.")
+            // is owned by MockFormation.swift, out of this pass's scope, and stays
+            // Portuguese — so this whole sentence stays Portuguese too rather than
+            // mixing an English lead-in with a Portuguese name/credit.
             Text("Uma parte por dia, cerca de quatro minutos. \(MockFormation.reviewerCredit)")
                 .font(MissaleFont.body(14))
                 .foregroundStyle(Palette.ink.opacity(0.65))

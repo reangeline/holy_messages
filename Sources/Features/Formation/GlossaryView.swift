@@ -9,7 +9,7 @@ struct GlossaryView: View {
             LiturgicalColor.red.pageBackground
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
-                    Text("Por que hoje é vermelho?")
+                    Text("Why is today red?", tableName: "FormationWordOfDay")
                         .font(MissaleFont.display(28, weight: .semibold))
                     Text("\(day.dayMonthLabel) · \(day.rank.rawValue.lowercased()) · \(day.feastName)")
                         .font(MissaleFont.body(15))
@@ -22,7 +22,7 @@ struct GlossaryView: View {
 
                     GlassCard {
                         VStack(alignment: .leading, spacing: 6) {
-                            Eyebrow(text: "Graus de celebração")
+                            Eyebrow(text: L.string( "Degrees of celebration", table: "FormationWordOfDay"))
                             Text(MockLiturgical.ranksExplainer)
                                 .font(MissaleFont.body(16))
                                 .foregroundStyle(Palette.ink.opacity(0.8))
@@ -30,7 +30,7 @@ struct GlossaryView: View {
                     }
 
                     VStack(alignment: .leading, spacing: 10) {
-                        Text("As cores litúrgicas")
+                        Text("The liturgical colors", tableName: "FormationWordOfDay")
                             .font(MissaleFont.body(13, weight: .semibold))
                             .foregroundStyle(Palette.ink.opacity(0.55))
                         ForEach(MockLiturgical.colorGuide) { info in
@@ -67,7 +67,7 @@ struct GlossaryView: View {
                 .padding(.bottom, 40)
             }
         }
-        .navigationTitle("Glossário")
+        .navigationTitle(L.string( "Glossary", table: "FormationWordOfDay"))
         .navigationBarTitleDisplayMode(.inline)
     }
 }

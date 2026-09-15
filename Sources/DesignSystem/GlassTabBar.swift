@@ -7,10 +7,10 @@ enum MainTab: CaseIterable, Identifiable {
 
     var title: String {
         switch self {
-        case .today: String(localized: "Today")
-        case .calendar: String(localized: "Calendar")
-        case .formation: String(localized: "Formation")
-        case .prayers: String(localized: "Prayers")
+        case .today: L.string( "Today")
+        case .calendar: L.string( "Calendar")
+        case .formation: L.string( "Formation")
+        case .prayers: L.string( "Prayers")
         }
     }
 

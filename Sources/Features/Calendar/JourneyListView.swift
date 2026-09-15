@@ -7,10 +7,10 @@ struct JourneyListView: View {
             LiturgicalColor.green.pageBackground
             ScrollView {
                 VStack(alignment: .leading, spacing: 12) {
-                    Eyebrow(text: "A jornada")
-                    Text("Você atravessou isso")
+                    Eyebrow(text: L.string( "The Journey", table: "CalendarSaints"))
+                    Text("You crossed through this", tableName: "CalendarSaints")
                         .font(MissaleFont.display(30))
-                    Text("Por tempo litúrgico, como a Igreja conta o ano. Não por mês, e sem comparação entre eles.")
+                    Text("By liturgical time, the way the Church counts the year. Not by month, and without comparing them.", tableName: "CalendarSaints")
                         .font(MissaleFont.body(16))
                         .foregroundStyle(Palette.ink.opacity(0.7))
                         .padding(.bottom, 6)
@@ -28,7 +28,7 @@ struct JourneyListView: View {
                         }
                     }
 
-                    Text("Sem curva de progresso e sem percentual: desolação não é fracasso, e aridez não é queda de desempenho.")
+                    Text("No progress curve and no percentage: desolation isn't failure, and dryness isn't a performance dip.", tableName: "CalendarSaints")
                         .font(MissaleFont.body(14))
                         .foregroundStyle(Palette.ink.opacity(0.55))
                 }
@@ -40,7 +40,7 @@ struct JourneyListView: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .principal) {
-                Text("Setembro").font(MissaleFont.body(15, weight: .medium))
+                Text("September", tableName: "CalendarSaints").font(MissaleFont.body(15, weight: .medium))
             }
         }
     }
@@ -62,7 +62,7 @@ struct JourneyListView: View {
                     .font(MissaleFont.body(15))
                     .foregroundStyle(Palette.ink.opacity(0.74))
                 if disabled {
-                    Text("Ainda não atravessado")
+                    Text("Not yet crossed", tableName: "CalendarSaints")
                         .font(MissaleFont.body(12))
                         .foregroundStyle(Palette.ink.opacity(0.4))
                 }

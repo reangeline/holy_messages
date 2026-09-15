@@ -9,7 +9,7 @@ struct LanguageSettingsView: View {
     var body: some View {
         List {
             Section {
-                row(title: String(localized: "Automatic (device language)"), isSelected: languageOverride == AppLanguagePreference.systemValue) {
+                row(title: L.string( "Automatic (device language)"), isSelected: languageOverride == AppLanguagePreference.systemValue) {
                     languageOverride = AppLanguagePreference.systemValue
                 }
             } footer: {
@@ -23,7 +23,7 @@ struct LanguageSettingsView: View {
                 }
             }
         }
-        .navigationTitle(String(localized: "Language"))
+        .navigationTitle(L.string( "Language"))
         .navigationBarTitleDisplayMode(.inline)
     }
 

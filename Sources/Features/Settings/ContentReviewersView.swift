@@ -8,9 +8,9 @@ struct ContentReviewersView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 14) {
                     VStack(alignment: .leading, spacing: 4) {
-                        Text("Quem revisou o conteúdo")
+                        Text("Who reviewed the content", tableName: "SettingsDetail")
                             .font(MissaleFont.display(29, weight: .semibold))
-                        Text("Com nome, para você poder verificar.")
+                        Text("By name, so you can verify.", tableName: "SettingsDetail")
                             .font(MissaleFont.body(15))
                             .foregroundStyle(Palette.ink.opacity(0.68))
                     }
@@ -36,8 +36,10 @@ struct ContentReviewersView: View {
 
                     DashedUtilityCard {
                         VStack(alignment: .leading, spacing: 8) {
-                            Eyebrow(text: "Como o conteúdo é feito")
-                            Text(MockSettings.contentProcessNote)
+                            Eyebrow(text: L.string( "How the content is made", table: "SettingsDetail"))
+                            // MockSettings.contentProcessNote is not mine to edit; translated
+                            // under a new key with matching meaning (policy text, not scripture).
+                            Text("The explanatory texts are original and go through review before publishing. Liturgical quotes appear as support, with the source. Found a doctrinal error? Write to us — we correct it and log the correction.", tableName: "SettingsDetail")
                                 .font(MissaleFont.body(16))
                                 .foregroundStyle(Palette.ink.opacity(0.82))
                             Text(MockSettings.errorsEmail)
@@ -46,7 +48,9 @@ struct ContentReviewersView: View {
                         }
                     }
 
-                    Text(MockSettings.licensingNote)
+                    // MockSettings.licensingNote is not mine to edit; translated under a
+                    // new key with matching meaning, same reasoning as above.
+                    Text("The liturgical translations used in this app are licensed with the corresponding episcopal conference. The biblical ones are public domain, with the version noted on each text.", tableName: "SettingsDetail")
                         .font(MissaleFont.body(14))
                         .foregroundStyle(Palette.ink.opacity(0.58))
                 }
