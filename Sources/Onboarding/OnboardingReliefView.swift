@@ -6,8 +6,9 @@ struct OnboardingReliefView: View {
     @ObservedObject var viewModel: OnboardingViewModel
     let onBack: () -> Void
     let onNext: () -> Void
+    @Environment(\.locale) private var locale
 
-    private var relief: ReliefContent { viewModel.reliefContent }
+    private var relief: ReliefContent { viewModel.reliefContent(for: AppLanguage.current(from: locale)) }
 
     var body: some View {
         ZStack {

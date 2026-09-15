@@ -3,6 +3,7 @@ import SwiftUI
 /// dIs14 — formation track synthesis. Back to the flat/practical register.
 struct OnboardingSynthesisView: View {
     let onNext: () -> Void
+    @Environment(\.locale) private var locale
 
     var body: some View {
         ZStack {
@@ -20,7 +21,7 @@ struct OnboardingSynthesisView: View {
                             .foregroundStyle(Palette.ink.opacity(0.65))
 
                         VStack(spacing: 10) {
-                            ForEach(Array(MockOnboarding.planSteps.enumerated()), id: \.offset) { _, step in
+                            ForEach(Array(MockOnboarding.planSteps(for: AppLanguage.current(from: locale)).enumerated()), id: \.offset) { _, step in
                                 HStack(alignment: .top, spacing: 12) {
                                     Text("\(step.number)")
                                         .font(MissaleFont.display(20, weight: .medium))

@@ -4,11 +4,14 @@ import SwiftUI
 struct OnboardingSampleView: View {
     let onBack: () -> Void
     let onContinue: () -> Void
+    @Environment(\.locale) private var locale
 
-    @State private var selectedTabID = MockOnboarding.sampleTabs.first?.id ?? ""
+    @State private var selectedTabID: String = ""
+
+    private var tabs: [SampleTab] { MockOnboarding.sampleTabs(for: AppLanguage.current(from: locale)) }
 
     private var selectedTab: SampleTab {
-        MockOnboarding.sampleTabs.first { $0.id == selectedTabID } ?? MockOnboarding.sampleTabs[0]
+        tabs.first { $0.id == selectedTabID } ?? tabs[0]
     }
 
     var body: some View {
@@ -22,7 +25,7 @@ struct OnboardingSampleView: View {
                     .padding(.top, 6)
 
                 HStack(spacing: 8) {
-                    ForEach(MockOnboarding.sampleTabs) { tab in
+                    ForEach(tabs) { tab in
                         Button {
                             selectedTabID = tab.id
                         } label: {

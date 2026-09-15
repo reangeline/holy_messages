@@ -14,7 +14,7 @@ struct OnboardingTopBar: View {
         HStack {
             if let onBack {
                 Button(action: onBack) {
-                    Text("‹ Back")
+                    Text("‹ \(L.string( "Back", table: "Onboarding"))")
                         .font(MissaleFont.body(16))
                         .foregroundStyle(tint)
                 }

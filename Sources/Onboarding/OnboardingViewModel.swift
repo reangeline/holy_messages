@@ -6,13 +6,13 @@ final class OnboardingViewModel: ObservableObject {
     @Published private(set) var path: [OnboardingStep] = [.feed]
     @Published var lifeAnswers: [String: Set<String>] = [:]
     @Published var spiritualAnswers: [String: String] = [:]
-    @Published var selectedNotificationTimeID: String = MockOnboarding.notificationTimes.first?.id ?? ""
+    @Published var selectedNotificationTimeID: String = MockOnboarding.notificationTimes(for: .en).first?.id ?? ""
     @Published var notificationPermissionRequested = false
 
     var current: OnboardingStep { path.last ?? .feed }
 
-    var reliefContent: ReliefContent {
-        OnboardingRelief.content(spirit2: spiritualAnswers["spirit-2"])
+    func reliefContent(for language: AppLanguage) -> ReliefContent {
+        OnboardingRelief.content(spirit2: spiritualAnswers["spirit-2"], language: language)
     }
 
     // MARK: - Navigation
@@ -31,7 +31,7 @@ final class OnboardingViewModel: ObservableObject {
     func advanceFromSample() { push(.life(0)) }
 
     func advanceFromLife(index: Int) {
-        if index < MockOnboarding.lifeQuestions.count - 1 {
+        if index < MockOnboarding.lifeQuestions(for: .en).count - 1 {
             push(.life(index + 1))
         } else {
             push(.spiritualIntro)
@@ -43,7 +43,7 @@ final class OnboardingViewModel: ObservableObject {
     func skipAllSpiritual() { push(.relief) }
 
     func advanceFromSpiritual(index: Int) {
-        if index < MockOnboarding.spiritualQuestions.count - 1 {
+        if index < MockOnboarding.spiritualQuestions(for: .en).count - 1 {
             push(.spiritual(index + 1))
         } else {
             push(.relief)

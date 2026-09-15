@@ -8,9 +8,11 @@ struct OnboardingSpiritualQuestionView: View {
     let onBack: () -> Void
     let onNext: () -> Void
     let onSkipAll: () -> Void
+    @Environment(\.locale) private var locale
 
-    private var question: SpiritualQuestion { MockOnboarding.spiritualQuestions[index] }
-    private var total: Int { MockOnboarding.spiritualQuestions.count }
+    private var questions: [SpiritualQuestion] { MockOnboarding.spiritualQuestions(for: AppLanguage.current(from: locale)) }
+    private var question: SpiritualQuestion { questions[index] }
+    private var total: Int { questions.count }
 
     var body: some View {
         ZStack {

@@ -1,0 +1,13 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Back" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Back" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Volver" } },
+        "pt" : { "stringUnit" : { "state" : "translated", "value" : "Voltar" } }
+      }
+    }
+  },
+  "version" : "1.0"
+}

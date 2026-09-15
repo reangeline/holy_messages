@@ -7,9 +7,10 @@ struct OnboardingNotificationPreviewView: View {
     let onBack: () -> Void
     let onAllow: () -> Void
     let onNotNow: () -> Void
+    @Environment(\.locale) private var locale
 
     private var timeHour: String {
-        MockOnboarding.notificationTimes.first { $0.id == viewModel.selectedNotificationTimeID }?.hour ?? "7:00 AM"
+        MockOnboarding.notificationTimes(for: AppLanguage.current(from: locale)).first { $0.id == viewModel.selectedNotificationTimeID }?.hour ?? "7:00 AM"
     }
 
     var body: some View {

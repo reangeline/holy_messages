@@ -3,8 +3,10 @@ import SwiftUI
 /// dIs17 — paywall. UI-only, no real StoreKit purchase; both close and CTA finish onboarding.
 struct OnboardingPaywallView: View {
     let onFinish: () -> Void
+    @Environment(\.locale) private var locale
 
-    @State private var selectedPlanID = OnboardingPaywallContent.plans[1].id
+    @State private var selectedPlanID = OnboardingPaywallContent.plans(for: .en)[1].id
+    private var plans: [SubscriptionPlan] { OnboardingPaywallContent.plans(for: AppLanguage.current(from: locale)) }
 
     var body: some View {
         ZStack {
@@ -39,7 +41,7 @@ struct OnboardingPaywallView: View {
                         }
 
                         VStack(spacing: 10) {
-                            ForEach(OnboardingPaywallContent.plans) { plan in
+                            ForEach(plans) { plan in
                                 Button {
                                     selectedPlanID = plan.id
                                 } label: {
@@ -91,7 +93,7 @@ struct OnboardingPaywallView: View {
 
                 VStack(spacing: 8) {
                     OnboardingPrimaryButton(title: "Try free for 30 days", action: onFinish)
-                    Text("First 30 days free, then \(OnboardingPaywallContent.planPrice). Cancel anytime. T&C")
+                    Text("First 30 days free, then \(OnboardingPaywallContent.planPrice(for: AppLanguage.current(from: locale))). Cancel anytime. T&C")
                         .font(MissaleFont.body(12))
                         .foregroundStyle(Palette.ink.opacity(0.5))
                 }
