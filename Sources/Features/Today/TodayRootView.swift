@@ -29,6 +29,7 @@ struct TodayRootView: View {
                     .padding(.bottom, 110) // room for the floating glass tab bar
                 }
             }
+            .hubTabBarOverlay()
             .navigationDestination(isPresented: $navigateToExamen) {
                 ExamenIntroView()
             }

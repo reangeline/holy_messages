@@ -27,7 +27,7 @@ struct MainTabView: View {
     @State private var selection: MainTab = .today
 
     var body: some View {
-        MainTabContainer(selection: $selection) {
+        Group {
             switch selection {
             case .today: TodayRootView()
             case .calendar: CalendarRootView()
@@ -35,5 +35,6 @@ struct MainTabView: View {
             case .prayers: PrayersRootView()
             }
         }
+        .environment(\.mainTabSelection, $selection)
     }
 }

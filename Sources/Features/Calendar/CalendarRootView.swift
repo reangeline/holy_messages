@@ -23,9 +23,10 @@ struct CalendarRootView: View {
                     }
                     .padding(.horizontal, 20)
                     .padding(.top, 12)
-                    .padding(.bottom, 100)
+                    .padding(.bottom, 110) // room for the floating glass tab bar
                 }
             }
+            .hubTabBarOverlay()
             .navigationBarHidden(true)
             .navigationDestination(for: CalendarDestination.self) { destination in
                 switch destination {

@@ -19,6 +19,7 @@ struct PrayersRootView: View {
                     .padding(.bottom, 110) // room for the floating glass tab bar
                 }
             }
+            .hubTabBarOverlay()
             .navigationDestination(for: PrayersDestination.self) { destination in
                 switch destination {
                 case .mysteries:

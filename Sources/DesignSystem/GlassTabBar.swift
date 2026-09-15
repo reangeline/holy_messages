@@ -58,18 +58,41 @@ struct GlassTabBar: View {
     }
 }
 
-/// Wraps a tab's root content with the floating glass bar pinned to the bottom,
-/// matching the design's overlay placement rather than a system TabView chrome.
-struct MainTabContainer<Content: View>: View {
-    @Binding var selection: MainTab
-    var accent: Color = Palette.wine
-    @ViewBuilder var content: Content
+private struct MainTabSelectionKey: EnvironmentKey {
+    static let defaultValue: Binding<MainTab>? = nil
+}
 
-    var body: some View {
+extension EnvironmentValues {
+    /// Set once by MainTabView. Hub-screen roots (Today, Calendar, Formation,
+    /// Prayers) read this to draw their own floating tab bar via
+    /// `.hubTabBarOverlay()`. Deliberately NOT applied by wrapping each tab's
+    /// whole NavigationStack from the outside — that would keep the bar floating
+    /// over every pushed detail screen too, which the design never shows it on.
+    var mainTabSelection: Binding<MainTab>? {
+        get { self[MainTabSelectionKey.self] }
+        set { self[MainTabSelectionKey.self] = newValue }
+    }
+}
+
+private struct HubTabBarOverlay: ViewModifier {
+    @Environment(\.mainTabSelection) private var selection
+
+    func body(content: Content) -> some View {
         ZStack(alignment: .bottom) {
             content
-            GlassTabBar(selection: $selection, accent: accent)
-                .padding(.bottom, 8)
+            if let selection {
+                GlassTabBar(selection: selection)
+                    .padding(.bottom, 8)
+            }
         }
+    }
+}
+
+extension View {
+    /// Apply inside a hub screen's own root ZStack (alongside its background and
+    /// ScrollView) — never around a NavigationStack — so the floating tab bar
+    /// disappears correctly on push and reappears on pop.
+    func hubTabBarOverlay() -> some View {
+        modifier(HubTabBarOverlay())
     }
 }

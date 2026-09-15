@@ -42,6 +42,7 @@ struct FormationRootView: View {
                     .padding(.bottom, 110) // room for the floating glass tab bar
                 }
             }
+            .hubTabBarOverlay()
             .navigationBarHidden(true)
         }
     }
