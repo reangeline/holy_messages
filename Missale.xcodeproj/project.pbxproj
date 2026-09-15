@@ -37,6 +37,7 @@
 		551D25D9539AADA29689D90A /* MockSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A7894A34904119DDEBC585 /* MockSettings.swift */; };
 		5A03142066ECAA7D4A4818B4 /* ShareCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2547DB35325C7CF0DBE830 /* ShareCardView.swift */; };
 		5BE91E45C821873F83966890 /* CormorantGaramond-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5755A56F746943C35D7DEE62 /* CormorantGaramond-MediumItalic.ttf */; };
+		5EA56378A971CDB82FC35218 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = A757AE68556FF2051633F443 /* Localizable.xcstrings */; };
 		610A93551919DFD289C414C1 /* EndOfSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9AD15B2BD32B9BB69CADD3 /* EndOfSessionView.swift */; };
 		6A8A62A02D7F0331AD915DED /* SubscriptionPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A87801F1104BDD82BCEF9F /* SubscriptionPlan.swift */; };
 		7056EE04F1447BA4E81F89FC /* MoodCheckInSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA44835E8D3EB720434BDDF /* MoodCheckInSheet.swift */; };
@@ -62,6 +63,7 @@
 		98103933B321BE369C533513 /* MockSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C82F4CB58E4E72411E7BACE /* MockSubscription.swift */; };
 		9814A279B63F3528287EE3CF /* ContentReviewersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF022627860AD4871F03A464 /* ContentReviewersView.swift */; };
 		98EEED06A83E9B4958797523 /* ComplineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78FF5E1F7D1C6EA9A891218 /* ComplineView.swift */; };
+		9A948AD32DF3B211B6584F0A /* AppLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99F88CC334F965A61006194 /* AppLanguage.swift */; };
 		9B7038F36D7513D665A04F96 /* SeasonRetrospectiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94540CC43D048D2AFB1B15 /* SeasonRetrospectiveView.swift */; };
 		9C11C7E943DCA5B1227CDF3E /* MoodReliefView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8045109FB41D5AA9E8A2552B /* MoodReliefView.swift */; };
 		A0679D6E7752653E27DCB100 /* CrossGlyph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D590B23F2975B841AB601E /* CrossGlyph.swift */; };
@@ -71,6 +73,7 @@
 		B0C62F55D9647754C7BEDB5F /* FormationLessonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CA4C3818A3DED108588288 /* FormationLessonView.swift */; };
 		B1027A44864C1580ACAC6E0F /* SaintDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22DB6C4624EEE8D2B885B05 /* SaintDetailView.swift */; };
 		B40DD96CBB221B05C96ACF1F /* CormorantGaramond-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 63E6692DCBDC29C8E31B1C79 /* CormorantGaramond-Regular.ttf */; };
+		BAE0DC5D6E158591049A5C85 /* LanguageSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A50F9F0AFBC6CB0690A6352 /* LanguageSettingsView.swift */; };
 		BE684D7335EF95E9E30108F6 /* ExamenIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3D5251FD6993C00B345E23 /* ExamenIntroView.swift */; };
 		BE6FA66FD874344B8EC70BA0 /* FAQView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7872156F75002D39C7BF46 /* FAQView.swift */; };
 		C3C9AD948A20CB260F146548 /* SupportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180078D6FB2642939C75C0D9 /* SupportView.swift */; };
@@ -122,6 +125,7 @@
 		2B7872156F75002D39C7BF46 /* FAQView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQView.swift; sourceTree = "<group>"; };
 		310BE3218669FF7F03615007 /* AngelusNudgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngelusNudgeView.swift; sourceTree = "<group>"; };
 		38B6832F288C4C0C09FD5067 /* Missale.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Missale.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A50F9F0AFBC6CB0690A6352 /* LanguageSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSettingsView.swift; sourceTree = "<group>"; };
 		3AE002AEFCF86FBB99104C91 /* SettingsContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsContent.swift; sourceTree = "<group>"; };
 		3D6FCC38A633B81C3703AE63 /* OnboardingModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingModels.swift; sourceTree = "<group>"; };
 		4269FDBA369FE1CA7A8517E6 /* OnboardingFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFeedView.swift; sourceTree = "<group>"; };
@@ -158,6 +162,7 @@
 		A48E9418BF623472B1DAF058 /* PrayersRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayersRootView.swift; sourceTree = "<group>"; };
 		A5E469A2668E22E83B8E4BF2 /* EBGaramond-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "EBGaramond-Italic.ttf"; sourceTree = "<group>"; };
 		A6229DFA801AE3A4CA71FFE6 /* SubscriptionCancellationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionCancellationView.swift; sourceTree = "<group>"; };
+		A757AE68556FF2051633F443 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		A78FF5E1F7D1C6EA9A891218 /* ComplineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplineView.swift; sourceTree = "<group>"; };
 		A9AD287F9499284A04DE649E /* GlossaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlossaryView.swift; sourceTree = "<group>"; };
 		A9CA4C3818A3DED108588288 /* FormationLessonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormationLessonView.swift; sourceTree = "<group>"; };
@@ -187,6 +192,7 @@
 		E416E5A20CB92AE084D9E048 /* WordOfDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordOfDayView.swift; sourceTree = "<group>"; };
 		E4DDF3EE5A32A80F704EB0B4 /* GlassTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassTabBar.swift; sourceTree = "<group>"; };
 		E53F78D382401057C36C6C92 /* JourneyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyListView.swift; sourceTree = "<group>"; };
+		E99F88CC334F965A61006194 /* AppLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLanguage.swift; sourceTree = "<group>"; };
 		EE1E2DF590CC65A52B5A7E43 /* RosaryDarkModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RosaryDarkModeView.swift; sourceTree = "<group>"; };
 		F118949AB6FAC7EA7D4CF4E5 /* MissaleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissaleApp.swift; sourceTree = "<group>"; };
 		F22DB6C4624EEE8D2B885B05 /* SaintDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaintDetailView.swift; sourceTree = "<group>"; };
@@ -306,6 +312,7 @@
 				FF022627860AD4871F03A464 /* ContentReviewersView.swift */,
 				B8EA6DE687EE2D77A5FA3E68 /* DataSettingsView.swift */,
 				2B7872156F75002D39C7BF46 /* FAQView.swift */,
+				3A50F9F0AFBC6CB0690A6352 /* LanguageSettingsView.swift */,
 				89B15BE7FE79DA0EE43CDFB9 /* PastoralNoteDetailView.swift */,
 				D6DECEE18CD43B47224FA77A /* RegionalCalendarView.swift */,
 				0E6C6241BC35F39BD33E7E15 /* RemindersSettingsView.swift */,
@@ -345,6 +352,7 @@
 				6DFA1BBB63C55200A11B3CEB /* MockData */,
 				82C0440A5D698DC60EBD9945 /* Models */,
 				F802788DFBC0F9476F914EEA /* Onboarding */,
+				D5B996A8D2F309FF75896B55 /* Resources */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -374,6 +382,14 @@
 			path = Formation;
 			sourceTree = "<group>";
 		};
+		D5B996A8D2F309FF75896B55 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A757AE68556FF2051633F443 /* Localizable.xcstrings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		DDBD25A42BFE36F9A911C348 /* WordOfDay */ = {
 			isa = PBXGroup;
 			children = (
@@ -397,6 +413,7 @@
 		F63973FE7DAA5C1EE371C6D6 /* DesignSystem */ = {
 			isa = PBXGroup;
 			children = (
+				E99F88CC334F965A61006194 /* AppLanguage.swift */,
 				D7F592E55A220D9003088DFF /* Colors.swift */,
 				91D590B23F2975B841AB601E /* CrossGlyph.swift */,
 				70C391130864F8A75A6D4D72 /* GlassCard.swift */,
@@ -466,6 +483,8 @@
 			knownRegions = (
 				Base,
 				en,
+				es,
+				pt,
 			);
 			mainGroup = 533727340F78C71CDA0457FC;
 			minimizedProjectReferenceProxies = 1;
@@ -495,6 +514,7 @@
 				D01B162F80DFACB0F6634DE2 /* EBGaramond-MediumItalic.ttf in Resources */,
 				AA80232E8C4368851886F8F1 /* EBGaramond-Regular.ttf in Resources */,
 				7E3EF01FC5D8F84C9B1AED32 /* EBGaramond-SemiBold.ttf in Resources */,
+				5EA56378A971CDB82FC35218 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,6 +527,7 @@
 			files = (
 				819DA48E98629EFFABCEC5CF /* AngelusNudgeView.swift in Sources */,
 				959063EE805B6366EF9C3B7D /* AngelusScheduler.swift in Sources */,
+				9A948AD32DF3B211B6584F0A /* AppLanguage.swift in Sources */,
 				F00DA00E38C750A45E28C69F /* AppRootView.swift in Sources */,
 				D2E9AFA1231C326405429ADD /* CalendarDayDetailView.swift in Sources */,
 				0082D9ABA853C8599FC11185 /* CalendarRootView.swift in Sources */,
@@ -525,6 +546,7 @@
 				C9AD1AD5DD0E2499DF5DC567 /* GlassTabBar.swift in Sources */,
 				D1B9839D53ED8E76EA13B911 /* GlossaryView.swift in Sources */,
 				C8E2CC57776D7A41DF736841 /* JourneyListView.swift in Sources */,
+				BAE0DC5D6E158591049A5C85 /* LanguageSettingsView.swift in Sources */,
 				2909E8285FF5C191C0594765 /* LiturgicalDay.swift in Sources */,
 				3FD67AFF3C4B350BCB0D3B69 /* LiturgicalSeason.swift in Sources */,
 				2F85B619C969020F022316A9 /* MassReadingsView.swift in Sources */,

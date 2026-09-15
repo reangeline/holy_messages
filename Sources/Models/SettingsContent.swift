@@ -18,6 +18,7 @@ enum SettingsDestination: Hashable {
     case subscription
     case reminders
     case regionalCalendar
+    case language
     case data
     case reviewers
     case support

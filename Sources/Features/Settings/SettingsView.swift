@@ -4,7 +4,12 @@ import SwiftUI
 /// conditional trigger), then grouped rows, per the design's "Ajustes · 10 telas".
 struct SettingsView: View {
     @Environment(\.dismiss) private var dismiss
+    @AppStorage(AppLanguagePreference.storageKey) private var languageOverride = AppLanguagePreference.systemValue
     private let day = MockLiturgical.today
+
+    private var resolvedLanguageName: String {
+        AppLanguagePreference.resolve(override: languageOverride).displayName
+    }
 
     var body: some View {
         NavigationStack {
@@ -34,6 +39,7 @@ struct SettingsView: View {
                 case .subscription: SubscriptionDetailView()
                 case .reminders: RemindersSettingsView()
                 case .regionalCalendar: RegionalCalendarView()
+                case .language: LanguageSettingsView()
                 case .data: DataSettingsView()
                 case .reviewers: ContentReviewersView()
                 case .support: SupportView()
@@ -43,7 +49,11 @@ struct SettingsView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Fechar") { dismiss() }
+                    Button {
+                        dismiss()
+                    } label: {
+                        Text("Close")
+                    }
                 }
             }
         }
@@ -109,7 +119,11 @@ struct SettingsView: View {
                                 }
                             }
                             Spacer(minLength: 8)
-                            if let value = item.value {
+                            if item.destination == .language {
+                                Text(resolvedLanguageName)
+                                    .font(MissaleFont.body(15))
+                                    .foregroundStyle(Palette.wine)
+                            } else if let value = item.value {
                                 Text(value)
                                     .font(MissaleFont.body(15))
                                     .foregroundStyle(Palette.wine)

@@ -1,0 +1,55 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Close" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Close" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Cerrar" } },
+        "pt" : { "stringUnit" : { "state" : "translated", "value" : "Fechar" } }
+      }
+    },
+    "Language" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Language" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Idioma" } },
+        "pt" : { "stringUnit" : { "state" : "translated", "value" : "Idioma" } }
+      }
+    },
+    "Automatic (device language)" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Automatic (device language)" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Automático (idioma del dispositivo)" } },
+        "pt" : { "stringUnit" : { "state" : "translated", "value" : "Automático (idioma do aparelho)" } }
+      }
+    },
+    "Today" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Today" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Hoy" } },
+        "pt" : { "stringUnit" : { "state" : "translated", "value" : "Hoje" } }
+      }
+    },
+    "Calendar" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Calendar" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Calendario" } },
+        "pt" : { "stringUnit" : { "state" : "translated", "value" : "Calendário" } }
+      }
+    },
+    "Formation" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Formation" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Formación" } },
+        "pt" : { "stringUnit" : { "state" : "translated", "value" : "Formação" } }
+      }
+    },
+    "Prayers" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Prayers" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Oraciones" } },
+        "pt" : { "stringUnit" : { "state" : "translated", "value" : "Orações" } }
+      }
+    }
+  },
+  "version" : "1.0"
+}
