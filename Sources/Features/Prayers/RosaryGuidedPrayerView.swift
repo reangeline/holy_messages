@@ -181,23 +181,34 @@ struct RosaryGuidedPrayerView: View {
                 .font(MissaleFont.body(11, weight: .semibold))
                 .tracking(1.4)
                 .foregroundStyle(Palette.goldBright)
+            // On an announcement step, the mystery itself is the headline —
+            // bigger and bolder than the meditation text below it, not buried
+            // in a small caption underneath.
+            if let mysteryTitleLine = step.mysteryTitleLine {
+                Text(mysteryTitleLine)
+                    .font(MissaleFont.display(27, weight: .semibold))
+                    .foregroundStyle(.white)
+                    .multilineTextAlignment(.center)
+            }
             Text(step.text)
-                .font(MissaleFont.display(23, italic: true))
-                .foregroundStyle(.white)
+                .font(MissaleFont.display(step.mysteryTitleLine != nil ? 19 : 23, italic: true))
+                .foregroundStyle(.white.opacity(step.mysteryTitleLine != nil ? 0.9 : 1))
                 .multilineTextAlignment(.center)
-            Text(step.beadLabel)
-                .font(MissaleFont.body(13))
-                .foregroundStyle(.white.opacity(0.7))
+            if step.mysteryTitleLine == nil {
+                Text(step.beadLabel)
+                    .font(MissaleFont.body(13))
+                    .foregroundStyle(.white.opacity(0.7))
+            }
             // Fruit + citation are core content on an announcement step, not a
             // dismissible tip — shown regardless of beginner mode.
             if let fruit = step.fruit, let scriptureRef = step.scriptureRef {
-                VStack(spacing: 4) {
+                VStack(spacing: 5) {
                     Text("Fruto: \(fruit)")
-                        .font(MissaleFont.body(13, weight: .medium))
-                        .foregroundStyle(.white.opacity(0.75))
+                        .font(MissaleFont.body(16, weight: .medium))
+                        .foregroundStyle(.white.opacity(0.8))
                     Text(scriptureRef)
-                        .font(MissaleFont.body(12))
-                        .foregroundStyle(.white.opacity(0.55))
+                        .font(MissaleFont.body(14))
+                        .foregroundStyle(.white.opacity(0.6))
                 }
                 .multilineTextAlignment(.center)
                 .padding(.top, 2)

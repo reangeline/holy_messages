@@ -109,7 +109,8 @@ enum MockRosary {
             return .init(beadLabel: "Credo", kicker: "Na primeira conta", text: apostlesCreed, hint: "O Credo dos Apóstolos, rezado uma vez, prepara a fé antes dos mistérios.")
         case .announcement:
             let d = detail!
-            return .init(beadLabel: decadeLabel, kicker: "Anúncio do mistério", text: d.description, hint: "Faça uma breve pausa antes do Pai-Nosso desta dezena.", fruit: d.fruit, scriptureRef: d.scriptureRef)
+            let mysteryTitleLine = "\(ordinal((bead.mysteryIndex ?? 0) + 1)) Mistério — \(d.title)"
+            return .init(beadLabel: decadeLabel, kicker: "Anúncio do mistério", text: d.description, hint: "Faça uma breve pausa antes do Pai-Nosso desta dezena.", fruit: d.fruit, scriptureRef: d.scriptureRef, mysteryTitleLine: mysteryTitleLine)
         case .ourFather:
             return .init(beadLabel: decadeLabel, kicker: "Conta maior", text: ourFather, hint: "Toque em qualquer lugar para avançar. Avanço automático está ligado.")
         case .hailMary:

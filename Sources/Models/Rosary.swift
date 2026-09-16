@@ -65,6 +65,9 @@ struct RosaryPrayerStep: Codable {
     // core content, not just a UI tip.
     var fruit: String? = nil
     var scriptureRef: String? = nil
+    // Set only for .announcement steps: "Primeiro Mistério — A Anunciação",
+    // shown as the card's headline above the meditative description.
+    var mysteryTitleLine: String? = nil
     // Set only for the .intentions step — when present, the view renders this
     // instead of `text` as a plain, non-italic list, so it reads as guidance
     // to think about, not as a prayer to recite.
