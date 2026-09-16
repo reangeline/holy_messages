@@ -4,8 +4,11 @@ import SwiftUI
 struct RosaryDarkModeView: View {
     let mystery: RosaryMystery
     let startIndex: Int
+    var beginnerMode: Bool = true
+    var intention: String = ""
 
     @State private var index: Int = 0
+    @State private var hasRecorded = false
     @Environment(\.dismiss) private var dismiss
     private let generator = UIImpactFeedbackGenerator(style: .soft)
 
@@ -16,29 +19,37 @@ struct RosaryDarkModeView: View {
         ZStack {
             Color(hex: 0x0D0A0B).ignoresSafeArea()
 
-            VStack(spacing: 18) {
+            VStack(spacing: 22) {
                 Spacer()
 
                 if isFinished {
-                    Text("✝")
-                        .font(.system(size: 30))
-                        .foregroundStyle(Palette.goldBright.opacity(0.5))
-                    Text("Terço concluído")
-                        .font(MissaleFont.display(24))
-                        .foregroundStyle(Palette.goldBright.opacity(0.8))
+                    VStack(spacing: 14) {
+                        CrossGlyph(size: 32, color: Palette.goldBright.opacity(0.6))
+                        Text("Terço concluído")
+                            .font(MissaleFont.display(26))
+                            .foregroundStyle(Palette.goldBright.opacity(0.85))
+                        Text("Que a paz desta oração continue com você.")
+                            .font(MissaleFont.body(14))
+                            .foregroundStyle(.white.opacity(0.4))
+                            .multilineTextAlignment(.center)
+                    }
                 } else {
                     let bead = beads[index]
-                    Text(shortLabel(for: bead))
-                        .font(MissaleFont.display(24))
-                        .foregroundStyle(Palette.goldBright.opacity(0.75))
+                    VStack(spacing: 10) {
+                        Text(shortLabel(for: bead))
+                            .font(MissaleFont.display(24))
+                            .foregroundStyle(Palette.goldBright.opacity(0.75))
+                            .multilineTextAlignment(.center)
+                            .padding(.horizontal, 32)
 
-                    if let (current, total) = decadeCount(for: bead) {
-                        Text("\(current) / \(total)")
-                            .font(MissaleFont.display(46, weight: .medium))
-                            .foregroundStyle(Palette.goldBright.opacity(0.9))
+                        if let (current, total) = decadeCount(for: bead) {
+                            Text("\(current) / \(total)")
+                                .font(MissaleFont.display(48, weight: .medium))
+                                .foregroundStyle(Palette.goldBright.opacity(0.9))
+                        }
                     }
 
-                    beadDots
+                    beadProgress
                 }
 
                 Spacer()
@@ -49,19 +60,6 @@ struct RosaryDarkModeView: View {
                     .multilineTextAlignment(.center)
                     .padding(.horizontal, 40)
                     .padding(.bottom, 30)
-            }
-
-            VStack {
-                HStack {
-                    Text("Tela apagada · haptic a cada conta")
-                        .font(MissaleFont.body(11, weight: .semibold))
-                        .tracking(1.2)
-                        .foregroundStyle(.white.opacity(0.35))
-                        .padding(.top, 12)
-                        .padding(.leading, 24)
-                    Spacer()
-                }
-                Spacer()
             }
         }
         .contentShape(Rectangle())
@@ -76,6 +74,11 @@ struct RosaryDarkModeView: View {
             index = startIndex
             generator.prepare()
         }
+        .onChange(of: index, initial: true) { _, _ in
+            guard isFinished, !hasRecorded else { return }
+            hasRecorded = true
+            RosaryHistoryStore.shared.record(mysterySet: mystery.mysterySet, modeLabel: "Tela apagada", intention: intention)
+        }
         .toolbarBackground(.hidden, for: .navigationBar)
         .navigationBarBackButtonHidden(true)
         .toolbar {
@@ -84,27 +87,66 @@ struct RosaryDarkModeView: View {
                     .font(MissaleFont.body(15))
                     .foregroundStyle(.white.opacity(0.5))
             }
+            ToolbarItem(placement: .principal) {
+                Text("Tela apagada")
+                    .font(MissaleFont.body(12, weight: .semibold))
+                    .tracking(1.2)
+                    .foregroundStyle(.white.opacity(0.4))
+            }
         }
     }
 
-    private var beadDots: some View {
-        HStack(spacing: 4) {
-            ForEach(beads) { bead in
-                Circle()
-                    .fill(bead.index <= index ? Palette.goldBright.opacity(0.6) : Color.white.opacity(0.08))
-                    .frame(width: bead.index == index ? 6 : 4, height: bead.index == index ? 6 : 4)
+    /// One segment per decade (plus the opening and closing prayers), each
+    /// filling as its beads complete — reads clearly at a glance even
+    /// half-glimpsed from a pocket, unlike a dot per single bead.
+    private var beadProgress: some View {
+        let segments = progressSegments
+        return HStack(spacing: 5) {
+            ForEach(Array(segments.enumerated()), id: \.offset) { _, segment in
+                Capsule()
+                    .fill(Color.white.opacity(0.1))
+                    .overlay(alignment: .leading) {
+                        GeometryReader { proxy in
+                            Capsule()
+                                .fill(Palette.goldBright.opacity(0.65))
+                                .frame(width: proxy.size.width * segment)
+                        }
+                    }
+                    .frame(height: 3)
             }
         }
-        .padding(.top, 6)
+        .padding(.horizontal, 40)
+        .padding(.top, 4)
+    }
+
+    /// Fraction complete (0...1) for each segment: opening prayers, one per
+    /// decade, then the closing prayer.
+    private var progressSegments: [Double] {
+        let openingEnd = beads.firstIndex { $0.kind == .announcement } ?? 0
+        var ranges: [Range<Int>] = [0..<openingEnd]
+        for decade in 0..<mystery.decades.count {
+            let decadeBeads = beads.indices.filter { beads[$0].mysteryIndex == decade }
+            if let first = decadeBeads.first, let last = decadeBeads.last {
+                ranges.append(first..<(last + 1))
+            }
+        }
+        ranges.append((ranges.last?.upperBound ?? 0)..<beads.count)
+        return ranges.map { range in
+            guard !range.isEmpty else { return 0 }
+            let completed = range.filter { $0 <= index }.count
+            return Double(completed) / Double(range.count)
+        }
     }
 
     private func shortLabel(for bead: RosaryBead) -> String {
         switch bead.kind {
         case .crucifix: "Sinal da Cruz"
+        case .creed: "Credo"
         case .ourFather: "Pai-Nosso"
         case .hailMary: "Ave-Maria"
         case .glory: "Glória"
         case .announcement: mystery.decades[bead.mysteryIndex ?? 0]
+        case .hailHolyQueen: "Salve Rainha"
         }
     }
 

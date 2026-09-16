@@ -3,9 +3,12 @@ import SwiftUI
 /// t4 screen 25 — bead-by-bead guided prayer. Tap anywhere to advance.
 struct RosaryGuidedPrayerView: View {
     let mystery: RosaryMystery
+    var beginnerMode: Bool = true
+    var intention: String = ""
 
     @State private var index = 0
     @State private var navigateToDark = false
+    @State private var hasRecorded = false
     @Environment(\.dismiss) private var dismiss
 
     private var beads: [RosaryBead] { MockRosary.beads(for: mystery) }
@@ -49,11 +52,20 @@ struct RosaryGuidedPrayerView: View {
                 index += 1
             }
         }
+        .onChange(of: index, initial: true) { _, _ in
+            guard isFinished, !hasRecorded else { return }
+            hasRecorded = true
+            RosaryHistoryStore.shared.record(
+                mysterySet: mystery.mysterySet,
+                modeLabel: beginnerMode ? "Modo iniciante" : "Guiado",
+                intention: intention
+            )
+        }
         .navigationTitle("")
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
         .navigationDestination(isPresented: $navigateToDark) {
-            RosaryDarkModeView(mystery: mystery, startIndex: index)
+            RosaryDarkModeView(mystery: mystery, startIndex: index, beginnerMode: beginnerMode, intention: intention)
         }
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
@@ -101,7 +113,8 @@ struct RosaryGuidedPrayerView: View {
         let isPast = bead.index <= index
         let size: CGFloat = switch bead.kind {
         case .crucifix: 14
-        case .ourFather, .announcement: 10
+        case .hailHolyQueen: 12
+        case .ourFather, .announcement, .creed: 10
         case .glory: 9
         case .hailMary: 7
         }
@@ -123,6 +136,16 @@ struct RosaryGuidedPrayerView: View {
             Text(step.beadLabel)
                 .font(MissaleFont.body(13))
                 .foregroundStyle(.white.opacity(0.7))
+            // Beginner mode surfaces the per-bead teaching hint that MockRosary
+            // already authors for every step; turning it off is what makes
+            // non-beginner mode leaner — see MockRosary.step(for:mystery:).
+            if beginnerMode {
+                Text(step.hint)
+                    .font(MissaleFont.body(13))
+                    .foregroundStyle(.white.opacity(0.55))
+                    .multilineTextAlignment(.center)
+                    .padding(.top, 2)
+            }
         }
         .padding(28)
         .frame(maxWidth: .infinity)

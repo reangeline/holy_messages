@@ -12,7 +12,6 @@ struct PrayersRootView: View {
                         rosaryTeaserCard
                         row(title: L.string( "How to pray the Rosary", table: "Prayers"), subtitle: L.string( "The object, the mechanics, what to do with your mind", table: "Prayers"), destination: .howTo)
                         row(title: L.string( "Rosaries prayed", table: "Prayers"), subtitle: L.string( "History and novenas in progress", table: "Prayers"), destination: .log)
-                        row(title: L.string( "Other prayers", table: "Prayers"), subtitle: L.string( "Angelus, Divine Mercy, Compline, Examen, litanies", table: "Prayers"), destination: .others)
                     }
                     .padding(.horizontal, 24)
                     .padding(.top, 12)
@@ -28,8 +27,6 @@ struct PrayersRootView: View {
                     RosaryHowToView()
                 case .log:
                     RosaryLogView()
-                case .others:
-                    OtherPrayersView()
                 case .guided(let mystery, let startDark):
                     if startDark {
                         RosaryDarkModeView(mystery: mystery, startIndex: 0)
@@ -99,6 +96,5 @@ enum PrayersDestination: Hashable {
     case mysteries
     case howTo
     case log
-    case others
     case guided(RosaryMystery, startDark: Bool)
 }

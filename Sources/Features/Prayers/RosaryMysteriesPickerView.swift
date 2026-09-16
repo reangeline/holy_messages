@@ -15,11 +15,7 @@ struct RosaryMysteriesPickerView: View {
                     VStack(alignment: .leading, spacing: 5) {
                         Text("Today's Mysteries", tableName: "Prayers")
                             .font(MissaleFont.display(28))
-                        // Kept as-is (not localized): mixes today's specific day+mystery
-                        // names (content) with an instruction in one hardcoded sentence
-                        // that isn't cleanly separable without restructuring into a
-                        // dynamic template — judgment call, flagged in my report.
-                        Text("Segunda-feira: Gozosos. Pode trocar, se quiser rezar outros.")
+                        Text("\(MockLiturgical.today.weekdayLabel): \(MockRosary.todays.mysterySet.rawValue). Pode trocar, se quiser rezar outros.")
                             .font(MissaleFont.body(15))
                             .foregroundStyle(Palette.ink.opacity(0.7))
                     }
@@ -49,7 +45,7 @@ struct RosaryMysteriesPickerView: View {
 
                     VStack(spacing: 12) {
                         NavigationLink {
-                            RosaryGuidedPrayerView(mystery: selected)
+                            RosaryGuidedPrayerView(mystery: selected, beginnerMode: beginnerMode, intention: intention)
                         } label: {
                             Text("Start", tableName: "Prayers")
                                 .font(MissaleFont.body(17, weight: .medium))
@@ -59,7 +55,7 @@ struct RosaryMysteriesPickerView: View {
                                 .foregroundStyle(.white)
                         }
                         NavigationLink {
-                            RosaryDarkModeView(mystery: selected, startIndex: 0)
+                            RosaryDarkModeView(mystery: selected, startIndex: 0, intention: intention)
                         } label: {
                             Text("Start with the screen off", tableName: "Prayers")
                                 .font(MissaleFont.body(16))

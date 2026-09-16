@@ -96,7 +96,6 @@
 		C3C9AD948A20CB260F146548 /* SupportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180078D6FB2642939C75C0D9 /* SupportView.swift */; };
 		C8E2CC57776D7A41DF736841 /* JourneyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53F78D382401057C36C6C92 /* JourneyListView.swift */; };
 		C9AD1AD5DD0E2499DF5DC567 /* GlassTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DDF3EE5A32A80F704EB0B4 /* GlassTabBar.swift */; };
-		CBA3056DD1A8A0AAB1968AC5 /* OtherPrayersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B060A27799772C96B1D7752E /* OtherPrayersView.swift */; };
 		CF605A9222782AC0223D5928 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 085B0E7DB07DABBDD6D616C6 /* SettingsView.swift */; };
 		D01B162F80DFACB0F6634DE2 /* EBGaramond-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4EF3E16915DDAF1EB7255E2 /* EBGaramond-MediumItalic.ttf */; };
 		D1B9839D53ED8E76EA13B911 /* GlossaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD287F9499284A04DE649E /* GlossaryView.swift */; };
@@ -119,6 +118,7 @@
 		ECCBBE87D168D3E9C3D25CE3 /* SocialLockPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AD533107D378FEE36131DD /* SocialLockPreviewView.swift */; };
 		ED94A964B33E2C3F6ED48721 /* MoodHistoryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE91E0D9EA2D13161785475F /* MoodHistoryStore.swift */; };
 		EED9CF44E7E8D73F0301615C /* SettingsDetail.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = BD1EDFAD664396CF342F0318 /* SettingsDetail.xcstrings */; };
+		EF580CFD3D263C0234CBDAEC /* RosaryHistoryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA725209135D65B8B6FE950 /* RosaryHistoryStore.swift */; };
 		F00DA00E38C750A45E28C69F /* AppRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12D79BF4B3E4C6ABC19C5B0 /* AppRootView.swift */; };
 		F4D6F14C234CA4FDA3D66137 /* PrayersRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48E9418BF623472B1DAF058 /* PrayersRootView.swift */; };
 		F874D51ABFBD571588324624 /* SubscriptionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29D4ED447FC50D9BE13C3BA /* SubscriptionDetailView.swift */; };
@@ -156,6 +156,7 @@
 		4584EA772E91637C377A6B12 /* TodayRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayRootView.swift; sourceTree = "<group>"; };
 		469EA47C5E6841055C7E4B23 /* FormationProgressStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormationProgressStore.swift; sourceTree = "<group>"; };
 		4A9445BD38B8F8F1820F8DE6 /* FormationTrackDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormationTrackDetailView.swift; sourceTree = "<group>"; };
+		4AA725209135D65B8B6FE950 /* RosaryHistoryStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RosaryHistoryStore.swift; sourceTree = "<group>"; };
 		4BE7A1785F8D77047D6754CC /* CormorantGaramond-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CormorantGaramond-Italic.ttf"; sourceTree = "<group>"; };
 		4D6494C870F0202D155720C4 /* CormorantGaramond-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CormorantGaramond-Medium.ttf"; sourceTree = "<group>"; };
 		4E24DE9D86BEAA91DB58D7AF /* MockMood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMood.swift; sourceTree = "<group>"; };
@@ -207,7 +208,6 @@
 		ACFCA98C5D326B2E11D614F8 /* SocialLockRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLockRule.swift; sourceTree = "<group>"; };
 		AEE3966F6DE7624F1F067AAA /* MockSaints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSaints.swift; sourceTree = "<group>"; };
 		AF55B1737C5167410C440486 /* SaintsForYouView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaintsForYouView.swift; sourceTree = "<group>"; };
-		B060A27799772C96B1D7752E /* OtherPrayersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherPrayersView.swift; sourceTree = "<group>"; };
 		B272A3B51CBFE80DEF87ED5C /* MoodState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodState.swift; sourceTree = "<group>"; };
 		B30B00FD5E50F90076E29A48 /* OnboardingComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingComponents.swift; sourceTree = "<group>"; };
 		B889DA2BFF7F6D41A7891713 /* CalendarSaints.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = CalendarSaints.xcstrings; sourceTree = "<group>"; };
@@ -420,11 +420,11 @@
 		A86F3D7291F6837C44094BF3 /* Prayers */ = {
 			isa = PBXGroup;
 			children = (
-				B060A27799772C96B1D7752E /* OtherPrayersView.swift */,
 				A95B30833E9DEC59B44E5979 /* Prayers.xcstrings */,
 				A48E9418BF623472B1DAF058 /* PrayersRootView.swift */,
 				EE1E2DF590CC65A52B5A7E43 /* RosaryDarkModeView.swift */,
 				5B49583537054AC3C26C2371 /* RosaryGuidedPrayerView.swift */,
+				4AA725209135D65B8B6FE950 /* RosaryHistoryStore.swift */,
 				DB7FF250824CB84308F98FF9 /* RosaryHowToView.swift */,
 				5166DF49F6D26CC9DE39A585 /* RosaryLogView.swift */,
 				1A6CB2EEC1A4189CB671B6A9 /* RosaryMysteriesPickerView.swift */,
@@ -665,7 +665,6 @@
 				B01E39461B203F9CD8CD4693 /* OnboardingSpiritualQuestionView.swift in Sources */,
 				36FF9021F69DD1A71949E516 /* OnboardingSynthesisView.swift in Sources */,
 				161CB7CCDA52FDBC95373F99 /* OnboardingViewModel.swift in Sources */,
-				CBA3056DD1A8A0AAB1968AC5 /* OtherPrayersView.swift in Sources */,
 				081B2AFF5B0855B16E3E4613 /* PastoralCareNudgeView.swift in Sources */,
 				DAA7A368366B470336582029 /* PastoralNoteDetailView.swift in Sources */,
 				F8DB3D2C250F5182202FC08E /* PrayerItem.swift in Sources */,
@@ -675,6 +674,7 @@
 				5123E50F1589C1B3E2A9B5E2 /* Rosary.swift in Sources */,
 				9472B69DE124F31B45ED2D26 /* RosaryDarkModeView.swift in Sources */,
 				DB473FB96B0D039817054995 /* RosaryGuidedPrayerView.swift in Sources */,
+				EF580CFD3D263C0234CBDAEC /* RosaryHistoryStore.swift in Sources */,
 				929F53550875CEDB33AEEAB2 /* RosaryHowToView.swift in Sources */,
 				8D1083F2863F46856F526EE9 /* RosaryLogView.swift in Sources */,
 				716E10EA85D0CBA51CAFB0A8 /* RosaryMysteriesPickerView.swift in Sources */,

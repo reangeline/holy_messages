@@ -2,6 +2,7 @@ import SwiftUI
 
 /// t4 screen 27 — rosary history/log. A record, not a scoreboard: dot grid, no streak/percent.
 struct RosaryLogView: View {
+    @ObservedObject private var history = RosaryHistoryStore.shared
     private let columns = Array(repeating: GridItem(.flexible(), spacing: 5), count: 9)
 
     var body: some View {
@@ -41,21 +42,29 @@ struct RosaryLogView: View {
                             .font(MissaleFont.body(13, weight: .semibold))
                             .tracking(1.2)
                             .foregroundStyle(Palette.goldDim)
-                        ForEach(MockRosary.log) { entry in
-                            GlassCard {
-                                HStack {
-                                    VStack(alignment: .leading, spacing: 3) {
-                                        Text(entry.title)
-                                            .font(MissaleFont.body(16, weight: .medium))
-                                            .foregroundStyle(Palette.ink)
-                                        Text(entry.subtitle)
-                                            .font(MissaleFont.body(14))
-                                            .foregroundStyle(Palette.ink.opacity(0.6))
+                        if history.recent.isEmpty {
+                            DashedUtilityCard {
+                                Text("Nenhum terço registrado ainda. Ele aparece aqui assim que você concluir um.")
+                                    .font(MissaleFont.body(15))
+                                    .foregroundStyle(Palette.ink.opacity(0.7))
+                            }
+                        } else {
+                            ForEach(history.recent) { entry in
+                                GlassCard {
+                                    HStack {
+                                        VStack(alignment: .leading, spacing: 3) {
+                                            Text(entry.title)
+                                                .font(MissaleFont.body(16, weight: .medium))
+                                                .foregroundStyle(Palette.ink)
+                                            Text(entry.subtitle)
+                                                .font(MissaleFont.body(14))
+                                                .foregroundStyle(Palette.ink.opacity(0.6))
+                                        }
+                                        Spacer()
+                                        Text(entry.dateLabel)
+                                            .font(MissaleFont.body(13))
+                                            .foregroundStyle(Palette.ink.opacity(0.5))
                                     }
-                                    Spacer()
-                                    Text(entry.dateLabel)
-                                        .font(MissaleFont.body(13))
-                                        .foregroundStyle(Palette.ink.opacity(0.5))
                                 }
                             }
                         }
