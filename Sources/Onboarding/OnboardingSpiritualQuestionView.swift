@@ -18,7 +18,7 @@ struct OnboardingSpiritualQuestionView: View {
         ZStack {
             LiturgicalColor.red.pageBackground
             VStack(spacing: 0) {
-                OnboardingTopBar(onBack: onBack, trailingText: "Skip all four", trailingAction: onSkipAll)
+                OnboardingTopBar(onBack: onBack, trailingText: L.string("Skip all four", table: "Onboarding"), trailingAction: onSkipAll)
 
                 HStack(spacing: 6) {
                     ForEach(0..<total, id: \.self) { i in
@@ -60,11 +60,11 @@ struct OnboardingSpiritualQuestionView: View {
                 }
 
                 OnboardingPrimaryButton(
-                    title: "Continue",
+                    title: L.string("Continue", table: "Onboarding"),
                     isEnabled: viewModel.spiritualAnswers[question.id] != nil,
                     action: onNext
                 )
-                OnboardingTextLink(title: "I'd rather not answer", action: onNext)
+                OnboardingTextLink(title: L.string("I'd rather not answer", table: "Onboarding"), action: onNext)
                     .frame(maxWidth: .infinity)
                     .padding(.bottom, 24)
             }

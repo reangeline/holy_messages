@@ -52,7 +52,8 @@ struct TodayRootView: View {
                         .tracking(1.2)
                         .foregroundStyle(day.color.accent)
                 }
-                Text("Bom dia, Tiago")
+                Text(L.string("Bom dia, {name}", table: "Today")
+                    .replacingOccurrences(of: "{name}", with: MockSettings.userName.components(separatedBy: " ").first ?? MockSettings.userName))
                     .font(MissaleFont.display(28))
                     .foregroundStyle(Palette.ink)
             }
@@ -77,8 +78,8 @@ struct TodayRootView: View {
             GlassCard {
                 HStack {
                     VStack(alignment: .leading, spacing: 3) {
-                        Eyebrow(text: "Hoje eu estou…")
-                        Text("Toque para registrar")
+                        Eyebrow(text: L.string("Hoje eu estou…", table: "Today"))
+                        Text("Toque para registrar", tableName: "Today")
                             .font(MissaleFont.body(17, weight: .medium))
                             .foregroundStyle(Palette.ink)
                     }
@@ -97,7 +98,7 @@ struct TodayRootView: View {
         } label: {
             LiturgicalGradientCard(color: day.color) {
                 VStack(alignment: .leading, spacing: 6) {
-                    Text("SUA TRILHA · PARTE 3 DE 14")
+                    Text("SUA TRILHA · PARTE 3 DE 14", tableName: "Today")
                         .font(MissaleFont.body(11, weight: .semibold))
                         .tracking(1.4)
                         .foregroundStyle(Palette.goldBright)
@@ -122,7 +123,7 @@ struct TodayRootView: View {
         } label: {
             GlassCard {
                 VStack(alignment: .leading, spacing: 6) {
-                    Eyebrow(text: "Palavra de hoje")
+                    Eyebrow(text: L.string("Palavra de hoje", table: "Today"))
                     Text("“Como Moisés levantou a serpente no deserto, assim deve ser levantado o Filho do Homem.”")
                         .font(MissaleFont.display(21, italic: true))
                         .foregroundStyle(Palette.ink)
@@ -144,7 +145,7 @@ struct TodayRootView: View {
                     SaintPortraitPlaceholder()
                         .frame(width: 50, height: 50)
                     VStack(alignment: .leading, spacing: 2) {
-                        Eyebrow(text: "Santo do dia")
+                        Eyebrow(text: L.string("Santo do dia", table: "Today"))
                         Text(MockSaints.notburga.name)
                             .font(MissaleFont.body(17, weight: .medium))
                             .foregroundStyle(Palette.ink)
@@ -168,7 +169,7 @@ struct TodayRootView: View {
             GlassCard {
                 HStack {
                     VStack(alignment: .leading, spacing: 3) {
-                        Eyebrow(text: "Terço de hoje")
+                        Eyebrow(text: L.string("Terço de hoje", table: "Today"))
                         Text("Mistérios \(todays.mysterySet.rawValue)")
                             .font(MissaleFont.body(17, weight: .medium))
                             .foregroundStyle(Palette.ink)
@@ -191,11 +192,11 @@ struct TodayRootView: View {
         } label: {
             HStack {
                 VStack(alignment: .leading, spacing: 3) {
-                    Text("À NOITE, ÀS 21H30")
+                    Text("À NOITE, ÀS 21H30", tableName: "Today")
                         .font(MissaleFont.body(11, weight: .semibold))
                         .tracking(1.4)
                         .foregroundStyle(Palette.goldBright)
-                    Text("Exame do dia e Completas")
+                    Text("Exame do dia e Completas", tableName: "Today")
                         .font(MissaleFont.body(17, weight: .medium))
                         .foregroundStyle(.white)
                 }

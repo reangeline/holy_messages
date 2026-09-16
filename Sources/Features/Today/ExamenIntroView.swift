@@ -13,7 +13,7 @@ struct ExamenIntroView: View {
 
             VStack(alignment: .leading, spacing: 18) {
                 HStack {
-                    Button("‹ Voltar") { dismiss() }
+                    Button(L.string("‹ Voltar", table: "Today")) { dismiss() }
                         .foregroundStyle(Palette.goldBright)
                     Spacer()
                     Text("21H30")
@@ -23,12 +23,12 @@ struct ExamenIntroView: View {
                 }
                 .padding(.top, 8)
 
-                Eyebrow(text: "O Exame", color: Palette.goldBright)
-                Text("Como foi o seu dia diante de Deus?")
+                Eyebrow(text: L.string("O Exame", table: "Today"), color: Palette.goldBright)
+                Text("Como foi o seu dia diante de Deus?", tableName: "Today")
                     .font(MissaleFont.display(32, weight: .semibold))
                     .foregroundStyle(.white)
                     .fixedSize(horizontal: false, vertical: true)
-                Text("Rever o dia, reconhecer onde houve consolação e onde houve desolação, e responder. É a prática inaciana, em quatro toques.")
+                Text("Rever o dia, reconhecer onde houve consolação e onde houve desolação, e responder. É a prática inaciana, em quatro toques.", tableName: "Today")
                     .font(MissaleFont.body(16))
                     .foregroundStyle(.white.opacity(0.7))
 
@@ -59,7 +59,7 @@ struct ExamenIntroView: View {
                 Button {
                     goToCompline = true
                 } label: {
-                    Text("Começar o Exame")
+                    Text("Começar o Exame", tableName: "Today")
                         .font(MissaleFont.body(18))
                         .frame(maxWidth: .infinity)
                         .padding(17)
@@ -69,7 +69,7 @@ struct ExamenIntroView: View {
                 Button {
                     goToCompline = true
                 } label: {
-                    Text("Ir direto às Completas")
+                    Text("Ir direto às Completas", tableName: "Today")
                         .font(MissaleFont.body(16))
                         .foregroundStyle(.white.opacity(0.6))
                 }

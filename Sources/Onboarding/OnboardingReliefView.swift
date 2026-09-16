@@ -17,7 +17,7 @@ struct OnboardingReliefView: View {
                 OnboardingTopBar(onBack: onBack)
                 ScrollView {
                     VStack(alignment: .leading, spacing: 14) {
-                        Eyebrow(text: "Before anything else")
+                        Eyebrow(text: L.string("Before anything else", table: "Onboarding"))
                         Text(relief.title)
                             .font(MissaleFont.display(27))
                             .foregroundStyle(Palette.ink)
@@ -39,7 +39,7 @@ struct OnboardingReliefView: View {
 
                         GlassCard {
                             VStack(alignment: .leading, spacing: 6) {
-                                Eyebrow(text: "Someone who went through it")
+                                Eyebrow(text: L.string("Someone who went through it", table: "Onboarding"))
                                 Text(relief.saintName)
                                     .font(MissaleFont.body(17, weight: .medium))
                                     .foregroundStyle(Palette.ink)
@@ -62,8 +62,8 @@ struct OnboardingReliefView: View {
                     .padding(.top, 16)
                     .padding(.bottom, 24)
                 }
-                OnboardingPrimaryButton(title: "Continue", action: onNext)
-                Text("Yours to keep, free, whether or not you ever pay.")
+                OnboardingPrimaryButton(title: L.string("Continue", table: "Onboarding"), action: onNext)
+                Text("Yours to keep, free, whether or not you ever pay.", tableName: "Onboarding")
                     .font(MissaleFont.body(13))
                     .foregroundStyle(Palette.ink.opacity(0.5))
                     .padding(.vertical, 10)

@@ -36,11 +36,11 @@ struct MoodCheckInSheet: View {
         VStack(alignment: .leading, spacing: 4) {
             Capsule().fill(Palette.ink.opacity(0.2)).frame(width: 38, height: 4).frame(maxWidth: .infinity)
                 .padding(.top, 10)
-            Text("Hoje eu estou…")
+            Text("Hoje eu estou…", tableName: "Today")
                 .font(MissaleFont.display(27, weight: .semibold))
                 .foregroundStyle(Palette.ink)
                 .padding(.top, 14)
-            Text("Um toque. Fica no aparelho, e pode ficar em branco.")
+            Text("Um toque. Fica no aparelho, e pode ficar em branco.", tableName: "Today")
                 .font(MissaleFont.body(15))
                 .foregroundStyle(Palette.ink.opacity(0.65))
                 .padding(.bottom, 8)
@@ -52,7 +52,7 @@ struct MoodCheckInSheet: View {
                         showPastoralCare = true
                     } label: {
                         HStack {
-                            Text("Precisa de mais do que isto? Padre, diocese, ou uma crise")
+                            Text("Precisa de mais do que isto? Padre, diocese, ou uma crise", tableName: "Today")
                                 .font(MissaleFont.body(13))
                                 .foregroundStyle(Palette.ink.opacity(0.6))
                             Spacer()
@@ -65,13 +65,13 @@ struct MoodCheckInSheet: View {
 
                     ForEach(MockMood.stateGroups) { group in
                         VStack(alignment: .leading, spacing: 8) {
-                            Eyebrow(text: group.label)
+                            Eyebrow(text: L.string(group.label, table: "Today"))
                             FlowChips(items: group.items) { option in
                                 select(option)
                             }
                         }
                     }
-                    TextField("O que aconteceu? (opcional, uma linha)", text: $note)
+                    TextField(L.string("O que aconteceu? (opcional, uma linha)", table: "Today"), text: $note)
                         .font(MissaleFont.body(15))
                         .padding(12)
                         .background(Color.white.opacity(0.45), in: RoundedRectangle(cornerRadius: 14, style: .continuous))
@@ -102,7 +102,7 @@ private struct FlowChips: View {
                         Button {
                             onTap(item)
                         } label: {
-                            Text(item.label)
+                            Text(L.string(item.label, table: "Today"))
                                 .font(MissaleFont.body(15))
                                 .foregroundStyle(item.isCrisisTrigger ? Palette.wine : Palette.ink)
                                 .padding(.horizontal, 14)

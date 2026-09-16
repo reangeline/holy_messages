@@ -17,7 +17,7 @@ struct OnboardingLoaderView: View {
             VStack(spacing: 14) {
                 CrossGlyph(size: 30)
                 ForEach(0..<messages.count, id: \.self) { i in
-                    Text(messages[i])
+                    Text(L.string(messages[i], table: "Onboarding"))
                         .font(MissaleFont.body(16))
                         .foregroundStyle(Palette.ink.opacity(0.7))
                         .opacity(i < visibleCount ? 1 : 0)

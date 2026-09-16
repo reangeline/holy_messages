@@ -13,16 +13,16 @@ struct SubscriptionCancellationView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 14) {
                     VStack(alignment: .leading, spacing: 4) {
-                        Text("Cancelar a renovação")
+                        Text("Cancelar a renovação", tableName: "Today")
                             .font(MissaleFont.display(28, weight: .semibold))
-                        Text("Sem perguntas de saída e sem oferta de desconto. Só o que muda e o que não muda.")
+                        Text("Sem perguntas de saída e sem oferta de desconto. Só o que muda e o que não muda.", tableName: "Today")
                             .font(MissaleFont.body(15))
                             .foregroundStyle(Palette.ink.opacity(0.68))
                     }
 
                     GlassCard {
                         VStack(alignment: .leading, spacing: 9) {
-                            Eyebrow(text: "O que acontece")
+                            Eyebrow(text: L.string("O que acontece", table: "Today"))
                             ForEach(MockSubscription.cancelWhatHappens, id: \.self) { line in
                                 Text(line)
                                     .font(MissaleFont.body(16))
@@ -33,7 +33,7 @@ struct SubscriptionCancellationView: View {
 
                     GlassCard {
                         VStack(alignment: .leading, spacing: 9) {
-                            Eyebrow(text: "Continua seu, para sempre")
+                            Eyebrow(text: L.string("Continua seu, para sempre", table: "Today"))
                             ForEach(MockSubscription.keepsForever, id: \.self) { line in
                                 HStack(alignment: .top, spacing: 8) {
                                     Text("•").foregroundStyle(Palette.wine)
@@ -45,7 +45,7 @@ struct SubscriptionCancellationView: View {
 
                     DashedUtilityCard {
                         VStack(alignment: .leading, spacing: 6) {
-                            Eyebrow(text: "Fica em pausa")
+                            Eyebrow(text: L.string("Fica em pausa", table: "Today"))
                             Text(MockSubscription.cancelPausedNote)
                                 .font(MissaleFont.body(16))
                                 .foregroundStyle(Palette.ink.opacity(0.82))
@@ -53,7 +53,7 @@ struct SubscriptionCancellationView: View {
                     }
 
                     VStack(alignment: .leading, spacing: 8) {
-                        Text("Se o motivo for dinheiro, não cancele: escreva e liberamos o acesso completo, sem comprovação e sem prazo.")
+                        Text("Se o motivo for dinheiro, não cancele: escreva e liberamos o acesso completo, sem comprovação e sem prazo.", tableName: "Today")
                             .font(MissaleFont.body(16))
                             .foregroundStyle(Palette.ink.opacity(0.84))
                         Text(MockSubscription.hardshipEmail)
@@ -71,7 +71,7 @@ struct SubscriptionCancellationView: View {
                                 UIApplication.shared.open(url)
                             }
                         } label: {
-                            Text("Cancelar nos ajustes do iPhone")
+                            Text("Cancelar nos ajustes do iPhone", tableName: "Today")
                                 .font(MissaleFont.body(17))
                                 .frame(maxWidth: .infinity)
                                 .padding(16)
@@ -81,11 +81,11 @@ struct SubscriptionCancellationView: View {
                         Button {
                             dismiss()
                         } label: {
-                            Text("Manter minha assinatura")
+                            Text("Manter minha assinatura", tableName: "Today")
                                 .font(MissaleFont.body(16))
                                 .foregroundStyle(Palette.ink.opacity(0.65))
                         }
-                        Text("O cancelamento é feito pela App Store. Este botão abre a tela do sistema.")
+                        Text("O cancelamento é feito pela App Store. Este botão abre a tela do sistema.", tableName: "Today")
                             .font(MissaleFont.body(13))
                             .foregroundStyle(Palette.ink.opacity(0.55))
                             .multilineTextAlignment(.center)

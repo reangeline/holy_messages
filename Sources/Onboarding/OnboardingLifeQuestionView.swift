@@ -18,7 +18,7 @@ struct OnboardingLifeQuestionView: View {
             VStack(spacing: 0) {
                 OnboardingTopBar(
                     onBack: onBack,
-                    trailingText: question.skippable ? "Skip this one" : nil,
+                    trailingText: question.skippable ? L.string("Skip this one", table: "Onboarding") : nil,
                     trailingAction: question.skippable ? onNext : nil
                 )
                 OnboardingProgressBar(progress: Double(index + 1) / Double(total))
@@ -26,7 +26,9 @@ struct OnboardingLifeQuestionView: View {
 
                 ScrollView {
                     VStack(alignment: .leading, spacing: 16) {
-                        Text("\(index + 1) of \(total)")
+                        Text(L.string("{n} of {total}", table: "Onboarding")
+                            .replacingOccurrences(of: "{n}", with: "\(index + 1)")
+                            .replacingOccurrences(of: "{total}", with: "\(total)"))
                             .font(MissaleFont.body(13, weight: .semibold))
                             .foregroundStyle(Palette.ink.opacity(0.45))
                             .padding(.top, 24)
@@ -57,7 +59,7 @@ struct OnboardingLifeQuestionView: View {
                 }
 
                 OnboardingPrimaryButton(
-                    title: "Continue",
+                    title: L.string("Continue", table: "Onboarding"),
                     isEnabled: viewModel.hasAnyLifeAnswer(questionID: question.id),
                     action: onNext
                 )

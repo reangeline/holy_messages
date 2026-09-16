@@ -12,28 +12,28 @@ struct ScrupulosityRedirectView: View {
             LiturgicalColor.red.pageBackground
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
-                    Button("‹ Voltar") { dismiss() }
+                    Button(L.string("‹ Voltar", table: "Today")) { dismiss() }
                         .font(MissaleFont.body(16))
                         .foregroundStyle(Palette.wine)
 
-                    Eyebrow(text: "Você já trouxe isso três vezes")
-                    Text("Esta pergunta não é para um app")
+                    Eyebrow(text: L.string("Você já trouxe isso três vezes", table: "Today"))
+                    Text("Esta pergunta não é para um app", tableName: "Today")
                         .font(MissaleFont.display(28, weight: .semibold))
                         .foregroundStyle(Palette.ink)
-                    Text("Repetir a mesma dúvida de consciência até vir a resposta certa alimenta o escrúpulo em vez de aliviá-lo. A tradição é clara: isso se resolve com um confessor fixo, alguém que conheça sua história e possa dizer quando parar.")
+                    Text("Repetir a mesma dúvida de consciência até vir a resposta certa alimenta o escrúpulo em vez de aliviá-lo. A tradição é clara: isso se resolve com um confessor fixo, alguém que conheça sua história e possa dizer quando parar.", tableName: "Today")
                         .font(MissaleFont.body(16))
                         .foregroundStyle(Palette.ink.opacity(0.75))
 
                     GlassCard {
                         VStack(alignment: .leading, spacing: 4) {
-                            Text("Encontrar um confessor fixo").font(MissaleFont.body(18, weight: .medium))
-                            Text("Paróquias perto de você com horário regular de confissão e direção espiritual.")
+                            Text("Encontrar um confessor fixo", tableName: "Today").font(MissaleFont.body(18, weight: .medium))
+                            Text("Paróquias perto de você com horário regular de confissão e direção espiritual.", tableName: "Today")
                                 .font(MissaleFont.body(15))
                                 .foregroundStyle(Palette.ink.opacity(0.72))
                         }
                     }
 
-                    Text("Enquanto isso: uma vez confessado, está confessado. Não vamos devolver mais garantias sobre este ponto — e isso é cuidado, não abandono.")
+                    Text("Enquanto isso: uma vez confessado, está confessado. Não vamos devolver mais garantias sobre este ponto — e isso é cuidado, não abandono.", tableName: "Today")
                         .font(MissaleFont.body(15))
                         .foregroundStyle(Palette.ink.opacity(0.8))
                         .padding(14)
@@ -45,7 +45,7 @@ struct ScrupulosityRedirectView: View {
                     Button {
                         dismiss()
                     } label: {
-                        Text("Ver paróquias")
+                        Text("Ver paróquias", tableName: "Today")
                             .font(MissaleFont.body(17))
                             .frame(maxWidth: .infinity)
                             .padding(16)

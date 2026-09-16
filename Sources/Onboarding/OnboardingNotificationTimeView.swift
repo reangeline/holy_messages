@@ -14,11 +14,11 @@ struct OnboardingNotificationTimeView: View {
                 OnboardingTopBar(onBack: onBack)
                 ScrollView {
                     VStack(alignment: .leading, spacing: 16) {
-                        Text("When should the day's reading reach you?")
+                        Text("When should the day's reading reach you?", tableName: "Onboarding")
                             .font(MissaleFont.display(27))
                             .foregroundStyle(Palette.ink)
                             .padding(.top, 20)
-                        Text("One notice a day. Choose the hour that already belongs to prayer.")
+                        Text("One notice a day. Choose the hour that already belongs to prayer.", tableName: "Onboarding")
                             .font(MissaleFont.body(15))
                             .foregroundStyle(Palette.ink.opacity(0.65))
 
@@ -37,7 +37,7 @@ struct OnboardingNotificationTimeView: View {
                     }
                     .padding(.horizontal, 24)
                 }
-                OnboardingPrimaryButton(title: "See what it looks like", action: onNext)
+                OnboardingPrimaryButton(title: L.string("See what it looks like", table: "Onboarding"), action: onNext)
                     .padding(.vertical, 20)
             }
         }

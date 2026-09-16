@@ -25,7 +25,7 @@ struct OnboardingPaywallView: View {
                 ScrollView {
                     VStack(spacing: 14) {
                         Eyebrow(text: "Missale Premium")
-                        Text("Stay with it through the whole year")
+                        Text("Stay with it through the whole year", tableName: "Onboarding")
                             .font(MissaleFont.display(28))
                             .multilineTextAlignment(.center)
                             .foregroundStyle(Palette.ink)
@@ -35,7 +35,7 @@ struct OnboardingPaywallView: View {
                                 .font(MissaleFont.body(15, weight: .semibold))
                             Text("\u{2605}\u{2605}\u{2605}\u{2605}\u{2605}")
                                 .foregroundStyle(Palette.goldMuted)
-                            Text("12.4K App Ratings")
+                            Text("12.4K App Ratings", tableName: "Onboarding")
                                 .font(MissaleFont.body(13))
                                 .foregroundStyle(Palette.ink.opacity(0.55))
                         }
@@ -79,10 +79,10 @@ struct OnboardingPaywallView: View {
                         .foregroundStyle(Palette.ink)
 
                         VStack(alignment: .leading, spacing: 8) {
-                            featureRow("The Mass, part by part \u{2014} all 14 parts")
-                            featureRow("Every season and feast explained as it arrives")
-                            featureRow("Traditional prayers and Compline for the night")
-                            featureRow("The daily verse, the saint, and the safety net stay free forever.", dimmed: true)
+                            featureRow(L.string("The Mass, part by part \u{2014} all 14 parts", table: "Onboarding"))
+                            featureRow(L.string("Every season and feast explained as it arrives", table: "Onboarding"))
+                            featureRow(L.string("Traditional prayers and Compline for the night", table: "Onboarding"))
+                            featureRow(L.string("The daily verse, the saint, and the safety net stay free forever.", table: "Onboarding"), dimmed: true)
                         }
                         .padding(.top, 6)
                     }
@@ -92,8 +92,9 @@ struct OnboardingPaywallView: View {
                 }
 
                 VStack(spacing: 8) {
-                    OnboardingPrimaryButton(title: "Try free for 30 days", action: onFinish)
-                    Text("First 30 days free, then \(OnboardingPaywallContent.planPrice(for: AppLanguage.current(from: locale))). Cancel anytime. T&C")
+                    OnboardingPrimaryButton(title: L.string("Try free for 30 days", table: "Onboarding"), action: onFinish)
+                    Text(L.string("First 30 days free, then {price}. Cancel anytime. T&C", table: "Onboarding")
+                        .replacingOccurrences(of: "{price}", with: OnboardingPaywallContent.planPrice(for: AppLanguage.current(from: locale))))
                         .font(MissaleFont.body(12))
                         .foregroundStyle(Palette.ink.opacity(0.5))
                 }

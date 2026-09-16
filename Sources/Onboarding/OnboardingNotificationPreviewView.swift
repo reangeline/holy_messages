@@ -20,11 +20,12 @@ struct OnboardingNotificationPreviewView: View {
                 OnboardingTopBar(onBack: onBack)
                 ScrollView {
                     VStack(alignment: .leading, spacing: 18) {
-                        Text("This is what arrives at \(timeHour)")
+                        Text(L.string("This is what arrives at {time}", table: "Onboarding")
+                            .replacingOccurrences(of: "{time}", with: timeHour))
                             .font(MissaleFont.display(26))
                             .foregroundStyle(Palette.ink)
                             .padding(.top, 20)
-                        Text("One notice. No badges, no nudging.")
+                        Text("One notice. No badges, no nudging.", tableName: "Onboarding")
                             .font(MissaleFont.body(15))
                             .foregroundStyle(Palette.ink.opacity(0.65))
 
@@ -39,7 +40,7 @@ struct OnboardingNotificationPreviewView: View {
                                         .font(.system(size: 12, weight: .semibold))
                                         .foregroundStyle(Palette.ink.opacity(0.6))
                                     Spacer()
-                                    Text("now")
+                                    Text("now", tableName: "Onboarding")
                                         .font(.system(size: 12))
                                         .foregroundStyle(Palette.ink.opacity(0.4))
                                 }
@@ -58,8 +59,8 @@ struct OnboardingNotificationPreviewView: View {
                     }
                     .padding(.horizontal, 24)
                 }
-                OnboardingPrimaryButton(title: "Send it to me daily", action: onAllow)
-                OnboardingTextLink(title: "Not now", action: onNotNow)
+                OnboardingPrimaryButton(title: L.string("Send it to me daily", table: "Onboarding"), action: onAllow)
+                OnboardingTextLink(title: L.string("Not now", table: "Onboarding"), action: onNotNow)
                     .frame(maxWidth: .infinity)
                     .padding(.bottom, 24)
             }

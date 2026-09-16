@@ -19,7 +19,7 @@ struct OnboardingSampleView: View {
             Palette.parchment.ignoresSafeArea()
             VStack(spacing: 0) {
                 OnboardingTopBar(onBack: onBack)
-                Text("Free to explore")
+                Text("Free to explore", tableName: "Onboarding")
                     .font(MissaleFont.body(13, weight: .semibold))
                     .foregroundStyle(Palette.ink.opacity(0.5))
                     .padding(.top, 6)
@@ -67,8 +67,8 @@ struct OnboardingSampleView: View {
                     .padding(.bottom, 30)
                 }
 
-                OnboardingPrimaryButton(title: "Make this mine", action: onContinue)
-                Text("A few short questions. No account yet.")
+                OnboardingPrimaryButton(title: L.string("Make this mine", table: "Onboarding"), action: onContinue)
+                Text("A few short questions. No account yet.", tableName: "Onboarding")
                     .font(MissaleFont.body(13))
                     .foregroundStyle(Palette.ink.opacity(0.5))
                     .padding(.top, 8)

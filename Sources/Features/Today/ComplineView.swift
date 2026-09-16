@@ -14,11 +14,11 @@ struct ComplineView: View {
 
             VStack(alignment: .leading, spacing: 0) {
                 HStack {
-                    Button("‹ Voltar") { dismiss() }
+                    Button(L.string("‹ Voltar", table: "Today")) { dismiss() }
                         .foregroundStyle(Palette.goldBright)
                     Spacer()
                     HStack(spacing: 8) {
-                        Text("Tela escura").font(MissaleFont.body(13)).foregroundStyle(.white.opacity(0.55))
+                        Text("Tela escura", tableName: "Today").font(MissaleFont.body(13)).foregroundStyle(.white.opacity(0.55))
                         Toggle("", isOn: $darkScreen)
                             .labelsHidden()
                             .tint(Palette.goldBright)
@@ -26,7 +26,7 @@ struct ComplineView: View {
                 }
                 .padding(.top, 8)
 
-                Eyebrow(text: "Completas · oração da noite", color: Palette.goldBright)
+                Eyebrow(text: L.string("Completas · oração da noite", table: "Today"), color: Palette.goldBright)
                     .padding(.top, 18)
                 Text("\(MockLiturgical.today.weekdayLabel), \(MockLiturgical.today.feastName)")
                     .font(MissaleFont.display(28, weight: .semibold))
@@ -48,7 +48,7 @@ struct ComplineView: View {
                         Text("Quem habita ao abrigo do Altíssimo e mora à sombra do Onipotente diz ao Senhor: sois meu refúgio e minha cidadela, meu Deus, em quem confio.")
                             .font(MissaleFont.body(18))
                             .foregroundStyle(.white.opacity(0.88))
-                        Text("Texto completo, offline. Rolagem lenta e nenhuma notificação enquanto esta tela está aberta.")
+                        Text("Texto completo, offline. Rolagem lenta e nenhuma notificação enquanto esta tela está aberta.", tableName: "Today")
                             .font(MissaleFont.body(15))
                             .foregroundStyle(.white.opacity(0.55))
                     }
@@ -59,7 +59,7 @@ struct ComplineView: View {
                 Button {
                     dismiss()
                 } label: {
-                    Text("Terminar e apagar a tela")
+                    Text("Terminar e apagar a tela", tableName: "Today")
                         .font(MissaleFont.body(17))
                         .frame(maxWidth: .infinity)
                         .padding(16)

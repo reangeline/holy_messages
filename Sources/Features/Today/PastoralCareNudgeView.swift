@@ -11,48 +11,49 @@ struct PastoralCareNudgeView: View {
             LiturgicalColor.red.pageBackground
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
-                    Eyebrow(text: "Uma nota, sem alarme")
-                    Text("Faz algumas semanas que os dias têm vindo pesados")
+                    Eyebrow(text: L.string("Uma nota, sem alarme", table: "Today"))
+                    Text("Faz algumas semanas que os dias têm vindo pesados", tableName: "Today")
                         .font(MissaleFont.display(28, weight: .semibold))
                         .foregroundStyle(Palette.ink)
-                    Text("Não é um diagnóstico e não é uma conta a pagar. É só que mais um Salmo talvez não seja o que você precisa agora, e há gente para isso.")
+                    Text("Não é um diagnóstico e não é uma conta a pagar. É só que mais um Salmo talvez não seja o que você precisa agora, e há gente para isso.", tableName: "Today")
                         .font(MissaleFont.body(16))
                         .foregroundStyle(Palette.ink.opacity(0.75))
 
                     GlassCard {
                         VStack(alignment: .leading, spacing: 4) {
-                            Text("Falar com um padre").font(MissaleFont.body(18, weight: .medium))
-                            Text("Confissão, ou apenas uma conversa. Mostramos a \(MockMood.pastoralCareParishName.lowercased()) mais perto e os horários.")
+                            Text("Falar com um padre", tableName: "Today").font(MissaleFont.body(18, weight: .medium))
+                            Text(L.string("Confissão, ou apenas uma conversa. Mostramos a {parish} mais perto e os horários.", table: "Today")
+                                .replacingOccurrences(of: "{parish}", with: MockMood.pastoralCareParishName.lowercased()))
                                 .font(MissaleFont.body(15))
                                 .foregroundStyle(Palette.ink.opacity(0.72))
                         }
                     }
                     GlassCard {
                         VStack(alignment: .leading, spacing: 4) {
-                            Text("Acompanhamento na sua diocese").font(MissaleFont.body(18, weight: .medium))
-                            Text("Apoio no luto, escuta e ajuda material pela Caritas local.")
+                            Text("Acompanhamento na sua diocese", tableName: "Today").font(MissaleFont.body(18, weight: .medium))
+                            Text("Apoio no luto, escuta e ajuda material pela Caritas local.", tableName: "Today")
                                 .font(MissaleFont.body(15))
                                 .foregroundStyle(Palette.ink.opacity(0.72))
                         }
                     }
                     LiturgicalGradientCard(color: .red) {
                         VStack(alignment: .leading, spacing: 6) {
-                            Eyebrow(text: "Se for crise · Estados Unidos", color: Palette.goldBright)
+                            Eyebrow(text: L.string("Se for crise · Estados Unidos", table: "Today"), color: Palette.goldBright)
                             Text("988").font(MissaleFont.display(28)).foregroundStyle(.white)
-                            Text("Suicide & Crisis Lifeline. Ligação ou mensagem, a qualquer hora.")
+                            Text("Suicide & Crisis Lifeline. Ligação ou mensagem, a qualquer hora.", tableName: "Today")
                                 .font(MissaleFont.body(15))
                                 .foregroundStyle(.white.opacity(0.9))
                         }
                     }
 
-                    Text("Este app oferece formação e oração. Não é terapia nem atendimento clínico, e não finge ser.")
+                    Text("Este app oferece formação e oração. Não é terapia nem atendimento clínico, e não finge ser.", tableName: "Today")
                         .font(MissaleFont.body(14))
                         .foregroundStyle(Palette.ink.opacity(0.55))
 
                     Button {
                         dismiss()
                     } label: {
-                        Text("Entendi, fechar")
+                        Text("Entendi, fechar", tableName: "Today")
                             .font(MissaleFont.body(17))
                             .frame(maxWidth: .infinity)
                             .padding(16)

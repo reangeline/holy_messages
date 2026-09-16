@@ -15,15 +15,15 @@ struct OnboardingSpiritualIntroView: View {
                     VStack(alignment: .leading, spacing: 18) {
                         CrossGlyph(size: 32)
                             .padding(.top, 12)
-                        Text("Now four questions the Church has always asked")
+                        Text("Now four questions the Church has always asked", tableName: "Onboarding")
                             .font(MissaleFont.display(28))
                             .foregroundStyle(Palette.ink)
-                        Text("Consolation and desolation, dryness, doubt, weight. Not a mood test, not a score, no diagnosis — the vocabulary the Church uses for what a soul carries.")
+                        Text("Consolation and desolation, dryness, doubt, weight. Not a mood test, not a score, no diagnosis — the vocabulary the Church uses for what a soul carries.", tableName: "Onboarding")
                             .font(MissaleFont.body(16))
                             .foregroundStyle(Palette.ink.opacity(0.75))
 
                         GlassCard {
-                            Text("These answers stay on this device. They are never sent to a server, never used for ads, never used to sell you anything. Every question can be left unanswered.")
+                            Text("These answers stay on this device. They are never sent to a server, never used for ads, never used to sell you anything. Every question can be left unanswered.", tableName: "Onboarding")
                                 .font(MissaleFont.body(15))
                                 .foregroundStyle(Palette.ink.opacity(0.85))
                         }
@@ -32,46 +32,46 @@ struct OnboardingSpiritualIntroView: View {
                         // "crisis" answer below. If any of the next four questions
                         // touch something heavier than an app should handle alone,
                         // this is already the same place you saw it.
-                        Eyebrow(text: "If any of this is heavier than a question")
+                        Eyebrow(text: L.string("If any of this is heavier than a question", table: "Onboarding"))
                         GlassCard {
                             VStack(alignment: .leading, spacing: 6) {
-                                Text("Talk to a priest")
+                                Text("Talk to a priest", tableName: "Onboarding")
                                     .font(MissaleFont.body(17, weight: .medium))
                                     .foregroundStyle(Palette.ink)
-                                Text("Confession, or simply a conversation. We can show you the nearest parish office and its hours.")
+                                Text("Confession, or simply a conversation. We can show you the nearest parish office and its hours.", tableName: "Onboarding")
                                     .font(MissaleFont.body(15))
                                     .foregroundStyle(Palette.ink.opacity(0.72))
                             }
                         }
                         GlassCard {
                             VStack(alignment: .leading, spacing: 6) {
-                                Text("Catholic Charities")
+                                Text("Catholic Charities", tableName: "Onboarding")
                                     .font(MissaleFont.body(17, weight: .medium))
                                     .foregroundStyle(Palette.ink)
-                                Text("Grief support, counseling, and material help through your diocese.")
+                                Text("Grief support, counseling, and material help through your diocese.", tableName: "Onboarding")
                                     .font(MissaleFont.body(15))
                                     .foregroundStyle(Palette.ink.opacity(0.72))
                             }
                         }
                         LiturgicalGradientCard(color: .red) {
                             VStack(alignment: .leading, spacing: 8) {
-                                Eyebrow(text: "If you are in crisis · United States", color: Palette.goldBright)
+                                Eyebrow(text: L.string("If you are in crisis · United States", table: "Onboarding"), color: Palette.goldBright)
                                 Text("988")
                                     .font(MissaleFont.display(30))
                                     .foregroundStyle(.white)
-                                Text("Suicide & Crisis Lifeline. Call or text, any hour, free and confidential.")
+                                Text("Suicide & Crisis Lifeline. Call or text, any hour, free and confidential.", tableName: "Onboarding")
                                     .font(MissaleFont.body(15))
                                     .foregroundStyle(.white.opacity(0.9))
                                 HStack(spacing: 12) {
-                                    Link("Call 988", destination: URL(string: "tel:988")!)
-                                    Link("Text 988", destination: URL(string: "sms:988")!)
+                                    Link(destination: URL(string: "tel:988")!) { Text("Call 988", tableName: "Onboarding") }
+                                    Link(destination: URL(string: "sms:988")!) { Text("Text 988", tableName: "Onboarding") }
                                 }
                                 .font(MissaleFont.body(15, weight: .medium))
                                 .foregroundStyle(.white)
                                 .padding(.top, 4)
                             }
                         }
-                        Text("This app offers formation and prayer. It is not confession, spiritual direction, or therapy, and it never pretends to be.")
+                        Text("This app offers formation and prayer. It is not confession, spiritual direction, or therapy, and it never pretends to be.", tableName: "Onboarding")
                             .font(MissaleFont.body(13))
                             .foregroundStyle(Palette.ink.opacity(0.55))
                     }
@@ -79,8 +79,8 @@ struct OnboardingSpiritualIntroView: View {
                     .padding(.top, 20)
                     .padding(.bottom, 24)
                 }
-                OnboardingPrimaryButton(title: "I'll answer", action: onAnswer)
-                OnboardingTextLink(title: "Skip all four", action: onSkipAll)
+                OnboardingPrimaryButton(title: L.string("I'll answer", table: "Onboarding"), action: onAnswer)
+                OnboardingTextLink(title: L.string("Skip all four", table: "Onboarding"), action: onSkipAll)
                     .frame(maxWidth: .infinity)
                     .padding(.bottom, 24)
             }

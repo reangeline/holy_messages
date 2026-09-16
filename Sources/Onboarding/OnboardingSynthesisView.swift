@@ -12,11 +12,11 @@ struct OnboardingSynthesisView: View {
                 Spacer().frame(height: 60)
                 ScrollView {
                     VStack(alignment: .leading, spacing: 16) {
-                        Eyebrow(text: "Your formation track")
-                        Text("A short plan, starting today")
+                        Eyebrow(text: L.string("Your formation track", table: "Onboarding"))
+                        Text("A short plan, starting today", tableName: "Onboarding")
                             .font(MissaleFont.display(27))
                             .foregroundStyle(Palette.ink)
-                        Text("Built from what you told us — a few minutes a day, nothing more.")
+                        Text("Built from what you told us — a few minutes a day, nothing more.", tableName: "Onboarding")
                             .font(MissaleFont.body(15))
                             .foregroundStyle(Palette.ink.opacity(0.65))
 
@@ -44,13 +44,13 @@ struct OnboardingSynthesisView: View {
 
                         DashedUtilityCard {
                             VStack(alignment: .leading, spacing: 4) {
-                                Text("Next in the calendar for you")
+                                Text("Next in the calendar for you", tableName: "Onboarding")
                                     .font(MissaleFont.body(14, weight: .medium))
                                     .foregroundStyle(Palette.ink)
                                 Text("September 15 · Our Lady of Sorrows")
                                     .font(MissaleFont.body(14))
                                     .foregroundStyle(Palette.ink.opacity(0.7))
-                                Text("White vestments. The app changes color that morning.")
+                                Text("White vestments. The app changes color that morning.", tableName: "Onboarding")
                                     .font(MissaleFont.body(13))
                                     .foregroundStyle(Palette.ink.opacity(0.55))
                             }
@@ -58,7 +58,7 @@ struct OnboardingSynthesisView: View {
 
                         DashedUtilityCard {
                             VStack(alignment: .leading, spacing: 4) {
-                                Text("Tomorrow morning you get")
+                                Text("Tomorrow morning you get", tableName: "Onboarding")
                                     .font(MissaleFont.body(14, weight: .medium))
                                     .foregroundStyle(Palette.ink)
                                 Text("The verse of the day, the saint of the day, and part 1 of The Mass, part by part.")
@@ -69,7 +69,7 @@ struct OnboardingSynthesisView: View {
                     }
                     .padding(.horizontal, 24)
                 }
-                OnboardingPrimaryButton(title: "This is mine", action: onNext)
+                OnboardingPrimaryButton(title: L.string("This is mine", table: "Onboarding"), action: onNext)
                     .padding(.vertical, 20)
             }
         }

@@ -56,11 +56,11 @@ enum AngelusScheduler {
                 let content = UNMutableNotificationContent()
                 switch period {
                 case .angelus:
-                    content.title = "Hora do Angelus"
-                    content.body = "Três minutos, quando você puder. \u{201C}O Anjo do Senhor anunciou a Maria.\u{201D}"
+                    content.title = L.string("Hora do Angelus", table: "Today")
+                    content.body = L.string("Três minutos, quando você puder. \u{201C}O Anjo do Senhor anunciou a Maria.\u{201D}", table: "Today")
                 case .reginaCaeli:
-                    content.title = "Hora do Regina Caeli"
-                    content.body = "Tempo Pascal: \u{201C}Rainha do Céu, alegrai-vos, aleluia.\u{201D}"
+                    content.title = L.string("Hora do Regina Caeli", table: "Today")
+                    content.body = L.string("Tempo Pascal: \u{201C}Rainha do Céu, alegrai-vos, aleluia.\u{201D}", table: "Today")
                 }
                 content.sound = .default
 

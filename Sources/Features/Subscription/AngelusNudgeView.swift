@@ -15,13 +15,14 @@ struct AngelusNudgeView: View {
             VStack(spacing: 22) {
                 Spacer()
                 CrossGlyph(size: 34, color: Palette.goldBright)
-                Eyebrow(text: "Meio-dia · vermelho · \(MockLiturgical.today.feastName)", color: Palette.goldBright)
+                Eyebrow(text: L.string("Meio-dia · vermelho · {feast}", table: "Today")
+                    .replacingOccurrences(of: "{feast}", with: MockLiturgical.today.feastName), color: Palette.goldBright)
                     .multilineTextAlignment(.center)
-                Text("É a hora do Angelus")
+                Text("É a hora do Angelus", tableName: "Today")
                     .font(MissaleFont.display(30, weight: .semibold))
                     .foregroundStyle(.white)
                     .multilineTextAlignment(.center)
-                Text("Você separou esta janela antes, quando estava tranquilo. Ela dura três minutos e termina sozinha.")
+                Text("Você separou esta janela antes, quando estava tranquilo. Ela dura três minutos e termina sozinha.", tableName: "Today")
                     .font(MissaleFont.body(16))
                     .foregroundStyle(.white.opacity(0.82))
                     .multilineTextAlignment(.center)
@@ -31,7 +32,7 @@ struct AngelusNudgeView: View {
                     Button {
                         dismiss()
                     } label: {
-                        Text("Rezar o Angelus")
+                        Text("Rezar o Angelus", tableName: "Today")
                             .font(MissaleFont.body(17))
                             .frame(maxWidth: .infinity)
                             .padding(16)
@@ -41,7 +42,7 @@ struct AngelusNudgeView: View {
                     Button {
                         dismiss()
                     } label: {
-                        Text("Ficar em silêncio até 12h03")
+                        Text("Ficar em silêncio até 12h03", tableName: "Today")
                             .font(MissaleFont.body(16))
                             .frame(maxWidth: .infinity)
                             .padding(16)
@@ -55,13 +56,13 @@ struct AngelusNudgeView: View {
                 Button {
                     dismiss()
                 } label: {
-                    Text("Abrir o Instagram agora")
+                    Text("Abrir o Instagram agora", tableName: "Today")
                         .font(MissaleFont.body(15))
                         .foregroundStyle(.white.opacity(0.6))
                 }
 
                 Spacer()
-                Text("A saída está sempre aqui. Sem cobrança, sem contador de recaída.")
+                Text("A saída está sempre aqui. Sem cobrança, sem contador de recaída.", tableName: "Today")
                     .font(MissaleFont.body(13))
                     .foregroundStyle(.white.opacity(0.5))
                     .multilineTextAlignment(.center)
