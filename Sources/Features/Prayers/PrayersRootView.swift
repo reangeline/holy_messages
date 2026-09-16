@@ -90,11 +90,15 @@ struct PrayersRootView: View {
                                     .font(MissaleFont.body(15, weight: .medium))
                                     .foregroundStyle(Palette.ink)
                                     .fixedSize(horizontal: false, vertical: true)
+                                Spacer(minLength: 0)
                                 Text("\(category.prayers.count) oraç\(category.prayers.count == 1 ? "ão" : "ões")")
                                     .font(MissaleFont.body(13))
                                     .foregroundStyle(Palette.ink.opacity(0.55))
                             }
-                            .frame(maxWidth: .infinity, alignment: .leading)
+                            // Every card the same height regardless of how many
+                            // lines its title wraps to — otherwise the grid
+                            // reads as uneven tiles rather than a matched set.
+                            .frame(maxWidth: .infinity, minHeight: 92, alignment: .topLeading)
                         }
                     }
                     .buttonStyle(.plain)
