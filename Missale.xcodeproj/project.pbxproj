@@ -64,7 +64,6 @@
 		819DA48E98629EFFABCEC5CF /* AngelusNudgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310BE3218669FF7F03615007 /* AngelusNudgeView.swift */; };
 		833FBFF924BB59D7D7DF1CD2 /* OnboardingContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1141C1D33857D4982D876450 /* OnboardingContent.swift */; };
 		8B66205B743766D93343D695 /* OnboardingLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13370349962A1A01A269F8B3 /* OnboardingLoaderView.swift */; };
-		8D1083F2863F46856F526EE9 /* RosaryLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5166DF49F6D26CC9DE39A585 /* RosaryLogView.swift */; };
 		8DCD0C81B208FB6C390ACDC1 /* LiturgicalYearRibbonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E079C4E39E9ED0EC7D50BFE /* LiturgicalYearRibbonView.swift */; };
 		8F14F39D961C2BEDA07BE3EC /* TodayRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4584EA772E91637C377A6B12 /* TodayRootView.swift */; };
 		8FAAD1CF69D5D94335D92AA4 /* RegionalCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DECEE18CD43B47224FA77A /* RegionalCalendarView.swift */; };
@@ -160,7 +159,6 @@
 		4BE7A1785F8D77047D6754CC /* CormorantGaramond-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CormorantGaramond-Italic.ttf"; sourceTree = "<group>"; };
 		4D6494C870F0202D155720C4 /* CormorantGaramond-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CormorantGaramond-Medium.ttf"; sourceTree = "<group>"; };
 		4E24DE9D86BEAA91DB58D7AF /* MockMood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMood.swift; sourceTree = "<group>"; };
-		5166DF49F6D26CC9DE39A585 /* RosaryLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RosaryLogView.swift; sourceTree = "<group>"; };
 		51E8CA2292F4D55B83C89CF2 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		5755A56F746943C35D7DEE62 /* CormorantGaramond-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CormorantGaramond-MediumItalic.ttf"; sourceTree = "<group>"; };
 		5B49583537054AC3C26C2371 /* RosaryGuidedPrayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RosaryGuidedPrayerView.swift; sourceTree = "<group>"; };
@@ -426,7 +424,6 @@
 				5B49583537054AC3C26C2371 /* RosaryGuidedPrayerView.swift */,
 				4AA725209135D65B8B6FE950 /* RosaryHistoryStore.swift */,
 				DB7FF250824CB84308F98FF9 /* RosaryHowToView.swift */,
-				5166DF49F6D26CC9DE39A585 /* RosaryLogView.swift */,
 				1A6CB2EEC1A4189CB671B6A9 /* RosaryMysteriesPickerView.swift */,
 			);
 			path = Prayers;
@@ -676,7 +673,6 @@
 				DB473FB96B0D039817054995 /* RosaryGuidedPrayerView.swift in Sources */,
 				EF580CFD3D263C0234CBDAEC /* RosaryHistoryStore.swift in Sources */,
 				929F53550875CEDB33AEEAB2 /* RosaryHowToView.swift in Sources */,
-				8D1083F2863F46856F526EE9 /* RosaryLogView.swift in Sources */,
 				716E10EA85D0CBA51CAFB0A8 /* RosaryMysteriesPickerView.swift in Sources */,
 				3140FC814167B4E767196940 /* Saint.swift in Sources */,
 				B1027A44864C1580ACAC6E0F /* SaintDetailView.swift in Sources */,
