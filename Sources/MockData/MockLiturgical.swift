@@ -1,5 +1,16 @@
 import Foundation
 
+extension Calendar {
+    /// A fixed UTC gregorian calendar for pure year/month/day arithmetic
+    /// (month length, starting weekday) — avoids the device's own time zone
+    /// shifting a computed date across a day boundary.
+    static let gregorianUTC: Calendar = {
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.timeZone = TimeZone(identifier: "UTC")!
+        return calendar
+    }()
+}
+
 /// Which Marian antiphon is prayed at the Angelus hours: Regina Caeli replaces the
 /// Angelus for the whole of Eastertide (Easter Sunday through Pentecost).
 enum MarianAntiphonPeriod {
@@ -127,5 +138,36 @@ enum MockLiturgical {
         default: .green
         }
         return CalendarDayMark(dateKey: String(format: "2026-09-%02d", day), dayNumber: day, color: color)
+    }
+
+    /// Any other month than September 2026 (the only one with real per-day
+    /// content authored) is honest, not fabricated: every day plain Ordinary
+    /// Time green, real day count and starting weekday computed from the
+    /// actual calendar. Navigating away from September just shows a calendar
+    /// that hasn't been told anything special about those dates yet, rather
+    /// than inventing feasts for them.
+    static func days(year: Int, month: Int) -> [CalendarDayMark] {
+        if year == 2026, month == 9 { return septemberDays }
+        guard let range = Calendar.gregorianUTC.range(of: .day, in: .month, for: firstOfMonth(year: year, month: month)) else { return [] }
+        return range.map { day in
+            CalendarDayMark(dateKey: String(format: "%04d-%02d-%02d", year, month, day), dayNumber: day, color: .green)
+        }
+    }
+
+    /// How many blank leading cells a Sunday-first week grid needs before day 1.
+    static func leadingEmptyDays(year: Int, month: Int) -> Int {
+        Calendar.gregorianUTC.component(.weekday, from: firstOfMonth(year: year, month: month)) - 1
+    }
+
+    /// Localized month name via Foundation's own locale data — genuinely correct
+    /// in en/pt/es without hand-maintaining 12×3 translations.
+    static func monthName(year: Int, month: Int) -> String {
+        let formatter = DateFormatter()
+        formatter.locale = AppLanguagePreference.resolveCurrent().locale
+        return formatter.monthSymbols[month - 1].localizedCapitalized
+    }
+
+    private static func firstOfMonth(year: Int, month: Int) -> Date {
+        Calendar.gregorianUTC.date(from: DateComponents(year: year, month: month, day: 1)) ?? Date()
     }
 }

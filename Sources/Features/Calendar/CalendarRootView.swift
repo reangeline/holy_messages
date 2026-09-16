@@ -3,9 +3,24 @@ import SwiftUI
 /// t4 screen 8 — monthly liturgical calendar grid. Hub screen (shows the floating tab bar).
 struct CalendarRootView: View {
     private let weekdaySymbols = ["D", "S", "T", "Q", "Q", "S", "S"]
-    /// September 1, 2026 lands in this column (0 = Sunday) — purely for grid layout of the mock month.
-    private let leadingEmptyDays = 2
     @ObservedObject private var moodHistory = MoodHistoryStore.shared
+    @State private var displayedYear = 2026
+    @State private var displayedMonth = 9
+
+    private var days: [CalendarDayMark] { MockLiturgical.days(year: displayedYear, month: displayedMonth) }
+    private var leadingEmptyDays: Int { MockLiturgical.leadingEmptyDays(year: displayedYear, month: displayedMonth) }
+    private var isViewingCurrentMonth: Bool { displayedYear == 2026 && displayedMonth == 9 }
+
+    private func isToday(_ mark: CalendarDayMark) -> Bool { mark.dateKey == MockLiturgical.today.dateKey }
+
+    private func changeMonth(by delta: Int) {
+        var newMonth = displayedMonth + delta
+        var newYear = displayedYear
+        if newMonth < 1 { newMonth = 12; newYear -= 1 }
+        if newMonth > 12 { newMonth = 1; newYear += 1 }
+        displayedMonth = newMonth
+        displayedYear = newYear
+    }
 
     /// "consolation", "desolation", or nil (nothing logged). Only "today" can
     /// ever return non-nil: this calendar's other dates are a fixed/fictional
@@ -61,8 +76,8 @@ struct CalendarRootView: View {
         VStack(alignment: .leading, spacing: 10) {
             HStack(alignment: .firstTextBaseline) {
                 VStack(alignment: .leading, spacing: 4) {
-                    Eyebrow(text: MockLiturgical.today.seasonName)
-                    Text("September", tableName: "CalendarSaints")
+                    Eyebrow(text: isViewingCurrentMonth ? MockLiturgical.today.seasonName : L.string("Ordinary Time", table: "CalendarSaints"))
+                    Text("\(MockLiturgical.monthName(year: displayedYear, month: displayedMonth)) \(String(displayedYear))")
                         .font(MissaleFont.display(28))
                 }
                 Spacer()
@@ -72,6 +87,30 @@ struct CalendarRootView: View {
                         .foregroundStyle(Palette.wine)
                 }
             }
+            HStack(spacing: 16) {
+                Button { changeMonth(by: -1) } label: {
+                    Image(systemName: "chevron.left")
+                        .frame(width: 30, height: 30)
+                        .background(.ultraThinMaterial, in: Circle())
+                }
+                if !isViewingCurrentMonth {
+                    Button {
+                        displayedYear = 2026
+                        displayedMonth = 9
+                    } label: {
+                        Text("Today", tableName: "CalendarSaints")
+                            .font(MissaleFont.body(14, weight: .medium))
+                            .foregroundStyle(Palette.wine)
+                    }
+                }
+                Spacer()
+                Button { changeMonth(by: 1) } label: {
+                    Image(systemName: "chevron.right")
+                        .frame(width: 30, height: 30)
+                        .background(.ultraThinMaterial, in: Circle())
+                }
+            }
+            .foregroundStyle(Palette.ink)
             HStack(spacing: 10) {
                 NavigationLink(value: CalendarDestination.week) {
                     zoomLink(title: MockLiturgical.currentWeek.name, subtitle: "A semana em 7 dias")
@@ -118,7 +157,7 @@ struct CalendarRootView: View {
             ForEach(0..<leadingEmptyDays, id: \.self) { _ in
                 Color.clear.frame(height: 40)
             }
-            ForEach(MockLiturgical.septemberDays) { mark in
+            ForEach(days) { mark in
                 NavigationLink(value: CalendarDestination.day(mark)) {
                     dayCell(mark)
                 }
@@ -128,15 +167,23 @@ struct CalendarRootView: View {
     }
 
     private func dayCell(_ mark: CalendarDayMark) -> some View {
-        ZStack(alignment: .bottom) {
+        let today = isToday(mark)
+        return ZStack(alignment: .bottom) {
             RoundedRectangle(cornerRadius: 10, style: .continuous)
                 .fill(mark.color == .white ? Color.white.opacity(0.85) : mark.color.accent.opacity(0.5))
                 .overlay(
                     RoundedRectangle(cornerRadius: 10, style: .continuous)
                         .strokeBorder(mark.color == .white ? Palette.ink.opacity(0.2) : .clear, lineWidth: 1)
                 )
+                // "Today" gets its own ring, independent of the liturgical color —
+                // a red feast day and "today" being red are two different facts,
+                // and this makes sure they don't get confused for one another.
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10, style: .continuous)
+                        .strokeBorder(today ? Palette.wine : .clear, lineWidth: 2.5)
+                )
             Text("\(mark.dayNumber)")
-                .font(.system(size: 14))
+                .font(.system(size: 14, weight: today ? .bold : .regular))
                 .foregroundStyle(mark.color == .white ? Palette.ink : Color.white)
                 .frame(maxHeight: .infinity, alignment: .top)
                 .padding(.top, 6)
