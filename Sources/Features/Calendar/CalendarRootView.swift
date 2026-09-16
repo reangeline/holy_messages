@@ -5,6 +5,14 @@ struct CalendarRootView: View {
     private let weekdaySymbols = ["D", "S", "T", "Q", "Q", "S", "S"]
     /// September 1, 2026 lands in this column (0 = Sunday) — purely for grid layout of the mock month.
     private let leadingEmptyDays = 2
+    @ObservedObject private var moodHistory = MoodHistoryStore.shared
+
+    /// Today's mark reflects whatever was actually logged in the Exame instead of
+    /// the static mock flag — the rest of the month stays illustrative since there's
+    /// no real per-day history beyond the one live "today" this mock has.
+    private func hasLoggedEntry(for mark: CalendarDayMark) -> Bool {
+        mark.dateKey == MockLiturgical.today.dateKey ? !moodHistory.entries.isEmpty : mark.hasLoggedEntry
+    }
 
     var body: some View {
         NavigationStack {
@@ -126,7 +134,7 @@ struct CalendarRootView: View {
                 .foregroundStyle(mark.color == .white ? Palette.ink : Color.white)
                 .frame(maxHeight: .infinity, alignment: .top)
                 .padding(.top, 6)
-            if mark.hasLoggedEntry {
+            if hasLoggedEntry(for: mark) {
                 RoundedRectangle(cornerRadius: 2)
                     .fill(Palette.ink.opacity(0.45))
                     .frame(width: 16, height: 3)

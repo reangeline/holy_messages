@@ -49,13 +49,21 @@ struct TodayRootView: View {
     private var header: some View {
         HStack(alignment: .top) {
             VStack(alignment: .leading, spacing: 5) {
-                HStack(spacing: 8) {
-                    Circle().fill(day.color.accent).frame(width: 9, height: 9)
-                    Text("\(day.feastName) · \(day.color.name) · \(day.dayMonthLabel)")
-                        .font(MissaleFont.body(11, weight: .semibold))
-                        .tracking(1.2)
-                        .foregroundStyle(day.color.accent)
+                NavigationLink {
+                    GlossaryView()
+                } label: {
+                    HStack(spacing: 8) {
+                        Circle().fill(day.color.accent).frame(width: 9, height: 9)
+                        Text("\(day.feastName) · \(day.color.name) · \(day.dayMonthLabel)")
+                            .font(MissaleFont.body(11, weight: .semibold))
+                            .tracking(1.2)
+                            .foregroundStyle(day.color.accent)
+                        Image(systemName: "questionmark.circle")
+                            .font(.system(size: 10))
+                            .foregroundStyle(day.color.accent.opacity(0.7))
+                    }
                 }
+                .buttonStyle(.plain)
                 Text(L.string("Bom dia, {name}", table: "Today")
                     .replacingOccurrences(of: "{name}", with: MockSettings.userName.components(separatedBy: " ").first ?? MockSettings.userName))
                     .font(MissaleFont.display(28))

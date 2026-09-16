@@ -3,9 +3,30 @@ import SwiftUI
 /// t4 screen 9 — detail for a specific past day. Push/detail screen, no tab bar.
 struct CalendarDayDetailView: View {
     let mark: CalendarDayMark
+    @ObservedObject private var moodHistory = MoodHistoryStore.shared
+
     /// This pass only has real detail content authored for one example day (Sept 8);
-    /// other days reuse it so the drill-down never dead-ends.
-    private var detail: DayDetail { MockLiturgical.sampleDayDetail }
+    /// other days reuse it so the drill-down never dead-ends. Today's cell is the
+    /// exception: if you've actually logged something in the Exame, this shows that
+    /// real entry instead of the canned example — the calendar overlay in spec §1.5
+    /// is a real registro for the one live day this mock has, not just a mockup.
+    private var detail: DayDetail {
+        if mark.dateKey == MockLiturgical.today.dateKey, let latest = moodHistory.entries.last {
+            let relief = MockMood.relief(for: latest.stateID).content
+            return DayDetail(
+                dateLabel: MockLiturgical.today.dayMonthLabel,
+                feastName: MockLiturgical.today.feastName,
+                color: MockLiturgical.today.color,
+                loggedStateTitle: latest.stateLabel,
+                loggedNote: latest.note,
+                psalmRef: relief.psalmRef,
+                psalmText: relief.psalmText,
+                liturgyNote: MockLiturgical.today.explanation,
+                otherActivity: nil
+            )
+        }
+        return MockLiturgical.sampleDayDetail
+    }
 
     var body: some View {
         ZStack {

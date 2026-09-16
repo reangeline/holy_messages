@@ -45,11 +45,23 @@ enum MockFormation {
         lessons: [atoPenitencial]
     )
 
+    // The v1 track list per product spec §5 is: A Missa parte por parte (started,
+    // above), Os sete sacramentos, O ano litúrgico, Sinais e símbolos, and As
+    // orações explicadas. O Terço do zero and Como se confessar bem are kept as
+    // extra tracks beyond that list rather than removed — they're already-written,
+    // complementary content, not a gap.
     static let otherTracks: [FormationTrack] = [
-        .init(id: "rosary-basics", title: "O Terço, do zero", meta: "7 partes · 3 min cada", progress: 0, nextUp: "Parte 1: por que rezar com contas", lessons: []),
+        .init(id: "sacraments", title: "Os sete sacramentos", meta: "7 partes · 4 min cada", progress: 0, nextUp: "Parte 1: o que é um sacramento", lessons: []),
         .init(id: "liturgical-year", title: "O Ano Litúrgico", meta: "6 partes · 4 min cada", progress: 0, nextUp: "Parte 1: um ano que não começa em janeiro", lessons: []),
+        .init(id: "signs-symbols", title: "Sinais e símbolos", meta: "5 partes · 4 min cada", progress: 0, nextUp: "Parte 1: por que fazemos o sinal da cruz", lessons: []),
+        .init(id: "prayers-explained", title: "As orações explicadas", meta: "6 partes · 3 min cada", progress: 0, nextUp: "Parte 1: o Pai-Nosso, linha por linha", lessons: []),
+        .init(id: "rosary-basics", title: "O Terço, do zero", meta: "7 partes · 3 min cada", progress: 0, nextUp: "Parte 1: por que rezar com contas", lessons: []),
         .init(id: "confession", title: "Como se confessar bem", meta: "5 partes · 3 min cada", progress: 0, nextUp: "Parte 1: exame de consciência, sem escrúpulo", lessons: []),
-        .init(id: "our-father", title: "O Pai-Nosso, palavra por palavra", meta: "7 partes · 3 min cada", progress: 0, nextUp: "Parte 1: por que chamamos Deus de Pai", lessons: []),
+        // Spec §10: formation-only, not treatment — freedom/virtue language, never
+        // shame, always ending in a real referral (confessor, professional, support
+        // group). This pass only seeds the track slot; the lessons and the
+        // referral screen are still to be built (posterior per the spec itself).
+        .init(id: "freedom-virtue", title: "Liberdade e virtude", meta: "4 partes · 4 min cada", progress: 0, nextUp: "Parte 1: o que o vício imita, e o bem que ele imita", lessons: []),
     ]
 
     static let reviewerCredit = "Revisão de conteúdo por Pe. Daniel Vasconcelos."

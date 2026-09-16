@@ -82,10 +82,14 @@ enum MockRosary {
     ]
 
     static let howTo: [PrayerHowTo] = [
-        .init(id: "1", title: "O que fazer com a mente", body: "Não é preciso visualizar nada com perfeição. Basta voltar a atenção ao mistério sempre que ela se perder — isso também é oração."),
-        .init(id: "2", title: "E se eu errar a conta?", body: "Não tem problema. O terço não é um exame; se perder a conta, comece a dezena de novo ou apenas continue."),
-        .init(id: "3", title: "Preciso terminar de uma vez?", body: "Não. Pode-se rezar uma dezena por vez ao longo do dia, se for o que der para fazer hoje."),
-        .init(id: "4", title: "Posso rezar sem o objeto físico?", body: "Sim — os dedos contam as Ave-Marias tão bem quanto as contas. O terço físico é ajuda, não exigência."),
+        .init(id: "1", title: "Como segurar e avançar", body: "Segure o crucifixo entre o polegar e o indicador. A cada oração dita, deslize o polegar para a próxima conta — uma conta, uma oração, sempre nessa ordem."),
+        .init(id: "2", title: "Por que começa pelo Credo", body: "As três contas iniciais (Credo, um Pai-Nosso, três Ave-Marias) preparam fé, esperança e caridade antes dos mistérios — não são preâmbulo dispensável."),
+        .init(id: "3", title: "Por que o Glória fecha a dezena", body: "Cada dezena termina voltando à Trindade, e é o momento tradicional da Oração de Fátima (\"ó meu Jesus, perdoai-nos\") — opcional, por isso vem depois do Glória, não no lugar dele."),
+        .init(id: "4", title: "O que fazer com a mente", body: "Não é preciso visualizar nada com perfeição. Basta voltar a atenção ao mistério sempre que ela se perder — isso também é oração."),
+        .init(id: "5", title: "E se eu errar a conta?", body: "Não tem problema. O terço não é um exame; se perder a conta, comece a dezena de novo ou apenas continue."),
+        .init(id: "6", title: "Quanto tempo leva", body: "O terço completo (cinco dezenas) leva de 18 a 20 minutos rezado com calma. Uma dezena avulsa leva menos de 4."),
+        .init(id: "7", title: "Preciso terminar de uma vez?", body: "Não. Pode-se rezar uma dezena por vez ao longo do dia, em família, a dois, ou sozinho no carro — o que der para fazer hoje."),
+        .init(id: "8", title: "Posso rezar sem o objeto físico?", body: "Sim — os dedos contam as Ave-Marias tão bem quanto as contas. O terço físico é ajuda, não exigência."),
     ]
 
     static let otherPrayers: [PrayerItem] = [
