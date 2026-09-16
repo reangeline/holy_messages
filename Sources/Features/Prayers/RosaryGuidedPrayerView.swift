@@ -124,7 +124,56 @@ struct RosaryGuidedPrayerView: View {
             .frame(width: size, height: size)
     }
 
+    @ViewBuilder
     private func mainCard(step: RosaryPrayerStep) -> some View {
+        if let items = step.promptItems {
+            promptCard(step: step, items: items)
+        } else {
+            prayerCard(step: step)
+        }
+    }
+
+    /// Guidance to think about, not a prayer to recite — deliberately styled
+    /// like the app's ordinary info cards (upright, non-italic, a glass
+    /// background) instead of the gradient "prayer card" below, so it doesn't
+    /// read as liturgical text.
+    private func promptCard(step: RosaryPrayerStep, items: [RosaryPromptItem]) -> some View {
+        GlassCard {
+            VStack(alignment: .leading, spacing: 16) {
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(step.kicker)
+                        .font(MissaleFont.body(11, weight: .semibold))
+                        .tracking(1.4)
+                        .foregroundStyle(Palette.wine)
+                    Text(step.text)
+                        .font(MissaleFont.body(15))
+                        .foregroundStyle(Palette.ink.opacity(0.75))
+                }
+                VStack(alignment: .leading, spacing: 12) {
+                    ForEach(items, id: \.label) { item in
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text(item.label)
+                                .font(MissaleFont.body(13, weight: .semibold))
+                                .foregroundStyle(Palette.wine)
+                            Text(item.detail)
+                                .font(MissaleFont.body(15))
+                                .foregroundStyle(Palette.ink.opacity(0.85))
+                        }
+                    }
+                }
+                if beginnerMode {
+                    Text(step.hint)
+                        .font(MissaleFont.body(13))
+                        .foregroundStyle(Palette.ink.opacity(0.55))
+                        .italic()
+                }
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+        }
+        .padding(.horizontal, 24)
+    }
+
+    private func prayerCard(step: RosaryPrayerStep) -> some View {
         VStack(spacing: 14) {
             Text(step.kicker)
                 .font(MissaleFont.body(11, weight: .semibold))

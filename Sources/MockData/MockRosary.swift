@@ -59,7 +59,16 @@ enum MockRosary {
     static let fatimaPrayer = "Ó meu Jesus, perdoai-nos, livrai-nos do fogo do inferno, levai as almas todas para o céu, principalmente as que mais precisarem."
     static let hailHolyQueen = "Salve, Rainha, Mãe de misericórdia, vida, doçura e esperança nossa, salve! A vós bradamos, os degredados filhos de Eva. A vós suspiramos, gemendo e chorando neste vale de lágrimas. Eia, pois, advogada nossa, esses vossos olhos misericordiosos a nós volvei. E depois deste desterro, mostrai-nos Jesus, bendito fruto do vosso ventre. Ó clemente, ó piedosa, ó doce sempre Virgem Maria!"
     static let offeringPrayer = "Divino Jesus, nós Vos oferecemos este terço que vamos rezar, meditando nos mistérios da Vossa Redenção. Concedei-nos, por intercessão de Maria, Vossa Mãe Santíssima, a quem nos dirigimos, as virtudes necessárias para bem rezá-lo e a graça de ganharmos as indulgências anexas a esta santa devoção."
-    static let intentionsPrompt = "Pessoais — um pedido de conversão, paciência, discernimento para uma decisão, ou a cura de alguma enfermidade. Pelos outros — familiares, amigos, doentes, desempregados, ou alguém que pediu suas orações. Sociais e universais — as almas do purgatório, o Papa, a Igreja, o fim das guerras, os mais necessitados. Agradecimento — por uma graça já alcançada ou pela proteção de cada dia."
+
+    /// Guidance, not a prayer to recite — kept as short labeled categories
+    /// (rather than one paragraph) so the view can render it plainly, without
+    /// the italic quote styling used for actual prayer text. See RosaryPrayerStep.promptItems.
+    static let intentionCategories: [RosaryPromptItem] = [
+        .init(label: "Pessoais", detail: "Um pedido de conversão, paciência, discernimento para uma decisão, ou a cura de alguma enfermidade."),
+        .init(label: "Pelos outros", detail: "Familiares, amigos, doentes, desempregados, ou alguém que pediu suas orações."),
+        .init(label: "Sociais e universais", detail: "As almas do purgatório, o Papa, a Igreja, o fim das guerras, os mais necessitados."),
+        .init(label: "Agradecimento", detail: "Por uma graça já alcançada ou pela proteção de cada dia."),
+    ]
 
     /// The full bead-by-bead sequence for a mystery set, in guided-prayer order.
     static func beads(for mystery: RosaryMystery) -> [RosaryBead] {
@@ -93,7 +102,7 @@ enum MockRosary {
         case .crucifix:
             return .init(beadLabel: "Sinal da Cruz", kicker: "Ao segurar o crucifixo", text: signOfCross, hint: "Toque em qualquer lugar para avançar.")
         case .intentions:
-            return .init(beadLabel: "Intenções", kicker: "Por quem você reza hoje", text: intentionsPrompt, hint: "Exemplo: \u{201C}Ofereço este terço pela saúde da minha família, pela paz no mundo e por uma graça particular que necessito.\u{201D}")
+            return .init(beadLabel: "Intenções", kicker: "Por quem você reza hoje", text: "Escolha por quem oferecer este terço — não precisa ser só uma coisa.", hint: "Exemplo: \u{201C}Ofereço este terço pela saúde da minha família, pela paz no mundo e por uma graça particular que necessito.\u{201D}", promptItems: intentionCategories)
         case .offering:
             return .init(beadLabel: "Oferecimento do terço", kicker: "Antes de começar", text: offeringPrayer, hint: "Tradicional, e opcional — oferece o terço inteiro antes da primeira conta.")
         case .creed:

@@ -50,6 +50,11 @@ struct RosaryHistoryEntry: Identifiable, Codable {
     }
 }
 
+struct RosaryPromptItem: Codable, Hashable {
+    let label: String
+    let detail: String
+}
+
 struct RosaryPrayerStep: Codable {
     let beadLabel: String // "Segundo mistério gozoso · a Visitação"
     let kicker: String
@@ -60,6 +65,10 @@ struct RosaryPrayerStep: Codable {
     // core content, not just a UI tip.
     var fruit: String? = nil
     var scriptureRef: String? = nil
+    // Set only for the .intentions step — when present, the view renders this
+    // instead of `text` as a plain, non-italic list, so it reads as guidance
+    // to think about, not as a prayer to recite.
+    var promptItems: [RosaryPromptItem]? = nil
 }
 
 struct Novena: Codable {
