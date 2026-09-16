@@ -91,6 +91,29 @@ enum MockLiturgical {
         otherActivity: "Terço rezado · Mistérios Gozosos · intenção: pela minha mãe"
     )
 
+    /// The week containing "today" (Sun Sept 13 – Sat Sept 19, 2026), named for its
+    /// Sunday per the liturgical convention — see LiturgicalWeek. Demo data: no real
+    /// lectionary/cycle computation exists yet, so the Sunday/weekday cycle labels
+    /// and the Gospel range are illustrative, not computed.
+    static let currentWeek = LiturgicalWeek(
+        id: "2026-w23-ordinary",
+        name: "23ª Semana do Tempo Comum",
+        dateRangeLabel: "13 a 19 de setembro",
+        sundayCycle: "Domingo · Ciclo B",
+        weekdayCycle: "Semana · Ano II",
+        gospelThreadBody: "De segunda a sábado, a Igreja lê Lucas 7 a 9 em sequência — a fé do centurião, a viúva de Naim, e Jesus perguntando aos discípulos quem dizem que ele é.",
+        whatChangesNote: nil,
+        days: [
+            LiturgicalWeekDay(dateKey: "2026-09-13", weekdayLabel: "Domingo", dayNumber: 13, color: .green, rank: .feast, celebrationName: "23º Domingo do Tempo Comum", isHolyDayOfObligation: true, isAbstinenceDay: false, mysterySet: .forWeekday(1)),
+            LiturgicalWeekDay(dateKey: "2026-09-14", weekdayLabel: "Segunda", dayNumber: 14, color: .red, rank: .feast, celebrationName: "Exaltação da Santa Cruz", isHolyDayOfObligation: false, isAbstinenceDay: false, mysterySet: .forWeekday(2)),
+            LiturgicalWeekDay(dateKey: "2026-09-15", weekdayLabel: "Terça", dayNumber: 15, color: .white, rank: .memorial, celebrationName: "Nossa Senhora das Dores", isHolyDayOfObligation: false, isAbstinenceDay: false, mysterySet: .forWeekday(3)),
+            LiturgicalWeekDay(dateKey: "2026-09-16", weekdayLabel: "Quarta", dayNumber: 16, color: .green, rank: .optionalMemorial, celebrationName: "Santos Cornélio e Cipriano", isHolyDayOfObligation: false, isAbstinenceDay: false, mysterySet: .forWeekday(4)),
+            LiturgicalWeekDay(dateKey: "2026-09-17", weekdayLabel: "Quinta", dayNumber: 17, color: .green, rank: .optionalMemorial, celebrationName: "São Roberto Belarmino", isHolyDayOfObligation: false, isAbstinenceDay: false, mysterySet: .forWeekday(5)),
+            LiturgicalWeekDay(dateKey: "2026-09-18", weekdayLabel: "Sexta", dayNumber: 18, color: .green, rank: .weekday, celebrationName: nil, isHolyDayOfObligation: false, isAbstinenceDay: true, mysterySet: .forWeekday(6)),
+            LiturgicalWeekDay(dateKey: "2026-09-19", weekdayLabel: "Sábado", dayNumber: 19, color: .green, rank: .weekday, celebrationName: nil, isHolyDayOfObligation: false, isAbstinenceDay: false, mysterySet: .forWeekday(7)),
+        ]
+    )
+
     /// A month grid for September 2026 (30 days). Weeks 2 (feast, red) and a handful
     /// of scattered logged marks, otherwise plain Ordinary Time green.
     static let septemberDays: [CalendarDayMark] = (1...30).map { day in

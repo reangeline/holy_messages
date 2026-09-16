@@ -8,6 +8,10 @@ struct TodayRootView: View {
     @State private var navigateToExamen = false
 
     private let day = MockLiturgical.today
+    // Goes through the region-keyed sanctoral calendar rather than a hardcoded
+    // saint, even though only MockSaints.notburga is registered for today's date
+    // right now — see SaintCalendarRegion.
+    private var saintOfDay: Saint { MockSaints.saint(on: String(day.dateKey.suffix(5))) ?? MockSaints.notburga }
 
     var body: some View {
         NavigationStack {
@@ -138,7 +142,7 @@ struct TodayRootView: View {
 
     private var saintTeaserCard: some View {
         NavigationLink {
-            SaintDetailView(saint: MockSaints.notburga)
+            SaintDetailView(saint: saintOfDay)
         } label: {
             GlassCard {
                 HStack(spacing: 13) {
@@ -146,10 +150,10 @@ struct TodayRootView: View {
                         .frame(width: 50, height: 50)
                     VStack(alignment: .leading, spacing: 2) {
                         Eyebrow(text: L.string("Santo do dia", table: "Today"))
-                        Text(MockSaints.notburga.name)
+                        Text(saintOfDay.name)
                             .font(MissaleFont.body(17, weight: .medium))
                             .foregroundStyle(Palette.ink)
-                        Text("\(MockSaints.notburga.role) · 3 min")
+                        Text("\(saintOfDay.role) · 3 min")
                             .font(MissaleFont.body(14))
                             .foregroundStyle(Palette.ink.opacity(0.65))
                     }

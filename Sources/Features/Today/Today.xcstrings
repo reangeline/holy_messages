@@ -1475,28 +1475,6 @@
         }
       }
     },
-    "Confiante": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Trusting"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Confiado"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Confiante"
-          }
-        }
-      }
-    },
     "Árido na oração": {
       "localizations": {
         "en": {
@@ -1537,28 +1515,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Ansioso"
-          }
-        }
-      }
-    },
-    "Triste": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sad"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Triste"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Triste"
           }
         }
       }
@@ -1673,28 +1629,6 @@
         }
       }
     },
-    "Vergonha, faz tempo que não me confesso": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ashamed, it's been a while since I confessed"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vergüenza, hace tiempo que no me confieso"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vergonha, faz tempo que não me confesso"
-          }
-        }
-      }
-    },
     "Bom dia, {name}": {
       "localizations": {
         "en": {
@@ -1801,6 +1735,138 @@
           "stringUnit": {
             "state": "translated",
             "value": "Meio-dia · vermelho · {feast}"
+          }
+        }
+      }
+    },
+    "Vazio": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Empty"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vacío"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vazio"
+          }
+        }
+      }
+    },
+    "Sozinho": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lonely"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Solo"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sozinho"
+          }
+        }
+      }
+    },
+    "Com raiva": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Angry"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enojado"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Com raiva"
+          }
+        }
+      }
+    },
+    "Perdoado": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Forgiven"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Perdonado"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Perdoado"
+          }
+        }
+      }
+    },
+    "Amado": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Loved"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Amado"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Amado"
+          }
+        }
+      }
+    },
+    "Firme": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Steadfast"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Firme"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Firme"
           }
         }
       }

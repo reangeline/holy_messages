@@ -5,8 +5,20 @@ import SwiftUI
 struct MoodReliefView: View {
     let state: MoodStateOption
     var onDone: () -> Void
+    private let relief: ReliefContent
 
-    private var relief: ReliefContent { MockMood.relief(for: state.id) }
+    // Picked once, at init, rather than as a computed property — a computed
+    // property would re-roll a new (possibly different) variation on every
+    // body re-render, which would both look buggy and record the wrong "last
+    // shown" index for the anti-repetition check.
+    init(state: MoodStateOption, onDone: @escaping () -> Void) {
+        self.state = state
+        self.onDone = onDone
+        let lastIndex = MoodHistoryStore.shared.lastReliefIndex(for: state.id)
+        let (content, index) = MockMood.relief(for: state.id, excluding: lastIndex)
+        self.relief = content
+        MoodHistoryStore.shared.recordReliefShown(stateID: state.id, index: index)
+    }
 
     var body: some View {
         ZStack {

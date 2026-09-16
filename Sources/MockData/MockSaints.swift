@@ -30,6 +30,25 @@ enum MockSaints {
         prayer: "Senhor, que destes a João Gabriel a força de não recuar diante do sofrimento, dai-nos parte da mesma fortaleza. Amém."
     )
 
+    /// Region-keyed sanctoral cycle — see SaintCalendarRegion. Only `.general` is
+    /// populated so far; a country override would be another entry with the same
+    /// `dateKey` and a different `region`, resolved by `saint(on:region:)` below.
+    static let calendar: [SaintOfDay] = [
+        SaintOfDay(dateKey: "09-14", region: .general, saint: notburga),
+        SaintOfDay(dateKey: "09-23", region: .general, saint: johnGabrielPerboyre),
+    ]
+
+    /// Looks up the saint for a fixed date ("MM-dd"), preferring `region` and
+    /// falling back to the General Roman Calendar when the region has no override
+    /// for that date. Returns nil rather than a placeholder — an empty day is a
+    /// correct answer for a sanctoral cycle that isn't fully populated yet.
+    static func saint(on dateKey: String, region: SaintCalendarRegion = .general) -> Saint? {
+        if let regional = calendar.first(where: { $0.dateKey == dateKey && $0.region == region }) {
+            return regional.saint
+        }
+        return calendar.first { $0.dateKey == dateKey && $0.region == .general }?.saint
+    }
+
     static let saintsForYou: [SaintRecommendation] = [
         .init(id: "john-of-the-cross", name: "São João da Cruz", reason: "Escreveu sobre a \"noite escura\" — a oração que não sente nada e continua mesmo assim."),
         .init(id: "teresa-calcutta", name: "Santa Teresa de Calcutá", reason: "Viveu décadas de aridez na oração enquanto servia, e não escondeu isso depois de morta."),

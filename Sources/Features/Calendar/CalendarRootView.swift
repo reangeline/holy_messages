@@ -34,25 +34,57 @@ struct CalendarRootView: View {
                     CalendarDayDetailView(mark: mark)
                 case .journey:
                     JourneyListView()
+                case .week:
+                    LiturgicalWeekView(week: MockLiturgical.currentWeek)
+                case .year:
+                    LiturgicalYearRibbonView()
                 }
             }
         }
     }
 
     private var header: some View {
-        HStack(alignment: .firstTextBaseline) {
-            VStack(alignment: .leading, spacing: 4) {
-                Eyebrow(text: MockLiturgical.today.seasonName)
-                Text("September", tableName: "CalendarSaints")
-                    .font(MissaleFont.display(28))
+        VStack(alignment: .leading, spacing: 10) {
+            HStack(alignment: .firstTextBaseline) {
+                VStack(alignment: .leading, spacing: 4) {
+                    Eyebrow(text: MockLiturgical.today.seasonName)
+                    Text("September", tableName: "CalendarSaints")
+                        .font(MissaleFont.display(28))
+                }
+                Spacer()
+                NavigationLink(value: CalendarDestination.journey) {
+                    Text("The journey ›", tableName: "CalendarSaints")
+                        .font(MissaleFont.body(15))
+                        .foregroundStyle(Palette.wine)
+                }
             }
-            Spacer()
-            NavigationLink(value: CalendarDestination.journey) {
-                Text("The journey ›", tableName: "CalendarSaints")
-                    .font(MissaleFont.body(15))
-                    .foregroundStyle(Palette.wine)
+            HStack(spacing: 10) {
+                NavigationLink(value: CalendarDestination.week) {
+                    zoomLink(title: MockLiturgical.currentWeek.name, subtitle: "A semana em 7 dias")
+                }
+                .buttonStyle(.plain)
+                NavigationLink(value: CalendarDestination.year) {
+                    zoomLink(title: "O ano litúrgico", subtitle: "Uma faixa, o ano inteiro")
+                }
+                .buttonStyle(.plain)
             }
         }
+    }
+
+    private func zoomLink(title: String, subtitle: String) -> some View {
+        VStack(alignment: .leading, spacing: 2) {
+            Text(title)
+                .font(MissaleFont.body(14, weight: .medium))
+                .foregroundStyle(Palette.ink)
+                .lineLimit(1)
+            Text(subtitle)
+                .font(MissaleFont.body(12))
+                .foregroundStyle(Palette.ink.opacity(0.6))
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(12)
+        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+        .overlay(RoundedRectangle(cornerRadius: 14, style: .continuous).strokeBorder(Color.white.opacity(0.6), lineWidth: 1))
     }
 
     private var weekdayRow: some View {
@@ -137,6 +169,8 @@ struct CalendarRootView: View {
 enum CalendarDestination: Hashable {
     case day(CalendarDayMark)
     case journey
+    case week
+    case year
 }
 
 extension CalendarDayMark: Hashable {

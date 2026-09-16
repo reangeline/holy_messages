@@ -8,13 +8,31 @@ final class MoodHistoryStore: ObservableObject {
     static let shared = MoodHistoryStore()
 
     private static let storageKey = "mood_history_entries"
+    private static let lastReliefIndexKey = "mood_last_relief_index"
     private static let scrupulosityWindowDays = 14
     private static let scrupulosityThreshold = 3
 
     @Published private(set) var entries: [MoodEntry] = []
+    private var lastReliefIndexByState: [String: Int] = [:]
 
     private init() {
         load()
+        loadReliefIndex()
+    }
+
+    /// The variation index shown last time this state's relief content was
+    /// displayed, so MockMood.relief(for:excluding:) can avoid repeating it.
+    func lastReliefIndex(for stateID: String) -> Int? {
+        lastReliefIndexByState[stateID]
+    }
+
+    func recordReliefShown(stateID: String, index: Int) {
+        lastReliefIndexByState[stateID] = index
+        UserDefaults.standard.set(lastReliefIndexByState, forKey: Self.lastReliefIndexKey)
+    }
+
+    private func loadReliefIndex() {
+        lastReliefIndexByState = UserDefaults.standard.dictionary(forKey: Self.lastReliefIndexKey) as? [String: Int] ?? [:]
     }
 
     /// Records a selection and returns the resulting count for that state within
@@ -45,6 +63,8 @@ final class MoodHistoryStore: ObservableObject {
     func deleteAll() {
         entries = []
         save()
+        lastReliefIndexByState = [:]
+        UserDefaults.standard.removeObject(forKey: Self.lastReliefIndexKey)
     }
 
     private func save() {
