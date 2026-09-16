@@ -5,7 +5,9 @@ import Foundation
 /// support tappable, dotted-underlined inline glossary terms (e.g. "mea culpa").
 struct FormationLessonView: View {
     let lesson: FormationLesson
+    @ObservedObject private var progressStore = FormationProgressStore.shared
     @State private var activeTerm: LocalGlossaryTerm?
+    @State private var showEndOfSession = false
 
     var body: some View {
         ZStack {
@@ -62,8 +64,9 @@ struct FormationLessonView: View {
                         .padding(.vertical, 4)
                     }
 
-                    NavigationLink {
-                        EndOfSessionView(lesson: lesson)
+                    Button {
+                        progressStore.markCompleted(lesson.id)
+                        showEndOfSession = true
                     } label: {
                         Text("I finished this part", tableName: "FormationWordOfDay")
                             .font(MissaleFont.body(17, weight: .medium))
@@ -81,6 +84,9 @@ struct FormationLessonView: View {
         }
         .navigationTitle("A Missa, parte por parte")
         .navigationBarTitleDisplayMode(.inline)
+        .navigationDestination(isPresented: $showEndOfSession) {
+            EndOfSessionView(lesson: lesson)
+        }
         .sheet(item: $activeTerm) { term in
             VStack(alignment: .leading, spacing: 10) {
                 Text(term.term)

@@ -6,6 +6,7 @@ struct TodayRootView: View {
     @State private var showMoodSheet = false
     @State private var showSettings = false
     @State private var navigateToExamen = false
+    @ObservedObject private var progressStore = FormationProgressStore.shared
 
     private let day = MockLiturgical.today
     // Goes through the region-keyed sanctoral calendar rather than a hardcoded
@@ -105,22 +106,29 @@ struct TodayRootView: View {
     }
 
     private var formationTeaserCard: some View {
-        NavigationLink {
-            FormationLessonView(lesson: MockFormation.atoPenitencial)
+        let track = MockFormation.track
+        let next = track.nextLesson(progressStore) ?? track.lessons.last ?? MockFormation.atoPenitencial
+        let trackFinished = track.nextLesson(progressStore) == nil
+        return NavigationLink {
+            FormationLessonView(lesson: next)
         } label: {
             LiturgicalGradientCard(color: day.color) {
                 VStack(alignment: .leading, spacing: 6) {
-                    Text("SUA TRILHA · PARTE 3 DE 14", tableName: "Today")
+                    Text(trackFinished
+                         ? "TRILHA CONCLUÍDA"
+                         : L.string("SUA TRILHA · PARTE {n} DE {total}", table: "Today")
+                             .replacingOccurrences(of: "{n}", with: "\(next.partNumber)")
+                             .replacingOccurrences(of: "{total}", with: "\(next.partsTotal)"))
                         .font(MissaleFont.body(11, weight: .semibold))
                         .tracking(1.4)
                         .foregroundStyle(Palette.goldBright)
-                    Text("O Ato Penitencial")
+                    Text(next.title)
                         .font(MissaleFont.display(21, weight: .medium))
                         .foregroundStyle(.white)
                     Text("A Missa, parte por parte · 4 min")
                         .font(MissaleFont.body(15))
                         .foregroundStyle(.white.opacity(0.88))
-                    ProgressView(value: 3.0 / 14.0)
+                    ProgressView(value: track.liveProgress(progressStore))
                         .tint(Palette.goldBright)
                         .padding(.top, 4)
                 }

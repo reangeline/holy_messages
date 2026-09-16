@@ -104,6 +104,7 @@
 		D35C9A535F8CFD300E4827DC /* CormorantGaramond-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D9FD7378FC8351DB12FA8162 /* CormorantGaramond-SemiBold.ttf */; };
 		D487E6E38970BF704909CBCF /* MockWordOfDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7ED6DF20F1E0D622BE3B4FE /* MockWordOfDay.swift */; };
 		D5ACB20E5F87AB09CA44AD4E /* Prayers.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = A95B30833E9DEC59B44E5979 /* Prayers.xcstrings */; };
+		D7E1FFE58A8A49457BD76319 /* FormationProgressStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469EA47C5E6841055C7E4B23 /* FormationProgressStore.swift */; };
 		DAA7A368366B470336582029 /* PastoralNoteDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B15BE7FE79DA0EE43CDFB9 /* PastoralNoteDetailView.swift */; };
 		DAB60DB9F381E826E1D27841 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F592E55A220D9003088DFF /* Colors.swift */; };
 		DB473FB96B0D039817054995 /* RosaryGuidedPrayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B49583537054AC3C26C2371 /* RosaryGuidedPrayerView.swift */; };
@@ -152,6 +153,7 @@
 		3D6FCC38A633B81C3703AE63 /* OnboardingModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingModels.swift; sourceTree = "<group>"; };
 		4269FDBA369FE1CA7A8517E6 /* OnboardingFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFeedView.swift; sourceTree = "<group>"; };
 		4584EA772E91637C377A6B12 /* TodayRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayRootView.swift; sourceTree = "<group>"; };
+		469EA47C5E6841055C7E4B23 /* FormationProgressStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormationProgressStore.swift; sourceTree = "<group>"; };
 		4BE7A1785F8D77047D6754CC /* CormorantGaramond-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CormorantGaramond-Italic.ttf"; sourceTree = "<group>"; };
 		4D6494C870F0202D155720C4 /* CormorantGaramond-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CormorantGaramond-Medium.ttf"; sourceTree = "<group>"; };
 		4E24DE9D86BEAA91DB58D7AF /* MockMood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMood.swift; sourceTree = "<group>"; };
@@ -433,6 +435,7 @@
 			children = (
 				6C9AD15B2BD32B9BB69CADD3 /* EndOfSessionView.swift */,
 				A9CA4C3818A3DED108588288 /* FormationLessonView.swift */,
+				469EA47C5E6841055C7E4B23 /* FormationProgressStore.swift */,
 				FF8386DB427306B75159719D /* FormationRootView.swift */,
 				628D90C75D1198CD2B5160EC /* FormationWordOfDay.xcstrings */,
 				2D11F399F9E710B26DC780B2 /* FreedomVirtueView.swift */,
@@ -607,6 +610,7 @@
 				BE6FA66FD874344B8EC70BA0 /* FAQView.swift in Sources */,
 				E625C6488EFCFF958A45B71B /* Formation.swift in Sources */,
 				B0C62F55D9647754C7BEDB5F /* FormationLessonView.swift in Sources */,
+				D7E1FFE58A8A49457BD76319 /* FormationProgressStore.swift in Sources */,
 				474FFA1E3B486CF5E9841453 /* FormationRootView.swift in Sources */,
 				B0884B2493A74E5A10B6D1AA /* FreedomVirtueView.swift in Sources */,
 				71A518CE73E4BA9C5AE12993 /* GlassCard.swift in Sources */,

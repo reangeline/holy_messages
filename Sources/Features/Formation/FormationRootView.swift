@@ -2,6 +2,12 @@ import SwiftUI
 
 /// t4 screen 18 — Formation tracks list. Hub screen (shows the floating tab bar).
 struct FormationRootView: View {
+    @ObservedObject private var progressStore = FormationProgressStore.shared
+
+    private var nextTrackLesson: FormationLesson {
+        MockFormation.track.nextLesson(progressStore) ?? MockFormation.track.lessons.last ?? MockFormation.atoPenitencial
+    }
+
     var body: some View {
         NavigationStack {
             ZStack {
@@ -11,7 +17,7 @@ struct FormationRootView: View {
                         header
 
                         NavigationLink {
-                            FormationLessonView(lesson: MockFormation.atoPenitencial)
+                            FormationLessonView(lesson: nextTrackLesson)
                         } label: {
                             trackCard(MockFormation.track, isStarted: true)
                         }
@@ -102,11 +108,11 @@ struct FormationRootView: View {
                     .font(MissaleFont.body(14))
                     .foregroundStyle(Palette.ink.opacity(0.65))
                 if isStarted {
-                    ProgressView(value: track.progress)
+                    ProgressView(value: track.liveProgress(progressStore))
                         .tint(Palette.wine)
                         .padding(.top, 2)
                 }
-                Text(track.nextUp)
+                Text(track.liveNextUpLabel(progressStore))
                     .font(MissaleFont.body(13))
                     .foregroundStyle(Palette.ink.opacity(0.5))
             }
