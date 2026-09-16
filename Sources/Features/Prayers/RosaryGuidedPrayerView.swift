@@ -139,34 +139,36 @@ struct RosaryGuidedPrayerView: View {
     /// read as liturgical text.
     private func promptCard(step: RosaryPrayerStep, items: [RosaryPromptItem]) -> some View {
         GlassCard {
-            VStack(alignment: .leading, spacing: 16) {
-                VStack(alignment: .leading, spacing: 4) {
+            VStack(alignment: .leading, spacing: 18) {
+                VStack(alignment: .leading, spacing: 6) {
                     Text(step.kicker)
-                        .font(MissaleFont.body(11, weight: .semibold))
-                        .tracking(1.4)
-                        .foregroundStyle(Palette.wine)
+                        .font(MissaleFont.display(24, weight: .medium))
+                        .foregroundStyle(Palette.ink)
                     Text(step.text)
-                        .font(MissaleFont.body(15))
+                        .font(MissaleFont.body(17))
                         .foregroundStyle(Palette.ink.opacity(0.75))
                 }
-                VStack(alignment: .leading, spacing: 12) {
+                VStack(alignment: .leading, spacing: 14) {
                     ForEach(items, id: \.label) { item in
-                        VStack(alignment: .leading, spacing: 2) {
+                        VStack(alignment: .leading, spacing: 3) {
                             Text(item.label)
-                                .font(MissaleFont.body(13, weight: .semibold))
+                                .font(MissaleFont.body(14, weight: .semibold))
                                 .foregroundStyle(Palette.wine)
                             Text(item.detail)
-                                .font(MissaleFont.body(15))
+                                .font(MissaleFont.body(17))
                                 .foregroundStyle(Palette.ink.opacity(0.85))
                         }
                     }
                 }
                 if beginnerMode {
                     Text(step.hint)
-                        .font(MissaleFont.body(13))
+                        .font(MissaleFont.body(15))
                         .foregroundStyle(Palette.ink.opacity(0.55))
                         .italic()
                 }
+                Text("Opcional")
+                    .font(MissaleFont.body(13, weight: .semibold))
+                    .foregroundStyle(Palette.ink.opacity(0.4))
             }
             .frame(maxWidth: .infinity, alignment: .leading)
         }
