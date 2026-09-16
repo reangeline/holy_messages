@@ -3,10 +3,11 @@ import SwiftUI
 /// t4 screen 18 — Formation tracks list. Hub screen (shows the floating tab bar).
 struct FormationRootView: View {
     @ObservedObject private var progressStore = FormationProgressStore.shared
-
-    private var nextTrackLesson: FormationLesson {
-        MockFormation.track.nextLesson(progressStore) ?? MockFormation.track.lessons.last ?? MockFormation.atoPenitencial
-    }
+    // Bumping this forces the NavigationStack below to be recreated from
+    // scratch, which is how EndOfSessionView's "Voltar para as trilhas" button
+    // pops all the way back to this root when it's reached from within this
+    // same tab (see onBackToTracks below).
+    @State private var navigationResetToken = UUID()
 
     var body: some View {
         NavigationStack {
@@ -17,7 +18,9 @@ struct FormationRootView: View {
                         header
 
                         NavigationLink {
-                            FormationLessonView(lesson: nextTrackLesson)
+                            FormationTrackDetailView(track: MockFormation.track, onBackToTracks: {
+                                navigationResetToken = UUID()
+                            })
                         } label: {
                             trackCard(MockFormation.track, isStarted: true)
                         }
@@ -81,6 +84,7 @@ struct FormationRootView: View {
             .hubTabBarOverlay()
             .navigationBarHidden(true)
         }
+        .id(navigationResetToken)
     }
 
     private var header: some View {

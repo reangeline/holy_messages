@@ -29,6 +29,7 @@
 		31003D72563CA5BEED79DED9 /* MoodState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B272A3B51CBFE80DEF87ED5C /* MoodState.swift */; };
 		313CA19CE3ED8B71E9015A24 /* Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF026ED1AE79D8B6C5A3B51 /* Typography.swift */; };
 		3140FC814167B4E767196940 /* Saint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A92ABBE467814F0124A8AA9 /* Saint.swift */; };
+		353F83334C8CE7C5FBE4CB08 /* FormationTrackDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9445BD38B8F8F1820F8DE6 /* FormationTrackDetailView.swift */; };
 		363F452FC43E782675CBAA65 /* SubscriptionCancellationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6229DFA801AE3A4CA71FFE6 /* SubscriptionCancellationView.swift */; };
 		36FF9021F69DD1A71949E516 /* OnboardingSynthesisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAC36F87255861947FB745D /* OnboardingSynthesisView.swift */; };
 		3A6D82247B462928BC0C108A /* OnboardingSampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E8E36AF717AEE65474B8ED /* OnboardingSampleView.swift */; };
@@ -154,6 +155,7 @@
 		4269FDBA369FE1CA7A8517E6 /* OnboardingFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFeedView.swift; sourceTree = "<group>"; };
 		4584EA772E91637C377A6B12 /* TodayRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayRootView.swift; sourceTree = "<group>"; };
 		469EA47C5E6841055C7E4B23 /* FormationProgressStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormationProgressStore.swift; sourceTree = "<group>"; };
+		4A9445BD38B8F8F1820F8DE6 /* FormationTrackDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormationTrackDetailView.swift; sourceTree = "<group>"; };
 		4BE7A1785F8D77047D6754CC /* CormorantGaramond-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CormorantGaramond-Italic.ttf"; sourceTree = "<group>"; };
 		4D6494C870F0202D155720C4 /* CormorantGaramond-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CormorantGaramond-Medium.ttf"; sourceTree = "<group>"; };
 		4E24DE9D86BEAA91DB58D7AF /* MockMood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMood.swift; sourceTree = "<group>"; };
@@ -437,6 +439,7 @@
 				A9CA4C3818A3DED108588288 /* FormationLessonView.swift */,
 				469EA47C5E6841055C7E4B23 /* FormationProgressStore.swift */,
 				FF8386DB427306B75159719D /* FormationRootView.swift */,
+				4A9445BD38B8F8F1820F8DE6 /* FormationTrackDetailView.swift */,
 				628D90C75D1198CD2B5160EC /* FormationWordOfDay.xcstrings */,
 				2D11F399F9E710B26DC780B2 /* FreedomVirtueView.swift */,
 				A9AD287F9499284A04DE649E /* GlossaryView.swift */,
@@ -612,6 +615,7 @@
 				B0C62F55D9647754C7BEDB5F /* FormationLessonView.swift in Sources */,
 				D7E1FFE58A8A49457BD76319 /* FormationProgressStore.swift in Sources */,
 				474FFA1E3B486CF5E9841453 /* FormationRootView.swift in Sources */,
+				353F83334C8CE7C5FBE4CB08 /* FormationTrackDetailView.swift in Sources */,
 				B0884B2493A74E5A10B6D1AA /* FreedomVirtueView.swift in Sources */,
 				71A518CE73E4BA9C5AE12993 /* GlassCard.swift in Sources */,
 				C9AD1AD5DD0E2499DF5DC567 /* GlassTabBar.swift in Sources */,

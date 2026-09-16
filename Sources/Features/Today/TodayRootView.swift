@@ -7,6 +7,7 @@ struct TodayRootView: View {
     @State private var showSettings = false
     @State private var navigateToExamen = false
     @ObservedObject private var progressStore = FormationProgressStore.shared
+    @Environment(\.mainTabSelection) private var mainTabSelection
 
     private let day = MockLiturgical.today
     // Goes through the region-keyed sanctoral calendar rather than a hardcoded
@@ -107,10 +108,12 @@ struct TodayRootView: View {
 
     private var formationTeaserCard: some View {
         let track = MockFormation.track
-        let next = track.nextLesson(progressStore) ?? track.lessons.last ?? MockFormation.atoPenitencial
-        let trackFinished = track.nextLesson(progressStore) == nil
+        let next = track.resumeLesson(progressStore) ?? track.lessons.last ?? MockFormation.atoPenitencial
+        let trackFinished = track.completedCount(in: progressStore) == track.lessons.count
         return NavigationLink {
-            FormationLessonView(lesson: next)
+            FormationLessonView(lesson: next, onBackToTracks: {
+                mainTabSelection?.wrappedValue = .formation
+            })
         } label: {
             LiturgicalGradientCard(color: day.color) {
                 VStack(alignment: .leading, spacing: 6) {
