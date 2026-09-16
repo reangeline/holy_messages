@@ -90,15 +90,17 @@ enum MockLiturgical {
         closingLine: "Sua Páscoa começa em 18 de abril e ainda está sendo escrita."
     )
 
-    /// Real (if minimal) per-day liturgical info for the handful of September
-    /// dates that have it — everything else is plain Ordinary Time with no
-    /// specific feast authored, rather than invented. See CalendarDayDetailView.
+    /// "Today" and "tomorrow" keep their fuller hand-authored content (it's
+    /// what the rest of the app's fixed demo day depends on); every other date
+    /// now falls through to LiturgicalEngine instead of showing nothing.
     static func dayFeastInfo(for dateKey: String) -> (feastName: String, note: String?)? {
         switch dateKey {
-        case today.dateKey: (today.feastName, today.explanation)
-        case tomorrow.dateKey: (tomorrow.feastName, tomorrow.explanation)
-        case "2026-09-08": ("Natividade de Nossa Senhora", "Festa da Natividade de Maria, cor branca.")
-        default: nil
+        case today.dateKey: return (today.feastName, today.explanation)
+        case tomorrow.dateKey: return (tomorrow.feastName, tomorrow.explanation)
+        default:
+            guard let date = date(fromKey: dateKey) else { return nil }
+            let computed = LiturgicalEngine.day(for: date)
+            return (computed.feastName, computed.explanation)
         }
     }
 
@@ -140,18 +142,26 @@ enum MockLiturgical {
         return CalendarDayMark(dateKey: String(format: "2026-09-%02d", day), dayNumber: day, color: color)
     }
 
-    /// Any other month than September 2026 (the only one with real per-day
-    /// content authored) is honest, not fabricated: every day plain Ordinary
-    /// Time green, real day count and starting weekday computed from the
-    /// actual calendar. Navigating away from September just shows a calendar
-    /// that hasn't been told anything special about those dates yet, rather
-    /// than inventing feasts for them.
+    /// September 2026 keeps its hand-curated colors (today/tomorrow's fuller
+    /// authored content depends on matching them exactly). Every other month
+    /// is now real, not a green placeholder: LiturgicalEngine computes the
+    /// actual color for each of its real days — see LiturgicalEngine.swift.
     static func days(year: Int, month: Int) -> [CalendarDayMark] {
         if year == 2026, month == 9 { return septemberDays }
-        guard let range = Calendar.gregorianUTC.range(of: .day, in: .month, for: firstOfMonth(year: year, month: month)) else { return [] }
+        let cal = Calendar.gregorianUTC
+        let first = firstOfMonth(year: year, month: month)
+        guard let range = cal.range(of: .day, in: .month, for: first) else { return [] }
         return range.map { day in
-            CalendarDayMark(dateKey: String(format: "%04d-%02d-%02d", year, month, day), dayNumber: day, color: .green)
+            let date = cal.date(byAdding: .day, value: day - 1, to: first) ?? first
+            let computed = LiturgicalEngine.day(for: date)
+            return CalendarDayMark(dateKey: computed.dateKey, dayNumber: day, color: computed.color)
         }
+    }
+
+    private static func date(fromKey dateKey: String) -> Date? {
+        let parts = dateKey.split(separator: "-").compactMap { Int($0) }
+        guard parts.count == 3 else { return nil }
+        return Calendar.gregorianUTC.date(from: DateComponents(year: parts[0], month: parts[1], day: parts[2]))
     }
 
     /// How many blank leading cells a Sunday-first week grid needs before day 1.
