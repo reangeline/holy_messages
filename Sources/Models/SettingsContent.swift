@@ -23,6 +23,7 @@ enum SettingsDestination: Hashable {
     case reviewers
     case support
     case faq
+    case socialLock // spec §8 — UI mockup only, see SocialLockSetupView
     case termsPlaceholder(String) // Termos / Privacidade — mocked as a label-only placeholder
 }
 

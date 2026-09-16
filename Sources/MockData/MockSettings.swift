@@ -13,6 +13,7 @@ enum MockSettings {
             .init(id: "reminders", title: "Horários e lembretes", subtitle: "Leitura diária, Angelus, Divina Misericórdia", value: nil, destination: .reminders),
             .init(id: "calendar", title: "Calendário litúrgico", subtitle: "Região e forma do rito", value: "Estados Unidos", destination: .regionalCalendar),
             .init(id: "language", title: "Idioma", subtitle: "Interface do app", value: nil, destination: .language),
+            .init(id: "social-lock", title: "Bloqueio de tela", subtitle: "Protótipo, ainda não funcional", value: nil, destination: .socialLock),
         ]),
         .init(id: "privacy", label: "Privacidade", items: [
             .init(id: "data", title: "Seus dados", subtitle: "Sincronização, exportar, apagar", value: nil, destination: .data),

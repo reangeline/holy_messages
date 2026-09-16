@@ -44,6 +44,7 @@ struct SettingsView: View {
                 case .reviewers: ContentReviewersView()
                 case .support: SupportView()
                 case .faq: FAQView()
+                case .socialLock: SocialLockSetupView()
                 case .termsPlaceholder(let title): TermsPlaceholderView(title: title)
                 }
             }

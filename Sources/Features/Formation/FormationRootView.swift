@@ -18,7 +18,37 @@ struct FormationRootView: View {
                         .buttonStyle(.plain)
 
                         ForEach(MockFormation.otherTracks) { track in
-                            trackCard(track, isStarted: false)
+                            // Every other locked track is paywalled and inert, but a
+                            // safety/referral surface shouldn't sit behind a paywall —
+                            // this one card stays reachable even while its lessons
+                            // are still a locked placeholder. See spec §10.
+                            if track.id == "freedom-virtue" {
+                                NavigationLink {
+                                    FreedomVirtueView()
+                                } label: {
+                                    GlassCard {
+                                        VStack(alignment: .leading, spacing: 6) {
+                                            HStack {
+                                                Text(track.title)
+                                                    .font(MissaleFont.body(17, weight: .medium))
+                                                    .foregroundStyle(Palette.ink)
+                                                Text("GRÁTIS")
+                                                    .font(.system(size: 10, weight: .bold))
+                                                    .padding(.horizontal, 6).padding(.vertical, 2)
+                                                    .background(Palette.wine.opacity(0.12), in: Capsule())
+                                                    .foregroundStyle(Palette.wine)
+                                            }
+                                            Text("Formação e encaminhamento — sempre acessível, mesmo sem assinatura.")
+                                                .font(MissaleFont.body(14))
+                                                .foregroundStyle(Palette.ink.opacity(0.65))
+                                        }
+                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                    }
+                                }
+                                .buttonStyle(.plain)
+                            } else {
+                                trackCard(track, isStarted: false)
+                            }
                         }
 
                         NavigationLink {
