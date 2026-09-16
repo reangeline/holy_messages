@@ -177,10 +177,12 @@ struct CalendarRootView: View {
                 )
                 // "Today" gets its own ring, independent of the liturgical color —
                 // a red feast day and "today" being red are two different facts,
-                // and this makes sure they don't get confused for one another.
+                // and this makes sure they don't get confused for one another. Gold
+                // rather than wine specifically so it doesn't compete with a red
+                // feast day's own fill color.
                 .overlay(
                     RoundedRectangle(cornerRadius: 10, style: .continuous)
-                        .strokeBorder(today ? Palette.wine : .clear, lineWidth: 2.5)
+                        .strokeBorder(today ? Palette.goldBright : .clear, lineWidth: 2.5)
                 )
             Text("\(mark.dayNumber)")
                 .font(.system(size: 14, weight: today ? .bold : .regular))
