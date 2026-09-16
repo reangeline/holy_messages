@@ -72,7 +72,14 @@ struct MoodReflectionView: View {
             .padding(.horizontal, 24)
             .padding(.bottom, 16)
         }
-        .onAppear { isFocused = true }
+        .onAppear {
+            // Let the slide-in transition finish before the keyboard pops up —
+            // focusing immediately made the keyboard slam in at the same instant
+            // as the screen, which read as just as abrupt as no transition at all.
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
+                isFocused = true
+            }
+        }
     }
 }
 

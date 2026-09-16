@@ -6,38 +6,70 @@ import SwiftUI
 /// nothing repetitive shows before the person has had a chance to write.
 struct MoodCheckInSheet: View {
     @Environment(\.dismiss) private var dismiss
-    @State private var pendingState: MoodStateOption?
-    @State private var selected: MoodStateOption?
-    @State private var redirectToScrupulosity = false
+    @State private var step: Step = .picker
+    /// Which way the last step change went, so the slide transition can match:
+    /// forward slides in from the trailing edge, back slides in from the leading
+    /// edge — a plain conditional swap with no transition at all is what read as
+    /// "seco" (abrupt) here.
+    @State private var goingForward = true
     @State private var showPastoralCare = false
+
+    private enum Step: Equatable {
+        case picker
+        case reflection(MoodStateOption)
+        case relief(MoodStateOption)
+        case scrupulosity
+    }
 
     var body: some View {
         NavigationStack {
             ZStack {
                 Palette.parchment.ignoresSafeArea()
-                if redirectToScrupulosity {
-                    // Replaces relief outright once the pattern is established — the
-                    // point is to interrupt the cycle, not add another reassurance on top.
-                    ScrupulosityRedirectView()
-                } else if let selected {
-                    MoodReliefView(state: selected) { dismiss() }
-                } else if let pendingState {
-                    MoodReflectionView(
-                        state: pendingState,
-                        onBack: { self.pendingState = nil },
-                        onContinue: { note in finalize(pendingState, note: note) }
-                    )
-                } else {
+                switch step {
+                case .picker:
                     pickerBody
+                        .transition(transition)
+                case .reflection(let option):
+                    MoodReflectionView(
+                        state: option,
+                        onBack: { retreat(to: .picker) },
+                        onContinue: { note in finalize(option, note: note) }
+                    )
+                    .transition(transition)
+                case .relief(let option):
+                    MoodReliefView(state: option) { dismiss() }
+                        .transition(transition)
+                case .scrupulosity:
+                    // Replaces relief outright once the pattern is established —
+                    // the point is to interrupt the cycle, not add another
+                    // reassurance on top.
+                    ScrupulosityRedirectView()
+                        .transition(transition)
                 }
             }
         }
     }
 
+    private var transition: AnyTransition {
+        goingForward
+            ? .asymmetric(insertion: .move(edge: .trailing).combined(with: .opacity), removal: .move(edge: .leading).combined(with: .opacity))
+            : .asymmetric(insertion: .move(edge: .leading).combined(with: .opacity), removal: .move(edge: .trailing).combined(with: .opacity))
+    }
+
+    private func advance(to next: Step) {
+        goingForward = true
+        withAnimation(.easeInOut(duration: 0.3)) { step = next }
+    }
+
+    private func retreat(to next: Step) {
+        goingForward = false
+        withAnimation(.easeInOut(duration: 0.3)) { step = next }
+    }
+
     private func finalize(_ option: MoodStateOption, note: String) {
         let count = MoodHistoryStore.shared.record(state: option, note: note.isEmpty ? nil : note)
-        redirectToScrupulosity = option.isScrupulosityTrigger && count >= 3
-        selected = option
+        let next: Step = (option.isScrupulosityTrigger && count >= 3) ? .scrupulosity : .relief(option)
+        advance(to: next)
     }
 
     private var pickerBody: some View {
@@ -75,7 +107,7 @@ struct MoodCheckInSheet: View {
                         VStack(alignment: .leading, spacing: 8) {
                             Eyebrow(text: L.string(group.label, table: "Today"))
                             FlowChips(items: group.items) { option in
-                                pendingState = option
+                                advance(to: .reflection(option))
                             }
                         }
                     }
