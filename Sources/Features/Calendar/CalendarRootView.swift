@@ -7,13 +7,12 @@ struct CalendarRootView: View {
     private let leadingEmptyDays = 2
     @ObservedObject private var moodHistory = MoodHistoryStore.shared
 
-    /// "consolation", "desolation", or nil (nothing logged). Today's mark reflects
-    /// whatever was actually logged in the Exame instead of the static mock flag —
-    /// the rest of the month stays illustrative since there's no real per-day
-    /// history beyond the one live "today" this mock has.
+    /// "consolation", "desolation", or nil (nothing logged). Only "today" can
+    /// ever return non-nil: this calendar's other dates are a fixed/fictional
+    /// range with no real per-day history, so they never show a registro mark
+    /// that didn't actually happen — see spec §1.5.
     private func loggedGroup(for mark: CalendarDayMark) -> String? {
-        guard mark.dateKey == MockLiturgical.today.dateKey else { return mark.loggedGroup }
-        guard let latest = moodHistory.entries.last else { return nil }
+        guard mark.dateKey == MockLiturgical.today.dateKey, let latest = moodHistory.entries.last else { return nil }
         return MockMood.group(forStateID: latest.stateID)
     }
 

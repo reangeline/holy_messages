@@ -25,31 +25,21 @@ struct CalendarDayMark: Identifiable, Codable {
     let dateKey: String
     let dayNumber: Int
     let color: LiturgicalColor
-    let hasLoggedEntry: Bool
-    /// "consolation" or "desolation" — which Exame group was logged that day, so
-    /// the calendar can show *which* kind of day it was, not just that something
-    /// was logged. Still two neutral, non-judgmental marks, not a red/green
-    /// heat map — see spec §1.5 and CalendarRootView.dayCell.
-    let loggedGroup: String?
-
-    init(dateKey: String, dayNumber: Int, color: LiturgicalColor, hasLoggedEntry: Bool, loggedGroup: String? = nil) {
-        self.dateKey = dateKey
-        self.dayNumber = dayNumber
-        self.color = color
-        self.hasLoggedEntry = hasLoggedEntry
-        self.loggedGroup = loggedGroup
-    }
 }
 
-/// What the user logged / experienced on a specific past day, for the day-detail drill-down.
+/// What the user logged on a specific day, for the day-detail drill-down. Real
+/// per-day history doesn't exist yet (no per-day liturgical engine, and this
+/// mock's calendar dates are fixed/fictional except "today") — `liturgyNote` is
+/// nil except for the couple of days that have real authored liturgical content,
+/// and `loggedStateTitle`/`loggedNote` are nil whenever nothing was actually
+/// registered, rather than reusing a canned example. See CalendarDayDetailView.
 struct DayDetail: Codable {
     let dateLabel: String
     let feastName: String
     let color: LiturgicalColor
     let loggedStateTitle: String?
     let loggedNote: String?
-    let psalmRef: String
-    let psalmText: String
-    let liturgyNote: String
-    let otherActivity: String?
+    let psalmRef: String?
+    let psalmText: String?
+    let liturgyNote: String?
 }

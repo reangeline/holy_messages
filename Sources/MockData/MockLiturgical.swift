@@ -79,17 +79,17 @@ enum MockLiturgical {
         closingLine: "Sua Páscoa começa em 18 de abril e ainda está sendo escrita."
     )
 
-    static let sampleDayDetail = DayDetail(
-        dateLabel: "Segunda-feira, 8 de setembro",
-        feastName: "Natividade de Nossa Senhora",
-        color: .white,
-        loggedStateTitle: "Aridez na oração",
-        loggedNote: "Rezei o Terço sem sentir nada. Fui até o fim.",
-        psalmRef: "Salmo 62",
-        psalmText: "Minha alma tem sede de vós; minha carne vos deseja, como terra árida, sedenta, sem água.",
-        liturgyNote: "Festa da Natividade de Maria, cor branca. Leitura de Miqueias 5 e o Evangelho da genealogia.",
-        otherActivity: "Terço rezado · Mistérios Gozosos · intenção: pela minha mãe"
-    )
+    /// Real (if minimal) per-day liturgical info for the handful of September
+    /// dates that have it — everything else is plain Ordinary Time with no
+    /// specific feast authored, rather than invented. See CalendarDayDetailView.
+    static func dayFeastInfo(for dateKey: String) -> (feastName: String, note: String?)? {
+        switch dateKey {
+        case today.dateKey: (today.feastName, today.explanation)
+        case tomorrow.dateKey: (tomorrow.feastName, tomorrow.explanation)
+        case "2026-09-08": ("Natividade de Nossa Senhora", "Festa da Natividade de Maria, cor branca.")
+        default: nil
+        }
+    }
 
     /// The week containing "today" (Sun Sept 13 – Sat Sept 19, 2026), named for its
     /// Sunday per the liturgical convention — see LiturgicalWeek. Demo data: no real
@@ -114,18 +114,18 @@ enum MockLiturgical {
         ]
     )
 
-    /// A month grid for September 2026 (30 days). Weeks 2 (feast, red) and a handful
-    /// of scattered logged marks (a mix of consolation/desolation groups, purely
-    /// illustrative), otherwise plain Ordinary Time green. Day 14 ("today") is
-    /// overridden with the real Exame history at render time — see
-    /// CalendarRootView.loggedGroup(for:).
+    /// A month grid for September 2026 (30 days): white on the 8th and 15th,
+    /// red on the 14th ("today"), plain Ordinary Time green otherwise. No day
+    /// carries a pre-baked "logged" flag — whether a day shows a registro mark
+    /// is computed live from real Exame history at render time (only "today"
+    /// can ever have one, since the rest of this calendar is a fixed/fictional
+    /// date range) — see CalendarRootView.loggedGroup(for:).
     static let septemberDays: [CalendarDayMark] = (1...30).map { day in
-        let color: LiturgicalColor = (day == 8) ? .white : (day == 14 ? .red : .green)
-        let loggedGroup: String? = switch day {
-        case 3, 19: "consolation"
-        case 8, 11, 24: "desolation"
-        default: nil
+        let color: LiturgicalColor = switch day {
+        case 8, 15: .white
+        case 14: .red
+        default: .green
         }
-        return CalendarDayMark(dateKey: String(format: "2026-09-%02d", day), dayNumber: day, color: color, hasLoggedEntry: loggedGroup != nil, loggedGroup: loggedGroup)
+        return CalendarDayMark(dateKey: String(format: "2026-09-%02d", day), dayNumber: day, color: color)
     }
 }
