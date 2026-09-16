@@ -12,6 +12,14 @@ struct CalendarDayDetailView: View {
     private var isToday: Bool { mark.dateKey == MockLiturgical.today.dateKey }
     private var feastInfo: (feastName: String, note: String?)? { MockLiturgical.dayFeastInfo(for: mark.dateKey) }
 
+    /// Real engine output for this date, used only to check "is this a
+    /// Sunday" and to build the Mass bulletin — the rest of this screen still
+    /// uses `feastInfo`/`detail` above so September's hand-authored content
+    /// (today/tomorrow) is untouched.
+    private var computedDay: LiturgicalEngine.ComputedDay? {
+        MockLiturgical.date(fromKey: mark.dateKey).map(LiturgicalEngine.day(for:))
+    }
+
     private var detail: DayDetail {
         let latest = isToday ? moodHistory.entries.last : nil
         let relief = latest.map { MockMood.relief(for: $0.stateID).content }
@@ -86,6 +94,29 @@ struct CalendarDayDetailView: View {
                                 Text(liturgyNote).font(MissaleFont.body(17))
                             }
                         }
+                    }
+
+                    if let computedDay, computedDay.weekday == 1 {
+                        NavigationLink {
+                            MassBulletinView(day: computedDay)
+                        } label: {
+                            HStack {
+                                VStack(alignment: .leading, spacing: 2) {
+                                    Text("Folheto do domingo")
+                                        .font(MissaleFont.body(17, weight: .medium))
+                                        .foregroundStyle(Palette.ink)
+                                    Text("As leituras desta Missa")
+                                        .font(MissaleFont.body(14))
+                                        .foregroundStyle(Palette.ink.opacity(0.6))
+                                }
+                                Spacer()
+                                Image(systemName: "chevron.right").foregroundStyle(Palette.wine)
+                            }
+                            .padding(14)
+                            .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+                            .overlay(RoundedRectangle(cornerRadius: 16, style: .continuous).strokeBorder(Color.white.opacity(0.6), lineWidth: 1))
+                        }
+                        .buttonStyle(.plain)
                     }
                 }
                 .padding(20)

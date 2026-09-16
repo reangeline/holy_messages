@@ -50,7 +50,7 @@ enum LiturgicalSanctoral {
         let seasonWins = day.rank == .solemnity || (day.isHolyDayOfObligation && day.rank == .feast)
         if seasonWins && fixed.rank != .solemnity { return day }
         return LiturgicalEngine.ComputedDay(
-            dateKey: day.dateKey, season: day.season, seasonLabel: day.seasonLabel,
+            dateKey: day.dateKey, season: day.season, weekIndex: day.weekIndex, weekday: day.weekday, seasonLabel: day.seasonLabel,
             rank: fixed.rank, color: fixed.color, feastName: fixed.name,
             sundayCycle: day.sundayCycle, weekdayCycle: day.weekdayCycle,
             isHolyDayOfObligation: fixed.rank == .solemnity ? true : day.isHolyDayOfObligation,
