@@ -115,10 +115,17 @@ enum MockLiturgical {
     )
 
     /// A month grid for September 2026 (30 days). Weeks 2 (feast, red) and a handful
-    /// of scattered logged marks, otherwise plain Ordinary Time green.
+    /// of scattered logged marks (a mix of consolation/desolation groups, purely
+    /// illustrative), otherwise plain Ordinary Time green. Day 14 ("today") is
+    /// overridden with the real Exame history at render time — see
+    /// CalendarRootView.loggedGroup(for:).
     static let septemberDays: [CalendarDayMark] = (1...30).map { day in
         let color: LiturgicalColor = (day == 8) ? .white : (day == 14 ? .red : .green)
-        let logged = [3, 8, 11, 14, 19, 24].contains(day)
-        return CalendarDayMark(dateKey: String(format: "2026-09-%02d", day), dayNumber: day, color: color, hasLoggedEntry: logged)
+        let loggedGroup: String? = switch day {
+        case 3, 19: "consolation"
+        case 8, 11, 24: "desolation"
+        default: nil
+        }
+        return CalendarDayMark(dateKey: String(format: "2026-09-%02d", day), dayNumber: day, color: color, hasLoggedEntry: loggedGroup != nil, loggedGroup: loggedGroup)
     }
 }

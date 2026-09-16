@@ -1,195 +1,644 @@
 {
-  "sourceLanguage" : "en",
-  "strings" : {
-    "September" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "September" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Septiembre" } },
-        "pt" : { "stringUnit" : { "state" : "translated", "value" : "Setembro" } }
+  "sourceLanguage": "en",
+  "strings": {
+    "September": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "September"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Septiembre"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Setembro"
+          }
+        }
       }
     },
-    "The journey ›" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "The journey ›" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "La jornada ›" } },
-        "pt" : { "stringUnit" : { "state" : "translated", "value" : "A jornada ›" } }
+    "The journey ›": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The journey ›"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La jornada ›"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A jornada ›"
+          }
+        }
       }
     },
-    "Ordinary Time" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Ordinary Time" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Tiempo Ordinario" } },
-        "pt" : { "stringUnit" : { "state" : "translated", "value" : "Tempo Comum" } }
+    "Ordinary Time": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ordinary Time"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tiempo Ordinario"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tempo Comum"
+          }
+        }
       }
     },
-    "Feast, red" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Feast, red" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Fiesta, rojo" } },
-        "pt" : { "stringUnit" : { "state" : "translated", "value" : "Festa, vermelho" } }
+    "Feast, red": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Feast, red"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fiesta, rojo"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Festa, vermelho"
+          }
+        }
       }
     },
-    "White" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "White" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Blanco" } },
-        "pt" : { "stringUnit" : { "state" : "translated", "value" : "Branco" } }
+    "White": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "White"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Blanco"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Branco"
+          }
+        }
       }
     },
-    "discreet mark = you logged something that day" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "discreet mark = you logged something that day" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "marca discreta = registraste algo ese día" } },
-        "pt" : { "stringUnit" : { "state" : "translated", "value" : "marca discreta = você registrou algo naquele dia" } }
+    "discreet mark = you logged something that day": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "discreet mark = you logged something that day"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "marca discreta = registraste algo ese día"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "marca discreta = você registrou algo naquele dia"
+          }
+        }
       }
     },
-    "No heat map and no good-day/bad-day colors: the color is the liturgy's, the mark is yours." : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "No heat map and no good-day/bad-day colors: the color is the liturgy's, the mark is yours." } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Sin mapa de calor y sin colores de día bueno o malo: el color es de la liturgia, la marca es tuya." } },
-        "pt" : { "stringUnit" : { "state" : "translated", "value" : "Sem mapa de calor e sem cores de bom e mau dia: a cor é da liturgia, a marca é sua." } }
+    "No heat map and no good-day/bad-day colors: the color is the liturgy's, the mark is yours.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No heat map and no good-day/bad-day colors: the color is the liturgy's, the mark is yours."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sin mapa de calor y sin colores de día bueno o malo: el color es de la liturgia, la marca es tuya."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sem mapa de calor e sem cores de bom e mau dia: a cor é da liturgia, a marca é sua."
+          }
+        }
       }
     },
-    "You logged" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "You logged" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Registraste" } },
-        "pt" : { "stringUnit" : { "state" : "translated", "value" : "Você registrou" } }
+    "You logged": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You logged"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Registraste"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Você registrou"
+          }
+        }
       }
     },
-    "That day's passage" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "That day's passage" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "El pasaje de aquel día" } },
-        "pt" : { "stringUnit" : { "state" : "translated", "value" : "A passagem daquele dia" } }
+    "That day's passage": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "That day's passage"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El pasaje de aquel día"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A passagem daquele dia"
+          }
+        }
       }
     },
-    "That day in the liturgy" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "That day in the liturgy" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Aquel día en la liturgia" } },
-        "pt" : { "stringUnit" : { "state" : "translated", "value" : "Naquele dia na liturgia" } }
+    "That day in the liturgy": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "That day in the liturgy"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aquel día en la liturgia"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Naquele dia na liturgia"
+          }
+        }
       }
     },
-    "Also that day" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Also that day" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "También ese día" } },
-        "pt" : { "stringUnit" : { "state" : "translated", "value" : "Também naquele dia" } }
+    "Also that day": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Also that day"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "También ese día"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Também naquele dia"
+          }
+        }
       }
     },
-    "The Journey" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "The Journey" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "El Camino" } },
-        "pt" : { "stringUnit" : { "state" : "translated", "value" : "A Jornada" } }
+    "The Journey": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The Journey"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El Camino"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A Jornada"
+          }
+        }
       }
     },
-    "You crossed through this" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "You crossed through this" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Atravesaste esto" } },
-        "pt" : { "stringUnit" : { "state" : "translated", "value" : "Você atravessou isso" } }
+    "You crossed through this": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You crossed through this"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Atravesaste esto"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Você atravessou isso"
+          }
+        }
       }
     },
-    "By liturgical time, the way the Church counts the year. Not by month, and without comparing them." : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "By liturgical time, the way the Church counts the year. Not by month, and without comparing them." } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Por tiempo litúrgico, como la Iglesia cuenta el año. No por mes, y sin comparar unos con otros." } },
-        "pt" : { "stringUnit" : { "state" : "translated", "value" : "Por tempo litúrgico, como a Igreja conta o ano. Não por mês, e sem comparação entre eles." } }
+    "By liturgical time, the way the Church counts the year. Not by month, and without comparing them.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "By liturgical time, the way the Church counts the year. Not by month, and without comparing them."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Por tiempo litúrgico, como la Iglesia cuenta el año. No por mes, y sin comparar unos con otros."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Por tempo litúrgico, como a Igreja conta o ano. Não por mês, e sem comparação entre eles."
+          }
+        }
       }
     },
-    "No progress curve and no percentage: desolation isn't failure, and dryness isn't a performance dip." : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "No progress curve and no percentage: desolation isn't failure, and dryness isn't a performance dip." } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Sin curva de progreso y sin porcentaje: la desolación no es fracaso, y la aridez no es una caída de desempeño." } },
-        "pt" : { "stringUnit" : { "state" : "translated", "value" : "Sem curva de progresso e sem percentual: desolação não é fracasso, e aridez não é queda de desempenho." } }
+    "No progress curve and no percentage: desolation isn't failure, and dryness isn't a performance dip.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No progress curve and no percentage: desolation isn't failure, and dryness isn't a performance dip."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sin curva de progreso y sin porcentaje: la desolación no es fracaso, y la aridez no es una caída de desempeño."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sem curva de progresso e sem percentual: desolação não é fracasso, e aridez não é queda de desempenho."
+          }
+        }
       }
     },
-    "Not yet crossed" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Not yet crossed" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Todavía no atravesado" } },
-        "pt" : { "stringUnit" : { "state" : "translated", "value" : "Ainda não atravessado" } }
+    "Not yet crossed": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Not yet crossed"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Todavía no atravesado"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ainda não atravessado"
+          }
+        }
       }
     },
-    "What accompanied the way" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "What accompanied the way" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Lo que acompañó el camino" } },
-        "pt" : { "stringUnit" : { "state" : "translated", "value" : "O que acompanhou o caminho" } }
+    "What accompanied the way": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "What accompanied the way"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lo que acompañó el camino"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O que acompanhou o caminho"
+          }
+        }
       }
     },
-    "Why she matters today" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Why she matters today" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Por qué ella importa hoy" } },
-        "pt" : { "stringUnit" : { "state" : "translated", "value" : "Por que ela importa hoje" } }
+    "Why she matters today": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Why she matters today"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Por qué ella importa hoy"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Por que ela importa hoje"
+          }
+        }
       }
     },
-    "Prayer" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Prayer" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Oración" } },
-        "pt" : { "stringUnit" : { "state" : "translated", "value" : "Oração" } }
+    "Prayer": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prayer"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Oración"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Oração"
+          }
+        }
       }
     },
-    "Saints for what you carry" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Saints for what you carry" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Santos para lo que llevas" } },
-        "pt" : { "stringUnit" : { "state" : "translated", "value" : "Santos para o que você carrega" } }
+    "Saints for what you carry": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Saints for what you carry"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Santos para lo que llevas"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Santos para o que você carrega"
+          }
+        }
       }
     },
-    "Archive ›" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Archive ›" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Archivo ›" } },
-        "pt" : { "stringUnit" : { "state" : "translated", "value" : "Arquivo ›" } }
+    "Archive ›": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Archive ›"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Archivo ›"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Arquivo ›"
+          }
+        }
       }
     },
-    "Based on what you logged: dryness in prayer." : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Based on what you logged: dryness in prayer." } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "A partir de lo que registraste: aridez en la oración." } },
-        "pt" : { "stringUnit" : { "state" : "translated", "value" : "A partir do que você registrou: aridez na oração." } }
+    "Based on what you logged: dryness in prayer.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Based on what you logged: dryness in prayer."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A partir de lo que registraste: aridez en la oración."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A partir do que você registrou: aridez na oração."
+          }
+        }
       }
     },
-    "Saints Archive" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Saints Archive" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Archivo de santos" } },
-        "pt" : { "stringUnit" : { "state" : "translated", "value" : "Arquivo de santos" } }
+    "Saints Archive": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Saints Archive"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Archivo de santos"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Arquivo de santos"
+          }
+        }
       }
     },
-    "Search all" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Search all" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Buscar todo" } },
-        "pt" : { "stringUnit" : { "state" : "translated", "value" : "Buscar tudo" } }
+    "Search all": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Search all"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buscar todo"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buscar tudo"
+          }
+        }
       }
     },
-    "Search by name, date, or cause" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Search by name, date, or cause" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Buscar por nombre, fecha o causa" } },
-        "pt" : { "stringUnit" : { "state" : "translated", "value" : "Buscar por nome, data ou causa" } }
+    "Search by name, date, or cause": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Search by name, date, or cause"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buscar por nombre, fecha o causa"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buscar por nome, data ou causa"
+          }
+        }
       }
     },
-    "United States" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "United States" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Estados Unidos" } },
-        "pt" : { "stringUnit" : { "state" : "translated", "value" : "Estados Unidos" } }
+    "United States": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "United States"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Estados Unidos"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Estados Unidos"
+          }
+        }
       }
     },
-    "general Roman calendar + country's own" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "general Roman calendar + country's own" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "calendario romano general + propio del país" } },
-        "pt" : { "stringUnit" : { "state" : "translated", "value" : "calendário romano geral + próprio do país" } }
+    "general Roman calendar + country's own": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "general Roman calendar + country's own"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "calendario romano general + propio del país"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "calendário romano geral + próprio do país"
+          }
+        }
+      }
+    },
+    "Consolation": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Consolation"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Consolación"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Consolação"
+          }
+        }
+      }
+    },
+    "Desolation": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Desolation"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Desolación"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Desolação"
+          }
+        }
       }
     }
   },
-  "version" : "1.0"
+  "version": "1.0"
 }

@@ -7,11 +7,18 @@ struct CalendarRootView: View {
     private let leadingEmptyDays = 2
     @ObservedObject private var moodHistory = MoodHistoryStore.shared
 
-    /// Today's mark reflects whatever was actually logged in the Exame instead of
-    /// the static mock flag — the rest of the month stays illustrative since there's
-    /// no real per-day history beyond the one live "today" this mock has.
-    private func hasLoggedEntry(for mark: CalendarDayMark) -> Bool {
-        mark.dateKey == MockLiturgical.today.dateKey ? !moodHistory.entries.isEmpty : mark.hasLoggedEntry
+    /// "consolation", "desolation", or nil (nothing logged). Today's mark reflects
+    /// whatever was actually logged in the Exame instead of the static mock flag —
+    /// the rest of the month stays illustrative since there's no real per-day
+    /// history beyond the one live "today" this mock has.
+    private func loggedGroup(for mark: CalendarDayMark) -> String? {
+        guard mark.dateKey == MockLiturgical.today.dateKey else { return mark.loggedGroup }
+        guard let latest = moodHistory.entries.last else { return nil }
+        return MockMood.group(forStateID: latest.stateID)
+    }
+
+    private func markColor(for group: String) -> Color {
+        group == "consolation" ? Palette.goldMuted : Palette.ink.opacity(0.45)
     }
 
     var body: some View {
@@ -134,9 +141,9 @@ struct CalendarRootView: View {
                 .foregroundStyle(mark.color == .white ? Palette.ink : Color.white)
                 .frame(maxHeight: .infinity, alignment: .top)
                 .padding(.top, 6)
-            if hasLoggedEntry(for: mark) {
+            if let group = loggedGroup(for: mark) {
                 RoundedRectangle(cornerRadius: 2)
-                    .fill(Palette.ink.opacity(0.45))
+                    .fill(markColor(for: group))
                     .frame(width: 16, height: 3)
                     .padding(.bottom, 4)
             }
@@ -151,11 +158,19 @@ struct CalendarRootView: View {
                 legendSwatch(color: Palette.wine, label: L.string( "Feast, red", table: "CalendarSaints"))
                 legendSwatch(color: .white, bordered: true, label: L.string( "White", table: "CalendarSaints"))
             }
-            HStack(spacing: 6) {
-                RoundedRectangle(cornerRadius: 2).fill(Palette.ink.opacity(0.45)).frame(width: 16, height: 3)
-                Text("discreet mark = you logged something that day", tableName: "CalendarSaints")
-                    .font(MissaleFont.body(13))
-                    .foregroundStyle(Palette.ink.opacity(0.7))
+            HStack(spacing: 14) {
+                HStack(spacing: 6) {
+                    RoundedRectangle(cornerRadius: 2).fill(Palette.goldMuted).frame(width: 16, height: 3)
+                    Text("Consolation", tableName: "CalendarSaints")
+                        .font(MissaleFont.body(13))
+                        .foregroundStyle(Palette.ink.opacity(0.7))
+                }
+                HStack(spacing: 6) {
+                    RoundedRectangle(cornerRadius: 2).fill(Palette.ink.opacity(0.45)).frame(width: 16, height: 3)
+                    Text("Desolation", tableName: "CalendarSaints")
+                        .font(MissaleFont.body(13))
+                        .foregroundStyle(Palette.ink.opacity(0.7))
+                }
             }
             Text("No heat map and no good-day/bad-day colors: the color is the liturgy's, the mark is yours.", tableName: "CalendarSaints")
                 .font(MissaleFont.body(13))

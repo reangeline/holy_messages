@@ -1870,6 +1870,116 @@
           }
         }
       }
+    },
+    "O que está acontecendo?": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "What's going on?"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Qué está pasando?"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O que está acontecendo?"
+          }
+        }
+      }
+    },
+    "Opcional. Escreva antes de ver qualquer resposta — o que vem depois é para o que você escreveu, não um texto pronto.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Optional. Write before seeing any response — what comes next is for what you wrote, not a canned text."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Opcional. Escribe antes de ver cualquier respuesta — lo que viene después es para lo que escribiste, no un texto genérico."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Opcional. Escreva antes de ver qualquer resposta — o que vem depois é para o que você escreveu, não um texto pronto."
+          }
+        }
+      }
+    },
+    "Fica só neste aparelho. Ninguém além de você vê isto.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stays only on this device. No one but you sees this."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se queda solo en este dispositivo. Nadie más que tú lo ve."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fica só neste aparelho. Ninguém além de você vê isto."
+          }
+        }
+      }
+    },
+    "Continuar": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Continue"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Continuar"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Continuar"
+          }
+        }
+      }
+    },
+    "Pular, sem escrever nada": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Skip, without writing anything"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Saltar, sin escribir nada"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pular, sem escrever nada"
+          }
+        }
+      }
     }
   },
   "version": "1.0"

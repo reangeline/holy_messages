@@ -579,4 +579,12 @@ enum MockMood {
     }
 
     static let pastoralCareParishName = "Paróquia Nossa Senhora Aparecida"
+
+    /// Which group ("consolation"/"desolation") a state id belongs to — used to
+    /// give the calendar's daily mark its own (still neutral, non-judgmental)
+    /// color per group, instead of one flat "something was logged" dot. See
+    /// CalendarRootView.dayCell.
+    static func group(forStateID id: String) -> String? {
+        stateGroups.first { $0.items.contains { $0.id == id } }?.id
+    }
 }

@@ -1,12 +1,14 @@
 import SwiftUI
 
-/// Screen 2 (eIs2) — bottom sheet: "Hoje eu estou…" grouped chip picker with an
-/// optional one-line note. Tapping a chip proceeds in-place to the relief screen (3).
+/// Screen 2 (eIs2) — bottom sheet: "Hoje eu estou…" grouped chip picker. Tapping a
+/// chip goes to a reflection screen (write about it, optional) before anything
+/// else — the Psalm/saint/step response is only picked once that continues, so
+/// nothing repetitive shows before the person has had a chance to write.
 struct MoodCheckInSheet: View {
     @Environment(\.dismiss) private var dismiss
+    @State private var pendingState: MoodStateOption?
     @State private var selected: MoodStateOption?
     @State private var redirectToScrupulosity = false
-    @State private var note: String = ""
     @State private var showPastoralCare = false
 
     var body: some View {
@@ -19,6 +21,12 @@ struct MoodCheckInSheet: View {
                     ScrupulosityRedirectView()
                 } else if let selected {
                     MoodReliefView(state: selected) { dismiss() }
+                } else if let pendingState {
+                    MoodReflectionView(
+                        state: pendingState,
+                        onBack: { self.pendingState = nil },
+                        onContinue: { note in finalize(pendingState, note: note) }
+                    )
                 } else {
                     pickerBody
                 }
@@ -26,7 +34,7 @@ struct MoodCheckInSheet: View {
         }
     }
 
-    private func select(_ option: MoodStateOption) {
+    private func finalize(_ option: MoodStateOption, note: String) {
         let count = MoodHistoryStore.shared.record(state: option, note: note.isEmpty ? nil : note)
         redirectToScrupulosity = option.isScrupulosityTrigger && count >= 3
         selected = option
@@ -67,15 +75,10 @@ struct MoodCheckInSheet: View {
                         VStack(alignment: .leading, spacing: 8) {
                             Eyebrow(text: L.string(group.label, table: "Today"))
                             FlowChips(items: group.items) { option in
-                                select(option)
+                                pendingState = option
                             }
                         }
                     }
-                    TextField(L.string("O que aconteceu? (opcional, uma linha)", table: "Today"), text: $note)
-                        .font(MissaleFont.body(15))
-                        .padding(12)
-                        .background(Color.white.opacity(0.45), in: RoundedRectangle(cornerRadius: 14, style: .continuous))
-                        .overlay(RoundedRectangle(cornerRadius: 14, style: .continuous).strokeBorder(Color.white.opacity(0.6), lineWidth: 1))
                 }
             }
         }
