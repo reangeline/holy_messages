@@ -141,11 +141,13 @@ struct RosaryDarkModeView: View {
     private func shortLabel(for bead: RosaryBead) -> String {
         switch bead.kind {
         case .crucifix: "Sinal da Cruz"
+        case .intentions: "Intenções"
+        case .offering: "Oferecimento"
         case .creed: "Credo"
         case .ourFather: "Pai-Nosso"
         case .hailMary: "Ave-Maria"
         case .glory: "Glória"
-        case .announcement: mystery.decades[bead.mysteryIndex ?? 0]
+        case .announcement: mystery.decades[bead.mysteryIndex ?? 0].title
         case .hailHolyQueen: "Salve Rainha"
         }
     }

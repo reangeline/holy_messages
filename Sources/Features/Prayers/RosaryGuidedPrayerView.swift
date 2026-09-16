@@ -114,6 +114,7 @@ struct RosaryGuidedPrayerView: View {
         let size: CGFloat = switch bead.kind {
         case .crucifix: 14
         case .hailHolyQueen: 12
+        case .intentions, .offering: 11
         case .ourFather, .announcement, .creed: 10
         case .glory: 9
         case .hailMary: 7
@@ -136,6 +137,20 @@ struct RosaryGuidedPrayerView: View {
             Text(step.beadLabel)
                 .font(MissaleFont.body(13))
                 .foregroundStyle(.white.opacity(0.7))
+            // Fruit + citation are core content on an announcement step, not a
+            // dismissible tip — shown regardless of beginner mode.
+            if let fruit = step.fruit, let scriptureRef = step.scriptureRef {
+                VStack(spacing: 4) {
+                    Text("Fruto: \(fruit)")
+                        .font(MissaleFont.body(13, weight: .medium))
+                        .foregroundStyle(.white.opacity(0.75))
+                    Text(scriptureRef)
+                        .font(MissaleFont.body(12))
+                        .foregroundStyle(.white.opacity(0.55))
+                }
+                .multilineTextAlignment(.center)
+                .padding(.top, 2)
+            }
             // Beginner mode surfaces the per-bead teaching hint that MockRosary
             // already authors for every step; turning it off is what makes
             // non-beginner mode leaner — see MockRosary.step(for:mystery:).
