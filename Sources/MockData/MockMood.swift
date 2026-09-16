@@ -44,9 +44,10 @@ enum MockMood {
         stepBody: "Antes de dormir, nomeie uma coisa de hoje pela qual vale dizer obrigado — mesmo que pequena."
     )
 
-    // Each state keeps a small pool of variations (3 for now, growing toward the
-    // 15–20 the spec asks for) so the same tap doesn't return the same Psalm and
-    // saint every time — see MoodHistoryStore.lastReliefIndex / relief(for:excluding:).
+    // Each state keeps a small pool of variations (5 as of this pass, growing
+    // toward the 15–20 the spec asks for) so the same tap doesn't return the same
+    // Psalm and saint every time — see MoodHistoryStore.lastReliefIndex /
+    // relief(for:excluding:).
     static let reliefByState: [String: [ReliefContent]] = [
         "peace": [
             ReliefContent(
@@ -78,6 +79,26 @@ enum MockMood {
                 saintWhy: "Chamou de \"pequena via\" justamente essa confiança de criança, sem grandeza nem ansiedade.",
                 stepTitle: "Um passo concreto",
                 stepBody: "Ofereça esta paz por alguém que hoje está do outro lado do estado que você já atravessou."
+            ),
+            ReliefContent(
+                title: "Palavras de paz",
+                psalmRef: "Salmo 85",
+                psalmText: "Escutarei o que Deus, o Senhor, vai dizer: palavras de paz para o seu povo e para os seus fiéis.",
+                psalmWhy: "A paz aqui é uma palavra que se escuta, não um sentimento que se produz sozinho.",
+                saintName: "São Bento",
+                saintWhy: "Resumiu a vida monástica no lema “Ora et labora”, buscando a paz no ritmo simples entre oração e trabalho.",
+                stepTitle: "Um passo concreto",
+                stepBody: "Escolha uma tarefa comum de hoje e faça-a devagar, como se fosse parte da oração."
+            ),
+            ReliefContent(
+                title: "Ele é a nossa paz",
+                psalmRef: "Efésios 2, 14",
+                psalmText: "Porque ele é a nossa paz, ele que dos dois povos fez um só.",
+                psalmWhy: "A paz cristã não é ausência de conflito — é alguém que reconcilia o que estava dividido.",
+                saintName: "São Francisco de Sales",
+                saintWhy: "Ensinava que a alma mansa consegue mais num dia do que a inquieta em dez anos.",
+                stepTitle: "Um passo concreto",
+                stepBody: "Se há alguém com quem você está em atrito, ore por essa pessoa antes de dormir hoje."
             ),
         ],
         "grateful": [
@@ -111,6 +132,26 @@ enum MockMood {
                 stepTitle: "Um passo concreto",
                 stepBody: "Releia o dia de trás para frente e note onde Deus esteve sem você ter percebido na hora."
             ),
+            ReliefContent(
+                title: "Agradecer nas pequenas provas",
+                psalmRef: "Salmo 92",
+                psalmText: "Bom é render graças ao Senhor e cantar louvores ao teu nome, ó Altíssimo.",
+                psalmWhy: "O salmo liga gratidão a louvor: agradecer já é uma forma de rezar.",
+                saintName: "Santa Teresinha do Menino Jesus",
+                saintWhy: "Agradecia a Deus até pelas provações pequenas do dia a dia, chamando tudo de dom.",
+                stepTitle: "Um passo concreto",
+                stepBody: "Agradeça hoje por algo que normalmente você reclamaria."
+            ),
+            ReliefContent(
+                title: "Em tudo dai graças",
+                psalmRef: "1 Tessalonicenses 5, 18",
+                psalmText: "Em tudo dai graças, porque esta é a vontade de Deus em Cristo Jesus para convosco.",
+                psalmWhy: "“Em tudo” inclui o que ainda dói — a gratidão aqui não espera o alívio chegar primeiro.",
+                saintName: "São Paulo",
+                saintWhy: "Escreveu isso de dentro de uma vida marcada por perseguições, não de um momento tranquilo.",
+                stepTitle: "Um passo concreto",
+                stepBody: "Nomeie uma coisa difícil de hoje e agradeça por ela mesmo sem entender o motivo."
+            ),
         ],
         "joyful": [
             ReliefContent(
@@ -142,6 +183,26 @@ enum MockMood {
                 saintWhy: "Via em cada criatura um motivo de louvor, do sol ao irmão lobo.",
                 stepTitle: "Um passo concreto",
                 stepBody: "Guarde uma frase de hoje para lembrar desta alegria num dia mais difícil."
+            ),
+            ReliefContent(
+                title: "Plenitude de alegria",
+                psalmRef: "Salmo 16",
+                psalmText: "Na tua presença há plenitude de alegria; à tua direita, delícias perpétuas.",
+                psalmWhy: "A alegria do salmo tem endereço: está na presença de Deus, não em outro lugar.",
+                saintName: "São João Bosco",
+                saintWhy: "Dizia aos jovens que a santidade está em servir a Deus sempre alegre, e construiu uma obra inteira sobre essa ideia.",
+                stepTitle: "Um passo concreto",
+                stepBody: "Compartilhe com alguém, hoje, o que está te dando alegria."
+            ),
+            ReliefContent(
+                title: "A alegria do Senhor é a força",
+                psalmRef: "Neemias 8, 10",
+                psalmText: "Não vos entristeçais, porque a alegria do Senhor é a vossa força.",
+                psalmWhy: "A alegria aqui não é frivolidade — é o que sustenta, especialmente nos dias difíceis.",
+                saintName: "Santa Clara de Assis",
+                saintWhy: "Viveu na pobreza mais radical e ainda assim é lembrada pela alegria que contagiava as irmãs.",
+                stepTitle: "Um passo concreto",
+                stepBody: "Deixe essa alegria sustentar uma tarefa chata que você vem adiando."
             ),
         ],
         "hopeful": [
@@ -175,6 +236,26 @@ enum MockMood {
                 stepTitle: "Um passo concreto",
                 stepBody: "Escreva a esperança de hoje para poder reler quando ela parecer mais distante."
             ),
+            ReliefContent(
+                title: "A esperança não confunde",
+                psalmRef: "Romanos 5, 5",
+                psalmText: "A esperança não confunde, porque o amor de Deus foi derramado em nossos corações.",
+                psalmWhy: "A esperança aqui se apoia num amor já dado, não numa garantia de que tudo vai dar certo.",
+                saintName: "São Padre Pio",
+                saintWhy: "Dizia que a esperança cristã nunca decepciona, porque não depende da nossa força.",
+                stepTitle: "Um passo concreto",
+                stepBody: "Escreva o que você espera e entregue, em oração, a parte que não depende de você."
+            ),
+            ReliefContent(
+                title: "Minha esperança desde a juventude",
+                psalmRef: "Salmo 71",
+                psalmText: "Tu és a minha esperança, Senhor Deus, a minha confiança desde a minha juventude.",
+                psalmWhy: "É uma esperança antiga, construída ao longo do tempo, não inventada na crise de hoje.",
+                saintName: "São José",
+                saintWhy: "Agiu sobre a promessa de um anjo em sonho, sem nenhuma outra garantia.",
+                stepTitle: "Um passo concreto",
+                stepBody: "Dê um passo pequeno e concreto hoje na direção do que você espera, mesmo sem ver o caminho todo."
+            ),
         ],
         "forgiven": [
             ReliefContent(
@@ -206,6 +287,26 @@ enum MockMood {
                 saintWhy: "A tradição a lembra menos pelo que carregou e mais por como amou depois de ser perdoada.",
                 stepTitle: "Um passo concreto",
                 stepBody: "Marque a próxima confissão já, para não deixar o alívio de hoje sem continuidade."
+            ),
+            ReliefContent(
+                title: "Brancos como a neve",
+                psalmRef: "Isaías 1, 18",
+                psalmText: "Ainda que os vossos pecados sejam como escarlate, ficarão brancos como a neve.",
+                psalmWhy: "A promessa não minimiza a gravidade do pecado — promete uma limpeza completa dele.",
+                saintName: "São João Maria Vianney",
+                saintWhy: "Passava até 16 horas por dia confessando, dizendo que Deus perdoa mais depressa do que uma mãe tira o filho do fogo.",
+                stepTitle: "Um passo concreto",
+                stepBody: "Se faz tempo que você não se confessa, marque um horário esta semana."
+            ),
+            ReliefContent(
+                title: "O filho que voltou",
+                psalmRef: "Lucas 15, 20",
+                psalmText: "Quando ainda estava longe, seu pai o viu e, cheio de compaixão, correu, abraçou-o e o beijou.",
+                psalmWhy: "O pai corre antes mesmo do pedido de perdão terminar — a iniciativa é dele, não do filho.",
+                saintName: "Santa Teresa d'Ávila",
+                saintWhy: "Viveu anos ainda apegada a distrações mundanas antes de se converter de vez à oração, e nunca escondeu esse período.",
+                stepTitle: "Um passo concreto",
+                stepBody: "Releia a parábola do filho pródigo (Lucas 15) inteira, devagar."
             ),
         ],
         "loved": [
@@ -239,6 +340,26 @@ enum MockMood {
                 stepTitle: "Um passo concreto",
                 stepBody: "Reze hoje sem pedir nada — só para estar com quem já te ama."
             ),
+            ReliefContent(
+                title: "Escolhido antes de nascer",
+                psalmRef: "Jeremias 1, 5",
+                psalmText: "Antes de te formar no ventre, eu te conheci; antes que saísses dele, te consagrei.",
+                psalmWhy: "Ser amado, aqui, vem antes de qualquer mérito ou até de qualquer ação sua.",
+                saintName: "São José",
+                saintWhy: "Nenhuma palavra sua está registrada nos Evangelhos, e ainda assim foi escolhido para criar o próprio Filho de Deus.",
+                stepTitle: "Um passo concreto",
+                stepBody: "Releia hoje algo que alguém já te escreveu ou disse que mostrava esse amor."
+            ),
+            ReliefContent(
+                title: "Ele nos amou primeiro",
+                psalmRef: "1 João 4, 19",
+                psalmText: "Nós amamos porque ele nos amou primeiro.",
+                psalmWhy: "A ordem importa: o amor de Deus vem primeiro, o nosso é resposta, não conquista.",
+                saintName: "Santo Agostinho",
+                saintWhy: "Descreveu a própria conversão como o encontro tardio com um amor que já existia havia muito tempo, contado nas Confissões.",
+                stepTitle: "Um passo concreto",
+                stepBody: "Diga em voz alta, hoje, que você é amado — mesmo que ainda não sinta isso por completo."
+            ),
         ],
         "steadfast": [
             ReliefContent(
@@ -270,6 +391,26 @@ enum MockMood {
                 saintWhy: "Manteve a mesma resposta sob interrogatório repetido, sem se deixar dividir.",
                 stepTitle: "Um passo concreto",
                 stepBody: "Escolha hoje uma coisa só para pedir, em vez de uma lista inteira."
+            ),
+            ReliefContent(
+                title: "O voto de estabilidade",
+                psalmRef: "Salmo 16",
+                psalmText: "Conservo o Senhor sempre diante de mim; ele está à minha direita, e eu não vacilarei.",
+                psalmWhy: "Firmeza, aqui, vem de manter o olhar fixo em alguém, não de força de vontade própria.",
+                saintName: "São Bento",
+                saintWhy: "Fez da estabilidade um voto formal dos seus monges: permanecer no mesmo lugar e não fugir das dificuldades.",
+                stepTitle: "Um passo concreto",
+                stepBody: "Escolha uma coisa que você estava pensando em abandonar e dê mais um dia a ela."
+            ),
+            ReliefContent(
+                title: "Combati o bom combate",
+                psalmRef: "2 Timóteo 4, 7",
+                psalmText: "Combati o bom combate, terminei a carreira, guardei a fé.",
+                psalmWhy: "É um balanço feito quase no fim da vida — a firmeza aqui é medida em anos, não num dia só.",
+                saintName: "São Paulo",
+                saintWhy: "Escreveu essas palavras preso, esperando a própria execução, sem recuar do que tinha pregado.",
+                stepTitle: "Um passo concreto",
+                stepBody: "Lembre de um compromisso antigo que você mantém até hoje, e agradeça por ele."
             ),
         ],
         "empty": [
@@ -303,6 +444,26 @@ enum MockMood {
                 stepTitle: "Um passo concreto",
                 stepBody: "Diga esta pergunta a Deus em voz alta, sem suavizá-la."
             ),
+            ReliefContent(
+                title: "Vaidade das vaidades",
+                psalmRef: "Eclesiastes 1, 2",
+                psalmText: "Vaidade das vaidades, diz o Pregador, vaidade das vaidades; tudo é vaidade.",
+                psalmWhy: "A Bíblia tem um livro inteiro dedicado a nomear o vazio sem pressa de resolvê-lo na mesma página.",
+                saintName: "Santo Agostinho",
+                saintWhy: "Descreveu o próprio coração como inquieto até descansar em Deus — o vazio, para ele, era sinal de uma busca ainda não terminada.",
+                stepTitle: "Um passo concreto",
+                stepBody: "Nomeie o que você tentou usar para preencher esse vazio nos últimos dias."
+            ),
+            ReliefContent(
+                title: "Do pranto à dança",
+                psalmRef: "Salmo 30, 11",
+                psalmText: "Convertes-te o meu pranto em dança; tiraste-me o cilício e me cingiste de alegria.",
+                psalmWhy: "O salmista lembra uma reviravolta passada como prova de que o vazio de hoje não é a palavra final.",
+                saintName: "São Padre Pio",
+                saintWhy: "Viveu longos períodos de aridez espiritual e via neles uma passagem, não um destino.",
+                stepTitle: "Um passo concreto",
+                stepBody: "Lembre de uma vez em que um vazio parecido já passou, e anote como foi."
+            ),
         ],
         "anxious": [
             ReliefContent(
@@ -334,6 +495,26 @@ enum MockMood {
                 saintWhy: "Escreveu que nada perturba tanto a alma quanto a própria ansiedade em querer se livrar dela depressa.",
                 stepTitle: "Um passo concreto",
                 stepBody: "Reduza o próximo passo ao menor tamanho possível — só o que cabe nesta hora."
+            ),
+            ReliefContent(
+                title: "Não temas receber",
+                psalmRef: "Mateus 1, 20",
+                psalmText: "José, filho de Davi, não temas receber Maria, tua esposa.",
+                psalmWhy: "O anjo fala direto ao medo de José antes de explicar qualquer coisa — a ansiedade é nomeada primeiro.",
+                saintName: "São José",
+                saintWhy: "Recebeu uma notícia que mudava tudo, em sonho, sem tempo de se preparar, e agiu com confiança mesmo assim.",
+                stepTitle: "Um passo concreto",
+                stepBody: "Nomeie exatamente o que está te deixando ansioso, numa frase só."
+            ),
+            ReliefContent(
+                title: "Aquietai-vos",
+                psalmRef: "Salmo 46, 10",
+                psalmText: "Aquietai-vos e sabei que eu sou Deus; serei exaltado entre as nações.",
+                psalmWhy: "O mandamento é literal: parar, antes de qualquer outra coisa.",
+                saintName: "Santa Teresa d'Ávila",
+                saintWhy: "Escreveu o poema “Nada te perturbe” depois de décadas aprendendo, na prática, a aquietar a própria mente inquieta.",
+                stepTitle: "Um passo concreto",
+                stepBody: "Fique um minuto inteiro em silêncio antes de reagir ao que te preocupa."
             ),
         ],
         "guilty": [
@@ -367,6 +548,26 @@ enum MockMood {
                 stepTitle: "Um passo concreto",
                 stepBody: "Depois de se confessar, considere o caso encerrado — reabri-lo sozinho não é fidelidade, é escrúpulo."
             ),
+            ReliefContent(
+                title: "Tira o pecado do mundo",
+                psalmRef: "João 1, 29",
+                psalmText: "Eis o Cordeiro de Deus, que tira o pecado do mundo.",
+                psalmWhy: "A culpa encontra aqui um endereço concreto: não é carregada sozinha, é tirada por outro.",
+                saintName: "São João Maria Vianney",
+                saintWhy: "Dedicou a vida inteira a ouvir confissões, convencido de que nenhuma culpa era grande demais para a misericórdia de Deus.",
+                stepTitle: "Um passo concreto",
+                stepBody: "Escreva o que está pesando e leve esse papel para a confissão."
+            ),
+            ReliefContent(
+                title: "Restaurado depois da queda",
+                psalmRef: "João 21, 17",
+                psalmText: "Simão, filho de João, amas-me? [...] Apascenta as minhas ovelhas.",
+                psalmWhy: "Jesus pergunta a Pedro três vezes se ele o ama — uma vez por cada negação — e devolve, em vez de cobrar, uma missão.",
+                saintName: "São Pedro",
+                saintWhy: "Foi confirmado como líder da Igreja depois de ter negado Jesus três vezes na mesma noite.",
+                stepTitle: "Um passo concreto",
+                stepBody: "Depois de confessado, aceite uma tarefa concreta de serviço, por menor que seja."
+            ),
         ],
         "grief": [
             ReliefContent(
@@ -398,6 +599,26 @@ enum MockMood {
                 saintWhy: "Acompanhou muitos moribundos e dizia que rezar por eles era um dos atos mais importantes do dia.",
                 stepTitle: "Um passo concreto",
                 stepBody: "Ofereça uma Missa ou um terço pela pessoa que você perdeu."
+            ),
+            ReliefContent(
+                title: "Meu filho, meu filho",
+                psalmRef: "2 Samuel 18, 33",
+                psalmText: "Meu filho Absalão! Meu filho, meu filho Absalão! Quem me dera que eu morrera por ti!",
+                psalmWhy: "É um dos lamentos mais crus da Bíblia, sem nenhuma tentativa de suavizar a dor.",
+                saintName: "Rei Davi",
+                saintWhy: "Chorou abertamente pela morte do próprio filho, mesmo sendo rei, sem esconder o luto de ninguém.",
+                stepTitle: "Um passo concreto",
+                stepBody: "Diga o nome de quem você perdeu em voz alta, hoje."
+            ),
+            ReliefContent(
+                title: "Bem-aventurados os que choram",
+                psalmRef: "Mateus 5, 4",
+                psalmText: "Bem-aventurados os que choram, porque serão consolados.",
+                psalmWhy: "A bem-aventurança não pula o choro para chegar ao consolo — ela nomeia os dois.",
+                saintName: "Santa Teresa de Calcutá",
+                saintWhy: "Segurava a mão de moribundos para que ninguém morresse sozinho, tratando o luto de cada família como algo sagrado.",
+                stepTitle: "Um passo concreto",
+                stepBody: "Permita-se um tempo determinado hoje só para lembrar, sem culpa por ainda sentir falta."
             ),
         ],
         "lonely": [
@@ -431,6 +652,26 @@ enum MockMood {
                 stepTitle: "Um passo concreto",
                 stepBody: "Procure uma comunidade paroquial próxima esta semana, mesmo que seja só para conhecer."
             ),
+            ReliefContent(
+                title: "Não é bom que o homem esteja só",
+                psalmRef: "Gênesis 2, 18",
+                psalmText: "Não é bom que o homem esteja só; far-lhe-ei uma ajudadora idônea para ele.",
+                psalmWhy: "Desde o início, a Escritura já reconhece a solidão como algo que não deveria ser permanente.",
+                saintName: "São Bento",
+                saintWhy: "Viveu como eremita antes de fundar comunidades — passou pela solidão antes de construir um jeito de vida em conjunto.",
+                stepTitle: "Um passo concreto",
+                stepBody: "Procure hoje uma comunidade de oração ou um grupo da paróquia para conhecer."
+            ),
+            ReliefContent(
+                title: "Não temas, eu sou contigo",
+                psalmRef: "Isaías 41, 10",
+                psalmText: "Não temas, porque eu sou contigo; não te assombres, porque eu sou o teu Deus.",
+                psalmWhy: "A promessa é de presença, não de companhia visível — o que muda é saber que não está mesmo sozinho.",
+                saintName: "Santa Teresinha do Menino Jesus",
+                saintWhy: "Viveu boa parte da vida religiosa num convento pequeno e fechado, sem nunca viajar, e ainda assim é padroeira das missões.",
+                stepTitle: "Um passo concreto",
+                stepBody: "Escreva uma carta ou mensagem para alguém que também pode estar sozinho hoje."
+            ),
         ],
         "angry": [
             ReliefContent(
@@ -462,6 +703,26 @@ enum MockMood {
                 saintWhy: "Descrevia o próprio gênio forte e ensinava a levar cada reação primeiro à oração.",
                 stepTitle: "Um passo concreto",
                 stepBody: "Ofereça esta raiva em oração antes de decidir se vai falar sobre ela ainda hoje."
+            ),
+            ReliefContent(
+                title: "A resposta branda",
+                psalmRef: "Provérbios 15, 1",
+                psalmText: "A resposta branda desvia o furor, mas a palavra dura suscita a ira.",
+                psalmWhy: "O provérbio não pede pra fingir que não há raiva — pede pra escolher a resposta com cuidado.",
+                saintName: "Santo Agostinho",
+                saintWhy: "Tinha um temperamento intenso na juventude e escreveu, já bispo, sobre transformar a paixão em zelo em vez de violência.",
+                stepTitle: "Um passo concreto",
+                stepBody: "Antes de responder, escreva o que você diria — e releia antes de enviar ou falar."
+            ),
+            ReliefContent(
+                title: "Pronto para ouvir, lento para se irar",
+                psalmRef: "Tiago 1, 19-20",
+                psalmText: "Todo homem seja pronto para ouvir, tardio para falar, tardio para se irar; porque a ira do homem não opera a justiça de Deus.",
+                psalmWhy: "A ordem importa: ouvir vem antes de falar, e falar vem antes de se irar.",
+                saintName: "São Padre Pio",
+                saintWhy: "Era conhecido por respostas diretas, mas insistia que a caridade vinha sempre antes da correção.",
+                stepTitle: "Um passo concreto",
+                stepBody: "Pratique hoje ouvir até o fim antes de formular sua resposta."
             ),
         ],
         "dryness": [
@@ -495,6 +756,26 @@ enum MockMood {
                 stepTitle: "Um passo concreto",
                 stepBody: "Troque o pedido de \"sentir algo\" por um pedido de fidelidade só por hoje."
             ),
+            ReliefContent(
+                title: "Sequer sinto que rezo",
+                psalmRef: "Salmo 22",
+                psalmText: "Deus meu, Deus meu, por que me desamparaste? [...] Clamo de dia, e não me respondes.",
+                psalmWhy: "É o salmo que o próprio Jesus reza na cruz — a aridez extrema tem lugar até ali.",
+                saintName: "Santa Teresinha do Menino Jesus",
+                saintWhy: "Nos últimos meses de vida, descreveu não sentir nada na fé, e continuou rezando mesmo assim.",
+                stepTitle: "Um passo concreto",
+                stepBody: "Reze uma oração decorada até o fim, mesmo sentindo que as palavras estão vazias."
+            ),
+            ReliefContent(
+                title: "Sem consolação sensível",
+                psalmRef: "Salmo 42, 3",
+                psalmText: "As minhas lágrimas têm sido o meu alimento de dia e de noite, enquanto me dizem continuamente: Onde está o teu Deus?",
+                psalmWhy: "A pergunta dos outros (“onde está o teu Deus?”) é tão dura quanto a própria aridez.",
+                saintName: "São Padre Pio",
+                saintWhy: "Relatou longos períodos sem nenhuma consolação sensível na oração, apesar da intensidade conhecida da sua vida espiritual.",
+                stepTitle: "Um passo concreto",
+                stepBody: "Continue com o tempo de oração de hoje, mesmo reduzido, em vez de pular por completo."
+            ),
         ],
         "doubtful": [
             ReliefContent(
@@ -527,6 +808,26 @@ enum MockMood {
                 stepTitle: "Um passo concreto",
                 stepBody: "Escreva a dúvida como ela é, sem tentar resolvê-la ainda — só nomeá-la já é oração."
             ),
+            ReliefContent(
+                title: "Por que duvidaste?",
+                psalmRef: "Mateus 14, 31",
+                psalmText: "Ó homem de pequena fé, por que duvidaste?",
+                psalmWhy: "Pedro só afunda depois de já ter dado alguns passos sobre a água — a dúvida chegou no meio do caminho, não antes dele.",
+                saintName: "São Pedro",
+                saintWhy: "Teve fé o bastante para sair do barco, e dúvida o bastante para começar a afundar — as duas coisas ao mesmo tempo.",
+                stepTitle: "Um passo concreto",
+                stepBody: "Dê o próximo passo mesmo com dúvida, em vez de esperar ela desaparecer primeiro."
+            ),
+            ReliefContent(
+                title: "Fé é o que ainda não se vê",
+                psalmRef: "Hebreus 11, 1",
+                psalmText: "Ora, a fé é o firme fundamento das coisas que se esperam, e a prova das coisas que se não veem.",
+                psalmWhy: "A definição já pressupõe que fé e dúvida vivem perto uma da outra — fé é precisamente sobre o que não se vê.",
+                saintName: "São João da Cruz",
+                saintWhy: "Escreveu que a fé é como a noite para a alma: escura, mas é exatamente o caminho para a luz.",
+                stepTitle: "Um passo concreto",
+                stepBody: "Escreva uma pergunta que você tem sobre a fé e leve a um padre ou catequista de confiança."
+            ),
         ],
         "tired": [
             ReliefContent(
@@ -558,6 +859,26 @@ enum MockMood {
                 saintWhy: "Vivia exausto pelo próprio corpo e ainda assim confiava a vigilância inteira a Deus, noite após noite.",
                 stepTitle: "Um passo concreto",
                 stepBody: "Durma mais cedo hoje, entregando o que ficou pendente para amanhã."
+            ),
+            ReliefContent(
+                title: "Descanso no sétimo dia",
+                psalmRef: "Gênesis 2, 2-3",
+                psalmText: "E, havendo Deus terminado no dia sétimo a obra que fizera, descansou no sétimo dia de toda a obra que tinha feito.",
+                psalmWhy: "Se até Deus descansa depois de criar, o cansaço não é falha — é parte do próprio ritmo da criação.",
+                saintName: "São João Bosco",
+                saintWhy: "Trabalhava exaustivamente pelos jovens e dizia aos padres que descansar também era obedecer a Deus.",
+                stepTitle: "Um passo concreto",
+                stepBody: "Reserve hoje um tempo de descanso real, sem culpa, como parte do plano — não como sobra dele."
+            ),
+            ReliefContent(
+                title: "Ele dá o sono ao seu amado",
+                psalmRef: "Salmo 127, 2",
+                psalmText: "Inútil vos será levantar de madrugada, repousar tarde [...] pois ele o dá aos seus amados enquanto dormem.",
+                psalmWhy: "O salmo desafia diretamente a ideia de que só o esforço extra garante o resultado.",
+                saintName: "Santo Inácio de Loyola",
+                saintWhy: "Ensinava a fazer o exame antes de dormir e depois descansar de fato, confiando o resto a Deus.",
+                stepTitle: "Um passo concreto",
+                stepBody: "Vá dormir hoje sem terminar a lista de tarefas, confiando o resto ao amanhã."
             ),
         ],
     ]
