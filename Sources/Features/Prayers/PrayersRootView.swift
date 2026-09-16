@@ -9,6 +9,7 @@ struct PrayersRootView: View {
                 ScrollView {
                     VStack(alignment: .leading, spacing: 16) {
                         header
+                        sectionHeader("Terço", subtitle: "O mistério de hoje, guiado")
                         rosaryTeaserCard
                         row(title: L.string( "How to pray the Rosary", table: "Prayers"), subtitle: L.string( "The object, the mechanics, what to do with your mind", table: "Prayers"), destination: .howTo)
                         devotionsSection
@@ -70,16 +71,20 @@ struct PrayersRootView: View {
         .buttonStyle(.plain)
     }
 
+    private func sectionHeader(_ title: String, subtitle: String) -> some View {
+        VStack(alignment: .leading, spacing: 3) {
+            Text(title)
+                .font(MissaleFont.display(21))
+            Text(subtitle)
+                .font(MissaleFont.body(14))
+                .foregroundStyle(Palette.ink.opacity(0.65))
+        }
+        .padding(.top, 8)
+    }
+
     private var devotionsSection: some View {
         VStack(alignment: .leading, spacing: 10) {
-            VStack(alignment: .leading, spacing: 3) {
-                Text("Devoções", tableName: "Prayers")
-                    .font(MissaleFont.display(21))
-                Text("Por tema, além do Terço", tableName: "Prayers")
-                    .font(MissaleFont.body(14))
-                    .foregroundStyle(Palette.ink.opacity(0.65))
-            }
-            .padding(.top, 8)
+            sectionHeader("Devoções", subtitle: "Por tema, além do Terço")
 
             LazyVGrid(columns: [GridItem(.flexible(), spacing: 10), GridItem(.flexible())], spacing: 10) {
                 ForEach(MockDevotionalPrayers.categories) { category in
