@@ -88,6 +88,7 @@
 		B0C62F55D9647754C7BEDB5F /* FormationLessonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CA4C3818A3DED108588288 /* FormationLessonView.swift */; };
 		B1027A44864C1580ACAC6E0F /* SaintDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22DB6C4624EEE8D2B885B05 /* SaintDetailView.swift */; };
 		B40DD96CBB221B05C96ACF1F /* CormorantGaramond-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 63E6692DCBDC29C8E31B1C79 /* CormorantGaramond-Regular.ttf */; };
+		B51EE992399141EA618D718C /* MockDevotionalPrayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163F2FDA7FDF246BE786FBD6 /* MockDevotionalPrayers.swift */; };
 		BAE0DC5D6E158591049A5C85 /* LanguageSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A50F9F0AFBC6CB0690A6352 /* LanguageSettingsView.swift */; };
 		BE684D7335EF95E9E30108F6 /* ExamenIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3D5251FD6993C00B345E23 /* ExamenIntroView.swift */; };
 		BE6FA66FD874344B8EC70BA0 /* FAQView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7872156F75002D39C7BF46 /* FAQView.swift */; };
@@ -95,6 +96,7 @@
 		C3C9AD948A20CB260F146548 /* SupportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180078D6FB2642939C75C0D9 /* SupportView.swift */; };
 		C8E2CC57776D7A41DF736841 /* JourneyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53F78D382401057C36C6C92 /* JourneyListView.swift */; };
 		C9AD1AD5DD0E2499DF5DC567 /* GlassTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DDF3EE5A32A80F704EB0B4 /* GlassTabBar.swift */; };
+		CDE85F01CEE6A9E65A4F69D8 /* PrayerCategoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56F6238D04D8924CF1AC227 /* PrayerCategoryDetailView.swift */; };
 		CF605A9222782AC0223D5928 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 085B0E7DB07DABBDD6D616C6 /* SettingsView.swift */; };
 		D01B162F80DFACB0F6634DE2 /* EBGaramond-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4EF3E16915DDAF1EB7255E2 /* EBGaramond-MediumItalic.ttf */; };
 		D1B9839D53ED8E76EA13B911 /* GlossaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD287F9499284A04DE649E /* GlossaryView.swift */; };
@@ -103,6 +105,7 @@
 		D35C9A535F8CFD300E4827DC /* CormorantGaramond-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D9FD7378FC8351DB12FA8162 /* CormorantGaramond-SemiBold.ttf */; };
 		D487E6E38970BF704909CBCF /* MockWordOfDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7ED6DF20F1E0D622BE3B4FE /* MockWordOfDay.swift */; };
 		D5ACB20E5F87AB09CA44AD4E /* Prayers.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = A95B30833E9DEC59B44E5979 /* Prayers.xcstrings */; };
+		D5D5EBEF427D427646D402CB /* DevotionalPrayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C91E7AE38D2D10C31CB156 /* DevotionalPrayer.swift */; };
 		D7E1FFE58A8A49457BD76319 /* FormationProgressStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469EA47C5E6841055C7E4B23 /* FormationProgressStore.swift */; };
 		DAA7A368366B470336582029 /* PastoralNoteDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B15BE7FE79DA0EE43CDFB9 /* PastoralNoteDetailView.swift */; };
 		DAB60DB9F381E826E1D27841 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F592E55A220D9003088DFF /* Colors.swift */; };
@@ -119,6 +122,7 @@
 		EED9CF44E7E8D73F0301615C /* SettingsDetail.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = BD1EDFAD664396CF342F0318 /* SettingsDetail.xcstrings */; };
 		EF580CFD3D263C0234CBDAEC /* RosaryHistoryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA725209135D65B8B6FE950 /* RosaryHistoryStore.swift */; };
 		F00DA00E38C750A45E28C69F /* AppRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12D79BF4B3E4C6ABC19C5B0 /* AppRootView.swift */; };
+		F1389585B7ED402BA920C2D7 /* DevotionalPrayerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15710211E66C705F9516F87A /* DevotionalPrayerDetailView.swift */; };
 		F4D6F14C234CA4FDA3D66137 /* PrayersRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48E9418BF623472B1DAF058 /* PrayersRootView.swift */; };
 		F874D51ABFBD571588324624 /* SubscriptionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29D4ED447FC50D9BE13C3BA /* SubscriptionDetailView.swift */; };
 		F89B503A2BE9BB73D5570592 /* OnboardingSpiritualIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BE36B3A66F6F0DED7E4B0D /* OnboardingSpiritualIntroView.swift */; };
@@ -136,6 +140,8 @@
 		1141C1D33857D4982D876450 /* OnboardingContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContent.swift; sourceTree = "<group>"; };
 		13370349962A1A01A269F8B3 /* OnboardingLoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLoaderView.swift; sourceTree = "<group>"; };
 		13CF7BE966447A71A8B7DA38 /* MockSocialLock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSocialLock.swift; sourceTree = "<group>"; };
+		15710211E66C705F9516F87A /* DevotionalPrayerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevotionalPrayerDetailView.swift; sourceTree = "<group>"; };
+		163F2FDA7FDF246BE786FBD6 /* MockDevotionalPrayers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDevotionalPrayers.swift; sourceTree = "<group>"; };
 		180078D6FB2642939C75C0D9 /* SupportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportView.swift; sourceTree = "<group>"; };
 		1A3D968DD68BECA1B840DD68 /* MockOnboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockOnboarding.swift; sourceTree = "<group>"; };
 		1A6CB2EEC1A4189CB671B6A9 /* RosaryMysteriesPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RosaryMysteriesPickerView.swift; sourceTree = "<group>"; };
@@ -179,6 +185,7 @@
 		79CDD2C8BDEF1CE349F9B65D /* MassReadingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MassReadingsView.swift; sourceTree = "<group>"; };
 		7C851FE5FCA96354F60A6EB5 /* OnboardingNotificationTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingNotificationTimeView.swift; sourceTree = "<group>"; };
 		8045109FB41D5AA9E8A2552B /* MoodReliefView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodReliefView.swift; sourceTree = "<group>"; };
+		80C91E7AE38D2D10C31CB156 /* DevotionalPrayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevotionalPrayer.swift; sourceTree = "<group>"; };
 		81A7894A34904119DDEBC585 /* MockSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSettings.swift; sourceTree = "<group>"; };
 		88256E6C4CCFEC9D6FB7A82C /* MassBulletinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MassBulletinView.swift; sourceTree = "<group>"; };
 		89B15BE7FE79DA0EE43CDFB9 /* PastoralNoteDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastoralNoteDetailView.swift; sourceTree = "<group>"; };
@@ -214,6 +221,7 @@
 		BD1EDFAD664396CF342F0318 /* SettingsDetail.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = SettingsDetail.xcstrings; sourceTree = "<group>"; };
 		C001F88A11BB17BA890EEF83 /* AngelusScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngelusScheduler.swift; sourceTree = "<group>"; };
 		C12D79BF4B3E4C6ABC19C5B0 /* AppRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRootView.swift; sourceTree = "<group>"; };
+		C56F6238D04D8924CF1AC227 /* PrayerCategoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerCategoryDetailView.swift; sourceTree = "<group>"; };
 		CD2E925AAA5C4F52B34C09D4 /* OnboardingSpiritualQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSpiritualQuestionView.swift; sourceTree = "<group>"; };
 		CD2ED231C7DEE0717DF1D705 /* LiturgicalEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiturgicalEngine.swift; sourceTree = "<group>"; };
 		CDD8E2D7996AEA26E4A57BF4 /* CalendarDayDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDayDetailView.swift; sourceTree = "<group>"; };
@@ -343,6 +351,7 @@
 			children = (
 				CD2ED231C7DEE0717DF1D705 /* LiturgicalEngine.swift */,
 				9FCE63842C986A2F595CA8D4 /* LiturgicalSanctoral.swift */,
+				163F2FDA7FDF246BE786FBD6 /* MockDevotionalPrayers.swift */,
 				DD9975789A3E180E7DD5AD61 /* MockFormation.swift */,
 				61D6FCDF1DD4BA9010219A4F /* MockLectionary.swift */,
 				8E91CC0AD2FE3315BFBAC7C6 /* MockLiturgical.swift */,
@@ -381,6 +390,7 @@
 		82C0440A5D698DC60EBD9945 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				80C91E7AE38D2D10C31CB156 /* DevotionalPrayer.swift */,
 				227E67920FE2449FD6170F46 /* Formation.swift */,
 				5BF47B756C7A9EADDDDDA3DF /* LiturgicalDay.swift */,
 				608C59712C955C59699FCE4E /* LiturgicalSeason.swift */,
@@ -418,6 +428,8 @@
 		A86F3D7291F6837C44094BF3 /* Prayers */ = {
 			isa = PBXGroup;
 			children = (
+				15710211E66C705F9516F87A /* DevotionalPrayerDetailView.swift */,
+				C56F6238D04D8924CF1AC227 /* PrayerCategoryDetailView.swift */,
 				A95B30833E9DEC59B44E5979 /* Prayers.xcstrings */,
 				A48E9418BF623472B1DAF058 /* PrayersRootView.swift */,
 				EE1E2DF590CC65A52B5A7E43 /* RosaryDarkModeView.swift */,
@@ -605,6 +617,8 @@
 				9814A279B63F3528287EE3CF /* ContentReviewersView.swift in Sources */,
 				A0679D6E7752653E27DCB100 /* CrossGlyph.swift in Sources */,
 				0CD844296185B88EB7A1A945 /* DataSettingsView.swift in Sources */,
+				D5D5EBEF427D427646D402CB /* DevotionalPrayer.swift in Sources */,
+				F1389585B7ED402BA920C2D7 /* DevotionalPrayerDetailView.swift in Sources */,
 				610A93551919DFD289C414C1 /* EndOfSessionView.swift in Sources */,
 				BE684D7335EF95E9E30108F6 /* ExamenIntroView.swift in Sources */,
 				BE6FA66FD874344B8EC70BA0 /* FAQView.swift in Sources */,
@@ -630,6 +644,7 @@
 				73E8231763B6B8C5D68FB52C /* MassBulletinView.swift in Sources */,
 				2F85B619C969020F022316A9 /* MassReadingsView.swift in Sources */,
 				1A28EA2A5A4E6FC2F9373552 /* MissaleApp.swift in Sources */,
+				B51EE992399141EA618D718C /* MockDevotionalPrayers.swift in Sources */,
 				4715C6F1AA83DFB0BF92B68B /* MockFormation.swift in Sources */,
 				4006877F0F775CF898F42887 /* MockLectionary.swift in Sources */,
 				804EF89D6BDA39DCC6FC9B9C /* MockLiturgical.swift in Sources */,
@@ -664,6 +679,7 @@
 				161CB7CCDA52FDBC95373F99 /* OnboardingViewModel.swift in Sources */,
 				081B2AFF5B0855B16E3E4613 /* PastoralCareNudgeView.swift in Sources */,
 				DAA7A368366B470336582029 /* PastoralNoteDetailView.swift in Sources */,
+				CDE85F01CEE6A9E65A4F69D8 /* PrayerCategoryDetailView.swift in Sources */,
 				F8DB3D2C250F5182202FC08E /* PrayerItem.swift in Sources */,
 				F4D6F14C234CA4FDA3D66137 /* PrayersRootView.swift in Sources */,
 				8FAAD1CF69D5D94335D92AA4 /* RegionalCalendarView.swift in Sources */,

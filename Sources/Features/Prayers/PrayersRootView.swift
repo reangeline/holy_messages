@@ -11,6 +11,7 @@ struct PrayersRootView: View {
                         header
                         rosaryTeaserCard
                         row(title: L.string( "How to pray the Rosary", table: "Prayers"), subtitle: L.string( "The object, the mechanics, what to do with your mind", table: "Prayers"), destination: .howTo)
+                        devotionsSection
                     }
                     .padding(.horizontal, 24)
                     .padding(.top, 12)
@@ -30,6 +31,8 @@ struct PrayersRootView: View {
                     } else {
                         RosaryGuidedPrayerView(mystery: mystery)
                     }
+                case .prayerCategory(let category):
+                    PrayerCategoryDetailView(category: category)
                 }
             }
         }
@@ -67,6 +70,39 @@ struct PrayersRootView: View {
         .buttonStyle(.plain)
     }
 
+    private var devotionsSection: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            VStack(alignment: .leading, spacing: 3) {
+                Text("Devoções", tableName: "Prayers")
+                    .font(MissaleFont.display(21))
+                Text("Por tema, além do Terço", tableName: "Prayers")
+                    .font(MissaleFont.body(14))
+                    .foregroundStyle(Palette.ink.opacity(0.65))
+            }
+            .padding(.top, 8)
+
+            LazyVGrid(columns: [GridItem(.flexible(), spacing: 10), GridItem(.flexible())], spacing: 10) {
+                ForEach(MockDevotionalPrayers.categories) { category in
+                    NavigationLink(value: PrayersDestination.prayerCategory(category)) {
+                        GlassCard {
+                            VStack(alignment: .leading, spacing: 6) {
+                                Text(category.title)
+                                    .font(MissaleFont.body(15, weight: .medium))
+                                    .foregroundStyle(Palette.ink)
+                                    .fixedSize(horizontal: false, vertical: true)
+                                Text("\(category.prayers.count) oraç\(category.prayers.count == 1 ? "ão" : "ões")")
+                                    .font(MissaleFont.body(13))
+                                    .foregroundStyle(Palette.ink.opacity(0.55))
+                            }
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        }
+                    }
+                    .buttonStyle(.plain)
+                }
+            }
+        }
+    }
+
     private func row(title: String, subtitle: String, destination: PrayersDestination) -> some View {
         NavigationLink(value: destination) {
             GlassCard {
@@ -93,4 +129,5 @@ enum PrayersDestination: Hashable {
     case mysteries
     case howTo
     case guided(RosaryMystery, startDark: Bool)
+    case prayerCategory(PrayerCategory)
 }
