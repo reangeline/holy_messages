@@ -42,11 +42,7 @@ struct ExamenFlowView: View {
         .navigationBarBackButtonHidden(true)
     }
 
-    private var transition: AnyTransition {
-        goingForward
-            ? .asymmetric(insertion: .move(edge: .trailing).combined(with: .opacity), removal: .move(edge: .leading).combined(with: .opacity))
-            : .asymmetric(insertion: .move(edge: .leading).combined(with: .opacity), removal: .move(edge: .trailing).combined(with: .opacity))
-    }
+    private var transition: AnyTransition { directionalTransition(forward: goingForward) }
 
     private func advance() {
         goingForward = true
@@ -55,9 +51,9 @@ struct ExamenFlowView: View {
         } else {
             ExamenHistoryStore.shared.record(
                 gratitude: answers[0],
-                lightRequest: answers.count > 1 ? answers[1] : "",
-                review: answers.count > 2 ? answers[2] : "",
-                response: answers.count > 3 ? answers[3] : ""
+                lightRequest: answers[1],
+                review: answers[2],
+                response: answers[3]
             )
             withAnimation(.easeInOut(duration: 0.3)) { finished = true }
         }

@@ -50,11 +50,7 @@ struct MoodCheckInSheet: View {
         }
     }
 
-    private var transition: AnyTransition {
-        goingForward
-            ? .asymmetric(insertion: .move(edge: .trailing).combined(with: .opacity), removal: .move(edge: .leading).combined(with: .opacity))
-            : .asymmetric(insertion: .move(edge: .leading).combined(with: .opacity), removal: .move(edge: .trailing).combined(with: .opacity))
-    }
+    private var transition: AnyTransition { directionalTransition(forward: goingForward) }
 
     private func advance(to next: Step) {
         goingForward = true

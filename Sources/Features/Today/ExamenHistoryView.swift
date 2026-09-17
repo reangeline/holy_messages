@@ -4,10 +4,10 @@ import SwiftUI
 /// first. A record, not a scoreboard, matching the tone of the app's other
 /// history screens.
 struct ExamenHistoryView: View {
-    @ObservedObject private var history = ExamenHistoryStore.shared
+    @ObservedObject private var history = ExamenHistoryStore.shared.list
 
     private var entries: [ExamenEntry] {
-        history.entries.sorted { $0.date > $1.date }
+        history.items.sorted { $0.date > $1.date }
     }
 
     var body: some View {
