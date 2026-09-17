@@ -18,3 +18,17 @@ struct ExamenEntry: Identifiable, Codable {
         self.response = response
     }
 }
+
+extension ExamenEntry {
+    /// "Hoje", "Ontem", or the weekday name — same relative phrasing as
+    /// RosaryHistoryEntry.dateLabel, for a consistent feel across history screens.
+    var dateLabel: String {
+        let calendar = Calendar.current
+        if calendar.isDateInToday(date) { return "Hoje" }
+        if calendar.isDateInYesterday(date) { return "Ontem" }
+        let formatter = DateFormatter()
+        formatter.locale = AppLanguagePreference.resolveCurrent().locale
+        formatter.dateFormat = "EEEE, d 'de' MMMM"
+        return formatter.string(from: date).localizedCapitalized
+    }
+}

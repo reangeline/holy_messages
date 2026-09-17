@@ -35,6 +35,14 @@ struct ExamenIntroView: View {
                     .font(MissaleFont.body(16))
                     .foregroundStyle(.white.opacity(0.7))
 
+                NavigationLink {
+                    ExamenHistoryView()
+                } label: {
+                    Text("Ver Exames anteriores ›", tableName: "Today")
+                        .font(MissaleFont.body(14, weight: .medium))
+                        .foregroundStyle(Palette.goldBright)
+                }
+
                 VStack(spacing: 10) {
                     ForEach(MockRosary.examenSteps) { step in
                         HStack(alignment: .top, spacing: 13) {
