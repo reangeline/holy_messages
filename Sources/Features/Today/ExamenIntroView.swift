@@ -5,7 +5,6 @@ struct ExamenIntroView: View {
     var onFinished: () -> Void = {}
 
     @Environment(\.dismiss) private var dismiss
-    @State private var goToCompline = false
     @State private var goToExamenFlow = false
 
     var body: some View {
@@ -77,22 +76,12 @@ struct ExamenIntroView: View {
                         .background(Palette.goldBright, in: Capsule())
                         .foregroundStyle(Color(hex: 0x2A1A1C))
                 }
-                Button {
-                    goToCompline = true
-                } label: {
-                    Text("Ir direto às Completas", tableName: "Today")
-                        .font(MissaleFont.body(16))
-                        .foregroundStyle(.white.opacity(0.6))
-                }
                 .padding(.bottom, 12)
             }
             .padding(.horizontal, 24)
             .padding(.top, 12)
         }
         .navigationBarBackButtonHidden(true)
-        .navigationDestination(isPresented: $goToCompline) {
-            ComplineView()
-        }
         .navigationDestination(isPresented: $goToExamenFlow) {
             ExamenFlowView(onFinished: onFinished)
         }
