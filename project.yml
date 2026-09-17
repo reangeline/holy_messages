@@ -18,6 +18,11 @@ targets:
     platform: iOS
     sources:
       - path: Sources
+        excludes:
+          - "WidgetExtension/**"
+    dependencies:
+      - target: MissaleWidgetsExtension
+        embed: true
     info:
       path: App/Info.plist
       properties:
@@ -51,3 +56,35 @@ targets:
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.missale.app
+
+  MissaleWidgetsExtension:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: Sources/WidgetExtension
+      - path: Sources/DesignSystem/Colors.swift
+      - path: Sources/DesignSystem/Typography.swift
+      - path: Sources/Fonts
+    info:
+      path: WidgetExtension/Info.plist
+      properties:
+        CFBundleDisplayName: Missale Widgets
+        CFBundleShortVersionString: "1.0"
+        CFBundleVersion: "1"
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension
+        UIAppFonts:
+          - EBGaramond-Regular.ttf
+          - EBGaramond-Italic.ttf
+          - EBGaramond-Medium.ttf
+          - EBGaramond-MediumItalic.ttf
+          - EBGaramond-SemiBold.ttf
+          - CormorantGaramond-Regular.ttf
+          - CormorantGaramond-Italic.ttf
+          - CormorantGaramond-Medium.ttf
+          - CormorantGaramond-MediumItalic.ttf
+          - CormorantGaramond-SemiBold.ttf
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.missale.app.MissaleWidgets
+        PRODUCT_NAME: MissaleWidgets
