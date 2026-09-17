@@ -26,36 +26,63 @@ struct SaintOfDayWidgetView: View {
     let entry: SaintOfDayEntry
     @Environment(\.widgetFamily) private var family
 
-    private var isSmall: Bool { family == .systemSmall }
-
     var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 24, style: .continuous)
-                .fill(.ultraThinMaterial)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 24, style: .continuous)
-                        .strokeBorder(.white.opacity(0.4), lineWidth: 1)
-                )
-
-            VStack(alignment: .leading, spacing: isSmall ? 6 : 10) {
-                Text("SANTO DO DIA")
-                    .font(MissaleFont.body(isSmall ? 11 : 13, weight: .semibold))
-                    .tracking(1.3)
-                    .foregroundStyle(Palette.goldBright)
-                Spacer(minLength: 0)
-                Text(entry.saint.name)
-                    .font(MissaleFont.display(isSmall ? 22 : 30, weight: .medium))
-                    .foregroundStyle(.white)
-                    .lineLimit(3)
-                    .minimumScaleFactor(0.6)
-                Text(entry.saint.role)
-                    .font(MissaleFont.body(isSmall ? 14 : 17, weight: .medium))
-                    .foregroundStyle(.white.opacity(0.85))
-                    .lineLimit(2)
+        switch family {
+        case .accessoryCircular:
+            ZStack {
+                AccessoryWidgetBackground()
+                VStack(spacing: 2) {
+                    Image(systemName: "cross.fill")
+                        .font(.system(size: 18, weight: .medium))
+                    Text("HOJE")
+                        .font(.system(size: 9, weight: .semibold))
+                        .tracking(0.5)
+                }
             }
-            .padding(isSmall ? 14 : 20)
+        case .accessoryRectangular:
+            VStack(alignment: .leading, spacing: 3) {
+                Text("SANTO DO DIA")
+                    .font(.system(size: 11, weight: .semibold))
+                    .tracking(0.8)
+                Text(entry.saint.name)
+                    .font(.system(size: 15, weight: .semibold, design: .serif))
+                    .lineLimit(2)
+                    .minimumScaleFactor(0.85)
+            }
+            .widgetAccentable()
+        case .accessoryInline:
+            Text("Hoje: \(entry.saint.name)")
+        default:
+            homeScreenCard
         }
-        .padding(8)
+    }
+
+    private var homeScreenCard: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Text("SANTO DO DIA")
+                .font(MissaleFont.body(12, weight: .semibold))
+                .tracking(1.4)
+                .foregroundStyle(Palette.goldBright)
+
+            Rectangle()
+                .fill(.white.opacity(0.15))
+                .frame(height: 1)
+
+            Spacer(minLength: 0)
+
+            Text(entry.saint.name)
+                .font(MissaleFont.display(26, weight: .medium))
+                .foregroundStyle(.white)
+                .lineLimit(3)
+                .minimumScaleFactor(0.7)
+
+            Text(entry.saint.role)
+                .font(MissaleFont.body(14))
+                .foregroundStyle(.white.opacity(0.65))
+                .lineLimit(2)
+        }
+        .padding(20)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
     }
 }
 
@@ -65,15 +92,21 @@ struct SaintOfDayWidget: Widget {
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: SaintOfDayProvider()) { entry in
             SaintOfDayWidgetView(entry: entry)
-                .containerBackground(for: .widget) { WidgetContent.todayColor.gradient }
+                .containerBackground(for: .widget) { WidgetBackground() }
         }
         .configurationDisplayName("Santo do dia")
-        .description("Quem a Igreja celebra hoje, direto na tela de início.")
-        .supportedFamilies([.systemSmall, .systemMedium])
+        .description("Quem a Igreja celebra hoje.")
+        .supportedFamilies([.systemSmall, .systemMedium, .accessoryCircular, .accessoryRectangular, .accessoryInline])
     }
 }
 
 #Preview(as: .systemMedium) {
+    SaintOfDayWidget()
+} timeline: {
+    SaintOfDayEntry(date: .now, saint: WidgetContent.saintOfDay)
+}
+
+#Preview(as: .accessoryCircular) {
     SaintOfDayWidget()
 } timeline: {
     SaintOfDayEntry(date: .now, saint: WidgetContent.saintOfDay)

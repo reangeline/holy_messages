@@ -1,4 +1,4 @@
-import Foundation
+import SwiftUI
 
 /// Minimal, widget-only copy of "today" — mirrors MockLiturgical.today,
 /// MockWordOfDay.pool and MockSaints.notburga in the main app target. A widget
@@ -10,6 +10,11 @@ import Foundation
 enum WidgetContent {
     static let todayDateKey = "2026-09-14"
     static let todayColor: LiturgicalColor = .red
+
+    /// The muted dark plum card fill used on the home screen widgets — a
+    /// solid, elegant card (matching the app's own in-app card style) rather
+    /// than a vivid liturgical-color background or a frosted glass panel.
+    static let cardBackground = Color(hex: 0x3D2E31)
 
     struct WordOfDay {
         let quote: String

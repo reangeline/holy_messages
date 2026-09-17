@@ -26,35 +26,63 @@ struct WordOfDayWidgetView: View {
     let entry: WordOfDayEntry
     @Environment(\.widgetFamily) private var family
 
-    private var isSmall: Bool { family == .systemSmall }
-
     var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 24, style: .continuous)
-                .fill(.ultraThinMaterial)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 24, style: .continuous)
-                        .strokeBorder(.white.opacity(0.4), lineWidth: 1)
-                )
-
-            VStack(alignment: .leading, spacing: isSmall ? 6 : 10) {
-                Text("PALAVRA DE HOJE")
-                    .font(MissaleFont.body(isSmall ? 11 : 13, weight: .semibold))
-                    .tracking(1.3)
-                    .foregroundStyle(Palette.goldBright)
-                Text(entry.word.quote)
-                    .font(MissaleFont.display(isSmall ? 20 : 27, italic: true))
-                    .foregroundStyle(.white)
-                    .lineLimit(isSmall ? 5 : 4)
-                    .minimumScaleFactor(0.6)
-                Spacer(minLength: 0)
-                Text(entry.word.reference)
-                    .font(MissaleFont.body(isSmall ? 14 : 17, weight: .medium))
-                    .foregroundStyle(.white.opacity(0.85))
+        switch family {
+        case .accessoryCircular:
+            ZStack {
+                AccessoryWidgetBackground()
+                VStack(spacing: 2) {
+                    Image(systemName: "text.quote")
+                        .font(.system(size: 16, weight: .medium))
+                    Text("HOJE")
+                        .font(.system(size: 9, weight: .semibold))
+                        .tracking(0.5)
+                }
             }
-            .padding(isSmall ? 14 : 20)
+        case .accessoryRectangular:
+            VStack(alignment: .leading, spacing: 3) {
+                Text("PALAVRA DE HOJE")
+                    .font(.system(size: 11, weight: .semibold))
+                    .tracking(0.8)
+                Text("\u{201C}\(entry.word.quote)\u{201D}")
+                    .font(.system(size: 14, weight: .regular, design: .serif))
+                    .italic()
+                    .lineLimit(2)
+                    .minimumScaleFactor(0.85)
+            }
+            .widgetAccentable()
+        case .accessoryInline:
+            Text("Palavra de hoje: \(entry.word.reference)")
+        default:
+            homeScreenCard
         }
-        .padding(8)
+    }
+
+    private var homeScreenCard: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Text("PALAVRA DE HOJE")
+                .font(MissaleFont.body(12, weight: .semibold))
+                .tracking(1.4)
+                .foregroundStyle(Palette.goldBright)
+
+            Rectangle()
+                .fill(.white.opacity(0.15))
+                .frame(height: 1)
+
+            Text(entry.word.quote)
+                .font(MissaleFont.display(22, weight: .medium))
+                .foregroundStyle(.white)
+                .lineLimit(4)
+                .minimumScaleFactor(0.7)
+
+            Spacer(minLength: 0)
+
+            Text(entry.word.reference)
+                .font(MissaleFont.body(14))
+                .foregroundStyle(.white.opacity(0.65))
+        }
+        .padding(20)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
     }
 }
 
@@ -64,15 +92,36 @@ struct WordOfDayWidget: Widget {
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: WordOfDayProvider()) { entry in
             WordOfDayWidgetView(entry: entry)
-                .containerBackground(for: .widget) { WidgetContent.todayColor.gradient }
+                .containerBackground(for: .widget) { WidgetBackground() }
         }
         .configurationDisplayName("Palavra do dia")
-        .description("A citação bíblica do dia, direto na tela de início.")
-        .supportedFamilies([.systemSmall, .systemMedium])
+        .description("A citação bíblica do dia.")
+        .supportedFamilies([.systemSmall, .systemMedium, .accessoryCircular, .accessoryRectangular, .accessoryInline])
+    }
+}
+
+/// Card fill on the home screen; transparent on the lock screen, where the
+/// system already supplies its own vibrancy/blur behind accessory widgets.
+struct WidgetBackground: View {
+    @Environment(\.widgetFamily) private var family
+
+    var body: some View {
+        switch family {
+        case .accessoryCircular, .accessoryRectangular, .accessoryInline:
+            Color.clear
+        default:
+            WidgetContent.cardBackground
+        }
     }
 }
 
 #Preview(as: .systemMedium) {
+    WordOfDayWidget()
+} timeline: {
+    WordOfDayEntry(date: .now, word: WidgetContent.wordOfDay)
+}
+
+#Preview(as: .accessoryRectangular) {
     WordOfDayWidget()
 } timeline: {
     WordOfDayEntry(date: .now, word: WidgetContent.wordOfDay)
