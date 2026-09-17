@@ -2,8 +2,11 @@ import SwiftUI
 
 /// Screen 4 (eIs4) — Examen intro, dark themed, four Ignatian steps.
 struct ExamenIntroView: View {
+    var onFinished: () -> Void = {}
+
     @Environment(\.dismiss) private var dismiss
     @State private var goToCompline = false
+    @State private var goToExamenFlow = false
 
     var body: some View {
         ZStack {
@@ -57,7 +60,7 @@ struct ExamenIntroView: View {
                 Spacer()
 
                 Button {
-                    goToCompline = true
+                    goToExamenFlow = true
                 } label: {
                     Text("Começar o Exame", tableName: "Today")
                         .font(MissaleFont.body(18))
@@ -81,6 +84,9 @@ struct ExamenIntroView: View {
         .navigationBarBackButtonHidden(true)
         .navigationDestination(isPresented: $goToCompline) {
             ComplineView()
+        }
+        .navigationDestination(isPresented: $goToExamenFlow) {
+            ExamenFlowView(onFinished: onFinished)
         }
     }
 }

@@ -52,7 +52,7 @@ struct TodayRootView: View {
             }
             .hubTabBarOverlay()
             .navigationDestination(isPresented: $navigateToExamen) {
-                ExamenIntroView()
+                ExamenIntroView(onFinished: { navigateToExamen = false })
             }
             .sheet(isPresented: $showMoodSheet) {
                 MoodCheckInSheet()
