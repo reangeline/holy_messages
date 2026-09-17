@@ -58,31 +58,48 @@ struct WordOfDayWidgetView: View {
         }
     }
 
+    /// No card fill of our own: iOS 17+ always draws its own widget backdrop,
+    /// so a "transparent" widget means letting that adaptive system material
+    /// show and using semantic text colors, which stay readable in light and
+    /// dark mode alike. Gold stays as the one brand accent — goldMuted, not
+    /// goldBright, because bright gold disappears on a white backdrop.
     private var homeScreenCard: some View {
-        VStack(alignment: .leading, spacing: 12) {
+        VStack(alignment: .leading, spacing: 7) {
             Text("PALAVRA DE HOJE")
-                .font(MissaleFont.body(12, weight: .semibold))
-                .tracking(1.4)
-                .foregroundStyle(Palette.goldBright)
-
-            Rectangle()
-                .fill(.white.opacity(0.15))
-                .frame(height: 1)
+                .font(MissaleFont.body(11, weight: .semibold))
+                .tracking(1.3)
+                .foregroundStyle(Palette.goldMuted)
 
             Text(entry.word.quote)
-                .font(MissaleFont.display(22, weight: .medium))
-                .foregroundStyle(.white)
-                .lineLimit(4)
-                .minimumScaleFactor(0.7)
+                .font(MissaleFont.display(quoteSize, weight: .medium))
+                .foregroundStyle(.primary)
+                .lineLimit(quoteLines)
+                .minimumScaleFactor(0.6)
+                .fixedSize(horizontal: false, vertical: true)
 
             Spacer(minLength: 0)
 
             Text(entry.word.reference)
-                .font(MissaleFont.body(14))
-                .foregroundStyle(.white.opacity(0.65))
+                .font(MissaleFont.body(13))
+                .foregroundStyle(.secondary)
         }
-        .padding(20)
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+    }
+
+    private var quoteSize: CGFloat {
+        switch family {
+        case .systemSmall: 15
+        case .systemLarge: 27
+        default: 18
+        }
+    }
+
+    private var quoteLines: Int {
+        switch family {
+        case .systemSmall: 7
+        case .systemLarge: 12
+        default: 5
+        }
     }
 }
 
@@ -92,26 +109,11 @@ struct WordOfDayWidget: Widget {
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: WordOfDayProvider()) { entry in
             WordOfDayWidgetView(entry: entry)
-                .containerBackground(for: .widget) { WidgetBackground() }
+                .containerBackground(for: .widget) { Color.clear }
         }
         .configurationDisplayName("Palavra do dia")
         .description("A citação bíblica do dia.")
-        .supportedFamilies([.systemSmall, .systemMedium, .accessoryCircular, .accessoryRectangular, .accessoryInline])
-    }
-}
-
-/// Card fill on the home screen; transparent on the lock screen, where the
-/// system already supplies its own vibrancy/blur behind accessory widgets.
-struct WidgetBackground: View {
-    @Environment(\.widgetFamily) private var family
-
-    var body: some View {
-        switch family {
-        case .accessoryCircular, .accessoryRectangular, .accessoryInline:
-            Color.clear
-        default:
-            WidgetContent.cardBackground
-        }
+        .supportedFamilies([.systemSmall, .systemMedium, .systemLarge, .accessoryCircular, .accessoryRectangular, .accessoryInline])
     }
 }
 

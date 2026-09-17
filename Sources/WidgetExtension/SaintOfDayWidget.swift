@@ -57,32 +57,39 @@ struct SaintOfDayWidgetView: View {
         }
     }
 
+    /// See WordOfDayWidgetView.homeScreenCard — same reasoning: no card fill
+    /// of our own, semantic text colors over the system's adaptive backdrop.
     private var homeScreenCard: some View {
-        VStack(alignment: .leading, spacing: 12) {
+        VStack(alignment: .leading, spacing: 7) {
             Text("SANTO DO DIA")
-                .font(MissaleFont.body(12, weight: .semibold))
-                .tracking(1.4)
-                .foregroundStyle(Palette.goldBright)
-
-            Rectangle()
-                .fill(.white.opacity(0.15))
-                .frame(height: 1)
-
-            Spacer(minLength: 0)
+                .font(MissaleFont.body(11, weight: .semibold))
+                .tracking(1.3)
+                .foregroundStyle(Palette.goldMuted)
 
             Text(entry.saint.name)
-                .font(MissaleFont.display(26, weight: .medium))
-                .foregroundStyle(.white)
+                .font(MissaleFont.display(nameSize, weight: .medium))
+                .foregroundStyle(.primary)
                 .lineLimit(3)
-                .minimumScaleFactor(0.7)
+                .minimumScaleFactor(0.6)
+                .fixedSize(horizontal: false, vertical: true)
 
             Text(entry.saint.role)
-                .font(MissaleFont.body(14))
-                .foregroundStyle(.white.opacity(0.65))
-                .lineLimit(2)
+                .font(MissaleFont.body(13))
+                .foregroundStyle(.secondary)
+                .lineLimit(3)
+                .fixedSize(horizontal: false, vertical: true)
+
+            Spacer(minLength: 0)
         }
-        .padding(20)
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+    }
+
+    private var nameSize: CGFloat {
+        switch family {
+        case .systemSmall: 18
+        case .systemLarge: 32
+        default: 24
+        }
     }
 }
 
@@ -92,11 +99,11 @@ struct SaintOfDayWidget: Widget {
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: SaintOfDayProvider()) { entry in
             SaintOfDayWidgetView(entry: entry)
-                .containerBackground(for: .widget) { WidgetBackground() }
+                .containerBackground(for: .widget) { Color.clear }
         }
         .configurationDisplayName("Santo do dia")
         .description("Quem a Igreja celebra hoje.")
-        .supportedFamilies([.systemSmall, .systemMedium, .accessoryCircular, .accessoryRectangular, .accessoryInline])
+        .supportedFamilies([.systemSmall, .systemMedium, .systemLarge, .accessoryCircular, .accessoryRectangular, .accessoryInline])
     }
 }
 

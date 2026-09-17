@@ -11,11 +11,6 @@ enum WidgetContent {
     static let todayDateKey = "2026-09-14"
     static let todayColor: LiturgicalColor = .red
 
-    /// The muted dark plum card fill used on the home screen widgets — a
-    /// solid, elegant card (matching the app's own in-app card style) rather
-    /// than a vivid liturgical-color background or a frosted glass panel.
-    static let cardBackground = Color(hex: 0x3D2E31)
-
     struct WordOfDay {
         let quote: String
         let reference: String
