@@ -1,7 +1,6 @@
 import Foundation
 
 enum MockSettings {
-    static let userName = "Tiago Moreira"
     static let subscriptionStatusLine = "Assinatura anual · renova em 14 de outubro"
     static let buildLine = "Missale 1.0 (build 214) · o que você registra fica neste aparelho."
 
@@ -10,16 +9,13 @@ enum MockSettings {
             .init(id: "subscription", title: "Assinatura", subtitle: "Anual · renova em 14 de outubro", value: "Ativa", destination: .subscription),
         ]),
         .init(id: "preferences", label: "Preferências", items: [
-            .init(id: "reminders", title: "Horários e lembretes", subtitle: "Leitura diária, Angelus, Divina Misericórdia", value: nil, destination: .reminders),
             .init(id: "calendar", title: "Calendário litúrgico", subtitle: "Região e forma do rito", value: "Estados Unidos", destination: .regionalCalendar),
             .init(id: "language", title: "Idioma", subtitle: "Interface do app", value: nil, destination: .language),
-            .init(id: "social-lock", title: "Bloqueio de tela", subtitle: "Protótipo, ainda não funcional", value: nil, destination: .socialLock),
         ]),
         .init(id: "privacy", label: "Privacidade", items: [
             .init(id: "data", title: "Seus dados", subtitle: "Sincronização, exportar, apagar", value: nil, destination: .data),
         ]),
         .init(id: "about", label: "Sobre", items: [
-            .init(id: "reviewers", title: "Quem revisou o conteúdo", subtitle: "Com nome, para você poder verificar", value: nil, destination: .reviewers),
             .init(id: "support", title: "Suporte", subtitle: "Gente responde, não um formulário", value: nil, destination: .support),
             .init(id: "terms", title: "Termos de uso", subtitle: "", value: nil, destination: .termsPlaceholder("Termos de uso")),
             .init(id: "privacy-policy", title: "Política de privacidade", subtitle: "", value: nil, destination: .termsPlaceholder("Política de privacidade")),

@@ -5,6 +5,7 @@ import SwiftUI
 struct SettingsView: View {
     @Environment(\.dismiss) private var dismiss
     @AppStorage(AppLanguagePreference.storageKey) private var languageOverride = AppLanguagePreference.systemValue
+    @AppStorage(UserProfile.nameStorageKey) private var userDisplayName = ""
     private let day = MockLiturgical.today
 
     private var resolvedLanguageName: String {
@@ -37,14 +38,12 @@ struct SettingsView: View {
             .navigationDestination(for: SettingsDestination.self) { destination in
                 switch destination {
                 case .subscription: SubscriptionDetailView()
-                case .reminders: RemindersSettingsView()
+                case .editName: EditNameView()
                 case .regionalCalendar: RegionalCalendarView()
                 case .language: LanguageSettingsView()
                 case .data: DataSettingsView()
-                case .reviewers: ContentReviewersView()
                 case .support: SupportView()
                 case .faq: FAQView()
-                case .socialLock: SocialLockSetupView()
                 case .termsPlaceholder(let title): TermsPlaceholderView(title: title)
                 }
             }
@@ -63,8 +62,17 @@ struct SettingsView: View {
     private var header: some View {
         VStack(alignment: .leading, spacing: 4) {
             Eyebrow(text: "Ajustes")
-            Text(MockSettings.userName)
-                .font(MissaleFont.display(29, weight: .semibold))
+            NavigationLink(value: SettingsDestination.editName) {
+                HStack(spacing: 6) {
+                    Text(userDisplayName.isEmpty ? "Adicionar seu nome" : userDisplayName)
+                        .font(MissaleFont.display(29, weight: .semibold))
+                        .foregroundStyle(userDisplayName.isEmpty ? Palette.wine : Palette.ink)
+                    Image(systemName: "pencil")
+                        .font(.system(size: 14))
+                        .foregroundStyle(Palette.ink.opacity(0.35))
+                }
+            }
+            .buttonStyle(.plain)
             Text(MockSettings.subscriptionStatusLine)
                 .font(MissaleFont.body(15))
                 .foregroundStyle(Palette.ink.opacity(0.68))

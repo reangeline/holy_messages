@@ -8,8 +8,23 @@ struct TodayRootView: View {
     @State private var navigateToExamen = false
     @ObservedObject private var progressStore = FormationProgressStore.shared
     @Environment(\.mainTabSelection) private var mainTabSelection
+    @AppStorage(UserProfile.nameStorageKey) private var userDisplayName = ""
 
     private let day = MockLiturgical.today
+
+    /// Real device time, not the app's fixed demo date — this is about the
+    /// actual moment someone opens the app, so it should change through the day.
+    private var greeting: String {
+        let hour = Calendar.current.component(.hour, from: Date())
+        let (withName, withoutName): (String, String) = switch hour {
+        case 5..<12: ("Bom dia, {name}", "Bom dia!")
+        case 12..<18: ("Boa tarde, {name}", "Boa tarde!")
+        default: ("Boa noite, {name}", "Boa noite!")
+        }
+        let firstName = userDisplayName.trimmingCharacters(in: .whitespacesAndNewlines).components(separatedBy: " ").first ?? ""
+        guard !firstName.isEmpty else { return L.string(withoutName, table: "Today") }
+        return L.string(withName, table: "Today").replacingOccurrences(of: "{name}", with: firstName)
+    }
     // Goes through the region-keyed sanctoral calendar rather than a hardcoded
     // saint, even though only MockSaints.notburga is registered for today's date
     // right now — see SaintCalendarRegion.
@@ -66,8 +81,7 @@ struct TodayRootView: View {
                     }
                 }
                 .buttonStyle(.plain)
-                Text(L.string("Bom dia, {name}", table: "Today")
-                    .replacingOccurrences(of: "{name}", with: MockSettings.userName.components(separatedBy: " ").first ?? MockSettings.userName))
+                Text(greeting)
                     .font(MissaleFont.display(28))
                     .foregroundStyle(Palette.ink)
             }
@@ -141,16 +155,18 @@ struct TodayRootView: View {
     }
 
     private var wordOfDayTeaserCard: some View {
-        NavigationLink {
+        let word = MockWordOfDay.today
+        return NavigationLink {
             WordOfDayView()
         } label: {
             GlassCard {
                 VStack(alignment: .leading, spacing: 6) {
                     Eyebrow(text: L.string("Palavra de hoje", table: "Today"))
-                    Text("“Como Moisés levantou a serpente no deserto, assim deve ser levantado o Filho do Homem.”")
+                    Text("\u{201C}\(word.quote)\u{201D}")
                         .font(MissaleFont.display(21, italic: true))
                         .foregroundStyle(Palette.ink)
-                    Text("João 3, 14")
+                        .lineLimit(3)
+                    Text(word.reference)
                         .font(MissaleFont.body(14))
                         .foregroundStyle(Palette.ink.opacity(0.65))
                 }

@@ -300,11 +300,8 @@ enum MockFormation {
         .init(id: "prayers-explained", title: "As orações explicadas", meta: "6 partes · 3 min cada", progress: 0, nextUp: "Parte 1: o Pai-Nosso, linha por linha", lessons: []),
         .init(id: "rosary-basics", title: "O Terço, do zero", meta: "7 partes · 3 min cada", progress: 0, nextUp: "Parte 1: por que rezar com contas", lessons: []),
         .init(id: "confession", title: "Como se confessar bem", meta: "5 partes · 3 min cada", progress: 0, nextUp: "Parte 1: exame de consciência, sem escrúpulo", lessons: []),
-        // Spec §10: formation-only, not treatment — freedom/virtue language, never
-        // shame, always ending in a real referral (confessor, professional, support
-        // group). This pass only seeds the track slot; the lessons and the
-        // referral screen are still to be built (posterior per the spec itself).
-        .init(id: "freedom-virtue", title: "Liberdade e virtude", meta: "4 partes · 4 min cada", progress: 0, nextUp: "Parte 1: o que o vício imita, e o bem que ele imita", lessons: []),
+        // "Liberdade e virtude" (spec §10) deferred to a future version per
+        // user request — FreedomVirtueView.swift stays on disk, just unlinked.
     ]
 
     static let reviewerCredit = "Revisão de conteúdo por Pe. Daniel Vasconcelos."

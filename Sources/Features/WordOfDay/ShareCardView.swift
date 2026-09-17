@@ -67,7 +67,7 @@ private struct ShareCardContent: View {
                     CrossGlyph(size: 26, color: Palette.goldBright)
                     Spacer()
                 }
-                Text(word.dateLabel)
+                Text("\(day.dayMonthLabel) · \(day.feastName)")
                     .font(MissaleFont.body(12, weight: .semibold))
                     .tracking(1.2)
                     .foregroundStyle(Palette.goldBright)

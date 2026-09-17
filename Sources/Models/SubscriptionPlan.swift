@@ -9,8 +9,8 @@ struct SubscriptionPlan: Identifiable, Codable {
     let badge: String?
 }
 
-struct WordOfDay: Codable {
-    let dateLabel: String
+struct WordOfDay: Identifiable, Codable, Hashable {
+    let id: String
     let quote: String
     let reference: String
     let translationNote: String // e.g. "Douay-Rheims, domínio público"
