@@ -24,25 +24,37 @@ struct WordOfDayProvider: TimelineProvider {
 
 struct WordOfDayWidgetView: View {
     let entry: WordOfDayEntry
+    @Environment(\.widgetFamily) private var family
+
+    private var isSmall: Bool { family == .systemSmall }
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Text("PALAVRA DE HOJE")
-                .font(MissaleFont.body(10, weight: .semibold))
-                .tracking(1.2)
-                .foregroundStyle(Palette.goldBright)
-            Text(entry.word.quote)
-                .font(MissaleFont.display(17, italic: true))
-                .foregroundStyle(.white)
-                .lineLimit(5)
-                .minimumScaleFactor(0.75)
-            Spacer(minLength: 0)
-            Text(entry.word.reference)
-                .font(MissaleFont.body(12))
-                .foregroundStyle(.white.opacity(0.8))
+        ZStack {
+            RoundedRectangle(cornerRadius: 24, style: .continuous)
+                .fill(.ultraThinMaterial)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 24, style: .continuous)
+                        .strokeBorder(.white.opacity(0.4), lineWidth: 1)
+                )
+
+            VStack(alignment: .leading, spacing: isSmall ? 6 : 10) {
+                Text("PALAVRA DE HOJE")
+                    .font(MissaleFont.body(isSmall ? 11 : 13, weight: .semibold))
+                    .tracking(1.3)
+                    .foregroundStyle(Palette.goldBright)
+                Text(entry.word.quote)
+                    .font(MissaleFont.display(isSmall ? 20 : 27, italic: true))
+                    .foregroundStyle(.white)
+                    .lineLimit(isSmall ? 5 : 4)
+                    .minimumScaleFactor(0.6)
+                Spacer(minLength: 0)
+                Text(entry.word.reference)
+                    .font(MissaleFont.body(isSmall ? 14 : 17, weight: .medium))
+                    .foregroundStyle(.white.opacity(0.85))
+            }
+            .padding(isSmall ? 14 : 20)
         }
-        .padding()
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+        .padding(8)
     }
 }
 

@@ -24,26 +24,38 @@ struct SaintOfDayProvider: TimelineProvider {
 
 struct SaintOfDayWidgetView: View {
     let entry: SaintOfDayEntry
+    @Environment(\.widgetFamily) private var family
+
+    private var isSmall: Bool { family == .systemSmall }
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Text("SANTO DO DIA")
-                .font(MissaleFont.body(10, weight: .semibold))
-                .tracking(1.2)
-                .foregroundStyle(Palette.goldBright)
-            Spacer(minLength: 0)
-            Text(entry.saint.name)
-                .font(MissaleFont.display(20, weight: .medium))
-                .foregroundStyle(.white)
-                .lineLimit(3)
-                .minimumScaleFactor(0.8)
-            Text(entry.saint.role)
-                .font(MissaleFont.body(13))
-                .foregroundStyle(.white.opacity(0.8))
-                .lineLimit(2)
+        ZStack {
+            RoundedRectangle(cornerRadius: 24, style: .continuous)
+                .fill(.ultraThinMaterial)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 24, style: .continuous)
+                        .strokeBorder(.white.opacity(0.4), lineWidth: 1)
+                )
+
+            VStack(alignment: .leading, spacing: isSmall ? 6 : 10) {
+                Text("SANTO DO DIA")
+                    .font(MissaleFont.body(isSmall ? 11 : 13, weight: .semibold))
+                    .tracking(1.3)
+                    .foregroundStyle(Palette.goldBright)
+                Spacer(minLength: 0)
+                Text(entry.saint.name)
+                    .font(MissaleFont.display(isSmall ? 22 : 30, weight: .medium))
+                    .foregroundStyle(.white)
+                    .lineLimit(3)
+                    .minimumScaleFactor(0.6)
+                Text(entry.saint.role)
+                    .font(MissaleFont.body(isSmall ? 14 : 17, weight: .medium))
+                    .foregroundStyle(.white.opacity(0.85))
+                    .lineLimit(2)
+            }
+            .padding(isSmall ? 14 : 20)
         }
-        .padding()
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+        .padding(8)
     }
 }
 
