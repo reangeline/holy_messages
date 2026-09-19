@@ -3,7 +3,7 @@ import SwiftUI
 
 struct WordOfDayEntry: TimelineEntry {
     let date: Date
-    let word: WidgetContent.WordOfDay
+    let word: WordOfDay
 }
 
 struct WordOfDayProvider: TimelineProvider {

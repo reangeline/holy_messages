@@ -50,6 +50,7 @@
 		474FFA1E3B486CF5E9841453 /* FormationRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8386DB427306B75159719D /* FormationRootView.swift */; };
 		4C79424985C57BF62827686A /* SaintsArchiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C7FA4E62CAB5039172A284 /* SaintsArchiveView.swift */; };
 		5123E50F1589C1B3E2A9B5E2 /* Rosary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB6736347B58C2DD3718609 /* Rosary.swift */; };
+		516EAAA432C17C54CBC66353 /* MockWordOfDay+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F1B4F550A6320BD4A3136E /* MockWordOfDay+App.swift */; };
 		551D25D9539AADA29689D90A /* MockSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A7894A34904119DDEBC585 /* MockSettings.swift */; };
 		560B766C11D494D2C1D62265 /* SocialLockSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2BC824AEE82C9CA8C3F473 /* SocialLockSetupView.swift */; };
 		5A03142066ECAA7D4A4818B4 /* ShareCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2547DB35325C7CF0DBE830 /* ShareCardView.swift */; };
@@ -68,6 +69,7 @@
 		716E10EA85D0CBA51CAFB0A8 /* RosaryMysteriesPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6CB2EEC1A4189CB671B6A9 /* RosaryMysteriesPickerView.swift */; };
 		71A518CE73E4BA9C5AE12993 /* GlassCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C391130864F8A75A6D4D72 /* GlassCard.swift */; };
 		73E8231763B6B8C5D68FB52C /* MassBulletinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88256E6C4CCFEC9D6FB7A82C /* MassBulletinView.swift */; };
+		753B2C53EB5D66B617692E8F /* WordOfDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05918B538C545B788FC186A /* WordOfDay.swift */; };
 		779E1C7960595B359DDD3C41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D139C36990BDCBC69DA096A1 /* Assets.xcassets */; };
 		784201B52697C445EA3A12AF /* MockMood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E24DE9D86BEAA91DB58D7AF /* MockMood.swift */; };
 		7865268C9D3B434B7972F7E1 /* OnboardingComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30B00FD5E50F90076E29A48 /* OnboardingComponents.swift */; };
@@ -89,12 +91,14 @@
 		92FA1A1D3094BCA88B127E56 /* OnboardingLifeQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648C9F2A61F1864864B18855 /* OnboardingLifeQuestionView.swift */; };
 		9472B69DE124F31B45ED2D26 /* RosaryDarkModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1E2DF590CC65A52B5A7E43 /* RosaryDarkModeView.swift */; };
 		959063EE805B6366EF9C3B7D /* AngelusScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C001F88A11BB17BA890EEF83 /* AngelusScheduler.swift */; };
+		9649D878553BC05450F2A238 /* WordOfDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05918B538C545B788FC186A /* WordOfDay.swift */; };
 		975F7F5BD0B2792629C9B62E /* EBGaramond-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F0B7E0BDDA351067DC3AB09 /* EBGaramond-Medium.ttf */; };
 		98103933B321BE369C533513 /* MockSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C82F4CB58E4E72411E7BACE /* MockSubscription.swift */; };
 		9814A279B63F3528287EE3CF /* ContentReviewersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF022627860AD4871F03A464 /* ContentReviewersView.swift */; };
 		98314B21FC79F3349D93FC3C /* ExamenHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154186E66CC235421132887F /* ExamenHistoryView.swift */; };
 		98EEED06A83E9B4958797523 /* ComplineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78FF5E1F7D1C6EA9A891218 /* ComplineView.swift */; };
 		9A948AD32DF3B211B6584F0A /* AppLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99F88CC334F965A61006194 /* AppLanguage.swift */; };
+		9B4C6F62559A9D57E3817E34 /* LocalizedCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE8B6F79570C98E79ACE2B4 /* LocalizedCatalog.swift */; };
 		9B7038F36D7513D665A04F96 /* SeasonRetrospectiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94540CC43D048D2AFB1B15 /* SeasonRetrospectiveView.swift */; };
 		9C11C7E943DCA5B1227CDF3E /* MoodReliefView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8045109FB41D5AA9E8A2552B /* MoodReliefView.swift */; };
 		9C4DF6B2563D0FECB03DCC25 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9536EEE16DBB6EFCD2579641 /* UserProfile.swift */; };
@@ -103,6 +107,7 @@
 		AA80232E8C4368851886F8F1 /* EBGaramond-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98CD269C69DE28B8E321E2E3 /* EBGaramond-Regular.ttf */; };
 		ABA7DBB03FCCD9931F3CF8C8 /* FormationWordOfDay.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 628D90C75D1198CD2B5160EC /* FormationWordOfDay.xcstrings */; };
 		AC2A502F89B9AEACDC4C3F4F /* OnboardingPaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABA499AC313C1D6851F23FD /* OnboardingPaywallView.swift */; };
+		AFF9D860269622D66ABB1962 /* ContentLanguageCoverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A9BE85D47037D1EC390672 /* ContentLanguageCoverage.swift */; };
 		B01E39461B203F9CD8CD4693 /* OnboardingSpiritualQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2E925AAA5C4F52B34C09D4 /* OnboardingSpiritualQuestionView.swift */; };
 		B0884B2493A74E5A10B6D1AA /* FreedomVirtueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D11F399F9E710B26DC780B2 /* FreedomVirtueView.swift */; };
 		B0C62F55D9647754C7BEDB5F /* FormationLessonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CA4C3818A3DED108588288 /* FormationLessonView.swift */; };
@@ -123,6 +128,7 @@
 		CDE85F01CEE6A9E65A4F69D8 /* PrayerCategoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56F6238D04D8924CF1AC227 /* PrayerCategoryDetailView.swift */; };
 		CF605A9222782AC0223D5928 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 085B0E7DB07DABBDD6D616C6 /* SettingsView.swift */; };
 		D01B162F80DFACB0F6634DE2 /* EBGaramond-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4EF3E16915DDAF1EB7255E2 /* EBGaramond-MediumItalic.ttf */; };
+		D0ACDFF4ACCD6D79712EEC25 /* AppLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99F88CC334F965A61006194 /* AppLanguage.swift */; };
 		D1B9839D53ED8E76EA13B911 /* GlossaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD287F9499284A04DE649E /* GlossaryView.swift */; };
 		D2E9AFA1231C326405429ADD /* CalendarDayDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD8E2D7996AEA26E4A57BF4 /* CalendarDayDetailView.swift */; };
 		D31C85E0E6E803D6FCFCA481 /* MockOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3D968DD68BECA1B840DD68 /* MockOnboarding.swift */; };
@@ -153,6 +159,7 @@
 		F4D6F14C234CA4FDA3D66137 /* PrayersRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48E9418BF623472B1DAF058 /* PrayersRootView.swift */; };
 		F874D51ABFBD571588324624 /* SubscriptionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29D4ED447FC50D9BE13C3BA /* SubscriptionDetailView.swift */; };
 		F89B503A2BE9BB73D5570592 /* OnboardingSpiritualIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BE36B3A66F6F0DED7E4B0D /* OnboardingSpiritualIntroView.swift */; };
+		F8D8978A5FD18DA97D3EA4E6 /* MockWordOfDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7ED6DF20F1E0D622BE3B4FE /* MockWordOfDay.swift */; };
 		F8DB3D2C250F5182202FC08E /* PrayerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BC11EE0DBB46BD70CC50C4 /* PrayerItem.swift */; };
 		F9FBB7A65076441064901F46 /* CormorantGaramond-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5755A56F746943C35D7DEE62 /* CormorantGaramond-MediumItalic.ttf */; };
 		FA774A3728AFCCD8DB9D2866 /* ExamenHistoryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF7E5176D0E7504ACE33434 /* ExamenHistoryStore.swift */; };
@@ -226,6 +233,7 @@
 		4D6494C870F0202D155720C4 /* CormorantGaramond-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CormorantGaramond-Medium.ttf"; sourceTree = "<group>"; };
 		4E24DE9D86BEAA91DB58D7AF /* MockMood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMood.swift; sourceTree = "<group>"; };
 		51E8CA2292F4D55B83C89CF2 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		55F1B4F550A6320BD4A3136E /* MockWordOfDay+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MockWordOfDay+App.swift"; sourceTree = "<group>"; };
 		5755A56F746943C35D7DEE62 /* CormorantGaramond-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CormorantGaramond-MediumItalic.ttf"; sourceTree = "<group>"; };
 		5B49583537054AC3C26C2371 /* RosaryGuidedPrayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RosaryGuidedPrayerView.swift; sourceTree = "<group>"; };
 		5BF47B756C7A9EADDDDDA3DF /* LiturgicalDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiturgicalDay.swift; sourceTree = "<group>"; };
@@ -238,6 +246,7 @@
 		63E6692DCBDC29C8E31B1C79 /* CormorantGaramond-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CormorantGaramond-Regular.ttf"; sourceTree = "<group>"; };
 		648C9F2A61F1864864B18855 /* OnboardingLifeQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLifeQuestionView.swift; sourceTree = "<group>"; };
 		654FEAEAD8CCE01EF0AD057E /* ExamenFlowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamenFlowView.swift; sourceTree = "<group>"; };
+		68A9BE85D47037D1EC390672 /* ContentLanguageCoverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentLanguageCoverage.swift; sourceTree = "<group>"; };
 		6C9AD15B2BD32B9BB69CADD3 /* EndOfSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndOfSessionView.swift; sourceTree = "<group>"; };
 		6D3078F169C814DF3A8A450A /* ExamenEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamenEntry.swift; sourceTree = "<group>"; };
 		70C391130864F8A75A6D4D72 /* GlassCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassCard.swift; sourceTree = "<group>"; };
@@ -279,6 +288,7 @@
 		ACFCA98C5D326B2E11D614F8 /* SocialLockRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLockRule.swift; sourceTree = "<group>"; };
 		AEE3966F6DE7624F1F067AAA /* MockSaints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSaints.swift; sourceTree = "<group>"; };
 		AF55B1737C5167410C440486 /* SaintsForYouView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaintsForYouView.swift; sourceTree = "<group>"; };
+		B05918B538C545B788FC186A /* WordOfDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordOfDay.swift; sourceTree = "<group>"; };
 		B185F457C98E6EDFD242DD28 /* EditNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNameView.swift; sourceTree = "<group>"; };
 		B272A3B51CBFE80DEF87ED5C /* MoodState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodState.swift; sourceTree = "<group>"; };
 		B30B00FD5E50F90076E29A48 /* OnboardingComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingComponents.swift; sourceTree = "<group>"; };
@@ -452,6 +462,7 @@
 				13CF7BE966447A71A8B7DA38 /* MockSocialLock.swift */,
 				0C82F4CB58E4E72411E7BACE /* MockSubscription.swift */,
 				D7ED6DF20F1E0D622BE3B4FE /* MockWordOfDay.swift */,
+				55F1B4F550A6320BD4A3136E /* MockWordOfDay+App.swift */,
 			);
 			path = MockData;
 			sourceTree = "<group>";
@@ -480,6 +491,7 @@
 		82C0440A5D698DC60EBD9945 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				68A9BE85D47037D1EC390672 /* ContentLanguageCoverage.swift */,
 				BAB960CD92A24E48F2535010 /* Date+RelativeLabel.swift */,
 				80C91E7AE38D2D10C31CB156 /* DevotionalPrayer.swift */,
 				6D3078F169C814DF3A8A450A /* ExamenEntry.swift */,
@@ -499,6 +511,7 @@
 				ACFCA98C5D326B2E11D614F8 /* SocialLockRule.swift */,
 				F6A87801F1104BDD82BCEF9F /* SubscriptionPlan.swift */,
 				9536EEE16DBB6EFCD2579641 /* UserProfile.swift */,
+				B05918B538C545B788FC186A /* WordOfDay.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -748,6 +761,7 @@
 				0082D9ABA853C8599FC11185 /* CalendarRootView.swift in Sources */,
 				DAB60DB9F381E826E1D27841 /* Colors.swift in Sources */,
 				98EEED06A83E9B4958797523 /* ComplineView.swift in Sources */,
+				AFF9D860269622D66ABB1962 /* ContentLanguageCoverage.swift in Sources */,
 				9814A279B63F3528287EE3CF /* ContentReviewersView.swift in Sources */,
 				A0679D6E7752653E27DCB100 /* CrossGlyph.swift in Sources */,
 				0CD844296185B88EB7A1A945 /* DataSettingsView.swift in Sources */,
@@ -799,6 +813,7 @@
 				551D25D9539AADA29689D90A /* MockSettings.swift in Sources */,
 				92D2834ED59ACD4BC2CE43CD /* MockSocialLock.swift in Sources */,
 				98103933B321BE369C533513 /* MockSubscription.swift in Sources */,
+				516EAAA432C17C54CBC66353 /* MockWordOfDay+App.swift in Sources */,
 				D487E6E38970BF704909CBCF /* MockWordOfDay.swift in Sources */,
 				7056EE04F1447BA4E81F89FC /* MoodCheckInSheet.swift in Sources */,
 				ED94A964B33E2C3F6ED48721 /* MoodHistoryStore.swift in Sources */,
@@ -854,6 +869,7 @@
 				8F14F39D961C2BEDA07BE3EC /* TodayRootView.swift in Sources */,
 				313CA19CE3ED8B71E9015A24 /* Typography.swift in Sources */,
 				9C4DF6B2563D0FECB03DCC25 /* UserProfile.swift in Sources */,
+				9649D878553BC05450F2A238 /* WordOfDay.swift in Sources */,
 				30AB0317AFFDD1BE6541A2E3 /* WordOfDayView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -862,11 +878,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0ACDFF4ACCD6D79712EEC25 /* AppLanguage.swift in Sources */,
 				B216104E194C6CDDC2569989 /* Colors.swift in Sources */,
+				9B4C6F62559A9D57E3817E34 /* LocalizedCatalog.swift in Sources */,
 				61CCB142CA0E0386439B1324 /* MissaleWidgetsBundle.swift in Sources */,
+				F8D8978A5FD18DA97D3EA4E6 /* MockWordOfDay.swift in Sources */,
 				0B7C08E07A46DE4B4F5974C0 /* SaintOfDayWidget.swift in Sources */,
 				169BB9C82E35EF1F5300C1B9 /* Typography.swift in Sources */,
 				3E97606A12384EADA8CB0376 /* WidgetContent.swift in Sources */,
+				753B2C53EB5D66B617692E8F /* WordOfDay.swift in Sources */,
 				E4F5BC268AA4382CDD30AFE5 /* WordOfDayWidget.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

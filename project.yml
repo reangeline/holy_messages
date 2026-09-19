@@ -64,6 +64,12 @@ targets:
       - path: Sources/WidgetExtension
       - path: Sources/DesignSystem/Colors.swift
       - path: Sources/DesignSystem/Typography.swift
+      # Shared with the app so the widget draws today's word from the same
+      # catalog instead of a second copy that drifts — see WidgetContent.swift.
+      - path: Sources/DesignSystem/AppLanguage.swift
+      - path: Sources/Models/LocalizedCatalog.swift
+      - path: Sources/Models/WordOfDay.swift
+      - path: Sources/MockData/MockWordOfDay.swift
       - path: Sources/Fonts
     info:
       path: WidgetExtension/Info.plist

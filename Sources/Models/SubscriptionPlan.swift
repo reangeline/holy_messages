@@ -9,14 +9,6 @@ struct SubscriptionPlan: Identifiable, Codable {
     let badge: String?
 }
 
-struct WordOfDay: Identifiable, Codable, Hashable {
-    let id: String
-    let quote: String
-    let reference: String
-    let translationNote: String // e.g. "Douay-Rheims, domínio público"
-    let context: String
-}
-
 struct MassReading: Identifiable, Codable {
     let id: String
     let kicker: String
