@@ -154,6 +154,7 @@
 		EED9CF44E7E8D73F0301615C /* SettingsDetail.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = BD1EDFAD664396CF342F0318 /* SettingsDetail.xcstrings */; };
 		EF580CFD3D263C0234CBDAEC /* RosaryHistoryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA725209135D65B8B6FE950 /* RosaryHistoryStore.swift */; };
 		F00DA00E38C750A45E28C69F /* AppRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12D79BF4B3E4C6ABC19C5B0 /* AppRootView.swift */; };
+		F02EA09F7122FD3368ABBF5E /* DateKeyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6514A0E12D6792B42E3BA07E /* DateKeyLabel.swift */; };
 		F1389585B7ED402BA920C2D7 /* DevotionalPrayerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15710211E66C705F9516F87A /* DevotionalPrayerDetailView.swift */; };
 		F34BDACB9F026DE652BEFAA0 /* ExamenStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C92BE22C222E67C81504286 /* ExamenStepView.swift */; };
 		F4D6F14C234CA4FDA3D66137 /* PrayersRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48E9418BF623472B1DAF058 /* PrayersRootView.swift */; };
@@ -245,6 +246,7 @@
 		62BC11EE0DBB46BD70CC50C4 /* PrayerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerItem.swift; sourceTree = "<group>"; };
 		63E6692DCBDC29C8E31B1C79 /* CormorantGaramond-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CormorantGaramond-Regular.ttf"; sourceTree = "<group>"; };
 		648C9F2A61F1864864B18855 /* OnboardingLifeQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLifeQuestionView.swift; sourceTree = "<group>"; };
+		6514A0E12D6792B42E3BA07E /* DateKeyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateKeyLabel.swift; sourceTree = "<group>"; };
 		654FEAEAD8CCE01EF0AD057E /* ExamenFlowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamenFlowView.swift; sourceTree = "<group>"; };
 		68A9BE85D47037D1EC390672 /* ContentLanguageCoverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentLanguageCoverage.swift; sourceTree = "<group>"; };
 		6C9AD15B2BD32B9BB69CADD3 /* EndOfSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndOfSessionView.swift; sourceTree = "<group>"; };
@@ -493,6 +495,7 @@
 			children = (
 				68A9BE85D47037D1EC390672 /* ContentLanguageCoverage.swift */,
 				BAB960CD92A24E48F2535010 /* Date+RelativeLabel.swift */,
+				6514A0E12D6792B42E3BA07E /* DateKeyLabel.swift */,
 				80C91E7AE38D2D10C31CB156 /* DevotionalPrayer.swift */,
 				6D3078F169C814DF3A8A450A /* ExamenEntry.swift */,
 				227E67920FE2449FD6170F46 /* Formation.swift */,
@@ -766,6 +769,7 @@
 				A0679D6E7752653E27DCB100 /* CrossGlyph.swift in Sources */,
 				0CD844296185B88EB7A1A945 /* DataSettingsView.swift in Sources */,
 				67DF463317F1F1E5DB602AC3 /* Date+RelativeLabel.swift in Sources */,
+				F02EA09F7122FD3368ABBF5E /* DateKeyLabel.swift in Sources */,
 				D5D5EBEF427D427646D402CB /* DevotionalPrayer.swift in Sources */,
 				F1389585B7ED402BA920C2D7 /* DevotionalPrayerDetailView.swift in Sources */,
 				B9F6C31DAE11B223C222D576 /* DirectionalTransition.swift in Sources */,

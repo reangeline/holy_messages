@@ -4,7 +4,6 @@ import Foundation
 struct LiturgicalWeekDay: Identifiable, Codable, Hashable {
     var id: String { dateKey }
     let dateKey: String // "yyyy-MM-dd"
-    let weekdayLabel: String // "Segunda"
     let dayNumber: Int
     let color: LiturgicalColor
     let rank: LiturgicalRank
@@ -12,6 +11,9 @@ struct LiturgicalWeekDay: Identifiable, Codable, Hashable {
     let isHolyDayOfObligation: Bool
     let isAbstinenceDay: Bool
     let mysterySet: MysterySet
+
+    /// Derived from dateKey — see DateKeyLabel.
+    var weekdayLabel: String { DateKeyLabel.weekday(fromKey: dateKey) }
 }
 
 /// A liturgical week runs Sunday to Saturday and takes its name and identity from
@@ -21,12 +23,17 @@ struct LiturgicalWeekDay: Identifiable, Codable, Hashable {
 struct LiturgicalWeek: Identifiable, Codable, Hashable {
     let id: String
     let name: String // "23ª Semana do Tempo Comum"
-    let dateRangeLabel: String // "13 a 19 de setembro"
     let sundayCycle: String // "Domingo · Ciclo B"
     let weekdayCycle: String // "Semana II do saltério"
     let gospelThreadBody: String // "Lucas 9 a 11, em sequência"
     let whatChangesNote: String?
     let days: [LiturgicalWeekDay]
+
+    /// Derived from the week's own first and last day — see DateKeyLabel.
+    var dateRangeLabel: String {
+        guard let first = days.first?.dateKey, let last = days.last?.dateKey else { return "" }
+        return DateKeyLabel.dayMonthRange(fromKey: first, toKey: last)
+    }
 }
 
 extension MysterySet {

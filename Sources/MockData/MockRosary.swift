@@ -10,28 +10,28 @@ enum MockRosary {
     static let mysteryCatalog = LocalizedCatalog(pt: ptMysteries, en: enMysteries)
 
     private static let ptMysteries: [RosaryMystery] = [
-        .init(mysterySet: .joyful, dayLabel: "Segunda-feira e sábado", decades: [
+        .init(mysterySet: .joyful, decades: [
             .init(title: "A Anunciação", description: "O Anjo Gabriel anuncia à Virgem Maria que ela conceberá o Filho de Deus pelo poder do Espírito Santo, e ela aceita ser a Mãe do Salvador.", fruit: "A humildade e a aceitação da vontade de Deus.", scriptureRef: "Lucas 1, 26-38"),
             .init(title: "A Visitação", description: "Nossa Senhora visita sua prima Santa Isabel, levando Jesus em seu ventre.", fruit: "A caridade e o amor ao próximo.", scriptureRef: "Lucas 1, 39-56"),
             .init(title: "A Natividade", description: "O Nascimento de Jesus na gruta de Belém.", fruit: "O desapego dos bens da Terra e a pobreza de espírito.", scriptureRef: "Lucas 2, 1-20"),
             .init(title: "A Apresentação no Templo", description: "A Apresentação do Menino Jesus no Templo e a Purificação de Maria.", fruit: "A obediência e a pureza de coração.", scriptureRef: "Lucas 2, 22-40"),
             .init(title: "O Encontro com Jesus no Templo", description: "O reencontro de Jesus no Templo, entre os doutores da Lei.", fruit: "A busca por Deus e a fidelidade aos Seus ensinamentos.", scriptureRef: "Lucas 2, 41-52"),
         ]),
-        .init(mysterySet: .sorrowful, dayLabel: "Terça-feira e sexta-feira", decades: [
+        .init(mysterySet: .sorrowful, decades: [
             .init(title: "A Agonia no Horto", description: "A Agonia de Jesus no Horto das Oliveiras.", fruit: "A contrição dos pecados e a oração perseverante.", scriptureRef: "Mateus 26, 36-46 (também em Lucas 22, 39-46)"),
             .init(title: "A Flagelação", description: "A Flagelação de Nosso Senhor Jesus Cristo, atado à coluna.", fruit: "A mortificação dos sentidos e a pureza do corpo.", scriptureRef: "Mateus 27, 26 (também em Marcos 15, 15 e João 19, 1)"),
             .init(title: "A Coroação de Espinhos", description: "A Coroação de espinhos de Jesus.", fruit: "O desprezo do orgulho humano e a pureza da mente.", scriptureRef: "Mateus 27, 27-31 (também em João 19, 2-3)"),
             .init(title: "Jesus Carrega a Cruz", description: "Jesus carregando a Cruz pesada a caminho do Calvário.", fruit: "A paciência nas tribulações e a aceitação dos nossos sofrimentos.", scriptureRef: "Lucas 23, 26-32 (também em João 19, 16-17)"),
             .init(title: "A Crucificação e Morte", description: "A Crucificação, agonia e morte de Jesus na Cruz.", fruit: "O amor a Deus, o perdão dos inimigos e a salvação das almas.", scriptureRef: "Lucas 23, 33-49 (também em João 19, 18-30)"),
         ]),
-        .init(mysterySet: .glorious, dayLabel: "Quarta-feira e domingo", decades: [
+        .init(mysterySet: .glorious, decades: [
             .init(title: "A Ressurreição", description: "A Ressurreição de Nosso Senhor Jesus Cristo.", fruit: "A fé e a certeza da vida eterna.", scriptureRef: "Mateus 28, 1-10 (também em Lucas 24, 1-12 e João 20, 1-18)"),
             .init(title: "A Ascensão", description: "A Ascensão de Jesus ao Céu.", fruit: "A esperança e o desejo das realidades celestiais.", scriptureRef: "Atos dos Apóstolos 1, 6-11 (também em Lucas 24, 50-53)"),
             .init(title: "A Descida do Espírito Santo", description: "A Descida do Espírito Santo sobre Maria e os Apóstolos no Cenáculo, em Pentecostes.", fruit: "O zelo apostólico e os dons do Espírito Santo.", scriptureRef: "Atos dos Apóstolos 2, 1-13"),
             .init(title: "A Assunção de Maria", description: "A Assunção de Nossa Senhora ao Céu em corpo e alma.", fruit: "A graça de uma boa morte e a união filial com Maria.", scriptureRef: "Sem relato explícito nos Evangelhos — a tradição se apoia em Apocalipse 12, 1 e Cântico dos Cânticos 2, 10-11"),
             .init(title: "A Coroação de Maria", description: "A Coroação de Maria Santíssima como Rainha dos Céus e da Terra.", fruit: "A perseverança final e a total confiança na realeza de Maria.", scriptureRef: "Também associado a Apocalipse 12, 1"),
         ]),
-        .init(mysterySet: .luminous, dayLabel: "Quinta-feira", decades: [
+        .init(mysterySet: .luminous, decades: [
             .init(title: "O Batismo no Jordão", description: "O Batismo de Jesus no Rio Jordão pelas mãos de João Batista.", fruit: "A fidelidade às promessas do Batismo e o estado de graça.", scriptureRef: "Mateus 3, 13-17 (também em Marcos 1, 9-11 e Lucas 3, 21-22)"),
             .init(title: "As Bodas de Caná", description: "A autorrevelação de Jesus nas Bodas de Caná, seu primeiro milagre, por intercessão de Maria.", fruit: "A confiança na intercessão de Maria e a santificação das famílias.", scriptureRef: "João 2, 1-12"),
             .init(title: "O Anúncio do Reino", description: "O anúncio do Reino de Deus, com o convite à conversão.", fruit: "O arrependimento dos pecados e o desejo de santidade.", scriptureRef: "Marcos 1, 14-15 (também em Mateus 4, 17)"),
@@ -41,28 +41,28 @@ enum MockRosary {
     ]
 
     private static let enMysteries: [RosaryMystery] = [
-        .init(mysterySet: .joyful, dayLabel: "Monday and Saturday", decades: [
+        .init(mysterySet: .joyful, decades: [
             .init(title: "The Annunciation", description: "The Angel Gabriel announces to the Virgin Mary that she will conceive the Son of God by the power of the Holy Spirit, and she consents to be the Mother of the Saviour.", fruit: "Humility and acceptance of God's will.", scriptureRef: "Luke 1:26-38"),
             .init(title: "The Visitation", description: "Our Lady visits her cousin Saint Elizabeth, carrying Jesus in her womb.", fruit: "Charity and love of neighbour.", scriptureRef: "Luke 1:39-56"),
             .init(title: "The Nativity", description: "The birth of Jesus in the cave at Bethlehem.", fruit: "Detachment from the goods of this world and poverty of spirit.", scriptureRef: "Luke 2:1-20"),
             .init(title: "The Presentation in the Temple", description: "The presentation of the Child Jesus in the Temple and the purification of Mary.", fruit: "Obedience and purity of heart.", scriptureRef: "Luke 2:22-40"),
             .init(title: "The Finding in the Temple", description: "Finding Jesus again in the Temple, among the teachers of the Law.", fruit: "The search for God and fidelity to his teaching.", scriptureRef: "Luke 2:41-52"),
         ]),
-        .init(mysterySet: .sorrowful, dayLabel: "Tuesday and Friday", decades: [
+        .init(mysterySet: .sorrowful, decades: [
             .init(title: "The Agony in the Garden", description: "The agony of Jesus in the Garden of Olives.", fruit: "Contrition for sin and perseverance in prayer.", scriptureRef: "Matthew 26:36-46 (also Luke 22:39-46)"),
             .init(title: "The Scourging at the Pillar", description: "The scourging of Our Lord Jesus Christ, bound to the pillar.", fruit: "Mortification of the senses and purity of body.", scriptureRef: "Matthew 27:26 (also Mark 15:15 and John 19:1)"),
             .init(title: "The Crowning with Thorns", description: "The crowning of Jesus with thorns.", fruit: "Contempt for human pride and purity of mind.", scriptureRef: "Matthew 27:27-31 (also John 19:2-3)"),
             .init(title: "The Carrying of the Cross", description: "Jesus carrying the heavy Cross on the way to Calvary.", fruit: "Patience in trials and acceptance of our own suffering.", scriptureRef: "Luke 23:26-32 (also John 19:16-17)"),
             .init(title: "The Crucifixion and Death", description: "The crucifixion, agony and death of Jesus on the Cross.", fruit: "Love of God, forgiveness of enemies and the salvation of souls.", scriptureRef: "Luke 23:33-49 (also John 19:18-30)"),
         ]),
-        .init(mysterySet: .glorious, dayLabel: "Wednesday and Sunday", decades: [
+        .init(mysterySet: .glorious, decades: [
             .init(title: "The Resurrection", description: "The resurrection of Our Lord Jesus Christ.", fruit: "Faith and the certainty of eternal life.", scriptureRef: "Matthew 28:1-10 (also Luke 24:1-12 and John 20:1-18)"),
             .init(title: "The Ascension", description: "The ascension of Jesus into heaven.", fruit: "Hope and desire for the things of heaven.", scriptureRef: "Acts 1:6-11 (also Luke 24:50-53)"),
             .init(title: "The Descent of the Holy Spirit", description: "The descent of the Holy Spirit upon Mary and the Apostles in the Upper Room, at Pentecost.", fruit: "Apostolic zeal and the gifts of the Holy Spirit.", scriptureRef: "Acts 2:1-13"),
             .init(title: "The Assumption of Mary", description: "The assumption of Our Lady into heaven, body and soul.", fruit: "The grace of a happy death and filial union with Mary.", scriptureRef: "No explicit account in the Gospels — tradition rests on Revelation 12:1 and Song of Songs 2:10-11"),
             .init(title: "The Coronation of Mary", description: "The crowning of Mary Most Holy as Queen of Heaven and Earth.", fruit: "Final perseverance and complete trust in Mary's queenship.", scriptureRef: "Also associated with Revelation 12:1"),
         ]),
-        .init(mysterySet: .luminous, dayLabel: "Thursday", decades: [
+        .init(mysterySet: .luminous, decades: [
             .init(title: "The Baptism in the Jordan", description: "The baptism of Jesus in the river Jordan at the hands of John the Baptist.", fruit: "Fidelity to the promises of Baptism and the state of grace.", scriptureRef: "Matthew 3:13-17 (also Mark 1:9-11 and Luke 3:21-22)"),
             .init(title: "The Wedding at Cana", description: "Jesus reveals himself at the wedding at Cana, his first miracle, at Mary's intercession.", fruit: "Trust in Mary's intercession and the sanctification of families.", scriptureRef: "John 2:1-12"),
             .init(title: "The Proclamation of the Kingdom", description: "The proclamation of the Kingdom of God, with the call to conversion.", fruit: "Repentance for sin and the desire for holiness.", scriptureRef: "Mark 1:14-15 (also Matthew 4:17)"),

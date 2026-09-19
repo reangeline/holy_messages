@@ -12,7 +12,7 @@ struct MassReadingsView: View {
                     VStack(alignment: .leading, spacing: 4) {
                         Text("Na Missa de hoje")
                             .font(MissaleFont.display(27))
-                        Text("\(day.feastName) · \(day.rank.rawValue.lowercased()) · \(day.color.name.lowercased())")
+                        Text("\(day.feastName) · \(day.rank.displayName.lowercased()) · \(day.color.name.lowercased())")
                             .font(MissaleFont.body(15))
                             .foregroundStyle(Palette.ink.opacity(0.65))
                     }

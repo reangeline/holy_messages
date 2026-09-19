@@ -24,7 +24,7 @@ struct CalendarDayDetailView: View {
         let latest = isToday ? moodHistory.entries.last : nil
         let relief = latest.map { MockMood.relief(for: $0.stateID).content }
         return DayDetail(
-            dateLabel: "\(mark.dayNumber) de setembro",
+            dateLabel: DateKeyLabel.dayMonth(fromKey: mark.dateKey),
             feastName: feastInfo?.feastName ?? "Feria do Tempo Comum",
             color: mark.color,
             loggedStateTitle: latest?.stateLabel,

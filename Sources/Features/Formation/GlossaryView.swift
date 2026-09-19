@@ -11,7 +11,7 @@ struct GlossaryView: View {
                 VStack(alignment: .leading, spacing: 16) {
                     Text("Why is today red?", tableName: "FormationWordOfDay")
                         .font(MissaleFont.display(28, weight: .semibold))
-                    Text("\(day.dayMonthLabel) · \(day.rank.rawValue.lowercased()) · \(day.feastName)")
+                    Text("\(day.dayMonthLabel) · \(day.rank.displayName.lowercased()) · \(day.feastName)")
                         .font(MissaleFont.body(15))
                         .foregroundStyle(Palette.ink.opacity(0.65))
 

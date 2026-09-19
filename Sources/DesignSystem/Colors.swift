@@ -32,8 +32,10 @@ enum Palette {
 enum LiturgicalColor: String, Codable, Hashable {
     case red, purple, green, white, rose, black
 
+    /// The Portuguese term is the key, localized through the shared table — the
+    /// colour of the day is chrome, so it follows the interface language.
     var name: String {
-        switch self {
+        let key = switch self {
         case .red: "Vermelho"
         case .purple: "Roxo"
         case .green: "Verde"
@@ -41,6 +43,7 @@ enum LiturgicalColor: String, Codable, Hashable {
         case .rose: "Rosa"
         case .black: "Preto"
         }
+        return L.string(key)
     }
 
     var meaning: String {

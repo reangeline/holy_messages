@@ -60,7 +60,7 @@ enum LiturgicalSanctoral {
             sundayCycle: day.sundayCycle, weekdayCycle: day.weekdayCycle,
             isHolyDayOfObligation: fixed.rank == .solemnity ? true : day.isHolyDayOfObligation,
             isAbstinenceDay: day.isAbstinenceDay,
-            explanation: "\(fixed.name) — \(fixed.rank.rawValue.lowercased())."
+            explanation: "\(fixed.name) — \(fixed.rank.displayName.lowercased())."
         )
     }
 }

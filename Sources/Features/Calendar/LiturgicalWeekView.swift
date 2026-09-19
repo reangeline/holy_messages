@@ -106,7 +106,7 @@ struct LiturgicalWeekView: View {
                     Text("\(selectedDay.weekdayLabel), \(selectedDay.dayNumber)")
                         .font(MissaleFont.body(15, weight: .semibold))
                     Spacer()
-                    Text(selectedDay.rank.rawValue)
+                    Text(selectedDay.rank.displayName)
                         .font(MissaleFont.body(12))
                         .foregroundStyle(Palette.ink.opacity(0.55))
                 }

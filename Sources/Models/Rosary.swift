@@ -29,8 +29,27 @@ enum MysterySet: String, Codable, CaseIterable, Hashable {
     var displayTitle: String {
         switch AppLanguagePreference.resolveCurrent() {
         case .en: "\(displayName) Mysteries"
-        case .pt, .es: "Mistérios \(rawValue)"
+        case .es: "Misterios \(rawValue)"
+        case .pt: "Mistérios \(rawValue)"
         }
+    }
+
+    /// "Segunda-feira e sábado" · "Monday and Saturday" · "lunes y sábado".
+    /// Derived from `forWeekday`, which already holds the weekly rotation, with
+    /// Foundation supplying the weekday names and the list connector — so this
+    /// is right in every language without a translated string anywhere, and the
+    /// rotation can't drift out of sync with the label.
+    var dayLabel: String {
+        let symbols: [String] = {
+            let formatter = DateFormatter()
+            formatter.locale = AppLanguagePreference.resolveCurrent().locale
+            return formatter.weekdaySymbols // index 0 = Sunday
+        }()
+        let days = (1...7).filter { MysterySet.forWeekday($0) == self }.map { symbols[$0 - 1] }
+        let list = ListFormatter()
+        list.locale = AppLanguagePreference.resolveCurrent().locale
+        let joined = list.string(from: days) ?? days.joined(separator: ", ")
+        return joined.prefix(1).localizedUppercase + joined.dropFirst()
     }
 }
 
@@ -96,8 +115,10 @@ struct RosaryMysteryDetail: Codable, Hashable {
 struct RosaryMystery: Identifiable, Codable, Hashable {
     var id: String { mysterySet.rawValue }
     let mysterySet: MysterySet
-    let dayLabel: String // e.g. "Segunda e sábado"
     let decades: [RosaryMysteryDetail] // the 5 mysteries of this set, in order
+
+    /// Derived — see MysterySet.dayLabel.
+    var dayLabel: String { mysterySet.dayLabel }
 }
 
 struct RosaryBead: Identifiable, Codable {
