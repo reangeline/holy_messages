@@ -74,6 +74,22 @@ extension EnvironmentValues {
     }
 }
 
+private struct SettingsPresentedKey: EnvironmentKey {
+    static let defaultValue: Binding<Bool>? = nil
+}
+
+extension EnvironmentValues {
+    /// Owned by AppRootView, above the subtree that gets rebuilt when the
+    /// language changes. The Settings sheet has to live up there: presented from
+    /// a hub screen, changing the language would tear that screen down and slam
+    /// the sheet shut in the middle of the language picker — which reads exactly
+    /// like the setting not having been saved.
+    var settingsPresented: Binding<Bool>? {
+        get { self[SettingsPresentedKey.self] }
+        set { self[SettingsPresentedKey.self] = newValue }
+    }
+}
+
 private struct HubTabBarOverlay: ViewModifier {
     @Environment(\.mainTabSelection) private var selection
 

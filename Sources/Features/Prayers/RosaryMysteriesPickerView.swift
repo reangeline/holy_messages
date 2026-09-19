@@ -3,7 +3,9 @@ import SwiftUI
 /// t4 screen 23 — pick a mystery set, beginner/voice toggles, optional intention, then start.
 struct RosaryMysteriesPickerView: View {
     @State private var selected: RosaryMystery = MockRosary.todays
-    @State private var beginnerMode = true
+    /// A real preference, not screen state: someone who turns the teaching hints
+    /// off expects them to stay off on the next rosary.
+    @AppStorage(UserProfile.rosaryBeginnerModeKey) private var beginnerMode = true
     @State private var voiceGuiding = false
     @State private var intention = ""
 

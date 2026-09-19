@@ -4,7 +4,16 @@ import SwiftUI
 /// form note (ordinary / 1962).
 struct RegionalCalendarView: View {
     @State private var search = ""
-    @State private var selectedID = MockSettings.regions.first { $0.isSelected }?.id ?? ""
+    @AppStorage(UserProfile.calendarRegionKey) private var storedRegionID = ""
+    @AppStorage(AppLanguagePreference.storageKey) private var languageOverride = AppLanguagePreference.systemValue
+
+    /// Empty storage means the person never chose: fall back to the calendar
+    /// their interface language implies rather than to a fixed country.
+    private var selectedID: String {
+        storedRegionID.isEmpty
+            ? MockSettings.defaultRegionID(for: AppLanguagePreference.resolve(override: languageOverride))
+            : storedRegionID
+    }
 
     private var selectedName: String {
         MockSettings.regions.first { $0.id == selectedID }?.name ?? ""
@@ -38,7 +47,7 @@ struct RegionalCalendarView: View {
                     ForEach(filtered) { region in
                         let isSelected = region.id == selectedID
                         Button {
-                            selectedID = region.id
+                            storedRegionID = region.id
                         } label: {
                             HStack {
                                 VStack(alignment: .leading, spacing: 2) {
@@ -62,12 +71,21 @@ struct RegionalCalendarView: View {
                     }
 
                     DashedUtilityCard {
-                        // Note: dropped the bold-name markdown styling to compose this
-                        // cleanly as a localized format string + the (not-mine)
-                        // regionalEffectNote content — judgment call, flagged in report.
-                        Text("\(L.string("With {region} selected:", table: "SettingsDetail").replacingOccurrences(of: "{region}", with: selectedName)) \(MockSettings.regionalEffectNote)")
-                            .font(MissaleFont.body(15))
-                            .foregroundStyle(Palette.ink.opacity(0.8))
+                        VStack(alignment: .leading, spacing: 8) {
+                            // Note: dropped the bold-name markdown styling to compose this
+                            // cleanly as a localized format string + the (not-mine)
+                            // regionalEffectNote content — judgment call, flagged in report.
+                            Text("\(L.string("With {region} selected:", table: "SettingsDetail").replacingOccurrences(of: "{region}", with: selectedName)) \(MockSettings.regionalEffectNote)")
+                                .font(MissaleFont.body(15))
+                                .foregroundStyle(Palette.ink.opacity(0.8))
+                            // The choice is remembered, but only the General Roman
+                            // Calendar has data so far (see SaintCalendarRegion), so
+                            // saying it already changes the saint of the day would be
+                            // a promise the app doesn't keep.
+                            Text("The proper calendars aren't loaded yet: your choice is saved and takes effect once each country's sanctoral is in the catalog.", tableName: "SettingsDetail")
+                                .font(MissaleFont.body(14))
+                                .foregroundStyle(Palette.ink.opacity(0.6))
+                        }
                     }
 
                     Text(MockSettings.riteFormNote)

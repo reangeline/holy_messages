@@ -1,24 +1,24 @@
 {
   "sourceLanguage": "en",
   "strings": {
-    "Subscription": {
+    "A place to receive the word of the day, get to know the saint of the day, understand the rites, and pray with the Church. When you log how you're doing, it offers what the tradition already has for that state: a psalm, someone who went through it, and one concrete step. Nothing beyond that.": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Subscription"
+            "value": "A place to receive the word of the day, get to know the saint of the day, understand the rites, and pray with the Church. When you log how you're doing, it offers what the tradition already has for that state: a psalm, someone who went through it, and one concrete step. Nothing beyond that."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Suscripción"
+            "value": "Un lugar para recibir la palabra del día, conocer al santo del día, entender los ritos y rezar con la Iglesia. Cuando registras cómo estás, ofrece lo que la tradición ya tiene para ese estado: un salmo, alguien que pasó por eso y un paso concreto. Nada más que eso."
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Assinatura"
+            "value": "Um lugar para receber a palavra do dia, conhecer o santo do dia, entender os ritos e rezar com a Igreja. Quando você registra como está, ele oferece o que a tradição já tem para aquele estado: um salmo, alguém que passou por isso e um passo concreto. Nada além disso."
           }
         }
       }
@@ -45,94 +45,6 @@
         }
       }
     },
-    "US$ 39.99/year": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "US$ 39.99/year"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "US$ 39,99/año"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "US$ 39,99/ano"
-          }
-        }
-      }
-    },
-    "Missale Premium · yearly": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Missale Premium · yearly"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Missale Premium · anual"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Missale Premium · anual"
-          }
-        }
-      }
-    },
-    "Automatically renews on October 14, 2026. Billed through the App Store.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Automatically renews on October 14, 2026. Billed through the App Store."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Se renueva automáticamente el 14 de octubre de 2026. Cobro a través de la App Store."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Renova automaticamente em 14 de outubro de 2026. Cobrança pela App Store."
-          }
-        }
-      }
-    },
-    "What's included": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "What's included"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Qué está incluido"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "O que está incluído"
-          }
-        }
-      }
-    },
     "All formation tracks, and new ones as they launch": {
       "localizations": {
         "en": {
@@ -151,798 +63,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Todas as trilhas de formação, e as novas conforme saem"
-          }
-        }
-      }
-    },
-    "The complete liturgical calendar, with every feast explained": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "The complete liturgical calendar, with every feast explained"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "El calendario litúrgico completo, con cada fiesta explicada"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "O calendário litúrgico completo, com cada festa explicada"
-          }
-        }
-      }
-    },
-    "Traditional prayers and devotions, offline": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Traditional prayers and devotions, offline"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Oraciones y devociones de la tradición, sin conexión"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Orações e devoções da tradição, offline"
-          }
-        }
-      }
-    },
-    "Guided rosary with voice, beginner mode, and dark screen": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Guided rosary with voice, beginner mode, and dark screen"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Rosario guiado con voz, modo principiante y pantalla apagada"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Terço guiado com voz, modo iniciante e tela apagada"
-          }
-        }
-      }
-    },
-    "Free forever, with or without a subscription": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Free forever, with or without a subscription"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Gratis para siempre, con o sin suscripción"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Grátis para sempre, com ou sem assinatura"
-          }
-        }
-      }
-    },
-    "Word of the day and saint of the day": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Word of the day and saint of the day"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Palabra del día y santo del día"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Palavra do dia e santo do dia"
-          }
-        }
-      }
-    },
-    "The complete Rosary": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "The complete Rosary"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "El Rosario completo"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "O Terço completo"
-          }
-        }
-      }
-    },
-    "Your calendar and everything you've logged": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Your calendar and everything you've logged"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tu calendario y todo lo que has registrado"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Seu calendário e tudo o que você registrou"
-          }
-        }
-      }
-    },
-    "The pastoral referral network": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "The pastoral referral network"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "La red de derivación pastoral"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "A rede de encaminhamento pastoral"
-          }
-        }
-      }
-    },
-    "Restore Purchases": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Restore Purchases"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Restaurar compras"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Restaurar compras"
-          }
-        }
-      }
-    },
-    "Cancel renewal": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cancel renewal"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cancelar la renovación"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cancelar a renovação"
-          }
-        }
-      }
-    },
-    "No questions, no discount offer": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "No questions, no discount offer"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sin preguntas y sin oferta de descuento"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sem perguntas e sem oferta de desconto"
-          }
-        }
-      }
-    },
-    "Terms of Use": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Terms of Use"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Términos de uso"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Termos de uso"
-          }
-        }
-      }
-    },
-    "Privacy Policy": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Privacy Policy"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Política de privacidad"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Política de privacidade"
-          }
-        }
-      }
-    },
-    "The subscription renews automatically until canceled. Cancellation happens in your App Store account settings, at least 24 hours before the period ends.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "The subscription renews automatically until canceled. Cancellation happens in your App Store account settings, at least 24 hours before the period ends."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "La suscripción se renueva automáticamente hasta que se cancele. La cancelación se hace en los ajustes de tu cuenta de la App Store, al menos 24 horas antes de que termine el período."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "A assinatura renova sozinha até ser cancelada. O cancelamento acontece nos ajustes da conta da App Store, ao menos 24 horas antes do fim do período."
-          }
-        }
-      }
-    },
-    "Schedules and reminders": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Schedules and reminders"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Horarios y recordatorios"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Horários e lembretes"
-          }
-        }
-      }
-    },
-    "At the Church's hours. Each one can be turned off.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "At the Church's hours. Each one can be turned off."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "En los horarios de la Iglesia. Cada uno se puede desactivar."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nos horários da Igreja. Cada um pode ficar desligado."
-          }
-        }
-      }
-    },
-    "Daily reading": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Daily reading"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lectura diaria"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Leitura diária"
-          }
-        }
-      }
-    },
-    "The word and saint of the day": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "The word and saint of the day"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "La palabra y el santo del día"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "A palavra e o santo do dia"
-          }
-        }
-      }
-    },
-    "One notification a day, in your device's time zone. No nagging if you don't open it.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "One notification a day, in your device's time zone. No nagging if you don't open it."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Una notificación al día, en la zona horaria de tu dispositivo. Sin insistencia si no la abres."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Uma notificação por dia, no fuso do aparelho. Nada de insistência se você não abrir."
-          }
-        }
-      }
-    },
-    "Silence": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Silence"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Silencio"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Silêncio"
-          }
-        }
-      }
-    },
-    "Liturgical calendar": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Liturgical calendar"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Calendario litúrgico"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Calendário litúrgico"
-          }
-        }
-      }
-    },
-    "Each country has its own calendar over the general Roman one. This changes the saint of the day and the solemnities.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Each country has its own calendar over the general Roman one. This changes the saint of the day and the solemnities."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cada país tiene su propio calendario sobre el romano general. Esto cambia el santo del día y las solemnidades."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cada país tem seu calendário próprio sobre o romano geral. Isso muda o santo do dia e as solenidades."
-          }
-        }
-      }
-    },
-    "Search country or diocese": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Search country or diocese"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Buscar país o diócesis"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Buscar país ou diocese"
-          }
-        }
-      }
-    },
-    "Your data": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Your data"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tus datos"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Seus dados"
-          }
-        }
-      }
-    },
-    "Everything here is yours, and leaves whenever you want.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Everything here is yours, and leaves whenever you want."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Todo esto es tuyo, y sale de aquí cuando quieras."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tudo o que está aqui é seu, e sai daqui quando você quiser."
-          }
-        }
-      }
-    },
-    "Sync across devices": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sync across devices"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sincronizar entre dispositivos"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sincronizar entre aparelhos"
-          }
-        }
-      }
-    },
-    "On": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "On"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Activada"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ligada"
-          }
-        }
-      }
-    },
-    "Off": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Off"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Desactivada"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Desligada"
-          }
-        }
-      }
-    },
-    "Even when on, your mood log and Examen notes never upload: they never leave this device. Your subscription, track progress, and rosaries prayed do sync.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Even when on, your mood log and Examen notes never upload: they never leave this device. Your subscription, track progress, and rosaries prayed do sync."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Incluso activada, tu registro de estado y tus notas del Examen nunca se suben: nunca salen de este dispositivo. Tu suscripción, el progreso de las trilhas y los rosarios rezados sí se sincronizan."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mesmo ligada, o registro de estado e as anotações do Exame não sobem: eles nunca saem deste aparelho. Sincronizam a assinatura, o progresso das trilhas e os terços rezados."
-          }
-        }
-      }
-    },
-    "Export": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Export"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Exportar"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Exportar"
-          }
-        }
-      }
-    },
-    "Your calendar, logs, intentions, and progress, in a readable file. No account and no cloud in between.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Your calendar, logs, intentions, and progress, in a readable file. No account and no cloud in between."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tu calendario, registros, intenciones y progreso, en un archivo legible. Sin cuenta y sin nube en el medio."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Seu calendário, os registros, as intenções e o progresso, em um arquivo legível. Sem conta e sem nuvem no meio."
-          }
-        }
-      }
-    },
-    "Delete everything": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Delete everything"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Eliminar todo"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Apagar tudo"
-          }
-        }
-      }
-    },
-    "Deletes your calendar, logs, notes, and progress on this device. It's immediate and can't be undone — export first if you want to keep a copy.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Deletes your calendar, logs, notes, and progress on this device. It's immediate and can't be undone — export first if you want to keep a copy."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Elimina tu calendario, registros, notas y progreso en este dispositivo. Es inmediato y no se puede deshacer — exporta antes si quieres guardar una copia."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Apaga o calendário, os registros, as anotações e o progresso deste aparelho. É imediato e não tem volta — exporte antes, se quiser guardar."
-          }
-        }
-      }
-    },
-    "Data deleted": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Data deleted"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Datos eliminados"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Dados apagados"
-          }
-        }
-      }
-    },
-    "Delete everything on this device": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Delete everything on this device"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Eliminar todo en este dispositivo"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Apagar tudo deste aparelho"
-          }
-        }
-      }
-    },
-    "We don't sell data, there are no third-party trackers, and there are no ads. Analytics are anonymous and can be turned off below.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "We don't sell data, there are no third-party trackers, and there are no ads. Analytics are anonymous and can be turned off below."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "No vendemos datos, no hay rastreadores de terceros y no hay anuncios. La analítica es anónima y se puede desactivar abajo."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Não vendemos dados, não há rastreadores de terceiros e não há anúncios. A analítica é anônima e pode ser desligada abaixo."
           }
         }
       }
@@ -969,420 +89,68 @@
         }
       }
     },
-    "Screen views only, no content": {
+    "At the Church's hours. Each one can be turned off.": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Screen views only, no content"
+            "value": "At the Church's hours. Each one can be turned off."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Solo pantallas abiertas, sin contenido"
+            "value": "En los horarios de la Iglesia. Cada uno se puede desactivar."
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Só telas abertas, sem conteúdo"
+            "value": "Nos horários da Igreja. Cada um pode ficar desligado."
           }
         }
       }
     },
-    "Delete everything on this device?": {
+    "Automatically renews on October 14, 2026. Billed through the App Store.": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Delete everything on this device?"
+            "value": "Automatically renews on October 14, 2026. Billed through the App Store."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "¿Eliminar todo en este dispositivo?"
+            "value": "Se renueva automáticamente el 14 de octubre de 2026. Cobro a través de la App Store."
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Apagar tudo deste aparelho?"
+            "value": "Renova automaticamente em 14 de outubro de 2026. Cobrança pela App Store."
           }
         }
       }
     },
-    "Cancel": {
+    "Bulk licenses for groups, OCIA catechumens, and pastoral teams, also free. Talk to us.": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Cancel"
+            "value": "Bulk licenses for groups, OCIA catechumens, and pastoral teams, also free. Talk to us."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Cancelar"
+            "value": "Licencias en bloque para grupos, catecúmenos de OCIA y equipos pastorales, también gratis. Habla con nosotros."
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Cancelar"
-          }
-        }
-      }
-    },
-    "Delete": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Delete"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Eliminar"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Apagar"
-          }
-        }
-      }
-    },
-    "Pastoral note": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pastoral note"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nota pastoral"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nota pastoral"
-          }
-        }
-      }
-    },
-    "What this app is, and what it isn't": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "What this app is, and what it isn't"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Qué es esta app, y qué no es"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "O que este app é, e o que ele não é"
-          }
-        }
-      }
-    },
-    "THREE STATEMENTS": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "THREE STATEMENTS"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "TRES DECLARACIONES"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "TRÊS DECLARAÇÕES"
-          }
-        }
-      }
-    },
-    "It's not confession.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "It's not confession."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "No es confesión."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Não é confissão."
-          }
-        }
-      }
-    },
-    "Nothing logged here is matter for absolution, and no text in this app forgives sin. Only the sacrament does that, and it happens with a priest.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nothing logged here is matter for absolution, and no text in this app forgives sin. Only the sacrament does that, and it happens with a priest."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nada registrado aquí es materia de absolución, y ningún texto de esta app perdona el pecado. Solo el sacramento hace eso, y ocurre con un sacerdote."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nada registrado aqui é matéria de absolvição, e nenhum texto deste app perdoa pecado. Só o sacramento faz isso, e ele acontece com um sacerdote."
-          }
-        }
-      }
-    },
-    "It's not spiritual direction.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "It's not spiritual direction."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "No es dirección espiritual."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Não é direção espiritual."
-          }
-        }
-      }
-    },
-    "The answers are the same for everyone who picks the same state. Spiritual direction is someone who knows your story and answers you.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "The answers are the same for everyone who picks the same state. Spiritual direction is someone who knows your story and answers you."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Las respuestas son las mismas para todos los que eligen el mismo estado. La dirección espiritual es alguien que conoce tu historia y te responde a ti."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "As respostas são as mesmas para todos que escolhem o mesmo estado. Direção espiritual é alguém que conhece a sua história e responde a você."
-          }
-        }
-      }
-    },
-    "It's not therapy.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "It's not therapy."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "No es terapia."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Não é terapia."
-          }
-        }
-      }
-    },
-    "There's no clinical evaluation, diagnosis, or follow-up care. Psychological suffering calls for a professional, and the two paths don't compete.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "There's no clinical evaluation, diagnosis, or follow-up care. Psychological suffering calls for a professional, and the two paths don't compete."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "No hay evaluación clínica, diagnóstico ni seguimiento. El sufrimiento psíquico requiere un profesional, y los dos caminos no compiten."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Não há avaliação clínica, diagnóstico nem acompanhamento. Sofrimento psíquico pede profissional, e os dois caminhos não competem."
-          }
-        }
-      }
-    },
-    "What it is": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "What it is"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lo que es"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "O que ele é"
-          }
-        }
-      }
-    },
-    "A place to receive the word of the day, get to know the saint of the day, understand the rites, and pray with the Church. When you log how you're doing, it offers what the tradition already has for that state: a psalm, someone who went through it, and one concrete step. Nothing beyond that.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "A place to receive the word of the day, get to know the saint of the day, understand the rites, and pray with the Church. When you log how you're doing, it offers what the tradition already has for that state: a psalm, someone who went through it, and one concrete step. Nothing beyond that."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Un lugar para recibir la palabra del día, conocer al santo del día, entender los ritos y rezar con la Iglesia. Cuando registras cómo estás, ofrece lo que la tradición ya tiene para ese estado: un salmo, alguien que pasó por eso y un paso concreto. Nada más que eso."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Um lugar para receber a palavra do dia, conhecer o santo do dia, entender os ritos e rezar com a Igreja. Quando você registra como está, ele oferece o que a tradição já tem para aquele estado: um salmo, alguém que passou por isso e um passo concreto. Nada além disso."
-          }
-        }
-      }
-    },
-    "If the question is serious": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "If the question is serious"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Si la pregunta es grave"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Se a pergunta for grave"
-          }
-        }
-      }
-    },
-    "Grave sin, a doubt of conscience, a life decision, a crisis: take it to a priest. This app shows you the nearest parish and confession hours, and that's the best it has to offer on this point.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Grave sin, a doubt of conscience, a life decision, a crisis: take it to a priest. This app shows you the nearest parish and confession hours, and that's the best it has to offer on this point."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pecado grave, duda de conciencia, decisión de vida, crisis: llévalo a un sacerdote. Esta app te muestra la parroquia más cercana y los horarios de confesión, y eso es lo mejor que puede ofrecer en este punto."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pecado grave, dúvida de consciência, decisão de vida, crise: leve a um padre. Este app mostra a paróquia mais perto e os horários de confissão, e é o melhor que ele tem a oferecer nesse ponto."
-          }
-        }
-      }
-    },
-    "Find a parish →": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Find a parish →"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Encontrar una parroquia →"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Encontrar uma paróquia →"
-          }
-        }
-      }
-    },
-    "Who reviewed the content": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Who reviewed the content"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Quién revisó el contenido"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Quem revisou o conteúdo"
+            "value": "Licenças em bloco para grupos, catecúmenos de OCIA e pastorais, também gratuitas. Fale com a gente."
           }
         }
       }
@@ -1409,6 +177,446 @@
         }
       }
     },
+    "Cancel": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancel"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancelar"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancelar"
+          }
+        }
+      }
+    },
+    "Cancel renewal": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancel renewal"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancelar la renovación"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancelar a renovação"
+          }
+        }
+      }
+    },
+    "Daily reading": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Daily reading"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lectura diaria"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Leitura diária"
+          }
+        }
+      }
+    },
+    "Data deleted": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Data deleted"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Datos eliminados"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dados apagados"
+          }
+        }
+      }
+    },
+    "Delete": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Delete"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Eliminar"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apagar"
+          }
+        }
+      }
+    },
+    "Delete everything": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Delete everything"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Eliminar todo"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apagar tudo"
+          }
+        }
+      }
+    },
+    "Delete everything on this device": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Delete everything on this device"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Eliminar todo en este dispositivo"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apagar tudo deste aparelho"
+          }
+        }
+      }
+    },
+    "Delete everything on this device?": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Delete everything on this device?"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Eliminar todo en este dispositivo?"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apagar tudo deste aparelho?"
+          }
+        }
+      }
+    },
+    "Deletes your calendar, logs, notes, and progress on this device. It's immediate and can't be undone — export first if you want to keep a copy.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Deletes your calendar, logs, notes, and progress on this device. It's immediate and can't be undone — export first if you want to keep a copy."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Elimina tu calendario, registros, notas y progreso en este dispositivo. Es inmediato y no se puede deshacer — exporta antes si quieres guardar una copia."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apaga o calendário, os registros, as anotações e o progresso deste aparelho. É imediato e não tem volta — exporte antes, se quiser guardar."
+          }
+        }
+      }
+    },
+    "Didn't find it? Write to {email} — we respond within two business days.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Didn't find it? Write to {email} — we respond within two business days."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿No lo encontraste? Escribe a {email} — respondemos en un plazo de dos días hábiles."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Não achou? Escreva para {email} — respondemos em até dois dias úteis."
+          }
+        }
+      }
+    },
+    "Each country has its own calendar over the general Roman one. This changes the saint of the day and the solemnities.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Each country has its own calendar over the general Roman one. This changes the saint of the day and the solemnities."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cada país tiene su propio calendario sobre el romano general. Esto cambia el santo del día y las solemnidades."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cada país tem seu calendário próprio sobre o romano geral. Isso muda o santo do dia e as solenidades."
+          }
+        }
+      }
+    },
+    "Even when on, your mood log and Examen notes never upload: they never leave this device. Your subscription, track progress, and rosaries prayed do sync.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Even when on, your mood log and Examen notes never upload: they never leave this device. Your subscription, track progress, and rosaries prayed do sync."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Incluso activada, tu registro de estado y tus notas del Examen nunca se suben: nunca salen de este dispositivo. Tu suscripción, el progreso de las trilhas y los rosarios rezados sí se sincronizan."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mesmo ligada, o registro de estado e as anotações do Exame não sobem: eles nunca saem deste aparelho. Sincronizam a assinatura, o progresso das trilhas e os terços rezados."
+          }
+        }
+      }
+    },
+    "Everything here is yours, and leaves whenever you want.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Everything here is yours, and leaves whenever you want."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Todo esto es tuyo, y sale de aquí cuando quieras."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tudo o que está aqui é seu, e sai daqui quando você quiser."
+          }
+        }
+      }
+    },
+    "Export": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Export"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Exportar"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Exportar"
+          }
+        }
+      }
+    },
+    "FREE ACCESS": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "FREE ACCESS"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ACCESO GRATUITO"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ACESSO GRATUITO"
+          }
+        }
+      }
+    },
+    "Find a parish →": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Find a parish →"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Encontrar una parroquia →"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Encontrar uma paróquia →"
+          }
+        }
+      }
+    },
+    "Free forever, with or without a subscription": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Free forever, with or without a subscription"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gratis para siempre, con o sin suscripción"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Grátis para sempre, com ou sem assinatura"
+          }
+        }
+      }
+    },
+    "Frequently asked questions": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Frequently asked questions"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Preguntas frecuentes"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Perguntas frequentes"
+          }
+        }
+      }
+    },
+    "Grave sin, a doubt of conscience, a life decision, a crisis: take it to a priest. This app shows you the nearest parish and confession hours, and that's the best it has to offer on this point.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Grave sin, a doubt of conscience, a life decision, a crisis: take it to a priest. This app shows you the nearest parish and confession hours, and that's the best it has to offer on this point."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pecado grave, duda de conciencia, decisión de vida, crisis: llévalo a un sacerdote. Esta app te muestra la parroquia más cercana y los horarios de confesión, y eso es lo mejor que puede ofrecer en este punto."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pecado grave, dúvida de consciência, decisão de vida, crise: leve a um padre. Este app mostra a paróquia mais perto e os horários de confissão, e é o melhor que ele tem a oferecer nesse ponto."
+          }
+        }
+      }
+    },
+    "Guided rosary with voice, beginner mode, and dark screen": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Guided rosary with voice, beginner mode, and dark screen"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rosario guiado con voz, modo principiante y pantalla apagada"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Terço guiado com voz, modo iniciante e tela apagada"
+          }
+        }
+      }
+    },
     "How the content is made": {
       "localizations": {
         "en": {
@@ -1427,6 +635,666 @@
           "stringUnit": {
             "state": "translated",
             "value": "Como o conteúdo é feito"
+          }
+        }
+      }
+    },
+    "If price is the problem, it stops being one": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "If price is the problem, it stops being one"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Si el precio es el problema, deja de serlo"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se o preço for o problema, ele deixa de ser"
+          }
+        }
+      }
+    },
+    "If the question is serious": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "If the question is serious"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Si la pregunta es grave"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se a pergunta for grave"
+          }
+        }
+      }
+    },
+    "It's not confession.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "It's not confession."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No es confesión."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Não é confissão."
+          }
+        }
+      }
+    },
+    "It's not spiritual direction.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "It's not spiritual direction."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No es dirección espiritual."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Não é direção espiritual."
+          }
+        }
+      }
+    },
+    "It's not therapy.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "It's not therapy."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No es terapia."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Não é terapia."
+          }
+        }
+      }
+    },
+    "Liturgical calendar": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Liturgical calendar"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Calendario litúrgico"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Calendário litúrgico"
+          }
+        }
+      }
+    },
+    "Missale Premium · yearly": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Missale Premium · yearly"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Missale Premium · anual"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Missale Premium · anual"
+          }
+        }
+      }
+    },
+    "No questions, no discount offer": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No questions, no discount offer"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sin preguntas y sin oferta de descuento"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sem perguntas e sem oferta de desconto"
+          }
+        }
+      }
+    },
+    "Nothing logged here is matter for absolution, and no text in this app forgives sin. Only the sacrament does that, and it happens with a priest.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nothing logged here is matter for absolution, and no text in this app forgives sin. Only the sacrament does that, and it happens with a priest."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nada registrado aquí es materia de absolución, y ningún texto de esta app perdona el pecado. Solo el sacramento hace eso, y ocurre con un sacerdote."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nada registrado aqui é matéria de absolvição, e nenhum texto deste app perdoa pecado. Só o sacramento faz isso, e ele acontece com um sacerdote."
+          }
+        }
+      }
+    },
+    "Off": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Off"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Desactivada"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Desligada"
+          }
+        }
+      }
+    },
+    "On": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "On"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Activada"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ligada"
+          }
+        }
+      }
+    },
+    "One notification a day, in your device's time zone. No nagging if you don't open it.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "One notification a day, in your device's time zone. No nagging if you don't open it."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Una notificación al día, en la zona horaria de tu dispositivo. Sin insistencia si no la abres."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uma notificação por dia, no fuso do aparelho. Nada de insistência se você não abrir."
+          }
+        }
+      }
+    },
+    "Parishes and catechesis": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Parishes and catechesis"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Parroquias y catequesis"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Paróquias e catequese"
+          }
+        }
+      }
+    },
+    "Pastoral note": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pastoral note"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nota pastoral"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nota pastoral"
+          }
+        }
+      }
+    },
+    "People respond, not a form.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "People respond, not a form."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Personas responden, no un formulario."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gente responde, não um formulário."
+          }
+        }
+      }
+    },
+    "Privacy Policy": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Privacy Policy"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Política de privacidad"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Política de privacidade"
+          }
+        }
+      }
+    },
+    "Restore Purchases": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restore Purchases"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restaurar compras"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restaurar compras"
+          }
+        }
+      }
+    },
+    "Schedules and reminders": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Schedules and reminders"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Horarios y recordatorios"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Horários e lembretes"
+          }
+        }
+      }
+    },
+    "Screen views only, no content": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Screen views only, no content"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Solo pantallas abiertas, sin contenido"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Só telas abertas, sem conteúdo"
+          }
+        }
+      }
+    },
+    "Search country or diocese": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Search country or diocese"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buscar país o diócesis"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buscar país ou diocese"
+          }
+        }
+      }
+    },
+    "Silence": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Silence"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Silencio"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Silêncio"
+          }
+        }
+      }
+    },
+    "Subscription": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Subscription"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Suscripción"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Assinatura"
+          }
+        }
+      }
+    },
+    "Support": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Support"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Soporte"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Suporte"
+          }
+        }
+      }
+    },
+    "Sync across devices": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sync across devices"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sincronizar entre dispositivos"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sincronizar entre aparelhos"
+          }
+        }
+      }
+    },
+    "THREE STATEMENTS": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "THREE STATEMENTS"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "TRES DECLARACIONES"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "TRÊS DECLARAÇÕES"
+          }
+        }
+      }
+    },
+    "Tap to open.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tap to open."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toca para abrir."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toque para abrir."
+          }
+        }
+      }
+    },
+    "Terms of Use": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Terms of Use"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Términos de uso"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Termos de uso"
+          }
+        }
+      }
+    },
+    "The answers are the same for everyone who picks the same state. Spiritual direction is someone who knows your story and answers you.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The answers are the same for everyone who picks the same state. Spiritual direction is someone who knows your story and answers you."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Las respuestas son las mismas para todos los que eligen el mismo estado. La dirección espiritual es alguien que conoce tu historia y te responde a ti."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "As respostas são as mesmas para todos que escolhem o mesmo estado. Direção espiritual é alguém que conhece a sua história e responde a você."
+          }
+        }
+      }
+    },
+    "The complete Rosary": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The complete Rosary"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El Rosario completo"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O Terço completo"
+          }
+        }
+      }
+    },
+    "The complete liturgical calendar, with every feast explained": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The complete liturgical calendar, with every feast explained"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El calendario litúrgico completo, con cada fiesta explicada"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O calendário litúrgico completo, com cada festa explicada"
           }
         }
       }
@@ -1475,266 +1343,112 @@
         }
       }
     },
-    "Support": {
+    "The pastoral referral network": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Support"
+            "value": "The pastoral referral network"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Soporte"
+            "value": "La red de derivación pastoral"
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Suporte"
+            "value": "A rede de encaminhamento pastoral"
           }
         }
       }
     },
-    "People respond, not a form.": {
+    "The proper calendars aren't loaded yet: your choice is saved and takes effect once each country's sanctoral is in the catalog.": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "People respond, not a form."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Personas responden, no un formulario."
+            "value": "The proper calendars aren't loaded yet: your choice is saved and takes effect once each country's sanctoral is in the catalog."
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Gente responde, não um formulário."
+            "value": "Os calendários próprios ainda não estão carregados: sua escolha fica guardada e passa a valer quando o santoral de cada país entrar no acervo."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Los calendarios propios aún no están cargados: tu elección queda guardada y pasa a valer cuando el santoral de cada país entre en el acervo."
           }
         }
       }
     },
-    "Write to us": {
+    "The subscription renews automatically until canceled. Cancellation happens in your App Store account settings, at least 24 hours before the period ends.": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Write to us"
+            "value": "The subscription renews automatically until canceled. Cancellation happens in your App Store account settings, at least 24 hours before the period ends."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Escríbenos"
+            "value": "La suscripción se renueva automáticamente hasta que se cancele. La cancelación se hace en los ajustes de tu cuenta de la App Store, al menos 24 horas antes de que termine el período."
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Escrever para nós"
+            "value": "A assinatura renova sozinha até ser cancelada. O cancelamento acontece nos ajustes da conta da App Store, ao menos 24 horas antes do fim do período."
           }
         }
       }
     },
-    "We respond within two business days, in Portuguese or English. One of the three people who make the app answers.": {
+    "The word and saint of the day": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "We respond within two business days, in Portuguese or English. One of the three people who make the app answers."
+            "value": "The word and saint of the day"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Respondemos en un plazo de dos días hábiles, en portugués o inglés. Responde una de las tres personas que hacen la app."
+            "value": "La palabra y el santo del día"
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Respondemos em até dois dias úteis, em português ou inglês. Quem responde é uma das três pessoas que fazem o app."
+            "value": "A palavra e o santo do dia"
           }
         }
       }
     },
-    "FREE ACCESS": {
+    "There's no clinical evaluation, diagnosis, or follow-up care. Psychological suffering calls for a professional, and the two paths don't compete.": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "FREE ACCESS"
+            "value": "There's no clinical evaluation, diagnosis, or follow-up care. Psychological suffering calls for a professional, and the two paths don't compete."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "ACCESO GRATUITO"
+            "value": "No hay evaluación clínica, diagnóstico ni seguimiento. El sufrimiento psíquico requiere un profesional, y los dos caminos no compiten."
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "ACESSO GRATUITO"
-          }
-        }
-      }
-    },
-    "If price is the problem, it stops being one": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "If price is the problem, it stops being one"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Si el precio es el problema, deja de serlo"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Se o preço for o problema, ele deixa de ser"
-          }
-        }
-      }
-    },
-    "Write in and we'll unlock full access. No proof of income, no explanation, no deadline. This isn't an exception, it's policy — no one is left out of formation because of money.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Write in and we'll unlock full access. No proof of income, no explanation, no deadline. This isn't an exception, it's policy — no one is left out of formation because of money."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Escribe pidiéndolo y liberamos el acceso completo. Sin comprobante de ingresos, sin explicación y sin plazo. Esto no es una excepción, es política — nadie se queda fuera de la formación por dinero."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Escreva pedindo e liberamos o acesso completo. Sem comprovação de renda, sem explicação e sem prazo. Isso não é exceção, é política — ninguém fica de fora da formação por dinheiro."
-          }
-        }
-      }
-    },
-    "Parishes and catechesis": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Parishes and catechesis"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Parroquias y catequesis"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Paróquias e catequese"
-          }
-        }
-      }
-    },
-    "Bulk licenses for groups, OCIA catechumens, and pastoral teams, also free. Talk to us.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bulk licenses for groups, OCIA catechumens, and pastoral teams, also free. Talk to us."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Licencias en bloque para grupos, catecúmenos de OCIA y equipos pastorales, también gratis. Habla con nosotros."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Licenças em bloco para grupos, catecúmenos de OCIA e pastorais, também gratuitas. Fale com a gente."
-          }
-        }
-      }
-    },
-    "Frequently asked questions": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Frequently asked questions"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Preguntas frecuentes"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Perguntas frequentes"
-          }
-        }
-      }
-    },
-    "Tap to open.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tap to open."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Toca para abrir."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Toque para abrir."
-          }
-        }
-      }
-    },
-    "With {region} selected:": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "With {region} selected:"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Con {region} seleccionado:"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Com {region} selecionado:"
+            "value": "Não há avaliação clínica, diagnóstico nem acompanhamento. Sofrimento psíquico pede profissional, e os dois caminhos não competem."
           }
         }
       }
@@ -1761,24 +1475,332 @@
         }
       }
     },
-    "Didn't find it? Write to {email} — we respond within two business days.": {
+    "Traditional prayers and devotions, offline": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Didn't find it? Write to {email} — we respond within two business days."
+            "value": "Traditional prayers and devotions, offline"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "¿No lo encontraste? Escribe a {email} — respondemos en un plazo de dos días hábiles."
+            "value": "Oraciones y devociones de la tradición, sin conexión"
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Não achou? Escreva para {email} — respondemos em até dois dias úteis."
+            "value": "Orações e devoções da tradição, offline"
+          }
+        }
+      }
+    },
+    "US$ 39.99/year": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "US$ 39.99/year"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "US$ 39,99/año"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "US$ 39,99/ano"
+          }
+        }
+      }
+    },
+    "We don't sell data, there are no third-party trackers, and there are no ads. Analytics are anonymous and can be turned off below.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "We don't sell data, there are no third-party trackers, and there are no ads. Analytics are anonymous and can be turned off below."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No vendemos datos, no hay rastreadores de terceros y no hay anuncios. La analítica es anónima y se puede desactivar abajo."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Não vendemos dados, não há rastreadores de terceiros e não há anúncios. A analítica é anônima e pode ser desligada abaixo."
+          }
+        }
+      }
+    },
+    "We respond within two business days, in Portuguese or English. One of the three people who make the app answers.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "We respond within two business days, in Portuguese or English. One of the three people who make the app answers."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Respondemos en un plazo de dos días hábiles, en portugués o inglés. Responde una de las tres personas que hacen la app."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Respondemos em até dois dias úteis, em português ou inglês. Quem responde é uma das três pessoas que fazem o app."
+          }
+        }
+      }
+    },
+    "What it is": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "What it is"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lo que es"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O que ele é"
+          }
+        }
+      }
+    },
+    "What this app is, and what it isn't": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "What this app is, and what it isn't"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Qué es esta app, y qué no es"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O que este app é, e o que ele não é"
+          }
+        }
+      }
+    },
+    "What's included": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "What's included"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Qué está incluido"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O que está incluído"
+          }
+        }
+      }
+    },
+    "Who reviewed the content": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Who reviewed the content"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quién revisó el contenido"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quem revisou o conteúdo"
+          }
+        }
+      }
+    },
+    "With {region} selected:": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "With {region} selected:"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Con {region} seleccionado:"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Com {region} selecionado:"
+          }
+        }
+      }
+    },
+    "Word of the day and saint of the day": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Word of the day and saint of the day"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Palabra del día y santo del día"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Palavra do dia e santo do dia"
+          }
+        }
+      }
+    },
+    "Write in and we'll unlock full access. No proof of income, no explanation, no deadline. This isn't an exception, it's policy — no one is left out of formation because of money.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Write in and we'll unlock full access. No proof of income, no explanation, no deadline. This isn't an exception, it's policy — no one is left out of formation because of money."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Escribe pidiéndolo y liberamos el acceso completo. Sin comprobante de ingresos, sin explicación y sin plazo. Esto no es una excepción, es política — nadie se queda fuera de la formación por dinero."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Escreva pedindo e liberamos o acesso completo. Sem comprovação de renda, sem explicação e sem prazo. Isso não é exceção, é política — ninguém fica de fora da formação por dinheiro."
+          }
+        }
+      }
+    },
+    "Write to us": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Write to us"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Escríbenos"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Escrever para nós"
+          }
+        }
+      }
+    },
+    "Your calendar and everything you've logged": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your calendar and everything you've logged"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tu calendario y todo lo que has registrado"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seu calendário e tudo o que você registrou"
+          }
+        }
+      }
+    },
+    "Your calendar, logs, intentions, and progress, in a readable file. No account and no cloud in between.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your calendar, logs, intentions, and progress, in a readable file. No account and no cloud in between."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tu calendario, registros, intenciones y progreso, en un archivo legible. Sin cuenta y sin nube en el medio."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seu calendário, os registros, as intenções e o progresso, em um arquivo legível. Sem conta e sem nuvem no meio."
+          }
+        }
+      }
+    },
+    "Your data": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your data"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tus datos"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seus dados"
           }
         }
       }

@@ -45,6 +45,18 @@ enum MockSettings {
         .init(id: "general", name: "Calendário romano geral", subtitle: "Sem próprio nacional", isSelected: false),
     ]
 
+    /// The calendar a person most likely wants before touching the picker,
+    /// taken from the interface language instead of a hardcoded country: pt is
+    /// Brazil, en the United States, es Mexico — the three regions the content
+    /// catalogs are being authored for.
+    static func defaultRegionID(for language: AppLanguage) -> String {
+        switch language {
+        case .pt: "br"
+        case .en: "us"
+        case .es: "mx"
+        }
+    }
+
     static let regionalEffectNote = "A Ascensão cai no domingo, a Epifania no domingo seguinte a 1º de janeiro, e o dia de hoje mostra também os santos do próprio país."
     static let riteFormNote = "Forma do rito: ordinária e 1962. A trilha da Missa segue a forma escolhida no início, e pode ser trocada na trilha."
 

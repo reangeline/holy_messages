@@ -2,6 +2,7 @@ import SwiftUI
 
 struct AppRootView: View {
     @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding = false
+    @State private var showSettings = false
     @AppStorage(AppLanguagePreference.storageKey) private var languageOverride = AppLanguagePreference.systemValue
     @Environment(\.scenePhase) private var scenePhase
 
@@ -31,6 +32,12 @@ struct AppRootView: View {
         // It costs the navigation stack and the selected tab, which is the right
         // trade for a setting that changes once in the life of an install.
         .id(resolvedLanguage)
+        // Outside the .id() above on purpose: the sheet survives the rebuild, so
+        // picking a language updates the app behind it without closing it.
+        .environment(\.settingsPresented, $showSettings)
+        .sheet(isPresented: $showSettings) {
+            SettingsView()
+        }
         // Rolling-window notifications need refreshing on every foreground, not just
         // cold launch — that's the only way a liturgical-season wording change
         // (Angelus → Regina Caeli) or the 64-pending cap stay honored over time.

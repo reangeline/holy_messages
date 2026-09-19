@@ -4,8 +4,8 @@ import SwiftUI
 /// when on), export, and irreversible local delete. "Apagar tudo" really clears
 /// MoodHistoryStore, the one piece of real local data this pass has.
 struct DataSettingsView: View {
-    @State private var syncEnabled = false
-    @State private var analyticsEnabled = false
+    @AppStorage(UserProfile.syncEnabledKey) private var syncEnabled = false
+    @AppStorage(UserProfile.analyticsEnabledKey) private var analyticsEnabled = false
     @State private var showDeleteConfirmation = false
     @State private var didDelete = false
     @ObservedObject private var moodHistory = MoodHistoryStore.shared

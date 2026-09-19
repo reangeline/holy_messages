@@ -4,10 +4,10 @@ import SwiftUI
 /// teaser cards, and the nightly Examen/Compline card.
 struct TodayRootView: View {
     @State private var showMoodSheet = false
-    @State private var showSettings = false
     @State private var navigateToExamen = false
     @ObservedObject private var progressStore = FormationProgressStore.shared
     @Environment(\.mainTabSelection) private var mainTabSelection
+    @Environment(\.settingsPresented) private var settingsPresented
     @AppStorage(UserProfile.nameStorageKey) private var userDisplayName = ""
 
     private let day = MockLiturgical.today
@@ -57,9 +57,6 @@ struct TodayRootView: View {
             .sheet(isPresented: $showMoodSheet) {
                 MoodCheckInSheet()
             }
-            .sheet(isPresented: $showSettings) {
-                SettingsView()
-            }
         }
     }
 
@@ -87,7 +84,7 @@ struct TodayRootView: View {
             }
             Spacer()
             Button {
-                showSettings = true
+                settingsPresented?.wrappedValue = true
             } label: {
                 Image(systemName: "gearshape.fill")
                     .font(.system(size: 15))
