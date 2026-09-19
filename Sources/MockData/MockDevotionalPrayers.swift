@@ -1,7 +1,14 @@
 import Foundation
 
 enum MockDevotionalPrayers {
-    static let categories: [PrayerCategory] = [
+    /// One catalog per language — see LocalizedCatalog. English and Spanish
+    /// catalogs get their own official prayer wordings via the Acervo, rather
+    /// than translations of the Portuguese ones.
+    static var categories: [PrayerCategory] { catalog.current }
+
+    static let catalog = LocalizedCatalog(pt: ptCategories)
+
+    private static let ptCategories: [PrayerCategory] = [
         .init(id: "peace-surrender", title: "Orações de Paz e Entrega", prayers: [
             .init(
                 id: "st-francis-peace",

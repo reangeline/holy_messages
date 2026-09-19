@@ -5,7 +5,12 @@ enum MockMood {
     // words (not just "absence of desolação"), or improvement becomes illegible
     // in the calendar/retrospective — a blank day and a good day would look the
     // same. See spec §1.2.
-    static let stateGroups: [MoodStateGroup] = [
+    /// One catalog per language — see LocalizedCatalog.
+    static var stateGroups: [MoodStateGroup] { stateGroupsCatalog.current }
+
+    static let stateGroupsCatalog = LocalizedCatalog(pt: ptStateGroups)
+
+    private static let ptStateGroups: [MoodStateGroup] = [
         .init(id: "consolation", label: "Consolação", items: [
             .init(id: "peace", label: "Em paz"),
             .init(id: "grateful", label: "Grato"),
@@ -48,7 +53,12 @@ enum MockMood {
     // toward the 15–20 the spec asks for) so the same tap doesn't return the same
     // Psalm and saint every time — see MoodHistoryStore.lastReliefIndex /
     // relief(for:excluding:).
-    static let reliefByState: [String: [ReliefContent]] = [
+    /// One catalog per language — see LocalizedCatalog.
+    static var reliefByState: [String: [ReliefContent]] { reliefCatalog.current }
+
+    static let reliefCatalog = LocalizedCatalog(pt: ptReliefByState)
+
+    private static let ptReliefByState: [String: [ReliefContent]] = [
         "peace": [
             ReliefContent(
                 title: "A paz que o mundo não dá",

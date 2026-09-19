@@ -67,28 +67,6 @@
         }
       }
     },
-    "SUA TRILHA · PARTE 3 DE 14": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "YOUR TRACK · PART 3 OF 14"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "TU TRILLA · PARTE 3 DE 14"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "SUA TRILHA · PARTE 3 DE 14"
-          }
-        }
-      }
-    },
     "Palavra de hoje": {
       "localizations": {
         "en": {
@@ -1631,6 +1609,12 @@
     },
     "Bom dia, {name}": {
       "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bom dia, {name}"
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -1641,12 +1625,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Buenos días, {name}"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bom dia, {name}"
           }
         }
       }
@@ -1977,6 +1955,160 @@
           "stringUnit": {
             "state": "translated",
             "value": "Pular, sem escrever nada"
+          }
+        }
+      }
+    },
+    "Bom dia!": {
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bom dia!"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Good morning!"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¡Buenos días!"
+          }
+        }
+      }
+    },
+    "Boa tarde, {name}": {
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Boa tarde, {name}"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Good afternoon, {name}"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buenas tardes, {name}"
+          }
+        }
+      }
+    },
+    "Boa tarde!": {
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Boa tarde!"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Good afternoon!"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¡Buenas tardes!"
+          }
+        }
+      }
+    },
+    "Boa noite, {name}": {
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Boa noite, {name}"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Good evening, {name}"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buenas noches, {name}"
+          }
+        }
+      }
+    },
+    "Boa noite!": {
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Boa noite!"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Good evening!"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¡Buenas noches!"
+          }
+        }
+      }
+    },
+    "SUA TRILHA · PARTE {n} DE {total}": {
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "SUA TRILHA · PARTE {n} DE {total}"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "YOUR TRACK · PART {n} OF {total}"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "TU RECORRIDO · PARTE {n} DE {total}"
+          }
+        }
+      }
+    },
+    "TRILHA CONCLUÍDA": {
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "TRILHA CONCLUÍDA"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "TRACK COMPLETED"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "RECORRIDO COMPLETADO"
           }
         }
       }

@@ -20,7 +20,12 @@ enum LiturgicalSanctoral {
         let color: LiturgicalColor
     }
 
-    static let feasts: [FixedFeast] = [
+    /// One catalog per language — see LocalizedCatalog.
+    static var feasts: [FixedFeast] { catalog.current }
+
+    static let catalog = LocalizedCatalog(pt: ptFeasts)
+
+    private static let ptFeasts: [FixedFeast] = [
         .init(monthDay: "02-02", name: "Apresentação do Senhor", rank: .feast, color: .white),
         .init(monthDay: "03-19", name: "São José, Esposo de Maria", rank: .solemnity, color: .white),
         .init(monthDay: "03-25", name: "Anunciação do Senhor", rank: .solemnity, color: .white),

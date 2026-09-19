@@ -1,55 +1,204 @@
 {
-  "sourceLanguage" : "en",
-  "strings" : {
-    "Close" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Close" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Cerrar" } },
-        "pt" : { "stringUnit" : { "state" : "translated", "value" : "Fechar" } }
+  "sourceLanguage": "en",
+  "strings": {
+    "Automatic (device language)": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Automatic (device language)"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Automático (idioma del dispositivo)"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Automático (idioma do aparelho)"
+          }
+        }
       }
     },
-    "Language" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Language" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Idioma" } },
-        "pt" : { "stringUnit" : { "state" : "translated", "value" : "Idioma" } }
+    "Calendar": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Calendar"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Calendario"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Calendário"
+          }
+        }
       }
     },
-    "Automatic (device language)" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Automatic (device language)" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Automático (idioma del dispositivo)" } },
-        "pt" : { "stringUnit" : { "state" : "translated", "value" : "Automático (idioma do aparelho)" } }
+    "Close": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Close"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cerrar"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fechar"
+          }
+        }
       }
     },
-    "Today" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Today" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Hoy" } },
-        "pt" : { "stringUnit" : { "state" : "translated", "value" : "Hoje" } }
+    "Formation": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Formation"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Formación"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Formação"
+          }
+        }
       }
     },
-    "Calendar" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Calendar" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Calendario" } },
-        "pt" : { "stringUnit" : { "state" : "translated", "value" : "Calendário" } }
+    "Language": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Language"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Idioma"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Idioma"
+          }
+        }
       }
     },
-    "Formation" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Formation" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Formación" } },
-        "pt" : { "stringUnit" : { "state" : "translated", "value" : "Formação" } }
+    "Prayers": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prayers"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Oraciones"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Orações"
+          }
+        }
       }
     },
-    "Prayers" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Prayers" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Oraciones" } },
-        "pt" : { "stringUnit" : { "state" : "translated", "value" : "Orações" } }
+    "The interface and all content are available in this language.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The interface and all content are available in this language."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A interface e todo o conteúdo estão disponíveis neste idioma."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La interfaz y todo el contenido están disponibles en este idioma."
+          }
+        }
+      }
+    },
+    "The interface is fully translated. Content is available in {done} of {total} sections; the rest is shown in Portuguese until it is added.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The interface is fully translated. Content is available in {done} of {total} sections; the rest is shown in Portuguese until it is added."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A interface está totalmente traduzida. O conteúdo existe em {done} de {total} seções; o restante aparece em português até ser incluído."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La interfaz está totalmente traducida. El contenido existe en {done} de {total} secciones; el resto se muestra en portugués hasta que se incluya."
+          }
+        }
+      }
+    },
+    "Today": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Today"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hoy"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hoje"
+          }
+        }
       }
     }
   },
-  "version" : "1.0"
+  "version": "1.0"
 }

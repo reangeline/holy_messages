@@ -22,7 +22,7 @@ final class RosaryHistoryStore {
 }
 
 extension RosaryHistoryEntry {
-    var title: String { "Mistérios \(mysterySet.rawValue)" }
+    var title: String { mysterySet.displayTitle }
 
     var subtitle: String {
         guard let intention, !intention.isEmpty else { return modeLabel }

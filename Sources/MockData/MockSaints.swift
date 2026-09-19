@@ -33,7 +33,12 @@ enum MockSaints {
     /// Region-keyed sanctoral cycle — see SaintCalendarRegion. Only `.general` is
     /// populated so far; a country override would be another entry with the same
     /// `dateKey` and a different `region`, resolved by `saint(on:region:)` below.
-    static let calendar: [SaintOfDay] = [
+    /// One catalog per language — see LocalizedCatalog.
+    static var calendar: [SaintOfDay] { catalog.current }
+
+    static let catalog = LocalizedCatalog(pt: ptCalendar)
+
+    private static let ptCalendar: [SaintOfDay] = [
         SaintOfDay(dateKey: "09-14", region: .general, saint: notburga),
         SaintOfDay(dateKey: "09-23", region: .general, saint: johnGabrielPerboyre),
     ]

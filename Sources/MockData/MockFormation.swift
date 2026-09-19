@@ -272,7 +272,11 @@ enum MockFormation {
 
     /// Ordered by partNumber — this order is what drives "next up" once a lesson
     /// is marked complete. See FormationProgressStore.nextLesson(_:).
-    static let track = FormationTrack(
+    static var track: FormationTrack { trackCatalog.current }
+
+    static let trackCatalog = LocalizedCatalog(pt: ptTrack)
+
+    private static let ptTrack = FormationTrack(
         id: "mass-part-by-part",
         title: "A Missa, parte por parte",
         meta: "Uma parte por dia, cerca de quatro minutos",
@@ -293,7 +297,12 @@ enum MockFormation {
     // orações explicadas. O Terço do zero and Como se confessar bem are kept as
     // extra tracks beyond that list rather than removed — they're already-written,
     // complementary content, not a gap.
-    static let otherTracks: [FormationTrack] = [
+    /// One catalog per language — see LocalizedCatalog.
+    static var otherTracks: [FormationTrack] { otherTracksCatalog.current }
+
+    static let otherTracksCatalog = LocalizedCatalog(pt: ptOtherTracks)
+
+    private static let ptOtherTracks: [FormationTrack] = [
         .init(id: "sacraments", title: "Os sete sacramentos", meta: "7 partes · 4 min cada", progress: 0, nextUp: "Parte 1: o que é um sacramento", lessons: []),
         .init(id: "liturgical-year", title: "O Ano Litúrgico", meta: "6 partes · 4 min cada", progress: 0, nextUp: "Parte 1: um ano que não começa em janeiro", lessons: []),
         .init(id: "signs-symbols", title: "Sinais e símbolos", meta: "5 partes · 4 min cada", progress: 0, nextUp: "Parte 1: por que fazemos o sinal da cruz", lessons: []),

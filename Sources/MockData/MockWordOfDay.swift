@@ -1,14 +1,31 @@
 import Foundation
 
 enum MockWordOfDay {
-    /// The pool a day's word is drawn from — grows over time via the Acervo tool.
-    static let pool: [WordOfDay] = [
+    /// The pool a day's word is drawn from — one catalog per language, grown
+    /// over time via the Acervo tool. See LocalizedCatalog.
+    static var pool: [WordOfDay] { catalog.current }
+
+    static let catalog = LocalizedCatalog(pt: ptPool, en: enPool)
+
+    private static let ptPool: [WordOfDay] = [
         .init(
             id: "joao-3-14",
             quote: "Como Moisés levantou a serpente no deserto, assim deve ser levantado o Filho do Homem, para que todo o que nele crer tenha a vida eterna.",
             reference: "João 3, 14-15",
             translationNote: "Douay-Rheims, domínio público",
             context: "Jesus fala de noite, a um fariseu, e cita um episódio do deserto: uma serpente de bronze erguida num poste, que curava quem olhasse para ela. O verbo \"levantado\" é o mesmo que se usará para a crucificação. É por isso que este texto se lê hoje: a Cruz não é um acidente no fim da história, é o sinal erguido para ser olhado."
+        ),
+    ]
+
+    /// English uses the Douay-Rheims wording — public domain, and already the
+    /// translation this app cites for English-language scripture.
+    private static let enPool: [WordOfDay] = [
+        .init(
+            id: "joao-3-14",
+            quote: "And as Moses lifted up the serpent in the desert, so must the Son of man be lifted up: that whosoever believeth in him may not perish, but may have life everlasting.",
+            reference: "John 3:14-15",
+            translationNote: "Douay-Rheims, public domain",
+            context: "Jesus is speaking at night, to a Pharisee, and he cites an episode from the desert: a bronze serpent raised on a pole, which healed whoever looked at it. The verb \"lifted up\" is the same one that will be used for the crucifixion. That is why this text is read today: the Cross is not an accident at the end of the story, it is the sign raised up to be looked at."
         ),
     ]
 

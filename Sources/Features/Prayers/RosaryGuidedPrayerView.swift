@@ -83,7 +83,7 @@ struct RosaryGuidedPrayerView: View {
 
     private var header: some View {
         VStack(spacing: 4) {
-            Eyebrow(text: "Mistérios \(mystery.mysterySet.rawValue)")
+            Eyebrow(text: mystery.mysterySet.displayTitle)
         }
         .padding(.top, 12)
     }

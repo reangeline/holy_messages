@@ -59,7 +59,7 @@ struct PrayersRootView: View {
                         .font(MissaleFont.body(11, weight: .semibold))
                         .tracking(1.4)
                         .foregroundStyle(Palette.goldBright)
-                    Text("\(L.string( "Mysteries", table: "Prayers")) \(todays.mysterySet.rawValue)")
+                    Text(todays.mysterySet.displayTitle)
                         .font(MissaleFont.display(21, weight: .medium))
                         .foregroundStyle(.white)
                     Text("Guided, bead by bead · 18 min", tableName: "Prayers")

@@ -21,6 +21,8 @@ struct LanguageSettingsView: View {
                         languageOverride = language.rawValue
                     }
                 }
+            } footer: {
+                Text(contentFooter)
             }
         }
         .navigationTitle(L.string( "Language"))
@@ -30,6 +32,20 @@ struct LanguageSettingsView: View {
     private var currentlyResolvedFooter: String {
         let resolved = AppLanguagePreference.resolve(override: languageOverride)
         return "\u{2192} \(resolved.displayName)"
+    }
+
+    /// Says out loud that the interface and the content are translated at
+    /// different speeds: chrome is complete in all 3 languages, content is
+    /// authored catalog by catalog and falls back to Portuguese until then.
+    private var contentFooter: String {
+        let resolved = AppLanguagePreference.resolve(override: languageOverride)
+        guard !ContentLanguageCoverage.isComplete(for: resolved) else {
+            return L.string("The interface and all content are available in this language.")
+        }
+        let counts = ContentLanguageCoverage.counts(for: resolved)
+        return L.string("The interface is fully translated. Content is available in {done} of {total} sections; the rest is shown in Portuguese until it is added.")
+            .replacingOccurrences(of: "{done}", with: "\(counts.authored)")
+            .replacingOccurrences(of: "{total}", with: "\(counts.total)")
     }
 
     private func row(title: String, isSelected: Bool, action: @escaping () -> Void) -> some View {

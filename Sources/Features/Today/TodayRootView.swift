@@ -132,7 +132,7 @@ struct TodayRootView: View {
             LiturgicalGradientCard(color: day.color) {
                 VStack(alignment: .leading, spacing: 6) {
                     Text(trackFinished
-                         ? "TRILHA CONCLUÍDA"
+                         ? L.string("TRILHA CONCLUÍDA", table: "Today")
                          : L.string("SUA TRILHA · PARTE {n} DE {total}", table: "Today")
                              .replacingOccurrences(of: "{n}", with: "\(next.partNumber)")
                              .replacingOccurrences(of: "{total}", with: "\(next.partsTotal)"))
@@ -142,7 +142,9 @@ struct TodayRootView: View {
                     Text(next.title)
                         .font(MissaleFont.display(21, weight: .medium))
                         .foregroundStyle(.white)
-                    Text("A Missa, parte por parte · 4 min")
+                    // Track title comes from the content catalog, so it follows
+                    // whichever language that track was authored in.
+                    Text("\(track.title) · 4 min")
                         .font(MissaleFont.body(15))
                         .foregroundStyle(.white.opacity(0.88))
                     ProgressView(value: track.liveProgress(progressStore))
@@ -209,7 +211,7 @@ struct TodayRootView: View {
                 HStack {
                     VStack(alignment: .leading, spacing: 3) {
                         Eyebrow(text: L.string("Terço de hoje", table: "Today"))
-                        Text("Mistérios \(todays.mysterySet.rawValue)")
+                        Text(todays.mysterySet.displayTitle)
                             .font(MissaleFont.body(17, weight: .medium))
                             .foregroundStyle(Palette.ink)
                         Text("\(todays.dayLabel) · 18 min")

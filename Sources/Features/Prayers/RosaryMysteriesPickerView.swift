@@ -15,7 +15,7 @@ struct RosaryMysteriesPickerView: View {
                     VStack(alignment: .leading, spacing: 5) {
                         Text("Today's Mysteries", tableName: "Prayers")
                             .font(MissaleFont.display(28))
-                        Text("\(MockLiturgical.today.weekdayLabel): \(MockRosary.todays.mysterySet.rawValue). Pode trocar, se quiser rezar outros.")
+                        Text("\(MockLiturgical.today.weekdayLabel): \(MockRosary.todays.mysterySet.displayName). Pode trocar, se quiser rezar outros.")
                             .font(MissaleFont.body(15))
                             .foregroundStyle(Palette.ink.opacity(0.7))
                     }
@@ -80,7 +80,7 @@ struct RosaryMysteriesPickerView: View {
         } label: {
             HStack {
                 VStack(alignment: .leading, spacing: 3) {
-                    Text("\(L.string( "Mysteries", table: "Prayers")) \(mystery.mysterySet.rawValue)")
+                    Text(mystery.mysterySet.displayTitle)
                         .font(MissaleFont.body(17, weight: .medium))
                         .foregroundStyle(isSelected ? .white : Palette.ink)
                     Text(mystery.dayLabel)

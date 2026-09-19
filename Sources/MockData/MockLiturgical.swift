@@ -30,7 +30,12 @@ extension MockLiturgical {
 
 enum MockLiturgical {
     /// The app's fixed "today" for this mocked-data pass, matching the design's demo day.
-    static let today = LiturgicalDay(
+    /// One catalog per language — see LocalizedCatalog.
+    static var today: LiturgicalDay { todayCatalog.current }
+
+    static let todayCatalog = LocalizedCatalog(pt: ptToday)
+
+    private static let ptToday = LiturgicalDay(
         dateKey: "2026-09-14",
         weekdayLabel: "Segunda-feira",
         dayMonthLabel: "14 de setembro",
@@ -41,7 +46,11 @@ enum MockLiturgical {
         explanation: "Vermelho é a cor do sangue e do fogo: mártires, Pentecostes e a Cruz. Hoje a Igreja exalta a Cruz, então as vestes são vermelhas — e este app também."
     )
 
-    static let tomorrow = LiturgicalDay(
+    static var tomorrow: LiturgicalDay { tomorrowCatalog.current }
+
+    static let tomorrowCatalog = LocalizedCatalog(pt: ptTomorrow)
+
+    private static let ptTomorrow = LiturgicalDay(
         dateKey: "2026-09-15",
         weekdayLabel: "Terça-feira",
         dayMonthLabel: "15 de setembro",
@@ -52,27 +61,43 @@ enum MockLiturgical {
         explanation: "Amanhã, Nossa Senhora das Dores, é memória — e a tela fica branca."
     )
 
-    static let ranksExplainer = "Memória, festa, solenidade. Hoje é festa: entra o Glória, não entra o Credo. Amanhã, Nossa Senhora das Dores, é memória — e a tela fica branca."
+    static var ranksExplainer: String { ranksExplainerCatalog.current }
+
+    static let ranksExplainerCatalog = LocalizedCatalog(pt: ptRanksExplainer)
+
+    private static let ptRanksExplainer = "Memória, festa, solenidade. Hoje é festa: entra o Glória, não entra o Credo. Amanhã, Nossa Senhora das Dores, é memória — e a tela fica branca."
 
     static let colorGuide: [LiturgicalColorInfo] = [
         .init(color: .red), .init(color: .white), .init(color: .green), .init(color: .purple), .init(color: .rose),
     ]
 
-    static let glossaryTerms: [GlossaryTerm] = [
+    static var glossaryTerms: [GlossaryTerm] { glossaryCatalog.current }
+
+    static let glossaryCatalog = LocalizedCatalog(pt: ptGlossaryTerms)
+
+    private static let ptGlossaryTerms: [GlossaryTerm] = [
         .init(term: "mea culpa", definition: "\"Por minha culpa\": expressão latina do Ato Penitencial, dita enquanto se bate no peito."),
         .init(term: "Kyrie", definition: "\"Senhor, tende piedade\": invocação grega mantida na liturgia latina, logo após o Ato Penitencial."),
         .init(term: "lecionário", definition: "O livro litúrgico com as leituras da Missa organizadas por dia e ciclo."),
         .init(term: "Completas", definition: "A última oração do dia no Ofício Divino, antes do repouso noturno."),
     ]
 
-    static let seasons: [LiturgicalSeason] = [
+    static var seasons: [LiturgicalSeason] { seasonsCatalog.current }
+
+    static let seasonsCatalog = LocalizedCatalog(pt: ptSeasons)
+
+    private static let ptSeasons: [LiturgicalSeason] = [
         .init(id: "advent", name: "Advento", dateRange: "29 nov a 24 dez", color: .purple, summaryLine: "Quatro semanas de espera, preparando o Natal do Senhor."),
         .init(id: "lent", name: "Quaresma", dateRange: "5 mar a 17 abr", color: .purple, summaryLine: "Quarenta dias de jejum, oração e esmola, rumo à Páscoa."),
         .init(id: "easter", name: "Tempo Pascal", dateRange: "18 abr a 6 jun", color: .white, summaryLine: "Cinquenta dias de alegria pela Ressurreição."),
         .init(id: "ordinary", name: "Tempo Comum", dateRange: "8 jun a 28 nov", color: .green, summaryLine: "A vida ordinária da Igreja, semana após semana."),
     ]
 
-    static let lentRetrospective = SeasonRetrospective(
+    static var lentRetrospective: SeasonRetrospective { lentRetrospectiveCatalog.current }
+
+    static let lentRetrospectiveCatalog = LocalizedCatalog(pt: ptLentRetrospective)
+
+    private static let ptLentRetrospective = SeasonRetrospective(
         seasonID: "lent",
         seasonLabel: "Quaresma · 5 mar a 17 abr",
         color: .purple,
@@ -108,7 +133,11 @@ enum MockLiturgical {
     /// Sunday per the liturgical convention — see LiturgicalWeek. Demo data: no real
     /// lectionary/cycle computation exists yet, so the Sunday/weekday cycle labels
     /// and the Gospel range are illustrative, not computed.
-    static let currentWeek = LiturgicalWeek(
+    static var currentWeek: LiturgicalWeek { currentWeekCatalog.current }
+
+    static let currentWeekCatalog = LocalizedCatalog(pt: ptCurrentWeek)
+
+    private static let ptCurrentWeek = LiturgicalWeek(
         id: "2026-w23-ordinary",
         name: "23ª Semana do Tempo Comum",
         dateRangeLabel: "13 a 19 de setembro",

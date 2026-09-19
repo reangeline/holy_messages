@@ -5,6 +5,85 @@ enum MysterySet: String, Codable, CaseIterable, Hashable {
     case sorrowful = "Dolorosos"
     case glorious = "Gloriosos"
     case luminous = "Luminosos"
+
+    /// `rawValue` stays Portuguese on purpose — it's the id persisted in
+    /// RosaryHistoryEntry, so it must not shift when the language does. This
+    /// is what the interface shows instead.
+    var displayName: String {
+        switch AppLanguagePreference.resolveCurrent() {
+        case .en:
+            switch self {
+            case .joyful: "Joyful"
+            case .sorrowful: "Sorrowful"
+            case .glorious: "Glorious"
+            case .luminous: "Luminous"
+            }
+        case .pt, .es:
+            rawValue
+        }
+    }
+
+    /// The whole phrase, because word order differs: "Mistérios Gozosos" but
+    /// "Joyful Mysteries". Composing a noun + `displayName` at the call site
+    /// only works in Portuguese.
+    var displayTitle: String {
+        switch AppLanguagePreference.resolveCurrent() {
+        case .en: "\(displayName) Mysteries"
+        case .pt, .es: "Mistérios \(rawValue)"
+        }
+    }
+}
+
+/// The fixed prayers of the Rosary. One instance per language: each has an
+/// official approved wording, not a translation of another's — see
+/// LocalizedCatalog.
+struct RosaryPrayerTexts {
+    let signOfCross: String
+    let apostlesCreed: String
+    let ourFather: String
+    let hailMary: String
+    let gloryBe: String
+    let fatimaPrayer: String
+    let hailHolyQueen: String
+    let offeringPrayer: String
+}
+
+/// The labels around each bead ("Conta maior", "Anúncio do mistério", the
+/// ordinals). These live in the per-language catalog rather than in the app's
+/// string catalogs because they name parts of the Rosary itself: a language
+/// with no Rosary catalog should show the whole thing in Portuguese, not
+/// translated labels wrapped around Portuguese prayers.
+struct RosaryStepLabels {
+    let signOfCross: String
+    let crucifixKicker: String
+    let tapHint: String
+    let intentions: String
+    let intentionsKicker: String
+    let intentionsText: String
+    let intentionsHint: String
+    let offering: String
+    let offeringKicker: String
+    let offeringHint: String
+    let creed: String
+    let creedKicker: String
+    let creedHint: String
+    let announcementKicker: String
+    let announcementHint: String
+    let mysteryWord: String
+    let ourFatherKicker: String
+    let ourFatherHint: String
+    let hailMaryKicker: String
+    let hailMaryHint: String
+    let gloryKicker: String
+    let gloryHint: String
+    let hailHolyQueen: String
+    let hailHolyQueenKicker: String
+    let hailHolyQueenHint: String
+    let ordinals: [String]
+
+    func ordinal(_ n: Int) -> String {
+        (1...ordinals.count).contains(n) ? ordinals[n - 1] : "\(n)"
+    }
 }
 
 struct RosaryMysteryDetail: Codable, Hashable {

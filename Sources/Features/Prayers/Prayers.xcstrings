@@ -199,28 +199,6 @@
         }
       }
     },
-    "Mysteries": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mysteries"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Misterios"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mistérios"
-          }
-        }
-      }
-    },
     "Guided, bead by bead · 18 min": {
       "localizations": {
         "en": {

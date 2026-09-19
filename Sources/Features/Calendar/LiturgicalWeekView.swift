@@ -121,7 +121,7 @@ struct LiturgicalWeekView: View {
                     if selectedDay.isAbstinenceDay {
                         tag("Abstinência")
                     }
-                    tag("Terço · \(selectedDay.mysterySet.rawValue)")
+                    tag("Terço · \(selectedDay.mysterySet.displayName)")
                 }
             }
         }
