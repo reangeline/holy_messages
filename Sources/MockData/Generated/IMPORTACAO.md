@@ -12,7 +12,8 @@ Origem: `~/Documents/Missale-pesquisa/entregas`. Gerado por
 | Santoral de data fixa | 69 × 3 idiomas | `LiturgicalSanctoral.catalog` — 40 festas do lote + 35 santos com data, mais as 12 escritas à mão que o lote não cobre |
 | Palavra do dia | 49 × 3 idiomas | `MockWordOfDay.catalog` — soma aos 11 pt / 11 en / 10 es já escritos |
 | Orações devocionais | 20 pt · 35 en · 33 es | `MockDevotionalPrayers.catalog` — lote oficial do Compêndio tem precedência sobre os anteriores |
-| Arte de santo | 1 | `notburga` no catálogo de assets, via `Saint.artworkName` |
+| Formação | 36 pt · 36 en | `MockFormation.otherTracksCatalog` — seis trilhas com três parágrafos próprios por parte |
+| Arte de santo | 32 | Catálogo de assets, via `Saint.artworkName` |
 
 Normalizações aplicadas na importação, conforme as decisões de 19/09:
 
@@ -39,12 +40,11 @@ santos, e esses 5 ids (`therese`, `john-of-the-cross`, `teresa-calcutta`,
 Há também pareamento errado: o Salmo 51 (Miserere, sobre o pecado) aparece para
 "ansioso" com a explicação "este salmo desloca a preocupação".
 
-**Formação — 108 partes (36 × 3).** §1, §2 e §4 são próprios de cada parte, mas o
-**§3 é literalmente idêntico nas 36** ("Na prática, vale observar três coisas: o
-que acontece exteriormente, qual oração acompanha o gesto e qual resposta é
-pedida à assembleia"). Quem faz as 7 partes dos sacramentos lê o mesmo terceiro
-parágrafo sete vezes. O §3 é justamente onde a casa põe o detalhe histórico
-concreto — é o parágrafo que dá voz ao app.
+**Formação em espanhol — 36 partes.** O lote mistura frases e citações em inglês
+dentro do próprio texto espanhol (por exemplo, “How does…” e “The next part
+treats…”). As 36 partes em pt e en entraram após remover o terceiro parágrafo,
+que era literalmente idêntico no lote inteiro; o espanhol usa o fallback
+explícito ao português até existir uma fonte espanhola íntegra.
 
 **Fichas completas de santo — os campos ricos dos 105 registros.** As 25 fichas
 do primeiro lote têm meta-comentário no lugar de biografia ("A ficha não pretende

@@ -27,7 +27,14 @@ struct FormationRootView: View {
                         .buttonStyle(.plain)
 
                         ForEach(MockFormation.otherTracks) { track in
-                            trackCard(track, isStarted: false)
+                            NavigationLink {
+                                FormationTrackDetailView(track: track, onBackToTracks: {
+                                    navigationResetToken = UUID()
+                                })
+                            } label: {
+                                trackCard(track, isStarted: false)
+                            }
+                            .buttonStyle(.plain)
                         }
 
                         NavigationLink {

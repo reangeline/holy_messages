@@ -308,18 +308,10 @@ enum MockFormation {
         allTracks.first { $0.id == id }
     }
 
-    static let otherTracksCatalog = LocalizedCatalog(pt: ptOtherTracks)
-
-    private static let ptOtherTracks: [FormationTrack] = [
-        .init(id: "sacraments", title: "Os sete sacramentos", meta: "7 partes · 4 min cada", progress: 0, nextUp: "Parte 1: o que é um sacramento", lessons: []),
-        .init(id: "liturgical-year", title: "O Ano Litúrgico", meta: "6 partes · 4 min cada", progress: 0, nextUp: "Parte 1: um ano que não começa em janeiro", lessons: []),
-        .init(id: "signs-symbols", title: "Sinais e símbolos", meta: "5 partes · 4 min cada", progress: 0, nextUp: "Parte 1: por que fazemos o sinal da cruz", lessons: []),
-        .init(id: "prayers-explained", title: "As orações explicadas", meta: "6 partes · 3 min cada", progress: 0, nextUp: "Parte 1: o Pai-Nosso, linha por linha", lessons: []),
-        .init(id: "rosary-basics", title: "O Terço, do zero", meta: "7 partes · 3 min cada", progress: 0, nextUp: "Parte 1: por que rezar com contas", lessons: []),
-        .init(id: "confession", title: "Como se confessar bem", meta: "5 partes · 3 min cada", progress: 0, nextUp: "Parte 1: exame de consciência, sem escrúpulo", lessons: []),
-        // "Liberdade e virtude" (spec §10) deferred to a future version per
-        // user request — FreedomVirtueView.swift stays on disk, just unlinked.
-    ]
+    // Catálogo gerado: 36 lições próprias em português e inglês. O lote em
+    // espanhol contém frases em inglês e, por política do Acervo, usa o
+    // fallback explícito em português até haver uma fonte espanhola íntegra.
+    static let otherTracksCatalog = importedOtherTracksCatalog
 
     static let reviewerCredit = "Revisão de conteúdo por Pe. Daniel Vasconcelos."
 }

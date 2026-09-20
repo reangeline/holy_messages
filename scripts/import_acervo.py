@@ -35,7 +35,7 @@ def sw(s):
 
 HEADER = """// GERADO — não editar à mão.
 // Origem: ~/Documents/Missale-pesquisa/entregas, importado por
-// scratchpad/import_acervo.py. Reimportar em vez de corrigir aqui.
+// scripts/import_acervo.py. Reimportar em vez de corrigir aqui.
 //
 """
 
@@ -223,10 +223,121 @@ def gen_prayers():
     (OUT / "GeneratedPrayers.swift").write_text("".join(out))
     return counts
 
+# --------------------------------------------------------------- formação
+# O terceiro parágrafo é idêntico nas 36 lições de cada idioma. Ele descreve
+# um método de leitura genérico, não a parte em questão; mantê-lo faria a
+# pessoa ler o mesmo bloco a cada dia. O importador só o remove se ele de fato
+# for compartilhado pelo lote inteiro, para não esconder uma diferença real.
+FORMATION_TRACKS = (
+    ("sacraments", {"pt": "Os sete sacramentos", "en": "The seven sacraments"}, 4),
+    ("liturgical-year", {"pt": "O Ano Litúrgico", "en": "The liturgical year"}, 4),
+    ("signs-symbols", {"pt": "Sinais e símbolos", "en": "Signs and symbols"}, 4),
+    ("prayers-explained", {"pt": "As orações explicadas", "en": "Prayers explained"}, 3),
+    ("rosary-basics", {"pt": "O Terço, do zero", "en": "The Rosary, from the beginning"}, 3),
+    ("confession", {"pt": "Como se confessar bem", "en": "How to make a good confession"}, 3),
+)
+
+FORMATION_PART = {"pt": "Parte", "en": "Part"}
+FORMATION_META = {"pt": "{parts} partes · {minutes} min cada",
+                  "en": "{parts} parts · {minutes} min each"}
+
+def valid_formation_rows(rows, lang):
+    """Devolve as lições aproveitáveis ou registra por que o idioma ficou fora."""
+    if not rows:
+        return None, "sem registros"
+    repeated = collections.Counter(o.get("body", [None, None, None])[2] for o in rows)
+    if len(repeated) != 1 or next(iter(repeated.values())) != len(rows):
+        return None, "o terceiro parágrafo não é uniforme; requer revisão editorial"
+    if lang == "es":
+        # O lote entregue como espanhol contém texto inglês dentro da própria
+        # lição (por exemplo, "How does..." e "The next part treats...").
+        # Fallback explícito para pt é preferível a publicar uma ficha híbrida.
+        english_markers = ("How does ", "The next part ", "Baptism is ",
+                           "water will be ", "Catechism §§")
+        if any(marker.lower() in " ".join(o.get("body", [])).lower()
+               for o in rows for marker in english_markers):
+            return None, "texto híbrido: há frases e citações em inglês no lote espanhol"
+    cleaned = []
+    for o in rows:
+        body = o.get("body", [])
+        if len(body) != 4:
+            return None, f"lição {o.get('trackId')}/{o.get('partNumber')} sem quatro parágrafos"
+        cleaned.append({**o, "body": [body[0], body[1], body[3]]})
+    return cleaned, None
+
+def formation_lesson(o, lang, parts_total, kicker):
+    source_id = f"{o['trackId']}-{o['partNumber']}-{lang}"
+    glossary = []
+    if o.get("glossaryTerm") and o.get("glossaryDefinition"):
+        glossary = (f"[.init(term: {sw(o['glossaryTerm'])}, "
+                    f"definition: {sw(o['glossaryDefinition'])})]")
+    else:
+        glossary = "[]"
+    return (
+        "                .init(\n"
+        f"                    id: {sw(source_id)},\n"
+        f"                    trackID: {sw(o['trackId'])},\n"
+        f"                    partNumber: {o['partNumber']},\n"
+        f"                    partsTotal: {parts_total},\n"
+        f"                    kicker: {sw(kicker)},\n"
+        f"                    title: {sw(o['title'])},\n"
+        f"                    bodyParagraphs: [{', '.join(sw(p) for p in o['body'])}],\n"
+        "                    quoteText: nil,\n"
+        f"                    quoteAttribution: {sw(o.get('quoteAttribution'))},\n"
+        f"                    glossaryTerms: {glossary}\n"
+        "                )"
+    )
+
+def gen_formation():
+    rows = load("formation_lesson_additions")
+    accepted, rejected = {}, {}
+    for lang in LANGS:
+        accepted[lang], rejected[lang] = valid_formation_rows(rows.get(lang, []), lang)
+
+    out = [HEADER + "// Formação por trilha. O terceiro parágrafo repetido nas 36 lições foi\n"
+           "// retirado; cada parte mantém os três parágrafos próprios que passaram na\n"
+           "// revisão. O lote espanhol ficou fora: ele mistura frases em inglês, então\n"
+           "// LocalizedCatalog aplica o fallback explícito ao português.\n\n"
+           "import Foundation\n\nextension MockFormation {\n"]
+    for lang in ("pt", "en"):
+        if accepted[lang] is None:
+            raise ValueError(f"Formação {lang} rejeitada: {rejected[lang]}")
+        by_track = collections.defaultdict(list)
+        for o in accepted[lang]:
+            by_track[o["trackId"]].append(o)
+        out.append(f"    static let {lang}ImportedOtherTracks: [FormationTrack] = [\n")
+        for track_id, titles, minutes in FORMATION_TRACKS:
+            lessons = sorted(by_track[track_id], key=lambda o: o["partNumber"])
+            expected = list(range(1, len(lessons) + 1))
+            if not lessons or [o["partNumber"] for o in lessons] != expected:
+                raise ValueError(f"Formação {lang}/{track_id} sem sequência completa")
+            title = titles[lang]
+            parts = len(lessons)
+            meta = FORMATION_META[lang].format(parts=parts, minutes=minutes)
+            next_up = f"{FORMATION_PART[lang]} 1: {lessons[0]['title']}"
+            out.append("        .init(\n"
+                       f"            id: {sw(track_id)},\n"
+                       f"            title: {sw(title)},\n"
+                       f"            meta: {sw(meta)},\n"
+                       "            progress: 0,\n"
+                       f"            nextUp: {sw(next_up)},\n"
+                       "            lessons: [\n")
+            out.append(",\n".join(formation_lesson(o, lang, parts, title) for o in lessons))
+            out.append("\n            ]\n        ),\n")
+        out.append("    ]\n\n")
+    out.append("    static let importedOtherTracksCatalog = LocalizedCatalog(\n"
+               "        pt: ptImportedOtherTracks,\n"
+               "        en: enImportedOtherTracks\n"
+               "    )\n}\n")
+    (OUT / "GeneratedFormation.swift").write_text("".join(out))
+    return ({lang: len(accepted[lang] or []) for lang in LANGS},
+            {lang: reason for lang, reason in rejected.items() if reason})
+
 if __name__ == "__main__":
     print("lecionário:", gen_lectionary())
     print("santoral:  ", gen_sanctoral())
     print("palavra:   ", gen_word_of_day())
     print("orações:   ", gen_prayers())
+    print("formação:  ", gen_formation())
     for f in sorted(OUT.glob("*.swift")):
         print(f"  {f.name}: {len(f.read_text().splitlines())} linhas")
