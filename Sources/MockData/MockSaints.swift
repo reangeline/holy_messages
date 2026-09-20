@@ -1,7 +1,7 @@
 import Foundation
 
 enum MockSaints {
-    static let notburga = Saint(
+    private static let ptNotburga = Saint(
         id: "notburga",
         name: "Santa Notburga de Eben",
         lifespan: "c. 1265 – 1313 · serva",
@@ -20,7 +20,7 @@ enum MockSaints {
         artworkName: "notburga"
     )
 
-    static let johnGabrielPerboyre = Saint(
+    private static let ptJohnGabrielPerboyre = Saint(
         id: "perboyre",
         name: "São João Gabriel Perboyre",
         lifespan: "1802 – 1840 · missionário e mártir",
@@ -34,6 +34,78 @@ enum MockSaints {
         prayer: "Senhor, que destes a João Gabriel a força de não recuar diante do sofrimento, dai-nos parte da mesma fortaleza. Amém."
     )
 
+    // The two records written before the imported sanctoral need their own
+    // language records too. Otherwise English and Spanish calendars append the
+    // Portuguese hand-written date as a fallback — which was visible in the
+    // Saint of the Day widget.
+    private static let enNotburga = Saint(
+        id: "notburga",
+        name: "St Notburga of Eben",
+        lifespan: "c. 1265–1313 · laywoman",
+        role: "Patron of domestic workers and farmers",
+        rank: "Memorial",
+        calendarNote: "Proper calendar · Austria and Germany",
+        bioParagraphs: [
+            "The Roman Martyrology remembers Notburga in Eben, Tyrol, for serving Christ in the poor while carrying out domestic work. Her traditional account links her care for people in need with her service in a noble household and later on a farm.",
+            "She is honored in Tyrol as a patron of domestic workers and agriculture. Her memory keeps ordinary work, prayer, and care for the poor together."
+        ],
+        whyItMattersToday: "Notburga’s witness gives concrete form to charity: the person in front of us is not an interruption to work, but someone in whom Christ is to be served.",
+        prayer: "St Notburga, pray for us.",
+        artworkName: "notburga"
+    )
+
+    private static let esNotburga = Saint(
+        id: "notburga",
+        name: "Santa Notburga de Eben",
+        lifespan: "c. 1265–1313 · laica",
+        role: "Patrona de las trabajadoras domésticas y de los agricultores",
+        rank: "Memoria",
+        calendarNote: "Calendario propio · Austria y Alemania",
+        bioParagraphs: [
+            "El Martirologio Romano recuerda a Notburga en Eben, Tirol, por servir a Cristo en los pobres mientras realizaba las labores domésticas. Su relato tradicional une el cuidado de los necesitados con su servicio en una casa noble y después en el campo.",
+            "En Tirol se la honra como patrona de las trabajadoras domésticas y de la agricultura. Su memoria mantiene unidos el trabajo ordinario, la oración y el cuidado de los pobres."
+        ],
+        whyItMattersToday: "El testimonio de Notburga da una forma concreta a la caridad: quien tenemos delante no interrumpe el trabajo, sino que es alguien en quien se sirve a Cristo.",
+        prayer: "Santa Notburga, ruega por nosotros.",
+        artworkName: "notburga"
+    )
+
+    private static let enJohnGabrielPerboyre = Saint(
+        id: "perboyre",
+        name: "St John Gabriel Perboyre",
+        lifespan: "1802–1840 · Vincentian priest and martyr",
+        role: "Missionary in China",
+        rank: "Optional Memorial",
+        calendarNote: "Proper calendar · Vincentian missions",
+        bioParagraphs: [
+            "John Gabriel Perboyre, a priest of the Congregation of the Mission, arrived in China in 1835 and served small Christian communities. During persecution he was arrested, tortured, and condemned to death for refusing to deny the faith.",
+            "He was strangled on 11 September 1840. The Holy See’s account of his life remembers both his missionary service and his fidelity to Christ under persecution."
+        ],
+        whyItMattersToday: "Perboyre shows that Christian witness is not a search for suffering: it is fidelity to Christ and to the people entrusted to us when fear makes that fidelity costly.",
+        prayer: "St John Gabriel Perboyre, pray for us."
+    )
+
+    private static let esJohnGabrielPerboyre = Saint(
+        id: "perboyre",
+        name: "San Juan Gabriel Perboyre",
+        lifespan: "1802–1840 · sacerdote vicenciano y mártir",
+        role: "Misionero en China",
+        rank: "Memoria libre",
+        calendarNote: "Calendario propio · misiones vicencianas",
+        bioParagraphs: [
+            "Juan Gabriel Perboyre, sacerdote de la Congregación de la Misión, llegó a China en 1835 y sirvió a pequeñas comunidades cristianas. Durante la persecución fue arrestado, torturado y condenado a muerte por negarse a renunciar a la fe.",
+            "Murió estrangulado el 11 de septiembre de 1840. El relato de la Santa Sede recuerda tanto su servicio misionero como su fidelidad a Cristo en la persecución."
+        ],
+        whyItMattersToday: "Perboyre muestra que el testimonio cristiano no busca el sufrimiento: permanece fiel a Cristo y a las personas confiadas a nosotros cuando el miedo hace costosa esa fidelidad.",
+        prayer: "San Juan Gabriel Perboyre, ruega por nosotros."
+    )
+
+    static var notburga: Saint { notburgaCatalog.current }
+    static var johnGabrielPerboyre: Saint { johnGabrielPerboyreCatalog.current }
+
+    private static let notburgaCatalog = LocalizedCatalog(pt: ptNotburga, en: enNotburga, es: esNotburga)
+    private static let johnGabrielPerboyreCatalog = LocalizedCatalog(pt: ptJohnGabrielPerboyre, en: enJohnGabrielPerboyre, es: esJohnGabrielPerboyre)
+
     /// Region-keyed sanctoral cycle — see SaintCalendarRegion. Only `.general` is
     /// populated so far; a country override would be another entry with the same
     /// `dateKey` and a different `region`, resolved by `saint(on:region:)` below.
@@ -42,8 +114,8 @@ enum MockSaints {
 
     static let catalog = LocalizedCatalog(
         pt: ptCalendar + ptImportedCalendar.filter { !handWrittenDates.contains($0.dateKey) },
-        en: enImportedCalendar.filter { !handWrittenDates.contains($0.dateKey) } + ptCalendar,
-        es: esImportedCalendar.filter { !handWrittenDates.contains($0.dateKey) } + ptCalendar
+        en: enImportedCalendar.filter { !handWrittenDates.contains($0.dateKey) } + enCalendar,
+        es: esImportedCalendar.filter { !handWrittenDates.contains($0.dateKey) } + esCalendar
     )
 
     /// Dates with a hand-written record, which wins over the imported one: those
@@ -52,8 +124,18 @@ enum MockSaints {
     private static let handWrittenDates: Set<String> = ["09-14", "09-23"]
 
     private static let ptCalendar: [SaintOfDay] = [
-        SaintOfDay(dateKey: "09-14", region: .general, saint: notburga),
-        SaintOfDay(dateKey: "09-23", region: .general, saint: johnGabrielPerboyre),
+        SaintOfDay(dateKey: "09-14", region: .general, saint: ptNotburga),
+        SaintOfDay(dateKey: "09-23", region: .general, saint: ptJohnGabrielPerboyre),
+    ]
+
+    private static let enCalendar: [SaintOfDay] = [
+        SaintOfDay(dateKey: "09-14", region: .general, saint: enNotburga),
+        SaintOfDay(dateKey: "09-23", region: .general, saint: enJohnGabrielPerboyre),
+    ]
+
+    private static let esCalendar: [SaintOfDay] = [
+        SaintOfDay(dateKey: "09-14", region: .general, saint: esNotburga),
+        SaintOfDay(dateKey: "09-23", region: .general, saint: esJohnGabrielPerboyre),
     ]
 
     /// Looks up the saint for a fixed date ("MM-dd"), preferring `region` and
