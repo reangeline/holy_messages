@@ -201,7 +201,7 @@ extension MockSaints {
             bioParagraphs: ["Pregou a conversão junto ao Jordão, batizou Jesus e morreu por testemunhar a verdade diante de Herodes."],
             whyItMattersToday: "",
             prayer: "",
-            artworkName: nil
+            artworkName: "joao-batista"
         ),
         .init(
             id: "joao-bosco",
@@ -213,7 +213,7 @@ extension MockSaints {
             bioParagraphs: ["Dedicou o ministério à educação e à formação cristã de jovens, especialmente os que viviam em situação de pobreza."],
             whyItMattersToday: "",
             prayer: "",
-            artworkName: nil
+            artworkName: "joao-bosco"
         ),
         .init(
             id: "joao-cruz",
@@ -225,7 +225,7 @@ extension MockSaints {
             bioParagraphs: ["Colaborou na reforma do Carmelo e escreveu sobre a purificação do desejo, a oração e a união com Deus."],
             whyItMattersToday: "",
             prayer: "",
-            artworkName: nil
+            artworkName: "joao-cruz"
         ),
         .init(
             id: "joao-paulo-ii",
@@ -249,7 +249,7 @@ extension MockSaints {
             bioParagraphs: ["Nos Evangelhos, José recebe Maria e Jesus sob seus cuidados e obedece às indicações recebidas em sonho."],
             whyItMattersToday: "",
             prayer: "",
-            artworkName: nil
+            artworkName: "jose"
         ),
         .init(
             id: "jose-sanchez-del-rio",
@@ -297,7 +297,7 @@ extension MockSaints {
             bioParagraphs: ["Os Evangelhos a apresentam junto à cruz, ao sepulcro e como anunciadora da Ressurreição aos discípulos."],
             whyItMattersToday: "",
             prayer: "",
-            artworkName: nil
+            artworkName: "maria-madalena"
         ),
         .init(
             id: "martinho-tours",
@@ -369,7 +369,7 @@ extension MockSaints {
             bioParagraphs: ["Pedro recebeu a missão de confirmar os irmãos; Paulo anunciou Cristo entre os povos e escreveu cartas às comunidades."],
             whyItMattersToday: "",
             prayer: "",
-            artworkName: nil
+            artworkName: "pedro-paulo"
         ),
         .init(
             id: "rita-cassia",
@@ -405,7 +405,7 @@ extension MockSaints {
             bioParagraphs: ["Carmelita de Lisieux, descreveu a sua “pequena via” de confiança e amor nas tarefas ordinárias."],
             whyItMattersToday: "",
             prayer: "",
-            artworkName: nil
+            artworkName: "teresinha"
         ),
         .init(
             id: "tomas-aquino",
@@ -417,7 +417,7 @@ extension MockSaints {
             bioParagraphs: ["Dominicano, ensinou teologia e escreveu obras que articulam a fé cristã, a razão e a vida sacramental."],
             whyItMattersToday: "",
             prayer: "",
-            artworkName: nil
+            artworkName: "tomas-aquino"
         ),
         .init(
             id: "vicente-paulo",
@@ -429,7 +429,7 @@ extension MockSaints {
             bioParagraphs: ["Organizou obras de caridade, formou missionários e fundou, com Luísa de Marillac, as Filhas da Caridade."],
             whyItMattersToday: "",
             prayer: "",
-            artworkName: nil
+            artworkName: "vicente-paulo"
         ),
     ]
 
@@ -662,7 +662,7 @@ extension MockSaints {
             bioParagraphs: ["He preached conversion by the Jordan, baptized Jesus, and died for witnessing to the truth before Herod."],
             whyItMattersToday: "",
             prayer: "",
-            artworkName: nil
+            artworkName: "joao-batista"
         ),
         .init(
             id: "joao-bosco",
@@ -674,7 +674,7 @@ extension MockSaints {
             bioParagraphs: ["He devoted his ministry to the education and Christian formation of young people, especially those living in poverty."],
             whyItMattersToday: "",
             prayer: "",
-            artworkName: nil
+            artworkName: "joao-bosco"
         ),
         .init(
             id: "joao-cruz",
@@ -686,7 +686,7 @@ extension MockSaints {
             bioParagraphs: ["He collaborated in the reform of Carmel and wrote about purification of desire, prayer, and union with God."],
             whyItMattersToday: "",
             prayer: "",
-            artworkName: nil
+            artworkName: "joao-cruz"
         ),
         .init(
             id: "joao-paulo-ii",
@@ -710,7 +710,7 @@ extension MockSaints {
             bioParagraphs: ["In the Gospels, Joseph receives Mary and Jesus into his care and obeys the directions he receives in dreams."],
             whyItMattersToday: "",
             prayer: "",
-            artworkName: nil
+            artworkName: "jose"
         ),
         .init(
             id: "jose-sanchez-del-rio",
@@ -758,7 +758,7 @@ extension MockSaints {
             bioParagraphs: ["The Gospels place her at the cross, at the tomb, and as the one who announces the Resurrection to the disciples."],
             whyItMattersToday: "",
             prayer: "",
-            artworkName: nil
+            artworkName: "maria-madalena"
         ),
         .init(
             id: "martinho-tours",
@@ -830,7 +830,7 @@ extension MockSaints {
             bioParagraphs: ["Peter received the mission to strengthen the brethren; Paul proclaimed Christ among the nations and wrote to the communities."],
             whyItMattersToday: "",
             prayer: "",
-            artworkName: nil
+            artworkName: "pedro-paulo"
         ),
         .init(
             id: "rita-cassia",
@@ -866,7 +866,7 @@ extension MockSaints {
             bioParagraphs: ["A Carmelite of Lisieux, she described her “little way” of confidence and love in ordinary duties."],
             whyItMattersToday: "",
             prayer: "",
-            artworkName: nil
+            artworkName: "teresinha"
         ),
         .init(
             id: "tomas-aquino",
@@ -878,7 +878,7 @@ extension MockSaints {
             bioParagraphs: ["A Dominican, he taught theology and wrote works that bring together Christian faith, reason, and sacramental life."],
             whyItMattersToday: "",
             prayer: "",
-            artworkName: nil
+            artworkName: "tomas-aquino"
         ),
         .init(
             id: "vicente-paulo",
@@ -890,7 +890,7 @@ extension MockSaints {
             bioParagraphs: ["He organized works of charity, formed missionaries, and founded the Daughters of Charity with Louise de Marillac."],
             whyItMattersToday: "",
             prayer: "",
-            artworkName: nil
+            artworkName: "vicente-paulo"
         ),
     ]
 
@@ -1123,7 +1123,7 @@ extension MockSaints {
             bioParagraphs: ["Predicó la conversión junto al Jordán, bautizó a Jesús y murió por dar testimonio de la verdad ante Herodes."],
             whyItMattersToday: "",
             prayer: "",
-            artworkName: nil
+            artworkName: "joao-batista"
         ),
         .init(
             id: "joao-bosco",
@@ -1135,7 +1135,7 @@ extension MockSaints {
             bioParagraphs: ["Dedicó su ministerio a la educación y a la formación cristiana de jóvenes, especialmente de quienes vivían en pobreza."],
             whyItMattersToday: "",
             prayer: "",
-            artworkName: nil
+            artworkName: "joao-bosco"
         ),
         .init(
             id: "joao-cruz",
@@ -1147,7 +1147,7 @@ extension MockSaints {
             bioParagraphs: ["Colaboró en la reforma del Carmelo y escribió sobre la purificación del deseo, la oración y la unión con Dios."],
             whyItMattersToday: "",
             prayer: "",
-            artworkName: nil
+            artworkName: "joao-cruz"
         ),
         .init(
             id: "joao-paulo-ii",
@@ -1171,7 +1171,7 @@ extension MockSaints {
             bioParagraphs: ["En los Evangelios, José recibe a María y a Jesús bajo su cuidado y obedece las indicaciones que recibe en sueños."],
             whyItMattersToday: "",
             prayer: "",
-            artworkName: nil
+            artworkName: "jose"
         ),
         .init(
             id: "jose-sanchez-del-rio",
@@ -1219,7 +1219,7 @@ extension MockSaints {
             bioParagraphs: ["Los Evangelios la sitúan junto a la cruz, al sepulcro y como anunciadora de la Resurrección a los discípulos."],
             whyItMattersToday: "",
             prayer: "",
-            artworkName: nil
+            artworkName: "maria-madalena"
         ),
         .init(
             id: "martinho-tours",
@@ -1291,7 +1291,7 @@ extension MockSaints {
             bioParagraphs: ["Pedro recibió la misión de confirmar a los hermanos; Pablo anunció a Cristo entre los pueblos y escribió a las comunidades."],
             whyItMattersToday: "",
             prayer: "",
-            artworkName: nil
+            artworkName: "pedro-paulo"
         ),
         .init(
             id: "rita-cassia",
@@ -1327,7 +1327,7 @@ extension MockSaints {
             bioParagraphs: ["Carmelita de Lisieux, describió su “caminito” de confianza y amor en los deberes ordinarios."],
             whyItMattersToday: "",
             prayer: "",
-            artworkName: nil
+            artworkName: "teresinha"
         ),
         .init(
             id: "tomas-aquino",
@@ -1339,7 +1339,7 @@ extension MockSaints {
             bioParagraphs: ["Dominico, enseñó teología y escribió obras que articulan la fe cristiana, la razón y la vida sacramental."],
             whyItMattersToday: "",
             prayer: "",
-            artworkName: nil
+            artworkName: "tomas-aquino"
         ),
         .init(
             id: "vicente-paulo",
@@ -1351,7 +1351,7 @@ extension MockSaints {
             bioParagraphs: ["Organizó obras de caridad, formó misioneros y fundó, con Luisa de Marillac, las Hijas de la Caridad."],
             whyItMattersToday: "",
             prayer: "",
-            artworkName: nil
+            artworkName: "vicente-paulo"
         ),
     ]
 
