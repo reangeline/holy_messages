@@ -25,10 +25,10 @@ struct RosaryDarkModeView: View {
                 if isFinished {
                     VStack(spacing: 14) {
                         CrossGlyph(size: 32, color: Palette.goldBright.opacity(0.6))
-                        Text("Terço concluído")
+                        Text(L.string("Rosary complete", table: "Prayers"))
                             .font(MissaleFont.display(26))
                             .foregroundStyle(Palette.goldBright.opacity(0.85))
-                        Text("Que a paz desta oração continue com você.")
+                        Text(L.string("May the peace of this prayer stay with you.", table: "Prayers"))
                             .font(MissaleFont.body(14))
                             .foregroundStyle(.white.opacity(0.4))
                             .multilineTextAlignment(.center)
@@ -54,7 +54,7 @@ struct RosaryDarkModeView: View {
 
                 Spacer()
 
-                Text("Guarde o telefone no bolso. O toque avança, a vibração confirma, e nada acende até você terminar.")
+                Text(L.string("Put the phone in your pocket. A tap advances, a vibration confirms, and nothing lights up until you finish.", table: "Prayers"))
                     .font(MissaleFont.body(13))
                     .foregroundStyle(.white.opacity(0.32))
                     .multilineTextAlignment(.center)
@@ -83,12 +83,12 @@ struct RosaryDarkModeView: View {
         .navigationBarBackButtonHidden(true)
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
-                Button("‹ Sair") { dismiss() }
+                Button(L.string("‹ Exit", table: "Prayers")) { dismiss() }
                     .font(MissaleFont.body(15))
                     .foregroundStyle(.white.opacity(0.5))
             }
             ToolbarItem(placement: .principal) {
-                Text("Tela apagada")
+                Text(L.string("Screen off", table: "Prayers"))
                     .font(MissaleFont.body(12, weight: .semibold))
                     .tracking(1.2)
                     .foregroundStyle(.white.opacity(0.4))
@@ -138,17 +138,22 @@ struct RosaryDarkModeView: View {
         }
     }
 
+    /// Bead names come from the rosary's own per-language catalog, not from the
+    /// app's string tables: they name parts of the Rosary, so a language with no
+    /// rosary catalog shows the whole thing in Portuguese rather than translated
+    /// labels wrapped around Portuguese prayers. See RosaryStepLabels.
     private func shortLabel(for bead: RosaryBead) -> String {
-        switch bead.kind {
-        case .crucifix: "Sinal da Cruz"
-        case .intentions: "Intenções"
-        case .offering: "Oferecimento"
-        case .creed: "Credo"
-        case .ourFather: "Pai-Nosso"
-        case .hailMary: "Ave-Maria"
-        case .glory: "Glória"
+        let l = MockRosary.labels
+        return switch bead.kind {
+        case .crucifix: l.signOfCross
+        case .intentions: l.intentions
+        case .offering: l.offeringShort
+        case .creed: l.creed
+        case .ourFather: l.ourFatherShort
+        case .hailMary: l.hailMaryKicker
+        case .glory: l.gloryShort
         case .announcement: mystery.decades[bead.mysteryIndex ?? 0].title
-        case .hailHolyQueen: "Salve Rainha"
+        case .hailHolyQueen: l.hailHolyQueen
         }
     }
 

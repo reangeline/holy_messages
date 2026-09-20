@@ -26,9 +26,9 @@ struct RosaryHowToView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
                     VStack(alignment: .leading, spacing: 5) {
-                        Text("O terço, peça por peça")
+                        Text(L.string("The rosary, piece by piece", table: "Prayers"))
                             .font(MissaleFont.display(28))
-                        Text("Se nunca rezou, comece aqui. Quase todo mundo trava na mecânica, não na fé.")
+                        Text(L.string("If you've never prayed it, start here. Almost everyone gets stuck on the mechanics, not the faith.", table: "Prayers"))
                             .font(MissaleFont.body(15))
                             .foregroundStyle(Palette.ink.opacity(0.7))
                     }

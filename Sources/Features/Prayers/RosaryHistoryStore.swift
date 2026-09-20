@@ -26,7 +26,11 @@ extension RosaryHistoryEntry {
 
     var subtitle: String {
         guard let intention, !intention.isEmpty else { return modeLabel }
-        return "\(modeLabel) · intenção: \(intention)"
+        // modeLabel is recorded at prayer time and kept as recorded — like the
+        // mystery's rawValue, it is stored data, not chrome.
+        return L.string("{mode} · intention: {intention}", table: "Prayers")
+            .replacingOccurrences(of: "{mode}", with: modeLabel)
+            .replacingOccurrences(of: "{intention}", with: intention)
     }
 
     var dateLabel: String { date.relativeLabel(format: "EEEE") }

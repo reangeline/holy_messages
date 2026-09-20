@@ -1,156 +1,24 @@
 {
   "sourceLanguage": "en",
   "strings": {
-    "Prayers": {
+    "A record, not a scoreboard. No streak to lose.": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Prayers"
+            "value": "A record, not a scoreboard. No streak to lose."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Oraciones"
+            "value": "Un registro, no un marcador. Sin racha que perder."
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Orações"
-          }
-        }
-      }
-    },
-    "Everything works offline. One translation across the whole app.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Everything works offline. One translation across the whole app."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Todo funciona sin conexión. Una sola traducción en toda la app."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tudo funciona offline. Uma só tradução em todo o app."
-          }
-        }
-      }
-    },
-    "How to pray the Rosary": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "How to pray the Rosary"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cómo rezar el Rosario"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Como rezar o Terço"
-          }
-        }
-      }
-    },
-    "The object, the mechanics, what to do with your mind": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "The object, the mechanics, what to do with your mind"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "El objeto, la mecánica, qué hacer con la mente"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "O objeto, a mecânica, o que fazer com a mente"
-          }
-        }
-      }
-    },
-    "Rosaries prayed": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Rosaries prayed"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Rosarios rezados"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Terços rezados"
-          }
-        }
-      }
-    },
-    "History and novenas in progress": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "History and novenas in progress"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Historial y novenas en curso"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Histórico e novenas em curso"
-          }
-        }
-      }
-    },
-    "Other prayers": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Other prayers"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Otras oraciones"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Outras orações"
+            "value": "Registro, não placar. Sem sequência para perder."
           }
         }
       }
@@ -177,68 +45,24 @@
         }
       }
     },
-    "TODAY'S ROSARY": {
+    "At the Church's own hours. The reminder is optional for each one.": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "TODAY'S ROSARY"
+            "value": "At the Church's own hours. The reminder is optional for each one."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "ROSARIO DE HOY"
+            "value": "En los horarios de la Iglesia. El recordatorio es opcional en cada una."
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "TERÇO DE HOJE"
-          }
-        }
-      }
-    },
-    "Guided, bead by bead · 18 min": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Guided, bead by bead · 18 min"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Guiado, cuenta a cuenta · 18 min"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Guiado, conta a conta · 18 min"
-          }
-        }
-      }
-    },
-    "Today's Mysteries": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Today's Mysteries"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Misterios de hoy"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mistérios de hoje"
+            "value": "Nos horários da Igreja. O lembrete é opcional em cada uma."
           }
         }
       }
@@ -265,6 +89,248 @@
         }
       }
     },
+    "By theme, beyond the Rosary": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "By theme, beyond the Rosary"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Por tema, além do Terço"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Por tema, más allá del Rosario"
+          }
+        }
+      }
+    },
+    "Crucifix": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Crucifix"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Crucifijo"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Crucifixo"
+          }
+        }
+      }
+    },
+    "Day {n} of {total} · the count belongs to the devotion itself": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Day {n} of {total} · the count belongs to the devotion itself"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Día {n} de {total} · el conteo es de la propia devoción"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dia {n} de {total} · a contagem é da própria devoção"
+          }
+        }
+      }
+    },
+    "Decade": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Decade"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Década"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dezena"
+          }
+        }
+      }
+    },
+    "Devotion in progress": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Devotion in progress"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Devoción en curso"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Devoção em curso"
+          }
+        }
+      }
+    },
+    "Devotions": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Devotions"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Devoções"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Devociones"
+          }
+        }
+      }
+    },
+    "Everything works offline. One translation across the whole app.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Everything works offline. One translation across the whole app."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Todo funciona sin conexión. Una sola traducción en toda la app."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tudo funciona offline. Uma só tradução em todo o app."
+          }
+        }
+      }
+    },
+    "Fruit: {fruit}": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fruit: {fruit}"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fruto: {fruit}"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fruto: {fruit}"
+          }
+        }
+      }
+    },
+    "Guided, bead by bead · 18 min": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Guided, bead by bead · 18 min"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Guiado, cuenta a cuenta · 18 min"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Guiado, conta a conta · 18 min"
+          }
+        }
+      }
+    },
+    "History and novenas in progress": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "History and novenas in progress"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Historial y novenas en curso"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Histórico e novenas em curso"
+          }
+        }
+      }
+    },
+    "How to pray the Rosary": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "How to pray the Rosary"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cómo rezar el Rosario"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Como rezar o Terço"
+          }
+        }
+      }
+    },
     "Human voice guiding": {
       "localizations": {
         "en": {
@@ -287,6 +353,28 @@
         }
       }
     },
+    "If you've never prayed it, start here. Almost everyone gets stuck on the mechanics, not the faith.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "If you've never prayed it, start here. Almost everyone gets stuck on the mechanics, not the faith."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Si nunca lo rezó, empiece aquí. Casi todo el mundo se traba en la mecánica, no en la fe."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se nunca rezou, comece aqui. Quase todo mundo trava na mecânica, não na fé."
+          }
+        }
+      }
+    },
     "Intention for this rosary (optional) — \"I prayed for…\"": {
       "localizations": {
         "en": {
@@ -305,6 +393,292 @@
           "stringUnit": {
             "state": "translated",
             "value": "Intenção deste terço (opcional) — \"rezei por…\""
+          }
+        }
+      }
+    },
+    "Larger bead": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Larger bead"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cuenta mayor"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Conta maior"
+          }
+        }
+      }
+    },
+    "May the peace of this prayer stay with you.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "May the peace of this prayer stay with you."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Que la paz de esta oración permanezca contigo."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Que a paz desta oração continue com você."
+          }
+        }
+      }
+    },
+    "Medal": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Medal"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Medalla"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Medalha"
+          }
+        }
+      }
+    },
+    "Optional": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Optional"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Opcional"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Opcional"
+          }
+        }
+      }
+    },
+    "Other prayers": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Other prayers"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Otras oraciones"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Outras orações"
+          }
+        }
+      }
+    },
+    "Prayer": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prayer"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Oração"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Oración"
+          }
+        }
+      }
+    },
+    "Prayers": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prayers"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Oraciones"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Orações"
+          }
+        }
+      }
+    },
+    "Put the phone in your pocket. A tap advances, a vibration confirms, and nothing lights up until you finish.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Put the phone in your pocket. A tap advances, a vibration confirms, and nothing lights up until you finish."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Guarde el teléfono en el bolsillo. El toque avanza, la vibración confirma, y nada se enciende hasta que termine."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Guarde o telefone no bolso. O toque avança, a vibração confirma, e nada acende até você terminar."
+          }
+        }
+      }
+    },
+    "Rosaries prayed": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rosaries prayed"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rosarios rezados"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Terços rezados"
+          }
+        }
+      }
+    },
+    "Rosary": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rosary"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Terço"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rosario"
+          }
+        }
+      }
+    },
+    "Rosary complete": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rosary complete"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rosario concluido"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Terço concluído"
+          }
+        }
+      }
+    },
+    "Screen off": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Screen off"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tela apagada"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pantalla apagada"
+          }
+        }
+      }
+    },
+    "Screen off · haptic per bead": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Screen off · haptic per bead"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pantalla apagada · vibración en cada cuenta"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tela apagada · haptic a cada conta"
           }
         }
       }
@@ -353,266 +727,24 @@
         }
       }
     },
-    "The rosary, piece by piece": {
+    "TODAY'S ROSARY": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The rosary, piece by piece"
+            "value": "TODAY'S ROSARY"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "El rosario, pieza por pieza"
+            "value": "ROSARIO DE HOY"
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "O terço, peça por peça"
-          }
-        }
-      }
-    },
-    "If you've never prayed it, start here. Almost everyone gets stuck on the mechanics, not the faith.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "If you've never prayed it, start here. Almost everyone gets stuck on the mechanics, not the faith."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Si nunca lo rezó, empiece aquí. Casi todo el mundo se traba en la mecánica, no en la fe."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Se nunca rezou, comece aqui. Quase todo mundo trava na mecânica, não na fé."
-          }
-        }
-      }
-    },
-    "Crucifix": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Crucifix"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Crucifijo"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Crucifixo"
-          }
-        }
-      }
-    },
-    "the Creed": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "the Creed"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "el Credo"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "o Credo"
-          }
-        }
-      }
-    },
-    "Larger bead": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Larger bead"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cuenta mayor"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Conta maior"
-          }
-        }
-      }
-    },
-    "one Our Father": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "one Our Father"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "un Padrenuestro"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "um Pai-Nosso"
-          }
-        }
-      }
-    },
-    "Three beads": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Three beads"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tres cuentas"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Três contas"
-          }
-        }
-      }
-    },
-    "three Hail Marys, for faith, hope, and charity": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "three Hail Marys, for faith, hope, and charity"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "tres Avemarías, por la fe, la esperanza y la caridad"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "três Ave-Marias, pela fé, esperança e caridade"
-          }
-        }
-      }
-    },
-    "Medal": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Medal"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Medalla"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Medalha"
-          }
-        }
-      }
-    },
-    "the mystery is announced": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "the mystery is announced"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "se anuncia el misterio"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "anuncia-se o mistério"
-          }
-        }
-      }
-    },
-    "Decade": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Decade"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Década"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Dezena"
-          }
-        }
-      }
-    },
-    "ten Hail Marys, and the Glory Be closes it": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ten Hail Marys, and the Glory Be closes it"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "diez Avemarías, y el Gloria la cierra"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "dez Ave-Marias, e o Glória fecha"
+            "value": "TERÇO DE HOJE"
           }
         }
       }
@@ -639,24 +771,112 @@
         }
       }
     },
-    "‹ Exit": {
+    "The object, the mechanics, what to do with your mind": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "‹ Exit"
+            "value": "The object, the mechanics, what to do with your mind"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "‹ Salir"
+            "value": "El objeto, la mecánica, qué hacer con la mente"
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "‹ Sair"
+            "value": "O objeto, a mecânica, o que fazer com a mente"
+          }
+        }
+      }
+    },
+    "The rosary, piece by piece": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The rosary, piece by piece"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El rosario, pieza por pieza"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O terço, peça por peça"
+          }
+        }
+      }
+    },
+    "Three beads": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Three beads"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tres cuentas"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Três contas"
+          }
+        }
+      }
+    },
+    "Today's Mysteries": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Today's Mysteries"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Misterios de hoy"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mistérios de hoje"
+          }
+        }
+      }
+    },
+    "Today's mystery, guided": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Today's mystery, guided"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O mistério de hoje, guiado"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El misterio de hoy, guiado"
           }
         }
       }
@@ -683,178 +903,222 @@
         }
       }
     },
-    "Rosary complete": {
+    "one Our Father": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Rosary complete"
+            "value": "one Our Father"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Rosario concluido"
+            "value": "un Padrenuestro"
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Terço concluído"
+            "value": "um Pai-Nosso"
           }
         }
       }
     },
-    "May the peace of this prayer stay with you.": {
+    "one prayer": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "May the peace of this prayer stay with you."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Que la paz de esta oración permanezca contigo."
+            "value": "one prayer"
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Que a paz desta oração continue com você."
+            "value": "uma oração"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "una oración"
           }
         }
       }
     },
-    "Put the phone in your pocket. A tap advances, a vibration confirms, and nothing lights up until you finish.": {
+    "ten Hail Marys, and the Glory Be closes it": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Put the phone in your pocket. A tap advances, a vibration confirms, and nothing lights up until you finish."
+            "value": "ten Hail Marys, and the Glory Be closes it"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Guarde el teléfono en el bolsillo. El toque avanza, la vibración confirma, y nada se enciende hasta que termine."
+            "value": "diez Avemarías, y el Gloria la cierra"
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Guarde o telefone no bolso. O toque avança, a vibração confirma, e nada acende até você terminar."
+            "value": "dez Ave-Marias, e o Glória fecha"
           }
         }
       }
     },
-    "Screen off · haptic per bead": {
+    "the Creed": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Screen off · haptic per bead"
+            "value": "the Creed"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Pantalla apagada · vibración en cada cuenta"
+            "value": "el Credo"
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tela apagada · haptic a cada conta"
+            "value": "o Credo"
           }
         }
       }
     },
-    "A record, not a scoreboard. No streak to lose.": {
+    "the mystery is announced": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "A record, not a scoreboard. No streak to lose."
+            "value": "the mystery is announced"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Un registro, no un marcador. Sin racha que perder."
+            "value": "se anuncia el misterio"
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Registro, não placar. Sem sequência para perder."
+            "value": "anuncia-se o mistério"
           }
         }
       }
     },
-    "Devotion in progress": {
+    "three Hail Marys, for faith, hope, and charity": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Devotion in progress"
+            "value": "three Hail Marys, for faith, hope, and charity"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Devoción en curso"
+            "value": "tres Avemarías, por la fe, la esperanza y la caridad"
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Devoção em curso"
+            "value": "três Ave-Marias, pela fé, esperança e caridade"
           }
         }
       }
     },
-    "At the Church's own hours. The reminder is optional for each one.": {
+    "{mode} · intention: {intention}": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "At the Church's own hours. The reminder is optional for each one."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "En los horarios de la Iglesia. El recordatorio es opcional en cada una."
+            "value": "{mode} · intention: {intention}"
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Nos horários da Igreja. O lembrete é opcional em cada uma."
+            "value": "{mode} · intenção: {intention}"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "{mode} · intención: {intention}"
           }
         }
       }
     },
-    "Day {n} of {total} · the count belongs to the devotion itself": {
+    "{n} prayers": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Day {n} of {total} · the count belongs to the devotion itself"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Día {n} de {total} · el conteo es de la propia devoción"
+            "value": "{n} prayers"
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Dia {n} de {total} · a contagem é da própria devoção"
+            "value": "{n} orações"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "{n} oraciones"
+          }
+        }
+      }
+    },
+    "{weekday}: {mysteries}. You can change it if you'd rather pray others.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "{weekday}: {mysteries}. You can change it if you'd rather pray others."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "{weekday}: {mysteries}. Pode trocar, se quiser rezar outros."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "{weekday}: {mysteries}. Puedes cambiarlo si prefieres rezar otros."
+          }
+        }
+      }
+    },
+    "‹ Exit": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "‹ Exit"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "‹ Salir"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "‹ Sair"
           }
         }
       }

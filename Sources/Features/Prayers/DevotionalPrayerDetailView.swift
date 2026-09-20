@@ -23,7 +23,7 @@ struct DevotionalPrayerDetailView: View {
 
                     LiturgicalGradientCard(color: .red) {
                         VStack(alignment: .leading, spacing: 8) {
-                            Eyebrow(text: "Oração", color: Palette.goldBright)
+                            Eyebrow(text: L.string("Prayer", table: "Prayers"), color: Palette.goldBright)
                             Text(prayer.fullText)
                                 .font(MissaleFont.display(19, italic: true))
                                 .foregroundStyle(.white)

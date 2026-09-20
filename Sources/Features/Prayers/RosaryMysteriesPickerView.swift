@@ -17,7 +17,9 @@ struct RosaryMysteriesPickerView: View {
                     VStack(alignment: .leading, spacing: 5) {
                         Text("Today's Mysteries", tableName: "Prayers")
                             .font(MissaleFont.display(28))
-                        Text("\(MockLiturgical.today.weekdayLabel): \(MockRosary.todays.mysterySet.displayName). Pode trocar, se quiser rezar outros.")
+                        Text(L.string("{weekday}: {mysteries}. You can change it if you'd rather pray others.", table: "Prayers")
+                            .replacingOccurrences(of: "{weekday}", with: MockLiturgical.today.weekdayLabel)
+                            .replacingOccurrences(of: "{mysteries}", with: MockRosary.todays.mysterySet.displayName))
                             .font(MissaleFont.body(15))
                             .foregroundStyle(Palette.ink.opacity(0.7))
                     }

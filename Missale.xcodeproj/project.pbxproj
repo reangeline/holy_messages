@@ -58,6 +58,7 @@
 		551D25D9539AADA29689D90A /* MockSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A7894A34904119DDEBC585 /* MockSettings.swift */; };
 		560B766C11D494D2C1D62265 /* SocialLockSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2BC824AEE82C9CA8C3F473 /* SocialLockSetupView.swift */; };
 		5A03142066ECAA7D4A4818B4 /* ShareCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2547DB35325C7CF0DBE830 /* ShareCardView.swift */; };
+		5B0944EB3F5ED8D50A3B657A /* PrayersLanguageUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589AC7E7D0D147C3E48C5914 /* PrayersLanguageUITests.swift */; };
 		5BCF76478E6F3B91E49BF91B /* LiturgicalWeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09896B1E82B4B406E82C1A2 /* LiturgicalWeekView.swift */; };
 		5BE91E45C821873F83966890 /* CormorantGaramond-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5755A56F746943C35D7DEE62 /* CormorantGaramond-MediumItalic.ttf */; };
 		5EA56378A971CDB82FC35218 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = A757AE68556FF2051633F443 /* Localizable.xcstrings */; };
@@ -159,6 +160,7 @@
 		EB87ACDAFE1B0AFAECA34655 /* MissaleWidgetsExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 03ECD97CEA2DF4CC329EF2A9 /* MissaleWidgetsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		ECCBBE87D168D3E9C3D25CE3 /* SocialLockPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AD533107D378FEE36131DD /* SocialLockPreviewView.swift */; };
 		ED94A964B33E2C3F6ED48721 /* MoodHistoryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE91E0D9EA2D13161785475F /* MoodHistoryStore.swift */; };
+		EDAB0F26F856598AA7AED191 /* IMPORTACAO.md in Resources */ = {isa = PBXBuildFile; fileRef = 81CEAD7519583C6ED127E72B /* IMPORTACAO.md */; };
 		EED9CF44E7E8D73F0301615C /* SettingsDetail.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = BD1EDFAD664396CF342F0318 /* SettingsDetail.xcstrings */; };
 		EF580CFD3D263C0234CBDAEC /* RosaryHistoryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA725209135D65B8B6FE950 /* RosaryHistoryStore.swift */; };
 		F00DA00E38C750A45E28C69F /* AppRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12D79BF4B3E4C6ABC19C5B0 /* AppRootView.swift */; };
@@ -253,6 +255,7 @@
 		51E8CA2292F4D55B83C89CF2 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		55F1B4F550A6320BD4A3136E /* MockWordOfDay+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MockWordOfDay+App.swift"; sourceTree = "<group>"; };
 		5755A56F746943C35D7DEE62 /* CormorantGaramond-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CormorantGaramond-MediumItalic.ttf"; sourceTree = "<group>"; };
+		589AC7E7D0D147C3E48C5914 /* PrayersLanguageUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayersLanguageUITests.swift; sourceTree = "<group>"; };
 		5B49583537054AC3C26C2371 /* RosaryGuidedPrayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RosaryGuidedPrayerView.swift; sourceTree = "<group>"; };
 		5BF47B756C7A9EADDDDDA3DF /* LiturgicalDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiturgicalDay.swift; sourceTree = "<group>"; };
 		5C99176FD25F0780A7402DD0 /* SaintPortrait.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaintPortrait.swift; sourceTree = "<group>"; };
@@ -281,6 +284,7 @@
 		8049CC700EE6E41951F36255 /* LanguageSwitchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSwitchUITests.swift; sourceTree = "<group>"; };
 		80C91E7AE38D2D10C31CB156 /* DevotionalPrayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevotionalPrayer.swift; sourceTree = "<group>"; };
 		81A7894A34904119DDEBC585 /* MockSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSettings.swift; sourceTree = "<group>"; };
+		81CEAD7519583C6ED127E72B /* IMPORTACAO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = IMPORTACAO.md; sourceTree = "<group>"; };
 		88256E6C4CCFEC9D6FB7A82C /* MassBulletinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MassBulletinView.swift; sourceTree = "<group>"; };
 		89B15BE7FE79DA0EE43CDFB9 /* PastoralNoteDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastoralNoteDetailView.swift; sourceTree = "<group>"; };
 		8BAC36F87255861947FB745D /* OnboardingSynthesisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSynthesisView.swift; sourceTree = "<group>"; };
@@ -388,6 +392,7 @@
 			children = (
 				C8A641E7EFB290F8F735C474 /* FormationLanguageUITests.swift */,
 				8049CC700EE6E41951F36255 /* LanguageSwitchUITests.swift */,
+				589AC7E7D0D147C3E48C5914 /* PrayersLanguageUITests.swift */,
 			);
 			name = UITests;
 			path = Tests/UITests;
@@ -439,6 +444,7 @@
 				C60A08EF026DFCA2A8DA453B /* GeneratedPrayers.swift */,
 				D5F7D20CB070FF9B9EF8B3F2 /* GeneratedSanctoral.swift */,
 				1A6FF53F14EDDA18F751468C /* GeneratedWordOfDay.swift */,
+				81CEAD7519583C6ED127E72B /* IMPORTACAO.md */,
 			);
 			path = Generated;
 			sourceTree = "<group>";
@@ -811,6 +817,7 @@
 				AA80232E8C4368851886F8F1 /* EBGaramond-Regular.ttf in Resources */,
 				7E3EF01FC5D8F84C9B1AED32 /* EBGaramond-SemiBold.ttf in Resources */,
 				ABA7DBB03FCCD9931F3CF8C8 /* FormationWordOfDay.xcstrings in Resources */,
+				EDAB0F26F856598AA7AED191 /* IMPORTACAO.md in Resources */,
 				5EA56378A971CDB82FC35218 /* Localizable.xcstrings in Resources */,
 				E47D18E514B05B964807CFB6 /* Onboarding.xcstrings in Resources */,
 				D5ACB20E5F87AB09CA44AD4E /* Prayers.xcstrings in Resources */,
@@ -959,6 +966,7 @@
 			files = (
 				C3CB9268B5AC90C0259F8CC8 /* FormationLanguageUITests.swift in Sources */,
 				A6F35AEF62403FE3E4FACDEF /* LanguageSwitchUITests.swift in Sources */,
+				5B0944EB3F5ED8D50A3B657A /* PrayersLanguageUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -231,6 +231,9 @@ enum MockRosary {
         hailHolyQueen: "Salve Rainha",
         hailHolyQueenKicker: "Para encerrar",
         hailHolyQueenHint: "Encerra o terço. Pode seguir com o Sinal da Cruz.",
+        ourFatherShort: "Pai-Nosso",
+        gloryShort: "Glória",
+        offeringShort: "Oferecimento",
         ordinals: ["Primeiro", "Segundo", "Terceiro", "Quarto", "Quinto"]
     )
 
@@ -260,6 +263,9 @@ enum MockRosary {
         hailHolyQueen: "Hail Holy Queen",
         hailHolyQueenKicker: "To close",
         hailHolyQueenHint: "This ends the rosary. You may follow it with the Sign of the Cross.",
+        ourFatherShort: "Our Father",
+        gloryShort: "Glory Be",
+        offeringShort: "Offering",
         ordinals: ["First", "Second", "Third", "Fourth", "Fifth"]
     )
 

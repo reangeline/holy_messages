@@ -98,6 +98,11 @@ struct RosaryStepLabels {
     let hailHolyQueen: String
     let hailHolyQueenKicker: String
     let hailHolyQueenHint: String
+    /// Short forms for the dark screen, which names the bead in one or two
+    /// words instead of the kicker used on the guided card.
+    let ourFatherShort: String
+    let gloryShort: String
+    let offeringShort: String
     let ordinals: [String]
 
     func ordinal(_ n: Int) -> String {

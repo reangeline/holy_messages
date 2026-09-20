@@ -9,7 +9,8 @@ struct PrayersRootView: View {
                 ScrollView {
                     VStack(alignment: .leading, spacing: 16) {
                         header
-                        sectionHeader("Terço", subtitle: "O mistério de hoje, guiado")
+                        sectionHeader(L.string("Rosary", table: "Prayers"),
+                                      subtitle: L.string("Today's mystery, guided", table: "Prayers"))
                         rosaryTeaserCard
                         row(title: L.string( "How to pray the Rosary", table: "Prayers"), subtitle: L.string( "The object, the mechanics, what to do with your mind", table: "Prayers"), destination: .howTo)
                         devotionsSection
@@ -84,7 +85,8 @@ struct PrayersRootView: View {
 
     private var devotionsSection: some View {
         VStack(alignment: .leading, spacing: 10) {
-            sectionHeader("Devoções", subtitle: "Por tema, além do Terço")
+            sectionHeader(L.string("Devotions", table: "Prayers"),
+                          subtitle: L.string("By theme, beyond the Rosary", table: "Prayers"))
 
             LazyVGrid(columns: [GridItem(.flexible(), spacing: 10), GridItem(.flexible())], spacing: 10) {
                 ForEach(MockDevotionalPrayers.categories) { category in
@@ -96,7 +98,10 @@ struct PrayersRootView: View {
                                     .foregroundStyle(Palette.ink)
                                     .fixedSize(horizontal: false, vertical: true)
                                 Spacer(minLength: 0)
-                                Text("\(category.prayers.count) oraç\(category.prayers.count == 1 ? "ão" : "ões")")
+                                Text(category.prayers.count == 1
+                                     ? L.string("one prayer", table: "Prayers")
+                                     : L.string("{n} prayers", table: "Prayers")
+                                         .replacingOccurrences(of: "{n}", with: "\(category.prayers.count)"))
                                     .font(MissaleFont.body(13))
                                     .foregroundStyle(Palette.ink.opacity(0.55))
                             }

@@ -36,7 +36,7 @@ struct RosaryGuidedPrayerView: View {
                 Spacer()
 
                 if !isFinished {
-                    Text("Toque em qualquer lugar para avançar. Avanço automático está ligado.")
+                    Text(L.string("Tap anywhere to advance. Auto-advance is on.", table: "Prayers"))
                         .font(MissaleFont.body(13))
                         .foregroundStyle(Palette.ink.opacity(0.55))
                         .multilineTextAlignment(.center)
@@ -69,12 +69,12 @@ struct RosaryGuidedPrayerView: View {
         }
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
-                Button("‹ Sair") { dismiss() }
+                Button(L.string("‹ Exit", table: "Prayers")) { dismiss() }
                     .font(MissaleFont.body(16))
                     .foregroundStyle(Palette.wine)
             }
             ToolbarItem(placement: .topBarTrailing) {
-                Button("Apagar a tela") { navigateToDark = true }
+                Button(L.string("Turn off the screen", table: "Prayers")) { navigateToDark = true }
                     .font(MissaleFont.body(15))
                     .foregroundStyle(Palette.wine)
             }
@@ -166,7 +166,7 @@ struct RosaryGuidedPrayerView: View {
                         .foregroundStyle(Palette.ink.opacity(0.55))
                         .italic()
                 }
-                Text("Opcional")
+                Text(L.string("Optional", table: "Prayers"))
                     .font(MissaleFont.body(13, weight: .semibold))
                     .foregroundStyle(Palette.ink.opacity(0.4))
             }
@@ -203,7 +203,7 @@ struct RosaryGuidedPrayerView: View {
             // dismissible tip — shown regardless of beginner mode.
             if let fruit = step.fruit, let scriptureRef = step.scriptureRef {
                 VStack(spacing: 5) {
-                    Text("Fruto: \(fruit)")
+                    Text(L.string("Fruit: {fruit}", table: "Prayers").replacingOccurrences(of: "{fruit}", with: fruit))
                         .font(MissaleFont.body(16, weight: .medium))
                         .foregroundStyle(.white.opacity(0.8))
                     Text(scriptureRef)
@@ -239,10 +239,10 @@ struct RosaryGuidedPrayerView: View {
         GlassCard {
             VStack(spacing: 10) {
                 CrossGlyph(size: 30)
-                Text("Terço concluído")
+                Text(L.string("Rosary complete", table: "Prayers"))
                     .font(MissaleFont.display(24))
                     .foregroundStyle(Palette.ink)
-                Text("Que a paz desta oração continue com você.")
+                Text(L.string("May the peace of this prayer stay with you.", table: "Prayers"))
                     .font(MissaleFont.body(15))
                     .foregroundStyle(Palette.ink.opacity(0.7))
                     .multilineTextAlignment(.center)
