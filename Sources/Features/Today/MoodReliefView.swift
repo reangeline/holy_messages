@@ -38,7 +38,7 @@ struct MoodReliefView: View {
                     .padding(.top, 8)
 
                     Eyebrow(text: L.string("Hoje você está {state}", table: "Today")
-                        .replacingOccurrences(of: "{state}", with: L.string(state.label, table: "Today").lowercased()))
+                        .replacingOccurrences(of: "{state}", with: state.label.lowercased()))
                     Text(relief.title)
                         .font(MissaleFont.display(28, weight: .semibold))
                         .foregroundStyle(Palette.ink)

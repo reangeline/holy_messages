@@ -101,7 +101,7 @@ struct MoodCheckInSheet: View {
 
                     ForEach(MockMood.stateGroups) { group in
                         VStack(alignment: .leading, spacing: 8) {
-                            Eyebrow(text: L.string(group.label, table: "Today"))
+                            Eyebrow(text: group.label)
                             FlowChips(items: group.items) { option in
                                 advance(to: .reflection(option))
                             }
@@ -134,7 +134,7 @@ private struct FlowChips: View {
                         Button {
                             onTap(item)
                         } label: {
-                            Text(L.string(item.label, table: "Today"))
+                            Text(item.label)
                                 .font(MissaleFont.body(15))
                                 .foregroundStyle(item.isCrisisTrigger ? Palette.wine : Palette.ink)
                                 .padding(.horizontal, 14)

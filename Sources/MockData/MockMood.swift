@@ -8,7 +8,11 @@ enum MockMood {
     /// One catalog per language — see LocalizedCatalog.
     static var stateGroups: [MoodStateGroup] { stateGroupsCatalog.current }
 
-    static let stateGroupsCatalog = LocalizedCatalog(pt: ptStateGroups)
+    static let stateGroupsCatalog = LocalizedCatalog(
+        pt: ptStateGroups,
+        en: enStateGroups,
+        es: esStateGroups
+    )
 
     private static let ptStateGroups: [MoodStateGroup] = [
         .init(id: "consolation", label: "Consolação", items: [
@@ -29,6 +33,52 @@ enum MockMood {
             .init(id: "angry", label: "Com raiva", isCrisisTrigger: true),
             .init(id: "dryness", label: "Árido na oração"),
             .init(id: "doubtful", label: "Em dúvida"),
+            .init(id: "tired", label: "Cansado"),
+        ]),
+    ]
+
+    private static let enStateGroups: [MoodStateGroup] = [
+        .init(id: "consolation", label: "Consolation", items: [
+            .init(id: "peace", label: "At peace"),
+            .init(id: "grateful", label: "Grateful"),
+            .init(id: "joyful", label: "Joyful"),
+            .init(id: "hopeful", label: "Hopeful"),
+            .init(id: "forgiven", label: "Forgiven"),
+            .init(id: "loved", label: "Loved"),
+            .init(id: "steadfast", label: "Steadfast"),
+        ]),
+        .init(id: "desolation", label: "Desolation", items: [
+            .init(id: "empty", label: "Empty"),
+            .init(id: "anxious", label: "Anxious"),
+            .init(id: "guilty", label: "Guilty", isCrisisTrigger: true, isScrupulosityTrigger: true),
+            .init(id: "grief", label: "Grieving", isCrisisTrigger: true),
+            .init(id: "lonely", label: "Lonely"),
+            .init(id: "angry", label: "Angry", isCrisisTrigger: true),
+            .init(id: "dryness", label: "Dry in prayer"),
+            .init(id: "doubtful", label: "Doubtful"),
+            .init(id: "tired", label: "Tired"),
+        ]),
+    ]
+
+    private static let esStateGroups: [MoodStateGroup] = [
+        .init(id: "consolation", label: "Consuelo", items: [
+            .init(id: "peace", label: "En paz"),
+            .init(id: "grateful", label: "Agradecido"),
+            .init(id: "joyful", label: "Alegre"),
+            .init(id: "hopeful", label: "Esperanzado"),
+            .init(id: "forgiven", label: "Perdonado"),
+            .init(id: "loved", label: "Amado"),
+            .init(id: "steadfast", label: "Firme"),
+        ]),
+        .init(id: "desolation", label: "Desolación", items: [
+            .init(id: "empty", label: "Vacío"),
+            .init(id: "anxious", label: "Ansioso"),
+            .init(id: "guilty", label: "Culpable", isCrisisTrigger: true, isScrupulosityTrigger: true),
+            .init(id: "grief", label: "De duelo", isCrisisTrigger: true),
+            .init(id: "lonely", label: "Solo"),
+            .init(id: "angry", label: "Enojado", isCrisisTrigger: true),
+            .init(id: "dryness", label: "Árido en la oración"),
+            .init(id: "doubtful", label: "Con dudas"),
             .init(id: "tired", label: "Cansado"),
         ]),
     ]
@@ -903,8 +953,16 @@ enum MockMood {
     /// Picks a variation for `stateID`, avoiding `excluding` (the index shown last
     /// time) whenever more than one variation exists — see
     /// MoodHistoryStore.lastReliefIndex / recordReliefShown.
-    static func relief(for stateID: String, excluding: Int? = nil) -> (content: ReliefContent, index: Int) {
-        let variants = reliefByState[stateID] ?? [defaultRelief]
+    static func relief(
+        for stateID: String,
+        excluding: Int? = nil,
+        language: AppLanguage = AppLanguagePreference.resolveCurrent()
+    ) -> (content: ReliefContent, index: Int) {
+        guard language == .pt || reliefCatalog.hasOwnCatalog(for: language) else {
+            return (OnboardingRelief.content(spirit2: onboardingState(for: stateID), language: language), 0)
+        }
+
+        let variants = reliefCatalog[language][stateID] ?? [defaultRelief]
         guard variants.count > 1 else {
             return (variants.first ?? defaultRelief, 0)
         }
@@ -914,6 +972,20 @@ enum MockMood {
         }
         let chosen = pool.randomElement() ?? 0
         return (variants[chosen], chosen)
+    }
+
+    /// The temporary trilingual pool has four reviewed pastoral responses. It
+    /// prevents a Portuguese fallback while the complete 15-per-state catalog
+    /// is researched and imported. Once that catalog exists, `reliefCatalog`
+    /// takes precedence and this bridge is unused.
+    private static func onboardingState(for stateID: String) -> String? {
+        switch stateID {
+        case "tired": "tired"
+        case "anxious", "angry", "guilty": "fear"
+        case "lonely": "lonely"
+        case "empty", "dryness", "doubtful", "grief": "meaningless"
+        default: nil
+        }
     }
 
     static let pastoralCareParishName = "Paróquia Nossa Senhora Aparecida"

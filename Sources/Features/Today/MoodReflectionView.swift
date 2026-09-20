@@ -26,7 +26,7 @@ struct MoodReflectionView: View {
                 .padding(.top, 8)
 
                 Eyebrow(text: L.string("Hoje você está {state}", table: "Today")
-                    .replacingOccurrences(of: "{state}", with: L.string(state.label, table: "Today").lowercased()))
+                    .replacingOccurrences(of: "{state}", with: state.label.lowercased()))
                 Text("O que está acontecendo?", tableName: "Today")
                     .font(MissaleFont.display(27, weight: .semibold))
                     .foregroundStyle(Palette.ink)
