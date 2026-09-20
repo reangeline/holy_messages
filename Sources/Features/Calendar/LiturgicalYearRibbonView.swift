@@ -37,10 +37,10 @@ struct LiturgicalYearRibbonView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 18) {
                     VStack(alignment: .leading, spacing: 4) {
-                        Eyebrow(text: "O ano litúrgico")
-                        Text("Um ano, em uma faixa")
+                        Eyebrow(text: L.string("The liturgical year", table: "CalendarSaints"))
+                        Text(L.string("A year, in one strip", table: "CalendarSaints"))
                             .font(MissaleFont.display(27))
-                        Text("A largura de cada tempo é proporcional à sua duração real — o Tempo Comum é a maior parte do ano, a Quaresma são 40 dias, o Tríduo mal aparece.")
+                        Text(L.string("Each season's width is proportional to how long it really lasts — Ordinary Time is most of the year, Lent is 40 days, the Triduum barely shows.", table: "CalendarSaints"))
                             .font(MissaleFont.body(15))
                             .foregroundStyle(Palette.ink.opacity(0.68))
                     }
@@ -56,7 +56,7 @@ struct LiturgicalYearRibbonView: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .principal) {
-                Text("O ano").font(MissaleFont.body(15, weight: .medium))
+                Text(L.string("The year", table: "CalendarSaints")).font(MissaleFont.body(15, weight: .medium))
             }
         }
     }
@@ -85,7 +85,7 @@ struct LiturgicalYearRibbonView: View {
                 // "You are here" marker, positioned within its segment's slice of the ribbon.
                 if let x = markerOffset(in: proxy.size.width) {
                     VStack(spacing: 2) {
-                        Text("você está aqui")
+                        Text(L.string("you are here", table: "CalendarSaints"))
                             .font(.system(size: 10, weight: .semibold))
                             .foregroundStyle(Palette.wine)
                         Image(systemName: "arrowtriangle.down.fill")
@@ -131,7 +131,7 @@ struct LiturgicalYearRibbonView: View {
                     NavigationLink {
                         SeasonRetrospectiveView(retrospective: MockLiturgical.lentRetrospective)
                     } label: {
-                        Text("Ver sua Quaresma ›")
+                        Text(L.string("See your Lent ›", table: "CalendarSaints"))
                             .font(MissaleFont.body(15))
                             .foregroundStyle(Palette.wine)
                     }

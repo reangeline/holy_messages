@@ -102,10 +102,10 @@ struct CalendarDayDetailView: View {
                         } label: {
                             HStack {
                                 VStack(alignment: .leading, spacing: 2) {
-                                    Text("Folheto do domingo")
+                                    Text(L.string("Sunday bulletin", table: "CalendarSaints"))
                                         .font(MissaleFont.body(17, weight: .medium))
                                         .foregroundStyle(Palette.ink)
-                                    Text("As leituras desta Missa")
+                                    Text(L.string("The readings for this Mass", table: "CalendarSaints"))
                                         .font(MissaleFont.body(14))
                                         .foregroundStyle(Palette.ink.opacity(0.6))
                                 }

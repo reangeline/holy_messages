@@ -113,11 +113,11 @@ struct CalendarRootView: View {
             .foregroundStyle(Palette.ink)
             HStack(spacing: 10) {
                 NavigationLink(value: CalendarDestination.week) {
-                    zoomLink(title: MockLiturgical.currentWeek.name, subtitle: "A semana em 7 dias")
+                    zoomLink(title: MockLiturgical.currentWeek.name, subtitle: L.string("The week in 7 days", table: "CalendarSaints"))
                 }
                 .buttonStyle(.plain)
                 NavigationLink(value: CalendarDestination.year) {
-                    zoomLink(title: "O ano litúrgico", subtitle: "Uma faixa, o ano inteiro")
+                    zoomLink(title: L.string("The liturgical year", table: "CalendarSaints"), subtitle: L.string("One strip, the whole year", table: "CalendarSaints"))
                 }
                 .buttonStyle(.plain)
             }

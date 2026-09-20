@@ -1,222 +1,46 @@
 {
   "sourceLanguage": "en",
   "strings": {
-    "September": {
+    "A year, in one strip": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "September"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Septiembre"
+            "value": "A year, in one strip"
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Setembro"
+            "value": "Um ano, em uma faixa"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Un año, en una franja"
           }
         }
       }
     },
-    "The journey ›": {
+    "Abstinence": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The journey ›"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "La jornada ›"
+            "value": "Abstinence"
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "A jornada ›"
-          }
-        }
-      }
-    },
-    "Ordinary Time": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ordinary Time"
+            "value": "Abstinência"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tiempo Ordinario"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tempo Comum"
-          }
-        }
-      }
-    },
-    "Feast, red": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Feast, red"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Fiesta, rojo"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Festa, vermelho"
-          }
-        }
-      }
-    },
-    "White": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "White"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Blanco"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Branco"
-          }
-        }
-      }
-    },
-    "discreet mark = you logged something that day": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "discreet mark = you logged something that day"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "marca discreta = registraste algo ese día"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "marca discreta = você registrou algo naquele dia"
-          }
-        }
-      }
-    },
-    "No heat map and no good-day/bad-day colors: the color is the liturgy's, the mark is yours.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "No heat map and no good-day/bad-day colors: the color is the liturgy's, the mark is yours."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sin mapa de calor y sin colores de día bueno o malo: el color es de la liturgia, la marca es tuya."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sem mapa de calor e sem cores de bom e mau dia: a cor é da liturgia, a marca é sua."
-          }
-        }
-      }
-    },
-    "You logged": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "You logged"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Registraste"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Você registrou"
-          }
-        }
-      }
-    },
-    "That day's passage": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "That day's passage"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "El pasaje de aquel día"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "A passagem daquele dia"
-          }
-        }
-      }
-    },
-    "That day in the liturgy": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "That day in the liturgy"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aquel día en la liturgia"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Naquele dia na liturgia"
+            "value": "Abstinencia"
           }
         }
       }
@@ -239,204 +63,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Também naquele dia"
-          }
-        }
-      }
-    },
-    "The Journey": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "The Journey"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "El Camino"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "A Jornada"
-          }
-        }
-      }
-    },
-    "You crossed through this": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "You crossed through this"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Atravesaste esto"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Você atravessou isso"
-          }
-        }
-      }
-    },
-    "By liturgical time, the way the Church counts the year. Not by month, and without comparing them.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "By liturgical time, the way the Church counts the year. Not by month, and without comparing them."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Por tiempo litúrgico, como la Iglesia cuenta el año. No por mes, y sin comparar unos con otros."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Por tempo litúrgico, como a Igreja conta o ano. Não por mês, e sem comparação entre eles."
-          }
-        }
-      }
-    },
-    "No progress curve and no percentage: desolation isn't failure, and dryness isn't a performance dip.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "No progress curve and no percentage: desolation isn't failure, and dryness isn't a performance dip."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sin curva de progreso y sin porcentaje: la desolación no es fracaso, y la aridez no es una caída de desempeño."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sem curva de progresso e sem percentual: desolação não é fracasso, e aridez não é queda de desempenho."
-          }
-        }
-      }
-    },
-    "Not yet crossed": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Not yet crossed"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Todavía no atravesado"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ainda não atravessado"
-          }
-        }
-      }
-    },
-    "What accompanied the way": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "What accompanied the way"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lo que acompañó el camino"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "O que acompanhou o caminho"
-          }
-        }
-      }
-    },
-    "Why she matters today": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Why she matters today"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Por qué ella importa hoy"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Por que ela importa hoje"
-          }
-        }
-      }
-    },
-    "Prayer": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Prayer"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Oración"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Oração"
-          }
-        }
-      }
-    },
-    "Saints for what you carry": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Saints for what you carry"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Santos para lo que llevas"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Santos para o que você carrega"
           }
         }
       }
@@ -485,112 +111,24 @@
         }
       }
     },
-    "Saints Archive": {
+    "By liturgical time, the way the Church counts the year. Not by month, and without comparing them.": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Saints Archive"
+            "value": "By liturgical time, the way the Church counts the year. Not by month, and without comparing them."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Archivo de santos"
+            "value": "Por tiempo litúrgico, como la Iglesia cuenta el año. No por mes, y sin comparar unos con otros."
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Arquivo de santos"
-          }
-        }
-      }
-    },
-    "Search all": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Search all"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Buscar todo"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Buscar tudo"
-          }
-        }
-      }
-    },
-    "Search by name, date, or cause": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Search by name, date, or cause"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Buscar por nombre, fecha o causa"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Buscar por nome, data ou causa"
-          }
-        }
-      }
-    },
-    "United States": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "United States"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Estados Unidos"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Estados Unidos"
-          }
-        }
-      }
-    },
-    "general Roman calendar + country's own": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "general Roman calendar + country's own"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "calendario romano general + propio del país"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "calendário romano geral + próprio do país"
+            "value": "Por tempo litúrgico, como a Igreja conta o ano. Não por mês, e sem comparação entre eles."
           }
         }
       }
@@ -639,24 +177,266 @@
         }
       }
     },
-    "Nothing logged today yet.": {
+    "Each season's width is proportional to how long it really lasts — Ordinary Time is most of the year, Lent is 40 days, the Triduum barely shows.": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Nothing logged today yet."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nada registrado hoy todavía."
+            "value": "Each season's width is proportional to how long it really lasts — Ordinary Time is most of the year, Lent is 40 days, the Triduum barely shows."
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Nada registrado hoje ainda."
+            "value": "A largura de cada tempo é proporcional à sua duração real — o Tempo Comum é a maior parte do ano, a Quaresma são 40 dias, o Tríduo mal aparece."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El ancho de cada tiempo es proporcional a su duración real — el Tiempo Ordinario es la mayor parte del año, la Cuaresma son 40 días, el Triduo apenas aparece."
+          }
+        }
+      }
+    },
+    "Feast, red": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Feast, red"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fiesta, rojo"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Festa, vermelho"
+          }
+        }
+      }
+    },
+    "First Reading": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "First Reading"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Primeira Leitura"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Primera Lectura"
+          }
+        }
+      }
+    },
+    "Gospel": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gospel"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Evangelho"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Evangelio"
+          }
+        }
+      }
+    },
+    "Holy day of obligation": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Holy day of obligation"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dia de preceito"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Día de precepto"
+          }
+        }
+      }
+    },
+    "Luke": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Luke"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lucas"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lucas"
+          }
+        }
+      }
+    },
+    "Mark": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mark"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Marcos"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Marcos"
+          }
+        }
+      }
+    },
+    "Matthew": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Matthew"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mateus"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mateo"
+          }
+        }
+      }
+    },
+    "No heat map and no good-day/bad-day colors: the color is the liturgy's, the mark is yours.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No heat map and no good-day/bad-day colors: the color is the liturgy's, the mark is yours."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sin mapa de calor y sin colores de día bueno o malo: el color es de la liturgia, la marca es tuya."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sem mapa de calor e sem cores de bom e mau dia: a cor é da liturgia, a marca é sua."
+          }
+        }
+      }
+    },
+    "No progress curve and no percentage: desolation isn't failure, and dryness isn't a performance dip.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No progress curve and no percentage: desolation isn't failure, and dryness isn't a performance dip."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sin curva de progreso y sin porcentaje: la desolación no es fracaso, y la aridez no es una caída de desempeño."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sem curva de progresso e sem percentual: desolação não é fracasso, e aridez não é queda de desempenho."
+          }
+        }
+      }
+    },
+    "Not registered yet": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Not registered yet"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ainda não cadastrado"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aún no registrado"
+          }
+        }
+      }
+    },
+    "Not yet crossed": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Not yet crossed"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Todavía no atravesado"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ainda não atravessado"
           }
         }
       }
@@ -683,6 +463,534 @@
         }
       }
     },
+    "Nothing logged today yet.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nothing logged today yet."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nada registrado hoy todavía."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nada registrado hoje ainda."
+          }
+        }
+      }
+    },
+    "One strip, the whole year": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "One strip, the whole year"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uma faixa, o ano inteiro"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Una franja, el año entero"
+          }
+        }
+      }
+    },
+    "Only the citation is shown — the text of the readings is licensed by the USCCB and can't be reproduced here without permission.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Only the citation is shown — the text of the readings is licensed by the USCCB and can't be reproduced here without permission."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Só a referência é mostrada — o texto das leituras é licenciado pela CNBB e não pode ser reproduzido aqui sem autorização."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Solo se muestra la referencia — el texto de las lecturas está licenciado por la CEM y no puede reproducirse aquí sin autorización."
+          }
+        }
+      }
+    },
+    "Ordinary Time": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ordinary Time"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tiempo Ordinario"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tempo Comum"
+          }
+        }
+      }
+    },
+    "Prayer": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prayer"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Oración"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Oração"
+          }
+        }
+      }
+    },
+    "Responsorial Psalm": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Responsorial Psalm"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Salmo Responsorial"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Salmo Responsorial"
+          }
+        }
+      }
+    },
+    "Rosary · {mysteries}": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rosary · {mysteries}"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Terço · {mysteries}"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rosario · {mysteries}"
+          }
+        }
+      }
+    },
+    "Saints Archive": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Saints Archive"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Archivo de santos"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Arquivo de santos"
+          }
+        }
+      }
+    },
+    "Saints for what you carry": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Saints for what you carry"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Santos para lo que llevas"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Santos para o que você carrega"
+          }
+        }
+      }
+    },
+    "Search all": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Search all"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buscar todo"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buscar tudo"
+          }
+        }
+      }
+    },
+    "Search by name, date, or cause": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Search by name, date, or cause"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buscar por nombre, fecha o causa"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buscar por nome, data ou causa"
+          }
+        }
+      }
+    },
+    "Second Reading": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Second Reading"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Segunda Leitura"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Segunda Lectura"
+          }
+        }
+      }
+    },
+    "See your Lent ›": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "See your Lent ›"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ver sua Quaresma ›"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ver tu Cuaresma ›"
+          }
+        }
+      }
+    },
+    "September": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "September"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Septiembre"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Setembro"
+          }
+        }
+      }
+    },
+    "Sunday bulletin": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sunday bulletin"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Folheto do domingo"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hoja del domingo"
+          }
+        }
+      }
+    },
+    "That day in the liturgy": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "That day in the liturgy"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aquel día en la liturgia"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Naquele dia na liturgia"
+          }
+        }
+      }
+    },
+    "That day's passage": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "That day's passage"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El pasaje de aquel día"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A passagem daquele dia"
+          }
+        }
+      }
+    },
+    "The Gospel thread": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The Gospel thread"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O fio do Evangelho"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El hilo del Evangelio"
+          }
+        }
+      }
+    },
+    "The Journey": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The Journey"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El Camino"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A Jornada"
+          }
+        }
+      }
+    },
+    "The journey ›": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The journey ›"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La jornada ›"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A jornada ›"
+          }
+        }
+      }
+    },
+    "The liturgical year": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The liturgical year"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O ano litúrgico"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El año litúrgico"
+          }
+        }
+      }
+    },
+    "The readings for this Mass": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The readings for this Mass"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "As leituras desta Missa"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Las lecturas de esta Misa"
+          }
+        }
+      }
+    },
+    "The week in 7 days": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The week in 7 days"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A semana em 7 dias"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La semana en 7 días"
+          }
+        }
+      }
+    },
+    "The year": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The year"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O ano"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El año"
+          }
+        }
+      }
+    },
     "Today": {
       "localizations": {
         "en": {
@@ -701,6 +1009,270 @@
           "stringUnit": {
             "state": "translated",
             "value": "Hoje"
+          }
+        }
+      }
+    },
+    "United States": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "United States"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Estados Unidos"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Estados Unidos"
+          }
+        }
+      }
+    },
+    "What accompanied the way": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "What accompanied the way"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lo que acompañó el camino"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O que acompanhou o caminho"
+          }
+        }
+      }
+    },
+    "What changes this week": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "What changes this week"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O que muda nesta semana"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lo que cambia esta semana"
+          }
+        }
+      }
+    },
+    "White": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "White"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Blanco"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Branco"
+          }
+        }
+      }
+    },
+    "Why she matters today": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Why she matters today"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Por qué ella importa hoy"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Por que ela importa hoje"
+          }
+        }
+      }
+    },
+    "Year {cycle}": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Year {cycle}"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ano {cycle}"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Año {cycle}"
+          }
+        }
+      }
+    },
+    "Year {cycle}: this cycle's Sunday Gospel is read mostly from {writer}.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Year {cycle}: this cycle's Sunday Gospel is read mostly from {writer}."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ano {cycle}: o Evangelho dominical deste ciclo é lido principalmente em {writer}."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Año {cycle}: el Evangelio dominical de este ciclo se lee principalmente en {writer}."
+          }
+        }
+      }
+    },
+    "You crossed through this": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You crossed through this"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Atravesaste esto"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Você atravessou isso"
+          }
+        }
+      }
+    },
+    "You logged": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You logged"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Registraste"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Você registrou"
+          }
+        }
+      }
+    },
+    "discreet mark = you logged something that day": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "discreet mark = you logged something that day"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "marca discreta = registraste algo ese día"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "marca discreta = você registrou algo naquele dia"
+          }
+        }
+      }
+    },
+    "general Roman calendar + country's own": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "general Roman calendar + country's own"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "calendario romano general + propio del país"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "calendário romano geral + próprio do país"
+          }
+        }
+      }
+    },
+    "you are here": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "you are here"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "você está aqui"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "estás aquí"
           }
         }
       }

@@ -116,12 +116,12 @@ struct LiturgicalWeekView: View {
 
                 HStack(spacing: 14) {
                     if selectedDay.isHolyDayOfObligation {
-                        tag("Dia de preceito")
+                        tag(L.string("Holy day of obligation", table: "CalendarSaints"))
                     }
                     if selectedDay.isAbstinenceDay {
-                        tag("Abstinência")
+                        tag(L.string("Abstinence", table: "CalendarSaints"))
                     }
-                    tag("Terço · \(selectedDay.mysterySet.displayName)")
+                    tag(L.string("Rosary · {mysteries}", table: "CalendarSaints").replacingOccurrences(of: "{mysteries}", with: selectedDay.mysterySet.displayName))
                 }
             }
         }
@@ -139,7 +139,7 @@ struct LiturgicalWeekView: View {
     private var gospelThread: some View {
         DashedUtilityCard {
             VStack(alignment: .leading, spacing: 6) {
-                Eyebrow(text: "O fio do Evangelho")
+                Eyebrow(text: L.string("The Gospel thread", table: "CalendarSaints"))
                 Text(week.gospelThreadBody)
                     .font(MissaleFont.body(15))
                     .foregroundStyle(Palette.ink.opacity(0.82))
@@ -150,7 +150,7 @@ struct LiturgicalWeekView: View {
     private func whatChanges(_ note: String) -> some View {
         LiturgicalGradientCard(color: .purple) {
             VStack(alignment: .leading, spacing: 6) {
-                Eyebrow(text: "O que muda nesta semana", color: Palette.goldBright)
+                Eyebrow(text: L.string("What changes this week", table: "CalendarSaints"), color: Palette.goldBright)
                 Text(note)
                     .font(MissaleFont.body(15))
                     .foregroundStyle(.white.opacity(0.92))
