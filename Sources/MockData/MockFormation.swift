@@ -383,9 +383,8 @@ enum MockFormation {
         allTracks.first { $0.id == id }
     }
 
-    // Catálogo gerado: 36 lições próprias em português e inglês. O lote em
-    // espanhol contém frases em inglês e, por política do Acervo, usa o
-    // fallback explícito em português até haver uma fonte espanhola íntegra.
+    // Catálogo gerado: 36 lições próprias em português, inglês e espanhol.
+    // Cada idioma mantém sua própria redação e referências consultáveis.
     static let otherTracksCatalog = importedOtherTracksCatalog
 
     static let reviewerCredit = "Revisão de conteúdo por Pe. Daniel Vasconcelos."

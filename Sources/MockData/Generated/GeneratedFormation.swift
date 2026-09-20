@@ -4,8 +4,7 @@
 //
 // Formação por trilha. O terceiro parágrafo repetido nas 36 lições foi
 // retirado; cada parte mantém os três parágrafos próprios que passaram na
-// revisão. O lote espanhol ficou fora: ele mistura frases em inglês, então
-// LocalizedCatalog aplica o fallback explícito ao português.
+// revisão. Os três catálogos foram redigidos em seu próprio idioma.
 
 import Foundation
 
@@ -988,8 +987,498 @@ extension MockFormation {
         ),
     ]
 
+    static let esImportedOtherTracks: [FormationTrack] = [
+        .init(
+            id: "sacraments",
+            title: "Los siete sacramentos",
+            meta: "7 partes · 4 min cada",
+            progress: 0,
+            nextUp: "Parte 1: El Bautismo",
+            lessons: [
+                .init(
+                    id: "sacraments-1-es",
+                    trackID: "sacraments",
+                    partNumber: 1,
+                    partsTotal: 7,
+                    kicker: "Los siete sacramentos",
+                    title: "El Bautismo",
+                    bodyParagraphs: ["¿Cómo comienza la vida sacramental? Esta lección se detiene en el agua y la invocación trinitaria que incorporan a una persona a Cristo y a la Iglesia. No ofrece una definición aislada: mira cómo ese signo o esa oración forma parte de la vida de la Iglesia.", "El Bautismo es fundamento de toda la vida cristiana y puerta de los demás sacramentos; por él se recibe una vida nueva como hijo de Dios. Catecismo de la Iglesia Católica, §§1213–1284.", "Después del nuevo nacimiento, la siguiente pregunta es cómo esa gracia se fortalece para el testimonio. La formación avanza cuando la fuente recibida se relaciona con una práctica concreta de oración y celebración."],
+                    quoteText: nil,
+                    quoteAttribution: "El Bautismo es fundamento de toda la vida cristiana y puerta de los demás sacramentos; por él se recibe una vida nueva como hijo de Dios. Catecismo de la Iglesia Católica, §§1213–1284.",
+                    glossaryTerms: [.init(term: "agua", definition: "Signo sacramental de vida nueva y de unión con Cristo.")]
+                ),
+                .init(
+                    id: "sacraments-2-es",
+                    trackID: "sacraments",
+                    partNumber: 2,
+                    partsTotal: 7,
+                    kicker: "Los siete sacramentos",
+                    title: "La Confirmación",
+                    bodyParagraphs: ["¿Qué recibe el bautizado en la Confirmación? Esta lección se detiene en la unción con el crisma y el don del Espíritu Santo. No ofrece una definición aislada: mira cómo ese signo o esa oración forma parte de la vida de la Iglesia.", "La Confirmación perfecciona la gracia bautismal, une más firmemente a Cristo y fortalece para dar testimonio de la fe. Catecismo de la Iglesia Católica, §§1285–1321.", "La iniciación conduce a la mesa donde Cristo alimenta a su Iglesia. La formación avanza cuando la fuente recibida se relaciona con una práctica concreta de oración y celebración."],
+                    quoteText: nil,
+                    quoteAttribution: "La Confirmación perfecciona la gracia bautismal, une más firmemente a Cristo y fortalece para dar testimonio de la fe. Catecismo de la Iglesia Católica, §§1285–1321.",
+                    glossaryTerms: [.init(term: "crisma", definition: "Óleo consagrado usado en la Confirmación como signo de consagración.")]
+                ),
+                .init(
+                    id: "sacraments-3-es",
+                    trackID: "sacraments",
+                    partNumber: 3,
+                    partsTotal: 7,
+                    kicker: "Los siete sacramentos",
+                    title: "La Eucaristía",
+                    bodyParagraphs: ["¿Por qué la Eucaristía está en el centro de la vida cristiana? Esta lección se detiene en el memorial de la Pascua de Cristo y la comunión de la Iglesia. No ofrece una definición aislada: mira cómo ese signo o esa oración forma parte de la vida de la Iglesia.", "La Eucaristía hace presente sacramentalmente el sacrificio de Cristo y es fuente y culmen de la vida eclesial. Catecismo de la Iglesia Católica, §§1322–1419.", "La comunión puede ser herida por el pecado; por eso el camino continúa con la reconciliación. La formación avanza cuando la fuente recibida se relaciona con una práctica concreta de oración y celebración."],
+                    quoteText: nil,
+                    quoteAttribution: "La Eucaristía hace presente sacramentalmente el sacrificio de Cristo y es fuente y culmen de la vida eclesial. Catecismo de la Iglesia Católica, §§1322–1419.",
+                    glossaryTerms: [.init(term: "Eucaristía", definition: "Sacramento en el que Cristo entrega su Cuerpo y su Sangre a la Iglesia.")]
+                ),
+                .init(
+                    id: "sacraments-4-es",
+                    trackID: "sacraments",
+                    partNumber: 4,
+                    partsTotal: 7,
+                    kicker: "Los siete sacramentos",
+                    title: "La Penitencia",
+                    bodyParagraphs: ["¿Qué sucede cuando el pecado hiere la comunión? Esta lección se detiene en la conversión, la confesión y la absolución celebradas en la Iglesia. No ofrece una definición aislada: mira cómo ese signo o esa oración forma parte de la vida de la Iglesia.", "Cristo instituyó el sacramento de la Reconciliación para que el bautizado vuelva a la comunión con Dios y con la Iglesia. Catecismo de la Iglesia Católica, §§1422–1498.", "La misericordia de Dios acompaña también la fragilidad corporal y la enfermedad. La formación avanza cuando la fuente recibida se relaciona con una práctica concreta de oración y celebración."],
+                    quoteText: nil,
+                    quoteAttribution: "Cristo instituyó el sacramento de la Reconciliación para que el bautizado vuelva a la comunión con Dios y con la Iglesia. Catecismo de la Iglesia Católica, §§1422–1498.",
+                    glossaryTerms: [.init(term: "reconciliación", definition: "Restablecimiento de la comunión con Dios y con la Iglesia.")]
+                ),
+                .init(
+                    id: "sacraments-5-es",
+                    trackID: "sacraments",
+                    partNumber: 5,
+                    partsTotal: 7,
+                    kicker: "Los siete sacramentos",
+                    title: "La Unción de los enfermos",
+                    bodyParagraphs: ["¿La Unción está reservada únicamente a los últimos momentos? Esta lección se detiene en la oración de la Iglesia y la unción para quien sufre una enfermedad grave o la debilidad de la edad. No ofrece una definición aislada: mira cómo ese signo o esa oración forma parte de la vida de la Iglesia.", "La Unción une al enfermo a la pasión de Cristo, le da fuerza y paz y puede conceder el perdón de los pecados. Catecismo de la Iglesia Católica, §§1499–1532.", "La vida de la Iglesia necesita también ministros ordenados para servir y celebrar los sacramentos. La formación avanza cuando la fuente recibida se relaciona con una práctica concreta de oración y celebración."],
+                    quoteText: nil,
+                    quoteAttribution: "La Unción une al enfermo a la pasión de Cristo, le da fuerza y paz y puede conceder el perdón de los pecados. Catecismo de la Iglesia Católica, §§1499–1532.",
+                    glossaryTerms: [.init(term: "unción", definition: "Acción sacramental con óleo que expresa fortaleza, consuelo y consagración.")]
+                ),
+                .init(
+                    id: "sacraments-6-es",
+                    trackID: "sacraments",
+                    partNumber: 6,
+                    partsTotal: 7,
+                    kicker: "Los siete sacramentos",
+                    title: "El Orden sacerdotal",
+                    bodyParagraphs: ["¿Para qué existe el sacramento del Orden? Esta lección se detiene en el servicio de los obispos, presbíteros y diáconos a la misión de Cristo y de la Iglesia. No ofrece una definición aislada: mira cómo ese signo o esa oración forma parte de la vida de la Iglesia.", "El Orden configura a algunos fieles con Cristo para el servicio de su pueblo, especialmente en la enseñanza, el culto y la guía pastoral. Catecismo de la Iglesia Católica, §§1536–1600.", "La última forma sacramental de servicio a la comunión es la alianza de los esposos. La formación avanza cuando la fuente recibida se relaciona con una práctica concreta de oración y celebración."],
+                    quoteText: nil,
+                    quoteAttribution: "El Orden configura a algunos fieles con Cristo para el servicio de su pueblo, especialmente en la enseñanza, el culto y la guía pastoral. Catecismo de la Iglesia Católica, §§1536–1600.",
+                    glossaryTerms: [.init(term: "Orden", definition: "Sacramento por el que algunos fieles son constituidos para servir a la Iglesia.")]
+                ),
+                .init(
+                    id: "sacraments-7-es",
+                    trackID: "sacraments",
+                    partNumber: 7,
+                    partsTotal: 7,
+                    kicker: "Los siete sacramentos",
+                    title: "El Matrimonio",
+                    bodyParagraphs: ["¿Qué promete el Matrimonio cristiano? Esta lección se detiene en una alianza de toda la vida entre un hombre y una mujer, abierta al bien de los esposos y de los hijos. No ofrece una definición aislada: mira cómo ese signo o esa oración forma parte de la vida de la Iglesia.", "El Matrimonio establece una alianza entre los esposos y participa del amor de Cristo por su Iglesia. Catecismo de la Iglesia Católica, §§1601–1666.", "Con esta alianza se completa el recorrido por los siete sacramentos y sus distintas misiones. La formación avanza cuando la fuente recibida se relaciona con una práctica concreta de oración y celebración."],
+                    quoteText: nil,
+                    quoteAttribution: "El Matrimonio establece una alianza entre los esposos y participa del amor de Cristo por su Iglesia. Catecismo de la Iglesia Católica, §§1601–1666.",
+                    glossaryTerms: [.init(term: "alianza", definition: "Vínculo estable de amor y fidelidad asumido ante Dios y la Iglesia.")]
+                )
+            ]
+        ),
+        .init(
+            id: "liturgical-year",
+            title: "El año litúrgico",
+            meta: "6 partes · 4 min cada",
+            progress: 0,
+            nextUp: "Parte 1: El Adviento",
+            lessons: [
+                .init(
+                    id: "liturgical-year-1-es",
+                    trackID: "liturgical-year",
+                    partNumber: 1,
+                    partsTotal: 6,
+                    kicker: "El año litúrgico",
+                    title: "El Adviento",
+                    bodyParagraphs: ["¿Qué espera la Iglesia durante el Adviento? Esta lección se detiene en la venida de Cristo: su nacimiento celebrado en Navidad y su retorno glorioso al final de los tiempos. No ofrece una definición aislada: mira cómo ese signo o esa oración forma parte de la vida de la Iglesia.", "El Adviento dispone a celebrar la primera venida del Hijo de Dios y despierta la esperanza de su venida definitiva. Catecismo de la Iglesia Católica, §§522–524.", "La espera desemboca en la celebración del nacimiento del Señor. La formación avanza cuando la fuente recibida se relaciona con una práctica concreta de oración y celebración."],
+                    quoteText: nil,
+                    quoteAttribution: "El Adviento dispone a celebrar la primera venida del Hijo de Dios y despierta la esperanza de su venida definitiva. Catecismo de la Iglesia Católica, §§522–524.",
+                    glossaryTerms: [.init(term: "Adviento", definition: "Tiempo de preparación y esperanza antes de la Navidad.")]
+                ),
+                .init(
+                    id: "liturgical-year-2-es",
+                    trackID: "liturgical-year",
+                    partNumber: 2,
+                    partsTotal: 6,
+                    kicker: "El año litúrgico",
+                    title: "La Navidad",
+                    bodyParagraphs: ["¿Qué confiesa la Iglesia al celebrar la Navidad? Esta lección se detiene en que el Hijo eterno de Dios asumió nuestra humanidad verdadera. No ofrece una definición aislada: mira cómo ese signo o esa oración forma parte de la vida de la Iglesia.", "En Navidad la Iglesia celebra el misterio de la Encarnación: Jesucristo es verdadero Dios y verdadero hombre. Catecismo de la Iglesia Católica, §§525–530.", "Después de manifestar a Cristo en su infancia, el año litúrgico conduce al desierto y a la Pascua. La formación avanza cuando la fuente recibida se relaciona con una práctica concreta de oración y celebración."],
+                    quoteText: nil,
+                    quoteAttribution: "En Navidad la Iglesia celebra el misterio de la Encarnación: Jesucristo es verdadero Dios y verdadero hombre. Catecismo de la Iglesia Católica, §§525–530.",
+                    glossaryTerms: [.init(term: "Encarnación", definition: "El Hijo de Dios asumió la naturaleza humana sin dejar de ser Dios.")]
+                ),
+                .init(
+                    id: "liturgical-year-3-es",
+                    trackID: "liturgical-year",
+                    partNumber: 3,
+                    partsTotal: 6,
+                    kicker: "El año litúrgico",
+                    title: "La Cuaresma",
+                    bodyParagraphs: ["¿Para qué sirve el camino de la Cuaresma? Esta lección se detiene en la conversión, el recuerdo del Bautismo y la preparación para la Pascua. No ofrece una definición aislada: mira cómo ese signo o esa oración forma parte de la vida de la Iglesia.", "Los cuarenta días recuerdan a Cristo en el desierto; la Iglesia propone oración, ayuno y limosna como camino de conversión. Catecismo de la Iglesia Católica, §§540, 1438.", "La Cuaresma no termina en sí misma: conduce a los días centrales de la Pascua. La formación avanza cuando la fuente recibida se relaciona con una práctica concreta de oración y celebración."],
+                    quoteText: nil,
+                    quoteAttribution: "Los cuarenta días recuerdan a Cristo en el desierto; la Iglesia propone oración, ayuno y limosna como camino de conversión. Catecismo de la Iglesia Católica, §§540, 1438.",
+                    glossaryTerms: [.init(term: "conversión", definition: "Retorno del corazón a Dios que se expresa en la vida concreta.")]
+                ),
+                .init(
+                    id: "liturgical-year-4-es",
+                    trackID: "liturgical-year",
+                    partNumber: 4,
+                    partsTotal: 6,
+                    kicker: "El año litúrgico",
+                    title: "El Triduo Pascual",
+                    bodyParagraphs: ["¿Qué celebra la Iglesia en los tres días del Triduo? Esta lección se detiene en la única Pascua del Señor, desde la Cena hasta la Vigilia Pascual. No ofrece una definición aislada: mira cómo ese signo o esa oración forma parte de la vida de la Iglesia.", "El Triduo concentra la pasión, muerte, sepultura y resurrección de Cristo en una sola celebración pascual. Normas universales sobre el año litúrgico, §§18–21.", "La Vigilia abre el tiempo en que la Iglesia canta la victoria de Cristo resucitado. La formación avanza cuando la fuente recibida se relaciona con una práctica concreta de oración y celebración."],
+                    quoteText: nil,
+                    quoteAttribution: "El Triduo concentra la pasión, muerte, sepultura y resurrección de Cristo en una sola celebración pascual. Normas universales sobre el año litúrgico, §§18–21.",
+                    glossaryTerms: [.init(term: "Triduo Pascual", definition: "Culmen del año litúrgico, dedicado al misterio pascual de Cristo.")]
+                ),
+                .init(
+                    id: "liturgical-year-5-es",
+                    trackID: "liturgical-year",
+                    partNumber: 5,
+                    partsTotal: 6,
+                    kicker: "El año litúrgico",
+                    title: "El Tiempo Pascual",
+                    bodyParagraphs: ["¿Por qué la Pascua se prolonga durante cincuenta días? Esta lección se detiene en la alegría de la resurrección, la Ascensión y la venida del Espíritu Santo. No ofrece una definición aislada: mira cómo ese signo o esa oración forma parte de la vida de la Iglesia.", "La resurrección de Cristo es el centro de la fe; el tiempo pascual prolonga su celebración hasta Pentecostés. Catecismo de la Iglesia Católica, §§638–667.", "Después de Pentecostés, el calendario vuelve a recorrer con paciencia la vida pública de Jesús. La formación avanza cuando la fuente recibida se relaciona con una práctica concreta de oración y celebración."],
+                    quoteText: nil,
+                    quoteAttribution: "La resurrección de Cristo es el centro de la fe; el tiempo pascual prolonga su celebración hasta Pentecostés. Catecismo de la Iglesia Católica, §§638–667.",
+                    glossaryTerms: [.init(term: "Pascua", definition: "Celebración de la muerte y resurrección de Jesucristo.")]
+                ),
+                .init(
+                    id: "liturgical-year-6-es",
+                    trackID: "liturgical-year",
+                    partNumber: 6,
+                    partsTotal: 6,
+                    kicker: "El año litúrgico",
+                    title: "El Tiempo Ordinario",
+                    bodyParagraphs: ["¿Qué tiene de ordinario este tiempo litúrgico? Esta lección se detiene en la escucha continuada del Evangelio y el crecimiento paciente en la vida de Cristo. No ofrece una definición aislada: mira cómo ese signo o esa oración forma parte de la vida de la Iglesia.", "El Tiempo Ordinario no es un vacío entre fiestas: acompaña a la Iglesia en el despliegue de la vida pública y la enseñanza de Jesús. Normas universales sobre el año litúrgico, §§43–44.", "El año litúrgico permite reconocer cómo los mismos misterios de Cristo dan forma a cada semana. La formación avanza cuando la fuente recibida se relaciona con una práctica concreta de oración y celebración."],
+                    quoteText: nil,
+                    quoteAttribution: "El Tiempo Ordinario no es un vacío entre fiestas: acompaña a la Iglesia en el despliegue de la vida pública y la enseñanza de Jesús. Normas universales sobre el año litúrgico, §§43–44.",
+                    glossaryTerms: [.init(term: "Tiempo Ordinario", definition: "Período que acompaña el crecimiento cotidiano en la vida de Cristo.")]
+                )
+            ]
+        ),
+        .init(
+            id: "signs-symbols",
+            title: "Signos y símbolos",
+            meta: "5 partes · 4 min cada",
+            progress: 0,
+            nextUp: "Parte 1: El agua",
+            lessons: [
+                .init(
+                    id: "signs-symbols-1-es",
+                    trackID: "signs-symbols",
+                    partNumber: 1,
+                    partsTotal: 5,
+                    kicker: "Signos y símbolos",
+                    title: "El agua",
+                    bodyParagraphs: ["¿Por qué el agua tiene tanta fuerza en la liturgia? Esta lección se detiene en la creación, el paso por el mar y el Bautismo como nacimiento a una vida nueva. No ofrece una definición aislada: mira cómo ese signo o esa oración forma parte de la vida de la Iglesia.", "El agua bautismal hace memoria de las grandes obras de Dios y significa morir y resucitar con Cristo. Catecismo de la Iglesia Católica, §§1217–1222.", "Otro signo material de la liturgia es el óleo, usado de modo distinto según el sacramento. La formación avanza cuando la fuente recibida se relaciona con una práctica concreta de oración y celebración."],
+                    quoteText: nil,
+                    quoteAttribution: "El agua bautismal hace memoria de las grandes obras de Dios y significa morir y resucitar con Cristo. Catecismo de la Iglesia Católica, §§1217–1222.",
+                    glossaryTerms: [.init(term: "agua", definition: "Elemento creado que, en el Bautismo, es signo de vida nueva.")]
+                ),
+                .init(
+                    id: "signs-symbols-2-es",
+                    trackID: "signs-symbols",
+                    partNumber: 2,
+                    partsTotal: 5,
+                    kicker: "Signos y símbolos",
+                    title: "El óleo",
+                    bodyParagraphs: ["¿Qué expresa el óleo sacramental? Esta lección se detiene en la fortaleza, la curación y la consagración que Dios comunica mediante signos visibles. No ofrece una definición aislada: mira cómo ese signo o esa oración forma parte de la vida de la Iglesia.", "El crisma en el Bautismo y la Confirmación, y el óleo de los enfermos, se usan en acciones sacramentales distintas. Catecismo de la Iglesia Católica, §§1241, 1289, 1513.", "La liturgia también usa la luz para hablar de Cristo y de la fe recibida. La formación avanza cuando la fuente recibida se relaciona con una práctica concreta de oración y celebración."],
+                    quoteText: nil,
+                    quoteAttribution: "El crisma en el Bautismo y la Confirmación, y el óleo de los enfermos, se usan en acciones sacramentales distintas. Catecismo de la Iglesia Católica, §§1241, 1289, 1513.",
+                    glossaryTerms: [.init(term: "óleo", definition: "Aceite bendecido o consagrado empleado en diversos sacramentos.")]
+                ),
+                .init(
+                    id: "signs-symbols-3-es",
+                    trackID: "signs-symbols",
+                    partNumber: 3,
+                    partsTotal: 5,
+                    kicker: "Signos y símbolos",
+                    title: "La luz",
+                    bodyParagraphs: ["¿Qué anuncia la vela encendida en la celebración? Esta lección se detiene en a Cristo, luz del mundo, y la fe que el bautizado está llamado a custodiar. No ofrece una definición aislada: mira cómo ese signo o esa oración forma parte de la vida de la Iglesia.", "En el rito del Bautismo se entrega una vela encendida en el cirio pascual como signo de la luz de Cristo. Catecismo de la Iglesia Católica, §1243.", "Junto a la luz, el incienso expresa honor y oración que se eleva. La formación avanza cuando la fuente recibida se relaciona con una práctica concreta de oración y celebración."],
+                    quoteText: nil,
+                    quoteAttribution: "En el rito del Bautismo se entrega una vela encendida en el cirio pascual como signo de la luz de Cristo. Catecismo de la Iglesia Católica, §1243.",
+                    glossaryTerms: [.init(term: "cirio pascual", definition: "Vela que representa a Cristo resucitado en la liturgia.")]
+                ),
+                .init(
+                    id: "signs-symbols-4-es",
+                    trackID: "signs-symbols",
+                    partNumber: 4,
+                    partsTotal: 5,
+                    kicker: "Signos y símbolos",
+                    title: "El incienso",
+                    bodyParagraphs: ["¿Por qué se inciensa el altar, el Evangelio y la asamblea? Esta lección se detiene en el honor debido a Cristo presente en la acción litúrgica y la oración que asciende a Dios. No ofrece una definición aislada: mira cómo ese signo o esa oración forma parte de la vida de la Iglesia.", "La Instrucción General del Misal Romano prevé el incienso en diversos momentos y objetos de la celebración. Instrucción General del Misal Romano, §§75, 276.", "Hay un signo menos visible pero decisivo para escuchar y orar: el silencio. La formación avanza cuando la fuente recibida se relaciona con una práctica concreta de oración y celebración."],
+                    quoteText: nil,
+                    quoteAttribution: "La Instrucción General del Misal Romano prevé el incienso en diversos momentos y objetos de la celebración. Instrucción General del Misal Romano, §§75, 276.",
+                    glossaryTerms: [.init(term: "incienso", definition: "Resina aromática quemada como signo de honor y de oración.")]
+                ),
+                .init(
+                    id: "signs-symbols-5-es",
+                    trackID: "signs-symbols",
+                    partNumber: 5,
+                    partsTotal: 5,
+                    kicker: "Signos y símbolos",
+                    title: "El silencio",
+                    bodyParagraphs: ["¿El silencio en la Misa es una pausa sin contenido? Esta lección se detiene en la escucha de la Palabra, la oración interior y la respuesta personal de cada participante. No ofrece una definición aislada: mira cómo ese signo o esa oración forma parte de la vida de la Iglesia.", "El silencio sagrado corresponde a la naturaleza de la celebración y tiene distintos momentos y finalidades. Instrucción General del Misal Romano, §45.", "Los signos no sustituyen la fe; ayudan a que la Iglesia rece con el cuerpo y la voz. La formación avanza cuando la fuente recibida se relaciona con una práctica concreta de oración y celebración."],
+                    quoteText: nil,
+                    quoteAttribution: "El silencio sagrado corresponde a la naturaleza de la celebración y tiene distintos momentos y finalidades. Instrucción General del Misal Romano, §45.",
+                    glossaryTerms: [.init(term: "silencio sagrado", definition: "Silencio que dispone a escuchar, orar y responder interiormente.")]
+                )
+            ]
+        ),
+        .init(
+            id: "prayers-explained",
+            title: "Las oraciones explicadas",
+            meta: "6 partes · 3 min cada",
+            progress: 0,
+            nextUp: "Parte 1: El Padrenuestro",
+            lessons: [
+                .init(
+                    id: "prayers-explained-1-es",
+                    trackID: "prayers-explained",
+                    partNumber: 1,
+                    partsTotal: 6,
+                    kicker: "Las oraciones explicadas",
+                    title: "El Padrenuestro",
+                    bodyParagraphs: ["¿Por qué el Padrenuestro ocupa un lugar único entre las oraciones? Esta lección se detiene en la oración que Jesús entregó a sus discípulos y que reúne las necesidades esenciales de la vida cristiana. No ofrece una definición aislada: mira cómo ese signo o esa oración forma parte de la vida de la Iglesia.", "El Padrenuestro es el resumen de todo el Evangelio y ordena siete peticiones dirigidas al Padre. Catecismo de la Iglesia Católica, §§2759–2865.", "La siguiente oración contempla el saludo del ángel a María y pide su intercesión. La formación avanza cuando la fuente recibida se relaciona con una práctica concreta de oración y celebración."],
+                    quoteText: nil,
+                    quoteAttribution: "El Padrenuestro es el resumen de todo el Evangelio y ordena siete peticiones dirigidas al Padre. Catecismo de la Iglesia Católica, §§2759–2865.",
+                    glossaryTerms: [.init(term: "Padrenuestro", definition: "Oración que Jesucristo enseñó a sus discípulos.")]
+                ),
+                .init(
+                    id: "prayers-explained-2-es",
+                    trackID: "prayers-explained",
+                    partNumber: 2,
+                    partsTotal: 6,
+                    kicker: "Las oraciones explicadas",
+                    title: "El Avemaría",
+                    bodyParagraphs: ["¿De dónde nace el Avemaría? Esta lección se detiene en el saludo de Gabriel, la bendición de Isabel y la súplica confiada de la Iglesia a María. No ofrece una definición aislada: mira cómo ese signo o esa oración forma parte de la vida de la Iglesia.", "La primera parte procede del Evangelio y la segunda invoca a la Madre de Dios para ahora y la hora de la muerte. Catecismo de la Iglesia Católica, §§2673–2679.", "Toda oración cristiana vuelve finalmente a la alabanza del Dios trino. La formación avanza cuando la fuente recibida se relaciona con una práctica concreta de oración y celebración."],
+                    quoteText: nil,
+                    quoteAttribution: "La primera parte procede del Evangelio y la segunda invoca a la Madre de Dios para ahora y la hora de la muerte. Catecismo de la Iglesia Católica, §§2673–2679.",
+                    glossaryTerms: [.init(term: "Avemaría", definition: "Oración mariana formada por palabras del Evangelio y una súplica de la Iglesia.")]
+                ),
+                .init(
+                    id: "prayers-explained-3-es",
+                    trackID: "prayers-explained",
+                    partNumber: 3,
+                    partsTotal: 6,
+                    kicker: "Las oraciones explicadas",
+                    title: "El Gloria",
+                    bodyParagraphs: ["¿Qué hace una doxología como el Gloria? Esta lección se detiene en dar gloria al Padre, al Hijo y al Espíritu Santo al final de una oración. No ofrece una definición aislada: mira cómo ese signo o esa oración forma parte de la vida de la Iglesia.", "La alabanza reconoce a Dios por quien es; la doxología es una forma breve y constante de esa alabanza trinitaria. Catecismo de la Iglesia Católica, §2628.", "El Credo no es una oración espontánea: recoge la fe recibida y profesada por la Iglesia. La formación avanza cuando la fuente recibida se relaciona con una práctica concreta de oración y celebración."],
+                    quoteText: nil,
+                    quoteAttribution: "La alabanza reconoce a Dios por quien es; la doxología es una forma breve y constante de esa alabanza trinitaria. Catecismo de la Iglesia Católica, §2628.",
+                    glossaryTerms: [.init(term: "doxología", definition: "Fórmula de alabanza dirigida a la Trinidad.")]
+                ),
+                .init(
+                    id: "prayers-explained-4-es",
+                    trackID: "prayers-explained",
+                    partNumber: 4,
+                    partsTotal: 6,
+                    kicker: "Las oraciones explicadas",
+                    title: "El Credo",
+                    bodyParagraphs: ["¿Para qué se profesa el Credo? Esta lección se detiene en para confesar juntos la fe transmitida desde los apóstoles y recibida en el Bautismo. No ofrece una definición aislada: mira cómo ese signo o esa oración forma parte de la vida de la Iglesia.", "Los símbolos de la fe resumen de modo orgánico lo que la Iglesia cree, celebra y transmite. Catecismo de la Iglesia Católica, §§185–197.", "La oración mariana siguiente presenta a María como abogada en el camino de los creyentes. La formación avanza cuando la fuente recibida se relaciona con una práctica concreta de oración y celebración."],
+                    quoteText: nil,
+                    quoteAttribution: "Los símbolos de la fe resumen de modo orgánico lo que la Iglesia cree, celebra y transmite. Catecismo de la Iglesia Católica, §§185–197.",
+                    glossaryTerms: [.init(term: "símbolo de la fe", definition: "Síntesis de las verdades fundamentales que la Iglesia profesa.")]
+                ),
+                .init(
+                    id: "prayers-explained-5-es",
+                    trackID: "prayers-explained",
+                    partNumber: 5,
+                    partsTotal: 6,
+                    kicker: "Las oraciones explicadas",
+                    title: "La Salve Regina",
+                    bodyParagraphs: ["¿Qué pide la Salve Regina? Esta lección se detiene en la mirada misericordiosa de María mientras la Iglesia camina hacia Cristo. No ofrece una definición aislada: mira cómo ese signo o esa oración forma parte de la vida de la Iglesia.", "La piedad mariana conduce a Cristo y reconoce en María a una intercesora que ruega por las necesidades de sus hijos. Catecismo de la Iglesia Católica, §§2679–2682.", "El Ángelus retoma un momento concreto de esa historia: la Anunciación. La formación avanza cuando la fuente recibida se relaciona con una práctica concreta de oración y celebración."],
+                    quoteText: nil,
+                    quoteAttribution: "La piedad mariana conduce a Cristo y reconoce en María a una intercesora que ruega por las necesidades de sus hijos. Catecismo de la Iglesia Católica, §§2679–2682.",
+                    glossaryTerms: [.init(term: "Salve Regina", definition: "Oración mariana que pide la intercesión de la Madre de misericordia.")]
+                ),
+                .init(
+                    id: "prayers-explained-6-es",
+                    trackID: "prayers-explained",
+                    partNumber: 6,
+                    partsTotal: 6,
+                    kicker: "Las oraciones explicadas",
+                    title: "El Ángelus",
+                    bodyParagraphs: ["¿Qué se recuerda al rezar el Ángelus? Esta lección se detiene en la Anunciación y la Encarnación del Verbo en el sí de María. No ofrece una definición aislada: mira cómo ese signo o esa oración forma parte de la vida de la Iglesia.", "El Ángelus une las palabras del Evangelio con el Avemaría para contemplar que el Hijo de Dios se hizo hombre por nosotros. Compendio del Catecismo de la Iglesia Católica, apéndice: Oraciones comunes.", "Estas oraciones no son fórmulas aisladas: introducen a los misterios de Cristo que el Rosario contempla. La formación avanza cuando la fuente recibida se relaciona con una práctica concreta de oración y celebración."],
+                    quoteText: nil,
+                    quoteAttribution: "El Ángelus une las palabras del Evangelio con el Avemaría para contemplar que el Hijo de Dios se hizo hombre por nosotros. Compendio del Catecismo de la Iglesia Católica, apéndice: Oraciones comunes.",
+                    glossaryTerms: [.init(term: "Ángelus", definition: "Oración que recuerda la Anunciación y la Encarnación.")]
+                )
+            ]
+        ),
+        .init(
+            id: "rosary-basics",
+            title: "El Rosario, desde el principio",
+            meta: "7 partes · 3 min cada",
+            progress: 0,
+            nextUp: "Parte 1: Qué es el Rosario",
+            lessons: [
+                .init(
+                    id: "rosary-basics-1-es",
+                    trackID: "rosary-basics",
+                    partNumber: 1,
+                    partsTotal: 7,
+                    kicker: "El Rosario, desde el principio",
+                    title: "Qué es el Rosario",
+                    bodyParagraphs: ["¿Qué se contempla al rezar el Rosario? Esta lección se detiene en los principales acontecimientos de la vida de Cristo junto con María. No ofrece una definición aislada: mira cómo ese signo o esa oración forma parte de la vida de la Iglesia.", "El Rosario es una oración de contemplación cristológica: la repetición del Avemaría sostiene la mirada sobre el misterio anunciado. San Juan Pablo II, Rosarium Virginis Mariae, §§12–17.", "Para rezarlo con libertad conviene conocer primero la secuencia sencilla de cuentas y oraciones. La formación avanza cuando la fuente recibida se relaciona con una práctica concreta de oración y celebración."],
+                    quoteText: nil,
+                    quoteAttribution: "El Rosario es una oración de contemplación cristológica: la repetición del Avemaría sostiene la mirada sobre el misterio anunciado. San Juan Pablo II, Rosarium Virginis Mariae, §§12–17.",
+                    glossaryTerms: [.init(term: "Rosario", definition: "Oración que medita los misterios de Cristo con la repetición del Avemaría.")]
+                ),
+                .init(
+                    id: "rosary-basics-2-es",
+                    trackID: "rosary-basics",
+                    partNumber: 2,
+                    partsTotal: 7,
+                    kicker: "El Rosario, desde el principio",
+                    title: "La estructura",
+                    bodyParagraphs: ["¿Cómo se organiza una decena del Rosario? Esta lección se detiene en el anuncio del misterio, un Padrenuestro, diez Avemarías y el Gloria. No ofrece una definición aislada: mira cómo ese signo o esa oración forma parte de la vida de la Iglesia.", "La forma del Rosario ofrece un ritmo estable para la contemplación, sin reducir la oración a un conteo. Santa Sede, Los misterios del Santo Rosario.", "La primera serie de escenas lleva a Nazaret, a la Visitación y a la infancia de Jesús. La formación avanza cuando la fuente recibida se relaciona con una práctica concreta de oración y celebración."],
+                    quoteText: nil,
+                    quoteAttribution: "La forma del Rosario ofrece un ritmo estable para la contemplación, sin reducir la oración a un conteo. Santa Sede, Los misterios del Santo Rosario.",
+                    glossaryTerms: [.init(term: "decena", definition: "Conjunto de diez Avemarías rezadas al contemplar un misterio.")]
+                ),
+                .init(
+                    id: "rosary-basics-3-es",
+                    trackID: "rosary-basics",
+                    partNumber: 3,
+                    partsTotal: 7,
+                    kicker: "El Rosario, desde el principio",
+                    title: "Los misterios gozosos",
+                    bodyParagraphs: ["¿Qué muestran los misterios gozosos? Esta lección se detiene en la Encarnación y los primeros años de Jesús, recibidos en la fe de María. No ofrece una definición aislada: mira cómo ese signo o esa oración forma parte de la vida de la Iglesia.", "Los misterios gozosos recorren la Anunciación, la Visitación, el Nacimiento, la Presentación y el encuentro de Jesús en el Templo. Santa Sede, Los misterios del Santo Rosario.", "Los misterios luminosos pasan de la infancia a la manifestación pública del Señor. La formación avanza cuando la fuente recibida se relaciona con una práctica concreta de oración y celebración."],
+                    quoteText: nil,
+                    quoteAttribution: "Los misterios gozosos recorren la Anunciación, la Visitación, el Nacimiento, la Presentación y el encuentro de Jesús en el Templo. Santa Sede, Los misterios del Santo Rosario.",
+                    glossaryTerms: [.init(term: "misterios gozosos", definition: "Cinco escenas de la Encarnación y de la infancia de Jesús.")]
+                ),
+                .init(
+                    id: "rosary-basics-4-es",
+                    trackID: "rosary-basics",
+                    partNumber: 4,
+                    partsTotal: 7,
+                    kicker: "El Rosario, desde el principio",
+                    title: "Los misterios luminosos",
+                    bodyParagraphs: ["¿Qué ilumina la vida pública de Jesús? Esta lección se detiene en su Bautismo, Caná, el anuncio del Reino, la Transfiguración y la Eucaristía. No ofrece una definición aislada: mira cómo ese signo o esa oración forma parte de la vida de la Iglesia.", "San Juan Pablo II propuso los misterios luminosos para contemplar momentos decisivos de la revelación de Cristo. Rosarium Virginis Mariae, §§19–21.", "La contemplación conduce después a la pasión, donde el amor de Cristo se entrega hasta el extremo. La formación avanza cuando la fuente recibida se relaciona con una práctica concreta de oración y celebración."],
+                    quoteText: nil,
+                    quoteAttribution: "San Juan Pablo II propuso los misterios luminosos para contemplar momentos decisivos de la revelación de Cristo. Rosarium Virginis Mariae, §§19–21.",
+                    glossaryTerms: [.init(term: "misterios luminosos", definition: "Cinco escenas de la manifestación pública de Jesucristo.")]
+                ),
+                .init(
+                    id: "rosary-basics-5-es",
+                    trackID: "rosary-basics",
+                    partNumber: 5,
+                    partsTotal: 7,
+                    kicker: "El Rosario, desde el principio",
+                    title: "Los misterios dolorosos",
+                    bodyParagraphs: ["¿Por qué el Rosario contempla la pasión? Esta lección se detiene en porque en ella se revela el amor de Cristo que se entrega y vence el pecado. No ofrece una definición aislada: mira cómo ese signo o esa oración forma parte de la vida de la Iglesia.", "Los misterios dolorosos recorren la oración en el huerto, la flagelación, la coronación de espinas, el camino de la cruz y la crucifixión. Santa Sede, Los misterios del Santo Rosario.", "La historia no termina en la cruz: los misterios gloriosos anuncian la vida nueva de Cristo resucitado. La formación avanza cuando la fuente recibida se relaciona con una práctica concreta de oración y celebración."],
+                    quoteText: nil,
+                    quoteAttribution: "Los misterios dolorosos recorren la oración en el huerto, la flagelación, la coronación de espinas, el camino de la cruz y la crucifixión. Santa Sede, Los misterios del Santo Rosario.",
+                    glossaryTerms: [.init(term: "misterios dolorosos", definition: "Cinco escenas de la pasión y muerte de Jesucristo.")]
+                ),
+                .init(
+                    id: "rosary-basics-6-es",
+                    trackID: "rosary-basics",
+                    partNumber: 6,
+                    partsTotal: 7,
+                    kicker: "El Rosario, desde el principio",
+                    title: "Los misterios gloriosos",
+                    bodyParagraphs: ["¿Qué celebra la Iglesia en los misterios gloriosos? Esta lección se detiene en la resurrección de Cristo, su Ascensión, Pentecostés y la gloria de María. No ofrece una definición aislada: mira cómo ese signo o esa oración forma parte de la vida de la Iglesia.", "Los misterios gloriosos abren la contemplación a la vida nueva del Resucitado y a la esperanza de la Iglesia. Santa Sede, Los misterios del Santo Rosario.", "Para que la repetición no se vuelva mecánica, el siguiente paso es volver al pasaje bíblico de cada misterio. La formación avanza cuando la fuente recibida se relaciona con una práctica concreta de oración y celebración."],
+                    quoteText: nil,
+                    quoteAttribution: "Los misterios gloriosos abren la contemplación a la vida nueva del Resucitado y a la esperanza de la Iglesia. Santa Sede, Los misterios del Santo Rosario.",
+                    glossaryTerms: [.init(term: "misterios gloriosos", definition: "Cinco escenas de Cristo resucitado y de la glorificación de María.")]
+                ),
+                .init(
+                    id: "rosary-basics-7-es",
+                    trackID: "rosary-basics",
+                    partNumber: 7,
+                    partsTotal: 7,
+                    kicker: "El Rosario, desde el principio",
+                    title: "Rezar con la Escritura",
+                    bodyParagraphs: ["¿Cómo puede la Escritura acompañar el Rosario? Esta lección se detiene en con una breve lectura del pasaje antes de la decena y un momento de silencio para acogerlo. No ofrece una definición aislada: mira cómo ese signo o esa oración forma parte de la vida de la Iglesia.", "La contemplación del misterio se nutre de la Palabra de Dios; el nombre de Jesús en el Avemaría concentra la atención en Cristo. Rosarium Virginis Mariae, §§29–31.", "La oración siguiente abre la puerta al sacramento de la reconciliación, donde también se escucha la llamada de Cristo. La formación avanza cuando la fuente recibida se relaciona con una práctica concreta de oración y celebración."],
+                    quoteText: nil,
+                    quoteAttribution: "La contemplación del misterio se nutre de la Palabra de Dios; el nombre de Jesús en el Avemaría concentra la atención en Cristo. Rosarium Virginis Mariae, §§29–31.",
+                    glossaryTerms: [.init(term: "contemplación", definition: "Atención amorosa a Cristo presente en el misterio anunciado.")]
+                )
+            ]
+        ),
+        .init(
+            id: "confession",
+            title: "Cómo confesarse bien",
+            meta: "5 partes · 3 min cada",
+            progress: 0,
+            nextUp: "Parte 1: Por qué confesarse",
+            lessons: [
+                .init(
+                    id: "confession-1-es",
+                    trackID: "confession",
+                    partNumber: 1,
+                    partsTotal: 5,
+                    kicker: "Cómo confesarse bien",
+                    title: "Por qué confesarse",
+                    bodyParagraphs: ["¿Por qué la Iglesia propone confesarse? Esta lección se detiene en porque el pecado hiere la comunión y Cristo ofrece el perdón mediante el ministerio de la Iglesia. No ofrece una definición aislada: mira cómo ese signo o esa oración forma parte de la vida de la Iglesia.", "En el sacramento de la Penitencia, el bautizado se reconcilia con Dios y con la Iglesia por la conversión, la confesión y la absolución. Catecismo de la Iglesia Católica, §§1422–1449.", "La preparación comienza mirando la propia vida con verdad y sin fabricar culpas. La formación avanza cuando la fuente recibida se relaciona con una práctica concreta de oración y celebración."],
+                    quoteText: nil,
+                    quoteAttribution: "En el sacramento de la Penitencia, el bautizado se reconcilia con Dios y con la Iglesia por la conversión, la confesión y la absolución. Catecismo de la Iglesia Católica, §§1422–1449.",
+                    glossaryTerms: [.init(term: "confesión", definition: "Celebración sacramental de la reconciliación con Dios y con la Iglesia.")]
+                ),
+                .init(
+                    id: "confession-2-es",
+                    trackID: "confession",
+                    partNumber: 2,
+                    partsTotal: 5,
+                    kicker: "Cómo confesarse bien",
+                    title: "El examen de conciencia",
+                    bodyParagraphs: ["¿Qué busca un examen de conciencia? Esta lección se detiene en reconocer actos, omisiones y motivaciones a la luz del amor de Dios. No ofrece una definición aislada: mira cómo ese signo o esa oración forma parte de la vida de la Iglesia.", "La conciencia permite juzgar la calidad moral de los propios actos; necesita formarse y escuchar la verdad. Catecismo de la Iglesia Católica, §§1776–1802.", "Ver con verdad prepara una tristeza del pecado que no es desesperación, sino retorno a Dios. La formación avanza cuando la fuente recibida se relaciona con una práctica concreta de oración y celebración."],
+                    quoteText: nil,
+                    quoteAttribution: "La conciencia permite juzgar la calidad moral de los propios actos; necesita formarse y escuchar la verdad. Catecismo de la Iglesia Católica, §§1776–1802.",
+                    glossaryTerms: [.init(term: "conciencia", definition: "Juicio interior por el que la persona reconoce la calidad moral de sus actos.")]
+                ),
+                .init(
+                    id: "confession-3-es",
+                    trackID: "confession",
+                    partNumber: 3,
+                    partsTotal: 5,
+                    kicker: "Cómo confesarse bien",
+                    title: "La contrición",
+                    bodyParagraphs: ["¿Qué significa estar contrito? Esta lección se detiene en doler por haber pecado y decidir apartarse del mal por amor a Dios. No ofrece una definición aislada: mira cómo ese signo o esa oración forma parte de la vida de la Iglesia.", "La contrición es dolor del alma y rechazo del pecado con propósito de no pecar de nuevo; es esencial para la Penitencia. Catecismo de la Iglesia Católica, §§1451–1453.", "La contrición se expresa con palabras claras ante el confesor, sin esconder deliberadamente lo grave. La formación avanza cuando la fuente recibida se relaciona con una práctica concreta de oración y celebración."],
+                    quoteText: nil,
+                    quoteAttribution: "La contrición es dolor del alma y rechazo del pecado con propósito de no pecar de nuevo; es esencial para la Penitencia. Catecismo de la Iglesia Católica, §§1451–1453.",
+                    glossaryTerms: [.init(term: "contrición", definition: "Dolor por el pecado unido al propósito de una vida nueva.")]
+                ),
+                .init(
+                    id: "confession-4-es",
+                    trackID: "confession",
+                    partNumber: 4,
+                    partsTotal: 5,
+                    kicker: "Cómo confesarse bien",
+                    title: "La acusación de los pecados",
+                    bodyParagraphs: ["¿Cómo se dicen los pecados en la confesión? Esta lección se detiene en con sencillez y sinceridad, nombrando los pecados graves recordados y sus circunstancias necesarias. No ofrece una definición aislada: mira cómo ese signo o esa oración forma parte de la vida de la Iglesia.", "La confesión de los pecados al sacerdote es parte constitutiva del sacramento; ha de ser íntegra respecto de los pecados graves de los que se tiene conciencia. Catecismo de la Iglesia Católica, §§1455–1456.", "Después de la absolución, la penitencia concreta el deseo de reparar y volver a una vida coherente. La formación avanza cuando la fuente recibida se relaciona con una práctica concreta de oración y celebración."],
+                    quoteText: nil,
+                    quoteAttribution: "La confesión de los pecados al sacerdote es parte constitutiva del sacramento; ha de ser íntegra respecto de los pecados graves de los que se tiene conciencia. Catecismo de la Iglesia Católica, §§1455–1456.",
+                    glossaryTerms: [.init(term: "acusación", definition: "Manifestación sincera de los pecados en el sacramento de la Penitencia.")]
+                ),
+                .init(
+                    id: "confession-5-es",
+                    trackID: "confession",
+                    partNumber: 5,
+                    partsTotal: 5,
+                    kicker: "Cómo confesarse bien",
+                    title: "La penitencia y la paz",
+                    bodyParagraphs: ["¿Por qué el confesor propone una penitencia? Esta lección se detiene en para que el perdón recibido impulse a reparar el daño y a recomenzar de forma concreta. No ofrece una definición aislada: mira cómo ese signo o esa oración forma parte de la vida de la Iglesia.", "La satisfacción no compra el perdón: expresa el deseo de reparar y cooperar con la gracia que restaura la comunión. Catecismo de la Iglesia Católica, §§1459–1460.", "La reconciliación no concluye al salir del confesionario: se prolonga en obras de misericordia y en una vida renovada. La formación avanza cuando la fuente recibida se relaciona con una práctica concreta de oración y celebración."],
+                    quoteText: nil,
+                    quoteAttribution: "La satisfacción no compra el perdón: expresa el deseo de reparar y cooperar con la gracia que restaura la comunión. Catecismo de la Iglesia Católica, §§1459–1460.",
+                    glossaryTerms: [.init(term: "satisfacción", definition: "Respuesta concreta de reparación que acompaña el perdón sacramental.")]
+                )
+            ]
+        ),
+    ]
+
     static let importedOtherTracksCatalog = LocalizedCatalog(
         pt: ptImportedOtherTracks,
-        en: enImportedOtherTracks
+        en: enImportedOtherTracks,
+        es: esImportedOtherTracks
     )
 }

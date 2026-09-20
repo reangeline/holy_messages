@@ -254,17 +254,18 @@ def gen_prayers():
 # pessoa ler o mesmo bloco a cada dia. O importador só o remove se ele de fato
 # for compartilhado pelo lote inteiro, para não esconder uma diferença real.
 FORMATION_TRACKS = (
-    ("sacraments", {"pt": "Os sete sacramentos", "en": "The seven sacraments"}, 4),
-    ("liturgical-year", {"pt": "O Ano Litúrgico", "en": "The liturgical year"}, 4),
-    ("signs-symbols", {"pt": "Sinais e símbolos", "en": "Signs and symbols"}, 4),
-    ("prayers-explained", {"pt": "As orações explicadas", "en": "Prayers explained"}, 3),
-    ("rosary-basics", {"pt": "O Terço, do zero", "en": "The Rosary, from the beginning"}, 3),
-    ("confession", {"pt": "Como se confessar bem", "en": "How to make a good confession"}, 3),
+    ("sacraments", {"pt": "Os sete sacramentos", "en": "The seven sacraments", "es": "Los siete sacramentos"}, 4),
+    ("liturgical-year", {"pt": "O Ano Litúrgico", "en": "The liturgical year", "es": "El año litúrgico"}, 4),
+    ("signs-symbols", {"pt": "Sinais e símbolos", "en": "Signs and symbols", "es": "Signos y símbolos"}, 4),
+    ("prayers-explained", {"pt": "As orações explicadas", "en": "Prayers explained", "es": "Las oraciones explicadas"}, 3),
+    ("rosary-basics", {"pt": "O Terço, do zero", "en": "The Rosary, from the beginning", "es": "El Rosario, desde el principio"}, 3),
+    ("confession", {"pt": "Como se confessar bem", "en": "How to make a good confession", "es": "Cómo confesarse bien"}, 3),
 )
 
-FORMATION_PART = {"pt": "Parte", "en": "Part"}
+FORMATION_PART = {"pt": "Parte", "en": "Part", "es": "Parte"}
 FORMATION_META = {"pt": "{parts} partes · {minutes} min cada",
-                  "en": "{parts} parts · {minutes} min each"}
+                  "en": "{parts} parts · {minutes} min each",
+                  "es": "{parts} partes · {minutes} min cada"}
 
 def valid_formation_rows(rows, lang):
     """Devolve as lições aproveitáveis ou registra por que o idioma ficou fora."""
@@ -321,10 +322,9 @@ def gen_formation():
 
     out = [HEADER + "// Formação por trilha. O terceiro parágrafo repetido nas 36 lições foi\n"
            "// retirado; cada parte mantém os três parágrafos próprios que passaram na\n"
-           "// revisão. O lote espanhol ficou fora: ele mistura frases em inglês, então\n"
-           "// LocalizedCatalog aplica o fallback explícito ao português.\n\n"
+           "// revisão. Os três catálogos foram redigidos em seu próprio idioma.\n\n"
            "import Foundation\n\nextension MockFormation {\n"]
-    for lang in ("pt", "en"):
+    for lang in ("pt", "en", "es"):
         if accepted[lang] is None:
             raise ValueError(f"Formação {lang} rejeitada: {rejected[lang]}")
         by_track = collections.defaultdict(list)
@@ -352,7 +352,8 @@ def gen_formation():
         out.append("    ]\n\n")
     out.append("    static let importedOtherTracksCatalog = LocalizedCatalog(\n"
                "        pt: ptImportedOtherTracks,\n"
-               "        en: enImportedOtherTracks\n"
+               "        en: enImportedOtherTracks,\n"
+               "        es: esImportedOtherTracks\n"
                "    )\n}\n")
     (OUT / "GeneratedFormation.swift").write_text("".join(out))
     return ({lang: len(accepted[lang] or []) for lang in LANGS},
