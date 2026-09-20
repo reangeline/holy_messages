@@ -27,6 +27,7 @@
 		1A8C8610815EB8EDE32C5488 /* CormorantGaramond-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 63E6692DCBDC29C8E31B1C79 /* CormorantGaramond-Regular.ttf */; };
 		1F7A88B26B4DA0DAADD476F5 /* GeneratedLectionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615A4075FCD66044931CB65C /* GeneratedLectionary.swift */; };
 		22C63A1C679C7A933524BA62 /* LiturgicalWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7489A2C25DA0207CBF05A4A6 /* LiturgicalWeek.swift */; };
+		2390A52C14C6976F89B7DFA2 /* OnboardingLanguageUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68679B19DDBA4966550D2198 /* OnboardingLanguageUITests.swift */; };
 		251EE704BBC2F951486BC76B /* ScrupulosityRedirectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56BF93F3622EF92D3F78F05 /* ScrupulosityRedirectView.swift */; };
 		2775789E1490234F06EF80EC /* PersistedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246032F7F7AB8C224FF952AD /* PersistedList.swift */; };
 		280831701A8EFFB4044A1EFA /* LiturgicalEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2ED231C7DEE0717DF1D705 /* LiturgicalEngine.swift */; };
@@ -137,6 +138,7 @@
 		C9AD1AD5DD0E2499DF5DC567 /* GlassTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DDF3EE5A32A80F704EB0B4 /* GlassTabBar.swift */; };
 		CDE85F01CEE6A9E65A4F69D8 /* PrayerCategoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56F6238D04D8924CF1AC227 /* PrayerCategoryDetailView.swift */; };
 		CE9BDF6431C3E4394711183F /* GeneratedFormation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36ABA46BD0FFFD9FF54F4A8 /* GeneratedFormation.swift */; };
+		CEF5FC07255102C8C716A5A6 /* CrisisLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06588836BD84ABB4FD2A67F2 /* CrisisLine.swift */; };
 		CF605A9222782AC0223D5928 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 085B0E7DB07DABBDD6D616C6 /* SettingsView.swift */; };
 		D01B162F80DFACB0F6634DE2 /* EBGaramond-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4EF3E16915DDAF1EB7255E2 /* EBGaramond-MediumItalic.ttf */; };
 		D0ACDFF4ACCD6D79712EEC25 /* AppLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99F88CC334F965A61006194 /* AppLanguage.swift */; };
@@ -216,6 +218,7 @@
 		03ECD97CEA2DF4CC329EF2A9 /* MissaleWidgetsExtension.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = MissaleWidgetsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		04EF530B18A29BB2885EE480 /* OnboardingNotificationPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingNotificationPreviewView.swift; sourceTree = "<group>"; };
 		059392A80AD166C1D4330AF3 /* OnboardingFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFlow.swift; sourceTree = "<group>"; };
+		06588836BD84ABB4FD2A67F2 /* CrisisLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrisisLine.swift; sourceTree = "<group>"; };
 		085B0E7DB07DABBDD6D616C6 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		09E21282FE20307A06E088E6 /* GeneratedSaints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedSaints.swift; sourceTree = "<group>"; };
 		0BF026ED1AE79D8B6C5A3B51 /* Typography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typography.swift; sourceTree = "<group>"; };
@@ -274,6 +277,7 @@
 		648C9F2A61F1864864B18855 /* OnboardingLifeQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLifeQuestionView.swift; sourceTree = "<group>"; };
 		6514A0E12D6792B42E3BA07E /* DateKeyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateKeyLabel.swift; sourceTree = "<group>"; };
 		654FEAEAD8CCE01EF0AD057E /* ExamenFlowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamenFlowView.swift; sourceTree = "<group>"; };
+		68679B19DDBA4966550D2198 /* OnboardingLanguageUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLanguageUITests.swift; sourceTree = "<group>"; };
 		68A9BE85D47037D1EC390672 /* ContentLanguageCoverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentLanguageCoverage.swift; sourceTree = "<group>"; };
 		6C9AD15B2BD32B9BB69CADD3 /* EndOfSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndOfSessionView.swift; sourceTree = "<group>"; };
 		6D3078F169C814DF3A8A450A /* ExamenEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamenEntry.swift; sourceTree = "<group>"; };
@@ -402,6 +406,7 @@
 				F91386C412B4AB8097C8166B /* ExamenLanguageUITests.swift */,
 				C8A641E7EFB290F8F735C474 /* FormationLanguageUITests.swift */,
 				8049CC700EE6E41951F36255 /* LanguageSwitchUITests.swift */,
+				68679B19DDBA4966550D2198 /* OnboardingLanguageUITests.swift */,
 				589AC7E7D0D147C3E48C5914 /* PrayersLanguageUITests.swift */,
 				3A591FCA4B253A6F3F3A30AF /* SaintArtUITests.swift */,
 			);
@@ -559,6 +564,7 @@
 			isa = PBXGroup;
 			children = (
 				68A9BE85D47037D1EC390672 /* ContentLanguageCoverage.swift */,
+				06588836BD84ABB4FD2A67F2 /* CrisisLine.swift */,
 				BAB960CD92A24E48F2535010 /* Date+RelativeLabel.swift */,
 				6514A0E12D6792B42E3BA07E /* DateKeyLabel.swift */,
 				80C91E7AE38D2D10C31CB156 /* DevotionalPrayer.swift */,
@@ -854,6 +860,7 @@
 				DAB60DB9F381E826E1D27841 /* Colors.swift in Sources */,
 				98EEED06A83E9B4958797523 /* ComplineView.swift in Sources */,
 				AFF9D860269622D66ABB1962 /* ContentLanguageCoverage.swift in Sources */,
+				CEF5FC07255102C8C716A5A6 /* CrisisLine.swift in Sources */,
 				A0679D6E7752653E27DCB100 /* CrossGlyph.swift in Sources */,
 				0CD844296185B88EB7A1A945 /* DataSettingsView.swift in Sources */,
 				67DF463317F1F1E5DB602AC3 /* Date+RelativeLabel.swift in Sources */,
@@ -981,6 +988,7 @@
 				5261AB5D1F9F80758C6E637B /* ExamenLanguageUITests.swift in Sources */,
 				C3CB9268B5AC90C0259F8CC8 /* FormationLanguageUITests.swift in Sources */,
 				A6F35AEF62403FE3E4FACDEF /* LanguageSwitchUITests.swift in Sources */,
+				2390A52C14C6976F89B7DFA2 /* OnboardingLanguageUITests.swift in Sources */,
 				5B0944EB3F5ED8D50A3B657A /* PrayersLanguageUITests.swift in Sources */,
 				E0F75A3DE2155A0E63E50CB5 /* SaintArtUITests.swift in Sources */,
 			);

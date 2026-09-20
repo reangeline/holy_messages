@@ -309,6 +309,28 @@
         }
       }
     },
+    "Call {number}": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Call {number}"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ligar {number}"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Llamar {number}"
+          }
+        }
+      }
+    },
     "Cancelar a renovação": {
       "localizations": {
         "en": {
@@ -1079,6 +1101,28 @@
         }
       }
     },
+    "If you are in crisis · {region}": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "If you are in crisis · {region}"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se for crise · {region}"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Si estás en crisis · {region}"
+          }
+        }
+      }
+    },
     "Ir direto às Completas": {
       "localizations": {
         "en": {
@@ -1607,28 +1651,6 @@
         }
       }
     },
-    "Se for crise · Estados Unidos": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "If it's a crisis · United States"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Si es una crisis · Estados Unidos"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Se for crise · Estados Unidos"
-          }
-        }
-      }
-    },
     "Se isso for sobre um pecado específico, um confessor fixo resolve melhor do que reler isto de novo.": {
       "localizations": {
         "en": {
@@ -1845,6 +1867,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "Terço de hoje"
+          }
+        }
+      }
+    },
+    "Text {number}": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Text {number}"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mensagem {number}"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mensaje {number}"
           }
         }
       }

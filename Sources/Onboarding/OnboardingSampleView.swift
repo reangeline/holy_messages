@@ -4,11 +4,10 @@ import SwiftUI
 struct OnboardingSampleView: View {
     let onBack: () -> Void
     let onContinue: () -> Void
-    @Environment(\.locale) private var locale
 
     @State private var selectedTabID: String = ""
 
-    private var tabs: [SampleTab] { MockOnboarding.sampleTabs(for: AppLanguage.current(from: locale)) }
+    private var tabs: [SampleTab] { MockOnboarding.sampleTabs(for: AppLanguagePreference.resolveCurrent()) }
 
     private var selectedTab: SampleTab {
         tabs.first { $0.id == selectedTabID } ?? tabs[0]

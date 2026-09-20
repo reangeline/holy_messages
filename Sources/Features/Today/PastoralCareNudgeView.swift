@@ -38,9 +38,13 @@ struct PastoralCareNudgeView: View {
                     }
                     LiturgicalGradientCard(color: .red) {
                         VStack(alignment: .leading, spacing: 6) {
-                            Eyebrow(text: L.string("Se for crise · Estados Unidos", table: "Today"), color: Palette.goldBright)
-                            Text("988").font(MissaleFont.display(28)).foregroundStyle(.white)
-                            Text("Suicide & Crisis Lifeline. Ligação ou mensagem, a qualquer hora.", tableName: "Today")
+                            // The line for the reader's own country — see CrisisLines.
+                            let crisis = CrisisLines.current
+                            Eyebrow(text: L.string("If you are in crisis · {region}", table: "Today")
+                                .replacingOccurrences(of: "{region}", with: crisis.regionLabel),
+                                    color: Palette.goldBright)
+                            Text(crisis.number).font(MissaleFont.display(28)).foregroundStyle(.white)
+                            Text("\(crisis.serviceName). \(crisis.detail)")
                                 .font(MissaleFont.body(15))
                                 .foregroundStyle(.white.opacity(0.9))
                         }

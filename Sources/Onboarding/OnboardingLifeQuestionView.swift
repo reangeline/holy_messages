@@ -6,9 +6,8 @@ struct OnboardingLifeQuestionView: View {
     let index: Int
     let onBack: () -> Void
     let onNext: () -> Void
-    @Environment(\.locale) private var locale
 
-    private var questions: [LifeQuestion] { MockOnboarding.lifeQuestions(for: AppLanguage.current(from: locale)) }
+    private var questions: [LifeQuestion] { MockOnboarding.lifeQuestions(for: AppLanguagePreference.resolveCurrent()) }
     private var question: LifeQuestion { questions[index] }
     private var total: Int { questions.count }
 

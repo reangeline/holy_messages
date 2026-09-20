@@ -55,16 +55,30 @@ struct OnboardingSpiritualIntroView: View {
                         }
                         LiturgicalGradientCard(color: .red) {
                             VStack(alignment: .leading, spacing: 8) {
-                                Eyebrow(text: L.string("If you are in crisis · United States", table: "Onboarding"), color: Palette.goldBright)
-                                Text("988")
+                                // The line for the reader's own country — see CrisisLines.
+                                let crisis = CrisisLines.current
+                                Eyebrow(text: L.string("If you are in crisis · {region}", table: "Onboarding")
+                                    .replacingOccurrences(of: "{region}", with: crisis.regionLabel),
+                                        color: Palette.goldBright)
+                                Text(crisis.number)
                                     .font(MissaleFont.display(30))
                                     .foregroundStyle(.white)
-                                Text("Suicide & Crisis Lifeline. Call or text, any hour, free and confidential.", tableName: "Onboarding")
+                                Text("\(crisis.serviceName). \(crisis.detail)")
                                     .font(MissaleFont.body(15))
                                     .foregroundStyle(.white.opacity(0.9))
                                 HStack(spacing: 12) {
-                                    Link(destination: URL(string: "tel:988")!) { Text("Call 988", tableName: "Onboarding") }
-                                    Link(destination: URL(string: "sms:988")!) { Text("Text 988", tableName: "Onboarding") }
+                                    if let tel = URL(string: crisis.telURL) {
+                                        Link(destination: tel) {
+                                            Text(L.string("Call {number}", table: "Onboarding")
+                                                .replacingOccurrences(of: "{number}", with: crisis.number))
+                                        }
+                                    }
+                                    if let smsURL = crisis.smsURL, let sms = URL(string: smsURL) {
+                                        Link(destination: sms) {
+                                            Text(L.string("Text {number}", table: "Onboarding")
+                                                .replacingOccurrences(of: "{number}", with: crisis.number))
+                                        }
+                                    }
                                 }
                                 .font(MissaleFont.body(15, weight: .medium))
                                 .foregroundStyle(.white)

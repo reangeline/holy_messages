@@ -7,10 +7,9 @@ struct OnboardingNotificationPreviewView: View {
     let onBack: () -> Void
     let onAllow: () -> Void
     let onNotNow: () -> Void
-    @Environment(\.locale) private var locale
 
     private var timeHour: String {
-        MockOnboarding.notificationTimes(for: AppLanguage.current(from: locale)).first { $0.id == viewModel.selectedNotificationTimeID }?.hour ?? "7:00 AM"
+        MockOnboarding.notificationTimes(for: AppLanguagePreference.resolveCurrent()).first { $0.id == viewModel.selectedNotificationTimeID }?.hour ?? "7:00 AM"
     }
 
     var body: some View {
@@ -44,10 +43,16 @@ struct OnboardingNotificationPreviewView: View {
                                         .font(.system(size: 12))
                                         .foregroundStyle(Palette.ink.opacity(0.4))
                                 }
-                                Text("Exaltation of the Holy Cross \u{00B7} Red")
+                                Text("\(MockLiturgical.today.feastName) \u{00B7} \(MockLiturgical.today.color.name)")
                                     .font(.system(size: 14, weight: .semibold))
                                     .foregroundStyle(Palette.ink)
-                                Text("\u{201C}So must the Son of Man be lifted up.\u{201D} John 3:14 \u{2014} and part 1 of The Mass, part by part.")
+                                // The notification mirrors what the app will actually
+                                // send, so it is composed from the same catalogs.
+                                Text(L.string("\u{201C}{quote}\u{201D} {reference} \u{2014} and part 1 of {track}.", table: "Onboarding")
+                                    .replacingOccurrences(of: "{quote}", with: MockWordOfDay.today.quote)
+                                    .replacingOccurrences(of: "{reference}", with: MockWordOfDay.today.reference)
+                                    .replacingOccurrences(of: "{track}", with: MockFormation.track.title))
+                                    .lineLimit(3)
                                     .font(.system(size: 14))
                                     .foregroundStyle(Palette.ink.opacity(0.8))
                             }

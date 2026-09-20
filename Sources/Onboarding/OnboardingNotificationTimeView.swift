@@ -5,7 +5,6 @@ struct OnboardingNotificationTimeView: View {
     @ObservedObject var viewModel: OnboardingViewModel
     let onBack: () -> Void
     let onNext: () -> Void
-    @Environment(\.locale) private var locale
 
     var body: some View {
         ZStack {
@@ -23,7 +22,7 @@ struct OnboardingNotificationTimeView: View {
                             .foregroundStyle(Palette.ink.opacity(0.65))
 
                         VStack(spacing: 10) {
-                            ForEach(Array(MockOnboarding.notificationTimes(for: AppLanguage.current(from: locale)).enumerated()), id: \.offset) { _, time in
+                            ForEach(Array(MockOnboarding.notificationTimes(for: AppLanguagePreference.resolveCurrent()).enumerated()), id: \.offset) { _, time in
                                 OnboardingOptionChip(
                                     text: time.title,
                                     subtitle: time.subtitle,

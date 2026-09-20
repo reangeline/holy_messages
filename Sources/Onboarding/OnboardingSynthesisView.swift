@@ -3,7 +3,6 @@ import SwiftUI
 /// dIs14 — formation track synthesis. Back to the flat/practical register.
 struct OnboardingSynthesisView: View {
     let onNext: () -> Void
-    @Environment(\.locale) private var locale
 
     var body: some View {
         ZStack {
@@ -21,7 +20,7 @@ struct OnboardingSynthesisView: View {
                             .foregroundStyle(Palette.ink.opacity(0.65))
 
                         VStack(spacing: 10) {
-                            ForEach(Array(MockOnboarding.planSteps(for: AppLanguage.current(from: locale)).enumerated()), id: \.offset) { _, step in
+                            ForEach(Array(MockOnboarding.planSteps(for: AppLanguagePreference.resolveCurrent()).enumerated()), id: \.offset) { _, step in
                                 HStack(alignment: .top, spacing: 12) {
                                     Text("\(step.number)")
                                         .font(MissaleFont.display(20, weight: .medium))
@@ -47,7 +46,7 @@ struct OnboardingSynthesisView: View {
                                 Text("Next in the calendar for you", tableName: "Onboarding")
                                     .font(MissaleFont.body(14, weight: .medium))
                                     .foregroundStyle(Palette.ink)
-                                Text("September 15 · Our Lady of Sorrows")
+                                Text("\(MockLiturgical.tomorrow.dayMonthLabel) · \(MockLiturgical.tomorrow.feastName)")
                                     .font(MissaleFont.body(14))
                                     .foregroundStyle(Palette.ink.opacity(0.7))
                                 Text("White vestments. The app changes color that morning.", tableName: "Onboarding")
@@ -61,7 +60,8 @@ struct OnboardingSynthesisView: View {
                                 Text("Tomorrow morning you get", tableName: "Onboarding")
                                     .font(MissaleFont.body(14, weight: .medium))
                                     .foregroundStyle(Palette.ink)
-                                Text("The verse of the day, the saint of the day, and part 1 of The Mass, part by part.")
+                                Text(L.string("The verse of the day, the saint of the day, and part 1 of {track}.", table: "Onboarding")
+                                    .replacingOccurrences(of: "{track}", with: MockFormation.track.title))
                                     .font(MissaleFont.body(13))
                                     .foregroundStyle(Palette.ink.opacity(0.7))
                             }

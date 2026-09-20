@@ -1,13 +1,5 @@
 import Foundation
 
-extension AppLanguage {
-    /// Derives the current supported language from a SwiftUI `Locale` (typically
-    /// read via `@Environment(\.locale)`), matching how AppRootView resolves it.
-    static func current(from locale: Locale) -> AppLanguage {
-        AppLanguage(rawValue: locale.language.languageCode?.identifier ?? "en") ?? .en
-    }
-}
-
 enum OnboardingStep: Equatable {
     case feed
     case sample
