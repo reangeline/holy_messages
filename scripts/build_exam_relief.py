@@ -26,6 +26,7 @@ import importlib
 import json
 import pathlib
 import pkgutil
+import re
 import sys
 from collections import Counter, defaultdict
 
@@ -37,6 +38,27 @@ EDICOES = {
     "pt": ("matos-soares.json", "Matos Soares 1956 (pt-BR, domínio público)"),
     "en": ("douay-rheims.json", "Douay-Rheims (domínio público)"),
 }
+
+# O espanhol não tem Saltério católico em domínio público num JSON estruturado:
+# o único fac-símile disponível é OCR danificado. A base é um inventário curado
+# à mão a partir do Tomo VII de Torres Amat (Paris, 1836), com página do
+# fac-símile e a referência tal como está impressa — ver SOURCES_ES.md. Aqui o
+# texto é copiado desse inventário pelo id da passagem; nunca traduzido do
+# português nem do inglês.
+ES_INVENTARIO = SAIDA / "torres_amat_1836_salmos.es.json"
+CONTENT_PKG_ES = pathlib.Path(__file__).parent / "exam_relief_content_es"
+
+ROMANOS = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000}
+
+
+def de_romano(texto: str) -> int:
+    total = 0
+    maior = 0
+    for ch in reversed(texto.upper()):
+        valor = ROMANOS[ch]
+        total += valor if valor >= maior else -valor
+        maior = max(maior, valor)
+    return total
 
 STATE_IDS = (
     "peace", "grateful", "joyful", "hopeful", "forgiven", "loved", "steadfast",
@@ -134,6 +156,67 @@ def montar(lang: str, estados: dict[str, list[dict]]) -> list[dict]:
     return linhas
 
 
+def carregar_inventario_es() -> tuple[dict, dict]:
+    dados = json.loads(ES_INVENTARIO.read_text())
+    passagens = {p["id"]: p for p in dados["passages"]}
+    return dados["source"], passagens
+
+
+def montar_es(passagens: dict, fonte: dict) -> list[dict]:
+    sys.path.insert(0, str(CONTENT_PKG_ES.parent))
+    nomes = sorted(m.name for m in pkgutil.iter_modules([str(CONTENT_PKG_ES)])
+                   if not m.name.startswith("_"))
+    estados: dict[str, list[dict]] = defaultdict(list)
+    for nome in nomes:
+        modulo = importlib.import_module(f"exam_relief_content_es.{nome}")
+        for estado, respostas in modulo.BLOCK.items():
+            if estado not in STATE_IDS:
+                raise ValueError(f"{nome}: estado desconhecido {estado!r}")
+            estados[estado].extend(respostas)
+        print(f"  bloco es {nome}: {', '.join(sorted(modulo.BLOCK))}")
+
+    edicao = f"{fonte['translator']}, {fonte['volume']}, {fonte['publication']}"
+    linhas = []
+    for estado in STATE_IDS:
+        for resposta in estados.get(estado, []):
+            passagem = passagens.get(resposta["passage"])
+            if passagem is None:
+                raise ValueError(f"es/{estado}: passagem {resposta['passage']!r} não está no inventário")
+            if estado not in passagem["states"]:
+                raise ValueError(
+                    f"es/{estado}: a passagem {resposta['passage']} não foi curada para este estado "
+                    f"(está em {', '.join(passagem['states'])}) — a pertinência pastoral é da curadoria, não minha"
+                )
+            capitulo_vulgata, faixa = ref_impressa(passagem["ref"])
+            linhas.append({
+                "stateId": estado,
+                "title": resposta["title"],
+                "psalmRef": f"Salmo {hebraico(capitulo_vulgata)}, {faixa}",
+                "psalmText": passagem["text"],
+                "psalmWhy": resposta["psalmWhy"],
+                "saintID": resposta["saintID"],
+                "saintName": resposta["saintName"],
+                "saintWhy": resposta["saintWhy"],
+                "stepTitle": "Un paso concreto",
+                "stepBody": resposta["stepBody"],
+                "source": (
+                    f"{edicao}; impresso como {passagem['ref']}, fac-símile p. {passagem['pdfPage']}. "
+                    f"{resposta.get('saintSource', 'Biografía: vatican.va (por confirmar).')}"
+                ),
+            })
+    return linhas
+
+
+def ref_impressa(ref: str) -> tuple[int, str]:
+    """"Salmo XLV, 10–12" -> (45, "10-12"), na numeração impressa da edição."""
+    m = re.match(r"Salmo ([IVXLCDM]+),\s*(\d+)(?:[\u2013-](\d+))?$", ref.strip())
+    if not m:
+        raise ValueError(f"referência impressa fora do padrão: {ref!r}")
+    capitulo = de_romano(m.group(1))
+    faixa = m.group(2) if not m.group(3) else f"{m.group(2)}-{m.group(3)}"
+    return capitulo, faixa
+
+
 def conferir(lang: str, linhas: list[dict]) -> list[str]:
     """As mesmas regras do importador, mais cedo: falha aqui é mais barata."""
     problemas = []
@@ -163,8 +246,9 @@ def main() -> None:
         print(f"  {estado:10} {n:2}{marca}")
 
     problemas_totais = []
-    for lang in EDICOES:
-        linhas = montar(lang, estados)
+    fonte_es, passagens_es = carregar_inventario_es()
+    for lang in ("pt", "en", "es"):
+        linhas = montar_es(passagens_es, fonte_es) if lang == "es" else montar(lang, estados)
         problemas = conferir(lang, linhas)
         problemas_totais += problemas
         destino = SAIDA / f"exam_relief_catalog.{lang}.json"

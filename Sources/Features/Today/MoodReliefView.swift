@@ -59,9 +59,10 @@ struct MoodReliefView: View {
 
                     GlassCard {
                         VStack(alignment: .leading, spacing: 6) {
-                            Eyebrow(text: L.string("Um passo concreto", table: "Today"))
-                            Text(relief.stepTitle)
-                                .font(MissaleFont.body(17, weight: .medium))
+                            // O próprio registro já traz o rótulo no idioma do
+                            // acervo, como no onboarding; uma tarja fixa aqui
+                            // repetia a mesma frase duas vezes na tela.
+                            Eyebrow(text: relief.stepTitle)
                             Text(relief.stepBody)
                                 .font(MissaleFont.body(15))
                                 .foregroundStyle(Palette.ink.opacity(0.75))
