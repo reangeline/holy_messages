@@ -274,7 +274,7 @@ enum MockRosary {
     /// One catalog per language — see LocalizedCatalog.
     static var howTo: [PrayerHowTo] { howToCatalog.current }
 
-    static let howToCatalog = LocalizedCatalog(pt: ptHowTo)
+    static let howToCatalog = LocalizedCatalog(pt: ptHowTo, en: enHowTo, es: esHowTo)
 
     private static let ptHowTo: [PrayerHowTo] = [
         .init(id: "1", title: "Como segurar e avançar", body: "Segure o crucifixo entre o polegar e o indicador. A cada oração dita, deslize o polegar para a próxima conta — uma conta, uma oração, sempre nessa ordem."),
@@ -287,15 +287,57 @@ enum MockRosary {
         .init(id: "8", title: "Posso rezar sem o objeto físico?", body: "Sim — os dedos contam as Ave-Marias tão bem quanto as contas. O terço físico é ajuda, não exigência."),
     ]
 
+    // These are original pastoral instructions in each language. They follow
+    // the order of prayer set out in Rosarium Virginis Mariae §§28–36; fixed
+    // prayers themselves remain in prayerCatalog, with their approved wording.
+    private static let enHowTo: [PrayerHowTo] = [
+        .init(id: "1", title: "Holding the beads and moving on", body: "Begin at the crucifix and move to the next bead after each prayer. The beads give the prayer a steady sequence: one bead, one prayer, then the next."),
+        .init(id: "2", title: "Why the Rosary opens with the Creed", body: "The opening prayers place the Rosary in the faith the Church professes. The Creed, an Our Father, and three Hail Marys come before the first mystery."),
+        .init(id: "3", title: "Why the Glory Be ends a decade", body: "A decade closes with praise of the Trinity. The Fatima Prayer may be added after the Glory Be; it is a customary addition, not a replacement for it."),
+        .init(id: "4", title: "What to do with your attention", body: "Name the mystery, listen to its Scripture passage when possible, and remain with Christ in that scene. When your attention wanders, gently return to the mystery."),
+        .init(id: "5", title: "If you lose count", body: "Do not turn counting into the point of the prayer. Return to the decade you can identify, or continue with the next prayer while keeping the mystery before you."),
+        .init(id: "6", title: "What makes a complete Rosary", body: "A customary Rosary is five decades: announce a mystery, pray the Our Father, ten Hail Marys, and the Glory Be for each decade."),
+        .init(id: "7", title: "Praying alone or with others", body: "The Rosary can be prayed personally, with family, or in a community. In a group, one voice may announce the mystery and lead the first part of each prayer."),
+        .init(id: "8", title: "Praying without physical beads", body: "Yes. Beads are a practical aid for the sequence, but they are not required. Your fingers, a simple count, or a prayer guide can serve the same purpose."),
+    ]
+
+    private static let esHowTo: [PrayerHowTo] = [
+        .init(id: "1", title: "Cómo tomar el rosario y avanzar", body: "Empieza en el crucifijo y pasa a la cuenta siguiente después de cada oración. Las cuentas dan a la oración una secuencia estable: una cuenta, una oración y después la siguiente."),
+        .init(id: "2", title: "Por qué el Rosario comienza con el Credo", body: "Las oraciones iniciales sitúan el Rosario en la fe que profesa la Iglesia. El Credo, un Padrenuestro y tres Avemarías preceden al primer misterio."),
+        .init(id: "3", title: "Por qué el Gloria cierra una decena", body: "La decena termina alabando a la Trinidad. Puede añadirse la oración de Fátima después del Gloria; es una adición acostumbrada, no lo sustituye."),
+        .init(id: "4", title: "Qué hacer con la atención", body: "Nombra el misterio, escucha su pasaje bíblico cuando sea posible y permanece con Cristo en esa escena. Cuando la atención se dispersa, vuelve serenamente al misterio."),
+        .init(id: "5", title: "Si pierdes la cuenta", body: "No conviertas el conteo en el centro de la oración. Vuelve a la decena que reconoces o continúa con la oración siguiente manteniendo delante el misterio."),
+        .init(id: "6", title: "Qué forma un Rosario completo", body: "El Rosario acostumbrado tiene cinco decenas: se anuncia un misterio y se rezan el Padrenuestro, diez Avemarías y el Gloria en cada decena."),
+        .init(id: "7", title: "Rezar a solas o con otros", body: "El Rosario puede rezarse personalmente, en familia o en comunidad. En grupo, una voz puede anunciar el misterio y comenzar cada oración."),
+        .init(id: "8", title: "Rezar sin cuentas físicas", body: "Sí. Las cuentas ayudan a seguir la secuencia, pero no son necesarias. Los dedos, un conteo sencillo o una guía de oración pueden cumplir esa función."),
+    ]
+
     /// One catalog per language — see LocalizedCatalog.
     static var examenSteps: [ExamenStep] { examenStepsCatalog.current }
 
-    static let examenStepsCatalog = LocalizedCatalog(pt: ptExamenSteps)
+    static let examenStepsCatalog = LocalizedCatalog(pt: ptExamenSteps, en: enExamenSteps, es: esExamenSteps)
 
     private static let ptExamenSteps: [ExamenStep] = [
         .init(number: 1, title: "Gratidão", subtitle: "Reveja o dia e agradeça pelo que houve de bom nele."),
         .init(number: 2, title: "Pedido de luz", subtitle: "Peça ao Espírito Santo para ver o dia com clareza."),
         .init(number: 3, title: "Revisão", subtitle: "Onde houve consolação, e onde houve desolação?"),
         .init(number: 4, title: "Resposta", subtitle: "Peça perdão pelo que precisar, e decida um passo para amanhã."),
+    ]
+
+    // A concise four-part adaptation of the Ignatian daily Examen. The
+    // language is authored per catalog; it is not a machine translation of the
+    // Portuguese flow.
+    private static let enExamenSteps: [ExamenStep] = [
+        .init(number: 1, title: "Gratitude", subtitle: "Recall the day as a gift, and name one grace for which you are grateful."),
+        .init(number: 2, title: "Ask for light", subtitle: "Ask the Holy Spirit to show the day truthfully, with neither denial nor harshness."),
+        .init(number: 3, title: "Review", subtitle: "Notice where you received consolation and where you moved away from love."),
+        .init(number: 4, title: "Respond", subtitle: "Ask forgiveness where it is needed, and choose one concrete response for tomorrow."),
+    ]
+
+    private static let esExamenSteps: [ExamenStep] = [
+        .init(number: 1, title: "Gratitud", subtitle: "Recorre el día como un don y nombra una gracia por la que das gracias."),
+        .init(number: 2, title: "Pedir luz", subtitle: "Pide al Espíritu Santo ver el día con verdad, sin negarlo ni juzgarte con dureza."),
+        .init(number: 3, title: "Revisión", subtitle: "Reconoce dónde recibiste consolación y dónde te apartaste del amor."),
+        .init(number: 4, title: "Respuesta", subtitle: "Pide perdón donde haga falta y elige una respuesta concreta para mañana."),
     ]
 }
