@@ -56,7 +56,14 @@ enum MockMood {
     /// One catalog per language — see LocalizedCatalog.
     static var reliefByState: [String: [ReliefContent]] { reliefCatalog.current }
 
-    static let reliefCatalog = LocalizedCatalog(pt: ptReliefByState)
+    // Os catálogos novos só substituem a base quando o importador aceitou as
+    // quinze respostas distintas por estado. Até lá, português permanece
+    // disponível e inglês/espanhol continuam com fallback explícito.
+    static let reliefCatalog = LocalizedCatalog(
+        pt: ptReviewedReliefByState.isEmpty ? ptReliefByState : ptReviewedReliefByState,
+        en: enReviewedReliefByState.isEmpty ? nil : enReviewedReliefByState,
+        es: esReviewedReliefByState.isEmpty ? nil : esReviewedReliefByState
+    )
 
     private static let ptReliefByState: [String: [ReliefContent]] = [
         "peace": [
