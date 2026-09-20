@@ -25,7 +25,9 @@ struct CalendarDayDetailView: View {
         let relief = latest.map { MockMood.relief(for: $0.stateID).content }
         return DayDetail(
             dateLabel: DateKeyLabel.dayMonth(fromKey: mark.dateKey),
-            feastName: feastInfo?.feastName ?? "Feria do Tempo Comum",
+            // Fallback comes from the engine's own name catalog, not a literal:
+            // a date with no entry is an ordinary weekday, named per language.
+            feastName: feastInfo?.feastName ?? LiturgicalNameCatalog.current.weekdayOfOrdinaryTime,
             color: mark.color,
             loggedStateTitle: latest?.stateLabel,
             loggedNote: latest?.note,

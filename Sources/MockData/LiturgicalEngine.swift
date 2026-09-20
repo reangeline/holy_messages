@@ -19,7 +19,7 @@ enum LiturgicalEngine {
         let season: SeasonKind
         let weekIndex: Int?           // nil during the Triduum, which has no week number
         let weekday: Int              // 1 = Sunday ... 7 = Saturday
-        let seasonLabel: String       // "Tempo Comum · 23ª semana", "Quaresma · 2ª semana", ...
+        let seasonLabel: String       // "Tempo Comum · 23ª semana" / "Ordinary Time · week 23"
         let rank: LiturgicalRank
         let color: LiturgicalColor
         let feastName: String
@@ -161,18 +161,17 @@ enum LiturgicalEngine {
     private static func adventDay(_ date: Date, weekIndex: Int, cycle: String, weekdayCycle: String, dateKey: String) -> ComputedDay {
         let isGaudete = weekIndex == 3 && weekday(of: date) == 1
         let color: LiturgicalColor = isGaudete ? .rose : .purple
+        let n = LiturgicalNameCatalog.current
         return ComputedDay(
             dateKey: dateKey, season: .advent, weekIndex: weekIndex, weekday: weekday(of: date),
-            seasonLabel: "Advento · \(ordinalPT(weekIndex))ª semana",
+            seasonLabel: n.seasonLabel(n.advent, week: weekIndex),
             rank: weekday(of: date) == 1 ? .feast : .weekday,
             color: color,
-            feastName: weekday(of: date) == 1 ? "\(ordinalPT(weekIndex))º Domingo do Advento" : "Feria do Advento",
+            feastName: weekday(of: date) == 1 ? n.sunday(n.sundayOfAdvent, week: weekIndex) : n.weekdayOfAdvent,
             sundayCycle: cycle, weekdayCycle: weekdayCycle,
             isHolyDayOfObligation: weekday(of: date) == 1,
             isAbstinenceDay: weekday(of: date) == 6,
-            explanation: isGaudete
-                ? "3º Domingo do Advento — \"Gaudete\", alegrai-vos: a cor muda para rosa, antecipando a alegria do Natal que se aproxima."
-                : "Advento: quatro semanas de espera e preparação para o Natal do Senhor."
+            explanation: isGaudete ? n.gaudeteExplanation : n.adventExplanation
         )
     }
 
@@ -180,19 +179,20 @@ enum LiturgicalEngine {
         let cal = Calendar.gregorianUTC
         let month = cal.component(.month, from: date)
         let day = cal.component(.day, from: date)
-        var feastName = "Oitava do Natal"
+        let n = LiturgicalNameCatalog.current
+        var feastName = n.dayInOctaveOfChristmas
         var rank: LiturgicalRank = .weekday
         var isHoly = false
-        if month == 12, day == 25 { feastName = "Natividade do Senhor"; rank = .solemnity; isHoly = true }
-        else if month == 1, day == 1 { feastName = "Santa Maria, Mãe de Deus"; rank = .solemnity; isHoly = true }
-        else if month == 1, day == 6 { feastName = "Epifania do Senhor"; rank = .solemnity; isHoly = true }
-        else if date == baptism { feastName = "Batismo do Senhor"; rank = .feast }
+        if month == 12, day == 25 { feastName = n.nativity; rank = .solemnity; isHoly = true }
+        else if month == 1, day == 1 { feastName = n.maryMotherOfGod; rank = .solemnity; isHoly = true }
+        else if month == 1, day == 6 { feastName = n.epiphany; rank = .solemnity; isHoly = true }
+        else if date == baptism { feastName = n.baptismOfTheLord; rank = .feast }
         return ComputedDay(
-            dateKey: dateKey, season: .christmas, weekIndex: nil, weekday: weekday(of: date), seasonLabel: "Tempo do Natal",
+            dateKey: dateKey, season: .christmas, weekIndex: nil, weekday: weekday(of: date), seasonLabel: n.christmasTime,
             rank: rank, color: .white, feastName: feastName,
             sundayCycle: cycle, weekdayCycle: weekdayCycle,
             isHolyDayOfObligation: isHoly, isAbstinenceDay: false,
-            explanation: "Tempo do Natal: a celebração do nascimento do Senhor se estende até o Batismo do Senhor."
+            explanation: n.christmasExplanation
         )
     }
 
@@ -202,60 +202,62 @@ enum LiturgicalEngine {
         let isLaetare = weekIndex == 4 && weekday(of: date) == 1
         let isPalmWeekEntry = isSameDay(date, palmSunday)
         let color: LiturgicalColor = isPalmWeekEntry ? .red : (isLaetare ? .rose : .purple)
-        var feastName = isPalmWeekEntry ? "Domingo de Ramos da Paixão do Senhor" : "Feria da Quaresma"
-        if weekday(of: date) == 1, !isPalmWeekEntry { feastName = "\(ordinalPT(weekIndex))º Domingo da Quaresma" }
+        let n = LiturgicalNameCatalog.current
+        var feastName = isPalmWeekEntry ? n.palmSunday : n.weekdayOfLent
+        if weekday(of: date) == 1, !isPalmWeekEntry { feastName = n.sunday(n.sundayOfLent, week: weekIndex) }
         _ = isAshWednesday
         return ComputedDay(
             dateKey: dateKey, season: .lent, weekIndex: weekIndex, weekday: weekday(of: date),
-            seasonLabel: "Quaresma · \(ordinalPT(weekIndex))ª semana",
+            seasonLabel: n.seasonLabel(n.lent, week: weekIndex),
             rank: (weekday(of: date) == 1 || isPalmWeekEntry) ? .feast : .weekday,
             color: color, feastName: feastName,
             sundayCycle: cycle, weekdayCycle: weekdayCycle,
             isHolyDayOfObligation: weekday(of: date) == 1,
             isAbstinenceDay: weekday(of: date) == 6 || weekday(of: date) == 4,
-            explanation: isLaetare
-                ? "4º Domingo da Quaresma — \"Laetare\", alegrai-vos: um respiro rosa na metade do caminho até a Páscoa."
-                : isPalmWeekEntry
-                ? "Domingo de Ramos: entra-se na Semana Santa lendo a Paixão inteira, com a alegria dos ramos e o peso da cruz no mesmo dia."
-                : "Quaresma: quarenta dias de jejum, oração e esmola, preparando a Páscoa."
+            explanation: isLaetare ? n.laetareExplanation
+                : isPalmWeekEntry ? n.palmSundayExplanation
+                : n.lentExplanation
         )
     }
 
     private static func triduumDay(_ date: Date, feasts: MovableFeasts, dateKey: String) -> ComputedDay {
+        let n = LiturgicalNameCatalog.current
         if isSameDay(date, feasts.holyThursday) {
-            return ComputedDay(dateKey: dateKey, season: .triduum, weekIndex: nil, weekday: weekday(of: date), seasonLabel: "Tríduo Pascal",
-                                rank: .solemnity, color: .white, feastName: "Quinta-feira Santa · Missa da Ceia do Senhor",
+            return ComputedDay(dateKey: dateKey, season: .triduum, weekIndex: nil, weekday: weekday(of: date), seasonLabel: n.triduum,
+                                rank: .solemnity, color: .white, feastName: n.holyThursday,
                                 sundayCycle: "—", weekdayCycle: "—", isHolyDayOfObligation: false, isAbstinenceDay: false,
-                                explanation: "O Tríduo Pascal começa esta noite: a instituição da Eucaristia e do sacerdócio.")
+                                explanation: n.holyThursdayExplanation)
         }
         if isSameDay(date, feasts.goodFriday) {
-            return ComputedDay(dateKey: dateKey, season: .triduum, weekIndex: nil, weekday: weekday(of: date), seasonLabel: "Tríduo Pascal",
-                                rank: .solemnity, color: .red, feastName: "Sexta-feira Santa da Paixão do Senhor",
+            return ComputedDay(dateKey: dateKey, season: .triduum, weekIndex: nil, weekday: weekday(of: date), seasonLabel: n.triduum,
+                                rank: .solemnity, color: .red, feastName: n.goodFriday,
                                 sundayCycle: "—", weekdayCycle: "—", isHolyDayOfObligation: false, isAbstinenceDay: true,
-                                explanation: "Único dia do ano sem celebração da Missa — a liturgia é da Paixão, com adoração da cruz.")
+                                explanation: n.goodFridayExplanation)
         }
-        return ComputedDay(dateKey: dateKey, season: .triduum, weekIndex: nil, weekday: weekday(of: date), seasonLabel: "Tríduo Pascal",
-                            rank: .solemnity, color: .purple, feastName: "Sábado Santo",
+        return ComputedDay(dateKey: dateKey, season: .triduum, weekIndex: nil, weekday: weekday(of: date), seasonLabel: n.triduum,
+                            rank: .solemnity, color: .purple, feastName: n.holySaturday,
                             sundayCycle: "—", weekdayCycle: "—", isHolyDayOfObligation: false, isAbstinenceDay: false,
-                            explanation: "Dia de silêncio litúrgico junto ao sepulcro — sem Missa até a Vigília Pascal, à noite.")
+                            explanation: n.holySaturdayExplanation)
     }
 
     private static func easterDay(_ date: Date, weekIndex: Int, feasts: MovableFeasts, cycle: String, weekdayCycle: String, dateKey: String) -> ComputedDay {
-        var feastName = "Feria do Tempo Pascal"
+        let n = LiturgicalNameCatalog.current
+        var feastName = n.weekdayOfEasterTime
         var rank: LiturgicalRank = .weekday
-        if isSameDay(date, feasts.easter) { feastName = "Páscoa da Ressurreição do Senhor"; rank = .solemnity }
-        else if isSameDay(date, feasts.divineMercySunday) { feastName = "Domingo da Divina Misericórdia"; rank = .feast }
-        else if isSameDay(date, feasts.ascension) { feastName = "Ascensão do Senhor"; rank = .solemnity }
-        else if isSameDay(date, feasts.pentecost) { feastName = "Pentecostes"; rank = .solemnity }
-        else if weekday(of: date) == 1 { feastName = "\(ordinalPT(weekIndex))º Domingo da Páscoa"; rank = .feast }
+        if isSameDay(date, feasts.easter) { feastName = n.easterSunday; rank = .solemnity }
+        else if isSameDay(date, feasts.divineMercySunday) { feastName = n.divineMercySunday; rank = .feast }
+        else if isSameDay(date, feasts.ascension) { feastName = n.ascension; rank = .solemnity }
+        else if isSameDay(date, feasts.pentecost) { feastName = n.pentecost; rank = .solemnity }
+        else if weekday(of: date) == 1 { feastName = n.sunday(n.sundayOfEaster, week: weekIndex); rank = .feast }
         let isPentecost = isSameDay(date, feasts.pentecost)
         return ComputedDay(
-            dateKey: dateKey, season: .easter, weekIndex: weekIndex, weekday: weekday(of: date), seasonLabel: "Tempo Pascal · \(ordinalPT(weekIndex))ª semana",
+            dateKey: dateKey, season: .easter, weekIndex: weekIndex, weekday: weekday(of: date),
+            seasonLabel: n.seasonLabel(n.easterTime, week: weekIndex),
             rank: rank, color: isPentecost ? .red : .white, feastName: feastName,
             sundayCycle: cycle, weekdayCycle: weekdayCycle,
             isHolyDayOfObligation: weekday(of: date) == 1 || isSameDay(date, feasts.ascension),
             isAbstinenceDay: false,
-            explanation: "Tempo Pascal: cinquenta dias de alegria pela Ressurreição, até Pentecostes."
+            explanation: n.easterExplanation
         )
     }
 
@@ -270,23 +272,25 @@ enum LiturgicalEngine {
         } else {
             weekIndex = weeksBetween(feasts.baptismOfTheLord, date) + 1
         }
-        var feastName = "Feria do Tempo Comum"
+        let n = LiturgicalNameCatalog.current
+        var feastName = n.weekdayOfOrdinaryTime
         var rank: LiturgicalRank = .weekday
         var color: LiturgicalColor = .green
         var isHoly = false
-        if isSameDay(date, feasts.trinitySunday) { feastName = "Santíssima Trindade"; rank = .solemnity; color = .white }
-        else if isSameDay(date, feasts.corpusChristi) { feastName = "Corpo e Sangue de Cristo"; rank = .solemnity; color = .white }
-        else if isSameDay(date, feasts.sacredHeart) { feastName = "Sagrado Coração de Jesus"; rank = .solemnity; color = .white }
-        else if isSameDay(date, feasts.christTheKing) { feastName = "Nosso Senhor Jesus Cristo, Rei do Universo"; rank = .solemnity; color = .white; isHoly = true }
-        else if weekday(of: date) == 1 { feastName = "\(ordinalPT(weekIndex))º Domingo do Tempo Comum"; rank = .feast; isHoly = true }
+        if isSameDay(date, feasts.trinitySunday) { feastName = n.trinitySunday; rank = .solemnity; color = .white }
+        else if isSameDay(date, feasts.corpusChristi) { feastName = n.corpusChristi; rank = .solemnity; color = .white }
+        else if isSameDay(date, feasts.sacredHeart) { feastName = n.sacredHeart; rank = .solemnity; color = .white }
+        else if isSameDay(date, feasts.christTheKing) { feastName = n.christTheKing; rank = .solemnity; color = .white; isHoly = true }
+        else if weekday(of: date) == 1 { feastName = n.sunday(n.sundayInOrdinaryTime, week: weekIndex); rank = .feast; isHoly = true }
         return ComputedDay(
-            dateKey: dateKey, season: .ordinary, weekIndex: weekIndex, weekday: weekday(of: date), seasonLabel: "Tempo Comum · \(ordinalPT(weekIndex))ª semana",
+            dateKey: dateKey, season: .ordinary, weekIndex: weekIndex, weekday: weekday(of: date),
+            seasonLabel: n.seasonLabel(n.ordinaryTime, week: weekIndex),
             rank: rank, color: color, feastName: feastName,
             sundayCycle: sundayCycle(forLiturgicalYearStarting: isSecondBlock ? year : year - 1),
             weekdayCycle: weekdayCycleLabel(for: year),
             isHolyDayOfObligation: isHoly,
             isAbstinenceDay: weekday(of: date) == 6,
-            explanation: "Tempo Comum: a vida ordinária da Igreja, semana após semana, fora dos grandes tempos fortes."
+            explanation: n.ordinaryExplanation
         )
     }
 
@@ -360,5 +364,4 @@ enum LiturgicalEngine {
         return String(format: "%04d-%02d-%02d", c.year!, c.month!, c.day!)
     }
 
-    private static func ordinalPT(_ n: Int) -> String { "\(n)" }
 }
