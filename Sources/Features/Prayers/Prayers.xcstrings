@@ -1122,6 +1122,28 @@
           }
         }
       }
+    },
+    "View {name}'s record": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "View {name}'s record"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ver la ficha de {name}"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ver ficha de {name}"
+          }
+        }
+      }
     }
   },
   "version": "1.0"

@@ -138,6 +138,7 @@ extension MockDevotionalPrayers {
                 title: "Tomai, Senhor, e recebei",
                 attribution: "Santo Inácio de Loyola, Exercícios Espirituais",
                 focus: "Oferta da liberdade e da vida a Deus",
+                saintID: "inacio-loyola",
                 fullText: "Tomai, Senhor, e recebei toda a minha liberdade, a minha memória, o meu entendimento e toda a minha vontade, tudo o que tenho e possuo. Vós mo destes; a Vós, Senhor, o restituo. Tudo é vosso: disponde de tudo segundo a vossa vontade. Dai-me somente o vosso amor e a vossa graça, que isto me basta."
             ),
         ],
@@ -280,6 +281,7 @@ extension MockDevotionalPrayers {
                 title: "Prayer of St Augustine",
                 attribution: "St Augustine",
                 focus: "Purification of thought and desire",
+                saintID: "agostinho",
                 fullText: "Breathe in me, O Holy Spirit, that my thoughts may all be holy. Act in me, O Holy Spirit, that my work, too, may be holy. Draw my heart, O Holy Spirit, that I may love only what is holy. Strengthen me, O Holy Spirit, to defend all that is holy. Guard me, then, O Holy Spirit, that I may always be holy. Amen."
             ),
             .init(
@@ -352,6 +354,7 @@ extension MockDevotionalPrayers {
                 title: "Suscipe",
                 attribution: "St Ignatius of Loyola",
                 focus: "Offering one’s freedom and life to God",
+                saintID: "inacio-loyola",
                 fullText: "Take, Lord, and receive all my liberty, my memory, my understanding, and my entire will, all that I have and possess. You have given all to me. To you, Lord, I return it. All is yours; dispose of it wholly according to your will. Give me only your love and your grace, for this is enough for me."
             ),
             .init(
@@ -522,6 +525,7 @@ extension MockDevotionalPrayers {
                 title: "Prayer of St Augustine",
                 attribution: "St Augustine",
                 focus: "Purification of thought and desire",
+                saintID: "agostinho",
                 fullText: "Respira en mí, oh Espíritu Santo, para que mis pensamientos sean santos. Actúa en mí, oh Espíritu Santo, para que también mi trabajo sea santo. Atrae mi corazón, oh Espíritu Santo, para que ame solamente lo santo. Fortaléceme, oh Espíritu Santo, para defender lo santo. Guárdame, pues, oh Espíritu Santo, para que sea siempre santo. Amén."
             ),
             .init(
@@ -594,6 +598,7 @@ extension MockDevotionalPrayers {
                 title: "Suscipe",
                 attribution: "St Ignatius of Loyola",
                 focus: "Offering one’s freedom and life to God",
+                saintID: "inacio-loyola",
                 fullText: "Toma, Señor, y recibe toda mi libertad, mi memoria, mi entendimiento y toda mi voluntad, todo mi haber y mi poseer. Tú me lo diste; a ti, Señor, lo devuelvo. Todo es tuyo: dispón de ello según tu voluntad. Dame tu amor y gracia, que esto me basta."
             ),
             .init(

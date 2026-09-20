@@ -67,6 +67,12 @@ enum MockSaints {
         return calendar.first { $0.dateKey == dateKey && $0.region == .general }?.saint
     }
 
+    /// Resolves a cross-feature link (for example, a devotional prayer) to the
+    /// saint record in the catalog currently shown by the app.
+    static func saint(withID id: String) -> Saint? {
+        calendar.first { $0.saint.id == id }?.saint
+    }
+
     static let saintsForYou: [SaintRecommendation] = [
         .init(id: "john-of-the-cross", name: "São João da Cruz", reason: "Escreveu sobre a \"noite escura\" — a oração que não sente nada e continua mesmo assim."),
         .init(id: "teresa-calcutta", name: "Santa Teresa de Calcutá", reason: "Viveu décadas de aridez na oração enquanto servia, e não escondeu isso depois de morta."),

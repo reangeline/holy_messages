@@ -50,6 +50,7 @@ enum MockDevotionalPrayers {
                 title: "Oração de São Francisco",
                 attribution: "São Francisco de Assis",
                 focus: "A paz, o amor ao próximo e ser um instrumento do bem.",
+                saintID: "francisco-assis",
                 fullText: "Senhor, fazei de mim um instrumento da vossa paz.\nOnde houver ódio, que eu leve o amor;\nonde houver ofensa, que eu leve o perdão;\nonde houver discórdia, que eu leve a união;\nonde houver dúvida, que eu leve a fé;\nonde houver erro, que eu leve a verdade;\nonde houver desespero, que eu leve a esperança;\nonde houver tristeza, que eu leve a alegria;\nonde houver trevas, que eu leve a luz.\nÓ Mestre, fazei que eu procure mais consolar, que ser consolado; compreender, que ser compreendido; amar, que ser amado.\nPois é dando que se recebe, é perdoando que se é perdoado, e é morrendo que se vive para a vida eterna."
             ),
             .init(
@@ -66,6 +67,7 @@ enum MockDevotionalPrayers {
                 title: "Oração de São Bento",
                 attribution: "Medalha de São Bento",
                 focus: "Proteção contra o mal e repulsa das tentações da alma.",
+                saintID: "benito",
                 fullText: "A Cruz Sagrada seja a minha luz, não seja o dragão o meu guia. Retira-te, Satanás! Nunca me aconselhes coisas vãs. É mau o que me ofereces: bebe tu mesmo o teu veneno!"
             ),
             .init(
@@ -82,6 +84,7 @@ enum MockDevotionalPrayers {
                 title: "Oração de Santo Agostinho ao Espírito Santo",
                 attribution: "Santo Agostinho",
                 focus: "A luz divina, a clareza mental e a pureza de pensamentos.",
+                saintID: "agostinho",
                 fullText: "Respirai em mim, ó Espírito Santo, para que os meus pensamentos sejam todos santos. Agi em mim, ó Espírito Santo, para que o meu trabalho, também, seja santo. Atraí o meu coração, ó Espírito Santo, para que eu ame somente o que é santo. Dai-me força, ó Espírito Santo, para defender o que é santo. Guardai-me, então, ó Espírito Santo, para que eu seja sempre santo. Amém."
             ),
             .init(

@@ -29,6 +29,28 @@ struct DevotionalPrayerDetailView: View {
                                 .foregroundStyle(.white)
                         }
                     }
+
+                    if let saintID = prayer.saintID,
+                       let saint = MockSaints.saint(withID: saintID) {
+                        NavigationLink {
+                            SaintDetailView(saint: saint)
+                        } label: {
+                            GlassCard {
+                                HStack(spacing: 12) {
+                                    SaintPortrait(artworkName: saint.artworkName, cornerRadius: 8)
+                                        .frame(width: 44, height: 44)
+                                    Text(L.string("View {name}'s record", table: "Prayers")
+                                        .replacingOccurrences(of: "{name}", with: saint.name))
+                                        .font(MissaleFont.body(16, weight: .medium))
+                                        .foregroundStyle(Palette.ink)
+                                    Spacer()
+                                    Image(systemName: "chevron.right")
+                                        .foregroundStyle(Palette.wine)
+                                }
+                            }
+                        }
+                        .buttonStyle(.plain)
+                    }
                 }
                 .padding(.horizontal, 24)
                 .padding(.top, 20)

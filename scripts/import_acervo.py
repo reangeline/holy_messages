@@ -182,6 +182,26 @@ def gen_word_of_day():
     return counts
 
 # ---------------------------------------------------------------- orações
+# Só relacionamos uma oração a uma ficha quando a autoria/atribuição é
+# explicitamente identificada no lote e o id do santo existe no acervo. Não há
+# inferência a partir do texto da oração.
+PRAYER_SAINT_REFERENCES = (
+    ("francisco-assis", ("são francisco de assis", "saint francis of assisi", "san francisco de asís")),
+    ("agostinho", ("santo agostinho", "st augustine", "san agustín")),
+    ("benito", ("são bento", "st benedict", "san benito")),
+    ("inacio-loyola", ("santo inácio de loyola", "st ignatius of loyola", "san ignacio de loyola")),
+)
+
+def saint_id_for_prayer(prayer):
+    explicit = prayer.get("saintID")
+    if explicit:
+        return explicit
+    searchable = " ".join(str(prayer.get(field, "")) for field in ("title", "attribution")).casefold()
+    for saint_id, references in PRAYER_SAINT_REFERENCES:
+        if any(reference in searchable for reference in references):
+            return saint_id
+    return None
+
 def gen_prayers():
     rows = load("prayer_item_additions")
     # o lote oficial (Compêndio) tem precedência sobre os anteriores
@@ -210,13 +230,18 @@ def gen_prayers():
             out.append(f"        {sw(cat)}: [\n")
             for o in by_cat[cat]:
                 slug = re.sub(r'[^a-z0-9]+', '-', o["title"].lower()).strip('-')
-                out.append("            .init(\n"
-                           f'                id: {sw(slug + "-" + lang)},\n'
-                           f'                title: {sw(o["title"])},\n'
-                           f'                attribution: {sw(o.get("attribution"))},\n'
-                           f'                focus: {sw(o["focus"])},\n'
-                           f'                fullText: {sw(o["fullText"])}\n'
-                           "            ),\n")
+                saint_id = saint_id_for_prayer(o)
+                saint_field = f'                saintID: {sw(saint_id)},\n' if saint_id else ""
+                out.append(
+                    "            .init(\n"
+                    + f'                id: {sw(slug + "-" + lang)},\n'
+                    + f'                title: {sw(o["title"])},\n'
+                    + f'                attribution: {sw(o.get("attribution"))},\n'
+                    + f'                focus: {sw(o["focus"])},\n'
+                    + saint_field
+                    + f'                fullText: {sw(o["fullText"])}\n'
+                    + "            ),\n"
+                )
             out.append("        ],\n")
         out.append("    ]\n\n")
     out.append("}\n")
