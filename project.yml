@@ -57,6 +57,22 @@ targets:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.missale.app
 
+  # Exists so language switching and the Settings preferences can actually be
+  # exercised: the Simulator can't be driven from a shell, and every fix in
+  # those screens was going out verified only by reading the code.
+  MissaleUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - path: Tests/UITests
+    dependencies:
+      - target: Missale
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.missale.app.UITests
+        TEST_TARGET_NAME: Missale
+        GENERATE_INFOPLIST_FILE: "YES"
+
   MissaleWidgetsExtension:
     type: app-extension
     platform: iOS
@@ -94,3 +110,17 @@ targets:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.missale.app.MissaleWidgets
         PRODUCT_NAME: MissaleWidgets
+
+schemes:
+  Missale:
+    build:
+      targets:
+        Missale: all
+        MissaleWidgetsExtension: all
+        MissaleUITests: [test]
+    run:
+      config: Debug
+    test:
+      config: Debug
+      targets:
+        - MissaleUITests

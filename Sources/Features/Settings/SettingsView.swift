@@ -24,7 +24,7 @@ struct SettingsView: View {
                         ForEach(MockSettings.groups) { group in
                             groupSection(group)
                         }
-                        Text(MockSettings.buildLine)
+                        Text(L.string(MockSettings.buildLine, table: "SettingsDetail"))
                             .font(MissaleFont.body(13))
                             .foregroundStyle(Palette.ink.opacity(0.55))
                             .padding(.top, 4)
@@ -34,7 +34,7 @@ struct SettingsView: View {
                     .padding(.bottom, 30)
                 }
             }
-            .navigationTitle("Ajustes")
+            .navigationTitle(L.string("Ajustes", table: "SettingsDetail"))
             .navigationBarTitleDisplayMode(.inline)
             .navigationDestination(for: SettingsDestination.self) { destination in
                 switch destination {
@@ -62,10 +62,10 @@ struct SettingsView: View {
 
     private var header: some View {
         VStack(alignment: .leading, spacing: 4) {
-            Eyebrow(text: "Ajustes")
+            Eyebrow(text: L.string("Ajustes", table: "SettingsDetail"))
             NavigationLink(value: SettingsDestination.editName) {
                 HStack(spacing: 6) {
-                    Text(userDisplayName.isEmpty ? "Adicionar seu nome" : userDisplayName)
+                    Text(userDisplayName.isEmpty ? L.string("Adicionar seu nome", table: "SettingsDetail") : userDisplayName)
                         .font(MissaleFont.display(29, weight: .semibold))
                         .foregroundStyle(userDisplayName.isEmpty ? Palette.wine : Palette.ink)
                     Image(systemName: "pencil")
@@ -74,7 +74,7 @@ struct SettingsView: View {
                 }
             }
             .buttonStyle(.plain)
-            Text(MockSettings.subscriptionStatusLine)
+            Text(L.string(MockSettings.subscriptionStatusLine, table: "SettingsDetail"))
                 .font(MissaleFont.body(15))
                 .foregroundStyle(Palette.ink.opacity(0.68))
         }
@@ -86,14 +86,14 @@ struct SettingsView: View {
         } label: {
             HStack {
                 VStack(alignment: .leading, spacing: 4) {
-                    Text("SEMPRE AQUI")
+                    Text(L.string("SEMPRE AQUI", table: "SettingsDetail"))
                         .font(MissaleFont.body(11, weight: .semibold))
                         .tracking(1.4)
                         .foregroundStyle(Palette.wine)
-                    Text("Nota pastoral")
+                    Text(L.string("Nota pastoral", table: "SettingsDetail"))
                         .font(MissaleFont.body(18, weight: .medium))
                         .foregroundStyle(Palette.ink)
-                    Text("Não é confissão, direção espiritual nem terapia")
+                    Text(L.string("Não é confissão, direção espiritual nem terapia", table: "SettingsDetail"))
                         .font(MissaleFont.body(15))
                         .foregroundStyle(Palette.ink.opacity(0.72))
                 }
@@ -127,7 +127,7 @@ struct SettingsView: View {
 
     private func groupSection(_ group: SettingsGroup) -> some View {
         VStack(alignment: .leading, spacing: 8) {
-            Eyebrow(text: group.label)
+            Eyebrow(text: L.string(group.label, table: "SettingsDetail"))
             VStack(spacing: 0) {
                 ForEach(Array(group.items.enumerated()), id: \.element.id) { index, item in
                     if index > 0 {
@@ -136,11 +136,11 @@ struct SettingsView: View {
                     NavigationLink(value: item.destination) {
                         HStack {
                             VStack(alignment: .leading, spacing: 2) {
-                                Text(item.title)
+                                Text(L.string(item.title, table: "SettingsDetail"))
                                     .font(MissaleFont.body(17))
                                     .foregroundStyle(Palette.ink)
                                 if !item.subtitle.isEmpty {
-                                    Text(item.subtitle)
+                                    Text(L.string(item.subtitle, table: "SettingsDetail"))
                                         .font(MissaleFont.body(14))
                                         .foregroundStyle(Palette.ink.opacity(0.64))
                                 }
@@ -151,7 +151,7 @@ struct SettingsView: View {
                                     .font(MissaleFont.body(15))
                                     .foregroundStyle(Palette.wine)
                             } else if let value = item.value {
-                                Text(value)
+                                Text(L.string(value, table: "SettingsDetail"))
                                     .font(MissaleFont.body(15))
                                     .foregroundStyle(Palette.wine)
                             }
@@ -161,6 +161,10 @@ struct SettingsView: View {
                         }
                         .padding(.vertical, 14)
                         .padding(.horizontal, 16)
+                        // Sem isto, só os glifos aceitam o toque: o vão entre o
+                        // título e o valor à direita é área morta, e a linha
+                        // parece não responder a quem toca no meio dela.
+                        .contentShape(Rectangle())
                     }
                     .buttonStyle(.plain)
                 }

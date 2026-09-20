@@ -1,5 +1,10 @@
 import Foundation
 
+/// The Portuguese text here is the source of truth and doubles as the
+/// localization key: SettingsView looks each string up in the SettingsDetail
+/// table, so the list follows the interface language instead of staying
+/// Portuguese in English and Spanish. (That table's other keys are English —
+/// mixed, but the alternative was translating the data itself.)
 enum MockSettings {
     static let subscriptionStatusLine = "Assinatura anual · renova em 14 de outubro"
     static let buildLine = "Missale 1.0 (build 214) · o que você registra fica neste aparelho."

@@ -57,6 +57,9 @@ struct LanguageSettingsView: View {
                     Image(systemName: "checkmark").foregroundStyle(Palette.wine)
                 }
             }
+            // A linha inteira tem de aceitar o toque. Sem isto, só a palavra
+            // responde, e tocar no resto da linha não seleciona nada.
+            .contentShape(Rectangle())
         }
     }
 }

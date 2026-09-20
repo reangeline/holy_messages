@@ -45,6 +45,50 @@
         }
       }
     },
+    "Adicionar seu nome": {
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Adicionar seu nome"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add your name"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Añade tu nombre"
+          }
+        }
+      }
+    },
+    "Ajustes": {
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ajustes"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Settings"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ajustes"
+          }
+        }
+      }
+    },
     "All formation tracks, and new ones as they launch": {
       "localizations": {
         "en": {
@@ -89,6 +133,72 @@
         }
       }
     },
+    "Anual · renova em 14 de outubro": {
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Anual · renova em 14 de outubro"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yearly · renews on October 14"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Anual · se renueva el 14 de octubre"
+          }
+        }
+      }
+    },
+    "Assinatura": {
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Assinatura"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Subscription"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Suscripción"
+          }
+        }
+      }
+    },
+    "Assinatura anual · renova em 14 de outubro": {
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Assinatura anual · renova em 14 de outubro"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yearly subscription · renews on October 14"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Suscripción anual · se renueva el 14 de octubre"
+          }
+        }
+      }
+    },
     "At the Church's hours. Each one can be turned off.": {
       "localizations": {
         "en": {
@@ -107,6 +217,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "Nos horários da Igreja. Cada um pode ficar desligado."
+          }
+        }
+      }
+    },
+    "Ativa": {
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ativa"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Active"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Activa"
           }
         }
       }
@@ -177,6 +309,28 @@
         }
       }
     },
+    "Calendário litúrgico": {
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Calendário litúrgico"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Liturgical calendar"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Calendario litúrgico"
+          }
+        }
+      }
+    },
     "Cancel": {
       "localizations": {
         "en": {
@@ -217,6 +371,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "Cancelar a renovação"
+          }
+        }
+      }
+    },
+    "Conta": {
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Conta"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Account"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cuenta"
           }
         }
       }
@@ -573,6 +749,28 @@
         }
       }
     },
+    "Gente responde, não um formulário": {
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gente responde, não um formulário"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "People answer, not a form"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Responden personas, no un formulario"
+          }
+        }
+      }
+    },
     "Grave sin, a doubt of conscience, a life decision, a crisis: take it to a priest. This app shows you the nearest parish and confession hours, and that's the best it has to offer on this point.": {
       "localizations": {
         "en": {
@@ -639,6 +837,28 @@
         }
       }
     },
+    "Idioma": {
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Idioma"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Language"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Idioma"
+          }
+        }
+      }
+    },
     "If price is the problem, it stops being one": {
       "localizations": {
         "en": {
@@ -679,6 +899,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "Se a pergunta for grave"
+          }
+        }
+      }
+    },
+    "Interface do app": {
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Interface do app"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "App interface"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Interfaz de la app"
           }
         }
       }
@@ -771,6 +1013,28 @@
         }
       }
     },
+    "Missale 1.0 (build 214) · o que você registra fica neste aparelho.": {
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Missale 1.0 (build 214) · o que você registra fica neste aparelho."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Missale 1.0 (build 214) · what you log stays on this device."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Missale 1.0 (build 214) · lo que registras queda en este dispositivo."
+          }
+        }
+      }
+    },
     "Missale Premium · yearly": {
       "localizations": {
         "en": {
@@ -815,6 +1079,28 @@
         }
       }
     },
+    "Nota pastoral": {
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nota pastoral"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pastoral note"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nota pastoral"
+          }
+        }
+      }
+    },
     "Nothing logged here is matter for absolution, and no text in this app forgives sin. Only the sacrament does that, and it happens with a priest.": {
       "localizations": {
         "en": {
@@ -833,6 +1119,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "Nada registrado aqui é matéria de absolvição, e nenhum texto deste app perdoa pecado. Só o sacramento faz isso, e ele acontece com um sacerdote."
+          }
+        }
+      }
+    },
+    "Não é confissão, direção espiritual nem terapia": {
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Não é confissão, direção espiritual nem terapia"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Not confession, spiritual direction, or therapy"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No es confesión, dirección espiritual ni terapia"
           }
         }
       }
@@ -969,6 +1277,72 @@
         }
       }
     },
+    "Política de privacidade": {
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Política de privacidade"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Privacy policy"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Política de privacidad"
+          }
+        }
+      }
+    },
+    "Preferências": {
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Preferências"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Preferences"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Preferencias"
+          }
+        }
+      }
+    },
+    "Privacidade": {
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Privacidade"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Privacy"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Privacidad"
+          }
+        }
+      }
+    },
     "Privacy Policy": {
       "localizations": {
         "en": {
@@ -991,6 +1365,28 @@
         }
       }
     },
+    "Região e forma do rito": {
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Região e forma do rito"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Region and form of the rite"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Región y forma del rito"
+          }
+        }
+      }
+    },
     "Restore Purchases": {
       "localizations": {
         "en": {
@@ -1009,6 +1405,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "Restaurar compras"
+          }
+        }
+      }
+    },
+    "SEMPRE AQUI": {
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "SEMPRE AQUI"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ALWAYS HERE"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "SIEMPRE AQUÍ"
           }
         }
       }
@@ -1079,6 +1497,28 @@
         }
       }
     },
+    "Seus dados": {
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seus dados"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your data"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tus datos"
+          }
+        }
+      }
+    },
     "Silence": {
       "localizations": {
         "en": {
@@ -1101,6 +1541,50 @@
         }
       }
     },
+    "Sincronização, exportar, apagar": {
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sincronização, exportar, apagar"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sync, export, delete"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sincronización, exportar, borrar"
+          }
+        }
+      }
+    },
+    "Sobre": {
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sobre"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "About"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Acerca de"
+          }
+        }
+      }
+    },
     "Subscription": {
       "localizations": {
         "en": {
@@ -1119,6 +1603,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "Assinatura"
+          }
+        }
+      }
+    },
+    "Suporte": {
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Suporte"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Support"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Soporte"
           }
         }
       }
@@ -1207,6 +1713,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "Toque para abrir."
+          }
+        }
+      }
+    },
+    "Termos de uso": {
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Termos de uso"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Terms of use"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Términos de uso"
           }
         }
       }

@@ -104,6 +104,7 @@
 		9C4DF6B2563D0FECB03DCC25 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9536EEE16DBB6EFCD2579641 /* UserProfile.swift */; };
 		9CFFCBD7378D5FBBDD1B3911 /* EBGaramond-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F0B7E0BDDA351067DC3AB09 /* EBGaramond-Medium.ttf */; };
 		A0679D6E7752653E27DCB100 /* CrossGlyph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D590B23F2975B841AB601E /* CrossGlyph.swift */; };
+		A6F35AEF62403FE3E4FACDEF /* LanguageSwitchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8049CC700EE6E41951F36255 /* LanguageSwitchUITests.swift */; };
 		AA80232E8C4368851886F8F1 /* EBGaramond-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98CD269C69DE28B8E321E2E3 /* EBGaramond-Regular.ttf */; };
 		ABA7DBB03FCCD9931F3CF8C8 /* FormationWordOfDay.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 628D90C75D1198CD2B5160EC /* FormationWordOfDay.xcstrings */; };
 		AC2A502F89B9AEACDC4C3F4F /* OnboardingPaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABA499AC313C1D6851F23FD /* OnboardingPaywallView.swift */; };
@@ -168,6 +169,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		12728BF65A2841CA32BAC0D5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FD8F43A7168B5EA7E1FCAB96 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5DABD5C69BB48A28A5395027;
+			remoteInfo = Missale;
+		};
 		1AFFEBCAF03F08BF6E6C43AF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FD8F43A7168B5EA7E1FCAB96 /* Project object */;
@@ -197,6 +205,7 @@
 		059392A80AD166C1D4330AF3 /* OnboardingFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFlow.swift; sourceTree = "<group>"; };
 		085B0E7DB07DABBDD6D616C6 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		0BF026ED1AE79D8B6C5A3B51 /* Typography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typography.swift; sourceTree = "<group>"; };
+		0C74389C0E7F2A38107F6475 /* MissaleUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = MissaleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C82F4CB58E4E72411E7BACE /* MockSubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSubscription.swift; sourceTree = "<group>"; };
 		0E6C6241BC35F39BD33E7E15 /* RemindersSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersSettingsView.swift; sourceTree = "<group>"; };
 		0E8A81756E17889CD1B8F39D /* SaintOfDayWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaintOfDayWidget.swift; sourceTree = "<group>"; };
@@ -259,6 +268,7 @@
 		79FCEC47D5D8B918B1990285 /* ExamenClosingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamenClosingView.swift; sourceTree = "<group>"; };
 		7C851FE5FCA96354F60A6EB5 /* OnboardingNotificationTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingNotificationTimeView.swift; sourceTree = "<group>"; };
 		8045109FB41D5AA9E8A2552B /* MoodReliefView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodReliefView.swift; sourceTree = "<group>"; };
+		8049CC700EE6E41951F36255 /* LanguageSwitchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSwitchUITests.swift; sourceTree = "<group>"; };
 		80C91E7AE38D2D10C31CB156 /* DevotionalPrayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevotionalPrayer.swift; sourceTree = "<group>"; };
 		81A7894A34904119DDEBC585 /* MockSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSettings.swift; sourceTree = "<group>"; };
 		88256E6C4CCFEC9D6FB7A82C /* MassBulletinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MassBulletinView.swift; sourceTree = "<group>"; };
@@ -360,6 +370,15 @@
 			path = Sources/WidgetExtension;
 			sourceTree = "<group>";
 		};
+		1DEB241EF1D52D7D8BC74CCE /* UITests */ = {
+			isa = PBXGroup;
+			children = (
+				8049CC700EE6E41951F36255 /* LanguageSwitchUITests.swift */,
+			);
+			name = UITests;
+			path = Tests/UITests;
+			sourceTree = "<group>";
+		};
 		1E3D63FED4ADA19F3F4A4938 /* Today */ = {
 			isa = PBXGroup;
 			children = (
@@ -418,6 +437,7 @@
 			isa = PBXGroup;
 			children = (
 				38B6832F288C4C0C09FD5067 /* Missale.app */,
+				0C74389C0E7F2A38107F6475 /* MissaleUITests.xctest */,
 				03ECD97CEA2DF4CC329EF2A9 /* MissaleWidgetsExtension.appex */,
 			);
 			name = Products;
@@ -427,6 +447,7 @@
 			isa = PBXGroup;
 			children = (
 				8409C1C5BFAE3BC0D2F85C98 /* Sources */,
+				1DEB241EF1D52D7D8BC74CCE /* UITests */,
 				1C93F666204D88998046DAD7 /* WidgetExtension */,
 				4E078AEDFE80F19D79988672 /* Products */,
 			);
@@ -673,6 +694,24 @@
 			productReference = 03ECD97CEA2DF4CC329EF2A9 /* MissaleWidgetsExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		D9B6A64A6D3878B509C89A05 /* MissaleUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FFC9620926616BDB8DA98EBE /* Build configuration list for PBXNativeTarget "MissaleUITests" */;
+			buildPhases = (
+				14C7101B24566EE48DBD02E1 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1441901404F67253D0E6DA78 /* PBXTargetDependency */,
+			);
+			name = MissaleUITests;
+			packageProductDependencies = (
+			);
+			productName = MissaleUITests;
+			productReference = 0C74389C0E7F2A38107F6475 /* MissaleUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -682,6 +721,9 @@
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
+					D9B6A64A6D3878B509C89A05 = {
+						TestTargetID = 5DABD5C69BB48A28A5395027;
+					};
 				};
 			};
 			buildConfigurationList = C3DD0984026CF4C4C9526A69 /* Build configuration list for PBXProject "Missale" */;
@@ -701,6 +743,7 @@
 			projectRoot = "";
 			targets = (
 				5DABD5C69BB48A28A5395027 /* Missale */,
+				D9B6A64A6D3878B509C89A05 /* MissaleUITests */,
 				984C933F370B5EFEB44BE45F /* MissaleWidgetsExtension */,
 			);
 		};
@@ -878,6 +921,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		14C7101B24566EE48DBD02E1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6F35AEF62403FE3E4FACDEF /* LanguageSwitchUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5CBC3904F872ABC202867B76 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -898,6 +949,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		1441901404F67253D0E6DA78 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5DABD5C69BB48A28A5395027 /* Missale */;
+			targetProxy = 12728BF65A2841CA32BAC0D5 /* PBXContainerItemProxy */;
+		};
 		1FA44ECFDA605FA10AD8E09C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 984C933F370B5EFEB44BE45F /* MissaleWidgetsExtension */;
@@ -1097,6 +1153,40 @@
 			};
 			name = Debug;
 		};
+		EBBBA9436ACA77AC0679C5F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.missale.app.UITests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Missale;
+			};
+			name = Release;
+		};
+		F3488A7A8B195FF50BFC08DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.missale.app.UITests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Missale;
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1123,6 +1213,15 @@
 			buildConfigurations = (
 				B28A07F2577FB5D238041EA9 /* Debug */,
 				5BE78FB2CE61D4A0664BF542 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		FFC9620926616BDB8DA98EBE /* Build configuration list for PBXNativeTarget "MissaleUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F3488A7A8B195FF50BFC08DE /* Debug */,
+				EBBBA9436ACA77AC0679C5F0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
