@@ -353,6 +353,188 @@ extension MockWordOfDay {
             translationNote: "António Pereira de Figueiredo, Biblia Sagrada Illustrada, vol. III, Porto, 1896; páginas PDF 24–26. Edição católica histórica em domínio público.",
             context: "Sermão da Montanha — Mateus 7."
         ),
+        .init(
+            id: "salmo-23-1-pt",
+            quote: "Salmo. De Davide. O Senhor me apascenta: nada me falta;",
+            reference: "Salmo 23, 1",
+            translationNote: "Matos Soares, Bíblia Sagrada (1956). Tradução católica histórica em domínio público; texto conferido no acervo local. Não é a tradução litúrgica atual da CNBB.",
+            context: "O salmo abre com a imagem de Deus que conduz e provê."
+        ),
+        .init(
+            id: "salmo-27-1-pt",
+            quote: "De Davide. O Senhor é a minha luz e a minha salvação: a quem temerei? O Senhor é o baluarte da minha vida, diante de quem tremerei?",
+            reference: "Salmo 27, 1",
+            translationNote: "Matos Soares, Bíblia Sagrada (1956). Tradução católica histórica em domínio público; texto conferido no acervo local. Não é a tradução litúrgica atual da CNBB.",
+            context: "A oração confessa Deus como luz e defesa diante do medo."
+        ),
+        .init(
+            id: "salmo-62-2-pt",
+            quote: "Só em Deus repousa a minha alma, dele vem a minha salvação.",
+            reference: "Salmo 62, 2",
+            translationNote: "Matos Soares, Bíblia Sagrada (1956). Tradução católica histórica em domínio público; texto conferido no acervo local. Não é a tradução litúrgica atual da CNBB.",
+            context: "O salmista põe em Deus a firmeza que não vem das circunstâncias."
+        ),
+        .init(
+            id: "salmo-121-1-2-pt",
+            quote: "Cântico das subidas. Levanto os meus olhos para os montes: donde me virá o socorro?\" O meu socorro vem do Senhor, que fez o céu e a terra.",
+            reference: "Salmo 121, 1-2",
+            translationNote: "Matos Soares, Bíblia Sagrada (1956). Tradução católica histórica em domínio público; texto conferido no acervo local. Não é a tradução litúrgica atual da CNBB.",
+            context: "A pergunta pelo socorro recebe uma resposta: ele vem do Criador."
+        ),
+        .init(
+            id: "salmo-130-1-2-pt",
+            quote: "Cântico das subidas. Desde o mais profundo clamo a ti, Senhor; Senhor, ouve a minha voz! Estejam atentos os teus ouvidos à voz da minha súplica.",
+            reference: "Salmo 130, 1-2",
+            translationNote: "Matos Soares, Bíblia Sagrada (1956). Tradução católica histórica em domínio público; texto conferido no acervo local. Não é a tradução litúrgica atual da CNBB.",
+            context: "Das profundezas, a oração pede que Deus escute."
+        ),
+        .init(
+            id: "salmo-91-1-pt",
+            quote: "Tu que vives sob a proteção do Altíssimo, que moras à sombra do Omnipotente,",
+            reference: "Salmo 91, 1",
+            translationNote: "Matos Soares, Bíblia Sagrada (1956). Tradução católica histórica em domínio público; texto conferido no acervo local. Não é a tradução litúrgica atual da CNBB.",
+            context: "A proteção de Deus é apresentada como morada e abrigo."
+        ),
+        .init(
+            id: "isa-as-43-1-pt",
+            quote: "Entretanto eis o que diz o Senhor que te criou, ó Jacob, que te formou, ó Israel: Não temas, porque eu te remi e te chamei pelo teu nome; tu és meu.",
+            reference: "Isaías 43, 1",
+            translationNote: "Matos Soares, Bíblia Sagrada (1956). Tradução católica histórica em domínio público; texto conferido no acervo local. Não é a tradução litúrgica atual da CNBB.",
+            context: "O profeta anuncia a Israel que Deus conhece, chama e resgata pelo nome."
+        ),
+        .init(
+            id: "isa-as-55-6-pt",
+            quote: "Buscai o Senhor, enquanto se pode encontrar; invocai-o, enquanto está perto.",
+            reference: "Isaías 55, 6",
+            translationNote: "Matos Soares, Bíblia Sagrada (1956). Tradução católica histórica em domínio público; texto conferido no acervo local. Não é a tradução litúrgica atual da CNBB.",
+            context: "No convite final do capítulo, buscar e invocar o Senhor é uma resposta para agora."
+        ),
+        .init(
+            id: "isa-as-40-31-pt",
+            quote: "porém, os que esperam no Senhor, adquirem sempre novas forças, terão asas como de águia, correrão e não se fatigarão, andarão e não desfalecerão.",
+            reference: "Isaías 40, 31",
+            translationNote: "Matos Soares, Bíblia Sagrada (1956). Tradução católica histórica em domínio público; texto conferido no acervo local. Não é a tradução litúrgica atual da CNBB.",
+            context: "A esperança no Senhor sustenta a caminhada quando as forças falham."
+        ),
+        .init(
+            id: "isa-as-58-11-pt",
+            quote: "O Senhor te guiará perpetuamente, saciará a tua alma no deserto, dará vigor aos teus ossos, e serás como um jardim bem regado, como uma fonte cujas águas nunca faltarão.",
+            reference: "Isaías 58, 11",
+            translationNote: "Matos Soares, Bíblia Sagrada (1956). Tradução católica histórica em domínio público; texto conferido no acervo local. Não é a tradução litúrgica atual da CNBB.",
+            context: "A promessa une a condução de Deus à imagem de uma fonte que não seca."
+        ),
+        .init(
+            id: "jeremias-17-7-pt",
+            quote: "Bem-aventurado o homem que confia no Senhor, e de quem o Senhor é a esperança.",
+            reference: "Jeremias 17, 7",
+            translationNote: "Matos Soares, Bíblia Sagrada (1956). Tradução católica histórica em domínio público; texto conferido no acervo local. Não é a tradução litúrgica atual da CNBB.",
+            context: "Jeremias contrapõe a confiança em Deus à segurança procurada apenas em forças humanas."
+        ),
+        .init(
+            id: "sofonias-3-17-pt",
+            quote: "O Senhor teu Deus, herói salvador, está no meio de ti! Por causa de ti anda em transportes de alegria, cala-se no seu amor, exulta jubiloso a teu respeito.",
+            reference: "Sofonias 3, 17",
+            translationNote: "Matos Soares, Bíblia Sagrada (1956). Tradução católica histórica em domínio público; texto conferido no acervo local. Não é a tradução litúrgica atual da CNBB.",
+            context: "Depois do anúncio de restauração, Deus é descrito como presente e salvador no meio do povo."
+        ),
+        .init(
+            id: "ezequiel-37-5-pt",
+            quote: "Assim fala o Senhor Deus a estes ossos: Eis que vou infundir em vós o espírito, e vivereis.",
+            reference: "Ezequiel 37, 5",
+            translationNote: "Matos Soares, Bíblia Sagrada (1956). Tradução católica histórica em domínio público; texto conferido no acervo local. Não é a tradução litúrgica atual da CNBB.",
+            context: "Na visão dos ossos secos, a palavra de Deus anuncia vida onde parecia não haver futuro."
+        ),
+        .init(
+            id: "romanos-8-38-39-pt",
+            quote: "Porque eu estou certo que nem a morte, nem a vida, nem os anjos, nem os principados, nem as coisas presentes, nem as futuras, nem as virtudes, nem a altura, nem a profundidade, nem nenhuma outra criatura nos poderá separar do amor que Deus nos manifesta em Jesus Cristo Nosso Senhor.",
+            reference: "Romanos 8, 38-39",
+            translationNote: "Matos Soares, Bíblia Sagrada (1956). Tradução católica histórica em domínio público; texto conferido no acervo local. Não é a tradução litúrgica atual da CNBB.",
+            context: "Paulo conclui a reflexão sobre a vida no Espírito com a certeza do amor de Deus em Cristo."
+        ),
+        .init(
+            id: "romanos-12-12-pt",
+            quote: "alegres na esperança; pacientes na tribulação; perseverantes na oração;",
+            reference: "Romanos 12, 12",
+            translationNote: "Matos Soares, Bíblia Sagrada (1956). Tradução católica histórica em domínio público; texto conferido no acervo local. Não é a tradução litúrgica atual da CNBB.",
+            context: "Em sua exortação à comunidade, Paulo reúne esperança, paciência e oração."
+        ),
+        .init(
+            id: "romanos-15-13-pt",
+            quote: "O Deus, pois, da esperança vos encha de todo o gozo e de paz na (vossa) fé, para que abundeis na esperança pela virtude do Espírito Santo.",
+            reference: "Romanos 15, 13",
+            translationNote: "Matos Soares, Bíblia Sagrada (1956). Tradução católica histórica em domínio público; texto conferido no acervo local. Não é a tradução litúrgica atual da CNBB.",
+            context: "A oração de Paulo pede alegria, paz e uma esperança que cresce pelo Espírito Santo."
+        ),
+        .init(
+            id: "g-latas-5-22-23-pt",
+            quote: "Ao contrário, o fruto do Espírito é caridade, gozo, paz, longanimidade, afabilidade, bondade, fidelidade, mansidão, temperança. Contra estas coisas não há Lei.",
+            reference: "Gálatas 5, 22-23",
+            translationNote: "Matos Soares, Bíblia Sagrada (1956). Tradução católica histórica em domínio público; texto conferido no acervo local. Não é a tradução litúrgica atual da CNBB.",
+            context: "Paulo apresenta os frutos do Espírito como sinais concretos da vida recebida em Cristo."
+        ),
+        .init(
+            id: "1-cor-ntios-13-4-pt",
+            quote: "A caridade é paciente, é benéfica; a caridade não é invejosa, não é temerária; não se ensoberbece,",
+            reference: "1 Coríntios 13, 4",
+            translationNote: "Matos Soares, Bíblia Sagrada (1956). Tradução católica histórica em domínio público; texto conferido no acervo local. Não é a tradução litúrgica atual da CNBB.",
+            context: "Ao falar da caridade, Paulo a descreve por atos que podem orientar a vida comum."
+        ),
+        .init(
+            id: "2-cor-ntios-4-16-pt",
+            quote: "E’ por isto que não desfalecemos; antes, pelo contrário, embora se destrua em nós o homem exterior, todavia o (homem) interior vai-se renovando de dia para dia.",
+            reference: "2 Coríntios 4, 16",
+            translationNote: "Matos Soares, Bíblia Sagrada (1956). Tradução católica histórica em domínio público; texto conferido no acervo local. Não é a tradução litúrgica atual da CNBB.",
+            context: "Paulo reconhece a fragilidade exterior, mas fala de uma renovação interior diária."
+        ),
+        .init(
+            id: "tiago-1-5-pt",
+            quote: "Se algum de vós necessita de sabedoria, peça-a a Deus, que a todos dá liberalmente e não lança em rosto, e ser-lhe-á concedida.",
+            reference: "Tiago 1, 5",
+            translationNote: "Matos Soares, Bíblia Sagrada (1956). Tradução católica histórica em domínio público; texto conferido no acervo local. Não é a tradução litúrgica atual da CNBB.",
+            context: "A carta orienta quem precisa de sabedoria a pedi-la a Deus com confiança."
+        ),
+        .init(
+            id: "hebreus-4-16-pt",
+            quote: "Aproximemo-nos, pois, confiadamente do trono da graça, a fim de alcançar misericórdia e de encontrar graça, para sermos socorridos em tempo oportuno.",
+            reference: "Hebreus 4, 16",
+            translationNote: "Matos Soares, Bíblia Sagrada (1956). Tradução católica histórica em domínio público; texto conferido no acervo local. Não é a tradução litúrgica atual da CNBB.",
+            context: "A carta convida a aproximar-se de Deus com confiança para receber misericórdia e ajuda."
+        ),
+        .init(
+            id: "atos-1-8-pt",
+            quote: "mas recebereis a virtude do Espírito Santo, que descerá sobre vós, e sereis minhas testemunhas em Jerusalém, em toda a Judeia, na Samaria e até às extremidades da terra.\"",
+            reference: "Atos 1, 8",
+            translationNote: "Matos Soares, Bíblia Sagrada (1956). Tradução católica histórica em domínio público; texto conferido no acervo local. Não é a tradução litúrgica atual da CNBB.",
+            context: "Antes da Ascensão, Jesus liga a missão das testemunhas ao dom do Espírito Santo."
+        ),
+        .init(
+            id: "atos-3-19-pt",
+            quote: "Arrependei-vos, pois, e convertei-vos, para que os vossos pecados sejam perdoados,",
+            reference: "Atos 3, 19",
+            translationNote: "Matos Soares, Bíblia Sagrada (1956). Tradução católica histórica em domínio público; texto conferido no acervo local. Não é a tradução litúrgica atual da CNBB.",
+            context: "Depois da cura junto ao Templo, Pedro chama o povo à conversão."
+        ),
+        .init(
+            id: "atos-13-52-pt",
+            quote: "Entretanto os discípulos estavam cheios de alegria e do Espírito Santo.",
+            reference: "Atos 13, 52",
+            translationNote: "Matos Soares, Bíblia Sagrada (1956). Tradução católica histórica em domínio público; texto conferido no acervo local. Não é a tradução litúrgica atual da CNBB.",
+            context: "O relato da missão de Paulo e Barnabé termina afirmando a alegria dos discípulos no Espírito Santo."
+        ),
+        .init(
+            id: "atos-15-11-pt",
+            quote: "Pelo contrário, pela graça do Senhor Jesus Cristo, cremos ser salvos, do mesmo modo que eles.\"",
+            reference: "Atos 15, 11",
+            translationNote: "Matos Soares, Bíblia Sagrada (1956). Tradução católica histórica em domínio público; texto conferido no acervo local. Não é a tradução litúrgica atual da CNBB.",
+            context: "No Concílio de Jerusalém, Pedro confessa que a salvação vem pela graça do Senhor Jesus."
+        ),
+        .init(
+            id: "apocalipse-21-4-pt",
+            quote: "Enxugar-lhes-á todas as lágrimas dos seus olhos; não haverá mais morte, nem luto, nem grito, nem dor, porque as primeiras coisas passaram.",
+            reference: "Apocalipse 21, 4",
+            translationNote: "Matos Soares, Bíblia Sagrada (1956). Tradução católica histórica em domínio público; texto conferido no acervo local. Não é a tradução litúrgica atual da CNBB.",
+            context: "Na visão da Jerusalém nova, a promessa descreve Deus enxugando as lágrimas e vencendo a morte."
+        ),
     ]
 
     static let enImportedPool: [WordOfDay] = [
@@ -699,6 +881,188 @@ extension MockWordOfDay {
             translationNote: "Douay-Rheims 1899, Matthew 7. Edição católica histórica em domínio público.",
             context: "Sermon on the Mount — Matthew 7."
         ),
+        .init(
+            id: "psalm-23-1-en",
+            quote: "A psalm for David. The Lord ruleth me: and I shall want nothing.",
+            reference: "Psalm 23:1",
+            translationNote: "Douay-Rheims. Historical Catholic translation in the public domain; text verified in the local source corpus. Not the current USCCB liturgical translation.",
+            context: "The psalm opens with the image of God who leads and provides."
+        ),
+        .init(
+            id: "psalm-27-1-en",
+            quote: "The psalm of David before he was anointed. The Lord is my light and my salvation, whom shall I fear? The Lord is the protector of my life: of whom shall I be afraid?",
+            reference: "Psalm 27:1",
+            translationNote: "Douay-Rheims. Historical Catholic translation in the public domain; text verified in the local source corpus. Not the current USCCB liturgical translation.",
+            context: "The prayer confesses God as light and defence in the face of fear."
+        ),
+        .init(
+            id: "psalm-62-2-en",
+            quote: "Shall not my soul be subject to God? for from him is my salvation.",
+            reference: "Psalm 62:2",
+            translationNote: "Douay-Rheims. Historical Catholic translation in the public domain; text verified in the local source corpus. Not the current USCCB liturgical translation.",
+            context: "The psalmist places in God the steadiness that circumstances do not give."
+        ),
+        .init(
+            id: "psalm-121-1-2-en",
+            quote: "I have lifted up my eyes to the mountains, from whence help shall come to me. My help is from the Lord, who made heaven and earth.",
+            reference: "Psalm 121:1-2",
+            translationNote: "Douay-Rheims. Historical Catholic translation in the public domain; text verified in the local source corpus. Not the current USCCB liturgical translation.",
+            context: "The question of help receives an answer: it comes from the Creator."
+        ),
+        .init(
+            id: "psalm-130-1-2-en",
+            quote: "Out of the depths I have cried to thee, O Lord: Lord, hear my voice. Let thy ears be attentive to the voice of my supplication.",
+            reference: "Psalm 130:1-2",
+            translationNote: "Douay-Rheims. Historical Catholic translation in the public domain; text verified in the local source corpus. Not the current USCCB liturgical translation.",
+            context: "From the depths, the prayer asks God to hear."
+        ),
+        .init(
+            id: "psalm-91-1-en",
+            quote: "The praise of a canticle for David. He that dwelleth in the aid of the most High, shall abide under the protection of the God of Jacob.",
+            reference: "Psalm 91:1",
+            translationNote: "Douay-Rheims. Historical Catholic translation in the public domain; text verified in the local source corpus. Not the current USCCB liturgical translation.",
+            context: "God’s protection is presented as a dwelling and shelter."
+        ),
+        .init(
+            id: "isaiah-43-1-en",
+            quote: "And now thus saith the Lord that created thee, O Jacob, and formed thee, O Israel: Fear not, for I have redeemed thee, and called thee by thy name: thou art mine.",
+            reference: "Isaiah 43:1",
+            translationNote: "Douay-Rheims. Historical Catholic translation in the public domain; text verified in the local source corpus. Not the current USCCB liturgical translation.",
+            context: "The prophet tells Israel that God knows, calls, and redeems by name."
+        ),
+        .init(
+            id: "isaiah-55-6-en",
+            quote: "Seek ye the Lord, while he may be found: call upon him, while he is near.",
+            reference: "Isaiah 55:6",
+            translationNote: "Douay-Rheims. Historical Catholic translation in the public domain; text verified in the local source corpus. Not the current USCCB liturgical translation.",
+            context: "In the chapter’s final invitation, seeking and calling on the Lord is a response for now."
+        ),
+        .init(
+            id: "isaiah-40-31-en",
+            quote: "But they that hope in the Lord shall renew their strength, they shall take wings as eagles, they shall run and not be weary, they shall walk and not faint.",
+            reference: "Isaiah 40:31",
+            translationNote: "Douay-Rheims. Historical Catholic translation in the public domain; text verified in the local source corpus. Not the current USCCB liturgical translation.",
+            context: "Hope in the Lord sustains the journey when strength fails."
+        ),
+        .init(
+            id: "isaiah-58-11-en",
+            quote: "And the Lord will give thee rest continually, and will fill thy soul with brightness, and deliver thy bones, and thou shalt be like a watered garden, and like a fountain of water whose waters shall not fail.",
+            reference: "Isaiah 58:11",
+            translationNote: "Douay-Rheims. Historical Catholic translation in the public domain; text verified in the local source corpus. Not the current USCCB liturgical translation.",
+            context: "The promise joins God’s guidance to the image of a spring that does not run dry."
+        ),
+        .init(
+            id: "jeremiah-17-7-en",
+            quote: "Blessed be the man that trusteth in the Lord, and the Lord shall be his confidence.",
+            reference: "Jeremiah 17:7",
+            translationNote: "Douay-Rheims. Historical Catholic translation in the public domain; text verified in the local source corpus. Not the current USCCB liturgical translation.",
+            context: "Jeremiah sets trust in God against security sought only in human strength."
+        ),
+        .init(
+            id: "zephaniah-3-17-en",
+            quote: "The Lord thy God in the midst of thee is mighty, he will save: he will rejoice over thee with gladness, he will be silent in his love, he will be joyful over thee in praise.",
+            reference: "Zephaniah 3:17",
+            translationNote: "Douay-Rheims. Historical Catholic translation in the public domain; text verified in the local source corpus. Not the current USCCB liturgical translation.",
+            context: "After the announcement of restoration, God is described as present and saving among his people."
+        ),
+        .init(
+            id: "ezekiel-37-5-en",
+            quote: "Thus saith the Lord God to these bones: Behold, I will send spirit into you, and you shall live.",
+            reference: "Ezekiel 37:5",
+            translationNote: "Douay-Rheims. Historical Catholic translation in the public domain; text verified in the local source corpus. Not the current USCCB liturgical translation.",
+            context: "In the vision of dry bones, God’s word announces life where there seemed to be no future."
+        ),
+        .init(
+            id: "romans-8-38-39-en",
+            quote: "For I am sure that neither death, nor life, nor angels, nor principalities, nor powers, nor things present, nor things to come, nor might, Nor height, nor depth, nor any other creature, shall be able to separate us from the love of God, which is in Christ Jesus our Lord.",
+            reference: "Romans 8:38-39",
+            translationNote: "Douay-Rheims. Historical Catholic translation in the public domain; text verified in the local source corpus. Not the current USCCB liturgical translation.",
+            context: "Paul closes his reflection on life in the Spirit with the certainty of God’s love in Christ."
+        ),
+        .init(
+            id: "romans-12-12-en",
+            quote: "Rejoicing in hope. Patient in tribulation. Instant in prayer.",
+            reference: "Romans 12:12",
+            translationNote: "Douay-Rheims. Historical Catholic translation in the public domain; text verified in the local source corpus. Not the current USCCB liturgical translation.",
+            context: "In his exhortation to the community, Paul brings together hope, patience, and prayer."
+        ),
+        .init(
+            id: "romans-15-13-en",
+            quote: "Now the God of hope fill you with all joy and peace in believing; that you may abound in hope, and in the power of the Holy Ghost.",
+            reference: "Romans 15:13",
+            translationNote: "Douay-Rheims. Historical Catholic translation in the public domain; text verified in the local source corpus. Not the current USCCB liturgical translation.",
+            context: "Paul’s prayer asks for joy, peace, and a hope that grows through the Holy Spirit."
+        ),
+        .init(
+            id: "galatians-5-22-23-en",
+            quote: "But the fruit of the Spirit is, charity, joy, peace, patience, benignity, goodness, longanimity, Mildness, faith, modesty, continency, chastity. Against such there is no law.",
+            reference: "Galatians 5:22-23",
+            translationNote: "Douay-Rheims. Historical Catholic translation in the public domain; text verified in the local source corpus. Not the current USCCB liturgical translation.",
+            context: "Paul presents the fruits of the Spirit as concrete signs of the life received in Christ."
+        ),
+        .init(
+            id: "1-corinthians-13-4-en",
+            quote: "Charity is patient, is kind: charity envieth not, dealeth not perversely; is not puffed up;",
+            reference: "1 Corinthians 13:4",
+            translationNote: "Douay-Rheims. Historical Catholic translation in the public domain; text verified in the local source corpus. Not the current USCCB liturgical translation.",
+            context: "When Paul speaks of charity, he describes it through actions that can guide common life."
+        ),
+        .init(
+            id: "2-corinthians-4-16-en",
+            quote: "For which cause we faint not; but though our outward man is corrupted, yet the inward man is renewed day by day.",
+            reference: "2 Corinthians 4:16",
+            translationNote: "Douay-Rheims. Historical Catholic translation in the public domain; text verified in the local source corpus. Not the current USCCB liturgical translation.",
+            context: "Paul recognises outward frailty, yet speaks of a daily inward renewal."
+        ),
+        .init(
+            id: "james-1-5-en",
+            quote: "But if any of you want wisdom, let him ask of God, who giveth to all men abundantly, and upbraideth not; and it shall be given him.",
+            reference: "James 1:5",
+            translationNote: "Douay-Rheims. Historical Catholic translation in the public domain; text verified in the local source corpus. Not the current USCCB liturgical translation.",
+            context: "The letter directs anyone who needs wisdom to ask God for it with confidence."
+        ),
+        .init(
+            id: "hebrews-4-16-en",
+            quote: "Let us go therefore with confidence to the throne of grace: that we may obtain mercy, and find grace in seasonable aid.",
+            reference: "Hebrews 4:16",
+            translationNote: "Douay-Rheims. Historical Catholic translation in the public domain; text verified in the local source corpus. Not the current USCCB liturgical translation.",
+            context: "The letter invites us to approach God with confidence to receive mercy and help."
+        ),
+        .init(
+            id: "acts-1-8-en",
+            quote: "But you shall receive the power of the Holy Ghost coming upon you, and you shall be witnesses unto me in Jerusalem, and in all Judea, and Samaria, and even to the uttermost part of the earth.",
+            reference: "Acts 1:8",
+            translationNote: "Douay-Rheims. Historical Catholic translation in the public domain; text verified in the local source corpus. Not the current USCCB liturgical translation.",
+            context: "Before the Ascension, Jesus links the mission of the witnesses to the gift of the Holy Spirit."
+        ),
+        .init(
+            id: "acts-3-19-en",
+            quote: "Be penitent, therefore, and be converted, that your sins may be blotted out.",
+            reference: "Acts 3:19",
+            translationNote: "Douay-Rheims. Historical Catholic translation in the public domain; text verified in the local source corpus. Not the current USCCB liturgical translation.",
+            context: "After the healing near the Temple, Peter calls the people to conversion."
+        ),
+        .init(
+            id: "acts-13-52-en",
+            quote: "And the disciples were filled with joy and with the Holy Ghost.",
+            reference: "Acts 13:52",
+            translationNote: "Douay-Rheims. Historical Catholic translation in the public domain; text verified in the local source corpus. Not the current USCCB liturgical translation.",
+            context: "The account of Paul and Barnabas’s mission ends by affirming the disciples’ joy in the Holy Spirit."
+        ),
+        .init(
+            id: "acts-15-11-en",
+            quote: "But by the grace of the Lord Jesus Christ, we believe to be saved, in like manner as they also.",
+            reference: "Acts 15:11",
+            translationNote: "Douay-Rheims. Historical Catholic translation in the public domain; text verified in the local source corpus. Not the current USCCB liturgical translation.",
+            context: "At the Council of Jerusalem, Peter confesses that salvation comes through the grace of the Lord Jesus."
+        ),
+        .init(
+            id: "revelation-21-4-en",
+            quote: "And God shall wipe away all tears from their eyes: and death shall be no more, nor mourning, nor crying, nor sorrow shall be any more, for the former things are passed away.",
+            reference: "Revelation 21:4",
+            translationNote: "Douay-Rheims. Historical Catholic translation in the public domain; text verified in the local source corpus. Not the current USCCB liturgical translation.",
+            context: "In the vision of the new Jerusalem, the promise describes God wiping tears away and overcoming death."
+        ),
     ]
 
     static let esImportedPool: [WordOfDay] = [
@@ -1044,6 +1408,188 @@ extension MockWordOfDay {
             reference: "Mateo 7, 23",
             translationNote: "Félix Torres Amat, Sagrada Biblia, tomo I, Madrid, 1823; páginas PDF 32–33. Edição católica histórica em domínio público.",
             context: "Sermón de la Montaña — Mateo 7."
+        ),
+        .init(
+            id: "salmo-23-1-es",
+            quote: "El Señor es mi pastor, nada me faltará.",
+            reference: "Salmo 23, 1",
+            translationNote: "Félix Torres Amat, Biblia de Oro (1884). Traducción católica histórica de dominio público, cotejada en el facsímil y en la transcripción del acervo. No es la traducción litúrgica actual de la CEE.",
+            context: "El salmo abre con la imagen de Dios que guía y provee."
+        ),
+        .init(
+            id: "salmo-27-1-es",
+            quote: "El Señor es mi luz y mi salvación: ¿a quién he de temer yo? El Señor es el defensor de mi vida: ¿quién me hará temblar?",
+            reference: "Salmo 27, 1",
+            translationNote: "Félix Torres Amat, Biblia de Oro (1884). Traducción católica histórica de dominio público, cotejada en el facsímil y en la transcripción del acervo. No es la traducción litúrgica actual de la CEE.",
+            context: "La oración confiesa a Dios como luz y defensa ante el temor."
+        ),
+        .init(
+            id: "salmo-62-2-es",
+            quote: "El es mi Dios y mi salvador; siendo él mi defensa, no seré jamás conmovido.",
+            reference: "Salmo 62, 2",
+            translationNote: "Félix Torres Amat, Biblia de Oro (1884). Traducción católica histórica de dominio público, cotejada en el facsímil y en la transcripción del acervo. No es la traducción litúrgica actual de la CEE.",
+            context: "El salmista pone en Dios la firmeza que las circunstancias no dan."
+        ),
+        .init(
+            id: "salmo-121-1-2-es",
+            quote: "Alcé mis ojos hacia los montes de Jerusalén, de donde me vendrá el socorro. Mi socorro viene del Señor que creó el cielo y la tierra.",
+            reference: "Salmo 121, 1-2",
+            translationNote: "Félix Torres Amat, Biblia de Oro (1884). Traducción católica histórica de dominio público, cotejada en el facsímil y en la transcripción del acervo. No es la traducción litúrgica actual de la CEE.",
+            context: "La pregunta por el auxilio recibe una respuesta: viene del Creador."
+        ),
+        .init(
+            id: "salmo-130-1-2-es",
+            quote: "Desde lo más profundo clamé a ti, ¡oh Señor! Oye, Señor, benignamente mi voz. Estén atentos tus oídos a la voz de mis plegarias.",
+            reference: "Salmo 130, 1-2",
+            translationNote: "Félix Torres Amat, Biblia de Oro (1884). Traducción católica histórica de dominio público, cotejada en el facsímil y en la transcripción del acervo. No es la traducción litúrgica actual de la CEE.",
+            context: "Desde lo profundo, la oración pide que Dios escuche."
+        ),
+        .init(
+            id: "salmo-91-1-es",
+            quote: "El que se acoge al asilo del Altísimo, descansará siempre bajo la protección del Dios del cielo.",
+            reference: "Salmo 91, 1",
+            translationNote: "Félix Torres Amat, Biblia de Oro (1884). Traducción católica histórica de dominio público, cotejada en el facsímil y en la transcripción del acervo. No es la traducción litúrgica actual de la CEE.",
+            context: "La protección de Dios se presenta como morada y refugio."
+        ),
+        .init(
+            id: "isa-as-43-1-es",
+            quote: "Y ahora he aquí lo que dice el Señor, Creador tuyo, ¡oh Jacob !; el que te formó, ¡oh Israel! No temas; pues yo te redimí y te llamé por tu nombre: Tú eres todo mío.",
+            reference: "Isaías 43, 1",
+            translationNote: "Félix Torres Amat, Biblia de Oro (1884). Traducción católica histórica de dominio público, cotejada en el facsímil y en la transcripción del acervo. No es la traducción litúrgica actual de la CEE.",
+            context: "El profeta anuncia a Israel que Dios conoce, llama y rescata por el nombre."
+        ),
+        .init(
+            id: "isa-as-55-6-es",
+            quote: "Buscad al Señor, mientras pueda ser hallado: invocadle mientras está cercano.",
+            reference: "Isaías 55, 6",
+            translationNote: "Félix Torres Amat, Biblia de Oro (1884). Traducción católica histórica de dominio público, cotejada en el facsímil y en la transcripción del acervo. No es la traducción litúrgica actual de la CEE.",
+            context: "En la invitación final del capítulo, buscar e invocar al Señor es una respuesta para ahora."
+        ),
+        .init(
+            id: "isa-as-40-31-es",
+            quote: "Mas los que tienen puesta en el Señor su esperanza, adquirirán nuevas fuerzas, tomarán alas como de águila, correrán y no se fatigarán, andarán y no desfallecerán.",
+            reference: "Isaías 40, 31",
+            translationNote: "Félix Torres Amat, Biblia de Oro (1884). Traducción católica histórica de dominio público, cotejada en el facsímil y en la transcripción del acervo. No es la traducción litúrgica actual de la CEE.",
+            context: "La esperanza en el Señor sostiene el camino cuando faltan las fuerzas."
+        ),
+        .init(
+            id: "isa-as-58-11-es",
+            quote: "Y el Señor te dará un perpetuo reposo, y llenará tu alma de resplandores de gracia y reforzará tus huesos; y serás como huerto bien regado y como manantial perenne cuyas aguas jamás faltarán.",
+            reference: "Isaías 58, 11",
+            translationNote: "Félix Torres Amat, Biblia de Oro (1884). Traducción católica histórica de dominio público, cotejada en el facsímil y en la transcripción del acervo. No es la traducción litúrgica actual de la CEE.",
+            context: "La promesa une la guía de Dios a la imagen de una fuente que no se seca."
+        ),
+        .init(
+            id: "jerem-as-17-7-es",
+            quote: "Al contrario, bienaventurado el varón que tiene puesta en el Señor su confianza, y cuya esperanza es el Señor.",
+            reference: "Jeremías 17, 7",
+            translationNote: "Félix Torres Amat, Biblia de Oro (1884). Traducción católica histórica de dominio público, cotejada en el facsímil y en la transcripción del acervo. No es la traducción litúrgica actual de la CEE.",
+            context: "Jeremías contrapone la confianza en Dios a la seguridad buscada solo en la fuerza humana."
+        ),
+        .init(
+            id: "sofon-as-3-17-es",
+            quote: "Está en medio de ti el Señor, el Dios tuyo, el fuerte; él te salvará; en ti hallará él su gozo y su alegría, será constante en amarte, se regocijará, y celebrará tus alabanzas.",
+            reference: "Sofonías 3, 17",
+            translationNote: "Félix Torres Amat, Biblia de Oro (1884). Traducción católica histórica de dominio público, cotejada en el facsímil y en la transcripción del acervo. No es la traducción litúrgica actual de la CEE.",
+            context: "Después del anuncio de restauración, Dios es descrito como presente y salvador en medio de su pueblo."
+        ),
+        .init(
+            id: "ezequiel-37-5-es",
+            quote: "Esto dice el Señor Dios a esos huesos: He aquí que yo infundiré en vosotros el espíritu, y viviréis;",
+            reference: "Ezequiel 37, 5",
+            translationNote: "Félix Torres Amat, Biblia de Oro (1884). Traducción católica histórica de dominio público, cotejada en el facsímil y en la transcripción del acervo. No es la traducción litúrgica actual de la CEE.",
+            context: "En la visión de los huesos secos, la palabra de Dios anuncia vida donde parecía no haber futuro."
+        ),
+        .init(
+            id: "romanos-8-38-39-es",
+            quote: "Por lo cual estoy seguro de que ni la muerte, ni la vida, ni los ángeles, ni los principados, ni las virtudes, ni lo presente, ni lo venidero, ni la fuerza, o violencia, ni todo lo que hay de más alto, ni de más profundo, ni otra ninguna criatura podrá jamás separarnos del amor de Dios, que se funda en Jesucristo nuestro Señor.",
+            reference: "Romanos 8, 38-39",
+            translationNote: "Félix Torres Amat, Biblia de Oro (1884). Traducción católica histórica de dominio público, cotejada en el facsímil y en la transcripción del acervo. No es la traducción litúrgica actual de la CEE.",
+            context: "Pablo concluye la reflexión sobre la vida en el Espíritu con la certeza del amor de Dios en Cristo."
+        ),
+        .init(
+            id: "romanos-12-12-es",
+            quote: "Alegraos con la esperanza del premio; sed pacientes en la tribulación; en la oración continuos;",
+            reference: "Romanos 12, 12",
+            translationNote: "Félix Torres Amat, Biblia de Oro (1884). Traducción católica histórica de dominio público, cotejada en el facsímil y en la transcripción del acervo. No es la traducción litúrgica actual de la CEE.",
+            context: "En su exhortación a la comunidad, Pablo reúne esperanza, paciencia y oración."
+        ),
+        .init(
+            id: "romanos-15-13-es",
+            quote: "El Dios de la esperanza nuestra os colme de toda suerte de gozo y de paz en vuestra creencia, para que crezca vuestra esperanza siempre más y más, por la virtud del Espíritu Santo.",
+            reference: "Romanos 15, 13",
+            translationNote: "Félix Torres Amat, Biblia de Oro (1884). Traducción católica histórica de dominio público, cotejada en el facsímil y en la transcripción del acervo. No es la traducción litúrgica actual de la CEE.",
+            context: "La oración de Pablo pide gozo, paz y una esperanza que crece por el Espíritu Santo."
+        ),
+        .init(
+            id: "g-latas-5-22-23-es",
+            quote: "Al contrario, los frutos del espíritu son caridad, gozo, paz, paciencia, benignidad, bondad, longanimidad, mansedumbre, fe, o fidelidad, modestia, continencia, castidad. Para los que viven de esta suerte no hay ley que sea contra ellos.",
+            reference: "Gálatas 5, 22-23",
+            translationNote: "Félix Torres Amat, Biblia de Oro (1884). Traducción católica histórica de dominio público, cotejada en el facsímil y en la transcripción del acervo. No es la traducción litúrgica actual de la CEE.",
+            context: "Pablo presenta los frutos del Espíritu como señales concretas de la vida recibida en Cristo."
+        ),
+        .init(
+            id: "1-corintios-13-4-es",
+            quote: "El amor es paciente, es dulce y bienhechor; el amor no tiene envidia, no obra precipitada ni temerariamente, no se ensoberbece,",
+            reference: "1 Corintios 13, 4",
+            translationNote: "Félix Torres Amat, Biblia de Oro (1884). Traducción católica histórica de dominio público, cotejada en el facsímil y en la transcripción del acervo. No es la traducción litúrgica actual de la CEE.",
+            context: "Al hablar de la caridad, Pablo la describe por actos que pueden orientar la vida común."
+        ),
+        .init(
+            id: "2-corintios-4-16-es",
+            quote: "Por lo cual no desmayamos; antes aunque en nosotros el hombre exterior o el cuerpo se vaya desmoronando, el interior o el espíritu se va renovando de día en día.",
+            reference: "2 Corintios 4, 16",
+            translationNote: "Félix Torres Amat, Biblia de Oro (1884). Traducción católica histórica de dominio público, cotejada en el facsímil y en la transcripción del acervo. No es la traducción litúrgica actual de la CEE.",
+            context: "Pablo reconoce la fragilidad exterior, pero habla de una renovación interior diaria."
+        ),
+        .init(
+            id: "santiago-1-5-es",
+            quote: "Mas si alguno de vosotros tiene falta de sabiduría, pídasela a Dios, que a todos da copiosamente, y no hiere a nadie; y le será concedida.",
+            reference: "Santiago 1, 5",
+            translationNote: "Félix Torres Amat, Biblia de Oro (1884). Traducción católica histórica de dominio público, cotejada en el facsímil y en la transcripción del acervo. No es la traducción litúrgica actual de la CEE.",
+            context: "La carta orienta a quien necesita sabiduría a pedirla a Dios con confianza."
+        ),
+        .init(
+            id: "hebreos-4-16-es",
+            quote: "Lleguémonos, pues, confiadamente al trono de la gracia, a fin de alcanzar misericordia, y hallar el auxilio de la gracia para ser socorridos a tiempo oportuno.",
+            reference: "Hebreos 4, 16",
+            translationNote: "Félix Torres Amat, Biblia de Oro (1884). Traducción católica histórica de dominio público, cotejada en el facsímil y en la transcripción del acervo. No es la traducción litúrgica actual de la CEE.",
+            context: "La carta invita a acercarse a Dios con confianza para recibir misericordia y ayuda."
+        ),
+        .init(
+            id: "hechos-1-8-es",
+            quote: "recibiréis, sí, la virtud del Espíritu Santo, que descenderá sobre vosotros, y me serviréis de testigos en Jerusalén, y en toda la Judea, y Samaria, y hasta el cabo del mundo.",
+            reference: "Hechos 1, 8",
+            translationNote: "Félix Torres Amat, Biblia de Oro (1884). Traducción católica histórica de dominio público, cotejada en el facsímil y en la transcripción del acervo. No es la traducción litúrgica actual de la CEE.",
+            context: "Antes de la Ascensión, Jesús une la misión de los testigos al don del Espíritu Santo."
+        ),
+        .init(
+            id: "hechos-3-19-es",
+            quote: "Haced, pues, penitencia, y convertíos, a fin de que se borren vuestros pecados,",
+            reference: "Hechos 3, 19",
+            translationNote: "Félix Torres Amat, Biblia de Oro (1884). Traducción católica histórica de dominio público, cotejada en el facsímil y en la transcripción del acervo. No es la traducción litúrgica actual de la CEE.",
+            context: "Después de la curación junto al Templo, Pedro llama al pueblo a la conversión."
+        ),
+        .init(
+            id: "hechos-13-52-es",
+            quote: "Y los discípulos estaban llenos de gozo y del Espíritu Santo.",
+            reference: "Hechos 13, 52",
+            translationNote: "Félix Torres Amat, Biblia de Oro (1884). Traducción católica histórica de dominio público, cotejada en el facsímil y en la transcripción del acervo. No es la traducción litúrgica actual de la CEE.",
+            context: "El relato de la misión de Pablo y Bernabé termina afirmando el gozo de los discípulos en el Espíritu Santo."
+        ),
+        .init(
+            id: "hechos-15-11-es",
+            quote: "Pues nosotros creemos salvarnos únicamente por la gracia de nuestro Señor Jesucristo, así como ellos.",
+            reference: "Hechos 15, 11",
+            translationNote: "Félix Torres Amat, Biblia de Oro (1884). Traducción católica histórica de dominio público, cotejada en el facsímil y en la transcripción del acervo. No es la traducción litúrgica actual de la CEE.",
+            context: "En el Concilio de Jerusalén, Pedro confiesa que la salvación viene por la gracia del Señor Jesús."
+        ),
+        .init(
+            id: "apocalipsis-21-4-es",
+            quote: "Y Dios enjugará de sus ojos todas las lágrimas; y no habrá ya muerte, ni llanto, ni alarido, ni habrá más dolor, porque las cosas de antes son pasadas.",
+            reference: "Apocalipsis 21, 4",
+            translationNote: "Félix Torres Amat, Biblia de Oro (1884). Traducción católica histórica de dominio público, cotejada en el facsímil y en la transcripción del acervo. No es la traducción litúrgica actual de la CEE.",
+            context: "En la visión de la Jerusalén nueva, la promesa describe a Dios enjugando las lágrimas y venciendo la muerte."
         ),
     ]
 
