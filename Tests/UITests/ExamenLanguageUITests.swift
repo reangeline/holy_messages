@@ -62,6 +62,11 @@ final class ExamenLanguageUITests: XCTestCase {
 
         let card = button("label CONTAINS[c] 'TONIGHT'", in: app)
         XCTAssertTrue(card.waitForExistence(timeout: 10))
+        // The card sits at the bottom of the scroll, and at the initial offset
+        // its centre falls under the floating tab bar — which swallows the tap.
+        // A person scrolls to it first; so does this.
+        app.swipeUp()
+        XCTAssertTrue(card.waitForExistence(timeout: 5), "o card noturno saiu de vista ao rolar")
         tapMiddle(card)
 
         let start = button("label CONTAINS[c] 'Start the Examen' OR label CONTAINS[c] 'Begin'", in: app)

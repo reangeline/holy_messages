@@ -65,10 +65,13 @@ final class FormationLanguageUITests: XCTestCase {
             app.staticTexts.matching(NSPredicate(format: "label CONTAINS 'One part a day'")).firstMatch.exists,
             "a linha de apoio não seguiu o idioma"
         )
-        // The track's own title is content, and stays Portuguese on purpose.
+        // The track's title is content, and it now has its own English catalog —
+        // this assertion used to require it to stay Portuguese, pinning a gap
+        // that has since been filled. What it checks now is that the content
+        // side moved too, not just the chrome.
         XCTAssertTrue(
-            app.staticTexts.matching(NSPredicate(format: "label CONTAINS 'A Missa, parte por parte'")).firstMatch.exists,
-            "o título da trilha deveria continuar em português (conteúdo)"
+            app.staticTexts.matching(NSPredicate(format: "label CONTAINS 'The Mass, part by part'")).firstMatch.exists,
+            "o título da trilha não seguiu o idioma"
         )
     }
 
@@ -79,7 +82,10 @@ final class FormationLanguageUITests: XCTestCase {
         choose("English", in: app)
         openFormation(in: app)
 
-        let trackCard = app.buttons.matching(NSPredicate(format: "label CONTAINS 'A Missa, parte por parte'")).firstMatch
+        // Matched in either language: the track's title follows the catalog, and
+        // the test should not break the next time a language is filled in.
+        let trackCard = app.buttons.matching(NSPredicate(
+            format: "label CONTAINS 'The Mass, part by part' OR label CONTAINS 'A Missa, parte por parte'")).firstMatch
         XCTAssertTrue(trackCard.waitForExistence(timeout: 5), "o card da trilha não apareceu")
         tapMiddle(trackCard)
 

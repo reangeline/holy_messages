@@ -155,8 +155,11 @@ def main() -> None:
         validate(rows, language)
 
     output = [HEADER]
-    for language, rows in catalogs.items():
-        output.append(render_catalog(language, rows))
+    for language in LANGS:
+        # Um idioma sem catálogo ainda recebe a chave vazia: MockMood decide o
+        # fallback a partir de `isEmpty`, e omitir a chave quebraria o build em
+        # vez de cair no português.
+        output.append(render_catalog(language, catalogs.get(language, [])))
     output.append("}\n")
     OUTPUT.write_text("".join(output))
     print("Importado: " + ", ".join(f"{lang}={len(rows)}" for lang, rows in catalogs.items()))

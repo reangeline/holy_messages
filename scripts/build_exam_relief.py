@@ -95,7 +95,8 @@ def rotulo(lang: str, capitulo: int, versiculos: tuple[int, ...]) -> str:
 def carregar_blocos() -> dict[str, list[dict]]:
     sys.path.insert(0, str(CONTENT_PKG.parent))
     estados: dict[str, list[dict]] = defaultdict(list)
-    nomes = sorted(m.name for m in pkgutil.iter_modules([str(CONTENT_PKG)]))
+    nomes = sorted(m.name for m in pkgutil.iter_modules([str(CONTENT_PKG)])
+                   if not m.name.startswith("_"))
     if not nomes:
         raise SystemExit(f"Nenhum bloco de conteúdo em {CONTENT_PKG}")
     for nome in nomes:
