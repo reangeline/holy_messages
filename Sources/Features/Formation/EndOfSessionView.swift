@@ -14,10 +14,12 @@ struct EndOfSessionView: View {
             VStack(spacing: 18) {
                 Spacer()
                 CrossGlyph(size: 30, color: Palette.goldMuted)
-                Text("Parte \(lesson.partNumber) concluída")
+                Text(L.string("Part {n} completed", table: "FormationWordOfDay")
+                    .replacingOccurrences(of: "{n}", with: "\(lesson.partNumber)"))
                     .font(MissaleFont.display(25, weight: .medium))
                     .multilineTextAlignment(.center)
-                Text("\u{201C}\(lesson.title)\u{201D} já é sua. Volte quando quiser continuar a trilha.")
+                Text(L.string("\u{201C}{title}\u{201D} is yours now. Come back whenever you want to continue the track.", table: "FormationWordOfDay")
+                    .replacingOccurrences(of: "{title}", with: lesson.title))
                     .font(MissaleFont.body(16))
                     .foregroundStyle(Palette.ink.opacity(0.65))
                     .multilineTextAlignment(.center)
@@ -25,7 +27,7 @@ struct EndOfSessionView: View {
                 Button {
                     onBackToTracks()
                 } label: {
-                    Text("Voltar para as trilhas")
+                    Text(L.string("Back to the tracks", table: "FormationWordOfDay"))
                         .font(MissaleFont.body(17, weight: .medium))
                         .foregroundStyle(.white)
                         .frame(maxWidth: .infinity)

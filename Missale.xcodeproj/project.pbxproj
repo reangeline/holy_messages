@@ -123,6 +123,7 @@
 		BE6FA66FD874344B8EC70BA0 /* FAQView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7872156F75002D39C7BF46 /* FAQView.swift */; };
 		BFD2536D2F9533088C206C90 /* CalendarSaints.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = B889DA2BFF7F6D41A7891713 /* CalendarSaints.xcstrings */; };
 		C3C9AD948A20CB260F146548 /* SupportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180078D6FB2642939C75C0D9 /* SupportView.swift */; };
+		C3CB9268B5AC90C0259F8CC8 /* FormationLanguageUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A641E7EFB290F8F735C474 /* FormationLanguageUITests.swift */; };
 		C47D6DAE88EAD086657A5B97 /* EBGaramond-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A5E469A2668E22E83B8E4BF2 /* EBGaramond-Italic.ttf */; };
 		C8E2CC57776D7A41DF736841 /* JourneyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53F78D382401057C36C6C92 /* JourneyListView.swift */; };
 		C9AD1AD5DD0E2499DF5DC567 /* GlassTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DDF3EE5A32A80F704EB0B4 /* GlassTabBar.swift */; };
@@ -312,6 +313,7 @@
 		C001F88A11BB17BA890EEF83 /* AngelusScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngelusScheduler.swift; sourceTree = "<group>"; };
 		C12D79BF4B3E4C6ABC19C5B0 /* AppRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRootView.swift; sourceTree = "<group>"; };
 		C56F6238D04D8924CF1AC227 /* PrayerCategoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerCategoryDetailView.swift; sourceTree = "<group>"; };
+		C8A641E7EFB290F8F735C474 /* FormationLanguageUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormationLanguageUITests.swift; sourceTree = "<group>"; };
 		CD2E925AAA5C4F52B34C09D4 /* OnboardingSpiritualQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSpiritualQuestionView.swift; sourceTree = "<group>"; };
 		CD2ED231C7DEE0717DF1D705 /* LiturgicalEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiturgicalEngine.swift; sourceTree = "<group>"; };
 		CDD8E2D7996AEA26E4A57BF4 /* CalendarDayDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDayDetailView.swift; sourceTree = "<group>"; };
@@ -373,6 +375,7 @@
 		1DEB241EF1D52D7D8BC74CCE /* UITests */ = {
 			isa = PBXGroup;
 			children = (
+				C8A641E7EFB290F8F735C474 /* FormationLanguageUITests.swift */,
 				8049CC700EE6E41951F36255 /* LanguageSwitchUITests.swift */,
 			);
 			name = UITests;
@@ -925,6 +928,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3CB9268B5AC90C0259F8CC8 /* FormationLanguageUITests.swift in Sources */,
 				A6F35AEF62403FE3E4FACDEF /* LanguageSwitchUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

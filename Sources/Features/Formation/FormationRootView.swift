@@ -62,11 +62,10 @@ struct FormationRootView: View {
             Eyebrow(text: L.string( "Formation", table: "FormationWordOfDay"))
             Text("Tracks", tableName: "FormationWordOfDay")
                 .font(MissaleFont.display(28))
-            // "reviewerCredit" (e.g. "Revisão de conteúdo por Pe. Daniel Vasconcelos.")
-            // is owned by MockFormation.swift, out of this pass's scope, and stays
-            // Portuguese — so this whole sentence stays Portuguese too rather than
-            // mixing an English lead-in with a Portuguese name/credit.
-            Text("Uma parte por dia, cerca de quatro minutos. \(MockFormation.reviewerCredit)")
+            // The lead-in is chrome and follows the language; the reviewer credit
+            // comes from the content catalog, so it stays in whatever language that
+            // catalog was authored in — Portuguese, for now.
+            Text("\(L.string("One part a day, about four minutes.", table: "FormationWordOfDay")) \(MockFormation.reviewerCredit)")
                 .font(MissaleFont.body(14))
                 .foregroundStyle(Palette.ink.opacity(0.65))
         }

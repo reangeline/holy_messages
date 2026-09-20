@@ -300,6 +300,14 @@ enum MockFormation {
     /// One catalog per language — see LocalizedCatalog.
     static var otherTracks: [FormationTrack] { otherTracksCatalog.current }
 
+    /// The started track plus the rest, so a lesson screen can name its own
+    /// track instead of hardcoding one title.
+    static var allTracks: [FormationTrack] { [track] + otherTracks }
+
+    static func track(withID id: String) -> FormationTrack? {
+        allTracks.first { $0.id == id }
+    }
+
     static let otherTracksCatalog = LocalizedCatalog(pt: ptOtherTracks)
 
     private static let ptOtherTracks: [FormationTrack] = [

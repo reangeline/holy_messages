@@ -83,7 +83,7 @@ struct FormationLessonView: View {
                 .padding(.bottom, 40)
             }
         }
-        .navigationTitle("A Missa, parte por parte")
+        .navigationTitle(MockFormation.track(withID: lesson.trackID)?.title ?? "")
         .navigationBarTitleDisplayMode(.inline)
         .navigationDestination(isPresented: $showEndOfSession) {
             EndOfSessionView(lesson: lesson, onBackToTracks: onBackToTracks)

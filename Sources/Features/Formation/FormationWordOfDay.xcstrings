@@ -1,24 +1,178 @@
 {
   "sourceLanguage": "en",
   "strings": {
-    "Tracks": {
+    "ALL PARTS": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tracks"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Trillas"
+            "value": "ALL PARTS"
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Trilhas"
+            "value": "TODAS AS PARTES"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "TODAS LAS PARTES"
+          }
+        }
+      }
+    },
+    "Back to the tracks": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Back to the tracks"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Voltar para as trilhas"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Volver a los recorridos"
+          }
+        }
+      }
+    },
+    "Continue": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Continue"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Continuar"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Continuar"
+          }
+        }
+      }
+    },
+    "Degrees of celebration": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Degrees of celebration"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Grados de celebración"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Graus de celebração"
+          }
+        }
+      }
+    },
+    "Find adoration today": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Find adoration today"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Encontrar adoración hoy"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Encontrar adoração hoje"
+          }
+        }
+      }
+    },
+    "First reading, psalm, and Gospel": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "First reading, psalm, and Gospel"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Primera lectura, salmo y Evangelio"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Primeira leitura, salmo e Evangelho"
+          }
+        }
+      }
+    },
+    "Formation": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Formation"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Formación"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Formação"
+          }
+        }
+      }
+    },
+    "Glossary": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Glossary"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Glosario"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Glossário"
           }
         }
       }
@@ -89,6 +243,116 @@
         }
       }
     },
+    "One part a day, about four minutes.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "One part a day, about four minutes."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uma parte por dia, cerca de quatro minutos."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Una parte al día, unos cuatro minutos."
+          }
+        }
+      }
+    },
+    "Part {n}": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Part {n}"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Parte {n}"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Parte {n}"
+          }
+        }
+      }
+    },
+    "Part {n} completed": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Part {n} completed"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Parte {n} concluída"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Parte {n} completada"
+          }
+        }
+      }
+    },
+    "Part {n} read. Now close the app.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Part {n} read. Now close the app."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Parte {n} leída. Ahora cierra la app."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Parte {n} lida. Agora feche o app."
+          }
+        }
+      }
+    },
+    "Part {n}: {title}": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Part {n}: {title}"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Parte {n}: {title}"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Parte {n}: {title}"
+          }
+        }
+      }
+    },
     "Pray an Act of Contrition now": {
       "localizations": {
         "en": {
@@ -133,178 +397,46 @@
         }
       }
     },
-    "Find adoration today": {
+    "Share ›": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Find adoration today"
+            "value": "Share ›"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Encontrar adoración hoy"
+            "value": "Compartir ›"
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Encontrar adoração hoje"
+            "value": "Compartilhar ›"
           }
         }
       }
     },
-    "Tomorrow's part will wait. What you read today is learned by praying, not by reading more.": {
+    "Tap any technical term in the content to open its definition.": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tomorrow's part will wait. What you read today is learned by praying, not by reading more."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "La próxima parte espera hasta mañana. Lo que leíste hoy se aprende rezando, no leyendo más."
+            "value": "Tap any technical term in the content to open its definition."
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "A próxima parte espera até amanhã. O que você leu hoje se aprende rezando, não lendo mais."
-          }
-        }
-      }
-    },
-    "Why is today red?": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Why is today red?"
+            "value": "Toque em qualquer termo técnico no conteúdo para abrir a definição."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "¿Por qué hoy es rojo?"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Por que hoje é vermelho?"
-          }
-        }
-      }
-    },
-    "Degrees of celebration": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Degrees of celebration"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Grados de celebración"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Graus de celebração"
-          }
-        }
-      }
-    },
-    "Glossary": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Glossary"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Glosario"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Glossário"
-          }
-        }
-      }
-    },
-    "Formation": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Formation"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Formación"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Formação"
-          }
-        }
-      }
-    },
-    "Word of the day": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Word of the day"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Palabra del día"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Palavra do dia"
-          }
-        }
-      }
-    },
-    "WORD OF THE DAY": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "WORD OF THE DAY"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "PALABRA DEL DÍA"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "PALAVRA DE HOJE"
+            "value": "Toca cualquier término técnico del contenido para abrir su definición."
           }
         }
       }
@@ -331,6 +463,94 @@
         }
       }
     },
+    "The liturgical colors": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The liturgical colors"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Los colores litúrgicos"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "As cores litúrgicas"
+          }
+        }
+      }
+    },
+    "Tomorrow's part will wait. What you read today is learned by praying, not by reading more.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tomorrow's part will wait. What you read today is learned by praying, not by reading more."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La próxima parte espera hasta mañana. Lo que leíste hoy se aprende rezando, no leyendo más."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A próxima parte espera até amanhã. O que você leu hoje se aprende rezando, não lendo mais."
+          }
+        }
+      }
+    },
+    "Tracks": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tracks"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Trillas"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Trilhas"
+          }
+        }
+      }
+    },
+    "WORD OF THE DAY": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "WORD OF THE DAY"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PALABRA DEL DÍA"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PALAVRA DE HOJE"
+          }
+        }
+      }
+    },
     "What's read at Mass today": {
       "localizations": {
         "en": {
@@ -353,68 +573,46 @@
         }
       }
     },
-    "First reading, psalm, and Gospel": {
+    "Why is today red?": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "First reading, psalm, and Gospel"
+            "value": "Why is today red?"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Primera lectura, salmo y Evangelio"
+            "value": "¿Por qué hoy es rojo?"
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Primeira leitura, salmo e Evangelho"
+            "value": "Por que hoje é vermelho?"
           }
         }
       }
     },
-    "Share ›": {
+    "Word of the day": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Share ›"
+            "value": "Word of the day"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Compartir ›"
+            "value": "Palabra del día"
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Compartilhar ›"
-          }
-        }
-      }
-    },
-    "The liturgical colors": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "The liturgical colors"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Los colores litúrgicos"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "As cores litúrgicas"
+            "value": "Palavra do dia"
           }
         }
       }
@@ -441,24 +639,46 @@
         }
       }
     },
-    "Part {n} read. Now close the app.": {
+    "{done} of {total} parts completed": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Part {n} read. Now close the app."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Parte {n} leída. Ahora cierra la app."
+            "value": "{done} of {total} parts completed"
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Parte {n} lida. Agora feche o app."
+            "value": "{done} de {total} partes concluídas"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "{done} de {total} partes completadas"
+          }
+        }
+      }
+    },
+    "“{title}” is yours now. Come back whenever you want to continue the track.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "“{title}” is yours now. Come back whenever you want to continue the track."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "“{title}” já é sua. Volte quando quiser continuar a trilha."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "“{title}” ya es tuya. Vuelve cuando quieras continuar el recorrido."
           }
         }
       }

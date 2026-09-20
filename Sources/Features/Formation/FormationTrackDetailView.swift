@@ -36,7 +36,9 @@ struct FormationTrackDetailView: View {
                 .foregroundStyle(Palette.ink.opacity(0.65))
             ProgressView(value: track.liveProgress(progressStore))
                 .tint(Palette.wine)
-            Text("\(track.completedCount(in: progressStore)) de \(track.lessons.count) partes concluídas")
+            Text(L.string("{done} of {total} parts completed", table: "FormationWordOfDay")
+                .replacingOccurrences(of: "{done}", with: "\(track.completedCount(in: progressStore))")
+                .replacingOccurrences(of: "{total}", with: "\(track.lessons.count)"))
                 .font(MissaleFont.body(13))
                 .foregroundStyle(Palette.ink.opacity(0.5))
         }
@@ -49,8 +51,10 @@ struct FormationTrackDetailView: View {
             GlassCard {
                 HStack {
                     VStack(alignment: .leading, spacing: 3) {
-                        Eyebrow(text: "Continuar")
-                        Text("Parte \(lesson.partNumber): \(lesson.title)")
+                        Eyebrow(text: L.string("Continue", table: "FormationWordOfDay"))
+                        Text(L.string("Part {n}: {title}", table: "FormationWordOfDay")
+                            .replacingOccurrences(of: "{n}", with: "\(lesson.partNumber)")
+                            .replacingOccurrences(of: "{title}", with: lesson.title))
                             .font(MissaleFont.body(17, weight: .medium))
                             .foregroundStyle(Palette.ink)
                     }
@@ -65,7 +69,7 @@ struct FormationTrackDetailView: View {
 
     private var lessonList: some View {
         VStack(alignment: .leading, spacing: 4) {
-            Text("TODAS AS PARTES")
+            Text(L.string("ALL PARTS", table: "FormationWordOfDay"))
                 .font(MissaleFont.body(11, weight: .semibold))
                 .tracking(1.2)
                 .foregroundStyle(Palette.ink.opacity(0.5))
@@ -92,7 +96,8 @@ struct FormationTrackDetailView: View {
             Image(systemName: completed ? "checkmark.circle.fill" : "circle")
                 .foregroundStyle(completed ? Palette.wine : Palette.ink.opacity(0.25))
             VStack(alignment: .leading, spacing: 2) {
-                Text("Parte \(lesson.partNumber)")
+                Text(L.string("Part {n}", table: "FormationWordOfDay")
+                    .replacingOccurrences(of: "{n}", with: "\(lesson.partNumber)"))
                     .font(MissaleFont.body(12, weight: .semibold))
                     .foregroundStyle(Palette.ink.opacity(0.5))
                 Text(lesson.title)
@@ -105,6 +110,8 @@ struct FormationTrackDetailView: View {
                 .foregroundStyle(Palette.ink.opacity(0.3))
         }
         .padding(.vertical, 10)
+        // A linha inteira aceita o toque — sem isto, só os glifos respondem.
+        .contentShape(Rectangle())
     }
 }
 

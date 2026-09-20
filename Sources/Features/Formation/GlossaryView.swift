@@ -48,7 +48,7 @@ struct GlossaryView: View {
 
                     DashedUtilityCard {
                         VStack(alignment: .leading, spacing: 10) {
-                            Text("Toque em qualquer termo técnico no conteúdo para abrir a definição: mea culpa, Kyrie, lecionário, Completas.")
+                            Text(L.string("Tap any technical term in the content to open its definition.", table: "FormationWordOfDay"))
                                 .font(MissaleFont.body(15))
                                 .foregroundStyle(Palette.ink.opacity(0.75))
                             ForEach(MockLiturgical.glossaryTerms, id: \.term) { term in
