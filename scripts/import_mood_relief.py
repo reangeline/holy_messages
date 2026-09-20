@@ -107,18 +107,25 @@ def render_catalog(language: str, rows: list[dict]) -> str:
     for state in STATE_IDS:
         result.append(f"        {swift_string(state)}: [\n")
         for row in grouped[state]:
-            result.append(
+            saint_id = row.get("saintID")
+            saint_id_line = (
+                f"                saintID: {swift_string(saint_id)},\n"
+                if isinstance(saint_id, str) and saint_id.strip() else ""
+            )
+            entry = (
                 "            .init(\n"
                 f"                title: {swift_string(row['title'])},\n"
                 f"                psalmRef: {swift_string(row['psalmRef'])},\n"
                 f"                psalmText: {swift_string(row['psalmText'])},\n"
                 f"                psalmWhy: {swift_string(row['psalmWhy'])},\n"
+            ) + saint_id_line + (
                 f"                saintName: {swift_string(row['saintName'])},\n"
                 f"                saintWhy: {swift_string(row['saintWhy'])},\n"
                 f"                stepTitle: {swift_string(row['stepTitle'])},\n"
                 f"                stepBody: {swift_string(row['stepBody'])}\n"
                 "            ),\n"
             )
+            result.append(entry)
         result.append("        ],\n")
     result.append("    ]\n\n")
     return "".join(result)

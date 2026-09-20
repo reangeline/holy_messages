@@ -51,6 +51,9 @@ struct ReliefContent: Codable {
     let psalmRef: String
     let psalmText: String
     let psalmWhy: String
+    /// Stable archive identity. Older reviewed entries resolve through
+    /// `saintName`; new imported entries should provide this directly.
+    var saintID: String? = nil
     let saintName: String
     let saintWhy: String
     let stepTitle: String

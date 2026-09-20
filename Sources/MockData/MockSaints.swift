@@ -73,6 +73,49 @@ enum MockSaints {
         calendar.first { $0.saint.id == id }?.saint
     }
 
+    /// Resolves the saint named by a pastoral response. New generated records
+    /// should carry an id at their source; this name bridge keeps the reviewed
+    /// Portuguese pool linkable while it is progressively migrated. It only
+    /// contains identities that have a record in this archive.
+    static func saint(referencedBy name: String) -> Saint? {
+        let key = referenceKey(name)
+        let id = saintReferenceIDs[key]
+            ?? ([notburga, johnGabrielPerboyre] + ptImportedSaints + enImportedSaints + esImportedSaints)
+                .first { referenceKey($0.name) == key }?.id
+        return id.flatMap(saint(withID:))
+    }
+
+    private static let saintReferenceIDs: [String: String] = [
+        "santateresinhadomeninojesus": "teresinha",
+        "saintthereseoflisieux": "teresinha",
+        "saintthereseofthechildjesus": "teresinha",
+        "santateresitadelninojesus": "teresinha",
+        "santateresadavila": "teresa-avila",
+        "saintteresaofavila": "teresa-avila",
+        "santateresadeavila": "teresa-avila",
+        "santoinaciodeloyola": "inacio-loyola",
+        "saintignatiusofloyola": "inacio-loyola",
+        "sanignaciodeloyola": "inacio-loyola",
+        "santoagostinho": "agostinho",
+        "saintaugustine": "agostinho",
+        "sanagustin": "agostinho",
+        "saopadrepio": "padre-pio",
+        "stpadrepio": "padre-pio",
+        "sanpadrepio": "padre-pio",
+        "santamariamadalena": "maria-madalena",
+        "saintmarymagdalene": "maria-madalena",
+        "santamariamagdalena": "maria-madalena",
+        "saintjohnofthecross": "joao-cruz",
+    ]
+
+    private static func referenceKey(_ value: String) -> String {
+        value.folding(options: [.diacriticInsensitive, .caseInsensitive], locale: .current)
+            .unicodeScalars
+            .filter { CharacterSet.alphanumerics.contains($0) }
+            .map(String.init)
+            .joined()
+    }
+
     static let saintsForYou: [SaintRecommendation] = [
         .init(id: "john-of-the-cross", name: "São João da Cruz", reason: "Escreveu sobre a \"noite escura\" — a oração que não sente nada e continua mesmo assim."),
         .init(id: "teresa-calcutta", name: "Santa Teresa de Calcutá", reason: "Viveu décadas de aridez na oração enquanto servia, e não escondeu isso depois de morta."),

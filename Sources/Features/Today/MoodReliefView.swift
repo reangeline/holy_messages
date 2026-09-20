@@ -55,19 +55,7 @@ struct MoodReliefView: View {
                         }
                     }
 
-                    GlassCard {
-                        HStack(alignment: .top, spacing: 13) {
-                            SaintPortraitPlaceholder().frame(width: 50, height: 50)
-                            VStack(alignment: .leading, spacing: 3) {
-                                Eyebrow(text: L.string("Alguém que passou por isso", table: "Today"))
-                                Text(relief.saintName)
-                                    .font(MissaleFont.body(17, weight: .medium))
-                                Text(relief.saintWhy)
-                                    .font(MissaleFont.body(15))
-                                    .foregroundStyle(Palette.ink.opacity(0.72))
-                            }
-                        }
-                    }
+                    saintCard
 
                     GlassCard {
                         VStack(alignment: .leading, spacing: 6) {
@@ -94,6 +82,55 @@ struct MoodReliefView: View {
                 }
                 .padding(.horizontal, 24)
                 .padding(.bottom, 30)
+            }
+        }
+    }
+
+    private var linkedSaint: Saint? {
+        if let saintID = relief.saintID, let saint = MockSaints.saint(withID: saintID) {
+            return saint
+        }
+        return MockSaints.saint(referencedBy: relief.saintName)
+    }
+
+    @ViewBuilder
+    private var saintCard: some View {
+        if let saint = linkedSaint {
+            NavigationLink {
+                SaintDetailView(saint: saint)
+            } label: {
+                saintCardContent(saint: saint, showsChevron: true)
+            }
+            .buttonStyle(.plain)
+        } else {
+            saintCardContent(saint: nil, showsChevron: false)
+        }
+    }
+
+    private func saintCardContent(saint: Saint?, showsChevron: Bool) -> some View {
+        GlassCard {
+            HStack(alignment: .top, spacing: 13) {
+                if let saint {
+                    SaintPortrait(artworkName: saint.artworkName, cornerRadius: 10)
+                        .frame(width: 50, height: 50)
+                } else {
+                    SaintPortraitPlaceholder().frame(width: 50, height: 50)
+                }
+                VStack(alignment: .leading, spacing: 3) {
+                    Eyebrow(text: L.string("Alguém que passou por isso", table: "Today"))
+                    Text(relief.saintName)
+                        .font(MissaleFont.body(17, weight: .medium))
+                    Text(relief.saintWhy)
+                        .font(MissaleFont.body(15))
+                        .foregroundStyle(Palette.ink.opacity(0.72))
+                }
+                if showsChevron {
+                    Spacer(minLength: 0)
+                    Image(systemName: "chevron.right")
+                        .font(.footnote.weight(.semibold))
+                        .foregroundStyle(Palette.wine)
+                        .padding(.top, 4)
+                }
             }
         }
     }
