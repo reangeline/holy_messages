@@ -286,7 +286,13 @@ enum LiturgicalEngine {
             dateKey: dateKey, season: .ordinary, weekIndex: weekIndex, weekday: weekday(of: date),
             seasonLabel: n.seasonLabel(n.ordinaryTime, week: weekIndex),
             rank: rank, color: color, feastName: feastName,
-            sundayCycle: sundayCycle(forLiturgicalYearStarting: isSecondBlock ? year : year - 1),
+            // Both blocks of Ordinary Time in a civil year belong to the
+            // liturgical year that opened in the PREVIOUS year's Advent — the
+            // second block ends the Saturday before the new Advent begins, and
+            // Advent itself is handled by its own branch. This read `year` for
+            // the second block, which shifted June–November onto the next
+            // cycle and served the wrong Sunday readings for half the year.
+            sundayCycle: sundayCycle(forLiturgicalYearStarting: year - 1),
             weekdayCycle: weekdayCycleLabel(for: year),
             isHolyDayOfObligation: isHoly,
             isAbstinenceDay: weekday(of: date) == 6,

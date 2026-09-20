@@ -7,6 +7,15 @@ struct WordOfDayView: View {
     private let word = MockWordOfDay.today
     private let day = MockLiturgical.today
 
+    /// The real day, from the engine — `MockLiturgical.today` is the demo day
+    /// the design was drawn around, and the lectionary is keyed by the engine.
+    private let computedDay = LiturgicalEngine.day(for: Date())
+
+    /// The lectionary holds Sundays only, so most days have nothing to show.
+    /// The card appears when there is something behind it, rather than opening
+    /// a screen with four "not registered yet" slots.
+    private var hasReadingsToday: Bool { MockLectionary.readings(for: computedDay) != nil }
+
     var body: some View {
         ZStack {
             day.color.pageBackground
@@ -46,25 +55,27 @@ struct WordOfDayView: View {
                             }
                         }
 
-                        NavigationLink {
-                            MassReadingsView()
-                        } label: {
-                            GlassCard {
-                                HStack {
-                                    VStack(alignment: .leading, spacing: 3) {
-                                        Text("What's read at Mass today", tableName: "FormationWordOfDay")
-                                            .font(MissaleFont.body(17, weight: .medium))
-                                            .foregroundStyle(Palette.ink)
-                                        Text("First reading, psalm, and Gospel", tableName: "FormationWordOfDay")
-                                            .font(MissaleFont.body(14))
-                                            .foregroundStyle(Palette.ink.opacity(0.65))
+                        if hasReadingsToday {
+                            NavigationLink {
+                                MassBulletinView(day: computedDay)
+                            } label: {
+                                GlassCard {
+                                    HStack {
+                                        VStack(alignment: .leading, spacing: 3) {
+                                            Text("What's read at Mass today", tableName: "FormationWordOfDay")
+                                                .font(MissaleFont.body(17, weight: .medium))
+                                                .foregroundStyle(Palette.ink)
+                                            Text("First reading, psalm, and Gospel", tableName: "FormationWordOfDay")
+                                                .font(MissaleFont.body(14))
+                                                .foregroundStyle(Palette.ink.opacity(0.65))
+                                        }
+                                        Spacer()
+                                        Image(systemName: "chevron.right").foregroundStyle(Palette.wine)
                                     }
-                                    Spacer()
-                                    Image(systemName: "chevron.right").foregroundStyle(Palette.wine)
                                 }
                             }
+                            .buttonStyle(.plain)
                         }
-                        .buttonStyle(.plain)
                     }
             .padding(.horizontal, 24)
             .padding(.top, 24)

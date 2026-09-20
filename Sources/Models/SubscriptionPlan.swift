@@ -8,10 +8,3 @@ struct SubscriptionPlan: Identifiable, Codable {
     let total: String
     let badge: String?
 }
-
-struct MassReading: Identifiable, Codable {
-    let id: String
-    let kicker: String
-    let title: String
-    let summary: String
-}

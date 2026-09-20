@@ -73,6 +73,21 @@ targets:
         TEST_TARGET_NAME: Missale
         GENERATE_INFOPLIST_FILE: "YES"
 
+  # The liturgical engine is pure date arithmetic, so it belongs in a unit test
+  # that can call it directly — a UI test can only read what a screen happens
+  # to print for today's date, which is how a wrong Sunday cycle went unnoticed.
+  MissaleTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: Tests/Unit
+    dependencies:
+      - target: Missale
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.missale.app.Tests
+        GENERATE_INFOPLIST_FILE: "YES"
+
   MissaleWidgetsExtension:
     type: app-extension
     platform: iOS
@@ -131,9 +146,11 @@ schemes:
         Missale: all
         MissaleWidgetsExtension: all
         MissaleUITests: [test]
+        MissaleTests: [test]
     run:
       config: Debug
     test:
       config: Debug
       targets:
+        - MissaleTests
         - MissaleUITests

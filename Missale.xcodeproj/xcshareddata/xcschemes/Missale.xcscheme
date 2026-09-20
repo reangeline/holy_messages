@@ -29,6 +29,20 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "7EE812B70FBC92BC728D136A"
+               BuildableName = "MissaleTests.xctest"
+               BlueprintName = "MissaleTests"
+               ReferencedContainer = "container:Missale.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "D9B6A64A6D3878B509C89A05"
                BuildableName = "MissaleUITests.xctest"
                BlueprintName = "MissaleUITests"
@@ -67,6 +81,17 @@
          </BuildableReference>
       </MacroExpansion>
       <Testables>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "7EE812B70FBC92BC728D136A"
+               BuildableName = "MissaleTests.xctest"
+               BlueprintName = "MissaleTests"
+               ReferencedContainer = "container:Missale.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
          <TestableReference
             skipped = "NO"
             parallelizable = "NO">
