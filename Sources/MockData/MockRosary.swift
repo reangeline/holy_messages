@@ -7,7 +7,7 @@ enum MockRosary {
     /// Portuguese; see LocalizedCatalog.
     static var mysteries: [RosaryMystery] { mysteryCatalog.current }
 
-    static let mysteryCatalog = LocalizedCatalog(pt: ptMysteries, en: enMysteries)
+    static let mysteryCatalog = LocalizedCatalog(pt: ptMysteries, en: enMysteries, es: esMysteries)
 
     private static let ptMysteries: [RosaryMystery] = [
         .init(mysterySet: .joyful, decades: [
@@ -71,6 +71,39 @@ enum MockRosary {
         ]),
     ]
 
+    // Títulos, sequência e referências: Santa Sé, “Los misterios del Santo
+    // Rosario”; os frutos são redação catequética própria em espanhol.
+    private static let esMysteries: [RosaryMystery] = [
+        .init(mysterySet: .joyful, decades: [
+            .init(title: "La Encarnación del Hijo de Dios", description: "El ángel Gabriel anuncia a María que concebirá al Hijo de Dios; ella acoge la Palabra con fe.", fruit: "La humildad y la disponibilidad para la voluntad de Dios.", scriptureRef: "Lucas 1,26-38"),
+            .init(title: "La Visitación de Nuestra Señora", description: "María visita a santa Isabel y lleva a Jesús en su seno.", fruit: "La caridad que se pone en camino hacia el otro.", scriptureRef: "Lucas 1,39-56"),
+            .init(title: "El Nacimiento del Hijo de Dios", description: "Jesús nace en Belén y es recibido en la pobreza de la gruta.", fruit: "La sencillez y el desapego de los bienes.", scriptureRef: "Lucas 2,1-20"),
+            .init(title: "La Presentación del Niño Jesús en el Templo", description: "María y José presentan al Niño en el Templo conforme a la Ley.", fruit: "La obediencia y un corazón ofrecido a Dios.", scriptureRef: "Lucas 2,22-38"),
+            .init(title: "El encuentro del Niño Jesús en el Templo", description: "María y José encuentran a Jesús entre los doctores de la Ley.", fruit: "La búsqueda perseverante de Dios.", scriptureRef: "Lucas 2,41-50"),
+        ]),
+        .init(mysterySet: .sorrowful, decades: [
+            .init(title: "La oración de Jesús en el Huerto", description: "Jesús vela y ora al Padre en el Huerto de los Olivos antes de su pasión.", fruit: "La contrición y la perseverancia en la oración.", scriptureRef: "Mateo 26,36-46"),
+            .init(title: "La flagelación del Señor", description: "Jesús es entregado para ser azotado.", fruit: "La pureza y la compasión por quien sufre.", scriptureRef: "Mateo 27,24-26"),
+            .init(title: "La coronación de espinas", description: "Los soldados coronan a Jesús con espinas y se burlan de él.", fruit: "La humildad frente al orgullo.", scriptureRef: "Mateo 27,27-31"),
+            .init(title: "Jesús camino del Calvario", description: "Jesús va hacia el Calvario llevando la cruz.", fruit: "La paciencia en las pruebas y la fidelidad.", scriptureRef: "Lucas 23,26-32"),
+            .init(title: "La Crucifixión y muerte del Señor", description: "Jesús es crucificado y muere entregando su vida por amor.", fruit: "El perdón y el amor que se entrega.", scriptureRef: "Juan 19,17-30"),
+        ]),
+        .init(mysterySet: .glorious, decades: [
+            .init(title: "La Resurrección del Señor", description: "Cristo resucita y vence la muerte.", fruit: "La fe en Cristo vivo y la esperanza.", scriptureRef: "Mateo 28,1-10"),
+            .init(title: "La Ascensión del Señor al cielo", description: "Jesús asciende al cielo y confía a los discípulos la misión de ser sus testigos.", fruit: "La esperanza y el deseo de las cosas del cielo.", scriptureRef: "Hechos 1,6-11"),
+            .init(title: "La venida del Espíritu Santo", description: "El Espíritu Santo desciende sobre María y los Apóstoles reunidos en oración.", fruit: "La docilidad al Espíritu Santo y el celo apostólico.", scriptureRef: "Hechos 1,12-14; 2,1-4"),
+            .init(title: "La Asunción de Nuestra Señora", description: "María es llevada al cielo en cuerpo y alma.", fruit: "La esperanza de la resurrección y la confianza filial en María.", scriptureRef: "Lucas 1,48-49"),
+            .init(title: "La coronación de la Santísima Virgen", description: "María es contemplada como reina de los ángeles y de los santos.", fruit: "La perseverancia final y la confianza en la intercesión de María.", scriptureRef: "Apocalipsis 12,1-17"),
+        ]),
+        .init(mysterySet: .luminous, decades: [
+            .init(title: "El bautismo de Jesús en el Jordán", description: "Jesús es bautizado en el Jordán y se manifiesta la Trinidad.", fruit: "La fidelidad a las promesas del Bautismo.", scriptureRef: "Mateo 3,13-17"),
+            .init(title: "La autorrevelación de Jesús en las Bodas de Caná", description: "En Caná, Jesús realiza el signo que manifiesta su gloria ante la petición de María.", fruit: "La confianza en Cristo y la atención a María.", scriptureRef: "Juan 2,1-11"),
+            .init(title: "El anuncio del Reino de Dios", description: "Jesús anuncia el Reino e invita a la conversión.", fruit: "La conversión cotidiana y el deseo de santidad.", scriptureRef: "Marcos 1,14-15"),
+            .init(title: "La Transfiguración del Señor", description: "Jesús se transfigura ante sus discípulos y el Padre invita a escucharle.", fruit: "La escucha de Cristo y la renovación interior.", scriptureRef: "Lucas 9,28-36"),
+            .init(title: "La institución de la Eucaristía", description: "En la Última Cena, Jesús entrega su Cuerpo y su Sangre como alimento de vida.", fruit: "El amor a la Eucaristía y la comunión.", scriptureRef: "Lucas 22,14-20"),
+        ]),
+    ]
+
     /// The traditional weekly schedule (Mon/Sat Joyful, Tue/Fri Sorrowful,
     /// Wed/Sun Glorious, Thu Luminous), keyed off the app's own "today" —
     /// genuinely computed, not a fixed demo value.
@@ -90,7 +123,7 @@ enum MockRosary {
         return mysteries.first { $0.mysterySet == set }!
     }
 
-    static let prayerCatalog = LocalizedCatalog(pt: ptPrayers, en: enPrayers)
+    static let prayerCatalog = LocalizedCatalog(pt: ptPrayers, en: enPrayers, es: esPrayers)
 
     /// The day's fixed prayers, in the app's current language.
     static var prayers: RosaryPrayerTexts { prayerCatalog.current }
@@ -128,6 +161,20 @@ enum MockRosary {
         offeringPrayer: "Divine Jesus, we offer thee this rosary which we are about to pray, meditating on the mysteries of thy redemption. Grant us, through the intercession of Mary, thy most holy Mother, the virtues we need to pray it well, and the grace to gain the indulgences attached to this holy devotion."
     )
 
+    // Fórmulas fijas: Compendio del Catecismo de la Iglesia Católica, edición
+    // española de la Santa Sede. La oración de Fátima procede del Santuario de
+    // Fátima; el ofrecimiento breve es el publicado por la diócesis de Allentown.
+    private static let esPrayers = RosaryPrayerTexts(
+        signOfCross: "En el nombre del Padre y del Hijo y del Espíritu Santo. Amén.",
+        apostlesCreed: "Creo en Dios, Padre Todopoderoso, Creador del cielo y de la tierra. Creo en Jesucristo, su único Hijo, Nuestro Señor, Que fue concebido por obra y gracia del Espíritu Santo, nació de Santa María Virgen, padeció bajo el poder de Poncio Pilato, fue crucificado, muerto y sepultado, descendió a los infiernos, al tercer día resucitó de entre los muertos, subió a los cielos y está sentado a la derecha de Dios, Padre todopoderoso. Desde allí ha de venir a juzgar a vivos y muertos. Creo en el Espíritu Santo, la santa Iglesia católica, la comunión de los santos, el perdón de los pecados, la resurrección de la carne y la vida eterna. Amén.",
+        ourFather: "Padre nuestro que estás en el cielo, santificado sea tu Nombre; venga a nosotros tu Reino; hágase tu voluntad en la tierra como en el cielo. Danos hoy nuestro pan de cada día; perdona nuestras ofensas, como también nosotros perdonamos a los que nos ofenden; no nos dejes caer en la tentación, y líbranos del mal. Amén.",
+        hailMary: "Dios te salve, María, llena eres de gracia; el Señor es contigo. Bendita Tú eres entre todas las mujeres, y bendito es el fruto de tu vientre, Jesús. Santa María, Madre de Dios, ruega por nosotros, pecadores, ahora y en la hora de nuestra muerte. Amén.",
+        gloryBe: "Gloria al Padre y al Hijo y al Espíritu Santo. Como era en el principio, ahora y siempre, por los siglos de los siglos. Amén.",
+        fatimaPrayer: "Oh Jesús mío, perdónanos, líbranos del fuego del infierno; lleva al cielo a todas las almas, especialmente a las más necesitadas.",
+        hailHolyQueen: "Dios te salve, Reina y Madre de misericordia, vida, dulzura y esperanza nuestra; Dios te salve. A ti llamamos los desterrados hijos de Eva; a ti suspiramos, gimiendo y llorando en este valle de lágrimas. Ea, pues, Señora, abogada nuestra, vuelve a nosotros esos tus ojos misericordiosos; y después de este destierro, muéstranos a Jesús, fruto bendito de tu vientre. ¡Oh, clementísima, oh piadosa, oh dulce Virgen María!",
+        offeringPrayer: "Ofrecemos este rosario por…"
+    )
+
     /// Guidance, not a prayer to recite — kept as short labeled categories
     /// (rather than one paragraph) so the view can render it plainly, without
     /// the italic quote styling used for actual prayer text. See RosaryPrayerStep.promptItems.
@@ -145,6 +192,12 @@ enum MockRosary {
             RosaryPromptItem(label: "For others", detail: "Family, friends, the sick, the unemployed, or someone who asked for your prayers."),
             RosaryPromptItem(label: "Social and universal", detail: "The souls in purgatory, the Pope, the Church, an end to wars, those most in need."),
             RosaryPromptItem(label: "Thanksgiving", detail: "For a grace already received, or for each day's protection."),
+        ],
+        es: [
+            RosaryPromptItem(label: "Personales", detail: "Una petición de conversión, paciencia, discernimiento ante una decisión o curación en la enfermedad."),
+            RosaryPromptItem(label: "Por otras personas", detail: "La familia, los amigos, los enfermos, quienes buscan trabajo o alguien que pidió oración."),
+            RosaryPromptItem(label: "Por la Iglesia y el mundo", detail: "El Papa, la Iglesia, la paz, las almas de los difuntos y quienes más sufren."),
+            RosaryPromptItem(label: "Acción de gracias", detail: "Una gracia ya recibida o la protección de cada día."),
         ]
     )
 
@@ -203,7 +256,7 @@ enum MockRosary {
 
     static var labels: RosaryStepLabels { labelCatalog.current }
 
-    static let labelCatalog = LocalizedCatalog(pt: ptLabels, en: enLabels)
+    static let labelCatalog = LocalizedCatalog(pt: ptLabels, en: enLabels, es: esLabels)
 
     private static let ptLabels = RosaryStepLabels(
         signOfCross: "Sinal da Cruz",
@@ -267,6 +320,38 @@ enum MockRosary {
         gloryShort: "Glory Be",
         offeringShort: "Offering",
         ordinals: ["First", "Second", "Third", "Fourth", "Fifth"]
+    )
+
+    private static let esLabels = RosaryStepLabels(
+        signOfCross: "Señal de la Cruz",
+        crucifixKicker: "Al tomar el crucifijo",
+        tapHint: "Toca cualquier lugar para continuar.",
+        intentions: "Intenciones",
+        intentionsKicker: "Por quién rezas hoy",
+        intentionsText: "Elige por quién ofreces este rosario; puede ser más de una intención.",
+        intentionsHint: "Por ejemplo: «Ofrezco este rosario por la salud de mi familia, por la paz en el mundo y por una gracia particular».",
+        offering: "Ofrecimiento del rosario",
+        offeringKicker: "Antes de comenzar",
+        offeringHint: "Es opcional: nombra la intención con la que rezarás el rosario.",
+        creed: "Credo",
+        creedKicker: "En la primera cuenta",
+        creedHint: "El Símbolo de los Apóstoles se reza una vez antes de los misterios.",
+        announcementKicker: "Anuncio del misterio",
+        announcementHint: "Haz una breve pausa antes del Padrenuestro de esta decena.",
+        mysteryWord: "Misterio",
+        ourFatherKicker: "Cuenta grande",
+        ourFatherHint: "Toca cualquier lugar para continuar. El avance automático está activado.",
+        hailMaryKicker: "Avemaría",
+        hailMaryHint: "Diez cuentas por decena, meditando el misterio.",
+        gloryKicker: "Gloria",
+        gloryHint: "Cierra la decena. La siguiente comienza con el próximo anuncio.",
+        hailHolyQueen: "Salve Regina",
+        hailHolyQueenKicker: "Para concluir",
+        hailHolyQueenHint: "Concluye el rosario. Puedes terminar con la Señal de la Cruz.",
+        ourFatherShort: "Padrenuestro",
+        gloryShort: "Gloria",
+        offeringShort: "Ofrecimiento",
+        ordinals: ["Primer", "Segundo", "Tercer", "Cuarto", "Quinto"]
     )
 
     static let novena = Novena(title: "Novena das 54 dias", currentDay: 23, totalDays: 54)
