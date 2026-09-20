@@ -18,7 +18,7 @@ struct ExamenIntroView: View {
                     Button(L.string("‹ Voltar", table: "Today")) { dismiss() }
                         .foregroundStyle(Palette.goldBright)
                     Spacer()
-                    Text("21H30")
+                    Text(ExamenSchedule.timeLabel)
                         .font(MissaleFont.body(12, weight: .semibold))
                         .tracking(1.4)
                         .foregroundStyle(.white.opacity(0.5))

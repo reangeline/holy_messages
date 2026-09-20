@@ -32,12 +32,6 @@ struct RegionOption: Identifiable {
     let isSelected: Bool
 }
 
-struct ContentReviewer: Identifiable {
-    let id: String
-    let name: String
-    let role: String
-    let bio: String
-}
 
 struct FAQItem: Identifiable {
     let id: String

@@ -53,10 +53,14 @@ struct ExamenHistoryView: View {
                 .tracking(1.1)
                 .foregroundStyle(Palette.goldBright)
 
-            answerBlock(title: "Gratidão", text: entry.gratitude)
-            answerBlock(title: "Pedido de luz", text: entry.lightRequest)
-            answerBlock(title: "Revisão", text: entry.review)
-            answerBlock(title: "Resposta", text: entry.response)
+            // Step titles come from the content catalog, the same source the
+            // flow itself uses — they name the parts of the Ignatian Examen, so
+            // they are content, not chrome, and repeating them here would let
+            // the history drift from the flow.
+            let steps = MockRosary.examenSteps
+            ForEach(Array(zip(steps, [entry.gratitude, entry.lightRequest, entry.review, entry.response])), id: \.0.id) { step, answer in
+                answerBlock(title: step.title, text: answer)
+            }
         }
         .padding(16)
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -71,7 +75,7 @@ struct ExamenHistoryView: View {
                 .tracking(1.0)
                 .foregroundStyle(.white.opacity(0.45))
             if text.isEmpty {
-                Text("Nada escrito neste passo.")
+                Text(L.string("Nada escrito neste passo.", table: "Today"))
                     .font(MissaleFont.body(15))
                     .italic()
                     .foregroundStyle(.white.opacity(0.4))

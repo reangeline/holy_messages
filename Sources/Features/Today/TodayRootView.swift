@@ -231,7 +231,8 @@ struct TodayRootView: View {
         } label: {
             HStack {
                 VStack(alignment: .leading, spacing: 3) {
-                    Text("À NOITE, ÀS 21H30", tableName: "Today")
+                    Text(L.string("À NOITE, ÀS {time}", table: "Today")
+                        .replacingOccurrences(of: "{time}", with: ExamenSchedule.timeLabel))
                         .font(MissaleFont.body(11, weight: .semibold))
                         .tracking(1.4)
                         .foregroundStyle(Palette.goldBright)

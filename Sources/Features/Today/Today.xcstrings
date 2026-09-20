@@ -1,992 +1,24 @@
 {
   "sourceLanguage": "pt",
   "strings": {
-    "‹ Voltar": {
+    "A saída está sempre aqui. Sem cobrança, sem contador de recaída.": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "‹ Back"
+            "value": "The way out is always here. No charge, no relapse counter."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "‹ Volver"
+            "value": "La salida siempre está aquí. Sin cobro, sin contador de recaída."
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "‹ Voltar"
-          }
-        }
-      }
-    },
-    "Hoje eu estou…": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Today I am…"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Hoy estoy…"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Hoje eu estou…"
-          }
-        }
-      }
-    },
-    "Toque para registrar": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tap to log it"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Toca para registrar"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Toque para registrar"
-          }
-        }
-      }
-    },
-    "Palavra de hoje": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Word of the day"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Palabra de hoy"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Palavra de hoje"
-          }
-        }
-      }
-    },
-    "Santo do dia": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Saint of the day"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Santo del día"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Santo do dia"
-          }
-        }
-      }
-    },
-    "Terço de hoje": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Today's Rosary"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Rosario de hoy"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Terço de hoje"
-          }
-        }
-      }
-    },
-    "À NOITE, ÀS 21H30": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "TONIGHT, AT 9:30 PM"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "POR LA NOCHE, A LAS 21H30"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "À NOITE, ÀS 21H30"
-          }
-        }
-      }
-    },
-    "Exame do dia e Completas": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Daily Examen and Compline"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Examen del día y Completas"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Exame do dia e Completas"
-          }
-        }
-      }
-    },
-    "Um toque. Fica no aparelho, e pode ficar em branco.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "One tap. It stays on this device, and it's fine to leave blank."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Un toque. Queda en el dispositivo, y puede quedar en blanco."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Um toque. Fica no aparelho, e pode ficar em branco."
-          }
-        }
-      }
-    },
-    "Precisa de mais do que isto? Padre, diocese, ou uma crise": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Need more than this? Priest, diocese, or a crisis"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "¿Necesitas más que esto? Sacerdote, diócesis, o una crisis"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Precisa de mais do que isto? Padre, diocese, ou uma crise"
-          }
-        }
-      }
-    },
-    "O que aconteceu? (opcional, uma linha)": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "What happened? (optional, one line)"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "¿Qué pasó? (opcional, una línea)"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "O que aconteceu? (opcional, uma linha)"
-          }
-        }
-      }
-    },
-    "Alguém que passou por isso": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Someone who went through this"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Alguien que pasó por esto"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Alguém que passou por isso"
-          }
-        }
-      }
-    },
-    "Um passo concreto": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "One concrete step"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Un paso concreto"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Um passo concreto"
-          }
-        }
-      }
-    },
-    "Este registro entra no seu calendário. Ninguém além de você o vê — ele não sai deste aparelho.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "This entry goes into your calendar. No one but you sees it — it never leaves this device."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Este registro entra en tu calendario. Nadie más que tú lo ve — nunca sale de este dispositivo."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Este registro entra no seu calendário. Ninguém além de você o vê — ele não sai deste aparelho."
-          }
-        }
-      }
-    },
-    "Se isso for sobre um pecado específico, um confessor fixo resolve melhor do que reler isto de novo.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "If this is about a specific sin, a regular confessor handles it better than reading this again."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Si se trata de un pecado específico, un confesor habitual lo resuelve mejor que volver a leer esto."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Se isso for sobre um pecado específico, um confessor fixo resolve melhor do que reler isto de novo."
-          }
-        }
-      }
-    },
-    "O Exame": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "The Examen"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "El Examen"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "O Exame"
-          }
-        }
-      }
-    },
-    "Como foi o seu dia diante de Deus?": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "How was your day before God?"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "¿Cómo fue tu día ante Dios?"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Como foi o seu dia diante de Deus?"
-          }
-        }
-      }
-    },
-    "Rever o dia, reconhecer onde houve consolação e onde houve desolação, e responder. É a prática inaciana, em quatro toques.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Review the day, recognize where there was consolation and where there was desolation, and respond. It's the Ignatian practice, in four taps."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Repasar el día, reconocer dónde hubo consolación y dónde hubo desolación, y responder. Es la práctica ignaciana, en cuatro toques."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Rever o dia, reconhecer onde houve consolação e onde houve desolação, e responder. É a prática inaciana, em quatro toques."
-          }
-        }
-      }
-    },
-    "Começar o Exame": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Start the Examen"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Comenzar el Examen"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Começar o Exame"
-          }
-        }
-      }
-    },
-    "Ir direto às Completas": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Go straight to Compline"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ir directo a Completas"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ir direto às Completas"
-          }
-        }
-      }
-    },
-    "Tela escura": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Dark screen"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pantalla oscura"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tela escura"
-          }
-        }
-      }
-    },
-    "Completas · oração da noite": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Compline · night prayer"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Completas · oración de la noche"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Completas · oração da noite"
-          }
-        }
-      }
-    },
-    "Texto completo, offline. Rolagem lenta e nenhuma notificação enquanto esta tela está aberta.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Full text, offline. Slow scroll and no notifications while this screen is open."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Texto completo, sin conexión. Desplazamiento lento y sin notificaciones mientras esta pantalla está abierta."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Texto completo, offline. Rolagem lenta e nenhuma notificação enquanto esta tela está aberta."
-          }
-        }
-      }
-    },
-    "Terminar e apagar a tela": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Finish and dim the screen"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Terminar y apagar la pantalla"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Terminar e apagar a tela"
-          }
-        }
-      }
-    },
-    "Uma nota, sem alarme": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "A note, no alarm"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Una nota, sin alarma"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Uma nota, sem alarme"
-          }
-        }
-      }
-    },
-    "Faz algumas semanas que os dias têm vindo pesados": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "The days have been heavy for a few weeks now"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Hace algunas semanas que los días han estado pesados"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Faz algumas semanas que os dias têm vindo pesados"
-          }
-        }
-      }
-    },
-    "Não é um diagnóstico e não é uma conta a pagar. É só que mais um Salmo talvez não seja o que você precisa agora, e há gente para isso.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "This isn't a diagnosis and it isn't a bill to pay. It's just that another Psalm might not be what you need right now, and there are people for that."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Esto no es un diagnóstico ni una cuenta por pagar. Es solo que otro Salmo tal vez no sea lo que necesitas ahora, y hay gente para eso."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Não é um diagnóstico e não é uma conta a pagar. É só que mais um Salmo talvez não seja o que você precisa agora, e há gente para isso."
-          }
-        }
-      }
-    },
-    "Falar com um padre": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Talk to a priest"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Hablar con un sacerdote"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Falar com um padre"
-          }
-        }
-      }
-    },
-    "Acompanhamento na sua diocese": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Support in your diocese"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Acompañamiento en tu diócesis"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Acompanhamento na sua diocese"
-          }
-        }
-      }
-    },
-    "Apoio no luto, escuta e ajuda material pela Caritas local.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Grief support, a listening ear, and material help through your local Caritas."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Apoyo en el duelo, escucha y ayuda material a través de Caritas local."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Apoio no luto, escuta e ajuda material pela Caritas local."
-          }
-        }
-      }
-    },
-    "Se for crise · Estados Unidos": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "If it's a crisis · United States"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Si es una crisis · Estados Unidos"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Se for crise · Estados Unidos"
-          }
-        }
-      }
-    },
-    "Suicide & Crisis Lifeline. Ligação ou mensagem, a qualquer hora.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Suicide & Crisis Lifeline. Call or text, any time."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Suicide & Crisis Lifeline. Llama o envía un mensaje, a cualquier hora."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Suicide & Crisis Lifeline. Ligação ou mensagem, a qualquer hora."
-          }
-        }
-      }
-    },
-    "Este app oferece formação e oração. Não é terapia nem atendimento clínico, e não finge ser.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "This app offers formation and prayer. It is not therapy or clinical care, and it doesn't pretend to be."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Esta app ofrece formación y oración. No es terapia ni atención clínica, y no finge serlo."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Este app oferece formação e oração. Não é terapia nem atendimento clínico, e não finge ser."
-          }
-        }
-      }
-    },
-    "Entendi, fechar": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Got it, close"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Entendido, cerrar"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Entendi, fechar"
-          }
-        }
-      }
-    },
-    "Você já trouxe isso três vezes": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "You've brought this up three times now"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ya has traído esto tres veces"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Você já trouxe isso três vezes"
-          }
-        }
-      }
-    },
-    "Esta pergunta não é para um app": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "This question isn't for an app"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Esta pregunta no es para una app"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Esta pergunta não é para um app"
-          }
-        }
-      }
-    },
-    "Repetir a mesma dúvida de consciência até vir a resposta certa alimenta o escrúpulo em vez de aliviá-lo. A tradição é clara: isso se resolve com um confessor fixo, alguém que conheça sua história e possa dizer quando parar.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Repeating the same doubt of conscience until the right answer comes feeds scrupulosity instead of relieving it. Tradition is clear: this is resolved with a regular confessor, someone who knows your history and can tell you when to stop."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Repetir la misma duda de conciencia hasta que llegue la respuesta correcta alimenta el escrúpulo en lugar de aliviarlo. La tradición es clara: esto se resuelve con un confesor habitual, alguien que conozca tu historia y pueda decirte cuándo parar."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Repetir a mesma dúvida de consciência até vir a resposta certa alimenta o escrúpulo em vez de aliviá-lo. A tradição é clara: isso se resolve com um confessor fixo, alguém que conheça sua história e possa dizer quando parar."
-          }
-        }
-      }
-    },
-    "Encontrar um confessor fixo": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Find a regular confessor"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Encontrar un confesor habitual"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Encontrar um confessor fixo"
-          }
-        }
-      }
-    },
-    "Paróquias perto de você com horário regular de confissão e direção espiritual.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Parishes near you with regular confession hours and spiritual direction."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Parroquias cerca de ti con horario regular de confesión y dirección espiritual."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Paróquias perto de você com horário regular de confissão e direção espiritual."
-          }
-        }
-      }
-    },
-    "Enquanto isso: uma vez confessado, está confessado. Não vamos devolver mais garantias sobre este ponto — e isso é cuidado, não abandono.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "In the meantime: once confessed, it's confessed. We won't offer more reassurance on this point — and that's care, not abandonment."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mientras tanto: una vez confesado, está confesado. No vamos a dar más garantías sobre este punto — y eso es cuidado, no abandono."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Enquanto isso: uma vez confessado, está confessado. Não vamos devolver mais garantias sobre este ponto — e isso é cuidado, não abandono."
-          }
-        }
-      }
-    },
-    "Ver paróquias": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "See parishes"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ver parroquias"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ver paróquias"
-          }
-        }
-      }
-    },
-    "É a hora do Angelus": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "It's time for the Angelus"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Es la hora del Ángelus"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "É a hora do Angelus"
-          }
-        }
-      }
-    },
-    "Você separou esta janela antes, quando estava tranquilo. Ela dura três minutos e termina sozinha.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "You set this window aside earlier, when you were at peace. It lasts three minutes and ends on its own."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Reservaste esta ventana antes, cuando estabas tranquilo. Dura tres minutos y termina sola."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Você separou esta janela antes, quando estava tranquilo. Ela dura três minutos e termina sozinha."
-          }
-        }
-      }
-    },
-    "Rezar o Angelus": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pray the Angelus"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Rezar el Ángelus"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Rezar o Angelus"
-          }
-        }
-      }
-    },
-    "Ficar em silêncio até 12h03": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Stay quiet until 12:03 PM"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Quedarse en silencio hasta las 12:03"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ficar em silêncio até 12h03"
+            "value": "A saída está sempre aqui. Sem cobrança, sem contador de recaída."
           }
         }
       }
@@ -1013,420 +45,24 @@
         }
       }
     },
-    "A saída está sempre aqui. Sem cobrança, sem contador de recaída.": {
+    "Acompanhamento na sua diocese": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The way out is always here. No charge, no relapse counter."
+            "value": "Support in your diocese"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "La salida siempre está aquí. Sin cobro, sin contador de recaída."
+            "value": "Acompañamiento en tu diócesis"
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "A saída está sempre aqui. Sem cobrança, sem contador de recaída."
-          }
-        }
-      }
-    },
-    "Cancelar a renovação": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cancel renewal"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cancelar la renovación"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cancelar a renovação"
-          }
-        }
-      }
-    },
-    "Sem perguntas de saída e sem oferta de desconto. Só o que muda e o que não muda.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "No exit questions and no discount offer. Just what changes and what doesn't."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sin preguntas de salida y sin oferta de descuento. Solo lo que cambia y lo que no cambia."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sem perguntas de saída e sem oferta de desconto. Só o que muda e o que não muda."
-          }
-        }
-      }
-    },
-    "O que acontece": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "What happens"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Qué sucede"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "O que acontece"
-          }
-        }
-      }
-    },
-    "Continua seu, para sempre": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Stays yours, forever"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sigue siendo tuyo, para siempre"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Continua seu, para sempre"
-          }
-        }
-      }
-    },
-    "Fica em pausa": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Goes on pause"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Queda en pausa"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Fica em pausa"
-          }
-        }
-      }
-    },
-    "Se o motivo for dinheiro, não cancele: escreva e liberamos o acesso completo, sem comprovação e sem prazo.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "If money is the reason, don't cancel: write to us and we'll unlock full access, no proof and no deadline."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Si el motivo es el dinero, no canceles: escríbenos y liberamos el acceso completo, sin comprobantes y sin plazo."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Se o motivo for dinheiro, não cancele: escreva e liberamos o acesso completo, sem comprovação e sem prazo."
-          }
-        }
-      }
-    },
-    "Cancelar nos ajustes do iPhone": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cancel in iPhone Settings"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cancelar en los ajustes del iPhone"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cancelar nos ajustes do iPhone"
-          }
-        }
-      }
-    },
-    "Manter minha assinatura": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Keep my subscription"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mantener mi suscripción"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Manter minha assinatura"
-          }
-        }
-      }
-    },
-    "O cancelamento é feito pela App Store. Este botão abre a tela do sistema.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cancellation is handled by the App Store. This button opens the system screen."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "La cancelación se realiza a través de la App Store. Este botón abre la pantalla del sistema."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "O cancelamento é feito pela App Store. Este botão abre a tela do sistema."
-          }
-        }
-      }
-    },
-    "Hora do Angelus": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Angelus Time"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Hora del Ángelus"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Hora do Angelus"
-          }
-        }
-      }
-    },
-    "Três minutos, quando você puder. “O Anjo do Senhor anunciou a Maria.”": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Three minutes, whenever you can. “The Angel of the Lord declared unto Mary.”"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tres minutos, cuando puedas. “El Ángel del Señor anunció a María.”"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Três minutos, quando você puder. “O Anjo do Senhor anunciou a Maria.”"
-          }
-        }
-      }
-    },
-    "Hora do Regina Caeli": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Regina Caeli Time"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Hora del Regina Caeli"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Hora do Regina Caeli"
-          }
-        }
-      }
-    },
-    "Tempo Pascal: “Rainha do Céu, alegrai-vos, aleluia.”": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Eastertide: “Queen of Heaven, rejoice, alleluia.”"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tiempo Pascual: “Reina del Cielo, alégrate, aleluya.”"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tempo Pascal: “Rainha do Céu, alegrai-vos, aleluia.”"
-          }
-        }
-      }
-    },
-    "Consolação": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Consolation"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Consolación"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Consolação"
-          }
-        }
-      }
-    },
-    "Desolação": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Desolation"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Desolación"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Desolação"
-          }
-        }
-      }
-    },
-    "Em paz": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "At peace"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "En paz"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Em paz"
-          }
-        }
-      }
-    },
-    "Grato": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Grateful"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Agradecido"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Grato"
-          }
-        }
-      }
-    },
-    "Esperançoso": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Hopeful"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Esperanzado"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Esperançoso"
+            "value": "Acompanhamento na sua diocese"
           }
         }
       }
@@ -1453,354 +89,24 @@
         }
       }
     },
-    "Árido na oração": {
+    "Alguém que passou por isso": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Dry in prayer"
+            "value": "Someone who went through this"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Árido en la oración"
+            "value": "Alguien que pasó por esto"
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Árido na oração"
-          }
-        }
-      }
-    },
-    "Ansioso": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Anxious"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ansioso"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ansioso"
-          }
-        }
-      }
-    },
-    "Em dúvida": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "In doubt"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Con dudas"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Em dúvida"
-          }
-        }
-      }
-    },
-    "Cansado": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tired"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cansado"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cansado"
-          }
-        }
-      }
-    },
-    "Enlutado": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Grieving"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "De luto"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Enlutado"
-          }
-        }
-      }
-    },
-    "Ressentido": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Resentful"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Resentido"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ressentido"
-          }
-        }
-      }
-    },
-    "Culpado": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Guilty"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Culpable"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Culpado"
-          }
-        }
-      }
-    },
-    "Bom dia, {name}": {
-      "localizations": {
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bom dia, {name}"
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Good morning, {name}"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Buenos días, {name}"
-          }
-        }
-      }
-    },
-    "Registrado · {date}": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Logged · {date}"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Registrado · {date}"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Registrado · {date}"
-          }
-        }
-      }
-    },
-    "Hoje você está {state}": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Today you are {state}"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Hoy estás {state}"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Hoje você está {state}"
-          }
-        }
-      }
-    },
-    "Confissão, ou apenas uma conversa. Mostramos a {parish} mais perto e os horários.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Confession, or just a conversation. We'll show you the nearest {parish} and its hours."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Confesión, o solo una conversación. Te mostramos la {parish} más cercana y sus horarios."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Confissão, ou apenas uma conversa. Mostramos a {parish} mais perto e os horários."
-          }
-        }
-      }
-    },
-    "Meio-dia · vermelho · {feast}": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Noon · red · {feast}"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mediodía · rojo · {feast}"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Meio-dia · vermelho · {feast}"
-          }
-        }
-      }
-    },
-    "Vazio": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Empty"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vacío"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vazio"
-          }
-        }
-      }
-    },
-    "Sozinho": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lonely"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Solo"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sozinho"
-          }
-        }
-      }
-    },
-    "Com raiva": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Angry"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Enojado"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Com raiva"
-          }
-        }
-      }
-    },
-    "Perdoado": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Forgiven"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Perdonado"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Perdoado"
+            "value": "Alguém que passou por isso"
           }
         }
       }
@@ -1827,6 +133,820 @@
         }
       }
     },
+    "Ansioso": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Anxious"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ansioso"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ansioso"
+          }
+        }
+      }
+    },
+    "Apoio no luto, escuta e ajuda material pela Caritas local.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Grief support, a listening ear, and material help through your local Caritas."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apoyo en el duelo, escucha y ayuda material a través de Caritas local."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apoio no luto, escuta e ajuda material pela Caritas local."
+          }
+        }
+      }
+    },
+    "Boa noite!": {
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Boa noite!"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Good evening!"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¡Buenas noches!"
+          }
+        }
+      }
+    },
+    "Boa noite, {name}": {
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Boa noite, {name}"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Good evening, {name}"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buenas noches, {name}"
+          }
+        }
+      }
+    },
+    "Boa tarde!": {
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Boa tarde!"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Good afternoon!"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¡Buenas tardes!"
+          }
+        }
+      }
+    },
+    "Boa tarde, {name}": {
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Boa tarde, {name}"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Good afternoon, {name}"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buenas tardes, {name}"
+          }
+        }
+      }
+    },
+    "Bom dia!": {
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bom dia!"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Good morning!"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¡Buenos días!"
+          }
+        }
+      }
+    },
+    "Bom dia, {name}": {
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bom dia, {name}"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Good morning, {name}"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buenos días, {name}"
+          }
+        }
+      }
+    },
+    "Cancelar a renovação": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancel renewal"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancelar la renovación"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancelar a renovação"
+          }
+        }
+      }
+    },
+    "Cancelar nos ajustes do iPhone": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancel in iPhone Settings"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancelar en los ajustes del iPhone"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancelar nos ajustes do iPhone"
+          }
+        }
+      }
+    },
+    "Cansado": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tired"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cansado"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cansado"
+          }
+        }
+      }
+    },
+    "Com raiva": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Angry"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enojado"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Com raiva"
+          }
+        }
+      }
+    },
+    "Começar o Exame": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Start the Examen"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Comenzar el Examen"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Começar o Exame"
+          }
+        }
+      }
+    },
+    "Como foi o seu dia diante de Deus?": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "How was your day before God?"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Cómo fue tu día ante Dios?"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Como foi o seu dia diante de Deus?"
+          }
+        }
+      }
+    },
+    "Completas · oração da noite": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Compline · night prayer"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Completas · oración de la noche"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Completas · oração da noite"
+          }
+        }
+      }
+    },
+    "Confissão, ou apenas uma conversa. Mostramos a {parish} mais perto e os horários.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Confession, or just a conversation. We'll show you the nearest {parish} and its hours."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Confesión, o solo una conversación. Te mostramos la {parish} más cercana y sus horarios."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Confissão, ou apenas uma conversa. Mostramos a {parish} mais perto e os horários."
+          }
+        }
+      }
+    },
+    "Consolação": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Consolation"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Consolación"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Consolação"
+          }
+        }
+      }
+    },
+    "Continua seu, para sempre": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stays yours, forever"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sigue siendo tuyo, para siempre"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Continua seu, para sempre"
+          }
+        }
+      }
+    },
+    "Continuar": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Continue"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Continuar"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Continuar"
+          }
+        }
+      }
+    },
+    "Culpado": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Guilty"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Culpable"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Culpado"
+          }
+        }
+      }
+    },
+    "Desolação": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Desolation"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Desolación"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Desolação"
+          }
+        }
+      }
+    },
+    "Em dúvida": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "In doubt"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Con dudas"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Em dúvida"
+          }
+        }
+      }
+    },
+    "Em paz": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "At peace"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "En paz"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Em paz"
+          }
+        }
+      }
+    },
+    "Encontrar um confessor fixo": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Find a regular confessor"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Encontrar un confesor habitual"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Encontrar um confessor fixo"
+          }
+        }
+      }
+    },
+    "Enlutado": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Grieving"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "De luto"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enlutado"
+          }
+        }
+      }
+    },
+    "Enquanto isso: uma vez confessado, está confessado. Não vamos devolver mais garantias sobre este ponto — e isso é cuidado, não abandono.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "In the meantime: once confessed, it's confessed. We won't offer more reassurance on this point — and that's care, not abandonment."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mientras tanto: una vez confesado, está confesado. No vamos a dar más garantías sobre este punto — y eso es cuidado, no abandono."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enquanto isso: uma vez confessado, está confessado. Não vamos devolver mais garantias sobre este ponto — e isso é cuidado, não abandono."
+          }
+        }
+      }
+    },
+    "Entendi, fechar": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Got it, close"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Entendido, cerrar"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Entendi, fechar"
+          }
+        }
+      }
+    },
+    "Esperançoso": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hopeful"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esperanzado"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esperançoso"
+          }
+        }
+      }
+    },
+    "Esta pergunta não é para um app": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This question isn't for an app"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esta pregunta no es para una app"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esta pergunta não é para um app"
+          }
+        }
+      }
+    },
+    "Este app oferece formação e oração. Não é terapia nem atendimento clínico, e não finge ser.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This app offers formation and prayer. It is not therapy or clinical care, and it doesn't pretend to be."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esta app ofrece formación y oración. No es terapia ni atención clínica, y no finge serlo."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Este app oferece formação e oração. Não é terapia nem atendimento clínico, e não finge ser."
+          }
+        }
+      }
+    },
+    "Este registro entra no seu calendário. Ninguém além de você o vê — ele não sai deste aparelho.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This entry goes into your calendar. No one but you sees it — it never leaves this device."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Este registro entra en tu calendario. Nadie más que tú lo ve — nunca sale de este dispositivo."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Este registro entra no seu calendário. Ninguém além de você o vê — ele não sai deste aparelho."
+          }
+        }
+      }
+    },
+    "Exame do dia e Completas": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Daily Examen and Compline"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Examen del día y Completas"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Exame do dia e Completas"
+          }
+        }
+      }
+    },
+    "Falar com um padre": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Talk to a priest"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hablar con un sacerdote"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Falar com um padre"
+          }
+        }
+      }
+    },
+    "Faz algumas semanas que os dias têm vindo pesados": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The days have been heavy for a few weeks now"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hace algunas semanas que los días han estado pesados"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Faz algumas semanas que os dias têm vindo pesados"
+          }
+        }
+      }
+    },
+    "Fica em pausa": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Goes on pause"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Queda en pausa"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fica em pausa"
+          }
+        }
+      }
+    },
+    "Fica só neste aparelho. Ninguém além de você vê isto.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stays only on this device. No one but you sees this."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se queda solo en este dispositivo. Nadie más que tú lo ve."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fica só neste aparelho. Ninguém além de você vê isto."
+          }
+        }
+      }
+    },
+    "Ficar em silêncio até 12h03": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stay quiet until 12:03 PM"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quedarse en silencio hasta las 12:03"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ficar em silêncio até 12h03"
+          }
+        }
+      }
+    },
     "Firme": {
       "localizations": {
         "en": {
@@ -1845,6 +965,314 @@
           "stringUnit": {
             "state": "translated",
             "value": "Firme"
+          }
+        }
+      }
+    },
+    "Grato": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Grateful"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Agradecido"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Grato"
+          }
+        }
+      }
+    },
+    "Hoje eu estou…": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Today I am…"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hoy estoy…"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hoje eu estou…"
+          }
+        }
+      }
+    },
+    "Hoje você está {state}": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Today you are {state}"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hoy estás {state}"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hoje você está {state}"
+          }
+        }
+      }
+    },
+    "Hora do Angelus": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Angelus Time"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hora del Ángelus"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hora do Angelus"
+          }
+        }
+      }
+    },
+    "Hora do Regina Caeli": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Regina Caeli Time"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hora del Regina Caeli"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hora do Regina Caeli"
+          }
+        }
+      }
+    },
+    "Ir direto às Completas": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Go straight to Compline"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ir directo a Completas"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ir direto às Completas"
+          }
+        }
+      }
+    },
+    "Manter minha assinatura": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Keep my subscription"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mantener mi suscripción"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Manter minha assinatura"
+          }
+        }
+      }
+    },
+    "Meio-dia · vermelho · {feast}": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Noon · red · {feast}"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mediodía · rojo · {feast}"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Meio-dia · vermelho · {feast}"
+          }
+        }
+      }
+    },
+    "Nada escrito neste passo.": {
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nada escrito neste passo."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nothing written in this step."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nada escrito en este paso."
+          }
+        }
+      }
+    },
+    "Não é um diagnóstico e não é uma conta a pagar. É só que mais um Salmo talvez não seja o que você precisa agora, e há gente para isso.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This isn't a diagnosis and it isn't a bill to pay. It's just that another Psalm might not be what you need right now, and there are people for that."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esto no es un diagnóstico ni una cuenta por pagar. Es solo que otro Salmo tal vez no sea lo que necesitas ahora, y hay gente para eso."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Não é um diagnóstico e não é uma conta a pagar. É só que mais um Salmo talvez não seja o que você precisa agora, e há gente para isso."
+          }
+        }
+      }
+    },
+    "O Exame": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The Examen"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El Examen"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O Exame"
+          }
+        }
+      }
+    },
+    "O cancelamento é feito pela App Store. Este botão abre a tela do sistema.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancellation is handled by the App Store. This button opens the system screen."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La cancelación se realiza a través de la App Store. Este botón abre la pantalla del sistema."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O cancelamento é feito pela App Store. Este botão abre a tela do sistema."
+          }
+        }
+      }
+    },
+    "O que acontece": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "What happens"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Qué sucede"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O que acontece"
+          }
+        }
+      }
+    },
+    "O que aconteceu? (opcional, uma linha)": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "What happened? (optional, one line)"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Qué pasó? (opcional, una línea)"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O que aconteceu? (opcional, uma linha)"
           }
         }
       }
@@ -1893,46 +1321,112 @@
         }
       }
     },
-    "Fica só neste aparelho. Ninguém além de você vê isto.": {
+    "PASSO {n} DE {total}": {
       "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PASSO {n} DE {total}"
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Stays only on this device. No one but you sees this."
+            "value": "STEP {n} OF {total}"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Se queda solo en este dispositivo. Nadie más que tú lo ve."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Fica só neste aparelho. Ninguém além de você vê isto."
+            "value": "PASO {n} DE {total}"
           }
         }
       }
     },
-    "Continuar": {
+    "Palavra de hoje": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Continue"
+            "value": "Word of the day"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Continuar"
+            "value": "Palabra de hoy"
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Continuar"
+            "value": "Palavra de hoje"
+          }
+        }
+      }
+    },
+    "Paróquias perto de você com horário regular de confissão e direção espiritual.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Parishes near you with regular confession hours and spiritual direction."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Parroquias cerca de ti con horario regular de confesión y dirección espiritual."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Paróquias perto de você com horário regular de confissão e direção espiritual."
+          }
+        }
+      }
+    },
+    "Perdoado": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Forgiven"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Perdonado"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Perdoado"
+          }
+        }
+      }
+    },
+    "Precisa de mais do que isto? Padre, diocese, ou uma crise": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Need more than this? Priest, diocese, or a crisis"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Necesitas más que esto? Sacerdote, diócesis, o una crisis"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Precisa de mais do que isto? Padre, diocese, ou uma crise"
           }
         }
       }
@@ -1959,112 +1453,112 @@
         }
       }
     },
-    "Bom dia!": {
+    "Registrado · {date}": {
       "localizations": {
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bom dia!"
-          }
-        },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Good morning!"
+            "value": "Logged · {date}"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "¡Buenos días!"
+            "value": "Registrado · {date}"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Registrado · {date}"
           }
         }
       }
     },
-    "Boa tarde, {name}": {
+    "Repetir a mesma dúvida de consciência até vir a resposta certa alimenta o escrúpulo em vez de aliviá-lo. A tradição é clara: isso se resolve com um confessor fixo, alguém que conheça sua história e possa dizer quando parar.": {
       "localizations": {
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Boa tarde, {name}"
-          }
-        },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Good afternoon, {name}"
+            "value": "Repeating the same doubt of conscience until the right answer comes feeds scrupulosity instead of relieving it. Tradition is clear: this is resolved with a regular confessor, someone who knows your history and can tell you when to stop."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Buenas tardes, {name}"
+            "value": "Repetir la misma duda de conciencia hasta que llegue la respuesta correcta alimenta el escrúpulo en lugar de aliviarlo. La tradición es clara: esto se resuelve con un confesor habitual, alguien que conozca tu historia y pueda decirte cuándo parar."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Repetir a mesma dúvida de consciência até vir a resposta certa alimenta o escrúpulo em vez de aliviá-lo. A tradição é clara: isso se resolve com um confessor fixo, alguém que conheça sua história e possa dizer quando parar."
           }
         }
       }
     },
-    "Boa tarde!": {
+    "Ressentido": {
       "localizations": {
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Boa tarde!"
-          }
-        },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Good afternoon!"
+            "value": "Resentful"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "¡Buenas tardes!"
+            "value": "Resentido"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ressentido"
           }
         }
       }
     },
-    "Boa noite, {name}": {
+    "Rever o dia, reconhecer onde houve consolação e onde houve desolação, e responder. É a prática inaciana, em quatro toques.": {
       "localizations": {
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Boa noite, {name}"
-          }
-        },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Good evening, {name}"
+            "value": "Review the day, recognize where there was consolation and where there was desolation, and respond. It's the Ignatian practice, in four taps."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Buenas noches, {name}"
+            "value": "Repasar el día, reconocer dónde hubo consolación y dónde hubo desolación, y responder. Es la práctica ignaciana, en cuatro toques."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rever o dia, reconhecer onde houve consolação e onde houve desolação, e responder. É a prática inaciana, em quatro toques."
           }
         }
       }
     },
-    "Boa noite!": {
+    "Rezar o Angelus": {
       "localizations": {
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Boa noite!"
-          }
-        },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Good evening!"
+            "value": "Pray the Angelus"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "¡Buenas noches!"
+            "value": "Rezar el Ángelus"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rezar o Angelus"
           }
         }
       }
@@ -2091,6 +1585,160 @@
         }
       }
     },
+    "Santo do dia": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Saint of the day"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Santo del día"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Santo do dia"
+          }
+        }
+      }
+    },
+    "Se for crise · Estados Unidos": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "If it's a crisis · United States"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Si es una crisis · Estados Unidos"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se for crise · Estados Unidos"
+          }
+        }
+      }
+    },
+    "Se isso for sobre um pecado específico, um confessor fixo resolve melhor do que reler isto de novo.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "If this is about a specific sin, a regular confessor handles it better than reading this again."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Si se trata de un pecado específico, un confesor habitual lo resuelve mejor que volver a leer esto."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se isso for sobre um pecado específico, um confessor fixo resolve melhor do que reler isto de novo."
+          }
+        }
+      }
+    },
+    "Se o motivo for dinheiro, não cancele: escreva e liberamos o acesso completo, sem comprovação e sem prazo.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "If money is the reason, don't cancel: write to us and we'll unlock full access, no proof and no deadline."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Si el motivo es el dinero, no canceles: escríbenos y liberamos el acceso completo, sin comprobantes y sin plazo."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se o motivo for dinheiro, não cancele: escreva e liberamos o acesso completo, sem comprovação e sem prazo."
+          }
+        }
+      }
+    },
+    "Sem perguntas de saída e sem oferta de desconto. Só o que muda e o que não muda.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No exit questions and no discount offer. Just what changes and what doesn't."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sin preguntas de salida y sin oferta de descuento. Solo lo que cambia y lo que no cambia."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sem perguntas de saída e sem oferta de desconto. Só o que muda e o que não muda."
+          }
+        }
+      }
+    },
+    "Sozinho": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lonely"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Solo"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sozinho"
+          }
+        }
+      }
+    },
+    "Suicide & Crisis Lifeline. Ligação ou mensagem, a qualquer hora.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Suicide & Crisis Lifeline. Call or text, any time."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Suicide & Crisis Lifeline. Llama o envía un mensaje, a cualquier hora."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Suicide & Crisis Lifeline. Ligação ou mensagem, a qualquer hora."
+          }
+        }
+      }
+    },
     "TRILHA CONCLUÍDA": {
       "localizations": {
         "pt": {
@@ -2109,6 +1757,402 @@
           "stringUnit": {
             "state": "translated",
             "value": "RECORRIDO COMPLETADO"
+          }
+        }
+      }
+    },
+    "Tela escura": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dark screen"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pantalla oscura"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tela escura"
+          }
+        }
+      }
+    },
+    "Tempo Pascal: “Rainha do Céu, alegrai-vos, aleluia.”": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Eastertide: “Queen of Heaven, rejoice, alleluia.”"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tiempo Pascual: “Reina del Cielo, alégrate, aleluya.”"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tempo Pascal: “Rainha do Céu, alegrai-vos, aleluia.”"
+          }
+        }
+      }
+    },
+    "Terminar e apagar a tela": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Finish and dim the screen"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Terminar y apagar la pantalla"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Terminar e apagar a tela"
+          }
+        }
+      }
+    },
+    "Terço de hoje": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Today's Rosary"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rosario de hoy"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Terço de hoje"
+          }
+        }
+      }
+    },
+    "Texto completo, offline. Rolagem lenta e nenhuma notificação enquanto esta tela está aberta.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Full text, offline. Slow scroll and no notifications while this screen is open."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Texto completo, sin conexión. Desplazamiento lento y sin notificaciones mientras esta pantalla está abierta."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Texto completo, offline. Rolagem lenta e nenhuma notificação enquanto esta tela está aberta."
+          }
+        }
+      }
+    },
+    "Toque para registrar": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tap to log it"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toca para registrar"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toque para registrar"
+          }
+        }
+      }
+    },
+    "Três minutos, quando você puder. “O Anjo do Senhor anunciou a Maria.”": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Three minutes, whenever you can. “The Angel of the Lord declared unto Mary.”"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tres minutos, cuando puedas. “El Ángel del Señor anunció a María.”"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Três minutos, quando você puder. “O Anjo do Senhor anunciou a Maria.”"
+          }
+        }
+      }
+    },
+    "Um passo concreto": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "One concrete step"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Un paso concreto"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Um passo concreto"
+          }
+        }
+      }
+    },
+    "Um toque. Fica no aparelho, e pode ficar em branco.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "One tap. It stays on this device, and it's fine to leave blank."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Un toque. Queda en el dispositivo, y puede quedar en blanco."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Um toque. Fica no aparelho, e pode ficar em branco."
+          }
+        }
+      }
+    },
+    "Uma nota, sem alarme": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A note, no alarm"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Una nota, sin alarma"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uma nota, sem alarme"
+          }
+        }
+      }
+    },
+    "Vazio": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Empty"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vacío"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vazio"
+          }
+        }
+      }
+    },
+    "Ver paróquias": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "See parishes"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ver parroquias"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ver paróquias"
+          }
+        }
+      }
+    },
+    "Você já trouxe isso três vezes": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You've brought this up three times now"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ya has traído esto tres veces"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Você já trouxe isso três vezes"
+          }
+        }
+      }
+    },
+    "Você separou esta janela antes, quando estava tranquilo. Ela dura três minutos e termina sozinha.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You set this window aside earlier, when you were at peace. It lasts three minutes and ends on its own."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reservaste esta ventana antes, cuando estabas tranquilo. Dura tres minutos y termina sola."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Você separou esta janela antes, quando estava tranquilo. Ela dura três minutos e termina sozinha."
+          }
+        }
+      }
+    },
+    "À NOITE, ÀS {time}": {
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "À NOITE, ÀS {time}"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "TONIGHT, AT {time}"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "POR LA NOCHE, A LAS {time}"
+          }
+        }
+      }
+    },
+    "Árido na oração": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dry in prayer"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Árido en la oración"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Árido na oração"
+          }
+        }
+      }
+    },
+    "É a hora do Angelus": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "It's time for the Angelus"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Es la hora del Ángelus"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "É a hora do Angelus"
+          }
+        }
+      }
+    },
+    "‹ Voltar": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "‹ Back"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "‹ Volver"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "‹ Voltar"
           }
         }
       }

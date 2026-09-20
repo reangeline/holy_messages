@@ -33,5 +33,5 @@ extension RosaryHistoryEntry {
             .replacingOccurrences(of: "{intention}", with: intention)
     }
 
-    var dateLabel: String { date.relativeLabel(format: "EEEE") }
+    var dateLabel: String { date.relativeLabel(template: "EEEE") }
 }

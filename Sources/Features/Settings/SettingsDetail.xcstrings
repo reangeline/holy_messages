@@ -199,28 +199,6 @@
         }
       }
     },
-    "At the Church's hours. Each one can be turned off.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "At the Church's hours. Each one can be turned off."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "En los horarios de la Iglesia. Cada uno se puede desactivar."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nos horários da Igreja. Cada um pode ficar desligado."
-          }
-        }
-      }
-    },
     "Ativa": {
       "localizations": {
         "pt": {
@@ -283,28 +261,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Licenças em bloco para grupos, catecúmenos de OCIA e pastorais, também gratuitas. Fale com a gente."
-          }
-        }
-      }
-    },
-    "By name, so you can verify.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "By name, so you can verify."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Con nombre, para que puedas verificar."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Com nome, para você poder verificar."
           }
         }
       }
@@ -393,28 +349,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Cuenta"
-          }
-        }
-      }
-    },
-    "Daily reading": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Daily reading"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lectura diaria"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Leitura diária"
           }
         }
       }
@@ -815,28 +749,6 @@
         }
       }
     },
-    "How the content is made": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "How the content is made"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cómo se hace el contenido"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Como o conteúdo é feito"
-          }
-        }
-      }
-    },
     "Idioma": {
       "localizations": {
         "pt": {
@@ -1189,28 +1101,6 @@
         }
       }
     },
-    "One notification a day, in your device's time zone. No nagging if you don't open it.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "One notification a day, in your device's time zone. No nagging if you don't open it."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Una notificación al día, en la zona horaria de tu dispositivo. Sin insistencia si no la abres."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Uma notificação por dia, no fuso do aparelho. Nada de insistência se você não abrir."
-          }
-        }
-      }
-    },
     "Parishes and catechesis": {
       "localizations": {
         "en": {
@@ -1427,28 +1317,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "SIEMPRE AQUÍ"
-          }
-        }
-      }
-    },
-    "Schedules and reminders": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Schedules and reminders"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Horarios y recordatorios"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Horários e lembretes"
           }
         }
       }
@@ -1827,50 +1695,6 @@
         }
       }
     },
-    "The explanatory texts are original and go through review before publishing. Liturgical quotes appear as support, with the source. Found a doctrinal error? Write to us — we correct it and log the correction.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "The explanatory texts are original and go through review before publishing. Liturgical quotes appear as support, with the source. Found a doctrinal error? Write to us — we correct it and log the correction."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Los textos explicativos son de autoría propia y pasan por revisión antes de publicarse. Las citas litúrgicas aparecen como apoyo, con la fuente. ¿Encontraste un error doctrinal? Escríbenos — lo corregimos y registramos la corrección."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Os textos explicativos são autorais e passam por revisão antes de publicar. Citações litúrgicas aparecem como apoio, com a fonte. Encontrou um erro doutrinal? Escreva — corrigimos e registramos a correção."
-          }
-        }
-      }
-    },
-    "The liturgical translations used in this app are licensed with the corresponding episcopal conference. The biblical ones are public domain, with the version noted on each text.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "The liturgical translations used in this app are licensed with the corresponding episcopal conference. The biblical ones are public domain, with the version noted on each text."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Las traducciones litúrgicas usadas en esta app están licenciadas junto a la conferencia episcopal correspondiente. Las bíblicas son de dominio público, con la versión indicada en cada texto."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "As traduções litúrgicas usadas neste app estão licenciadas junto à conferência episcopal correspondente. As bíblicas são de domínio público, com a versão indicada em cada texto."
-          }
-        }
-      }
-    },
     "The pastoral referral network": {
       "localizations": {
         "en": {
@@ -1933,28 +1757,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "A assinatura renova sozinha até ser cancelada. O cancelamento acontece nos ajustes da conta da App Store, ao menos 24 horas antes do fim do período."
-          }
-        }
-      }
-    },
-    "The word and saint of the day": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "The word and saint of the day"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "La palabra y el santo del día"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "A palavra e o santo do dia"
           }
         }
       }
@@ -2153,28 +1955,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "O que está incluído"
-          }
-        }
-      }
-    },
-    "Who reviewed the content": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Who reviewed the content"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Quién revisó el contenido"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Quem revisou o conteúdo"
           }
         }
       }

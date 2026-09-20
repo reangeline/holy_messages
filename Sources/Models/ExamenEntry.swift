@@ -20,5 +20,5 @@ struct ExamenEntry: Identifiable, Codable {
 }
 
 extension ExamenEntry {
-    var dateLabel: String { date.relativeLabel(format: "EEEE, d 'de' MMMM") }
+    var dateLabel: String { date.relativeLabel(template: "EEEEdMMMM") }
 }

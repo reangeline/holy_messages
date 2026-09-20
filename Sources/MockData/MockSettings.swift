@@ -32,12 +32,6 @@ enum MockSettings {
     ]
     static let selectedDailyReadingHourID = "7"
 
-    static let reminders: [PrayerItem] = [
-        .init(id: "angelus", title: "Angelus", subtitle: "Meio-dia e 18h, no fuso do aparelho", timeLabel: "12h · 18h", reminderEnabled: true),
-        .init(id: "mercy", title: "Divina Misericórdia", subtitle: "Coroazinha, na Hora da Misericórdia", timeLabel: "15h", reminderEnabled: true),
-        .init(id: "examen", title: "Exame e Completas", subtitle: "Revisão do dia diante de Deus", timeLabel: "21h30", reminderEnabled: true),
-        .init(id: "rosary", title: "Terço", subtitle: "Lembrete opcional, sem cobrança se pular", timeLabel: "Sem lembrete", reminderEnabled: false),
-    ]
 
     static let quietHoursNote = "Durante a Missa de domingo e entre 22h e 6h, nada é enviado. Não há como este app te interromper na Missa."
 
@@ -79,11 +73,6 @@ enum MockSettings {
     static let dataDeleteNote = "Apaga o calendário, os registros, as anotações e o progresso deste aparelho. É imediato e não tem volta — exporte antes, se quiser guardar."
     static let dataPrivacyNote = "Não vendemos dados, não há rastreadores de terceiros e não há anúncios. A analítica é anônima e pode ser desligada abaixo."
 
-    static let reviewers: [ContentReviewer] = [
-        .init(id: "1", name: "Pe. Daniel Vasconcelos", role: "Revisão teológica", bio: "Pároco, revisa as trilhas de formação e o conteúdo litúrgico antes de publicar."),
-        .init(id: "2", name: "Irmã Clara Times", role: "Revisão pastoral", bio: "Revisa o tom das telas de acompanhamento espiritual e da rede de encaminhamento."),
-        .init(id: "3", name: "Marcos Villela", role: "Curadoria bíblica", bio: "Confere referências e traduções bíblicas usadas na palavra do dia."),
-    ]
 
     static let contentProcessNote = "Os textos explicativos são autorais e passam por revisão antes de publicar. Citações litúrgicas aparecem como apoio, com a fonte. Encontrou um erro doutrinal? Escreva — corrigimos e registramos a correção."
     static let errorsEmail = "erros@missale.app"
