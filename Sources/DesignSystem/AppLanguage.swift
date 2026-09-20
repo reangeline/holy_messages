@@ -1,10 +1,9 @@
 import Foundation
 import SwiftUI
 
-/// The 3 languages this pass supports for interface chrome. Religious content
-/// (prayers, psalms, saint bios, formation lessons, FAQ answers) stays in
-/// Portuguese for now regardless of the selected interface language — that's a
-/// separate, larger translation effort tracked apart from this.
+/// The three languages supported by the interface. Content collections declare
+/// their own coverage through `LocalizedCatalog`; a collection must never
+/// manufacture a translation at render time.
 enum AppLanguage: String, CaseIterable, Identifiable {
     case en, pt, es
 

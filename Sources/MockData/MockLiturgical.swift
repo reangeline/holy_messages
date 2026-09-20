@@ -33,7 +33,7 @@ enum MockLiturgical {
     /// One catalog per language — see LocalizedCatalog.
     static var today: LiturgicalDay { todayCatalog.current }
 
-    static let todayCatalog = LocalizedCatalog(pt: ptToday)
+    static let todayCatalog = LocalizedCatalog(pt: ptToday, en: enToday, es: esToday)
 
     private static let ptToday = LiturgicalDay(
         dateKey: "2026-09-14",
@@ -44,9 +44,31 @@ enum MockLiturgical {
         explanation: "Vermelho é a cor do sangue e do fogo: mártires, Pentecostes e a Cruz. Hoje a Igreja exalta a Cruz, então as vestes são vermelhas — e este app também."
     )
 
+    // The celebration titles are the proper names used by each language's
+    // Roman-calendar tradition. The explanatory sentences are separate
+    // editorial copy, written for their own catalog rather than translated at
+    // render time.
+    private static let enToday = LiturgicalDay(
+        dateKey: "2026-09-14",
+        seasonName: "Ordinary Time · 23rd week",
+        feastName: "Exaltation of the Holy Cross",
+        rank: .feast,
+        color: .red,
+        explanation: "Red is the color of blood and fire: martyrs, Pentecost, and the Cross. Today the Church celebrates the Exaltation of the Holy Cross, so red is used in the liturgy."
+    )
+
+    private static let esToday = LiturgicalDay(
+        dateKey: "2026-09-14",
+        seasonName: "Tiempo Ordinario · semana 23",
+        feastName: "Exaltación de la Santa Cruz",
+        rank: .feast,
+        color: .red,
+        explanation: "El rojo es el color de la sangre y del fuego: mártires, Pentecostés y la Cruz. Hoy la Iglesia celebra la Exaltación de la Santa Cruz, por eso la liturgia usa el rojo."
+    )
+
     static var tomorrow: LiturgicalDay { tomorrowCatalog.current }
 
-    static let tomorrowCatalog = LocalizedCatalog(pt: ptTomorrow)
+    static let tomorrowCatalog = LocalizedCatalog(pt: ptTomorrow, en: enTomorrow, es: esTomorrow)
 
     private static let ptTomorrow = LiturgicalDay(
         dateKey: "2026-09-15",
@@ -57,9 +79,31 @@ enum MockLiturgical {
         explanation: "Amanhã, Nossa Senhora das Dores, é memória — e a tela fica branca."
     )
 
+    private static let enTomorrow = LiturgicalDay(
+        dateKey: "2026-09-15",
+        seasonName: "Ordinary Time · 23rd week",
+        feastName: "Our Lady of Sorrows",
+        rank: .memorial,
+        color: .white,
+        explanation: "Tomorrow is the Memorial of Our Lady of Sorrows, celebrated with white vestments."
+    )
+
+    private static let esTomorrow = LiturgicalDay(
+        dateKey: "2026-09-15",
+        seasonName: "Tiempo Ordinario · semana 23",
+        feastName: "Nuestra Señora de los Dolores",
+        rank: .memorial,
+        color: .white,
+        explanation: "Mañana se celebra la memoria de Nuestra Señora de los Dolores con vestiduras blancas."
+    )
+
     static var ranksExplainer: String { ranksExplainerCatalog.current }
 
-    static let ranksExplainerCatalog = LocalizedCatalog(pt: ptRanksExplainer)
+    static let ranksExplainerCatalog = LocalizedCatalog(
+        pt: ptRanksExplainer,
+        en: "Memorial, feast, solemnity. Today is a feast: the Gloria is sung, but not the Creed. Tomorrow, Our Lady of Sorrows is a memorial, so the screen is white.",
+        es: "Memoria, fiesta, solemnidad. Hoy es fiesta: se canta el Gloria, pero no el Credo. Mañana, Nuestra Señora de los Dolores es memoria, por eso la pantalla es blanca."
+    )
 
     private static let ptRanksExplainer = "Memória, festa, solenidade. Hoje é festa: entra o Glória, não entra o Credo. Amanhã, Nossa Senhora das Dores, é memória — e a tela fica branca."
 
