@@ -89,24 +89,46 @@
         }
       }
     },
-    "Based on what you logged: dryness in prayer.": {
+    "Based on your latest check-in": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Based on what you logged: dryness in prayer."
+            "value": "Based on your latest check-in"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "A partir de lo que registraste: aridez en la oración."
+            "value": "Según tu último registro"
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "A partir do que você registrou: aridez na oração."
+            "value": "Com base no seu último registro"
+          }
+        }
+      }
+    },
+    "No check-in has been recorded yet.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No check-in has been recorded yet."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Todavía no has registrado cómo estás."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Você ainda não registrou como está."
           }
         }
       }

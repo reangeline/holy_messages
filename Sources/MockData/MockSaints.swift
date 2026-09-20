@@ -116,12 +116,17 @@ enum MockSaints {
             .joined()
     }
 
-    static let saintsForYou: [SaintRecommendation] = [
-        .init(id: "john-of-the-cross", name: "São João da Cruz", reason: "Escreveu sobre a \"noite escura\" — a oração que não sente nada e continua mesmo assim."),
-        .init(id: "teresa-calcutta", name: "Santa Teresa de Calcutá", reason: "Viveu décadas de aridez na oração enquanto servia, e não escondeu isso depois de morta."),
-        .init(id: "therese", name: "Santa Teresinha do Menino Jesus", reason: "Descreveu a fé como um túnel escuro, mesmo nos últimos meses de vida."),
-        .init(id: "cure-ars", name: "São João Maria Vianney", reason: "Padre que passava horas em confissionário sem sinal algum de consolação sensível."),
-    ]
+    /// Recommendations come from the pastoral responses attached to a state.
+    /// Archive resolution removes every name that still lacks a real record and
+    /// returns the record in the language currently selected by the person.
+    static func saintsForYou(stateID: String, limit: Int = 3) -> [Saint] {
+        let candidates = MockMood.saintNames(for: stateID)
+        var seen = Set<String>()
+        return candidates.compactMap(saint(referencedBy:))
+            .filter { seen.insert($0.id).inserted }
+            .prefix(limit)
+            .map { $0 }
+    }
 
     /// The archive is the sanctoral itself, ordered by date — it used to be a
     /// separate hand-typed list of six names, where only one row could be opened

@@ -16,13 +16,6 @@ struct Saint: Identifiable, Codable, Hashable {
     var artworkName: String? = nil
 }
 
-/// A curated recommendation of saints tied to whatever mood/state the user logged.
-struct SaintRecommendation: Identifiable, Codable, Hashable {
-    let id: String
-    let name: String
-    let reason: String
-}
-
 /// The sanctoral cycle differs by calendar region: the General Roman Calendar plus
 /// national/regional propers on top of it (a date can carry a different saint, or an
 /// additional one, in the US vs. Poland vs. Portugal). `.general` is the only region

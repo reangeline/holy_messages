@@ -997,4 +997,12 @@ enum MockMood {
     static func group(forStateID id: String) -> String? {
         stateGroups.first { $0.items.contains { $0.id == id } }?.id
     }
+
+    static func stateLabel(for stateID: String) -> String? {
+        stateGroups.lazy.flatMap(\.items).first { $0.id == stateID }?.label
+    }
+
+    static func saintNames(for stateID: String) -> [String] {
+        (ptReliefByState[stateID] ?? []).map(\.saintName)
+    }
 }
