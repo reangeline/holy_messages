@@ -49,6 +49,26 @@ struct CalendarRootView: View {
                             }
                         }
                         legend
+                        NavigationLink {
+                            MarianApparitionsView()
+                        } label: {
+                            GlassCard {
+                                HStack {
+                                    VStack(alignment: .leading, spacing: 3) {
+                                        Text("Marian apparitions", tableName: "CalendarSaints")
+                                            .font(MissaleFont.body(17, weight: .medium))
+                                            .foregroundStyle(Palette.ink)
+                                        Text("Places of Marian devotion", tableName: "CalendarSaints")
+                                            .font(MissaleFont.body(14))
+                                            .foregroundStyle(Palette.ink.opacity(0.65))
+                                    }
+                                    Spacer()
+                                    Image(systemName: "chevron.right")
+                                        .foregroundStyle(Palette.wine)
+                                }
+                            }
+                        }
+                        .buttonStyle(.plain)
                     }
                     .padding(.horizontal, 20)
                     .padding(.top, 12)

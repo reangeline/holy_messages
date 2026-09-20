@@ -1277,6 +1277,69 @@
         }
       }
     },
+    "A small archive sourced from the shrines themselves.": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "A small archive sourced from the shrines themselves." } },
+        "pt": { "stringUnit": { "state": "translated", "value": "Um pequeno acervo com fontes dos próprios santuários." } },
+        "es": { "stringUnit": { "state": "translated", "value": "Un pequeño acervo con fuentes de los propios santuarios." } }
+      }
+    },
+    "Ecclesial reception": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Ecclesial reception" } },
+        "pt": { "stringUnit": { "state": "translated", "value": "Recepção eclesial" } },
+        "es": { "stringUnit": { "state": "translated", "value": "Recepción eclesial" } }
+      }
+    },
+    "Marian apparitions": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Marian apparitions" } },
+        "pt": { "stringUnit": { "state": "translated", "value": "Aparições marianas" } },
+        "es": { "stringUnit": { "state": "translated", "value": "Apariciones marianas" } }
+      }
+    },
+    "Open source": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Open source" } },
+        "pt": { "stringUnit": { "state": "translated", "value": "Abrir fonte" } },
+        "es": { "stringUnit": { "state": "translated", "value": "Abrir fuente" } }
+      }
+    },
+    "Place": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Place" } },
+        "pt": { "stringUnit": { "state": "translated", "value": "Local" } },
+        "es": { "stringUnit": { "state": "translated", "value": "Lugar" } }
+      }
+    },
+    "Places of Marian devotion": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Places of Marian devotion" } },
+        "pt": { "stringUnit": { "state": "translated", "value": "Lugares de devoção mariana" } },
+        "es": { "stringUnit": { "state": "translated", "value": "Lugares de devoción mariana" } }
+      }
+    },
+    "Sources": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Sources" } },
+        "pt": { "stringUnit": { "state": "translated", "value": "Fontes" } },
+        "es": { "stringUnit": { "state": "translated", "value": "Fuentes" } }
+      }
+    },
+    "What the shrine records": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "What the shrine records" } },
+        "pt": { "stringUnit": { "state": "translated", "value": "O que o santuário registra" } },
+        "es": { "stringUnit": { "state": "translated", "value": "Lo que registra el santuario" } }
+      }
+    },
+    "Witnesses": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Witnesses" } },
+        "pt": { "stringUnit": { "state": "translated", "value": "Videntes e testemunhas" } },
+        "es": { "stringUnit": { "state": "translated", "value": "Videntes y testigos" } }
+      }
+    },
     "you are here": {
       "localizations": {
         "en": {
