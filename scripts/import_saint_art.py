@@ -87,9 +87,12 @@ def write_imageset(saint_id, src):
 
 def load_fichas(lang):
     recs = {}
-    for f in glob.glob(str(PESQUISA / f"entregas/santos-*/saint_additions.{lang}.json")):
+    for f in sorted(glob.glob(str(PESQUISA / f"entregas/santos-*/saint_additions.{lang}.json"))):
         for o in json.load(open(f)):
-            recs.setdefault(o["id"], o)
+            # Um lote revisado declara `richDetail`; ele substitui a sinopse inicial.
+            # Lotes históricos continuam usando a primeira ocorrência estável.
+            if o.get("richDetail") or o["id"] not in recs:
+                recs[o["id"]] = o
     return recs
 
 def main():
@@ -107,11 +110,9 @@ def main():
     out = ['''// GERADO — não editar à mão.
 // Origem: ~/Documents/Missale-pesquisa, importado por scripts/import_saint_art.py.
 //
-// Fichas de santo com a arte em domínio público do lote de pesquisa. Cada ficha
-// traz só o primeiro parágrafo entregue: os outros dois são boilerplate sobre a
-// própria ficha. `whyItMattersToday` e `prayer` ficam vazios de propósito — o
-// lote repetia a biografia no primeiro e entregava o segundo em branco, e a tela
-// esconde as seções vazias em vez de mostrar moldura sem conteúdo.
+// Fichas de santo com a arte em domínio público do lote de pesquisa. Lotes ricos
+// preservam todos os parágrafos factuais, sua relevância atual e oração publicada.
+// Boilerplate editorial dos lotes antigos continua sendo removido.
 
 import Foundation
 
@@ -126,7 +127,16 @@ extension MockSaints {
         for saint_id in sorted(fichas):
             o = fichas[saint_id]
             paras = [p for p in o.get("bioParagraphs", []) if not BOILERPLATE.search(p)]
-            bio = paras[:1] or [o.get("identity", "")]
+            if o.get("richDetail"):
+                bio = paras or [o.get("identity", "")]
+                why = o.get("whyItMattersToday", "")
+                prayer = o.get("prayer", "")
+            else:
+                # Os lotes antigos copiavam a sinopse no campo de relevância e
+                # deixavam a oração vazia. Isso não vira conteúdo rico por acaso.
+                bio = paras[:1] or [o.get("identity", "")]
+                why = ""
+                prayer = ""
             rank = o.get("rank") if o.get("rank") in RANKS_PT else "Memória"
             identity = o.get("identity", "")
             if lang == "en" and MIXED_PT_IN_EN.search(identity):
@@ -141,8 +151,8 @@ extension MockSaints {
                        f'            rank: {sw(rank)},\n'
                        f'            calendarNote: {sw(o.get("calendarNote", ""))},\n'
                        f'            bioParagraphs: [{", ".join(sw(p) for p in bio)}],\n'
-                       '            whyItMattersToday: "",\n'
-                       '            prayer: "",\n'
+                       f'            whyItMattersToday: {sw(why)},\n'
+                       f'            prayer: {sw(prayer)},\n'
                        f'            artworkName: {artwork}\n'
                        "        ),\n")
             if o.get("dateKey"):
