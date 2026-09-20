@@ -113,7 +113,11 @@ enum MockLiturgical {
 
     static var glossaryTerms: [GlossaryTerm] { glossaryCatalog.current }
 
-    static let glossaryCatalog = LocalizedCatalog(pt: ptGlossaryTerms)
+    static let glossaryCatalog = LocalizedCatalog(
+        pt: ptGlossaryTerms,
+        en: enGlossaryTerms,
+        es: esGlossaryTerms
+    )
 
     private static let ptGlossaryTerms: [GlossaryTerm] = [
         .init(term: "mea culpa", definition: "\"Por minha culpa\": expressão latina do Ato Penitencial, dita enquanto se bate no peito."),
@@ -122,20 +126,52 @@ enum MockLiturgical {
         .init(term: "Completas", definition: "A última oração do dia no Ofício Divino, antes do repouso noturno."),
     ]
 
+    private static let enGlossaryTerms: [GlossaryTerm] = [
+        .init(term: "mea culpa", definition: "‘Through my fault’: the Latin expression in the Penitential Act, said while striking the breast."),
+        .init(term: "Kyrie", definition: "‘Lord, have mercy’: a Greek invocation preserved in the Roman liturgy after the Penitential Act."),
+        .init(term: "lectionary", definition: "The liturgical book that orders the readings for Mass by day and cycle."),
+        .init(term: "Compline", definition: "The final prayer of the day in the Liturgy of the Hours, before night rest."),
+    ]
+
+    private static let esGlossaryTerms: [GlossaryTerm] = [
+        .init(term: "mea culpa", definition: "‘Por mi culpa’: expresión latina del acto penitencial, dicha mientras se golpea el pecho."),
+        .init(term: "Kyrie", definition: "‘Señor, ten piedad’: invocación griega conservada en la liturgia romana después del acto penitencial."),
+        .init(term: "leccionario", definition: "El libro litúrgico que organiza las lecturas de la Misa según el día y el ciclo."),
+        .init(term: "Completas", definition: "La última oración del día en la Liturgia de las Horas, antes del descanso nocturno."),
+    ]
+
     static var seasons: [LiturgicalSeason] { seasonsCatalog.current }
 
-    static let seasonsCatalog = LocalizedCatalog(pt: ptSeasons)
+    static let seasonsCatalog = LocalizedCatalog(pt: ptSeasons, en: enSeasons, es: esSeasons)
 
     private static let ptSeasons: [LiturgicalSeason] = [
         .init(id: "advent", name: "Advento", dateRange: "29 nov a 24 dez", color: .purple, summaryLine: "Quatro semanas de espera, preparando o Natal do Senhor."),
-        .init(id: "lent", name: "Quaresma", dateRange: "5 mar a 17 abr", color: .purple, summaryLine: "Quarenta dias de jejum, oração e esmola, rumo à Páscoa."),
-        .init(id: "easter", name: "Tempo Pascal", dateRange: "18 abr a 6 jun", color: .white, summaryLine: "Cinquenta dias de alegria pela Ressurreição."),
-        .init(id: "ordinary", name: "Tempo Comum", dateRange: "8 jun a 28 nov", color: .green, summaryLine: "A vida ordinária da Igreja, semana após semana."),
+        .init(id: "lent", name: "Quaresma", dateRange: "18 fev a 2 abr", color: .purple, summaryLine: "Quarenta dias de jejum, oração e esmola, rumo à Páscoa."),
+        .init(id: "easter", name: "Tempo Pascal", dateRange: "5 abr a 24 mai", color: .white, summaryLine: "Cinquenta dias de alegria pela Ressurreição."),
+        .init(id: "ordinary", name: "Tempo Comum", dateRange: "12 jan a 17 fev · 25 mai a 28 nov", color: .green, summaryLine: "A vida ordinária da Igreja, semana após semana."),
+    ]
+
+    private static let enSeasons: [LiturgicalSeason] = [
+        .init(id: "advent", name: "Advent", dateRange: "29 Nov – 24 Dec", color: .purple, summaryLine: "Four weeks of waiting, preparing for the Lord’s Nativity."),
+        .init(id: "lent", name: "Lent", dateRange: "18 Feb – 2 Apr", color: .purple, summaryLine: "Forty days of fasting, prayer, and almsgiving on the way to Easter."),
+        .init(id: "easter", name: "Easter Time", dateRange: "5 Apr – 24 May", color: .white, summaryLine: "Fifty days of joy in the Resurrection."),
+        .init(id: "ordinary", name: "Ordinary Time", dateRange: "12 Jan – 17 Feb · 25 May – 28 Nov", color: .green, summaryLine: "The ordinary life of the Church, week after week."),
+    ]
+
+    private static let esSeasons: [LiturgicalSeason] = [
+        .init(id: "advent", name: "Adviento", dateRange: "29 nov – 24 dic", color: .purple, summaryLine: "Cuatro semanas de espera, preparando la Navidad del Señor."),
+        .init(id: "lent", name: "Cuaresma", dateRange: "18 feb – 2 abr", color: .purple, summaryLine: "Cuarenta días de ayuno, oración y limosna en camino hacia Pascua."),
+        .init(id: "easter", name: "Tiempo Pascual", dateRange: "5 abr – 24 may", color: .white, summaryLine: "Cincuenta días de alegría por la Resurrección."),
+        .init(id: "ordinary", name: "Tiempo Ordinario", dateRange: "12 ene – 17 feb · 25 may – 28 nov", color: .green, summaryLine: "La vida ordinaria de la Iglesia, semana tras semana."),
     ]
 
     static var lentRetrospective: SeasonRetrospective { lentRetrospectiveCatalog.current }
 
-    static let lentRetrospectiveCatalog = LocalizedCatalog(pt: ptLentRetrospective)
+    static let lentRetrospectiveCatalog = LocalizedCatalog(
+        pt: ptLentRetrospective,
+        en: enLentRetrospective,
+        es: esLentRetrospective
+    )
 
     private static let ptLentRetrospective = SeasonRetrospective(
         seasonID: "lent",
@@ -147,12 +183,48 @@ enum MockLiturgical {
             "40 dias seguidos de Terço, do primeiro ao último",
             "Os Salmos 62, 129 e 41 voltaram mais de uma vez",
             "Santa Teresa de Calcutá e São João da Cruz apareceram sete vezes",
-            "Duas confissões: 12 de março e 9 de abril",
+            "Duas confissões: 12 e 30 de março",
             "A trilha da Missa chegou à Liturgia Eucarística",
         ],
         milestoneTitle: "Marcos",
         milestoneBody: "Você voltou a rezar em março, depois de três semanas sem registro. Na Semana Santa, registrou paz pela primeira vez no ano.",
-        closingLine: "Sua Páscoa começa em 18 de abril e ainda está sendo escrita."
+        closingLine: "Sua Páscoa começa em 5 de abril e ainda está sendo escrita."
+    )
+
+    private static let enLentRetrospective = SeasonRetrospective(
+        seasonID: "lent",
+        seasonLabel: "Lent · 18 Feb – 2 Apr",
+        color: .purple,
+        title: "Your Lent",
+        narrative: "You went through the forty days in dryness and stayed with them to the end.",
+        accompaniments: [
+            "40 consecutive days of the Rosary, from the first to the last",
+            "Psalms 62, 129, and 41 returned more than once",
+            "St Teresa of Calcutta and St John of the Cross appeared seven times",
+            "Two confessions: 12 and 30 March",
+            "The Mass track reached the Liturgy of the Eucharist",
+        ],
+        milestoneTitle: "Milestones",
+        milestoneBody: "You returned to prayer in March after three weeks without a record. During Holy Week, you recorded peace for the first time that year.",
+        closingLine: "Easter begins on 5 April and is still being written."
+    )
+
+    private static let esLentRetrospective = SeasonRetrospective(
+        seasonID: "lent",
+        seasonLabel: "Cuaresma · 18 feb – 2 abr",
+        color: .purple,
+        title: "Tu Cuaresma",
+        narrative: "Atravesaste los cuarenta días en aridez y los llevaste hasta el final.",
+        accompaniments: [
+            "40 días seguidos de Rosario, del primero al último",
+            "Los Salmos 62, 129 y 41 volvieron más de una vez",
+            "Santa Teresa de Calcuta y san Juan de la Cruz aparecieron siete veces",
+            "Dos confesiones: 12 y 30 de marzo",
+            "La formación sobre la Misa llegó a la Liturgia Eucarística",
+        ],
+        milestoneTitle: "Hitos",
+        milestoneBody: "Volviste a la oración en marzo, después de tres semanas sin registro. En Semana Santa registraste paz por primera vez ese año.",
+        closingLine: "La Pascua comienza el 5 de abril y todavía se está escribiendo."
     )
 
     /// "Today" and "tomorrow" keep their fuller hand-authored content (it's
@@ -175,23 +247,59 @@ enum MockLiturgical {
     /// and the Gospel range are illustrative, not computed.
     static var currentWeek: LiturgicalWeek { currentWeekCatalog.current }
 
-    static let currentWeekCatalog = LocalizedCatalog(pt: ptCurrentWeek)
+    static let currentWeekCatalog = LocalizedCatalog(pt: ptCurrentWeek, en: enCurrentWeek, es: esCurrentWeek)
 
     private static let ptCurrentWeek = LiturgicalWeek(
         id: "2026-w23-ordinary",
-        name: "23ª Semana do Tempo Comum",
-        sundayCycle: "Domingo · Ciclo B",
+        name: "24ª Semana do Tempo Comum",
+        sundayCycle: "Domingo · Ciclo A",
         weekdayCycle: "Semana · Ano II",
-        gospelThreadBody: "De segunda a sábado, a Igreja lê Lucas 7 a 9 em sequência — a fé do centurião, a viúva de Naim, e Jesus perguntando aos discípulos quem dizem que ele é.",
+        gospelThreadBody: "Depois das celebrações da Cruz e de Nossa Senhora das Dores, a leitura ferial retoma Lucas 7–8: Jesus na casa do fariseu, as mulheres que o acompanhavam e a parábola do semeador.",
         whatChangesNote: nil,
         days: [
-            LiturgicalWeekDay(dateKey: "2026-09-13", dayNumber: 13, color: .green, rank: .feast, celebrationName: "23º Domingo do Tempo Comum", isHolyDayOfObligation: true, isAbstinenceDay: false, mysterySet: .forWeekday(1)),
+            LiturgicalWeekDay(dateKey: "2026-09-13", dayNumber: 13, color: .green, rank: .feast, celebrationName: "24º Domingo do Tempo Comum", isHolyDayOfObligation: true, isAbstinenceDay: false, mysterySet: .forWeekday(1)),
             LiturgicalWeekDay(dateKey: "2026-09-14", dayNumber: 14, color: .red, rank: .feast, celebrationName: "Exaltação da Santa Cruz", isHolyDayOfObligation: false, isAbstinenceDay: false, mysterySet: .forWeekday(2)),
             LiturgicalWeekDay(dateKey: "2026-09-15", dayNumber: 15, color: .white, rank: .memorial, celebrationName: "Nossa Senhora das Dores", isHolyDayOfObligation: false, isAbstinenceDay: false, mysterySet: .forWeekday(3)),
-            LiturgicalWeekDay(dateKey: "2026-09-16", dayNumber: 16, color: .green, rank: .optionalMemorial, celebrationName: "Santos Cornélio e Cipriano", isHolyDayOfObligation: false, isAbstinenceDay: false, mysterySet: .forWeekday(4)),
+            LiturgicalWeekDay(dateKey: "2026-09-16", dayNumber: 16, color: .red, rank: .memorial, celebrationName: "Santos Cornélio e Cipriano", isHolyDayOfObligation: false, isAbstinenceDay: false, mysterySet: .forWeekday(4)),
             LiturgicalWeekDay(dateKey: "2026-09-17", dayNumber: 17, color: .green, rank: .optionalMemorial, celebrationName: "São Roberto Belarmino", isHolyDayOfObligation: false, isAbstinenceDay: false, mysterySet: .forWeekday(5)),
             LiturgicalWeekDay(dateKey: "2026-09-18", dayNumber: 18, color: .green, rank: .weekday, celebrationName: nil, isHolyDayOfObligation: false, isAbstinenceDay: true, mysterySet: .forWeekday(6)),
             LiturgicalWeekDay(dateKey: "2026-09-19", dayNumber: 19, color: .green, rank: .weekday, celebrationName: nil, isHolyDayOfObligation: false, isAbstinenceDay: false, mysterySet: .forWeekday(7)),
+        ]
+    )
+
+    private static let enCurrentWeek = LiturgicalWeek(
+        id: "2026-w24-ordinary",
+        name: "24th Week in Ordinary Time",
+        sundayCycle: "Sunday · Cycle A",
+        weekdayCycle: "Weekdays · Year II",
+        gospelThreadBody: "After the celebrations of the Cross and Our Lady of Sorrows, the weekday Gospel resumes in Luke 7–8: Jesus at the Pharisee’s house, the women who accompanied him, and the parable of the sower.",
+        whatChangesNote: nil,
+        days: [
+            LiturgicalWeekDay(dateKey: "2026-09-13", dayNumber: 13, color: .green, rank: .feast, celebrationName: "24th Sunday in Ordinary Time", isHolyDayOfObligation: true, isAbstinenceDay: false, mysterySet: .forWeekday(1)),
+            LiturgicalWeekDay(dateKey: "2026-09-14", dayNumber: 14, color: .red, rank: .feast, celebrationName: "Exaltation of the Holy Cross", isHolyDayOfObligation: false, isAbstinenceDay: false, mysterySet: .forWeekday(2)),
+            LiturgicalWeekDay(dateKey: "2026-09-15", dayNumber: 15, color: .white, rank: .memorial, celebrationName: "Our Lady of Sorrows", isHolyDayOfObligation: false, isAbstinenceDay: false, mysterySet: .forWeekday(3)),
+            LiturgicalWeekDay(dateKey: "2026-09-16", dayNumber: 16, color: .red, rank: .memorial, celebrationName: "Saints Cornelius and Cyprian", isHolyDayOfObligation: false, isAbstinenceDay: false, mysterySet: .forWeekday(4)),
+            LiturgicalWeekDay(dateKey: "2026-09-17", dayNumber: 17, color: .green, rank: .optionalMemorial, celebrationName: "Saint Robert Bellarmine", isHolyDayOfObligation: false, isAbstinenceDay: false, mysterySet: .forWeekday(5)),
+            LiturgicalWeekDay(dateKey: "2026-09-18", dayNumber: 18, color: .green, rank: .weekday, celebrationName: nil, isHolyDayOfObligation: false, isAbstinenceDay: true, mysterySet: .forWeekday(6)),
+            LiturgicalWeekDay(dateKey: "2026-09-19", dayNumber: 19, color: .green, rank: .optionalMemorial, celebrationName: "Saint Januarius", isHolyDayOfObligation: false, isAbstinenceDay: false, mysterySet: .forWeekday(7)),
+        ]
+    )
+
+    private static let esCurrentWeek = LiturgicalWeek(
+        id: "2026-w24-ordinary",
+        name: "24.ª semana del Tiempo Ordinario",
+        sundayCycle: "Domingo · Ciclo A",
+        weekdayCycle: "Ferial · Año II",
+        gospelThreadBody: "Después de las celebraciones de la Cruz y de Nuestra Señora de los Dolores, el Evangelio ferial retoma Lucas 7–8: Jesús en casa del fariseo, las mujeres que lo acompañaban y la parábola del sembrador.",
+        whatChangesNote: nil,
+        days: [
+            LiturgicalWeekDay(dateKey: "2026-09-13", dayNumber: 13, color: .green, rank: .feast, celebrationName: "24.º Domingo del Tiempo Ordinario", isHolyDayOfObligation: true, isAbstinenceDay: false, mysterySet: .forWeekday(1)),
+            LiturgicalWeekDay(dateKey: "2026-09-14", dayNumber: 14, color: .red, rank: .feast, celebrationName: "Exaltación de la Santa Cruz", isHolyDayOfObligation: false, isAbstinenceDay: false, mysterySet: .forWeekday(2)),
+            LiturgicalWeekDay(dateKey: "2026-09-15", dayNumber: 15, color: .white, rank: .memorial, celebrationName: "Nuestra Señora de los Dolores", isHolyDayOfObligation: false, isAbstinenceDay: false, mysterySet: .forWeekday(3)),
+            LiturgicalWeekDay(dateKey: "2026-09-16", dayNumber: 16, color: .red, rank: .memorial, celebrationName: "Santos Cornelio y Cipriano", isHolyDayOfObligation: false, isAbstinenceDay: false, mysterySet: .forWeekday(4)),
+            LiturgicalWeekDay(dateKey: "2026-09-17", dayNumber: 17, color: .green, rank: .optionalMemorial, celebrationName: "San Roberto Belarmino", isHolyDayOfObligation: false, isAbstinenceDay: false, mysterySet: .forWeekday(5)),
+            LiturgicalWeekDay(dateKey: "2026-09-18", dayNumber: 18, color: .green, rank: .weekday, celebrationName: nil, isHolyDayOfObligation: false, isAbstinenceDay: true, mysterySet: .forWeekday(6)),
+            LiturgicalWeekDay(dateKey: "2026-09-19", dayNumber: 19, color: .green, rank: .optionalMemorial, celebrationName: "San Jenaro", isHolyDayOfObligation: false, isAbstinenceDay: false, mysterySet: .forWeekday(7)),
         ]
     )
 
