@@ -4,3 +4,7 @@ DerivedData/
 *.xcuserstate
 xcuserdata/
 *.xcworkspace/xcuserdata/
+
+# bytecode dos módulos de conteúdo do Exame
+__pycache__/
+*.pyc
