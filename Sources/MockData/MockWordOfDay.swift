@@ -5,7 +5,11 @@ enum MockWordOfDay {
     /// over time via the Acervo tool. See LocalizedCatalog.
     static var pool: [WordOfDay] { catalog.current }
 
-    static let catalog = LocalizedCatalog(pt: ptPool, en: enPool, es: esPool)
+    static let catalog = LocalizedCatalog(
+        pt: ptPool + ptImportedPool,
+        en: enPool + enImportedPool,
+        es: esPool + esImportedPool
+    )
 
     /// Fonte: António Pereira de Figueiredo, *Biblia Sagrada Illustrada*, vol. III,
     /// Porto, 1896 — edição católica histórica em domínio público, conferida no

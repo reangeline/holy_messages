@@ -6,7 +6,42 @@ enum MockDevotionalPrayers {
     /// than translations of the Portuguese ones.
     static var categories: [PrayerCategory] { catalog.current }
 
-    static let catalog = LocalizedCatalog(pt: ptCategories)
+    static let catalog = LocalizedCatalog(
+        pt: withImported(ptCategories, ptImportedPrayers),
+        en: withImported(englishCategoryTitles, enImportedPrayers),
+        es: withImported(spanishCategoryTitles, esImportedPrayers)
+    )
+
+    /// Appends the imported prayers to each category, skipping any whose title
+    /// the hand-written catalog already carries. The categories themselves are
+    /// the app's four; the batch only brings prayers.
+    private static func withImported(
+        _ base: [PrayerCategory],
+        _ imported: [String: [DevotionalPrayer]]
+    ) -> [PrayerCategory] {
+        base.map { category in
+            let existing = Set(category.prayers.map { $0.title.lowercased() })
+            let extra = (imported[category.id] ?? []).filter { !existing.contains($0.title.lowercased()) }
+            return PrayerCategory(id: category.id, title: category.title, prayers: category.prayers + extra)
+        }
+    }
+
+    /// English and Spanish have no hand-written catalog, so they start from the
+    /// four empty categories and are filled by the imported batch. The category
+    /// names are chrome — the prayers inside them are the content.
+    private static let englishCategoryTitles: [PrayerCategory] = [
+        .init(id: "peace-surrender", title: "Prayers of Peace and Surrender", prayers: []),
+        .init(id: "protection-combat", title: "Prayers of Protection and Spiritual Combat", prayers: []),
+        .init(id: "healing-liberation", title: "Prayers of Healing and Deliverance", prayers: []),
+        .init(id: "contemplation-intimacy", title: "Prayers of Contemplation and Intimacy", prayers: []),
+    ]
+
+    private static let spanishCategoryTitles: [PrayerCategory] = [
+        .init(id: "peace-surrender", title: "Oraciones de Paz y Entrega", prayers: []),
+        .init(id: "protection-combat", title: "Oraciones de Protección y Combate Espiritual", prayers: []),
+        .init(id: "healing-liberation", title: "Oraciones de Sanación y Liberación", prayers: []),
+        .init(id: "contemplation-intimacy", title: "Oraciones de Contemplación e Intimidad", prayers: []),
+    ]
 
     private static let ptCategories: [PrayerCategory] = [
         .init(id: "peace-surrender", title: "Orações de Paz e Entrega", prayers: [

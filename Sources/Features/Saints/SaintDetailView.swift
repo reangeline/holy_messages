@@ -11,7 +11,7 @@ struct SaintDetailView: View {
             LiturgicalColor.red.pageBackground
             ScrollView {
                 VStack(alignment: .leading, spacing: 14) {
-                    SaintPortraitPlaceholder(cornerRadius: 18)
+                    SaintPortrait(artworkName: saint.artworkName, cornerRadius: 18)
                         .frame(maxWidth: .infinity)
                         .frame(height: 190)
 

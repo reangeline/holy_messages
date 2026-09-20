@@ -10,6 +10,10 @@ struct Saint: Identifiable, Codable, Hashable {
     let bioParagraphs: [String]
     let whyItMattersToday: String
     let prayer: String
+    /// Name of an image in the asset catalog, when there is public-domain art
+    /// for this saint. Nil falls back to SaintPortraitPlaceholder — most saints
+    /// have no art yet, and a striped placeholder is honest about that.
+    var artworkName: String? = nil
 }
 
 /// A curated recommendation of saints tied to whatever mood/state the user logged.

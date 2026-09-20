@@ -12,7 +12,12 @@ import Foundation
 /// entries here directly. `MassBulletinView` shows an honest "ainda não
 /// cadastrado" state for any key not yet present.
 enum MockLectionary {
-    static let sundayReadings: [String: MassReadings] = [:]
+    /// One catalog per language: the book names and the psalm numbering differ,
+    /// so this is not a translation of one list. Filled from the research
+    /// deliveries — see Sources/MockData/Generated.
+    static var sundayReadings: [String: MassReadings] { catalog.current }
+
+    static let catalog = LocalizedCatalog(pt: ptSundays, en: enSundays, es: esSundays)
 
     static func readings(for day: LiturgicalEngine.ComputedDay) -> MassReadings? {
         guard let key = day.lectionaryKey else { return nil }

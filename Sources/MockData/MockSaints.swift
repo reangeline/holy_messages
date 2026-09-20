@@ -13,7 +13,11 @@ enum MockSaints {
             "Não deixou escritos nem visões. É lembrada pelo que fazia com as sobras, e por não ter parado quando isso lhe custou o emprego.",
         ],
         whyItMattersToday: "No dia em que a Igreja exalta a Cruz, ela mostra a forma mais comum dela: perder algo concreto por não recuar do que é justo.",
-        prayer: "Deus, que ensinastes a vossa serva Notburga a repartir o pouco que tinha, dai-nos a coragem de fazer o que é justo quando isso nos custa. Amém."
+        prayer: "Deus, que ensinastes a vossa serva Notburga a repartir o pouco que tinha, dai-nos a coragem de fazer o que é justo quando isso nos custa. Amém.",
+        // Maître au fond maillé, década de 1490, British Museum P_1915-0508-1,
+        // domínio público via Wikimedia. Crédito completo no manifest do lote de
+        // imagens da pesquisa.
+        artworkName: "notburga"
     )
 
     static let johnGabrielPerboyre = Saint(

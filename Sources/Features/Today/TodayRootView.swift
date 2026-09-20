@@ -181,7 +181,7 @@ struct TodayRootView: View {
         } label: {
             GlassCard {
                 HStack(spacing: 13) {
-                    SaintPortraitPlaceholder()
+                    SaintPortrait(artworkName: saintOfDay.artworkName)
                         .frame(width: 50, height: 50)
                     VStack(alignment: .leading, spacing: 2) {
                         Eyebrow(text: L.string("Santo do dia", table: "Today"))

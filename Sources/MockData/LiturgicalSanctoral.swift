@@ -23,9 +23,22 @@ enum LiturgicalSanctoral {
     /// One catalog per language — see LocalizedCatalog.
     static var feasts: [FixedFeast] { catalog.current }
 
-    static let catalog = LocalizedCatalog(pt: ptFeasts)
+    static let catalog = LocalizedCatalog(
+        pt: merged(ptFeasts), en: merged(enFeasts), es: merged(esFeasts)
+    )
 
-    private static let ptFeasts: [FixedFeast] = [
+    /// The imported batch first, then the hand-written dates it doesn't cover.
+    /// Those 12 are Portuguese, so an English or Spanish calendar shows them in
+    /// Portuguese — the same declared fallback as the rest of the content.
+    private static func merged(_ imported: [FixedFeast]) -> [FixedFeast] {
+        let covered = Set(imported.map(\.monthDay))
+        return (imported + builtInFeasts.filter { !covered.contains($0.monthDay) })
+            .sorted { $0.monthDay < $1.monthDay }
+    }
+
+    /// The 12 hand-written dates, kept for whatever the imported batch doesn't
+    /// cover — see `merged(_:)`.
+    private static let builtInFeasts: [FixedFeast] = [
         .init(monthDay: "02-02", name: "Apresentação do Senhor", rank: .feast, color: .white),
         .init(monthDay: "03-19", name: "São José, Esposo de Maria", rank: .solemnity, color: .white),
         .init(monthDay: "03-25", name: "Anunciação do Senhor", rank: .solemnity, color: .white),
