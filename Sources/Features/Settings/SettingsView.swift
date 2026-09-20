@@ -4,7 +4,7 @@ import SwiftUI
 /// conditional trigger), then grouped rows, per the design's "Ajustes · 10 telas".
 struct SettingsView: View {
     @Environment(\.dismiss) private var dismiss
-    @AppStorage(AppLanguagePreference.storageKey) private var languageOverride = AppLanguagePreference.systemValue
+    @AppStorage(AppLanguagePreference.storageKey, store: AppLanguagePreference.store) private var languageOverride = AppLanguagePreference.systemValue
     @AppStorage(UserProfile.nameStorageKey) private var userDisplayName = ""
     @AppStorage(UserProfile.calendarRegionKey) private var storedRegionID = ""
     private let day = MockLiturgical.today

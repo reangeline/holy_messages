@@ -89,6 +89,11 @@ targets:
       # O pool importado vive num arquivo gerado; sem ele o widget
       # mostraria um pool menor que o do app.
       - path: Sources/MockData/Generated/GeneratedWordOfDay.swift
+      # O santo do widget vinha de uma cópia cravada; agora sai do mesmo
+      # catálogo trilíngue do app.
+      - path: Sources/Models/Saint.swift
+      - path: Sources/MockData/MockSaints.swift
+      - path: Sources/MockData/Generated/GeneratedSaints.swift
       - path: Sources/Fonts
     info:
       path: WidgetExtension/Info.plist
@@ -109,6 +114,11 @@ targets:
           - CormorantGaramond-Medium.ttf
           - CormorantGaramond-MediumItalic.ttf
           - CormorantGaramond-SemiBold.ttf
+    entitlements:
+      path: WidgetExtension/MissaleWidgets.entitlements
+      properties:
+        com.apple.security.application-groups:
+          - group.com.missale.app
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.missale.app.MissaleWidgets

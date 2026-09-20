@@ -5,7 +5,7 @@ import SwiftUI
 struct RegionalCalendarView: View {
     @State private var search = ""
     @AppStorage(UserProfile.calendarRegionKey) private var storedRegionID = ""
-    @AppStorage(AppLanguagePreference.storageKey) private var languageOverride = AppLanguagePreference.systemValue
+    @AppStorage(AppLanguagePreference.storageKey, store: AppLanguagePreference.store) private var languageOverride = AppLanguagePreference.systemValue
 
     private var selected: RegionOption? {
         MockSettings.selectedRegion(

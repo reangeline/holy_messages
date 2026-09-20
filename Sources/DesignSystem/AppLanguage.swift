@@ -32,20 +32,48 @@ enum AppLanguage: String, CaseIterable, Identifiable {
 
 enum AppLanguagePreference {
     /// "system" (follow the device), or one of AppLanguage's raw values as an
-    /// explicit override. Stored via @AppStorage at the call site.
+    /// explicit override. Stored via @AppStorage at the call site, always
+    /// against `store`.
     static let storageKey = "appLanguageOverride"
     static let systemValue = "system"
+    static let appGroup = "group.com.missale.app"
+
+    /// The app group, not `.standard`. A widget renders in its own process with
+    /// its own defaults, so a preference kept in `.standard` is invisible to it:
+    /// the app could be set to English while the widgets stayed in Portuguese,
+    /// with no way for the widget to ever find out.
+    ///
+    /// Migrates a choice made before this existed, so nobody has to pick their
+    /// language again.
+    static let store: UserDefaults = {
+        guard let shared = UserDefaults(suiteName: appGroup) else { return .standard }
+        if shared.string(forKey: storageKey) == nil,
+           let previous = UserDefaults.standard.string(forKey: storageKey) {
+            shared.set(previous, forKey: storageKey)
+        }
+        return shared
+    }()
 
     static func resolve(override: String) -> AppLanguage {
         if let explicit = AppLanguage(rawValue: override) { return explicit }
         return AppLanguage.closestSupported(to: Locale.preferredLanguages)
     }
 
-    /// Reads the current override straight from UserDefaults (the same storage
-    /// @AppStorage(storageKey) uses) and resolves it. For use outside SwiftUI
-    /// view bodies — see `L.string`.
+    /// The override in force. Launch arguments land in `.standard`'s volatile
+    /// argument domain, which a suite-backed store does not consult — UI tests
+    /// and debug launches depend on them, so they win when present.
+    static func storedOverride() -> String {
+        if let fromArguments = UserDefaults.standard
+            .volatileDomain(forName: UserDefaults.argumentDomain)[storageKey] as? String {
+            return fromArguments
+        }
+        return store.string(forKey: storageKey) ?? systemValue
+    }
+
+    /// Resolves the override without reading SwiftUI's environment. For use
+    /// outside view bodies — see `L.string`.
     static func resolveCurrent() -> AppLanguage {
-        resolve(override: UserDefaults.standard.string(forKey: storageKey) ?? systemValue)
+        resolve(override: storedOverride())
     }
 }
 
@@ -54,7 +82,7 @@ enum AppLanguagePreference {
 /// device language, which is how the Settings sheet came out showing "Close" in
 /// an app set to Portuguese. Apply this to every presented content view.
 private struct AppLanguageLocale: ViewModifier {
-    @AppStorage(AppLanguagePreference.storageKey) private var override = AppLanguagePreference.systemValue
+    @AppStorage(AppLanguagePreference.storageKey, store: AppLanguagePreference.store) private var override = AppLanguagePreference.systemValue
 
     func body(content: Content) -> some View {
         content.environment(\.locale, AppLanguagePreference.resolve(override: override).locale)

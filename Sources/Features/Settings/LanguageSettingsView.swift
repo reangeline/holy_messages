@@ -1,16 +1,18 @@
 import SwiftUI
+import WidgetKit
 
 /// Not part of the original 10-screen Ajustes design — added because the app now
 /// unifies onboarding and the main app under one interface language, detected
 /// from the device by default with this manual override.
 struct LanguageSettingsView: View {
-    @AppStorage(AppLanguagePreference.storageKey) private var languageOverride = AppLanguagePreference.systemValue
+    @AppStorage(AppLanguagePreference.storageKey, store: AppLanguagePreference.store) private var languageOverride = AppLanguagePreference.systemValue
 
     var body: some View {
         List {
             Section {
                 row(title: L.string( "Automatic (device language)"), isSelected: languageOverride == AppLanguagePreference.systemValue) {
                     languageOverride = AppLanguagePreference.systemValue
+                    WidgetCenter.shared.reloadAllTimelines()
                 }
             } footer: {
                 Text(currentlyResolvedFooter)
@@ -19,6 +21,10 @@ struct LanguageSettingsView: View {
                 ForEach(AppLanguage.allCases) { language in
                     row(title: language.displayName, isSelected: languageOverride == language.rawValue) {
                         languageOverride = language.rawValue
+                        // A widget renders in its own process and won't notice the
+                        // change on its own; without this it keeps showing the
+                        // previous language until iOS decides to refresh it.
+                        WidgetCenter.shared.reloadAllTimelines()
                     }
                 }
             } footer: {

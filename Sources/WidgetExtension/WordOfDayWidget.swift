@@ -34,14 +34,14 @@ struct WordOfDayWidgetView: View {
                 VStack(spacing: 2) {
                     Image(systemName: "text.quote")
                         .font(.system(size: 16, weight: .medium))
-                    Text("HOJE")
+                    Text(L.string("TODAY", table: "Widgets"))
                         .font(.system(size: 9, weight: .semibold))
                         .tracking(0.5)
                 }
             }
         case .accessoryRectangular:
             VStack(alignment: .leading, spacing: 3) {
-                Text("PALAVRA DE HOJE")
+                Text(L.string("WORD OF THE DAY", table: "Widgets"))
                     .font(.system(size: 11, weight: .semibold))
                     .tracking(0.8)
                 Text("\u{201C}\(entry.word.quote)\u{201D}")
@@ -52,7 +52,7 @@ struct WordOfDayWidgetView: View {
             }
             .widgetAccentable()
         case .accessoryInline:
-            Text("Palavra de hoje: \(entry.word.reference)")
+            Text(L.string("Word of the day: {reference}", table: "Widgets").replacingOccurrences(of: "{reference}", with: entry.word.reference))
         default:
             homeScreenCard
         }
@@ -65,7 +65,7 @@ struct WordOfDayWidgetView: View {
     /// goldBright, because bright gold disappears on a white backdrop.
     private var homeScreenCard: some View {
         VStack(alignment: .leading, spacing: 7) {
-            Text("PALAVRA DE HOJE")
+            Text(L.string("WORD OF THE DAY", table: "Widgets"))
                 .font(MissaleFont.body(11, weight: .semibold))
                 .tracking(1.3)
                 .foregroundStyle(Palette.goldMuted)
@@ -111,8 +111,8 @@ struct WordOfDayWidget: Widget {
             WordOfDayWidgetView(entry: entry)
                 .containerBackground(for: .widget) { Color.clear }
         }
-        .configurationDisplayName("Palavra do dia")
-        .description("A citação bíblica do dia.")
+        .configurationDisplayName(LocalizedStringKey("Word of the day"))
+        .description(LocalizedStringKey("The day's Scripture quotation."))
         .supportedFamilies([.systemSmall, .systemMedium, .systemLarge, .accessoryCircular, .accessoryRectangular, .accessoryInline])
     }
 }

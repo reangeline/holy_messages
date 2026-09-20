@@ -1,28 +1,25 @@
 import SwiftUI
 
-/// "Today" as the widgets see it. A widget extension runs in its own process and
-/// its own target, so it can't reach the app's full mock-data graph — but the
-/// word of the day now comes from the very same `MockWordOfDay` catalog the app
-/// reads (the file is listed in the widget's sources in project.yml), instead of
-/// a second copy that silently drifted every time the catalog grew.
+/// "Today" as the widgets see it.
 ///
-/// The saint still has to be duplicated: `MockSaints` pulls in the region-keyed
-/// sanctoral calendar and the full `Saint` record, none of which a widget shows.
+/// A widget extension runs in its own process and its own target, so it can only
+/// use what project.yml shares with it — but both the word of the day and the
+/// saint now come from the very catalogs the app reads, instead of copies that
+/// drifted every time content was imported.
+///
+/// The one thing still mirrored here is the demo day's `dateKey`: the liturgical
+/// engine is not compiled into the widget, and a widget does not need it.
 enum WidgetContent {
-    /// The app's fixed demo day. `MockLiturgical.today` is the app-side source of
-    /// truth; this mirrors its `dateKey` because the liturgical calendar itself
-    /// isn't compiled into the widget.
     static let todayDateKey = "2026-09-14"
     static let todayColor: LiturgicalColor = .red
 
-    /// Resolves through the shared catalog, so the widget and the app always show
-    /// the same verse — including the language the reader chose in Settings.
+    /// Resolves through the shared catalog, so widget and app always show the
+    /// same verse, in the language the reader chose.
     static var wordOfDay: WordOfDay { MockWordOfDay.wordOfDay(for: todayDateKey) }
 
-    struct SaintOfDay {
-        let name: String
-        let role: String
+    /// Likewise the saint — including the per-language record and, where the
+    /// sanctoral has none for this date, the same fallback the app uses.
+    static var saintOfDay: Saint {
+        MockSaints.saint(on: String(todayDateKey.suffix(5))) ?? MockSaints.notburga
     }
-
-    static let saintOfDay = SaintOfDay(name: "Santa Notburga de Eben", role: "Serva, padroeira dos pobres")
 }

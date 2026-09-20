@@ -3,7 +3,7 @@ import SwiftUI
 struct AppRootView: View {
     @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding = false
     @State private var showSettings = false
-    @AppStorage(AppLanguagePreference.storageKey) private var languageOverride = AppLanguagePreference.systemValue
+    @AppStorage(AppLanguagePreference.storageKey, store: AppLanguagePreference.store) private var languageOverride = AppLanguagePreference.systemValue
     @Environment(\.scenePhase) private var scenePhase
 
     private var resolvedLanguage: AppLanguage {

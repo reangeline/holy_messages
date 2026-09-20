@@ -3,7 +3,7 @@ import SwiftUI
 
 struct SaintOfDayEntry: TimelineEntry {
     let date: Date
-    let saint: WidgetContent.SaintOfDay
+    let saint: Saint
 }
 
 struct SaintOfDayProvider: TimelineProvider {
@@ -34,14 +34,14 @@ struct SaintOfDayWidgetView: View {
                 VStack(spacing: 2) {
                     Image(systemName: "cross.fill")
                         .font(.system(size: 18, weight: .medium))
-                    Text("HOJE")
+                    Text(L.string("TODAY", table: "Widgets"))
                         .font(.system(size: 9, weight: .semibold))
                         .tracking(0.5)
                 }
             }
         case .accessoryRectangular:
             VStack(alignment: .leading, spacing: 3) {
-                Text("SANTO DO DIA")
+                Text(L.string("SAINT OF THE DAY", table: "Widgets"))
                     .font(.system(size: 11, weight: .semibold))
                     .tracking(0.8)
                 Text(entry.saint.name)
@@ -51,7 +51,7 @@ struct SaintOfDayWidgetView: View {
             }
             .widgetAccentable()
         case .accessoryInline:
-            Text("Hoje: \(entry.saint.name)")
+            Text(L.string("Today: {name}", table: "Widgets").replacingOccurrences(of: "{name}", with: entry.saint.name))
         default:
             homeScreenCard
         }
@@ -61,7 +61,7 @@ struct SaintOfDayWidgetView: View {
     /// of our own, semantic text colors over the system's adaptive backdrop.
     private var homeScreenCard: some View {
         VStack(alignment: .leading, spacing: 7) {
-            Text("SANTO DO DIA")
+            Text(L.string("SAINT OF THE DAY", table: "Widgets"))
                 .font(MissaleFont.body(11, weight: .semibold))
                 .tracking(1.3)
                 .foregroundStyle(Palette.goldMuted)
@@ -101,8 +101,8 @@ struct SaintOfDayWidget: Widget {
             SaintOfDayWidgetView(entry: entry)
                 .containerBackground(for: .widget) { Color.clear }
         }
-        .configurationDisplayName("Santo do dia")
-        .description("Quem a Igreja celebra hoje.")
+        .configurationDisplayName(LocalizedStringKey("Saint of the day"))
+        .description(LocalizedStringKey("Who the Church celebrates today."))
         .supportedFamilies([.systemSmall, .systemMedium, .systemLarge, .accessoryCircular, .accessoryRectangular, .accessoryInline])
     }
 }
