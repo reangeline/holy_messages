@@ -56,6 +56,7 @@ struct TodayRootView: View {
             }
             .sheet(isPresented: $showMoodSheet) {
                 MoodCheckInSheet()
+                    .appLanguageLocale()
             }
         }
     }

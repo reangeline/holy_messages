@@ -9,7 +9,7 @@ enum MockSettings {
             .init(id: "subscription", title: "Assinatura", subtitle: "Anual · renova em 14 de outubro", value: "Ativa", destination: .subscription),
         ]),
         .init(id: "preferences", label: "Preferências", items: [
-            .init(id: "calendar", title: "Calendário litúrgico", subtitle: "Região e forma do rito", value: "Estados Unidos", destination: .regionalCalendar),
+            .init(id: "calendar", title: "Calendário litúrgico", subtitle: "Região e forma do rito", value: nil, destination: .regionalCalendar),
             .init(id: "language", title: "Idioma", subtitle: "Interface do app", value: nil, destination: .language),
         ]),
         .init(id: "privacy", label: "Privacidade", items: [
@@ -49,6 +49,15 @@ enum MockSettings {
     /// taken from the interface language instead of a hardcoded country: pt is
     /// Brazil, en the United States, es Mexico — the three regions the content
     /// catalogs are being authored for.
+    /// The region currently in force: what was stored, or the language's default
+    /// when nothing was ever chosen. Both the Settings row and the picker screen
+    /// resolve through here — the row showing a fixed mock value was why going
+    /// back from the picker still displayed the previous calendar.
+    static func selectedRegion(stored: String, language: AppLanguage) -> RegionOption? {
+        let id = stored.isEmpty ? defaultRegionID(for: language) : stored
+        return regions.first { $0.id == id }
+    }
+
     static func defaultRegionID(for language: AppLanguage) -> String {
         switch language {
         case .pt: "br"

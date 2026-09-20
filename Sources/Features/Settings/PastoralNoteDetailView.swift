@@ -72,6 +72,7 @@ struct PastoralNoteDetailView: View {
         .navigationBarTitleDisplayMode(.inline)
         .sheet(isPresented: $showFullResources) {
             PastoralCareNudgeView()
+                .appLanguageLocale()
         }
     }
 

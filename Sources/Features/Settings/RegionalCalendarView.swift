@@ -7,17 +7,15 @@ struct RegionalCalendarView: View {
     @AppStorage(UserProfile.calendarRegionKey) private var storedRegionID = ""
     @AppStorage(AppLanguagePreference.storageKey) private var languageOverride = AppLanguagePreference.systemValue
 
-    /// Empty storage means the person never chose: fall back to the calendar
-    /// their interface language implies rather than to a fixed country.
-    private var selectedID: String {
-        storedRegionID.isEmpty
-            ? MockSettings.defaultRegionID(for: AppLanguagePreference.resolve(override: languageOverride))
-            : storedRegionID
+    private var selected: RegionOption? {
+        MockSettings.selectedRegion(
+            stored: storedRegionID,
+            language: AppLanguagePreference.resolve(override: languageOverride)
+        )
     }
 
-    private var selectedName: String {
-        MockSettings.regions.first { $0.id == selectedID }?.name ?? ""
-    }
+    private var selectedID: String { selected?.id ?? "" }
+    private var selectedName: String { selected?.name ?? "" }
 
     private var filtered: [RegionOption] {
         search.isEmpty ? MockSettings.regions : MockSettings.regions.filter {

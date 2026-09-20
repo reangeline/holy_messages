@@ -10,6 +10,19 @@ struct AppRootView: View {
         AppLanguagePreference.resolve(override: languageOverride)
     }
 
+#if DEBUG
+    /// Opens a screen straight from a launch argument. The Simulator can't be
+    /// driven from a shell, so screens behind a tap (everything under Settings)
+    /// were impossible to check with a screenshot:
+    ///
+    ///     xcrun simctl launch <device> com.missale.app -openScreen settings
+    ///
+    /// Debug-only and off unless the argument is passed.
+    private var debugOpensSettings: Bool {
+        UserDefaults.standard.string(forKey: "openScreen") == "settings"
+    }
+#endif
+
     var body: some View {
         Group {
             if hasCompletedOnboarding {
@@ -36,7 +49,17 @@ struct AppRootView: View {
         // picking a language updates the app behind it without closing it.
         .environment(\.settingsPresented, $showSettings)
         .sheet(isPresented: $showSettings) {
+            // The locale has to be applied to the sheet's own content: a sheet is
+            // hosted outside the presenting view's tree, so `Text(_:tableName:)`
+            // inside it was resolving against the device language instead of the
+            // app's — the Settings sheet showed "Close" in an app set to Portuguese.
             SettingsView()
+                .appLanguageLocale()
+        }
+        .task {
+#if DEBUG
+            if debugOpensSettings { showSettings = true }
+#endif
         }
         // Rolling-window notifications need refreshing on every foreground, not just
         // cold launch — that's the only way a liturgical-season wording change

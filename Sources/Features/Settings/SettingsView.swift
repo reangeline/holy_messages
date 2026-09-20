@@ -6,6 +6,7 @@ struct SettingsView: View {
     @Environment(\.dismiss) private var dismiss
     @AppStorage(AppLanguagePreference.storageKey) private var languageOverride = AppLanguagePreference.systemValue
     @AppStorage(UserProfile.nameStorageKey) private var userDisplayName = ""
+    @AppStorage(UserProfile.calendarRegionKey) private var storedRegionID = ""
     private let day = MockLiturgical.today
 
     private var resolvedLanguageName: String {
@@ -107,6 +108,23 @@ struct SettingsView: View {
         .buttonStyle(.plain)
     }
 
+    /// Rows whose trailing value is a live preference rather than mock copy. A
+    /// fixed string here is what made the list show the previous calendar after
+    /// coming back from the picker: the picker wrote, the list never read.
+    private func liveValue(for destination: SettingsDestination) -> String? {
+        switch destination {
+        case .language:
+            resolvedLanguageName
+        case .regionalCalendar:
+            MockSettings.selectedRegion(
+                stored: storedRegionID,
+                language: AppLanguagePreference.resolve(override: languageOverride)
+            )?.name
+        default:
+            nil
+        }
+    }
+
     private func groupSection(_ group: SettingsGroup) -> some View {
         VStack(alignment: .leading, spacing: 8) {
             Eyebrow(text: group.label)
@@ -128,8 +146,8 @@ struct SettingsView: View {
                                 }
                             }
                             Spacer(minLength: 8)
-                            if item.destination == .language {
-                                Text(resolvedLanguageName)
+                            if let live = liveValue(for: item.destination) {
+                                Text(live)
                                     .font(MissaleFont.body(15))
                                     .foregroundStyle(Palette.wine)
                             } else if let value = item.value {

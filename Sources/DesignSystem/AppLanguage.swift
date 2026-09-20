@@ -50,6 +50,22 @@ enum AppLanguagePreference {
     }
 }
 
+/// A sheet or full-screen cover is hosted outside the presenting view's tree, so
+/// it does NOT inherit `\.locale`: localized `Text` inside it falls back to the
+/// device language, which is how the Settings sheet came out showing "Close" in
+/// an app set to Portuguese. Apply this to every presented content view.
+private struct AppLanguageLocale: ViewModifier {
+    @AppStorage(AppLanguagePreference.storageKey) private var override = AppLanguagePreference.systemValue
+
+    func body(content: Content) -> some View {
+        content.environment(\.locale, AppLanguagePreference.resolve(override: override).locale)
+    }
+}
+
+extension View {
+    func appLanguageLocale() -> some View { modifier(AppLanguageLocale()) }
+}
+
 /// `L.string()` does NOT read SwiftUI's `\.locale` environment value —
 /// only `Text` does. Every plain-`String` localized lookup in this app (nav
 /// titles, format strings, anything that isn't a literal `Text(...)`) must go

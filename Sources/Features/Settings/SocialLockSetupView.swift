@@ -91,6 +91,7 @@ struct SocialLockSetupView: View {
                 trigger: rules.first { $0.isEnabled } ?? rules[0],
                 onDismiss: { showPreview = false }
             )
+            .appLanguageLocale()
         }
     }
 }

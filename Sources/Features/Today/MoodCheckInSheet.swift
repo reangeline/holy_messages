@@ -114,6 +114,7 @@ struct MoodCheckInSheet: View {
         .padding(.bottom, 24)
         .sheet(isPresented: $showPastoralCare) {
             PastoralCareNudgeView()
+                .appLanguageLocale()
         }
     }
 }
