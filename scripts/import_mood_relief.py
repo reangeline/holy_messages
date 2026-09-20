@@ -132,16 +132,34 @@ def render_catalog(language: str, rows: list[dict]) -> str:
 
 
 def main() -> None:
-    catalogs = {language: read_catalog(language) for language in LANGS}
+    # Um idioma sem fonte não bloqueia os que têm. O espanhol está nesse caso:
+    # não existe Saltério católico espanhol em domínio público com texto limpo
+    # e citável — o único fac-símile disponível está danificado por OCR, e
+    # reconstruir versículo por versículo seria autorar texto bíblico. Enquanto
+    # isso o app serve o português nesse idioma, que é o fallback que ele já
+    # declara em Ajustes. Ver LocalizedCatalog.
+    catalogs = {}
+    ausentes = []
+    for language in LANGS:
+        try:
+            catalogs[language] = read_catalog(language)
+        except ValueError as erro:
+            if "Falta o catálogo revisado" not in str(erro):
+                raise
+            ausentes.append(language)
+    if not catalogs:
+        raise ValueError("Nenhum catálogo encontrado em " + str(ENTREGAS))
+    if ausentes:
+        print(f"Sem catálogo ainda: {', '.join(ausentes)} — o app serve português nesses idiomas.")
     for language, rows in catalogs.items():
         validate(rows, language)
 
     output = [HEADER]
-    for language in LANGS:
-        output.append(render_catalog(language, catalogs[language]))
+    for language, rows in catalogs.items():
+        output.append(render_catalog(language, rows))
     output.append("}\n")
     OUTPUT.write_text("".join(output))
-    print(f"Importado: {', '.join(f'{lang}=240' for lang in LANGS)}")
+    print("Importado: " + ", ".join(f"{lang}={len(rows)}" for lang, rows in catalogs.items()))
 
 
 if __name__ == "__main__":
