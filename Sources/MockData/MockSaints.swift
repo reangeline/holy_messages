@@ -40,7 +40,16 @@ enum MockSaints {
     /// One catalog per language — see LocalizedCatalog.
     static var calendar: [SaintOfDay] { catalog.current }
 
-    static let catalog = LocalizedCatalog(pt: ptCalendar)
+    static let catalog = LocalizedCatalog(
+        pt: ptCalendar + ptImportedCalendar.filter { !handWrittenDates.contains($0.dateKey) },
+        en: enImportedCalendar.filter { !handWrittenDates.contains($0.dateKey) } + ptCalendar,
+        es: esImportedCalendar.filter { !handWrittenDates.contains($0.dateKey) } + ptCalendar
+    )
+
+    /// Dates with a hand-written record, which wins over the imported one: those
+    /// two have a real biography, a "why it matters today" and a prayer, and the
+    /// imported batch only carries the factual first paragraph.
+    private static let handWrittenDates: Set<String> = ["09-14", "09-23"]
 
     private static let ptCalendar: [SaintOfDay] = [
         SaintOfDay(dateKey: "09-14", region: .general, saint: notburga),
@@ -65,12 +74,10 @@ enum MockSaints {
         .init(id: "cure-ars", name: "São João Maria Vianney", reason: "Padre que passava horas em confissionário sem sinal algum de consolação sensível."),
     ]
 
-    static let archiveList: [(name: String, subtitle: String, date: String)] = [
-        ("Santa Notburga de Eben", "Serva, padroeira dos pobres", "14 de setembro"),
-        ("Nossa Senhora das Dores", "Memória", "15 de setembro"),
-        ("São Roberto Belarmino", "Bispo e doutor da Igreja", "17 de setembro"),
-        ("Santo André Kim Taegon e companheiros", "Mártires da Coreia", "20 de setembro"),
-        ("São Mateus", "Apóstolo e evangelista", "21 de setembro"),
-        ("São Pio de Pietrelcina", "Presbítero, estigmatizado", "23 de setembro"),
-    ]
+    /// The archive is the sanctoral itself, ordered by date — it used to be a
+    /// separate hand-typed list of six names, where only one row could be opened
+    /// because only one had a record behind it.
+    static var archive: [SaintOfDay] {
+        calendar.sorted { $0.dateKey < $1.dateKey }
+    }
 }

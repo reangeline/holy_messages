@@ -35,21 +35,29 @@ struct SaintDetailView: View {
                         }
                     }
 
-                    GlassCard {
-                        VStack(alignment: .leading, spacing: 6) {
-                            Eyebrow(text: L.string( "Why she matters today", table: "CalendarSaints"))
-                            Text(saint.whyItMattersToday)
-                                .font(MissaleFont.body(16))
-                                .foregroundStyle(Palette.ink.opacity(0.78))
+                    // Both cards are skipped when the record has nothing for them.
+                    // Most saints came in with a factual biography and no authored
+                    // "why it matters" or prayer yet, and an empty card reads as a
+                    // broken screen rather than as content still to come.
+                    if !saint.whyItMattersToday.isEmpty {
+                        GlassCard {
+                            VStack(alignment: .leading, spacing: 6) {
+                                Eyebrow(text: L.string( "Why she matters today", table: "CalendarSaints"))
+                                Text(saint.whyItMattersToday)
+                                    .font(MissaleFont.body(16))
+                                    .foregroundStyle(Palette.ink.opacity(0.78))
+                            }
                         }
                     }
 
-                    LiturgicalGradientCard(color: .red) {
-                        VStack(alignment: .leading, spacing: 8) {
-                            Eyebrow(text: L.string( "Prayer", table: "CalendarSaints"), color: Palette.goldBright)
-                            Text(saint.prayer)
-                                .font(MissaleFont.display(20, italic: true))
-                                .foregroundStyle(.white)
+                    if !saint.prayer.isEmpty {
+                        LiturgicalGradientCard(color: .red) {
+                            VStack(alignment: .leading, spacing: 8) {
+                                Eyebrow(text: L.string( "Prayer", table: "CalendarSaints"), color: Palette.goldBright)
+                                Text(saint.prayer)
+                                    .font(MissaleFont.display(20, italic: true))
+                                    .foregroundStyle(.white)
+                            }
                         }
                     }
 

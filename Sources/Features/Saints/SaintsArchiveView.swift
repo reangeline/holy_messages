@@ -6,9 +6,12 @@ struct SaintsArchiveView: View {
     @State private var selectedTab = 0
     private let tabs = [L.string( "September", table: "CalendarSaints"), L.string( "Search all", table: "CalendarSaints")]
 
-    private var filtered: [(name: String, subtitle: String, date: String)] {
-        guard !query.isEmpty else { return MockSaints.archiveList }
-        return MockSaints.archiveList.filter { $0.name.localizedCaseInsensitiveContains(query) }
+    private var filtered: [SaintOfDay] {
+        guard !query.isEmpty else { return MockSaints.archive }
+        return MockSaints.archive.filter {
+            $0.saint.name.localizedCaseInsensitiveContains(query)
+            || $0.saint.role.localizedCaseInsensitiveContains(query)
+        }
     }
 
     var body: some View {
@@ -38,7 +41,7 @@ struct SaintsArchiveView: View {
 
                 HStack(spacing: 8) {
                     Image(systemName: "magnifyingglass").foregroundStyle(Palette.ink.opacity(0.5))
-                    TextField("Buscar por nome, data ou causa", text: $query)
+                    TextField(L.string("Search by name, date, or cause", table: "CalendarSaints"), text: $query)
                         .font(MissaleFont.body(16))
                 }
                 .padding(12)
@@ -46,24 +49,19 @@ struct SaintsArchiveView: View {
                 .padding(.horizontal, 20)
 
                 HStack {
-                    Text("Estados Unidos")
+                    Text(L.string("United States", table: "CalendarSaints"))
                         .font(MissaleFont.body(13, weight: .medium))
-                    Text("calendário romano geral + próprio do país")
+                    Text(L.string("general Roman calendar + country's own", table: "CalendarSaints"))
                         .font(MissaleFont.body(13))
                         .foregroundStyle(Palette.ink.opacity(0.55))
                 }
                 .padding(.horizontal, 20)
 
-                List(filtered, id: \.name) { entry in
-                    if entry.name == MockSaints.notburga.name {
-                        NavigationLink {
-                            SaintDetailView(saint: MockSaints.notburga)
-                        } label: {
-                            archiveRow(entry)
-                        }
-                    } else {
+                List(filtered) { entry in
+                    NavigationLink {
+                        SaintDetailView(saint: entry.saint)
+                    } label: {
                         archiveRow(entry)
-                            .opacity(0.6)
                     }
                 }
                 .listStyle(.plain)
@@ -74,15 +72,21 @@ struct SaintsArchiveView: View {
         .navigationBarTitleDisplayMode(.inline)
     }
 
-    private func archiveRow(_ entry: (name: String, subtitle: String, date: String)) -> some View {
-        VStack(alignment: .leading, spacing: 2) {
-            Text(entry.name).font(MissaleFont.body(17, weight: .medium)).foregroundStyle(Palette.ink)
-            HStack {
-                Text(entry.subtitle).font(MissaleFont.body(14)).foregroundStyle(Palette.ink.opacity(0.6))
-                Spacer()
-                Text(entry.date).font(MissaleFont.body(14)).foregroundStyle(Palette.ink.opacity(0.5))
+    private func archiveRow(_ entry: SaintOfDay) -> some View {
+        HStack(spacing: 12) {
+            SaintPortrait(artworkName: entry.saint.artworkName, cornerRadius: 8)
+                .frame(width: 42, height: 42)
+            VStack(alignment: .leading, spacing: 2) {
+                Text(entry.saint.name).font(MissaleFont.body(17, weight: .medium)).foregroundStyle(Palette.ink)
+                HStack {
+                    Text(entry.saint.role).font(MissaleFont.body(14)).foregroundStyle(Palette.ink.opacity(0.6))
+                    Spacer()
+                    Text(DateKeyLabel.dayMonth(fromKey: "2026-" + entry.dateKey))
+                        .font(MissaleFont.body(14)).foregroundStyle(Palette.ink.opacity(0.5))
+                }
             }
         }
+        .contentShape(Rectangle())
         .listRowBackground(Color.clear)
         .padding(.vertical, 4)
     }
