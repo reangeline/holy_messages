@@ -97,6 +97,7 @@
 		819DA48E98629EFFABCEC5CF /* AngelusNudgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310BE3218669FF7F03615007 /* AngelusNudgeView.swift */; };
 		833FBFF924BB59D7D7DF1CD2 /* OnboardingContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1141C1D33857D4982D876450 /* OnboardingContent.swift */; };
 		84107C30CAEE5B3C3FDCA266 /* CormorantGaramond-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D6494C870F0202D155720C4 /* CormorantGaramond-Medium.ttf */; };
+		864EDBA51D196E0C74454AA1 /* SaintPrayerFormTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704ABB4D5C5D142A3DFDD130 /* SaintPrayerFormTests.swift */; };
 		87382A10F1D5E9694420BFF5 /* MassReadingsLinkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F85F696283D2E7A80005495 /* MassReadingsLinkUITests.swift */; };
 		8A753E45A3FB9157AFE8C1B5 /* MockCompline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815AF8878E526A8E12790A3B /* MockCompline.swift */; };
 		8B66205B743766D93343D695 /* OnboardingLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13370349962A1A01A269F8B3 /* OnboardingLoaderView.swift */; };
@@ -309,6 +310,7 @@
 		6C9AD15B2BD32B9BB69CADD3 /* EndOfSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndOfSessionView.swift; sourceTree = "<group>"; };
 		6D3078F169C814DF3A8A450A /* ExamenEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamenEntry.swift; sourceTree = "<group>"; };
 		6E3DF764D898A0B4486FA739 /* CalendarLanguageUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarLanguageUITests.swift; sourceTree = "<group>"; };
+		704ABB4D5C5D142A3DFDD130 /* SaintPrayerFormTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaintPrayerFormTests.swift; sourceTree = "<group>"; };
 		70C391130864F8A75A6D4D72 /* GlassCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassCard.swift; sourceTree = "<group>"; };
 		7461BD5237210B66BB69DFF9 /* Today.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Today.xcstrings; sourceTree = "<group>"; };
 		7489A2C25DA0207CBF05A4A6 /* LiturgicalWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiturgicalWeek.swift; sourceTree = "<group>"; };
@@ -542,6 +544,7 @@
 				F022EFE78E6DFDE7A7B2A37C /* LiturgicalEngineCycleTests.swift */,
 				C8662EED745A768F6D88EB3F /* LocalizationKeyTests.swift */,
 				5BCCCDE258D8AFA7BF6F3440 /* MarianApparitionArtTests.swift */,
+				704ABB4D5C5D142A3DFDD130 /* SaintPrayerFormTests.swift */,
 			);
 			name = Unit;
 			path = Tests/Unit;
@@ -1107,6 +1110,7 @@
 				D1237B7AAD7F8945F12A47D8 /* LiturgicalEngineCycleTests.swift in Sources */,
 				76F71429247C64065B0940E0 /* LocalizationKeyTests.swift in Sources */,
 				DA53C2F9E59E75B09E3BC6BB /* MarianApparitionArtTests.swift in Sources */,
+				864EDBA51D196E0C74454AA1 /* SaintPrayerFormTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

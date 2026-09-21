@@ -27,13 +27,25 @@ final class ComplineRouteUITests: XCTestCase {
             app.swipeUp()
         }
         XCTAssertTrue(nightly.isHittable, "o cartão noturno não ficou tocável")
-        nightly.tap()
+        // O centro do cartão cai sob a barra flutuante de abas, que engole o
+        // toque mesmo depois de rolar — em inglês e espanhol o cartão é mais
+        // alto e o centro fica ainda mais baixo. Toca-se na parte de cima.
+        nightly.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.25)).tap()
 
+        // O link fica abaixo do botão principal e, em inglês e espanhol, os
+        // subtítulos dos quatro passos são mais longos: ele nasce fora da
+        // dobra. Uma ScrollView do SwiftUI não constrói o que está fora de
+        // vista, então o elemento não existe na hierarquia até se rolar — daí
+        // rolar primeiro e só depois esperar por ele.
         let link = app.buttons.matching(
             NSPredicate(format: "label CONTAINS[c] 'direto às Completas' OR label CONTAINS[c] 'straight to Compline' OR label CONTAINS[c] 'directo a Completas'")
         ).firstMatch
+        for _ in 0..<5 where !link.exists || !link.isHittable {
+            app.swipeUp()
+        }
         XCTAssertTrue(link.waitForExistence(timeout: 5), "a intro do Exame não oferece as Completas")
-        link.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
+        XCTAssertTrue(link.isHittable, "o link das Completas não ficou tocável")
+        link.tap()
     }
 
     /// The psalm label is the same in all three languages, so it marks arrival.

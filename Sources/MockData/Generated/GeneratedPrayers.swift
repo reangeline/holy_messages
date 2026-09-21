@@ -66,6 +66,13 @@ extension MockDevotionalPrayers {
                 focus: "Invocação breve da misericórdia de Cristo",
                 fullText: "Senhor Jesus Cristo, Filho de Deus, tende piedade de mim, pecador."
             ),
+            .init(
+                id: "te-deum-pt",
+                title: "Te Deum",
+                attribution: "Compêndio do Catecismo da Igreja Católica",
+                focus: "Hino de louvor à Trindade",
+                fullText: "Nós Vos louvamos, ó Deus,\nnós Vos bendizemos, Senhor.\nToda a terra Vos adora,\nPai eterno e omnipotente.\nOs Anjos, os Céus\ne todas as Potestades,\nos Querubins e os Serafins\nVos aclamam sem cessar:\nSanto, Santo, Santo,\nSenhor Deus do Universo,\no céu e a terra proclamam a vossa glória.\nO coro glorioso dos Apóstolos,\na falange venerável dos Profetas,\no exército resplandecente dos Mártires\ncantam os vossos louvores.\nA santa Igreja anuncia por toda a terra\na glória do vosso nome:\nDeus de infinita majestade,\nPai, Filho e Espírito Santo.\nSenhor Jesus Cristo, Rei da glória,\nFilho do Eterno Pai,\npara salvar o homem, tomastes\na condição humana no seio da Virgem Maria.\nVós despedaçastes as cadeias da morte\ne abristes as portas do céu.\nVós estais sentado à direita de Deus,\nna glória do Pai,\ne de novo haveis de vir para julgar\nos vivos e os mortos.\nSocorrei os vossos servos, Senhor,\nque remistes com vosso Sangue precioso;\ne recebei-os na luz da glória,\nna assembleia dos vossos Santos.\nSalvai o vosso povo, Senhor,\ne abençoai a vossa herança;\nsede o seu pastor e guia através dos tempos\ne conduzi-o às fontes da vida eterna.\nNós Vos bendiremos todos os dias da nossa vida\ne louvaremos para sempre o vosso nome.\nDignai-Vos, Senhor, neste dia, livrar-nos do pecado.\nTende piedade de nós,\nSenhor, tende piedade de nós.\nDesça sobre nós a vossa misericórdia,\nPorque em Vós esperamos.\nEm Vós espero, meu Deus,\nnão serei confundido eternamente."
+            ),
         ],
         "healing-liberation": [
             .init(

@@ -354,6 +354,34 @@ extension MockWordOfDay {
             context: "Sermão da Montanha — Mateus 7."
         ),
         .init(
+            id: "marcos-10-27-pt",
+            quote: "Jesus, olhando para eles, disse: “Para os homens isto é impossível, mas não para Deus, porque a Deus tudo é possível.”",
+            reference: "Marcos 10, 27",
+            translationNote: "Matos Soares, Bíblia Sagrada (1956). Tradução católica histórica em domínio público; texto conferido no acervo local. Não é a tradução litúrgica atual da CNBB.",
+            context: "Depois de dizer como é difícil ao rico entrar no Reino, os discípulos perguntam quem então pode salvar-se. A resposta não diminui a dificuldade: desloca a possibilidade para Deus."
+        ),
+        .init(
+            id: "lucas-6-36-pt",
+            quote: "Sede misericordiosos, como também vosso Pai é misericordioso.",
+            reference: "Lucas 6, 36",
+            translationNote: "Matos Soares, Bíblia Sagrada (1956). Tradução católica histórica em domínio público; texto conferido no acervo local. Não é a tradução litúrgica atual da CNBB.",
+            context: "No sermão da planície, é a conclusão do trecho sobre amar os inimigos: a medida da misericórdia cristã não é o merecimento do outro, mas o modo de agir do Pai."
+        ),
+        .init(
+            id: "jo-o-13-34-pt",
+            quote: "Dou-vos um novo mandamento: Que vos ameis uns aos outros, que, assim como vos amei, vos ameis também uns aos outros.",
+            reference: "João 13, 34",
+            translationNote: "Matos Soares, Bíblia Sagrada (1956). Tradução católica histórica em domínio público; texto conferido no acervo local. Não é a tradução litúrgica atual da CNBB.",
+            context: "Dito na última ceia, depois do lava-pés e da saída de Judas. O mandamento é novo não pelo objeto, mas pela medida: como eu vos amei."
+        ),
+        .init(
+            id: "jo-o-14-27-pt",
+            quote: "Deixo-vos a paz, dou-vos a minha paz; não vo-la dou, como a dá o mundo. Não se turbe o vosso coração, nem se assuste.",
+            reference: "João 14, 27",
+            translationNote: "Matos Soares, Bíblia Sagrada (1956). Tradução católica histórica em domínio público; texto conferido no acervo local. Não é a tradução litúrgica atual da CNBB.",
+            context: "Parte do discurso de despedida. A paz prometida é distinguida da que o mundo dá, e vem acompanhada de um pedido: que o coração não se perturbe."
+        ),
+        .init(
             id: "salmo-23-1-pt",
             quote: "Salmo. De Davide. O Senhor me apascenta: nada me falta;",
             reference: "Salmo 23, 1",
@@ -882,6 +910,34 @@ extension MockWordOfDay {
             context: "Sermon on the Mount — Matthew 7."
         ),
         .init(
+            id: "mark-10-27-en",
+            quote: "And Jesus looking on them, saith: With men it is impossible; but not with God: for all things are possible with God.",
+            reference: "Mark 10:27",
+            translationNote: "Douay-Rheims, American Edition of 1899. Historical Catholic English edition in the public domain; text verified against the local corpus. Not the current lectionary translation.",
+            context: "After the saying about the rich and the kingdom, the disciples ask who can then be saved. The answer does not soften the difficulty: it moves the possibility to God."
+        ),
+        .init(
+            id: "luke-6-36-en",
+            quote: "Be ye therefore merciful, as your Father also is merciful.",
+            reference: "Luke 6:36",
+            translationNote: "Douay-Rheims, American Edition of 1899. Historical Catholic English edition in the public domain; text verified against the local corpus. Not the current lectionary translation.",
+            context: "The conclusion of the passage on loving one's enemies in the sermon on the plain: the measure of mercy is not what the other deserves, but how the Father acts."
+        ),
+        .init(
+            id: "john-13-34-en",
+            quote: "A new commandment I give unto you: That you love one another, as I have loved you, that you also love one another.",
+            reference: "John 13:34",
+            translationNote: "Douay-Rheims, American Edition of 1899. Historical Catholic English edition in the public domain; text verified against the local corpus. Not the current lectionary translation.",
+            context: "Spoken at the Last Supper, after the washing of feet and Judas's departure. The commandment is new not in its object but in its measure: as I have loved you."
+        ),
+        .init(
+            id: "john-14-27-en",
+            quote: "Peace I leave with you, my peace I give unto you: not as the world giveth, do I give unto you. Let not your heart be troubled, nor let it be afraid.",
+            reference: "John 14:27",
+            translationNote: "Douay-Rheims, American Edition of 1899. Historical Catholic English edition in the public domain; text verified against the local corpus. Not the current lectionary translation.",
+            context: "From the farewell discourse. The peace promised is distinguished from the world's, and comes with a request: that the heart not be troubled."
+        ),
+        .init(
             id: "psalm-23-1-en",
             quote: "A psalm for David. The Lord ruleth me: and I shall want nothing.",
             reference: "Psalm 23:1",
@@ -1408,6 +1464,41 @@ extension MockWordOfDay {
             reference: "Mateo 7, 23",
             translationNote: "Félix Torres Amat, Sagrada Biblia, tomo I, Madrid, 1823; páginas PDF 32–33. Edição católica histórica em domínio público.",
             context: "Sermón de la Montaña — Mateo 7."
+        ),
+        .init(
+            id: "marcos-10-27-es",
+            quote: "Pero Jesus, fijando en ellos la vista, les dijo: A los hombres es esto imposible, mas no a Dios; pues para Dios todas las cosas son posibles.",
+            reference: "Marcos 10, 27",
+            translationNote: "Félix Torres Amat, Sagrada Biblia, tomo I del Nuevo Testamento, Madrid, 1823; fac-símile p. 126, impreso en la p. 109. Edición católica histórica en dominio público, ortografía conservada. No es la traducción litúrgica actual.",
+            context: "Tras la palabra sobre el rico y el reino, los discípulos preguntan quién puede entonces salvarse. La respuesta no rebaja la dificultad: traslada la posibilidad a Dios."
+        ),
+        .init(
+            id: "lucas-6-36-es",
+            quote: "Sed pues misericordiosos, asi como tambien vuestro Padre es misericordioso.",
+            reference: "Lucas 6, 36",
+            translationNote: "Félix Torres Amat, Sagrada Biblia, tomo I del Nuevo Testamento, Madrid, 1823; fac-símile p. 169, impreso en la p. 152. Edición católica histórica en dominio público, ortografía conservada. No es la traducción litúrgica actual.",
+            context: "Cierra el pasaje sobre el amor a los enemigos en el sermón del llano: la medida de la misericordia no es el merecimiento del otro, sino el modo de obrar del Padre."
+        ),
+        .init(
+            id: "juan-13-34-es",
+            quote: "Entretanto un nuevo mandamiento os doy, y es: Que os ameis unos a otros: y que del modo que yo os he amado a vosotros, asi tambien os ameis reciprocamente.",
+            reference: "Juan 13, 34",
+            translationNote: "Félix Torres Amat, Sagrada Biblia, tomo I del Nuevo Testamento, Madrid, 1823; fac-símile p. 279, impreso en la p. 262. Edición católica histórica en dominio público, ortografía conservada. No es la traducción litúrgica actual.",
+            context: "Dicho en la última cena, después del lavatorio de los pies y de la salida de Judas. El mandamiento es nuevo no por su objeto, sino por su medida: como yo os he amado."
+        ),
+        .init(
+            id: "juan-14-27-es",
+            quote: "La paz os dejo: la paz mia os doy: no os la doy yo, como la da el mundo. No se turbe vuestro corazon, ni se acobarde.",
+            reference: "Juan 14, 27",
+            translationNote: "Félix Torres Amat, Sagrada Biblia, tomo I del Nuevo Testamento, Madrid, 1823; fac-símile p. 281, impreso en la p. 264. Edición católica histórica en dominio público, ortografía conservada. No es la traducción litúrgica actual.",
+            context: "Del discurso de despedida. La paz prometida se distingue de la que da el mundo, y viene con una petición: que el corazón no se turbe."
+        ),
+        .init(
+            id: "juan-3-14-15-es",
+            quote: "Al modo que Moises en el desierto levantó en alto la serpiente de bronce; asi tambien es menester que el Hijo del hombre sea levantado en alto; para que todo aquel que crea en él, no perezca, sino que logre la vida eterna.",
+            reference: "Juan 3, 14-15",
+            translationNote: "Félix Torres Amat, Sagrada Biblia, tomo I del Nuevo Testamento, Madrid, 1823; fac-símile p. 241, impreso en la p. 224. Edición católica histórica en dominio público, ortografía conservada. No es la traducción litúrgica actual.",
+            context: "Jesús responde a Nicodemo remitiendo a la serpiente de bronce de Números 21. Es el evangelio de la Exaltación de la Santa Cruz."
         ),
         .init(
             id: "salmo-23-1-es",

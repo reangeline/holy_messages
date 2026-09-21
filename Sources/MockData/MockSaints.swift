@@ -1,5 +1,22 @@
 import Foundation
 
+/// The two records written by hand, before the imported sanctoral arrived.
+///
+/// Their Portuguese prayers used to be our own compositions ("Deus, que
+/// ensinastes a vossa serva Notburga…"), which is the one thing this acervo
+/// does not do with liturgical text. They now carry the invocation of the
+/// Litany of Saints, the same form the other 35 records use: the Roman Missal
+/// rubricates adding saints to the Litany at the Easter Vigil — "In the Litany
+/// the names of some Saints may be added, especially the Titular Saint of the
+/// church and the Patron Saints of the place and of those to be baptized"
+/// (Missale Romanum, Easter Vigil, no. 43) — so the name is inserted into a
+/// published form rather than a prayer being written for it.
+///
+/// Neither saint has a devotional prayer published in all three languages that
+/// I could find: Notburga's are Tyrolean and in German, and the Vincentian
+/// litany that carries Perboyre's name is on a community wiki with no stated
+/// approving authority. The litany invocation is what the Church's own books
+/// give for any saint, so that is what these two get.
 enum MockSaints {
     private static let ptNotburga = Saint(
         id: "notburga",
@@ -13,7 +30,7 @@ enum MockSaints {
             "Não deixou escritos nem visões. É lembrada pelo que fazia com as sobras, e por não ter parado quando isso lhe custou o emprego.",
         ],
         whyItMattersToday: "No dia em que a Igreja exalta a Cruz, ela mostra a forma mais comum dela: perder algo concreto por não recuar do que é justo.",
-        prayer: "Deus, que ensinastes a vossa serva Notburga a repartir o pouco que tinha, dai-nos a coragem de fazer o que é justo quando isso nos custa. Amém.",
+        prayer: "Santa Notburga, rogai por nós.",
         // Maître au fond maillé, década de 1490, British Museum P_1915-0508-1,
         // domínio público via Wikimedia. Crédito completo no manifest do lote de
         // imagens da pesquisa.
@@ -31,7 +48,7 @@ enum MockSaints {
             "Padre francês da Congregação da Missão, partiu para a China sabendo que a perseguição aos missionários era real. Foi preso, torturado e, por fim, estrangulado por se recusar a pisar numa cruz.",
         ],
         whyItMattersToday: "Sua morte imitou deliberadamente a Paixão: foi arrastado por ruas, açoitado e exposto — uma vida moldada pela Cruz até o fim.",
-        prayer: "Senhor, que destes a João Gabriel a força de não recuar diante do sofrimento, dai-nos parte da mesma fortaleza. Amém."
+        prayer: "São João Gabriel Perboyre, rogai por nós."
     )
 
     // The two records written before the imported sanctoral need their own
