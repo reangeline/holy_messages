@@ -53,7 +53,7 @@ struct SettingsView: View {
                     Button {
                         dismiss()
                     } label: {
-                        Text("Close")
+                        Text("Close", tableName: "SettingsDetail")
                     }
                 }
             }
@@ -187,7 +187,7 @@ private struct TermsPlaceholderView: View {
             VStack(spacing: 12) {
                 Text(title)
                     .font(MissaleFont.display(24))
-                Text("Texto legal ainda não escrito para esta pré-visualização.")
+                Text("This text hasn't been written yet.", tableName: "SettingsDetail")
                     .font(MissaleFont.body(15))
                     .foregroundStyle(Palette.ink.opacity(0.6))
             }

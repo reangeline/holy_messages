@@ -331,6 +331,29 @@
         }
       }
     },
+    "Close": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Close"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fechar"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cerrar"
+          }
+        }
+      }
+    },
     "Conta": {
       "localizations": {
         "pt": {
@@ -1101,6 +1124,29 @@
         }
       }
     },
+    "Only used to greet you by name on Today and here in Settings.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Only used to greet you by name on Today and here in Settings."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Usado só para te chamar pelo nome no Hoje e aqui nas Configurações."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Solo se usa para llamarte por tu nombre en Hoy y aquí en Ajustes."
+          }
+        }
+      }
+    },
     "Parishes and catechesis": {
       "localizations": {
         "en": {
@@ -1317,6 +1363,29 @@
           "stringUnit": {
             "state": "translated",
             "value": "SIEMPRE AQUÍ"
+          }
+        }
+      }
+    },
+    "Save": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Save"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Salvar"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Guardar"
           }
         }
       }
@@ -1805,6 +1874,29 @@
         }
       }
     },
+    "This text hasn't been written yet.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This text hasn't been written yet."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Este texto ainda não foi escrito."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Este texto aún no se ha escrito."
+          }
+        }
+      }
+    },
     "Traditional prayers and devotions, offline": {
       "localizations": {
         "en": {
@@ -2109,6 +2201,29 @@
           "stringUnit": {
             "state": "translated",
             "value": "Seus dados"
+          }
+        }
+      }
+    },
+    "Your name": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your name"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seu nome"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tu nombre"
           }
         }
       }

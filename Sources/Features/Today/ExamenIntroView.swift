@@ -76,6 +76,18 @@ struct ExamenIntroView: View {
                         .background(Palette.goldBright, in: Capsule())
                         .foregroundStyle(Color(hex: 0x2A1A1C))
                 }
+
+                // O cartão do Hoje promete "Exame do dia e Completas", e as
+                // Completas ficaram sem porta quando o Exame virou fluxo
+                // guiado. Quem só quer a oração da noite entra por aqui.
+                NavigationLink {
+                    ComplineView()
+                } label: {
+                    Text("Ir direto às Completas", tableName: "Today")
+                        .font(MissaleFont.body(15))
+                        .foregroundStyle(Palette.goldBright)
+                        .padding(.top, 14)
+                }
                 .padding(.bottom, 12)
             }
             .padding(.horizontal, 24)

@@ -463,6 +463,29 @@
         }
       }
     },
+    "The day's liturgical colour is applied": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The day's liturgical colour is applied"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cor litúrgica do dia aplicada"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Color litúrgico del día aplicado"
+          }
+        }
+      }
+    },
     "The liturgical colors": {
       "localizations": {
         "en": {

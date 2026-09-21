@@ -6,6 +6,9 @@ struct ComplineView: View {
     @Environment(\.dismiss) private var dismiss
     @State private var darkScreen = true
 
+    /// Read at body time, not stored: the language can change under the screen.
+    private var texts: ComplineText { MockCompline.today }
+
     var body: some View {
         ZStack {
             LinearGradient(colors: [Color(hex: 0x181315).opacity(0.94), Color(hex: 0x28181C).opacity(0.94)],
@@ -35,22 +38,25 @@ struct ComplineView: View {
 
                 ScrollView {
                     VStack(alignment: .leading, spacing: 14) {
-                        Text("Convertei-nos, ó Deus, nosso salvador.")
+                        Text(texts.opening)
                             .font(MissaleFont.display(21, italic: true))
                             .foregroundStyle(Palette.goldBright)
-                        Text("Ó Deus, vinde em meu auxílio. Senhor, apressai-vos em socorrer-me. Glória ao Pai e ao Filho e ao Espírito Santo.")
+                        Text("\(texts.invitatory) \(texts.gloryBe)")
                             .font(MissaleFont.body(18))
                             .foregroundStyle(.white.opacity(0.88))
-                        Text("SALMO 90")
+                        Text(texts.psalmLabel)
                             .font(MissaleFont.body(12, weight: .semibold))
                             .tracking(1.4)
                             .foregroundStyle(.white.opacity(0.5))
-                        Text("Quem habita ao abrigo do Altíssimo e mora à sombra do Onipotente diz ao Senhor: sois meu refúgio e minha cidadela, meu Deus, em quem confio.")
+                        Text(texts.psalmText)
                             .font(MissaleFont.body(18))
                             .foregroundStyle(.white.opacity(0.88))
-                        Text("Texto completo, offline. Rolagem lenta e nenhuma notificação enquanto esta tela está aberta.", tableName: "Today")
+                        Text(texts.note)
                             .font(MissaleFont.body(15))
                             .foregroundStyle(.white.opacity(0.55))
+                        Text(texts.source)
+                            .font(MissaleFont.body(12))
+                            .foregroundStyle(.white.opacity(0.4))
                     }
                     .padding(.top, 16)
                     .padding(.bottom, 24)

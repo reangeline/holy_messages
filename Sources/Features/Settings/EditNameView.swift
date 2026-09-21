@@ -11,9 +11,9 @@ struct EditNameView: View {
         ZStack {
             LiturgicalColor.red.pageBackground
             VStack(alignment: .leading, spacing: 16) {
-                Text("Seu nome")
+                Text("Your name", tableName: "SettingsDetail")
                     .font(MissaleFont.display(26))
-                Text("Usado só para te chamar pelo nome no Hoje e aqui nas Configurações.")
+                Text("Only used to greet you by name on Today and here in Settings.", tableName: "SettingsDetail")
                     .font(MissaleFont.body(15))
                     .foregroundStyle(Palette.ink.opacity(0.65))
 
@@ -28,7 +28,7 @@ struct EditNameView: View {
                     userDisplayName = draft.trimmingCharacters(in: .whitespacesAndNewlines)
                     dismiss()
                 } label: {
-                    Text("Salvar")
+                    Text("Save", tableName: "SettingsDetail")
                         .font(MissaleFont.body(17, weight: .medium))
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 15)

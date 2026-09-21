@@ -661,6 +661,29 @@
         }
       }
     },
+    "Encerrar": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Encerrar"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Finish"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Terminar"
+          }
+        }
+      }
+    },
     "Encontrar um confessor fixo": {
       "localizations": {
         "en": {
@@ -899,6 +922,29 @@
           "stringUnit": {
             "state": "translated",
             "value": "Faz algumas semanas que os dias têm vindo pesados"
+          }
+        }
+      }
+    },
+    "Feche o aplicativo agora. O que começou aqui continua em silêncio — a conversa com Deus não precisa de mais tela, só do seu íntimo.": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Feche o aplicativo agora. O que começou aqui continua em silêncio — a conversa com Deus não precisa de mais tela, só do seu íntimo."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Close the app now. What began here continues in silence — the conversation with God needs no more screen, only your own heart."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cierra la aplicación ahora. Lo que empezó aquí continúa en silencio — la conversación con Dios no necesita más pantalla, solo tu interior."
           }
         }
       }
@@ -1211,6 +1257,29 @@
         }
       }
     },
+    "Nenhum Exame registrado ainda. Ele aparece aqui assim que você concluir um.": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nenhum Exame registrado ainda. Ele aparece aqui assim que você concluir um."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No Examen recorded yet. It appears here as soon as you finish one."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ningún Examen registrado todavía. Aparece aquí en cuanto completes uno."
+          }
+        }
+      }
+    },
     "Não é um diagnóstico e não é uma conta a pagar. É só que mais um Salmo talvez não seja o que você precisa agora, e há gente para isso.": {
       "localizations": {
         "en": {
@@ -1343,6 +1412,29 @@
         }
       }
     },
+    "O que você já escreveu": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O que você já escreveu"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "What you've written"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lo que has escrito"
+          }
+        }
+      }
+    },
     "Opcional. Escreva antes de ver qualquer resposta — o que vem depois é para o que você escreveu, não um texto pronto.": {
       "localizations": {
         "en": {
@@ -1449,6 +1541,29 @@
           "stringUnit": {
             "state": "translated",
             "value": "Perdoado"
+          }
+        }
+      }
+    },
+    "Por hoje, é só isso.": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Por hoje, é só isso."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "That's all for today."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Por hoy, esto es todo."
           }
         }
       }
@@ -2043,6 +2158,29 @@
           "stringUnit": {
             "state": "translated",
             "value": "Vazio"
+          }
+        }
+      }
+    },
+    "Ver Exames anteriores ›": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ver Exames anteriores ›"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "See past Examens ›"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ver Exámenes anteriores ›"
           }
         }
       }

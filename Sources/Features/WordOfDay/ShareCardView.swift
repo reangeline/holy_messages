@@ -12,7 +12,7 @@ struct ShareCardView: View {
         ZStack {
             day.color.pageBackground
             VStack(spacing: 20) {
-                Text("Cor do dia aplicada")
+                Text("The day's liturgical colour is applied", tableName: "FormationWordOfDay")
                     .font(MissaleFont.body(13))
                     .foregroundStyle(Palette.ink.opacity(0.55))
 
