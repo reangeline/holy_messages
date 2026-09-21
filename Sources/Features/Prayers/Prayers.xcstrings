@@ -419,6 +419,29 @@
         }
       }
     },
+    "Marian apparitions": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Marian apparitions"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aparições marianas"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apariciones marianas"
+          }
+        }
+      }
+    },
     "May the peace of this prayer stay with you.": {
       "localizations": {
         "en": {
@@ -683,6 +706,29 @@
         }
       }
     },
+    "Shrines, and how the Church received them": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Shrines, and how the Church received them"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Santuários, e como a Igreja os recebeu"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Santuarios, y cómo la Iglesia los recibió"
+          }
+        }
+      }
+    },
     "Start": {
       "localizations": {
         "en": {
@@ -903,6 +949,28 @@
         }
       }
     },
+    "View {name}'s record": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "View {name}'s record"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ver la ficha de {name}"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ver ficha de {name}"
+          }
+        }
+      }
+    },
     "one Our Father": {
       "localizations": {
         "en": {
@@ -1119,28 +1187,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "‹ Sair"
-          }
-        }
-      }
-    },
-    "View {name}'s record": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "View {name}'s record"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ver la ficha de {name}"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ver ficha de {name}"
           }
         }
       }

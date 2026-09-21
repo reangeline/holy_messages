@@ -1,61 +1,11 @@
 import SwiftUI
 
-/// A compact source-led archive of Marian apparitions. It belongs to Calendar
-/// because these are remembered events in the Church's life, while saint
-/// profiles remain in the sanctoral archive.
-struct MarianApparitionsView: View {
-    private let apparitions = MockMarianApparitions.all
-
-    var body: some View {
-        ZStack {
-            LiturgicalColor.white.pageBackground
-            ScrollView {
-                VStack(alignment: .leading, spacing: 14) {
-                    Eyebrow(text: L.string("Marian apparitions", table: "CalendarSaints"))
-                    Text("Places of Marian devotion", tableName: "CalendarSaints")
-                        .font(MissaleFont.display(29))
-                    Text("A small archive sourced from the shrines themselves.", tableName: "CalendarSaints")
-                        .font(MissaleFont.body(16))
-                        .foregroundStyle(Palette.ink.opacity(0.72))
-
-                    ForEach(apparitions) { apparition in
-                        NavigationLink {
-                            MarianApparitionDetailView(apparition: apparition)
-                        } label: {
-                            GlassCard {
-                                HStack(alignment: .top, spacing: 12) {
-                                    Image(systemName: "mappin.and.ellipse")
-                                        .font(.system(size: 18, weight: .medium))
-                                        .foregroundStyle(Palette.wine)
-                                        .frame(width: 24)
-                                    VStack(alignment: .leading, spacing: 4) {
-                                        Text(apparition.name)
-                                            .font(MissaleFont.body(19, weight: .medium))
-                                            .foregroundStyle(Palette.ink)
-                                        Text("\(apparition.place) · \(apparition.year)")
-                                            .font(MissaleFont.body(14))
-                                            .foregroundStyle(Palette.ink.opacity(0.65))
-                                    }
-                                    Spacer()
-                                    Image(systemName: "chevron.right")
-                                        .font(.system(size: 13, weight: .semibold))
-                                        .foregroundStyle(Palette.wine)
-                                }
-                            }
-                        }
-                        .buttonStyle(.plain)
-                    }
-                }
-                .padding(20)
-                .padding(.top, 12)
-                .padding(.bottom, 40)
-            }
-        }
-        .navigationTitle(L.string("Marian apparitions", table: "CalendarSaints"))
-        .navigationBarTitleDisplayMode(.inline)
-    }
-}
-
+/// One apparition: where, who saw it, what the shrine records, and how the
+/// Church received it — each with its source, which the reader can open.
+///
+/// Lives under Prayers because that is where it is reached from: the hub's
+/// apparitions section is the list, so this file no longer carries one of its
+/// own.
 struct MarianApparitionDetailView: View {
     let apparition: MarianApparition
 
@@ -71,6 +21,11 @@ struct MarianApparitionDetailView: View {
             LiturgicalColor.white.pageBackground
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
+                    if apparition.artworkName != nil {
+                        SaintPortrait(artworkName: apparition.artworkName, cornerRadius: 16)
+                            .frame(height: 200)
+                    }
+
                     Eyebrow(text: apparition.year)
                     Text(apparition.name)
                         .font(MissaleFont.display(30))
@@ -141,5 +96,7 @@ struct MarianApparitionDetailView: View {
 }
 
 #Preview {
-    NavigationStack { MarianApparitionsView() }
+    NavigationStack {
+        MarianApparitionDetailView(apparition: MockMarianApparitions.all[0])
+    }
 }

@@ -17,6 +17,7 @@
 		0BE69695542E3F1FA62C3F52 /* CormorantGaramond-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D6494C870F0202D155720C4 /* CormorantGaramond-Medium.ttf */; };
 		0CD844296185B88EB7A1A945 /* DataSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EA6DE687EE2D77A5FA3E68 /* DataSettingsView.swift */; };
 		0F5AFED9A7EFCD4B37440AB7 /* ExamenClosingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FCEC47D5D8B918B1990285 /* ExamenClosingView.swift */; };
+		1119AC2680EB6871EB92ADD9 /* MarianApparitionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965FB3C32F45BE268ED2FB10 /* MarianApparitionDetailView.swift */; };
 		1355E7FF889083146114CB75 /* OnboardingNotificationTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C851FE5FCA96354F60A6EB5 /* OnboardingNotificationTimeView.swift */; };
 		155093060C843D5EE6DBDABC /* OnboardingReliefView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D265308DDF252A3DD76D4C /* OnboardingReliefView.swift */; };
 		1595A8EB571988566DF65CFE /* MoodReflectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA178F4DC237E11B25A8D314 /* MoodReflectionView.swift */; };
@@ -133,7 +134,6 @@
 		B216104E194C6CDDC2569989 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F592E55A220D9003088DFF /* Colors.swift */; };
 		B40DD96CBB221B05C96ACF1F /* CormorantGaramond-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 63E6692DCBDC29C8E31B1C79 /* CormorantGaramond-Regular.ttf */; };
 		B51EE992399141EA618D718C /* MockDevotionalPrayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163F2FDA7FDF246BE786FBD6 /* MockDevotionalPrayers.swift */; };
-		B7AC2AEC97C4EE436845C8F8 /* MarianApparitionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0EA86A630197EE307382F1 /* MarianApparitionsView.swift */; };
 		B9F6C31DAE11B223C222D576 /* DirectionalTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87A797CD3CC5469FBD241D9 /* DirectionalTransition.swift */; };
 		BAE0DC5D6E158591049A5C85 /* LanguageSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A50F9F0AFBC6CB0690A6352 /* LanguageSettingsView.swift */; };
 		BC1A3F043210C3D6E3FA21DC /* EBGaramond-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98CD269C69DE28B8E321E2E3 /* EBGaramond-Regular.ttf */; };
@@ -143,6 +143,7 @@
 		BFD2536D2F9533088C206C90 /* CalendarSaints.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = B889DA2BFF7F6D41A7891713 /* CalendarSaints.xcstrings */; };
 		C3C9AD948A20CB260F146548 /* SupportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180078D6FB2642939C75C0D9 /* SupportView.swift */; };
 		C3CB9268B5AC90C0259F8CC8 /* FormationLanguageUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A641E7EFB290F8F735C474 /* FormationLanguageUITests.swift */; };
+		C3E7667087C4402C59B23F1F /* MarianApparitionsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EBFA9BB2662D16CA3B8B05 /* MarianApparitionsUITests.swift */; };
 		C47D6DAE88EAD086657A5B97 /* EBGaramond-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A5E469A2668E22E83B8E4BF2 /* EBGaramond-Italic.ttf */; };
 		C8E2CC57776D7A41DF736841 /* JourneyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53F78D382401057C36C6C92 /* JourneyListView.swift */; };
 		C9AD1AD5DD0E2499DF5DC567 /* GlassTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DDF3EE5A32A80F704EB0B4 /* GlassTabBar.swift */; };
@@ -161,6 +162,7 @@
 		D5ACB20E5F87AB09CA44AD4E /* Prayers.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = A95B30833E9DEC59B44E5979 /* Prayers.xcstrings */; };
 		D5D5EBEF427D427646D402CB /* DevotionalPrayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C91E7AE38D2D10C31CB156 /* DevotionalPrayer.swift */; };
 		D7E1FFE58A8A49457BD76319 /* FormationProgressStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469EA47C5E6841055C7E4B23 /* FormationProgressStore.swift */; };
+		DA53C2F9E59E75B09E3BC6BB /* MarianApparitionArtTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCCCDE258D8AFA7BF6F3440 /* MarianApparitionArtTests.swift */; };
 		DAA7A368366B470336582029 /* PastoralNoteDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B15BE7FE79DA0EE43CDFB9 /* PastoralNoteDetailView.swift */; };
 		DAB60DB9F381E826E1D27841 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F592E55A220D9003088DFF /* Colors.swift */; };
 		DB3B614434472EFE3DD65B59 /* GeneratedMoodRelief.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142E1A04992C9DA1D5DA4C88 /* GeneratedMoodRelief.swift */; };
@@ -288,6 +290,7 @@
 		5755A56F746943C35D7DEE62 /* CormorantGaramond-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CormorantGaramond-MediumItalic.ttf"; sourceTree = "<group>"; };
 		589AC7E7D0D147C3E48C5914 /* PrayersLanguageUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayersLanguageUITests.swift; sourceTree = "<group>"; };
 		5B49583537054AC3C26C2371 /* RosaryGuidedPrayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RosaryGuidedPrayerView.swift; sourceTree = "<group>"; };
+		5BCCCDE258D8AFA7BF6F3440 /* MarianApparitionArtTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarianApparitionArtTests.swift; sourceTree = "<group>"; };
 		5BF47B756C7A9EADDDDDA3DF /* LiturgicalDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiturgicalDay.swift; sourceTree = "<group>"; };
 		5BF7D2F3849F22A0A5D60717 /* GeneratedMarianApparitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedMarianApparitions.swift; sourceTree = "<group>"; };
 		5C99176FD25F0780A7402DD0 /* SaintPortrait.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaintPortrait.swift; sourceTree = "<group>"; };
@@ -329,12 +332,14 @@
 		91D590B23F2975B841AB601E /* CrossGlyph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossGlyph.swift; sourceTree = "<group>"; };
 		91E8E36AF717AEE65474B8ED /* OnboardingSampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSampleView.swift; sourceTree = "<group>"; };
 		9536EEE16DBB6EFCD2579641 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		965FB3C32F45BE268ED2FB10 /* MarianApparitionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarianApparitionDetailView.swift; sourceTree = "<group>"; };
 		9812D40F8D0CDE32FCB5B036 /* MassBulletin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MassBulletin.swift; sourceTree = "<group>"; };
 		98CD269C69DE28B8E321E2E3 /* EBGaramond-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "EBGaramond-Regular.ttf"; sourceTree = "<group>"; };
 		9C01A17065A57D4F5AA0CF3C /* EBGaramond-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "EBGaramond-SemiBold.ttf"; sourceTree = "<group>"; };
 		9E079C4E39E9ED0EC7D50BFE /* LiturgicalYearRibbonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiturgicalYearRibbonView.swift; sourceTree = "<group>"; };
 		9FCE63842C986A2F595CA8D4 /* LiturgicalSanctoral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiturgicalSanctoral.swift; sourceTree = "<group>"; };
 		A09896B1E82B4B406E82C1A2 /* LiturgicalWeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiturgicalWeekView.swift; sourceTree = "<group>"; };
+		A0EBFA9BB2662D16CA3B8B05 /* MarianApparitionsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarianApparitionsUITests.swift; sourceTree = "<group>"; };
 		A48E9418BF623472B1DAF058 /* PrayersRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayersRootView.swift; sourceTree = "<group>"; };
 		A4D0BF42C9A6A2BA051DA8B3 /* MarianApparition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarianApparition.swift; sourceTree = "<group>"; };
 		A5E469A2668E22E83B8E4BF2 /* EBGaramond-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "EBGaramond-Italic.ttf"; sourceTree = "<group>"; };
@@ -390,7 +395,6 @@
 		E62F7E1BD0B7CD468C18F3C7 /* MissaleWidgetsBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissaleWidgetsBundle.swift; sourceTree = "<group>"; };
 		E75F69D72E41B33F85A10F6F /* WordOfDayWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordOfDayWidget.swift; sourceTree = "<group>"; };
 		E99F88CC334F965A61006194 /* AppLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLanguage.swift; sourceTree = "<group>"; };
-		EA0EA86A630197EE307382F1 /* MarianApparitionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarianApparitionsView.swift; sourceTree = "<group>"; };
 		ECEFC3FB69F33F6ADDAC88D4 /* ExamenStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamenStep.swift; sourceTree = "<group>"; };
 		EE1E2DF590CC65A52B5A7E43 /* RosaryDarkModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RosaryDarkModeView.swift; sourceTree = "<group>"; };
 		EF367E0E14182D6EEAD79AC4 /* Widgets.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Widgets.xcstrings; sourceTree = "<group>"; };
@@ -440,6 +444,7 @@
 				C8A641E7EFB290F8F735C474 /* FormationLanguageUITests.swift */,
 				8049CC700EE6E41951F36255 /* LanguageSwitchUITests.swift */,
 				DF19BB9540519B2695C4871D /* LiturgicalEngineLanguageUITests.swift */,
+				A0EBFA9BB2662D16CA3B8B05 /* MarianApparitionsUITests.swift */,
 				3F85F696283D2E7A80005495 /* MassReadingsLinkUITests.swift */,
 				68679B19DDBA4966550D2198 /* OnboardingLanguageUITests.swift */,
 				589AC7E7D0D147C3E48C5914 /* PrayersLanguageUITests.swift */,
@@ -513,7 +518,6 @@
 				E53F78D382401057C36C6C92 /* JourneyListView.swift */,
 				A09896B1E82B4B406E82C1A2 /* LiturgicalWeekView.swift */,
 				9E079C4E39E9ED0EC7D50BFE /* LiturgicalYearRibbonView.swift */,
-				EA0EA86A630197EE307382F1 /* MarianApparitionsView.swift */,
 				88256E6C4CCFEC9D6FB7A82C /* MassBulletinView.swift */,
 				DF94540CC43D048D2AFB1B15 /* SeasonRetrospectiveView.swift */,
 			);
@@ -537,6 +541,7 @@
 				77C3626D399D1EC11A15F85B /* ComplineTextTests.swift */,
 				F022EFE78E6DFDE7A7B2A37C /* LiturgicalEngineCycleTests.swift */,
 				C8662EED745A768F6D88EB3F /* LocalizationKeyTests.swift */,
+				5BCCCDE258D8AFA7BF6F3440 /* MarianApparitionArtTests.swift */,
 			);
 			name = Unit;
 			path = Tests/Unit;
@@ -664,6 +669,7 @@
 			isa = PBXGroup;
 			children = (
 				15710211E66C705F9516F87A /* DevotionalPrayerDetailView.swift */,
+				965FB3C32F45BE268ED2FB10 /* MarianApparitionDetailView.swift */,
 				C56F6238D04D8924CF1AC227 /* PrayerCategoryDetailView.swift */,
 				A95B30833E9DEC59B44E5979 /* Prayers.xcstrings */,
 				A48E9418BF623472B1DAF058 /* PrayersRootView.swift */,
@@ -980,7 +986,7 @@
 				8DCD0C81B208FB6C390ACDC1 /* LiturgicalYearRibbonView.swift in Sources */,
 				3ECC3A7040A675AC8DCCCDF0 /* LocalizedCatalog.swift in Sources */,
 				008E6E613105824D0D2157B5 /* MarianApparition.swift in Sources */,
-				B7AC2AEC97C4EE436845C8F8 /* MarianApparitionsView.swift in Sources */,
+				1119AC2680EB6871EB92ADD9 /* MarianApparitionDetailView.swift in Sources */,
 				7FD436ED38C47B9F1D8D54F2 /* MassBulletin.swift in Sources */,
 				73E8231763B6B8C5D68FB52C /* MassBulletinView.swift in Sources */,
 				1A28EA2A5A4E6FC2F9373552 /* MissaleApp.swift in Sources */,
@@ -1064,6 +1070,7 @@
 				C3CB9268B5AC90C0259F8CC8 /* FormationLanguageUITests.swift in Sources */,
 				A6F35AEF62403FE3E4FACDEF /* LanguageSwitchUITests.swift in Sources */,
 				F4A30A57644794CDB8E37F4A /* LiturgicalEngineLanguageUITests.swift in Sources */,
+				C3E7667087C4402C59B23F1F /* MarianApparitionsUITests.swift in Sources */,
 				87382A10F1D5E9694420BFF5 /* MassReadingsLinkUITests.swift in Sources */,
 				2390A52C14C6976F89B7DFA2 /* OnboardingLanguageUITests.swift in Sources */,
 				5B0944EB3F5ED8D50A3B657A /* PrayersLanguageUITests.swift in Sources */,
@@ -1099,6 +1106,7 @@
 				38A737FB42319919A83E8D24 /* ComplineTextTests.swift in Sources */,
 				D1237B7AAD7F8945F12A47D8 /* LiturgicalEngineCycleTests.swift in Sources */,
 				76F71429247C64065B0940E0 /* LocalizationKeyTests.swift in Sources */,
+				DA53C2F9E59E75B09E3BC6BB /* MarianApparitionArtTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
