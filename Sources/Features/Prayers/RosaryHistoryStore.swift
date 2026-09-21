@@ -19,6 +19,10 @@ final class RosaryHistoryStore {
     var recent: [RosaryHistoryEntry] {
         list.items.sorted { $0.date > $1.date }
     }
+    /// Backs Settings' "Delete everything" — see LocalData.
+    func deleteAll() {
+        list.removeAll()
+    }
 }
 
 extension RosaryHistoryEntry {
@@ -34,4 +38,5 @@ extension RosaryHistoryEntry {
     }
 
     var dateLabel: String { date.relativeLabel(template: "EEEE") }
+
 }

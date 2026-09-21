@@ -58,9 +58,9 @@ struct SupportView: View {
                     VStack(spacing: 0) {
                         linkRow(L.string( "Frequently asked questions", table: "SettingsDetail"), destination: .faq)
                         Divider().opacity(0.5)
-                        linkRow(L.string( "Terms of Use", table: "SettingsDetail"), destination: .termsPlaceholder(L.string( "Terms of Use", table: "SettingsDetail")))
+                        linkRow(L.string( "Terms of Use", table: "SettingsDetail"), destination: .legal(.terms))
                         Divider().opacity(0.5)
-                        linkRow(L.string( "Privacy Policy", table: "SettingsDetail"), destination: .termsPlaceholder(L.string( "Privacy Policy", table: "SettingsDetail")))
+                        linkRow(L.string( "Privacy Policy", table: "SettingsDetail"), destination: .legal(.privacy))
                     }
                     .background(Color.white.opacity(0.4))
                     .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))

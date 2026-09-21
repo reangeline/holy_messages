@@ -3,6 +3,9 @@ import SwiftUI
 struct AppRootView: View {
     @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding = false
     @State private var showSettings = false
+#if DEBUG
+    @State private var showExamen = false
+#endif
     @AppStorage(AppLanguagePreference.storageKey, store: AppLanguagePreference.store) private var languageOverride = AppLanguagePreference.systemValue
     @Environment(\.scenePhase) private var scenePhase
 
@@ -19,7 +22,16 @@ struct AppRootView: View {
     ///
     /// Debug-only and off unless the argument is passed.
     private var debugOpensSettings: Bool {
-        UserDefaults.standard.string(forKey: "openScreen") == "settings"
+        debugOpenScreen == "settings"
+    }
+
+    /// Which screen the launch argument asks for, if any. "examen" opens the
+    /// Examen intro: reaching it by tapping the nightly card was the flakiest
+    /// step in the UI suite — the card is the last item in the scroll and the
+    /// floating tab bar covers part of it, by an amount that changes with the
+    /// language of the card's own text.
+    private var debugOpenScreen: String? {
+        UserDefaults.standard.string(forKey: "openScreen")
     }
 #endif
 
@@ -48,6 +60,14 @@ struct AppRootView: View {
         // Outside the .id() above on purpose: the sheet survives the rebuild, so
         // picking a language updates the app behind it without closing it.
         .environment(\.settingsPresented, $showSettings)
+#if DEBUG
+        .fullScreenCover(isPresented: $showExamen) {
+            NavigationStack {
+                ExamenIntroView(onFinished: { showExamen = false })
+            }
+            .appLanguageLocale()
+        }
+#endif
         .sheet(isPresented: $showSettings) {
             // The locale has to be applied to the sheet's own content: a sheet is
             // hosted outside the presenting view's tree, so `Text(_:tableName:)`
@@ -59,6 +79,7 @@ struct AppRootView: View {
         .task {
 #if DEBUG
             if debugOpensSettings { showSettings = true }
+            if debugOpenScreen == "examen" { showExamen = true }
 #endif
         }
         // Rolling-window notifications need refreshing on every foreground, not just

@@ -22,8 +22,8 @@ enum MockSettings {
         ]),
         .init(id: "about", label: "Sobre", items: [
             .init(id: "support", title: "Suporte", subtitle: "Gente responde, não um formulário", value: nil, destination: .support),
-            .init(id: "terms", title: "Termos de uso", subtitle: "", value: nil, destination: .termsPlaceholder("Termos de uso")),
-            .init(id: "privacy-policy", title: "Política de privacidade", subtitle: "", value: nil, destination: .termsPlaceholder("Política de privacidade")),
+            .init(id: "terms", title: "Termos de uso", subtitle: "", value: nil, destination: .legal(.terms)),
+            .init(id: "privacy-policy", title: "Política de privacidade", subtitle: "", value: nil, destination: .legal(.privacy)),
         ]),
     ]
 

@@ -22,7 +22,7 @@ enum SettingsDestination: Hashable {
     case data
     case support
     case faq
-    case termsPlaceholder(String) // Termos / Privacidade — mocked as a label-only placeholder
+    case legal(LegalDocument) // Termos de uso / Política de privacidade, lidos do Markdown embarcado
 }
 
 struct RegionOption: Identifiable {

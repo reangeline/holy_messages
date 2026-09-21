@@ -45,7 +45,7 @@ struct SettingsView: View {
                 case .data: DataSettingsView()
                 case .support: SupportView()
                 case .faq: FAQView()
-                case .termsPlaceholder(let title): TermsPlaceholderView(title: title)
+                case .legal(let document): LegalDocumentView(document: document)
                 }
             }
             .toolbar {
@@ -176,23 +176,3 @@ struct SettingsView: View {
     }
 }
 
-/// Termos de uso / Política de privacidade — required by the App Store next to
-/// subscription status, mocked here as a placeholder since there's no real legal
-/// text for this pass.
-private struct TermsPlaceholderView: View {
-    let title: String
-    var body: some View {
-        ZStack {
-            LiturgicalColor.red.pageBackground
-            VStack(spacing: 12) {
-                Text(title)
-                    .font(MissaleFont.display(24))
-                Text("This text hasn't been written yet.", tableName: "SettingsDetail")
-                    .font(MissaleFont.body(15))
-                    .foregroundStyle(Palette.ink.opacity(0.6))
-            }
-        }
-        .navigationTitle(title)
-        .navigationBarTitleDisplayMode(.inline)
-    }
-}

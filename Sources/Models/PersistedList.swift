@@ -17,6 +17,14 @@ final class PersistedList<Element: Codable>: ObservableObject {
         save()
     }
 
+    /// Clears the list and the stored copy. Backs "Delete everything": the
+    /// in-memory array has to go too, or the screen keeps showing entries that
+    /// were deleted and saves them back on the next append.
+    func removeAll() {
+        items = []
+        UserDefaults.standard.removeObject(forKey: storageKey)
+    }
+
     private func save() {
         guard let data = try? JSONEncoder().encode(items) else { return }
         UserDefaults.standard.set(data, forKey: storageKey)

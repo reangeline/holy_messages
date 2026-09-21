@@ -92,10 +92,10 @@ struct SubscriptionDetailView: View {
                     .overlay(RoundedRectangle(cornerRadius: 18, style: .continuous).strokeBorder(style: StrokeStyle(lineWidth: 1, dash: [5, 4])).foregroundStyle(Palette.ink.opacity(0.22)))
 
                     HStack(spacing: 16) {
-                        NavigationLink(value: SettingsDestination.termsPlaceholder(L.string( "Terms of Use", table: "SettingsDetail"))) {
+                        NavigationLink(value: SettingsDestination.legal(.terms)) {
                             Text("Terms of Use", tableName: "SettingsDetail")
                         }
-                        NavigationLink(value: SettingsDestination.termsPlaceholder(L.string( "Privacy Policy", table: "SettingsDetail"))) {
+                        NavigationLink(value: SettingsDestination.legal(.privacy)) {
                             Text("Privacy Policy", tableName: "SettingsDetail")
                         }
                     }

@@ -11,39 +11,31 @@ final class ComplineRouteUITests: XCTestCase {
         continueAfterFailure = false
     }
 
+    /// Opens the Examen intro straight from the DEBUG launch argument, then
+    /// taps the link to Compline.
+    ///
+    /// It used to get there by tapping the nightly card on Today. That tap was
+    /// the flakiest step in the suite: the card is the last item in the scroll,
+    /// the floating tab bar covers part of it, and how much depends on the
+    /// language of the card's own text — so a fixed offset passed in one
+    /// language and missed in another, three fixes in a row. The card's own
+    /// route is covered by ExamenLanguageUITests; this file is about Compline.
     private func openCompline(_ language: String, _ app: XCUIApplication) {
-        app.launchArguments = ["-hasCompletedOnboarding", "1", "-appLanguageOverride", language]
+        app.launchArguments = ["-hasCompletedOnboarding", "1", "-appLanguageOverride", language,
+                               "-openScreen", "examen"]
         app.launch()
-
-        let nightly = app.buttons.matching(
-            NSPredicate(format: "label CONTAINS[c] 'À NOITE' OR label CONTAINS[c] 'TONIGHT' OR label CONTAINS[c] 'NOCHE'")
-        ).firstMatch
-        XCTAssertTrue(nightly.waitForExistence(timeout: 15), "não achei o cartão noturno")
-
-        // O cartão fica no fim da rolagem, e no deslocamento inicial seu centro
-        // cai sob a barra flutuante de abas, que engole o toque. Rola até ele
-        // ficar de fato tocável, em vez de deslizar uma vez e esperar dar certo.
-        for _ in 0..<4 where !nightly.isHittable {
-            app.swipeUp()
-        }
-        XCTAssertTrue(nightly.isHittable, "o cartão noturno não ficou tocável")
-        // O centro do cartão cai sob a barra flutuante de abas, que engole o
-        // toque mesmo depois de rolar — em inglês e espanhol o cartão é mais
-        // alto e o centro fica ainda mais baixo. Toca-se na parte de cima.
-        nightly.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.25)).tap()
 
         // O link fica abaixo do botão principal e, em inglês e espanhol, os
         // subtítulos dos quatro passos são mais longos: ele nasce fora da
         // dobra. Uma ScrollView do SwiftUI não constrói o que está fora de
-        // vista, então o elemento não existe na hierarquia até se rolar — daí
-        // rolar primeiro e só depois esperar por ele.
+        // vista, então rola-se primeiro e só depois espera-se por ele.
         let link = app.buttons.matching(
             NSPredicate(format: "label CONTAINS[c] 'direto às Completas' OR label CONTAINS[c] 'straight to Compline' OR label CONTAINS[c] 'directo a Completas'")
         ).firstMatch
         for _ in 0..<5 where !link.exists || !link.isHittable {
             app.swipeUp()
         }
-        XCTAssertTrue(link.waitForExistence(timeout: 5), "a intro do Exame não oferece as Completas")
+        XCTAssertTrue(link.waitForExistence(timeout: 10), "a intro do Exame não oferece as Completas")
         XCTAssertTrue(link.isHittable, "o link das Completas não ficou tocável")
         link.tap()
     }

@@ -1,14 +1,20 @@
 import SwiftUI
 
-/// t5 screen 5 (fIs5) — sync (off by default, mood/Examen entries never sync even
-/// when on), export, and irreversible local delete. "Apagar tudo" really clears
-/// MoodHistoryStore, the one piece of real local data this pass has.
+/// t5 screen 5 (fIs5) — what the app keeps on this device, and the button that
+/// removes it.
+///
+/// This screen used to offer three things the app does not do: a sync toggle
+/// (there is no sync, and the note under it claimed subscription and progress
+/// synced), an "anonymous analytics" toggle with an off switch (there is no
+/// analytics and no network request anywhere in the app), and PDF/JSON export
+/// pills that were plain `Text`. They are gone rather than described, because
+/// the privacy policy has to match this screen.
+///
+/// "Delete everything" now deletes everything — see LocalData. It used to
+/// clear the mood log only, while telling the reader their notes were gone.
 struct DataSettingsView: View {
-    @AppStorage(UserProfile.syncEnabledKey) private var syncEnabled = false
-    @AppStorage(UserProfile.analyticsEnabledKey) private var analyticsEnabled = false
     @State private var showDeleteConfirmation = false
     @State private var didDelete = false
-    @ObservedObject private var moodHistory = MoodHistoryStore.shared
 
     var body: some View {
         ZStack {
@@ -23,52 +29,11 @@ struct DataSettingsView: View {
                             .foregroundStyle(Palette.ink.opacity(0.68))
                     }
 
-                    GlassCard {
-                        VStack(alignment: .leading, spacing: 10) {
-                            HStack {
-                                VStack(alignment: .leading, spacing: 2) {
-                                    Text("Sync across devices", tableName: "SettingsDetail")
-                                        .font(MissaleFont.body(18, weight: .medium))
-                                    Text(syncEnabled ? L.string( "On", table: "SettingsDetail") : L.string( "Off", table: "SettingsDetail"))
-                                        .font(MissaleFont.body(15))
-                                        .foregroundStyle(Palette.ink.opacity(0.66))
-                                }
-                                Spacer()
-                                Toggle("", isOn: $syncEnabled).labelsHidden().tint(Palette.wine)
-                            }
-                            // Original copy lives in MockSettings.dataSyncNote (not mine to
-                            // edit); translated it here under a new key with the same
-                            // meaning rather than leaving it Portuguese-only, per the
-                            // "policy/chrome, not devotional" guidance for this screen.
-                            Text("Even when on, your mood log and Examen notes never upload: they never leave this device. Your subscription, track progress, and rosaries prayed do sync.", tableName: "SettingsDetail")
-                                .font(MissaleFont.body(15))
-                                .foregroundStyle(Palette.ink.opacity(0.8))
-                                .padding(11)
-                                .background(Palette.wine.opacity(0.08))
-                                .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
-                                .overlay(RoundedRectangle(cornerRadius: 14, style: .continuous).strokeBorder(Palette.wine.opacity(0.2), lineWidth: 1))
-                        }
-                    }
-
-                    GlassCard {
-                        VStack(alignment: .leading, spacing: 10) {
-                            Text("Export", tableName: "SettingsDetail")
-                                .font(MissaleFont.body(18, weight: .medium))
-                            Text("Your calendar, logs, intentions, and progress, in a readable file. No account and no cloud in between.", tableName: "SettingsDetail")
-                                .font(MissaleFont.body(15))
-                                .foregroundStyle(Palette.ink.opacity(0.72))
-                            HStack(spacing: 9) {
-                                exportPill("PDF")
-                                exportPill("JSON")
-                            }
-                        }
-                    }
-
                     VStack(alignment: .leading, spacing: 10) {
                         Text("Delete everything", tableName: "SettingsDetail")
                             .font(MissaleFont.body(18, weight: .medium))
                             .foregroundStyle(Palette.wine)
-                        Text("Deletes your calendar, logs, notes, and progress on this device. It's immediate and can't be undone — export first if you want to keep a copy.", tableName: "SettingsDetail")
+                        Text("Deletes your mood log, your Examen notes, the rosaries you logged, your formation progress, and your name. It's immediate and can't be undone. Your language and calendar choices stay.", tableName: "SettingsDetail")
                             .font(MissaleFont.body(15))
                             .foregroundStyle(Palette.ink.opacity(0.8))
                         Button {
@@ -88,25 +53,9 @@ struct DataSettingsView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
                     .overlay(RoundedRectangle(cornerRadius: 18, style: .continuous).strokeBorder(Palette.wine.opacity(0.28), lineWidth: 1))
 
-                    Text("We don't sell data, there are no third-party trackers, and there are no ads. Analytics are anonymous and can be turned off below.", tableName: "SettingsDetail")
+                    Text("Nothing here is uploaded. The app makes no network requests, has no account, no third-party trackers, no analytics, and no ads. What you write stays on this device.", tableName: "SettingsDetail")
                         .font(MissaleFont.body(14))
                         .foregroundStyle(Palette.ink.opacity(0.58))
-
-                    HStack {
-                        VStack(alignment: .leading, spacing: 2) {
-                            Text("Anonymous analytics", tableName: "SettingsDetail")
-                                .font(MissaleFont.body(17))
-                            Text("Screen views only, no content", tableName: "SettingsDetail")
-                                .font(MissaleFont.body(14))
-                                .foregroundStyle(Palette.ink.opacity(0.64))
-                        }
-                        Spacer()
-                        Toggle("", isOn: $analyticsEnabled).labelsHidden().tint(Palette.wine)
-                    }
-                    .padding(14)
-                    .background(Color.white.opacity(0.4))
-                    .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
-                    .overlay(RoundedRectangle(cornerRadius: 16, style: .continuous).strokeBorder(Color.white.opacity(0.58), lineWidth: 1))
                 }
                 .padding(.horizontal, 24)
                 .padding(.top, 12)
@@ -118,21 +67,12 @@ struct DataSettingsView: View {
         .alert(L.string( "Delete everything on this device?", table: "SettingsDetail"), isPresented: $showDeleteConfirmation) {
             Button(L.string( "Cancel", table: "SettingsDetail"), role: .cancel) {}
             Button(L.string( "Delete", table: "SettingsDetail"), role: .destructive) {
-                moodHistory.deleteAll()
+                LocalData.deleteEverything()
                 didDelete = true
             }
         } message: {
-            Text(L.string("This deletes {count} mood entry(ies) saved on this device. This is immediate and can't be undone.", table: "SettingsDetail")
-                .replacingOccurrences(of: "{count}", with: "\(moodHistory.entries.count)"))
+            Text(L.string("This deletes your mood log, your Examen notes, the rosaries you logged, your formation progress, and your name — {count} record(s) on this device. It is immediate and can't be undone.", table: "SettingsDetail")
+                .replacingOccurrences(of: "{count}", with: "\(LocalData.recordCount)"))
         }
-    }
-
-    private func exportPill(_ label: String) -> some View {
-        Text(label)
-            .font(MissaleFont.body(16))
-            .padding(.horizontal, 15)
-            .padding(.vertical, 10)
-            .background(.ultraThinMaterial, in: Capsule())
-            .overlay(Capsule().strokeBorder(Color.white.opacity(0.7), lineWidth: 1))
     }
 }

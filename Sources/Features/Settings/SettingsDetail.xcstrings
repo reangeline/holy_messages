@@ -508,6 +508,29 @@
         }
       }
     },
+    "Deletes your mood log, your Examen notes, the rosaries you logged, your formation progress, and your name. It's immediate and can't be undone. Your language and calendar choices stay.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Deletes your mood log, your Examen notes, the rosaries you logged, your formation progress, and your name. It's immediate and can't be undone. Your language and calendar choices stay."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apaga seu registro de humor, suas notas do Exame, os terços que você registrou, seu progresso na Formação e seu nome. É imediato e não dá para desfazer. Suas escolhas de idioma e calendário permanecem."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Borra tu registro de ánimo, tus notas del Examen, los rosarios que registraste, tu progreso en Formación y tu nombre. Es inmediato y no se puede deshacer. Tus preferencias de idioma y calendario se mantienen."
+          }
+        }
+      }
+    },
     "Didn't find it? Write to {email} — we respond within two business days.": {
       "localizations": {
         "en": {
@@ -1032,6 +1055,29 @@
           "stringUnit": {
             "state": "translated",
             "value": "Nota pastoral"
+          }
+        }
+      }
+    },
+    "Nothing here is uploaded. The app makes no network requests, has no account, no third-party trackers, no analytics, and no ads. What you write stays on this device.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nothing here is uploaded. The app makes no network requests, has no account, no third-party trackers, no analytics, and no ads. What you write stays on this device."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nada daqui é enviado. O app não faz nenhuma requisição de rede, não tem conta, não tem rastreadores de terceiros, não tem analytics e não tem anúncios. O que você escreve fica neste aparelho."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nada de esto se envía. La app no hace ninguna petición de red, no tiene cuenta, no tiene rastreadores de terceros, no tiene analíticas y no tiene anuncios. Lo que escribes se queda en este dispositivo."
           }
         }
       }
@@ -1764,6 +1810,29 @@
         }
       }
     },
+    "The current version is published at missale.app, and the App Store listing links to it.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The current version is published at missale.app, and the App Store listing links to it."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A versão vigente está publicada em missale.app, e a página da App Store leva até ela."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La versión vigente está publicada en missale.app, y la página de la App Store enlaza a ella."
+          }
+        }
+      }
+    },
     "The pastoral referral network": {
       "localizations": {
         "en": {
@@ -1848,6 +1917,29 @@
           "stringUnit": {
             "state": "translated",
             "value": "Não há avaliação clínica, diagnóstico nem acompanhamento. Sofrimento psíquico pede profissional, e os dois caminhos não competem."
+          }
+        }
+      }
+    },
+    "This deletes your mood log, your Examen notes, the rosaries you logged, your formation progress, and your name — {count} record(s) on this device. It is immediate and can't be undone.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This deletes your mood log, your Examen notes, the rosaries you logged, your formation progress, and your name — {count} record(s) on this device. It is immediate and can't be undone."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Isto apaga seu registro de humor, suas notas do Exame, os terços registrados, seu progresso na Formação e seu nome — {count} registro(s) neste aparelho. É imediato e não dá para desfazer."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esto borra tu registro de ánimo, tus notas del Examen, los rosarios registrados, tu progreso en Formación y tu nombre — {count} registro(s) en este dispositivo. Es inmediato y no se puede deshacer."
           }
         }
       }
@@ -1937,6 +2029,29 @@
           "stringUnit": {
             "state": "translated",
             "value": "US$ 39,99/ano"
+          }
+        }
+      }
+    },
+    "We couldn't open this document on your device.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "We couldn't open this document on your device."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Não foi possível abrir este documento no seu aparelho."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No se pudo abrir este documento en tu dispositivo."
           }
         }
       }

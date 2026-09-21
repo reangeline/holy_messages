@@ -13,4 +13,9 @@ final class ExamenHistoryStore {
     func record(gratitude: String, lightRequest: String, review: String, response: String) {
         list.append(ExamenEntry(gratitude: gratitude, lightRequest: lightRequest, review: review, response: response))
     }
+
+    /// Backs Settings' "Delete everything" — see LocalData.
+    func deleteAll() {
+        list.removeAll()
+    }
 }
