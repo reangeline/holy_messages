@@ -17,6 +17,7 @@ PESQUISA = pathlib.Path("/Users/reangeline/Documents/Missale-pesquisa")
 APP = pathlib.Path("/Users/reangeline/Projects/holy_messages")
 ASSETS = APP / "Sources/Assets.xcassets/Saints"
 OUT = APP / "Sources/MockData/Generated"
+PRAYERS = PESQUISA / "entregas/santos-oracoes"
 LANGS = ("pt", "en", "es")
 
 # O arquivo dessa pasta usa o nome completo; a ficha usa o id curto.
@@ -95,6 +96,23 @@ def load_fichas(lang):
                 recs[o["id"]] = o
     return recs
 
+def load_prayers(lang):
+    """Orações publicadas por idioma, separadas das fichas biográficas.
+
+    O lote inclui a URL da edição católica usada. Manter a oração fora dos lotes
+    de biografia permite revisar ou substituir a fonte sem duplicar 35 fichas.
+    """
+    path = PRAYERS / f"saint_prayers.{lang}.json"
+    prayers = {}
+    for o in json.load(open(path)):
+        saint_id = o["id"]
+        if saint_id in prayers:
+            raise ValueError(f"oração duplicada em {path}: {saint_id}")
+        if not o.get("prayer") or not o.get("sourceURL", "").startswith("https://"):
+            raise ValueError(f"oração sem texto ou fonte em {path}: {saint_id}")
+        prayers[saint_id] = o
+    return prayers
+
 def main():
     art = find_art()
     ASSETS.mkdir(parents=True, exist_ok=True)
@@ -122,6 +140,7 @@ extension MockSaints {
     pt_fichas = load_fichas("pt")
     for lang in LANGS:
         fichas = load_fichas(lang)
+        prayers = load_prayers(lang)
         out.append(f"    static let {lang}ImportedSaints: [Saint] = [\n")
         entries = []
         for saint_id in sorted(fichas):
@@ -130,7 +149,9 @@ extension MockSaints {
             if o.get("richDetail"):
                 bio = paras or [o.get("identity", "")]
                 why = o.get("whyItMattersToday", "")
-                prayer = o.get("prayer", "")
+                prayer = prayers.get(saint_id, {}).get("prayer", "")
+                if not prayer:
+                    raise ValueError(f"ficha rica sem oração {lang}: {saint_id}")
             else:
                 # Os lotes antigos copiavam a sinopse no campo de relevância e
                 # deixavam a oração vazia. Isso não vira conteúdo rico por acaso.
@@ -158,6 +179,8 @@ extension MockSaints {
             if o.get("dateKey"):
                 entries.append((o["dateKey"], saint_id))
             counts[lang] += 1
+            if prayer:
+                counts[lang + "-orações"] += 1
         out.append("    ]\n\n")
 
         # calendário: uma celebração por data, a primeira em ordem alfabética de id

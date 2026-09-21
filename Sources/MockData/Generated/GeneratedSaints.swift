@@ -18,7 +18,7 @@ extension MockSaints {
             calendarNote: "Calendário Romano Geral · 28 de agosto",
             bioParagraphs: ["Agostinho nasceu em Tagaste, na Numídia romana, filho de Patrício e Mônica. Estudou retórica em Madaura e Cartago, teve um filho chamado Adeodato e durante anos procurou respostas no maniqueísmo. Lecionou em Cartago, Roma e Milão. Ali, a pregação do bispo Ambrósio, a leitura das cartas de Paulo e uma intensa luta interior o conduziram à fé católica; Ambrósio batizou Agostinho e Adeodato na Páscoa de 387.", "De volta à África, desejava uma vida comunitária de estudo e oração, mas foi ordenado presbítero em Hipona em 391 e tornou-se bispo por volta de 395. Pregou quase diariamente, cuidou de conflitos pastorais e escreveu obras decisivas como Confissões, Sobre a Trindade e A Cidade de Deus. Debateu o donatismo e o pelagianismo e insistiu na primazia da graça sem apagar a liberdade e a responsabilidade humanas.", "Agostinho morreu em Hipona em 28 de agosto de 430, enquanto a cidade era sitiada pelos vândalos. Possídio relata que ele passou os últimos dias rezando os salmos penitenciais. Sua própria história de inquietação, queda, amizade, paternidade e conversão tornou-se parte essencial de seu ensinamento: Deus não apaga a história humana, mas pode reordenar seus desejos."],
             whyItMattersToday: "Agostinho fala diretamente a quem procura sentido entre ambição, afetos, culpa e fé. Sua vida ensina que inteligência e conversão podem caminhar juntas e que reconhecer os próprios desvios não elimina a possibilidade de recomeçar.",
-            prayer: "",
+            prayer: "Santo Agostinho, rogai por nós.",
             artworkName: "agostinho"
         ),
         .init(
@@ -30,7 +30,7 @@ extension MockSaints {
             calendarNote: "Memória litúrgica · 6 de janeiro",
             bioParagraphs: ["Alfred Bessette nasceu em Saint-Grégoire, no Québec, oitavo de doze filhos. Órfão e de saúde frágil, trabalhou em fazendas, oficinas e fábricas, inclusive nos Estados Unidos, antes de entrar na Congregação de Santa Cruz. Recebeu o nome André e fez votos em 1874, apesar das dúvidas de seus superiores sobre sua saúde e escolaridade.", "Durante quase quarenta anos foi porteiro do Collège Notre-Dame, em Montreal. Recebia doentes, pobres e pessoas aflitas, escutava-as e as encaminhava à oração, aos sacramentos e à confiança em São José; sempre negou possuir poder de cura. Uma pequena capela iniciada em 1904 cresceu até se tornar o Oratório de São José, do qual foi guardião por décadas.", "André morreu em 6 de janeiro de 1937, aos 91 anos, e uma multidão participou de suas exéquias. João Paulo II o beatificou em 1982. Em 2009, a Santa Sé reconheceu formalmente um milagre atribuído à sua intercessão, após avaliações médicas e teológicas, e Bento XVI o canonizou em 2010. Outros relatos de cura permanecem testemunhos devocionais, não equivalentes a esse reconhecimento canônico."],
             whyItMattersToday: "André mostra que acolher, escutar e encaminhar alguém com humildade pode transformar uma vida. Sua história também protege contra o culto à personalidade: ele atribuía toda graça a Deus e à intercessão de São José.",
-            prayer: "",
+            prayer: "Santo André Bessette, rogai por nós.",
             artworkName: "andre-bessette"
         ),
         .init(
@@ -42,7 +42,7 @@ extension MockSaints {
             calendarNote: "Calendário Romano Geral · 13 de junho",
             bioParagraphs: ["Fernando nasceu em Lisboa e entrou primeiro nos Cônegos Regrantes de Santo Agostinho, estudando em Lisboa e Coimbra. A chegada a Coimbra dos restos mortais de cinco franciscanos mortos no Marrocos despertou nele o desejo missionário. Ao entrar nos Frades Menores recebeu o nome Antônio e partiu para o Marrocos, mas uma doença obrigou seu retorno.", "Uma tempestade o levou à Sicília. Depois do Capítulo das Esteiras, viveu discretamente até que sua capacidade de pregar foi descoberta em Forlì. Percorreu o norte da Itália e o sul da França, ensinou teologia aos frades e pregou contra a usura e em defesa dos pobres. A pregação aos peixes e a aparição do Menino Jesus pertencem à tradição hagiográfica transmitida por fontes posteriores.", "Antônio passou os últimos meses em Camposampiero e, já muito doente, morreu a caminho de Pádua em 13 de junho de 1231, no convento de Arcella. Foi canonizado em 1232, menos de um ano depois, e proclamado Doutor da Igreja em 1946. Seus Sermões conservados mostram sólida formação bíblica e atenção à conversão concreta."],
             whyItMattersToday: "Antônio une estudo sério, comunicação acessível e defesa dos vulneráveis. Sua história recorda que boa pregação não é espetáculo: nasce da Escritura e toca escolhas econômicas e relações humanas.",
-            prayer: "",
+            prayer: "Santo Antônio de Pádua, rogai por nós.",
             artworkName: "antonio-padua"
         ),
         .init(
@@ -54,7 +54,7 @@ extension MockSaints {
             calendarNote: "Calendário Romano Geral · 11 de julho",
             bioParagraphs: ["Bento nasceu em Núrsia e foi enviado a Roma para estudar. Desapontado com o ambiente que encontrou, retirou-se para uma gruta perto de Subiaco, onde viveu como eremita com a ajuda do monge Romano. A fama de sua vida atraiu discípulos; depois de conflitos com comunidades locais, organizou pequenos mosteiros e finalmente se estabeleceu em Monte Cassino.", "Em Monte Cassino, Bento formou uma comunidade orientada pela oração litúrgica, leitura, trabalho e hospitalidade. Sua Regra evita tanto o rigor excessivo quanto a vida sem disciplina: o abade deve ouvir, corrigir com prudência e tratar cada pessoa segundo sua necessidade. A tradição resume esse equilíbrio em oração e trabalho, embora a expressão ‘ora et labora’ não apareça literalmente na Regra.", "Gregório Magno, principal fonte antiga sobre Bento, transmite relatos de sinais e milagres, como o cálice envenenado que se teria quebrado quando Bento o abençoou; esses episódios são apresentados como tradição hagiográfica, não como documentação moderna. Gregório também narra que Bento morreu de pé na capela de Monte Cassino, sustentado pelos irmãos, depois de receber a Eucaristia, por volta de 547."],
             whyItMattersToday: "A Regra de Bento oferece uma escola de atenção: escutar antes de decidir, equilibrar oração e trabalho, acolher hóspedes e exercer liderança sem humilhar. É uma resposta concreta à dispersão e ao excesso.",
-            prayer: "",
+            prayer: "São Bento, rogai por nós.",
             artworkName: "benito"
         ),
         .init(
@@ -66,7 +66,7 @@ extension MockSaints {
             calendarNote: "Memória litúrgica · 12 de outubro",
             bioParagraphs: ["Carlo nasceu em Londres em 3 de maio de 1991 e cresceu em Milão. Frequentou escolas católicas, recebeu a primeira Comunhão aos sete anos e cultivou forte devoção à Eucaristia. Era catequista na paróquia, ajudava colegas e pessoas sem moradia e gostava de futebol, animais, videogames e informática.", "Aprendeu a criar páginas na internet e organizou material digital sobre milagres eucarísticos documentados em diferentes lugares. O projeto ficou conhecido após sua morte, mas não resume sua vida: testemunhos do processo destacam também Missa, adoração, Rosário, amizades e caridade cotidiana. Diagnosticado com leucemia agressiva em outubro de 2006, morreu em Monza no dia 12, aos quinze anos.", "Foi beatificado em 2020 depois do reconhecimento da cura de uma criança brasileira com grave enfermidade pancreática e intestinal. Para a canonização foi reconhecida a recuperação de uma jovem costa-riquenha após traumatismo craniano sofrido em Florença. Leão XIV canonizou Carlo e Pier Giorgio Frassati em 7 de setembro de 2025. Seu corpo é venerado no Santuário do Despojamento, em Assis."],
             whyItMattersToday: "Carlo mostra uma santidade juvenil integrada à vida comum e à tecnologia. Seu exemplo convida a perguntar se o ambiente digital aproxima pessoas da verdade e da caridade ou apenas captura atenção.",
-            prayer: "",
+            prayer: "São Carlo Acutis, rogai por nós.",
             artworkName: "carlo-acutis"
         ),
         .init(
@@ -78,7 +78,7 @@ extension MockSaints {
             calendarNote: "Calendário Romano Geral · 29 de abril",
             bioParagraphs: ["Catarina Benincasa nasceu em Sena numa família numerosa de artesãos. Ainda jovem fez voto privado de virgindade e, por volta dos dezesseis anos, ingressou entre as Mantellate, leigas ligadas à Ordem Dominicana. Viveu inicialmente recolhida na casa familiar, mas passou a servir doentes e pobres, inclusive durante surtos de peste.", "Sem educação formal extensa, aprendeu a ler e ditou cartas a governantes, religiosos e pessoas comuns. Viajou para promover a paz entre cidades italianas, pedir reforma do clero e convencer Gregório XI a retornar de Avinhão para Roma. O Diálogo, suas cartas e orações mostram uma espiritualidade centrada em Cristo, na misericórdia e no amor exigente pela Igreja.", "Raimundo de Cápua relata visões como o matrimônio místico e a troca de corações; são experiências transmitidas por sua hagiografia e por seu próprio círculo. Durante o Cisma do Ocidente, Catarina apoiou Urbano VI e ofereceu sua vida pela unidade da Igreja. Morreu em Roma em 29 de abril de 1380, foi canonizada em 1461 e proclamada Doutora da Igreja em 1970."],
             whyItMattersToday: "Catarina mostra que amor à Igreja inclui falar com franqueza sobre seus pecados e trabalhar por sua reforma. Sua voz leiga atravessou fronteiras políticas porque unia serviço direto, oração e coragem pública.",
-            prayer: "",
+            prayer: "Santa Catarina de Sena, rogai por nós.",
             artworkName: "catarina-siena"
         ),
         .init(
@@ -90,7 +90,7 @@ extension MockSaints {
             calendarNote: "Calendário Romano Geral · 11 de agosto",
             bioParagraphs: ["Clara nasceu numa família nobre de Assis. Aos dezoito anos, na noite do Domingo de Ramos de 1211 ou 1212, deixou a casa familiar e foi à Porciúncula, onde Francisco cortou seus cabelos e lhe deu um hábito penitencial. Depois de passar por dois mosteiros, estabeleceu-se em São Damião; sua irmã Inês e outras mulheres juntaram-se a ela.", "A comunidade viveu oração, trabalho, fraternidade e pobreza sem propriedades. Clara resistiu por décadas a regras que enfraqueciam essa forma de pobreza e escreveu uma Regra própria, a primeira composta por uma mulher para uma comunidade feminina a receber aprovação papal. Suas cartas a Inês de Praga revelam uma espiritualidade centrada em contemplar Cristo pobre.", "O processo de canonização registra o relato de que Clara, doente, mostrou o Santíssimo Sacramento quando tropas ameaçaram São Damião e a comunidade foi poupada; o episódio é apresentado como testemunho hagiográfico das irmãs. Inocêncio IV aprovou sua Regra dois dias antes de sua morte, em 11 de agosto de 1253. Clara foi canonizada em 1255."],
             whyItMattersToday: "Clara mostra liderança firme sem abandonar a vida contemplativa. Sua perseverança para obter uma regra coerente com sua vocação fala a quem precisa proteger uma convicção sem perder a caridade.",
-            prayer: "",
+            prayer: "Santa Clara de Assis, rogai por nós.",
             artworkName: "clara-assis"
         ),
         .init(
@@ -102,7 +102,7 @@ extension MockSaints {
             calendarNote: "Memória litúrgica · 10 de maio",
             bioParagraphs: ["Jozef de Veuster nasceu em Tremelo, na Bélgica, e entrou na Congregação dos Sagrados Corações, adotando o nome Damião. Partiu para o Havaí no lugar do irmão doente, chegou em 1864 e foi ordenado sacerdote em Honolulu. Em 1873 ofereceu-se para servir a população com hanseníase isolada à força na península de Kalaupapa, em Molokai.", "Damião decidiu permanecer com a comunidade. Organizou capelas, moradias, abastecimento de água, escola, cuidados aos doentes e sepultamentos dignos, trabalhando com moradores e colaboradores de diferentes crenças. Em 1884 percebeu sinais de hanseníase; continuou o ministério até morrer em 15 de abril de 1889, aos 49 anos, depois de dezesseis anos em Molokai.", "Foi beatificado em 1995 e canonizado em 2009. Para a canonização, a Igreja examinou a recuperação de Audrey Toguchi, que sofria de câncer metastático; a consulta médica declarou a cura inexplicável e o processo a atribuiu à intercessão de Damião. Esse caso reconhecido deve ser distinguido dos muitos relatos devocionais ligados ao missionário."],
             whyItMattersToday: "Damião tornou concreta a dignidade de pessoas que a sociedade havia isolado e reduzido a uma doença. Sua vida desafia comunidades a trocar distância e estigma por presença, cuidado competente e participação dos próprios doentes.",
-            prayer: "",
+            prayer: "São Damião de Molokai, rogai por nós.",
             artworkName: "damiao-molokai"
         ),
         .init(
@@ -114,7 +114,7 @@ extension MockSaints {
             calendarNote: "Calendário Romano Geral · 8 de agosto",
             bioParagraphs: ["Domingos nasceu em Caleruega, em Castela, estudou em Palência e tornou-se cônego da catedral de Osma. Durante uma fome vendeu seus livros, então muito valiosos, para socorrer os necessitados. Em viagens pelo sul da França encontrou comunidades afastadas da Igreja e decidiu responder com pregação, debate e uma vida pobre coerente com o Evangelho.", "Em Prouille apoiou uma comunidade feminina e reuniu companheiros dedicados ao estudo e à pregação. Honório III confirmou a Ordem dos Pregadores em 1216. Domingos enviou cedo os frades às cidades universitárias, especialmente Paris e Bolonha, porque via formação, vida comunitária e missão como partes inseparáveis do mesmo serviço.", "Jordão da Saxônia e outros contemporâneos descrevem sua oração noturna, suas lágrimas pelos que sofriam e sua cordialidade durante o dia. A tradição dominicana associa Domingos ao Rosário, embora a forma atual da oração tenha se desenvolvido gradualmente nos séculos seguintes. Ele morreu em Bolonha em 6 de agosto de 1221 e foi canonizado em 1234."],
             whyItMattersToday: "Domingos mostra que convicções religiosas devem ser comunicadas com estudo, coerência de vida e cuidado pelas pessoas. Sua resposta à divisão foi formar pregadores capazes de escutar, aprender e explicar.",
-            prayer: "",
+            prayer: "São Domingos de Gusmão, rogai por nós.",
             artworkName: "domingos-gusmao"
         ),
         .init(
@@ -126,7 +126,7 @@ extension MockSaints {
             calendarNote: "Calendário Romano Geral · 9 de agosto",
             bioParagraphs: ["Edith Stein nasceu em Breslávia numa família judia. Estudou filosofia, foi aluna e assistente de Edmund Husserl e escreveu sobre empatia, pessoa e comunidade. Depois de um período sem prática religiosa, a leitura da Vida de Teresa de Jesus marcou sua aproximação à fé católica; foi batizada em 1922 e continuou ensinando e escrevendo.", "Impedida de lecionar pelas leis antijudaicas nazistas, entrou no Carmelo de Colônia em 1933 e tomou o nome Teresa Benedita da Cruz. Em 1938 foi transferida para Echt, nos Países Baixos, para maior segurança. Após uma carta pública dos bispos holandeses contra as deportações, os nazistas prenderam católicos de origem judaica, incluindo Edith e sua irmã Rosa.", "As duas foram deportadas para Auschwitz-Birkenau e mortas na câmara de gás em 9 de agosto de 1942. Edith foi beatificada como mártir em 1987 e canonizada em 1998. Para a canonização, a Igreja reconheceu como milagre a cura de Teresa Benedicta McCarthy após grave intoxicação por paracetamol e falência hepática. Em 1999, João Paulo II a declarou copadroeira da Europa."],
             whyItMattersToday: "Edith Stein impede separar facilmente identidade, razão e fé. Sua vida liga pesquisa filosófica, origem judaica, vocação cristã e solidariedade no sofrimento, sem permitir que uma dimensão apague as outras.",
-            prayer: "",
+            prayer: "Santa Teresa Benedita da Cruz, rogai por nós.",
             artworkName: "edith-stein"
         ),
         .init(
@@ -138,7 +138,7 @@ extension MockSaints {
             calendarNote: "Calendário Romano Geral · 26 de maio",
             bioParagraphs: ["Filipe nasceu em Florença e, ainda jovem, mudou-se para Roma. Estudou por algum tempo, mas passou a dedicar-se à oração, ao cuidado de doentes e peregrinos e ao ensino da fé. Reunia pessoas para conversas espirituais, visitas a igrejas e serviço aos necessitados. Foi ordenado presbítero em 1551.", "As reuniões em seu quarto cresceram e deram origem ao Oratório, onde leigos e sacerdotes liam a Escritura, ouviam história da Igreja, cantavam e discutiam como viver o Evangelho. Filipe tornou-se confessor procurado por pessoas de todas as classes e usava humor, música e pequenas tarefas para combater vaidade e rigidez. A Congregação do Oratório recebeu aprovação em 1575.", "Relatos próximos descrevem experiências intensas de oração e uma dilatação incomum do coração, interpretada por seus contemporâneos como sinal místico; isso pertence à tradição biográfica do Oratório. Filipe morreu em Roma em 26 de maio de 1595, depois de celebrar e ouvir confissões. Foi canonizado em 1622."],
             whyItMattersToday: "Filipe mostra que alegria e profundidade não são opostas. Criou ambientes em que amizade, cultura, oração e serviço ajudavam as pessoas a mudar sem medo ou dureza.",
-            prayer: "",
+            prayer: "São Filipe Néri, rogai por nós.",
             artworkName: "filipe-neri"
         ),
         .init(
@@ -150,7 +150,7 @@ extension MockSaints {
             calendarNote: "Calendário Romano Geral · 4 de outubro",
             bioParagraphs: ["Francisco nasceu em Assis, filho do comerciante Pietro di Bernardone. Na juventude buscou prestígio militar, participou da guerra contra Perugia e ficou prisioneiro. Depois de uma longa crise e doença, sua conversão tomou forma no encontro com os leprosos e na oração diante do crucifixo de São Damião. Rompeu publicamente com a riqueza familiar e passou a viver do trabalho e da esmola, servindo pobres e restaurando pequenas igrejas.", "Em 1209 foi a Roma com os primeiros companheiros e recebeu de Inocêncio III uma aprovação inicial para sua forma de vida evangélica. A fraternidade cresceu e deu origem aos Frades Menores; Clara de Assis iniciou em São Damião a comunidade que se tornaria a Ordem das Clarissas. Francisco pregou a paz e a penitência, encontrou o sultão al-Malik al-Kamil no Egito em 1219 e, em Greccio, em 1223, celebrou o Natal com uma representação viva da manjedoura.", "As primeiras fontes franciscanas situam em La Verna, em 1224, a experiência dos estigmas, recebida durante um retiro de oração. Já muito doente e quase cego, Francisco compôs o Cântico das Criaturas. Morreu junto à Porciúncula na noite de 3 de outubro de 1226 e foi canonizado em 1228. Os episódios extraordinários pertencem à tradição hagiográfica franciscana; o núcleo histórico de sua vida permanece a conversão, a pobreza evangélica, a fraternidade e o anúncio da paz."],
             whyItMattersToday: "Francisco mostra que a conversão pode mudar o uso do dinheiro, a relação com quem sofre e a forma de exercer autoridade. Sua vida une oração, cuidado dos pobres, reconciliação e responsabilidade pela criação.",
-            prayer: "",
+            prayer: "São Francisco de Assis, rogai por nós.",
             artworkName: "francisco-assis"
         ),
         .init(
@@ -162,7 +162,7 @@ extension MockSaints {
             calendarNote: "Calendário Romano Geral · 3 de dezembro",
             bioParagraphs: ["Francisco nasceu no castelo de Xavier, em Navarra, e foi estudar em Paris, onde pretendia seguir carreira acadêmica. Dividiu alojamento com Pedro Fabro e Inácio de Loyola. Depois de resistência inicial, uniu-se ao grupo que fez votos em Montmartre em 1534, foi ordenado presbítero em 1537 e participou da fundação da Companhia de Jesus.", "Enviado à Ásia como representante papal, chegou a Goa em 1542. Trabalhou na costa da Índia, em Malaca e nas Molucas, catequizando, organizando comunidades e escrevendo cartas que mobilizaram novos missionários. Chegou ao Japão em 1549, aprendeu com a cultura local e percebeu que o anúncio cristão exigia formação intelectual e respeito pelos interlocutores.", "Convencido de que a China seria decisiva para a missão asiática, tentou entrar no país, mas morreu em 3 de dezembro de 1552 na ilha de Sancian, diante da costa chinesa. Seu corpo foi levado para Goa. Foi canonizado com Inácio em 1622 e declarado patrono das missões. Relatos de prodígios ligados a suas viagens pertencem às fontes hagiográficas e ao processo de canonização."],
             whyItMattersToday: "Xavier mostra tanto a coragem missionária quanto a necessidade de aprender com outra cultura. Suas cartas revelam entusiasmo, limites e mudanças de método, úteis para pensar uma evangelização que escuta antes de falar.",
-            prayer: "",
+            prayer: "São Francisco Xavier, rogai por nós.",
             artworkName: "francisco-xavier"
         ),
         .init(
@@ -174,7 +174,7 @@ extension MockSaints {
             calendarNote: "Calendário Romano Geral · 31 de julho",
             bioParagraphs: ["Íñigo López de Loyola nasceu no País Basco e foi educado para a vida de corte e armas. Em 1521 uma bala de canhão feriu gravemente sua perna na defesa de Pamplona. Durante a convalescença leu vidas de Cristo e dos santos; ao comparar os efeitos interiores de seus sonhos de glória e de serviço a Deus, começou a reconhecer o que mais tarde chamaria de discernimento dos espíritos.", "Depois de Montserrat e de meses de oração em Manresa, onde tomou forma o núcleo dos Exercícios Espirituais, peregrinou a Jerusalém. Percebeu que precisava estudar e passou por Barcelona, Alcalá e Salamanca antes de chegar a Paris. Ali reuniu companheiros; em 15 de agosto de 1534 fizeram votos em Montmartre. Paulo III aprovou a Companhia de Jesus em 1540.", "Eleito primeiro superior geral, Inácio permaneceu em Roma coordenando missões, escrevendo as Constituições e acompanhando pessoas por milhares de cartas. Os jesuítas abriram colégios e foram enviados para vários continentes. Inácio morreu em Roma em 31 de julho de 1556 e foi canonizado em 1622. Sua Autobiografia prefere chamá-lo simplesmente de ‘o peregrino’."],
             whyItMattersToday: "Inácio oferece um método para decidir sem confundir impulso imediato com liberdade. Observar duração, direção e frutos dos movimentos interiores continua útil para escolhas de fé, trabalho e relacionamentos.",
-            prayer: "",
+            prayer: "Santo Inácio de Loyola, rogai por nós.",
             artworkName: "inacio-loyola"
         ),
         .init(
@@ -186,7 +186,7 @@ extension MockSaints {
             calendarNote: "Calendário carmelita · 8 de novembro",
             bioParagraphs: ["Élisabeth Catez nasceu em 1880 num acampamento militar em Avord, França, e cresceu em Dijon. Após a morte do pai, desenvolveu talento como pianista e participou ativamente da vida social e paroquial. De temperamento forte, descreveu a primeira Comunhão como início de um esforço para dominar a impulsividade por amor. Fez voto privado de virgindade e esperou a autorização da mãe para entrar no Carmelo.", "Entrou no Carmelo de Dijon em 1901 e recebeu o nome Isabel da Santíssima Trindade. Sua vida espiritual se concentrou na presença de Deus na alma e produziu cartas, retiros e a oração 'Ó meu Deus, Trindade que adoro', citada pelo Catecismo. Pouco depois da profissão, surgiram sintomas da doença de Addison, então sem tratamento eficaz.", "Isabel morreu em 9 de novembro de 1906, aos 26 anos, após sofrimento intenso. João Paulo II a beatificou em 1984. Para a canonização, a Igreja reconheceu a cura de uma mulher com síndrome de Sjögren e outras graves limitações, julgada inexplicável pela consulta médica e atribuída à sua intercessão. Francisco a canonizou em 2016."],
             whyItMattersToday: "Isabel mostra que recolhimento interior não exige fuga da vida: antes do Carmelo, encontrou Deus entre música, amizades e deveres; na doença, não reduziu a pessoa ao sofrimento. Sua espiritualidade oferece profundidade em meio à dispersão.",
-            prayer: "",
+            prayer: "Santa Isabel da Trindade, rogai por nós.",
             artworkName: "isabel-trindade"
         ),
         .init(
@@ -198,7 +198,7 @@ extension MockSaints {
             calendarNote: "Calendário Romano Geral · 24 de junho",
             bioParagraphs: ["Lucas apresenta João como filho de Zacarias e Isabel e situa seu nascimento antes do de Jesus. Já adulto, viveu no deserto e pregou junto ao Jordão um batismo de conversão. Chamou o povo a produzir frutos de justiça e preparou o caminho do Senhor; os Evangelhos registram que batizou Jesus e o indicou aos discípulos como o Cordeiro de Deus.", "João recusou transformar sua popularidade em poder: afirmou que não era o Messias e encaminhou discípulos a Jesus. Também denunciou publicamente a união de Herodes Antipas com Herodíades, mulher de seu irmão, e por isso foi preso. Marcos e Mateus narram que Herodes ordenou sua decapitação durante um banquete, depois de uma promessa precipitada à filha de Herodíades.", "A morte violenta pertence ao relato evangélico; pormenores sobre relíquias e descobertas de sua cabeça vêm de tradições posteriores. A Igreja celebra seu nascimento em 24 de junho e o martírio em 29 de agosto. Bento XVI registrou que a veneração do martírio já estava ligada a Sebaste no século IV."],
             whyItMattersToday: "João Batista une conversão pessoal e coragem pública. Ele lembra que preparar o caminho de Deus inclui dizer a verdade ao poder e, ao mesmo tempo, sair do centro para apontar para Cristo.",
-            prayer: "",
+            prayer: "São João Batista, rogai por nós.",
             artworkName: "joao-batista"
         ),
         .init(
@@ -210,7 +210,7 @@ extension MockSaints {
             calendarNote: "Calendário Romano Geral · 31 de janeiro",
             bioParagraphs: ["Giovanni Bosco nasceu em 1815 nos Becchi, no Piemonte, e perdeu o pai aos dois anos. Trabalhou desde menino para estudar e aprendeu habilidades de feira, música e ofícios que depois usaria com jovens. Ordenado em Turim em 1841, visitou prisões e encontrou adolescentes migrantes, pobres e sem apoio no ambiente de industrialização da cidade.", "Criou um oratório itinerante que se fixou em Valdocco, combinando catequese, recreação, escola e aprendizagem profissional. Seu sistema preventivo se apoiava em razão, religião e bondade, buscando educar por presença e confiança em vez de punição. Fundou a Sociedade de São Francisco de Sales, colaborou com Maria Domingas Mazzarello na fundação das Filhas de Maria Auxiliadora e enviou missionários à América do Sul.", "João Bosco morreu em Turim em 31 de janeiro de 1888. Pio XI o beatificou em 1929 e canonizou em 1934. Seus sonhos tiveram grande importância para sua espiritualidade e pedagogia e são preservados em memórias salesianas; devem ser apresentados como relatos autobiográficos e tradição da congregação, sem tratá-los como previsão histórica verificável."],
             whyItMattersToday: "Dom Bosco mostra que educação eficaz nasce de presença estável, afeto responsável, formação profissional e horizonte espiritual. Seu método pergunta se instituições juvenis conhecem cada jovem ou apenas administram comportamento.",
-            prayer: "",
+            prayer: "São João Bosco, rogai por nós.",
             artworkName: "joao-bosco"
         ),
         .init(
@@ -222,7 +222,7 @@ extension MockSaints {
             calendarNote: "Calendário Romano Geral · 14 de dezembro",
             bioParagraphs: ["João de Yepes nasceu em Fontiveros, numa família empobrecida depois que seu pai foi deserdado. Órfão cedo, mudou-se com a mãe para Medina del Campo, trabalhou num hospital e estudou com os jesuítas. Entrou no Carmelo em 1563, estudou em Salamanca e foi ordenado em 1567.", "O encontro com Teresa de Jesus levou-o a participar da reforma carmelita. Em 1568 ajudou a abrir a primeira comunidade masculina reformada em Duruelo e adotou o nome João da Cruz. O conflito dentro da Ordem levou à sua prisão em Toledo em 1577; sofreu isolamento e maus-tratos, mas ali compôs parte do Cântico Espiritual e escapou em agosto de 1578.", "Depois exerceu funções de formação e governo na Andaluzia e em Segóvia. Escreveu Subida do Monte Carmelo, Noite Escura, Cântico Espiritual e Chama Viva de Amor, distinguindo a purificação cristã de uma simples busca de sofrimento. Afastado do governo e doente, morreu em Úbeda na noite de 13 para 14 de dezembro de 1591. Foi canonizado em 1726 e proclamado Doutor da Igreja em 1926."],
             whyItMattersToday: "João da Cruz ajuda a nomear períodos em que a fé parece sem consolação. Sua ‘noite’ não glorifica abuso ou doença; descreve a libertação de apegos para amar com maior verdade e liberdade.",
-            prayer: "",
+            prayer: "São João da Cruz, rogai por nós.",
             artworkName: "joao-cruz"
         ),
         .init(
@@ -234,7 +234,7 @@ extension MockSaints {
             calendarNote: "Calendário Romano Geral · 22 de outubro",
             bioParagraphs: ["Karol Józef Wojtyła nasceu em Wadowice, na Polônia, e perdeu ainda jovem a mãe, o irmão e o pai. Durante a ocupação nazista trabalhou numa pedreira e numa fábrica para evitar deportação, participou do clandestino Teatro Rapsódico e estudou no seminário secreto de Cracóvia. Foi ordenado em 1946, estudou em Roma e tornou-se bispo auxiliar, arcebispo e cardeal.", "Participou ativamente do Concílio Vaticano II e foi eleito papa em 16 de outubro de 1978. Seu pontificado incluiu viagens a 129 países, diálogo ecumênico e inter-religioso, apoio ao movimento Solidariedade, a publicação do Catecismo e ensinamentos extensos sobre Cristo, dignidade humana, trabalho, família e misericórdia. Sobreviveu ao atentado de 13 de maio de 1981 e depois encontrou-se com o agressor na prisão.", "Nos últimos anos tornou pública sua fragilidade causada pela doença de Parkinson. Morreu no Vaticano em 2 de abril de 2005. Para a beatificação foi reconhecida a cura da religiosa Marie Simon-Pierre, que sofria de Parkinson; para a canonização, a cura de Floribeth Mora Díaz, diagnosticada com grave aneurisma cerebral. Foi canonizado por Francisco em 27 de abril de 2014."],
             whyItMattersToday: "João Paulo II mostra como a experiência de guerra e totalitarismo pode alimentar uma defesa consistente da dignidade humana. Seu longo pontificado também deve ser estudado com atenção histórica, incluindo realizações, decisões e limites institucionais.",
-            prayer: "",
+            prayer: "São João Paulo II, rogai por nós.",
             artworkName: "joao-paulo-ii"
         ),
         .init(
@@ -246,7 +246,7 @@ extension MockSaints {
             calendarNote: "Calendário Romano Geral · 19 de março",
             bioParagraphs: ["Os Evangelhos de Mateus e Lucas apresentam José como esposo de Maria e pai legal de Jesus, ligado à casa de Davi. Mateus o chama de homem justo: diante da gravidez de Maria, ele decide não expô-la e acolhe a missão recebida em sonho. Dá ao menino o nome Jesus, protege mãe e filho na fuga para o Egito e depois estabelece a família em Nazaré.", "Mateus chama José de tekton, termo que pode designar carpinteiro ou artesão da construção. O trabalho era duro e de renda modesta, e Jesus aprendeu o mesmo ofício. No episódio de Jesus aos doze anos, José aparece procurando-o com Maria; depois disso, os Evangelhos não registram suas palavras nem informam quando ou como morreu.", "A devoção que o chama padroeiro da boa morte parte da tradição de que teria morrido acompanhado por Jesus e Maria. O próprio magistério afirma que não há dado histórico para essa cena. Assim, a ficha conserva como fato o testemunho evangélico e apresenta a morte em Nazaré como tradição piedosa, não como relato comprovado."],
             whyItMattersToday: "José mostra uma paternidade exercida por presença, trabalho e proteção. Sua grandeza bíblica aparece em decisões concretas: ouvir, acolher Maria, cuidar de Jesus e agir sem buscar destaque.",
-            prayer: "",
+            prayer: "São José, rogai por nós.",
             artworkName: "jose"
         ),
         .init(
@@ -258,7 +258,7 @@ extension MockSaints {
             calendarNote: "Memória litúrgica · 10 de fevereiro",
             bioParagraphs: ["José Sánchez del Río nasceu em Sahuayo, no estado mexicano de Michoacán, em 28 de março de 1913. Cresceu durante a perseguição religiosa que limitou o culto católico e, ainda adolescente, pediu para acompanhar os cristeros. Serviu primeiro em tarefas auxiliares, levando a bandeira e cuidando dos cavalos, sem ocultar que desejava permanecer fiel a Cristo.", "Foi capturado em fevereiro de 1928 depois de ceder seu cavalo a um companheiro. Preso numa igreja profanada, recusou propostas de liberdade condicionadas à renúncia da fé. Segundo a documentação do martírio, foi torturado, obrigado a caminhar com os pés feridos até o cemitério e morto a tiros e golpes em 10 de fevereiro, pouco antes de completar quinze anos.", "A Igreja reconheceu que José foi morto por ódio à fé; por isso sua beatificação como mártir, em 2005, não dependeu de um milagre. Francisco o canonizou em 2016. As frases dirigidas à mãe e as aclamações a Cristo Rei e a Nossa Senhora de Guadalupe pertencem aos testemunhos recolhidos pela causa, e não a uma reconstrução fictícia."],
             whyItMattersToday: "José mostra que liberdade religiosa e consciência não são temas abstratos. Sua coragem juvenil não deve romantizar a violência: o centro de seu testemunho foi recusar a apostasia e permanecer fiel em meio à coerção.",
-            prayer: "",
+            prayer: "São José Sánchez del Río, rogai por nós.",
             artworkName: "jose-sanchez-del-rio"
         ),
         .init(
@@ -270,7 +270,7 @@ extension MockSaints {
             calendarNote: "Calendário Romano Geral · 8 de fevereiro",
             bioParagraphs: ["Bakhita nasceu por volta de 1869 no Darfur, atual Sudão. Raptada ainda criança, foi vendida repetidas vezes e sofreu violência física e psicológica tão severa que esqueceu o nome recebido da família; 'Bakhita', dado pelos sequestradores, significa 'afortunada'. Mais tarde foi comprada pelo cônsul italiano Callisto Legnani e levada à Itália.", "Em Veneza, confiada às Canossianas, conheceu a fé cristã. Quando uma família tentou levá-la novamente ao Sudão, autoridades italianas reconheceram que ela era livre. Recebeu batismo, crisma e primeira Comunhão em 9 de janeiro de 1890, com o nome Josefina, e professou votos nas Filhas da Caridade Canossianas em 1896. Em Schio serviu como cozinheira, costureira e porteira, acolhendo sobretudo crianças e pobres.", "Josefina morreu em Schio em 8 de fevereiro de 1947 após longa doença. João Paulo II a beatificou em 1992 e canonizou em 2000. Sua biografia oficial registra ampla fama de santidade e a causa canônica, mas a força histórica de sua vida está documentada também no caminho da escravidão à liberdade e no perdão que ofereceu sem negar o mal sofrido."],
             whyItMattersToday: "Bakhita dá um rosto concreto às vítimas de tráfico e escravidão. Sua liberdade, fé e capacidade de perdão não apagam a violência: tornam mais urgente defender a dignidade e a liberdade de quem ainda é explorado.",
-            prayer: "",
+            prayer: "Santa Josefina Bakhita, rogai por nós.",
             artworkName: "josefina-bakhita"
         ),
         .init(
@@ -282,7 +282,7 @@ extension MockSaints {
             calendarNote: "Calendário Romano Geral · 21 de junho",
             bioParagraphs: ["Luís nasceu em 1568 em Castiglione delle Stiviere, herdeiro de uma família principesca. Foi preparado para a carreira militar e para a corte, vivendo em Florença, Mântua e Madri. Ainda adolescente decidiu seguir a vida religiosa. Depois de longa oposição do pai, renunciou em 1585 aos títulos e à herança em favor do irmão e entrou na Companhia de Jesus em Roma.", "No Colégio Romano estudou filosofia e teologia e recebeu orientação de Roberto Belarmino. Durante a epidemia de 1591, os jesuítas abriram hospitais e Luís pediu para servir os doentes. Levava enfermos, lavava-os e realizava tarefas de cuidado, apesar de sua sensibilidade e saúde frágil. Após carregar um doente abandonado, adoeceu e passou meses entre melhora e recaídas.", "Luís morreu em Roma na noite de 20 para 21 de junho de 1591, aos 23 anos. Foi beatificado em 1605, canonizado em 1726 e declarado patrono da juventude católica. Sua morte por doença contraída no cuidado aos atingidos pela epidemia é documentada; práticas ascéticas muito severas descritas nas biografias devem ser lidas em seu contexto histórico, e não copiadas sem discernimento."],
             whyItMattersToday: "Luís mostra uma liberdade juvenil capaz de abandonar prestígio e escolher o serviço. Seu fim desloca a imagem de pureza para a caridade concreta: aproximou-se de corpos doentes quando isso custava segurança e saúde.",
-            prayer: "",
+            prayer: "São Luís Gonzaga, rogai por nós.",
             artworkName: "luis-gonzaga"
         ),
         .init(
@@ -294,7 +294,7 @@ extension MockSaints {
             calendarNote: "Calendário Romano Geral · 22 de julho",
             bioParagraphs: ["Os Evangelhos identificam Maria como natural de Magdala e registram que Jesus a libertou de sete demônios. Ela integrou o grupo de mulheres que acompanhava Jesus e sustentava a missão com seus bens. Os textos não a identificam com a pecadora anônima de Lucas 7 nem com Maria de Betânia; essa fusão pertence a uma tradição ocidental posterior.", "Maria permaneceu junto à cruz, acompanhou o sepultamento e foi ao túmulo na manhã do primeiro dia da semana. No Evangelho de João, encontrou o túmulo vazio, chorou, reconheceu Jesus ressuscitado quando ele a chamou pelo nome e recebeu a missão de anunciar aos discípulos: 'Vi o Senhor'. Por isso a tradição a chama apóstola dos apóstolos.", "O Novo Testamento não conta sua vida posterior nem sua morte. Tradições posteriores a ligam a Éfeso ou à Provença, mas não possuem a mesma força histórica dos relatos evangélicos. Em 2016, Francisco elevou sua celebração no Calendário Romano Geral de memória a festa, destacando-a como primeira testemunha da Ressurreição e mensageira para os apóstolos."],
             whyItMattersToday: "Maria Madalena mostra que o encontro com Cristo gera missão. Sua história pede que as mulheres sejam reconhecidas pelo testemunho que os próprios Evangelhos lhes atribuem, sem reduzir sua identidade a confusões posteriores.",
-            prayer: "",
+            prayer: "Santa Maria Madalena, rogai por nós.",
             artworkName: "maria-madalena"
         ),
         .init(
@@ -306,7 +306,7 @@ extension MockSaints {
             calendarNote: "Calendário Romano Geral · 11 de novembro",
             bioParagraphs: ["Martinho nasceu na Panônia, região da atual Hungria, de pais pagãos, e entrou no exército romano ainda jovem por causa da carreira do pai. Tornou-se catecúmeno e recebeu o batismo na juventude. Depois de deixar o serviço militar, aproximou-se do bispo Hilário de Poitiers, foi ordenado e fundou em Ligugé uma comunidade considerada entre os primeiros mosteiros do Ocidente.", "Por volta de 371 foi aclamado bispo de Tours. Conservou um modo de vida monástico, formou clérigos e percorreu áreas rurais da Gália, evangelizando e fundando comunidades. Também interveio contra a execução de hereges, sustentando que erros religiosos não deveriam ser punidos com morte. Morreu em Candes, durante uma visita pastoral, em 397.", "A história mais conhecida, transmitida por seu antigo biógrafo Sulpício Severo, conta que o jovem soldado dividiu o manto com um homem que tremia de frio e depois sonhou com Cristo usando a metade dada. A cena é antiga e central na tradição, mas sua forma narrativa vem da hagiografia; os muitos milagres atribuídos a Martinho pertencem à mesma fonte devocional."],
             whyItMattersToday: "Martinho tornou o compartilhamento uma imagem concreta da fé e usou autoridade episcopal para evangelizar e também conter violência religiosa. Sua memória liga caridade pessoal, vida comunitária e responsabilidade pública.",
-            prayer: "",
+            prayer: "São Martinho de Tours, rogai por nós.",
             artworkName: "martinho-tours"
         ),
         .init(
@@ -318,7 +318,7 @@ extension MockSaints {
             calendarNote: "Calendário Romano Geral · 14 de agosto",
             bioParagraphs: ["Rajmund Kolbe nasceu em Zduńska Wola, na Polônia, e entrou ainda adolescente nos Franciscanos Conventuais. Em Roma estudou filosofia e teologia, adotou o nome Maximiliano Maria e fundou em 1917 a Milícia da Imaculada. Ordenado em 1918, voltou à Polônia e usou imprensa e rádio para evangelização, fundando o grande centro de Niepokalanów; também trabalhou no Japão.", "Com a ocupação nazista, Niepokalanów acolheu refugiados, entre eles judeus. Kolbe foi preso, libertado e detido novamente em 1941, sendo enviado a Auschwitz como prisioneiro 16670. Quando dez homens foram escolhidos para morrer de fome após uma fuga, ofereceu-se para substituir Franciszek Gajowniczek, pai de família.", "Depois de cerca de duas semanas no bunker da fome, Kolbe ainda estava vivo e foi morto com uma injeção em 14 de agosto de 1941. Paulo VI o beatificou em 1971 e João Paulo II o canonizou como mártir da caridade em 1982, com Gajowniczek presente. O ato de substituição é documentado por testemunhas do campo e pelo processo canônico."],
             whyItMattersToday: "Kolbe mostra uma forma concreta de resistência: preservar a dignidade de outra pessoa dentro de um sistema construído para destruí-la. Seu sacrifício final ganha sentido no conjunto de uma vida dedicada a comunicação, comunidade e cuidado.",
-            prayer: "",
+            prayer: "São Maximiliano Maria Kolbe, rogai por nós.",
             artworkName: "maximiliano-kolbe"
         ),
         .init(
@@ -330,7 +330,7 @@ extension MockSaints {
             calendarNote: "Calendário Romano Geral · 27 de agosto",
             bioParagraphs: ["Mônica nasceu em Tagaste, no norte da África romana, e foi criada numa família cristã. Casou-se com Patrício, que Agostinho descreve como temperamental e que recebeu o batismo perto do fim da vida. Mônica enfrentou tensões domésticas, administrou a casa e acompanhou a formação dos filhos, entre eles Agostinho.", "Quando Agostinho aderiu ao maniqueísmo e partiu para Roma, Mônica persistiu em oração e o seguiu até a Itália. Em Milão aproximou-se do bispo Ambrósio e presenciou o caminho que levou Agostinho ao batismo na Páscoa de 387. As lágrimas de Mônica tornaram-se símbolo de sua perseverança, mas as Confissões também mostram uma mulher que precisou amadurecer e entregar o futuro do filho a Deus.", "Ao esperar em Óstia o navio de volta à África, mãe e filho tiveram a conversa contemplativa narrada no livro IX das Confissões. Pouco depois Mônica adoeceu e morreu ali, aos cinquenta e seis anos. Foi sepultada em Óstia; seus restos foram trasladados no século XV para a igreja de Santo Agostinho em Roma."],
             whyItMattersToday: "Mônica oferece esperança a famílias que não conseguem controlar as escolhas de quem amam. Sua perseverança não foi passividade: reuniu oração, presença, correção e a capacidade final de confiar.",
-            prayer: "",
+            prayer: "Santa Mônica, rogai por nós.",
             artworkName: "monica"
         ),
         .init(
@@ -342,7 +342,7 @@ extension MockSaints {
             calendarNote: "Memória litúrgica · 24 de março",
             bioParagraphs: ["Óscar Arnulfo Romero nasceu em Ciudad Barrios, El Salvador, e foi ordenado sacerdote em Roma em 1942. Trabalhou por décadas em paróquias, no seminário e na conferência episcopal. Tornou-se bispo auxiliar de San Salvador, bispo de Santiago de María e, em 1977, arcebispo da capital, num país marcado por repressão, pobreza e violência política.", "O assassinato do jesuíta Rutilio Grande e de seus companheiros aprofundou sua defesa pública das vítimas. Romero documentou desaparecimentos, torturas e assassinatos, visitou comunidades e denunciou a violência de grupos armados e do Estado à luz do Evangelho. Em 24 de março de 1980, foi morto por um atirador enquanto celebrava a Missa na capela do hospital da Divina Providência.", "A Igreja reconheceu seu martírio por ódio à fé e o beatificou em 2015. Para a canonização, reconheceu como inexplicável e atribuída à sua intercessão a recuperação, em 2015, de uma mulher com pré-eclâmpsia grave, síndrome antifosfolípide e síndrome HELLP. Francisco o canonizou em 14 de outubro de 2018."],
             whyItMattersToday: "Romero ensina que o ministério cristão não pode ignorar pessoas esmagadas pela violência. Sua história pede escuta dos fatos, proximidade com as vítimas e coragem para anunciar a dignidade humana sem transformar o Evangelho em propaganda partidária.",
-            prayer: "",
+            prayer: "São Óscar Romero, rogai por nós.",
             artworkName: "oscar-romero"
         ),
         .init(
@@ -354,7 +354,7 @@ extension MockSaints {
             calendarNote: "Calendário Romano Geral · 23 de setembro",
             bioParagraphs: ["Francesco Forgione nasceu em Pietrelcina, no sul da Itália, numa família de agricultores. Entrou no noviciado capuchinho em 1903, tomou o nome Pio e foi ordenado em 1910. Problemas de saúde marcaram os primeiros anos. Em 1916 fixou-se em San Giovanni Rotondo, onde viveu até a morte, dedicando muitas horas à Missa, à confissão e à direção espiritual.", "A partir de 1918 apresentou feridas interpretadas como estigmas. Autoridades médicas e eclesiásticas examinaram o caso, e a Santa Sé impôs em certos períodos restrições ao seu ministério; a biografia deve conservar tanto a devoção quanto esse histórico de investigação. Pio incentivou grupos de oração e promoveu a Casa Sollievo della Sofferenza, hospital inaugurado em 1956.", "Morreu em 23 de setembro de 1968. No processo canônico, a cura de Consiglia De Martino foi reconhecida para a beatificação, celebrada em 1999; a cura do menino Matteo Pio Colella foi reconhecida para a canonização em 2002. A Igreja reconheceu formalmente esses casos após avaliações médicas e teológicas, distinguindo-os de muitos relatos devocionais não examinados."],
             whyItMattersToday: "Padre Pio recorda que devoção precisa caminhar com discernimento e responsabilidade. Seu legado mais verificável une reconciliação sacramental, oração perseverante e cuidado médico organizado para quem sofre.",
-            prayer: "",
+            prayer: "São Pio de Pietrelcina, rogai por nós.",
             artworkName: "padre-pio"
         ),
         .init(
@@ -366,7 +366,7 @@ extension MockSaints {
             calendarNote: "Calendário Romano Geral · 29 de junho",
             bioParagraphs: ["Simão Pedro era pescador da Galileia quando Jesus o chamou. Tornou-se porta-voz dos Doze, confessou Jesus como Messias, também o negou durante a Paixão e recebeu do Ressuscitado a missão de apascentar o rebanho. Atos o apresenta pregando em Jerusalém e abrindo a comunidade aos gentios. Saulo de Tarso perseguiu a Igreja até o encontro com Cristo ressuscitado; como Paulo, anunciou o Evangelho em extensas viagens e formou comunidades por meio de presença e cartas.", "Pedro e Paulo tiveram temperamentos e missões diferentes, e o próprio Paulo narra um confronto entre ambos em Antioquia. Ainda assim, reconheceram a comunhão no mesmo Evangelho: Pedro com missão destacada entre os judeus e Paulo entre os gentios. Atos termina com Paulo preso em Roma; o Novo Testamento não narra a morte de nenhum dos dois.", "A tradição cristã mais antiga testemunha que ambos foram martirizados em Roma sob Nero, entre os anos 64 e 68. Fontes posteriores especificam a crucifixão de Pedro e a decapitação de Paulo; detalhes como a cabeça de Paulo fazer surgir três fontes são classificados pelo próprio Bento XVI como lendários. Seus túmulos são venerados no Vaticano e na Via Ostiense."],
             whyItMattersToday: "Pedro e Paulo mostram que unidade não exige biografias, opiniões ou funções idênticas. A comunhão cristã amadurece quando diferenças reais são trabalhadas dentro da fidelidade ao mesmo Evangelho.",
-            prayer: "",
+            prayer: "São Pedro e São Paulo, rogai por nós.",
             artworkName: "pedro-paulo"
         ),
         .init(
@@ -378,7 +378,7 @@ extension MockSaints {
             calendarNote: "Calendário Romano Geral · 22 de maio",
             bioParagraphs: ["Margarida Lotti nasceu em Roccaporena, perto de Cássia. As datas e vários detalhes de sua juventude são discutidos porque Rita não deixou escritos e as primeiras fontes são tardias. A tradição do santuário recorda seus pais como pacificadores locais. Ela se casou, teve dois filhos e ficou viúva quando o marido foi assassinado em meio a conflitos familiares.", "Rita procurou impedir a vingança e reconciliar as famílias. Depois da morte dos filhos entrou no mosteiro agostiniano de Santa Maria Madalena, em Cássia, onde viveu por cerca de quarenta anos em oração, serviço e penitência. O bastão seco que floresceu e sua entrada milagrosa no mosteiro são tradições hagiográficas, não documentação contemporânea.", "A devoção recorda uma ferida na testa, associada a um espinho da coroa de Cristo, durante os últimos quinze anos de sua vida. O próprio santuário apresenta esse sinal dentro da tradição espiritual de Rita. Ela morreu em Cássia em 1457; o culto foi aprovado em 1626 e a canonização ocorreu em 1900. As rosas ligadas a seus últimos dias tornaram-se símbolo de esperança em situações difíceis."],
             whyItMattersToday: "Rita é lembrada menos por soluções fáceis que por perseverar entre violência familiar, luto e reconciliação. Sua história oferece uma linguagem cristã para romper ciclos de vingança.",
-            prayer: "",
+            prayer: "Santa Rita de Cássia, rogai por nós.",
             artworkName: "rita-cassia"
         ),
         .init(
@@ -390,7 +390,7 @@ extension MockSaints {
             calendarNote: "Calendário Romano Geral · 15 de outubro",
             bioParagraphs: ["Teresa de Cepeda y Ahumada nasceu em Ávila, na Espanha. Entrou no mosteiro carmelita da Encarnação em 1535 e enfrentou anos de doença grave. Sua vida de oração amadureceu lentamente, entre distrações, amizades e direção espiritual. Ela descreveu experiências místicas extraordinárias, inclusive a transverberação, como graças recebidas e submetidas ao discernimento da Igreja.", "Em 1562 fundou em Ávila o mosteiro de São José, início da reforma das Carmelitas Descalças. Percorreu a Espanha fundando comunidades marcadas por pobreza, vida fraterna e oração; com São João da Cruz, promoveu também a reforma masculina. Escreveu Livro da Vida, Caminho de Perfeição, Fundações e Castelo Interior, usando imagens concretas para ensinar a oração como amizade com Deus.", "Teresa morreu em Alba de Tormes em 1582, durante a mudança do calendário juliano para o gregoriano: ao dia 4 de outubro seguiu-se o dia 15. Foi canonizada em 1622 e, em 1970, tornou-se a primeira mulher, com Catarina de Sena, proclamada Doutora da Igreja. Seus relatos místicos são testemunho pessoal e tradição espiritual; seu legado verificável inclui as fundações, cartas e obras que deixou."],
             whyItMattersToday: "Teresa ensina uma oração realista, que não depende de sentir-se perfeita. Sua combinação de interioridade, humor, amizade e capacidade administrativa mostra que vida espiritual e responsabilidade concreta se fortalecem mutuamente.",
-            prayer: "",
+            prayer: "Santa Teresa de Jesus, rogai por nós.",
             artworkName: "teresa-avila"
         ),
         .init(
@@ -402,7 +402,7 @@ extension MockSaints {
             calendarNote: "Calendário Romano Geral · 1º de outubro",
             bioParagraphs: ["Thérèse Martin nasceu em Alençon, França, em 2 de janeiro de 1873, filha de Luís e Zélia Martin. Após a morte da mãe, a família mudou-se para Lisieux. Sua autobiografia e a biografia oficial registram uma grave doença na infância e a cura que ela atribuiu à intercessão de Nossa Senhora das Vitórias. Aos quinze anos, depois de pedir autorização inclusive a Leão XIII, entrou no Carmelo de Lisieux.", "No Carmelo recebeu o nome Teresa do Menino Jesus e da Sagrada Face. Viveu tarefas comuns de comunidade, acompanhou noviças e sustentou missionários com cartas, oração e sacrifício. Em seus manuscritos descreveu a 'pequena via': confiança na misericórdia de Deus e fidelidade amorosa nas ações menores. Também atravessou uma dura provação interior de fé, sem esconder sofrimento ou dúvida.", "Os primeiros sinais de tuberculose surgiram em 1896. Teresa morreu no Carmelo em 30 de setembro de 1897, aos 24 anos. Seus escritos foram publicados e difundidos rapidamente. Pio XI a canonizou em 1925 e a declarou padroeira das missões com Francisco Xavier em 1927; João Paulo II a proclamou Doutora da Igreja em 1997. A imagem da 'chuva de rosas' pertence à linguagem espiritual de suas promessas e à tradição devocional."],
             whyItMattersToday: "Teresinha mostra que profundidade espiritual não depende de feitos públicos extraordinários. Sua pequena via oferece uma resposta concreta ao perfeccionismo: confiança, verdade sobre a própria fragilidade e amor nas responsabilidades possíveis de hoje.",
-            prayer: "",
+            prayer: "Santa Teresinha do Menino Jesus, rogai por nós.",
             artworkName: "teresinha"
         ),
         .init(
@@ -414,7 +414,7 @@ extension MockSaints {
             calendarNote: "Calendário Romano Geral · 28 de janeiro",
             bioParagraphs: ["Tomás nasceu no castelo de Roccasecca e recebeu a primeira educação em Monte Cassino. Estudou em Nápoles, onde conheceu a filosofia de Aristóteles e decidiu entrar na recém-fundada Ordem dos Pregadores. A família se opôs e o manteve retido por cerca de um ano, mas ele permaneceu na vocação dominicana e depois estudou em Paris e Colônia com Alberto Magno.", "Como professor, Tomás comentou a Escritura e Aristóteles, participou das grandes discussões universitárias e escreveu a Suma contra os Gentios e a Suma Teológica. Seu trabalho procurou mostrar a harmonia entre fé e razão, distinguindo seus métodos. Os primeiros biógrafos narram que, ao rezar diante de um crucifixo, ouviu que escrevera bem sobre Cristo e respondeu desejar somente o próprio Deus; o episódio pertence à tradição antiga sobre sua vida.", "Depois de uma experiência espiritual durante a Missa em dezembro de 1273, deixou a Suma Teológica inacabada e disse que seus escritos lhe pareciam palha diante do que havia contemplado. Convocado para o Concílio de Lião, adoeceu durante a viagem e morreu na abadia de Fossanova em 7 de março de 1274. Foi canonizado em 1323 e proclamado Doutor da Igreja em 1567."],
             whyItMattersToday: "Tomás mostra que a fé não precisa temer perguntas rigorosas. Sua disciplina intelectual, abertura a autores diferentes e humildade diante do mistério oferecem um modelo para estudar sem transformar conhecimento em vaidade.",
-            prayer: "",
+            prayer: "São Tomás de Aquino, rogai por nós.",
             artworkName: "tomas-aquino"
         ),
         .init(
@@ -426,7 +426,7 @@ extension MockSaints {
             calendarNote: "Calendário Romano Geral · 27 de setembro",
             bioParagraphs: ["Vicente nasceu numa família camponesa no sudoeste da França e foi ordenado sacerdote em 1600. Depois de buscar inicialmente estabilidade e posição, experiências pastorais entre camponeses pobres e o encontro com pessoas em extrema necessidade mudaram sua direção. Como capelão da família Gondi, iniciou missões rurais e organizou leigos para que a assistência aos pobres fosse contínua e bem administrada.", "Em 1625 fundou a Congregação da Missão, mais tarde conhecida como Lazaristas, para evangelizar o campo e formar o clero. Com Luísa de Marillac, fundou em 1633 as Filhas da Caridade, cuja vida de serviço se realizava nas ruas, hospitais e casas. Também coordenou ajuda a vítimas de guerra, crianças abandonadas, doentes, pessoas escravizadas nas galés e regiões atingidas pela fome.", "Vicente morreu em Paris em 27 de setembro de 1660, aos 79 anos. Foi canonizado em 1737 e Leão XIII o declarou patrono das associações católicas de caridade em 1885. Relatos de sua antiga captura por piratas e escravidão no norte da África vêm de cartas atribuídas a ele, mas sua historicidade é discutida; a obra institucional de caridade é amplamente documentada."],
             whyItMattersToday: "Vicente mostra que compaixão precisa de organização, formação e continuidade. Ele não opôs oração a gestão: transformou encontros com os pobres em redes duradouras de serviço e responsabilidade.",
-            prayer: "",
+            prayer: "São Vicente de Paulo, rogai por nós.",
             artworkName: "vicente-paulo"
         ),
     ]
@@ -479,7 +479,7 @@ extension MockSaints {
             calendarNote: "General Roman Calendar · 28 August",
             bioParagraphs: ["Augustine was born at Thagaste in Roman Numidia to Patricius and Monica. He studied rhetoric at Madauros and Carthage, had a son named Adeodatus and spent years seeking answers in Manichaeism. He taught in Carthage, Rome and Milan. There, Ambrose’s preaching, the letters of Paul and an intense inner struggle led him to the Catholic faith; Ambrose baptised Augustine and Adeodatus at Easter 387.", "Back in Africa he hoped for a shared life of study and prayer, but was ordained priest at Hippo in 391 and became bishop around 395. He preached constantly, faced pastoral conflicts and wrote works including the Confessions, On the Trinity and The City of God. His disputes with Donatists and Pelagians centred on the Church, human freedom and the primacy of grace.", "Augustine died at Hippo on 28 August 430 while the Vandals besieged the city. Possidius records that he spent his final days praying the penitential psalms. His own story of ambition, love, fatherhood, error and conversion became part of his teaching: grace does not erase a human history, but can reorder its desires."],
             whyItMattersToday: "Augustine speaks to people seeking meaning amid ambition, relationships, guilt and faith. His life shows that intellectual honesty and conversion can belong together, and that admitting past errors does not remove the possibility of beginning again.",
-            prayer: "",
+            prayer: "Saint Augustine, pray for us.",
             artworkName: "agostinho"
         ),
         .init(
@@ -491,7 +491,7 @@ extension MockSaints {
             calendarNote: "Liturgical memorial · January 6",
             bioParagraphs: ["Alfred Bessette was born in Saint-Grégoire, Quebec, the eighth of twelve children. Orphaned and chronically frail, he worked on farms, in workshops, and in factories, including in the United States, before entering the Congregation of Holy Cross. He received the name André and professed vows in 1874 despite his superiors' doubts about his health and schooling.", "For nearly forty years he served as porter at Collège Notre-Dame in Montreal. He received the sick, the poor, and people in distress, listened to them, and directed them to prayer, the sacraments, and confidence in Saint Joseph; he always denied having healing power. A small chapel begun in 1904 grew into Saint Joseph's Oratory, where he served as custodian for decades.", "André died on January 6, 1937, aged ninety-one, and a vast crowd attended his funeral. John Paul II beatified him in 1982. In 2009 the Holy See formally recognized a miracle attributed to his intercession after medical and theological evaluations, and Benedict XVI canonized him in 2010. Other reports of healing remain devotional testimony and are not equivalent to that canonical recognition."],
             whyItMattersToday: "André shows that humble welcome, listening, and guidance can transform a life. His story also guards against a cult of personality: he attributed every grace to God and to Saint Joseph's intercession.",
-            prayer: "",
+            prayer: "Saint André Bessette, pray for us.",
             artworkName: "andre-bessette"
         ),
         .init(
@@ -503,7 +503,7 @@ extension MockSaints {
             calendarNote: "General Roman Calendar · 13 June",
             bioParagraphs: ["Born Fernando in Lisbon, Anthony entered the Canons Regular of Saint Augustine and studied in Lisbon and Coimbra. The arrival in Coimbra of the bodies of five Franciscans killed in Morocco awakened his missionary desire. He joined the Friars Minor, took the name Anthony and left for Morocco, but illness forced him to return.", "A storm carried him to Sicily. After the Chapter of Mats he lived quietly until his preaching ability became known at Forlì. He travelled through northern Italy and southern France, taught theology to the friars and preached against usury and for the poor. The sermon to the fish and the apparition of the Child Jesus belong to hagiographical tradition recorded in later sources.", "Anthony spent his final months at Camposampiero and, gravely ill, died on the way to Padua at Arcella on 13 June 1231. He was canonised in 1232, less than a year later, and declared a Doctor of the Church in 1946. His surviving Sermons reveal deep biblical formation and concern for concrete conversion."],
             whyItMattersToday: "Anthony joins serious study, accessible communication and defence of vulnerable people. His story shows that good preaching grows from Scripture and reaches economic choices and human relationships.",
-            prayer: "",
+            prayer: "Saint Anthony of Padua, pray for us.",
             artworkName: "antonio-padua"
         ),
         .init(
@@ -515,7 +515,7 @@ extension MockSaints {
             calendarNote: "General Roman Calendar · 11 July",
             bioParagraphs: ["Benedict was born at Nursia and sent to Rome for his education. Disillusioned by the life he found there, he withdrew to a cave near Subiaco and lived as a hermit with help from the monk Romanus. His reputation attracted disciples; after conflicts with local communities, he organised small monasteries and eventually settled at Monte Cassino.", "At Monte Cassino Benedict formed a community ordered by liturgical prayer, reading, work and hospitality. His Rule avoids both crushing severity and undisciplined living: the abbot must listen, correct prudently and treat each person according to need. The later phrase ‘ora et labora’ captures this balance, though it does not occur verbatim in the Rule.", "Gregory the Great, the principal early source for Benedict, relates signs and miracles, including a poisoned cup said to have shattered when Benedict blessed it; these accounts belong to hagiographical tradition. Gregory also says Benedict died standing in the chapel at Monte Cassino, supported by his brothers after receiving the Eucharist, around 547."],
             whyItMattersToday: "Benedict’s Rule teaches attentive living: listen before deciding, balance prayer and work, welcome guests and lead without humiliating others. It offers a practical answer to distraction and excess.",
-            prayer: "",
+            prayer: "Saint Benedict, pray for us.",
             artworkName: "benito"
         ),
         .init(
@@ -527,7 +527,7 @@ extension MockSaints {
             calendarNote: "Liturgical memorial · 12 October",
             bioParagraphs: ["Carlo was born in London on 3 May 1991 and grew up in Milan. Educated in Catholic schools, he received First Communion at seven and developed a strong devotion to the Eucharist. He served as a parish catechist, helped classmates and homeless people, and enjoyed football, animals, video games and computing.", "He learned web design and organised digital material about documented Eucharistic miracles. The project became famous after his death, but witnesses in his cause also emphasised Mass, adoration, the Rosary, friendship and daily charity. Diagnosed with aggressive leukaemia in October 2006, he died at Monza on the 12th, aged fifteen.", "He was beatified in 2020 after recognition of the healing of a Brazilian child with severe pancreatic and intestinal illness. For canonisation, the recovery of a Costa Rican student from severe head trauma in Florence was recognised. Leo XIV canonised Carlo and Pier Giorgio Frassati on 7 September 2025. His body is venerated at the Shrine of the Spoliation in Assisi."],
             whyItMattersToday: "Carlo shows a youthful holiness integrated with ordinary life and technology. His example asks whether digital work brings people closer to truth and charity or merely captures attention.",
-            prayer: "",
+            prayer: "Saint Carlo Acutis, pray for us.",
             artworkName: "carlo-acutis"
         ),
         .init(
@@ -539,7 +539,7 @@ extension MockSaints {
             calendarNote: "General Roman Calendar · 29 April",
             bioParagraphs: ["Catherine Benincasa was born at Siena into a large artisan family. While young she made a private vow of virginity and at about sixteen joined the Mantellate, laywomen associated with the Dominican Order. She first lived in seclusion at home, then served poor and sick people, including during outbreaks of plague.", "Without extensive formal schooling, she learned to read and dictated letters to rulers, clergy and ordinary people. She travelled to promote peace between Italian cities, call for clerical reform and urge Gregory XI to return from Avignon to Rome. The Dialogue, letters and prayers reveal a spirituality centred on Christ, mercy and demanding love for the Church.", "Raymond of Capua reports visions such as a mystical marriage and exchange of hearts; these are experiences transmitted by her hagiography and circle. During the Western Schism Catherine supported Urban VI and offered her life for Church unity. She died in Rome on 29 April 1380, was canonised in 1461 and declared a Doctor of the Church in 1970."],
             whyItMattersToday: "Catherine shows that love for the Church includes speaking frankly about its sins and working for reform. Her lay voice crossed political boundaries because it united direct service, prayer and public courage.",
-            prayer: "",
+            prayer: "Saint Catherine of Siena, pray for us.",
             artworkName: "catarina-siena"
         ),
         .init(
@@ -551,7 +551,7 @@ extension MockSaints {
             calendarNote: "General Roman Calendar · 11 August",
             bioParagraphs: ["Clare was born into a noble family of Assisi. At eighteen, on Palm Sunday night in 1211 or 1212, she left home and went to the Portiuncula, where Francis cut her hair and gave her a penitential habit. After stays in two monasteries she settled at San Damiano; her sister Agnes and other women joined her.", "The community lived by prayer, work, fraternity and poverty without property. For decades Clare resisted rules that weakened this form of poverty and wrote her own Rule, the first written by a woman for a women’s community to receive papal approval. Her letters to Agnes of Prague centre spiritual life on contemplating the poor Christ.", "The canonisation proceedings record that the sick Clare displayed the Blessed Sacrament when troops threatened San Damiano and the community was spared; it is presented as the sisters’ hagiographical testimony. Innocent IV approved her Rule two days before she died on 11 August 1253. Clare was canonised in 1255."],
             whyItMattersToday: "Clare shows firm leadership within contemplative life. Her long effort to secure a rule faithful to her vocation speaks to anyone who must protect a conviction without losing charity.",
-            prayer: "",
+            prayer: "Saint Clare of Assisi, pray for us.",
             artworkName: "clara-assis"
         ),
         .init(
@@ -563,7 +563,7 @@ extension MockSaints {
             calendarNote: "Liturgical memorial · May 10",
             bioParagraphs: ["Jozef de Veuster was born in Tremelo, Belgium, and entered the Congregation of the Sacred Hearts, taking the name Damien. He sailed to Hawaii in place of his sick brother, arrived in 1864, and was ordained in Honolulu. In 1873 he volunteered to serve people with Hansen's disease who had been forcibly isolated on the Kalaupapa peninsula of Molokai.", "Damien chose to remain with the community. He organized chapels, housing, a water supply, schooling, care for the sick, and dignified burials, working with residents and collaborators of different beliefs. In 1884 he recognized signs of Hansen's disease in himself; he continued his ministry until his death on April 15, 1889, aged forty-nine, after sixteen years on Molokai.", "He was beatified in 1995 and canonized in 2009. For the canonization, the Church examined the recovery of Audrey Toguchi, who had metastatic cancer; the medical board judged the healing inexplicable and the canonical process attributed it to Damien's intercession. This recognized case should be distinguished from the many devotional reports connected with the missionary."],
             whyItMattersToday: "Damien made concrete the dignity of people whom society had isolated and reduced to a disease. His life challenges communities to replace distance and stigma with presence, competent care, and participation by the patients themselves.",
-            prayer: "",
+            prayer: "Saint Damien of Molokai, pray for us.",
             artworkName: "damiao-molokai"
         ),
         .init(
@@ -575,7 +575,7 @@ extension MockSaints {
             calendarNote: "General Roman Calendar · 8 August",
             bioParagraphs: ["Dominic was born at Caleruega in Castile, studied at Palencia and became a canon of Osma Cathedral. During a famine he sold his valuable books to help those in need. Travelling through southern France, he encountered communities separated from the Church and chose to respond through preaching, debate and a poor way of life consistent with the Gospel.", "At Prouille he supported a women’s community and gathered companions devoted to study and preaching. Honorius III confirmed the Order of Preachers in 1216. Dominic soon sent friars to university cities, especially Paris and Bologna, because he regarded formation, common life and mission as inseparable parts of one service.", "Jordan of Saxony and other contemporaries describe his night prayer, tears for people in suffering and friendliness by day. Dominican tradition links Dominic with the Rosary, although its present form developed gradually in later centuries. He died at Bologna on 6 August 1221 and was canonised in 1234."],
             whyItMattersToday: "Dominic shows that religious convictions should be communicated through study, integrity of life and care for people. His answer to division was to form preachers able to listen, learn and explain.",
-            prayer: "",
+            prayer: "Saint Dominic, pray for us.",
             artworkName: "domingos-gusmao"
         ),
         .init(
@@ -587,7 +587,7 @@ extension MockSaints {
             calendarNote: "General Roman Calendar · 9 August",
             bioParagraphs: ["Edith Stein was born at Breslau into a Jewish family. She studied philosophy, worked with Edmund Husserl and wrote on empathy, personhood and community. After a period without religious practice, reading Teresa of Jesus’s Life marked her approach to Catholic faith; she was baptised in 1922 and continued teaching and writing.", "Barred from teaching by Nazi anti-Jewish laws, she entered Cologne Carmel in 1933 and became Teresa Benedicta of the Cross. In 1938 she moved to Echt in the Netherlands for safety. After the Dutch bishops publicly opposed deportations, the Nazis arrested Catholics of Jewish origin, including Edith and her sister Rosa.", "They were deported to Auschwitz-Birkenau and killed in the gas chamber on 9 August 1942. Edith was beatified as a martyr in 1987 and canonised in 1998. The Church recognised the recovery of Teresa Benedicta McCarthy from severe paracetamol poisoning and liver failure as the miracle for canonisation. In 1999 she became a co-patron of Europe."],
             whyItMattersToday: "Edith Stein resists easy separation of identity, reason and faith. Her life joins philosophical inquiry, Jewish origin, Christian vocation and solidarity in suffering without allowing one dimension to erase another.",
-            prayer: "",
+            prayer: "Saint Teresa Benedicta of the Cross, pray for us.",
             artworkName: "edith-stein"
         ),
         .init(
@@ -599,7 +599,7 @@ extension MockSaints {
             calendarNote: "General Roman Calendar · 26 May",
             bioParagraphs: ["Philip was born in Florence and moved to Rome as a young man. After a period of study, he devoted himself to prayer, caring for sick people and pilgrims, and teaching the faith. He gathered people for spiritual conversation, visits to churches and service to those in need. He was ordained priest in 1551.", "Meetings in his room grew into the Oratory, where lay people and priests read Scripture, heard Church history, sang and discussed Christian life. Philip became a sought-after confessor and used humour, music and small tasks to challenge vanity and rigidity. The Congregation of the Oratory received approval in 1575.", "Early accounts describe intense prayer and an unusual enlargement of his heart, interpreted by contemporaries as a mystical sign; this belongs to Oratorian biographical tradition. Philip died in Rome on 26 May 1595 after celebrating Mass and hearing confessions. He was canonised in 1622."],
             whyItMattersToday: "Philip shows that joy and depth belong together. He created spaces where friendship, culture, prayer and service helped people change without fear or harshness.",
-            prayer: "",
+            prayer: "Saint Philip Neri, pray for us.",
             artworkName: "filipe-neri"
         ),
         .init(
@@ -611,7 +611,7 @@ extension MockSaints {
             calendarNote: "General Roman Calendar · 4 October",
             bioParagraphs: ["Francis was born in Assisi, the son of the cloth merchant Pietro di Bernardone. As a young man he pursued military honour, fought against Perugia and was taken prisoner. After illness and a prolonged crisis, his conversion took shape in his encounter with people suffering from leprosy and in prayer before the crucifix at San Damiano. He publicly renounced his family’s wealth and began to live by work and alms, serving the poor and repairing small churches.", "In 1209 he went to Rome with his first companions and received initial approval from Innocent III for their evangelical way of life. The brotherhood became the Friars Minor, while Clare of Assisi began at San Damiano the community later known as the Poor Clares. Francis preached peace and penance, met Sultan al-Malik al-Kamil in Egypt in 1219, and celebrated Christmas at Greccio in 1223 with a living representation of the manger.", "The earliest Franciscan sources place his experience of the stigmata at La Verna in 1224 during a retreat of prayer. Gravely ill and nearly blind, he composed the Canticle of the Creatures. He died near the Portiuncula on the evening of 3 October 1226 and was canonised in 1228. Extraordinary episodes are identified as Franciscan hagiographical tradition; the historical core of his life is conversion, evangelical poverty, fraternity and peace."],
             whyItMattersToday: "Francis shows how conversion can change the use of money, our relationship with suffering people and the exercise of authority. His life joins prayer, care for the poor, reconciliation and responsibility for creation.",
-            prayer: "",
+            prayer: "Saint Francis of Assisi, pray for us.",
             artworkName: "francisco-assis"
         ),
         .init(
@@ -623,7 +623,7 @@ extension MockSaints {
             calendarNote: "General Roman Calendar · 3 December",
             bioParagraphs: ["Francis was born at Xavier Castle in Navarre and went to Paris intending an academic career. He shared lodgings with Peter Faber and Ignatius of Loyola. After initial resistance, he joined the group that made vows at Montmartre in 1534, was ordained priest in 1537 and took part in founding the Society of Jesus.", "Sent to Asia as papal representative, he reached Goa in 1542. He worked on the Indian coast, in Malacca and the Moluccas, teaching, organising communities and writing letters that drew new missionaries. He reached Japan in 1549, learned from its culture and recognised that Christian proclamation required intellectual formation and respect for its hearers.", "Believing China decisive for the Asian mission, he tried to enter it but died on 3 December 1552 on Shangchuan Island off the Chinese coast. His body was taken to Goa. Canonised with Ignatius in 1622, he became patron of the missions. Accounts of wonders during his travels belong to hagiographical sources and the canonisation cause."],
             whyItMattersToday: "Xavier shows both missionary courage and the need to learn from another culture. His letters reveal enthusiasm, limitations and changes of method, useful for an evangelisation that listens before speaking.",
-            prayer: "",
+            prayer: "Saint Francis Xavier, pray for us.",
             artworkName: "francisco-xavier"
         ),
         .init(
@@ -635,7 +635,7 @@ extension MockSaints {
             calendarNote: "General Roman Calendar · 31 July",
             bioParagraphs: ["Íñigo López de Loyola was born in the Basque Country and trained for court and arms. In 1521 a cannonball gravely wounded his leg while he defended Pamplona. During recovery he read lives of Christ and the saints; comparing the lasting effects of dreams of glory and service to God, he began to recognise what he later called discernment of spirits.", "After Montserrat and months of prayer at Manresa, where the core of the Spiritual Exercises took shape, he made a pilgrimage to Jerusalem. Realising he needed education, he studied in Barcelona, Alcalá and Salamanca before Paris. There he gathered companions who made vows at Montmartre on 15 August 1534. Paul III approved the Society of Jesus in 1540.", "Elected first superior general, Ignatius remained in Rome coordinating missions, writing the Constitutions and guiding people through thousands of letters. Jesuits opened schools and were sent across continents. Ignatius died in Rome on 31 July 1556 and was canonised in 1622. His Autobiography simply calls him ‘the pilgrim’."],
             whyItMattersToday: "Ignatius offers a way to decide without mistaking an immediate impulse for freedom. Noticing the duration, direction and fruits of inner movements remains useful in decisions about faith, work and relationships.",
-            prayer: "",
+            prayer: "Saint Ignatius of Loyola, pray for us.",
             artworkName: "inacio-loyola"
         ),
         .init(
@@ -647,7 +647,7 @@ extension MockSaints {
             calendarNote: "Carmelite calendar · November 8",
             bioParagraphs: ["Élisabeth Catez was born in 1880 at the military camp in Avord, France, and grew up in Dijon. After her father's death, she developed as a prize-winning pianist and took an active part in social and parish life. Strong-tempered, she described First Communion as the beginning of an effort to master her impulsiveness for love. She made a private vow of virginity and waited for her mother's permission to enter Carmel.", "She entered the Dijon Carmel in 1901 and received the name Elizabeth of the Trinity. Her spirituality centered on God's presence in the soul and produced letters, retreats, and the prayer 'O my God, Trinity whom I adore,' cited by the Catechism. Soon after profession, she developed symptoms of Addison's disease, for which there was then no effective treatment.", "Elizabeth died on November 9, 1906, aged twenty-six, after intense suffering. John Paul II beatified her in 1984. For canonization, the Church recognized the healing of a woman with Sjögren's syndrome and other serious impairments, judged inexplicable by the medical board and attributed to her intercession. Pope Francis canonized her in 2016."],
             whyItMattersToday: "Elizabeth shows that interior recollection does not require escape from life: before Carmel she found God amid music, friendships, and duties; in illness she did not reduce the person to suffering. Her spirituality offers depth amid distraction.",
-            prayer: "",
+            prayer: "Saint Elizabeth of the Trinity, pray for us.",
             artworkName: "isabel-trindade"
         ),
         .init(
@@ -659,7 +659,7 @@ extension MockSaints {
             calendarNote: "General Roman Calendar · June 24",
             bioParagraphs: ["Luke presents John as the son of Zechariah and Elizabeth and places his birth before that of Jesus. As an adult he lived in the wilderness and preached a baptism of repentance beside the Jordan. He called people to bear fruits of justice and prepared the Lord's way; the Gospels record that he baptized Jesus and pointed him out to his disciples as the Lamb of God.", "John refused to turn popularity into power: he said that he was not the Messiah and directed disciples to Jesus. He also publicly denounced Herod Antipas' union with Herodias, his brother's wife, and was imprisoned. Mark and Matthew recount that Herod ordered his beheading during a banquet after a rash promise to Herodias' daughter.", "The violent death belongs to the Gospel account; details about relics and discoveries of his head come from later traditions. The Church celebrates his birth on June 24 and his martyrdom on August 29. Benedict XVI noted that veneration of the martyrdom was already linked to Sebaste in the fourth century."],
             whyItMattersToday: "John the Baptist joins personal conversion to public courage. He reminds us that preparing God's way includes speaking truth to power while stepping away from the center to point to Christ.",
-            prayer: "",
+            prayer: "Saint John the Baptist, pray for us.",
             artworkName: "joao-batista"
         ),
         .init(
@@ -671,7 +671,7 @@ extension MockSaints {
             calendarNote: "General Roman Calendar · January 31",
             bioParagraphs: ["Giovanni Bosco was born in 1815 at Becchi in Piedmont and lost his father at age two. He worked from childhood in order to study and learned fairground skills, music, and trades that he later used with young people. Ordained in Turin in 1841, he visited prisons and met migrant adolescents who were poor and unsupported amid the city's industrialization.", "He created a traveling oratory that settled at Valdocco, combining catechesis, recreation, schooling, and vocational training. His preventive system relied on reason, religion, and loving-kindness, seeking to educate through presence and trust rather than punishment. He founded the Society of Saint Francis de Sales, collaborated with Mary Domenica Mazzarello in founding the Daughters of Mary Help of Christians, and sent missionaries to South America.", "John Bosco died in Turin on January 31, 1888. Pius XI beatified him in 1929 and canonized him in 1934. His dreams were important to his spirituality and pedagogy and are preserved in Salesian memoirs; they should be presented as autobiographical accounts and congregational tradition rather than treated as verifiable historical predictions."],
             whyItMattersToday: "Don Bosco shows that effective education grows from steady presence, responsible affection, vocational formation, and spiritual purpose. His method asks whether youth institutions know each young person or merely manage behavior.",
-            prayer: "",
+            prayer: "Saint John Bosco, pray for us.",
             artworkName: "joao-bosco"
         ),
         .init(
@@ -683,7 +683,7 @@ extension MockSaints {
             calendarNote: "General Roman Calendar · 14 December",
             bioParagraphs: ["John de Yepes was born at Fontiveros into a family impoverished after his father was disinherited. Losing his father young, he moved with his mother to Medina del Campo, worked in a hospital and studied with the Jesuits. He entered Carmel in 1563, studied at Salamanca and was ordained in 1567.", "Meeting Teresa of Jesus drew him into Carmelite reform. In 1568 he helped open the first reformed house for men at Duruelo and took the name John of the Cross. Conflict within the Order led to imprisonment at Toledo in 1577; he suffered isolation and abuse, composed part of the Spiritual Canticle there and escaped in August 1578.", "He later served in formation and government in Andalusia and Segovia. His works include Ascent of Mount Carmel, Dark Night, Spiritual Canticle and Living Flame of Love. Removed from office and ill, he died at Úbeda on the night of 13–14 December 1591. He was canonised in 1726 and declared a Doctor of the Church in 1926."],
             whyItMattersToday: "John helps name seasons when faith feels without consolation. His ‘night’ does not glorify abuse or illness; it describes freedom from disordered attachments so that a person can love more truthfully.",
-            prayer: "",
+            prayer: "Saint John of the Cross, pray for us.",
             artworkName: "joao-cruz"
         ),
         .init(
@@ -695,7 +695,7 @@ extension MockSaints {
             calendarNote: "General Roman Calendar · 22 October",
             bioParagraphs: ["Karol Józef Wojtyła was born at Wadowice in Poland and lost his mother, brother and father while still young. Under Nazi occupation he worked in a quarry and chemical factory to avoid deportation, joined the underground Rhapsodic Theatre and studied in Kraków’s clandestine seminary. Ordained in 1946, he later became auxiliary bishop, archbishop and cardinal.", "An active participant in Vatican II, he was elected pope on 16 October 1978. His pontificate included journeys to 129 countries, ecumenical and interreligious dialogue, support for Solidarity, the Catechism and extensive teaching on Christ, human dignity, work, family and mercy. He survived the 13 May 1981 assassination attempt and later met his attacker in prison.", "In his final years he allowed the effects of Parkinson’s disease to be seen publicly. He died at the Vatican on 2 April 2005. The recovery of Sister Marie Simon-Pierre from Parkinson’s was recognised for beatification; Floribeth Mora Díaz’s recovery from a serious brain aneurysm was recognised for canonisation. Francis canonised him on 27 April 2014."],
             whyItMattersToday: "John Paul II shows how experience of war and totalitarianism can sustain a defence of human dignity. His long pontificate also calls for careful historical study of its achievements, decisions and institutional limits.",
-            prayer: "",
+            prayer: "Saint John Paul II, pray for us.",
             artworkName: "joao-paulo-ii"
         ),
         .init(
@@ -707,7 +707,7 @@ extension MockSaints {
             calendarNote: "General Roman Calendar · March 19",
             bioParagraphs: ["The Gospels of Matthew and Luke present Joseph as Mary's husband and Jesus' legal father, belonging to the house of David. Matthew calls him a righteous man: when Mary is found to be pregnant, he decides not to expose her and accepts the mission received in a dream. He names the child Jesus, protects mother and child in the flight into Egypt, and later settles the family in Nazareth.", "Matthew calls Joseph a tekton, a term that can mean carpenter or building craftsman. The work was demanding and modestly paid, and Jesus learned the same trade. In the episode of Jesus at age twelve, Joseph appears searching for him with Mary; after this, the Gospels record no words from Joseph and do not state when or how he died.", "The devotion that calls him patron of a happy death arises from the tradition that he died accompanied by Jesus and Mary. The magisterium itself notes that there is no historical evidence for this scene. This profile therefore keeps the Gospel testimony as fact and presents a death in Nazareth as pious tradition rather than a documented account."],
             whyItMattersToday: "Joseph shows fatherhood exercised through presence, work, and protection. His biblical greatness appears in concrete decisions: to listen, welcome Mary, care for Jesus, and act without seeking prominence.",
-            prayer: "",
+            prayer: "Saint Joseph, pray for us.",
             artworkName: "jose"
         ),
         .init(
@@ -719,7 +719,7 @@ extension MockSaints {
             calendarNote: "Liturgical memorial · February 10",
             bioParagraphs: ["José Sánchez del Río was born in Sahuayo, in the Mexican state of Michoacán, on March 28, 1913. He grew up during the religious persecution that restricted Catholic worship and, while still an adolescent, asked to accompany the Cristeros. He first served in support roles, carrying the flag and tending horses, while openly declaring his desire to remain faithful to Christ.", "He was captured in February 1928 after giving his horse to a companion. Imprisoned in a desecrated church, he refused offers of freedom conditioned on renouncing the faith. According to the documentation of his martyrdom, he was tortured, forced to walk with wounded feet to the cemetery, and killed by gunshots and blows on February 10, shortly before his fifteenth birthday.", "The Church recognized that José was killed in hatred of the faith; therefore his 2005 beatification as a martyr did not require a miracle. Pope Francis canonized him in 2016. The words addressed to his mother and the acclamations to Christ the King and Our Lady of Guadalupe belong to testimony gathered for the cause, rather than to a fictional reconstruction."],
             whyItMattersToday: "José shows that religious freedom and conscience are not abstract subjects. His youthful courage should not romanticize violence: the heart of his witness was his refusal to apostatize and his fidelity under coercion.",
-            prayer: "",
+            prayer: "Saint José Sánchez del Río, pray for us.",
             artworkName: "jose-sanchez-del-rio"
         ),
         .init(
@@ -731,7 +731,7 @@ extension MockSaints {
             calendarNote: "General Roman Calendar · February 8",
             bioParagraphs: ["Bakhita was born around 1869 in Darfur, in present-day Sudan. Kidnapped as a child, she was repeatedly sold and endured physical and psychological violence so severe that she forgot the name given by her family; 'Bakhita,' assigned by her abductors, means 'fortunate.' She was later bought by the Italian consul Callisto Legnani and taken to Italy.", "In Venice, while entrusted to the Canossian Sisters, she encountered Christianity. When a family tried to take her back to Sudan, Italian authorities recognized that she was free. She received Baptism, Confirmation, and First Communion on January 9, 1890, taking the name Josephine, and professed vows with the Canossian Daughters of Charity in 1896. In Schio she served as cook, seamstress, and portress, especially welcoming children and the poor.", "Josephine died in Schio on February 8, 1947, after a long illness. John Paul II beatified her in 1992 and canonized her in 2000. Her official biography records a widespread reputation for holiness and the canonical cause, while the historical force of her life is also documented in her path from slavery to freedom and in the forgiveness she offered without denying the evil she had suffered."],
             whyItMattersToday: "Bakhita gives a concrete face to victims of trafficking and slavery. Her freedom, faith, and capacity to forgive do not erase the violence; they make the defense of the dignity and freedom of people still exploited more urgent.",
-            prayer: "",
+            prayer: "Saint Josephine Bakhita, pray for us.",
             artworkName: "josefina-bakhita"
         ),
         .init(
@@ -743,7 +743,7 @@ extension MockSaints {
             calendarNote: "General Roman Calendar · June 21",
             bioParagraphs: ["Aloysius was born in 1568 at Castiglione delle Stiviere, heir to a princely family. He was prepared for military and court life and lived in Florence, Mantua, and Madrid. While still an adolescent he decided to pursue religious life. After prolonged opposition from his father, in 1585 he renounced title and inheritance in favor of his brother and entered the Society of Jesus in Rome.", "At the Roman College he studied philosophy and theology and received guidance from Robert Bellarmine. During the 1591 epidemic, the Jesuits opened hospitals and Aloysius asked to serve the sick. He carried patients, washed them, and performed nursing tasks despite his sensitivity and frail health. After carrying an abandoned sick man, he fell ill and spent months alternating between improvement and relapse.", "Aloysius died in Rome during the night of June 20–21, 1591, aged twenty-three. He was beatified in 1605, canonized in 1726, and named patron of Catholic youth. His death from illness contracted while caring for epidemic victims is documented; very severe ascetic practices described in biographies should be read in historical context rather than copied without discernment."],
             whyItMattersToday: "Aloysius shows youthful freedom capable of leaving prestige and choosing service. His end shifts the image of purity toward concrete charity: he approached sick bodies when doing so cost safety and health.",
-            prayer: "",
+            prayer: "Saint Aloysius Gonzaga, pray for us.",
             artworkName: "luis-gonzaga"
         ),
         .init(
@@ -755,7 +755,7 @@ extension MockSaints {
             calendarNote: "General Roman Calendar · July 22",
             bioParagraphs: ["The Gospels identify Mary as coming from Magdala and record that Jesus freed her from seven demons. She belonged to the group of women who accompanied Jesus and supported the mission from their resources. The texts do not identify her with the unnamed sinful woman in Luke 7 or with Mary of Bethany; that fusion belongs to a later Western tradition.", "Mary remained near the cross, witnessed the burial, and went to the tomb on the first day of the week. In John's Gospel she found the tomb empty, wept, recognized the risen Jesus when he called her by name, and received the mission to tell the disciples, 'I have seen the Lord.' Tradition therefore calls her the apostle of the apostles.", "The New Testament does not recount her later life or death. Later traditions link her to Ephesus or Provence, but they do not carry the same historical weight as the Gospel narratives. In 2016 Pope Francis raised her celebration in the General Roman Calendar from a memorial to a feast, highlighting her as first witness of the Resurrection and messenger to the apostles."],
             whyItMattersToday: "Mary Magdalene shows that an encounter with Christ leads to mission. Her history asks that women be recognized for the witness the Gospels themselves attribute to them, without reducing her identity to later conflations.",
-            prayer: "",
+            prayer: "Saint Mary Magdalene, pray for us.",
             artworkName: "maria-madalena"
         ),
         .init(
@@ -767,7 +767,7 @@ extension MockSaints {
             calendarNote: "General Roman Calendar · November 11",
             bioParagraphs: ["Martin was born in Pannonia, in the region of present-day Hungary, to pagan parents, and entered the Roman army while young because of his father's career. He became a catechumen and was baptized as a young man. After leaving military service, he joined Bishop Hilary of Poitiers, was ordained, and founded at Ligugé a community counted among the earliest monasteries in the West.", "Around 371 he was acclaimed bishop of Tours. He retained a monastic way of life, formed clergy, and traveled through rural Gaul, evangelizing and establishing communities. He also intervened against the execution of heretics, holding that religious error should not be punished by death. He died at Candes during a pastoral visit in 397.", "The best-known story, transmitted by his early biographer Sulpicius Severus, says that the young soldier divided his cloak with a man shivering from cold and later dreamed of Christ wearing the portion he had given. The episode is ancient and central to the tradition, but its narrative form comes from hagiography; the many miracles attributed to Martin belong to the same devotional source."],
             whyItMattersToday: "Martin made sharing a concrete image of faith and used episcopal authority both to evangelize and to restrain religious violence. His memory joins personal charity, community life, and public responsibility.",
-            prayer: "",
+            prayer: "Saint Martin of Tours, pray for us.",
             artworkName: "martinho-tours"
         ),
         .init(
@@ -779,7 +779,7 @@ extension MockSaints {
             calendarNote: "General Roman Calendar · 14 August",
             bioParagraphs: ["Rajmund Kolbe was born at Zduńska Wola in Poland and entered the Conventual Franciscans as a teenager. He studied philosophy and theology in Rome, took the name Maximilian Mary and founded the Militia of the Immaculate in 1917. Ordained in 1918, he returned to Poland and used print and radio for evangelisation, establishing the large centre at Niepokalanów; he also worked in Japan.", "Under Nazi occupation Niepokalanów sheltered refugees, including Jews. Kolbe was arrested, released and detained again in 1941, then sent to Auschwitz as prisoner 16670. When ten men were selected to starve after an escape, he volunteered to take the place of Franciszek Gajowniczek, a husband and father.", "After about two weeks in the starvation bunker Kolbe was still alive and was killed by injection on 14 August 1941. Paul VI beatified him in 1971 and John Paul II canonised him as a martyr of charity in 1982, with Gajowniczek present. His act of substitution is documented by camp witnesses and the canonical cause."],
             whyItMattersToday: "Kolbe shows a concrete form of resistance: preserving another person’s dignity inside a system built to destroy it. His final sacrifice belongs within a life devoted to communication, community and care.",
-            prayer: "",
+            prayer: "Saint Maximilian Mary Kolbe, pray for us.",
             artworkName: "maximiliano-kolbe"
         ),
         .init(
@@ -791,7 +791,7 @@ extension MockSaints {
             calendarNote: "General Roman Calendar · 27 August",
             bioParagraphs: ["Monica was born at Thagaste in Roman North Africa and raised in a Christian household. She married Patricius, whom Augustine describes as quick-tempered and who was baptised near the end of his life. Monica faced domestic tensions, managed the household and accompanied the education of her children, including Augustine.", "When Augustine joined the Manichaeans and left for Rome, Monica continued to pray and followed him to Italy. At Milan she drew close to Bishop Ambrose and witnessed the path that led Augustine to baptism at Easter 387. Her tears became a sign of perseverance, while the Confessions also show a woman learning to entrust her son’s future to God.", "While waiting at Ostia to return to Africa, mother and son shared the contemplative conversation told in Confessions IX. Soon afterwards Monica fell ill and died there aged fifty-six. She was buried at Ostia; her remains were transferred in the fifteenth century to the Church of Saint Augustine in Rome."],
             whyItMattersToday: "Monica offers hope to families who cannot control the choices of those they love. Her perseverance joined prayer, presence, correction and the eventual ability to trust.",
-            prayer: "",
+            prayer: "Saint Monica, pray for us.",
             artworkName: "monica"
         ),
         .init(
@@ -803,7 +803,7 @@ extension MockSaints {
             calendarNote: "Liturgical memorial · March 24",
             bioParagraphs: ["Óscar Arnulfo Romero was born in Ciudad Barrios, El Salvador, and was ordained a priest in Rome in 1942. He worked for decades in parishes, the seminary, and the bishops' conference. He became auxiliary bishop of San Salvador, bishop of Santiago de María, and, in 1977, archbishop of the capital in a country marked by repression, poverty, and political violence.", "The murder of the Jesuit Rutilio Grande and his companions deepened his public defense of victims. Romero documented disappearances, torture, and killings, visited communities, and denounced violence by armed groups and the state in the light of the Gospel. On March 24, 1980, a gunman killed him as he celebrated Mass in the chapel of the Hospital of Divine Providence.", "The Church recognized his martyrdom in hatred of the faith and beatified him in 2015. For his canonization, it recognized as inexplicable and attributed to his intercession the 2015 recovery of a woman suffering from severe preeclampsia, antiphospholipid syndrome, and HELLP syndrome. Pope Francis canonized him on October 14, 2018."],
             whyItMattersToday: "Romero teaches that Christian ministry cannot ignore people crushed by violence. His history calls for attention to facts, closeness to victims, and courage in proclaiming human dignity without turning the Gospel into party propaganda.",
-            prayer: "",
+            prayer: "Saint Óscar Romero, pray for us.",
             artworkName: "oscar-romero"
         ),
         .init(
@@ -815,7 +815,7 @@ extension MockSaints {
             calendarNote: "General Roman Calendar · 23 September",
             bioParagraphs: ["Francesco Forgione was born at Pietrelcina in southern Italy to a farming family. He entered the Capuchin novitiate in 1903, took the name Pio and was ordained in 1910. Poor health marked his early years. In 1916 he settled at San Giovanni Rotondo, where he remained until death and spent long hours celebrating Mass, hearing confessions and guiding people.", "From 1918 he bore wounds interpreted as stigmata. Medical and Church authorities examined the case, and the Holy See restricted aspects of his ministry during certain periods; an honest biography preserves both devotion and this history of investigation. Pio encouraged prayer groups and promoted the Casa Sollievo della Sofferenza hospital, opened in 1956.", "He died on 23 September 1968. In the canonical cause, Consiglia De Martino’s healing was recognised for the 1999 beatification and young Matteo Pio Colella’s healing for the 2002 canonisation. The Church formally recognised these after medical and theological review, distinguishing them from many unexamined devotional reports."],
             whyItMattersToday: "Padre Pio shows that devotion must travel with discernment and responsibility. His most verifiable legacy joins sacramental reconciliation, persevering prayer and organised medical care for suffering people.",
-            prayer: "",
+            prayer: "Saint Pio of Pietrelcina, pray for us.",
             artworkName: "padre-pio"
         ),
         .init(
@@ -827,7 +827,7 @@ extension MockSaints {
             calendarNote: "General Roman Calendar · June 29",
             bioParagraphs: ["Simon Peter was a Galilean fisherman when Jesus called him. He became spokesman for the Twelve, confessed Jesus as Messiah, denied him during the Passion, and received from the risen Lord the mission to tend the flock. Acts presents him preaching in Jerusalem and opening the community to Gentiles. Saul of Tarsus persecuted the Church until encountering the risen Christ; as Paul, he proclaimed the Gospel through wide-ranging journeys and formed communities by presence and letters.", "Peter and Paul had different temperaments and missions, and Paul himself recounts a confrontation between them at Antioch. Even so, they recognized communion in the same Gospel: Peter with a prominent mission among Jews and Paul among Gentiles. Acts ends with Paul imprisoned in Rome; the New Testament narrates neither man's death.", "The earliest Christian tradition testifies that both were martyred in Rome under Nero, between 64 and 68. Later sources specify Peter's crucifixion and Paul's beheading; details such as Paul's head producing three springs are classified by Benedict XVI himself as legendary. Their tombs are venerated at the Vatican and on the Ostian Way."],
             whyItMattersToday: "Peter and Paul show that unity does not require identical biographies, opinions, or roles. Christian communion matures when real differences are worked through in fidelity to the same Gospel.",
-            prayer: "",
+            prayer: "Saints Peter and Paul, pray for us.",
             artworkName: "pedro-paulo"
         ),
         .init(
@@ -839,7 +839,7 @@ extension MockSaints {
             calendarNote: "General Roman Calendar · 22 May",
             bioParagraphs: ["Margherita Lotti was born at Roccaporena near Cascia. Dates and many details of her youth are disputed because Rita left no writings and the earliest sources are late. The shrine’s tradition remembers her parents as local peacemakers. She married, had two sons and was widowed when her husband was murdered amid family conflict.", "Rita worked to prevent vengeance and reconcile the families. After her sons died, she entered the Augustinian monastery of Saint Mary Magdalene in Cascia, living there for about forty years in prayer, service and penance. The dry stick that flowered and her miraculous entry into the monastery are hagiographical traditions, not contemporary documentation.", "Devotion recalls a wound on her forehead, associated with a thorn from Christ’s crown, during the last fifteen years of her life; the shrine presents this within Rita’s spiritual tradition. She died at Cascia in 1457, her cult was approved in 1626 and she was canonised in 1900. Roses linked to her final days became a sign of hope in difficult situations."],
             whyItMattersToday: "Rita is remembered less for easy solutions than for perseverance amid family violence, bereavement and reconciliation. Her story gives Christian language to breaking cycles of revenge.",
-            prayer: "",
+            prayer: "Saint Rita of Cascia, pray for us.",
             artworkName: "rita-cassia"
         ),
         .init(
@@ -851,7 +851,7 @@ extension MockSaints {
             calendarNote: "General Roman Calendar · 15 October",
             bioParagraphs: ["Teresa de Cepeda y Ahumada was born at Ávila in Spain. She entered the Carmelite Monastery of the Incarnation in 1535 and endured years of serious illness. Her life of prayer matured slowly through distraction, friendships and spiritual direction. She described extraordinary mystical experiences, including the transverberation, as graces received and submitted to the Church’s discernment.", "In 1562 she founded Saint Joseph’s monastery in Ávila, beginning the reform of the Discalced Carmelite nuns. She travelled through Spain founding communities shaped by poverty, fraternity and prayer; with Saint John of the Cross she also promoted the reform of the friars. Her works include the Life, Way of Perfection, Foundations and Interior Castle.", "Teresa died at Alba de Tormes in 1582 during the change from the Julian to the Gregorian calendar, when 4 October was followed by 15 October. She was canonised in 1622 and in 1970 became, with Catherine of Siena, one of the first women proclaimed Doctors of the Church. Her mystical accounts are personal testimony; her foundations, letters and books form her documented legacy."],
             whyItMattersToday: "Teresa teaches a realistic prayer that does not require a person to feel perfect. Her union of interior life, humour, friendship and administrative ability shows that spirituality and practical responsibility can strengthen each other.",
-            prayer: "",
+            prayer: "Saint Teresa of Jesus, pray for us.",
             artworkName: "teresa-avila"
         ),
         .init(
@@ -863,7 +863,7 @@ extension MockSaints {
             calendarNote: "General Roman Calendar · October 1",
             bioParagraphs: ["Thérèse Martin was born in Alençon, France, on January 2, 1873, to Louis and Zélie Martin. After her mother's death, the family moved to Lisieux. Her autobiography and official biography record a serious childhood illness and a healing she attributed to the intercession of Our Lady of Victories. At fifteen, after seeking permission even from Leo XIII, she entered the Carmel of Lisieux.", "In Carmel she received the name Thérèse of the Child Jesus and the Holy Face. She carried out ordinary community tasks, guided novices, and supported missionaries through letters, prayer, and sacrifice. In her manuscripts she described the 'little way': trust in God's mercy and loving fidelity in small actions. She also endured a severe interior trial of faith without hiding suffering or doubt.", "The first signs of tuberculosis appeared in 1896. Thérèse died in the Carmel on September 30, 1897, aged twenty-four. Her writings were published and spread rapidly. Pius XI canonized her in 1925 and named her patroness of the missions with Francis Xavier in 1927; John Paul II proclaimed her a Doctor of the Church in 1997. The image of a 'shower of roses' belongs to the spiritual language of her promises and to devotional tradition."],
             whyItMattersToday: "Thérèse shows that spiritual depth does not depend on extraordinary public achievements. Her little way offers a concrete response to perfectionism: trust, truth about one's frailty, and love within today's possible responsibilities.",
-            prayer: "",
+            prayer: "Saint Thérèse of the Child Jesus, pray for us.",
             artworkName: "teresinha"
         ),
         .init(
@@ -875,7 +875,7 @@ extension MockSaints {
             calendarNote: "General Roman Calendar · 28 January",
             bioParagraphs: ["Thomas was born at Roccasecca and first educated at Monte Cassino. At Naples he encountered Aristotle’s philosophy and chose the newly founded Order of Preachers. His family opposed the decision and detained him for about a year, but he remained committed to the Dominican vocation and later studied in Paris and Cologne under Albert the Great.", "As a master, Thomas commented on Scripture and Aristotle, took part in university debates and wrote the Summa contra Gentiles and Summa Theologiae. He sought to show the harmony of faith and reason while distinguishing their methods. Early biographers relate that, praying before a crucifix, he heard that he had written well of Christ and answered that he desired Christ alone; this belongs to the early tradition about his life.", "After a spiritual experience during Mass in December 1273 he left the Summa Theologiae unfinished, saying his writings seemed like straw beside what he had contemplated. Summoned to the Council of Lyon, he became ill on the journey and died at Fossanova Abbey on 7 March 1274. He was canonised in 1323 and declared a Doctor of the Church in 1567."],
             whyItMattersToday: "Thomas shows that faith need not fear rigorous questions. His intellectual discipline, openness to different authors and humility before mystery offer a model for study that does not turn knowledge into vanity.",
-            prayer: "",
+            prayer: "Saint Thomas Aquinas, pray for us.",
             artworkName: "tomas-aquino"
         ),
         .init(
@@ -887,7 +887,7 @@ extension MockSaints {
             calendarNote: "General Roman Calendar · September 27",
             bioParagraphs: ["Vincent was born to a farming family in southwestern France and ordained in 1600. After initially seeking security and position, pastoral experiences among poor rural people and encounters with persons in extreme need changed his direction. As chaplain to the Gondi family, he began rural missions and organized laypeople so assistance to the poor would be continuous and well managed.", "In 1625 he founded the Congregation of the Mission, later known as the Vincentians or Lazarists, to evangelize rural areas and form clergy. With Louise de Marillac he founded the Daughters of Charity in 1633, whose service took place in streets, hospitals, and homes. He also coordinated aid for war victims, abandoned children, the sick, galley prisoners, and regions struck by famine.", "Vincent died in Paris on September 27, 1660, aged seventy-nine. He was canonized in 1737, and Leo XIII named him patron of Catholic charitable associations in 1885. Accounts of his earlier capture by pirates and enslavement in North Africa derive from letters attributed to him, but their historicity is disputed; his institutional work of charity is extensively documented."],
             whyItMattersToday: "Vincent shows that compassion needs organization, formation, and continuity. He did not oppose prayer to management: he turned encounters with the poor into lasting networks of service and accountability.",
-            prayer: "",
+            prayer: "Saint Vincent de Paul, pray for us.",
             artworkName: "vicente-paulo"
         ),
     ]
@@ -940,7 +940,7 @@ extension MockSaints {
             calendarNote: "Calendario Romano General · 28 de agosto",
             bioParagraphs: ["Agustín nació en Tagaste, en la Numidia romana, hijo de Patricio y Mónica. Estudió retórica en Madaura y Cartago, tuvo un hijo llamado Adeodato y durante años buscó respuestas en el maniqueísmo. Enseñó en Cartago, Roma y Milán. Allí, la predicación de Ambrosio, la lectura de las cartas de Pablo y una intensa lucha interior lo condujeron a la fe católica; Ambrosio bautizó a Agustín y Adeodato en la Pascua de 387.", "De regreso en África deseaba una vida comunitaria de estudio y oración, pero fue ordenado presbítero en Hipona en 391 y se convirtió en obispo hacia 395. Predicó constantemente, afrontó conflictos pastorales y escribió obras como Confesiones, Sobre la Trinidad y La ciudad de Dios. Sus controversias con donatistas y pelagianos trataron sobre la Iglesia, la libertad humana y la primacía de la gracia.", "Agustín murió en Hipona el 28 de agosto de 430 mientras los vándalos sitiaban la ciudad. Posidio cuenta que pasó sus últimos días rezando los salmos penitenciales. Su propia historia de ambición, afectos, paternidad, error y conversión formó parte de su enseñanza: la gracia no borra la historia humana, sino que puede ordenar de nuevo sus deseos."],
             whyItMattersToday: "Agustín habla a quien busca sentido entre ambición, afectos, culpa y fe. Su vida muestra que honestidad intelectual y conversión pueden caminar juntas, y que reconocer los errores no elimina la posibilidad de comenzar de nuevo.",
-            prayer: "",
+            prayer: "San Agustín, ruega por nosotros.",
             artworkName: "agostinho"
         ),
         .init(
@@ -952,7 +952,7 @@ extension MockSaints {
             calendarNote: "Memoria litúrgica · 6 de enero",
             bioParagraphs: ["Alfred Bessette nació en Saint-Grégoire, Quebec, octavo de doce hijos. Huérfano y de salud frágil, trabajó en granjas, talleres y fábricas, también en Estados Unidos, antes de ingresar en la Congregación de Santa Cruz. Recibió el nombre Andrés y profesó sus votos en 1874, pese a las dudas de sus superiores sobre su salud y formación.", "Durante casi cuarenta años fue portero del Collège Notre-Dame de Montreal. Recibía a enfermos, pobres y personas afligidas, los escuchaba y los orientaba hacia la oración, los sacramentos y la confianza en san José; siempre negó tener poder de curación. Una pequeña capilla iniciada en 1904 creció hasta convertirse en el Oratorio de San José, del que fue custodio durante décadas.", "Andrés murió el 6 de enero de 1937, a los noventa y un años, y una multitud participó en sus exequias. Juan Pablo II lo beatificó en 1982. En 2009, la Santa Sede reconoció formalmente un milagro atribuido a su intercesión tras evaluaciones médicas y teológicas, y Benedicto XVI lo canonizó en 2010. Otros relatos de curación siguen siendo testimonios devocionales y no equivalen a ese reconocimiento canónico."],
             whyItMattersToday: "Andrés muestra que acoger, escuchar y orientar con humildad puede transformar una vida. Su historia también protege frente al culto a la personalidad: atribuía toda gracia a Dios y a la intercesión de san José.",
-            prayer: "",
+            prayer: "San Andrés Bessette, ruega por nosotros.",
             artworkName: "andre-bessette"
         ),
         .init(
@@ -964,7 +964,7 @@ extension MockSaints {
             calendarNote: "Calendario Romano General · 13 de junio",
             bioParagraphs: ["Fernando nació en Lisboa e ingresó primero en los Canónigos Regulares de San Agustín, estudiando en Lisboa y Coimbra. La llegada a Coimbra de los restos de cinco franciscanos muertos en Marruecos despertó su deseo misionero. Entró en los Hermanos Menores, recibió el nombre de Antonio y partió hacia Marruecos, pero una enfermedad lo obligó a regresar.", "Una tempestad lo llevó a Sicilia. Después del Capítulo de las Esteras vivió discretamente hasta que se conoció su capacidad de predicar en Forlì. Recorrió el norte de Italia y el sur de Francia, enseñó teología a los frailes y predicó contra la usura y en favor de los pobres. La predicación a los peces y la aparición del Niño Jesús pertenecen a la tradición hagiográfica de fuentes posteriores.", "Antonio pasó sus últimos meses en Camposampiero y, gravemente enfermo, murió camino de Padua, en Arcella, el 13 de junio de 1231. Fue canonizado en 1232, menos de un año después, y proclamado Doctor de la Iglesia en 1946. Sus Sermones conservados muestran profunda formación bíblica y atención a la conversión concreta."],
             whyItMattersToday: "Antonio une estudio serio, comunicación accesible y defensa de los vulnerables. Su historia recuerda que la buena predicación nace de la Escritura y alcanza las decisiones económicas y las relaciones humanas.",
-            prayer: "",
+            prayer: "San Antonio de Padua, ruega por nosotros.",
             artworkName: "antonio-padua"
         ),
         .init(
@@ -976,7 +976,7 @@ extension MockSaints {
             calendarNote: "Calendario Romano General · 11 de julio",
             bioParagraphs: ["Benito nació en Nursia y fue enviado a Roma para estudiar. Decepcionado por la vida que encontró allí, se retiró a una cueva cerca de Subiaco y vivió como ermitaño con la ayuda del monje Romano. Su fama atrajo discípulos; después de conflictos con comunidades locales, organizó pequeños monasterios y finalmente se estableció en Montecasino.", "En Montecasino formó una comunidad ordenada por la oración litúrgica, la lectura, el trabajo y la hospitalidad. Su Regla evita tanto el rigor aplastante como la vida sin disciplina: el abad debe escuchar, corregir con prudencia y tratar a cada persona según su necesidad. La expresión posterior ‘ora et labora’ resume este equilibrio, aunque no aparece literalmente en la Regla.", "Gregorio Magno, principal fuente antigua sobre Benito, transmite relatos de signos y milagros, como la copa envenenada que se habría roto cuando Benito la bendijo; estos relatos pertenecen a la tradición hagiográfica. Gregorio también narra que Benito murió de pie en la capilla de Montecasino, sostenido por sus hermanos después de recibir la Eucaristía, hacia 547."],
             whyItMattersToday: "La Regla de Benito enseña a vivir con atención: escuchar antes de decidir, equilibrar oración y trabajo, acoger al huésped y dirigir sin humillar. Ofrece una respuesta práctica a la dispersión y al exceso.",
-            prayer: "",
+            prayer: "San Benito, ruega por nosotros.",
             artworkName: "benito"
         ),
         .init(
@@ -988,7 +988,7 @@ extension MockSaints {
             calendarNote: "Memoria litúrgica · 12 de octubre",
             bioParagraphs: ["Carlo nació en Londres el 3 de mayo de 1991 y creció en Milán. Estudió en escuelas católicas, recibió la primera Comunión a los siete años y cultivó una fuerte devoción a la Eucaristía. Fue catequista parroquial, ayudaba a compañeros y personas sin hogar y disfrutaba del fútbol, los animales, los videojuegos y la informática.", "Aprendió diseño web y organizó material digital sobre milagros eucarísticos documentados. El proyecto se hizo famoso después de su muerte, pero los testimonios de la causa destacan también Misa, adoración, Rosario, amistades y caridad cotidiana. Diagnosticado con leucemia agresiva en octubre de 2006, murió en Monza el día 12, con quince años.", "Fue beatificado en 2020 después del reconocimiento de la curación de un niño brasileño con grave enfermedad pancreática e intestinal. Para la canonización se reconoció la recuperación de una estudiante costarricense tras un traumatismo craneal severo en Florencia. León XIV canonizó a Carlo y Pier Giorgio Frassati el 7 de septiembre de 2025. Su cuerpo se venera en el Santuario del Despojo de Asís."],
             whyItMattersToday: "Carlo muestra una santidad juvenil integrada en la vida común y la tecnología. Su ejemplo pregunta si el trabajo digital acerca a las personas a la verdad y la caridad o solamente captura atención.",
-            prayer: "",
+            prayer: "San Carlo Acutis, ruega por nosotros.",
             artworkName: "carlo-acutis"
         ),
         .init(
@@ -1000,7 +1000,7 @@ extension MockSaints {
             calendarNote: "Calendario Romano General · 29 de abril",
             bioParagraphs: ["Catalina Benincasa nació en Siena dentro de una numerosa familia de artesanos. Siendo joven hizo voto privado de virginidad y hacia los dieciséis años ingresó entre las Mantellate, laicas vinculadas a la Orden Dominicana. Primero vivió retirada en la casa familiar, pero después sirvió a enfermos y pobres, incluso durante brotes de peste.", "Sin amplia educación formal, aprendió a leer y dictó cartas a gobernantes, religiosos y personas comunes. Viajó para promover la paz entre ciudades italianas, pedir la reforma del clero y convencer a Gregorio XI de regresar de Aviñón a Roma. El Diálogo, sus cartas y oraciones muestran una espiritualidad centrada en Cristo, la misericordia y el amor exigente a la Iglesia.", "Raimundo de Capua relata visiones como el matrimonio místico y el intercambio de corazones; son experiencias transmitidas por su hagiografía y su círculo. Durante el Cisma de Occidente Catalina apoyó a Urbano VI y ofreció su vida por la unidad de la Iglesia. Murió en Roma el 29 de abril de 1380, fue canonizada en 1461 y proclamada Doctora de la Iglesia en 1970."],
             whyItMattersToday: "Catalina muestra que amar a la Iglesia incluye hablar con franqueza de sus pecados y trabajar por su reforma. Su voz laica cruzó fronteras políticas porque unía servicio directo, oración y valentía pública.",
-            prayer: "",
+            prayer: "Santa Catalina de Siena, ruega por nosotros.",
             artworkName: "catarina-siena"
         ),
         .init(
@@ -1012,7 +1012,7 @@ extension MockSaints {
             calendarNote: "Calendario Romano General · 11 de agosto",
             bioParagraphs: ["Clara nació en una familia noble de Asís. A los dieciocho años, la noche del Domingo de Ramos de 1211 o 1212, dejó su casa y fue a la Porciúncula, donde Francisco le cortó el cabello y le dio un hábito penitencial. Después de pasar por dos monasterios se estableció en San Damián; su hermana Inés y otras mujeres se unieron a ella.", "La comunidad vivió de la oración, el trabajo, la fraternidad y la pobreza sin propiedades. Clara resistió durante décadas reglas que debilitaban esta pobreza y escribió su propia Regla, la primera compuesta por una mujer para una comunidad femenina que recibió aprobación papal. Sus cartas a Inés de Praga centran la espiritualidad en contemplar a Cristo pobre.", "El proceso de canonización recoge que Clara, enferma, mostró el Santísimo Sacramento cuando unas tropas amenazaron San Damián y la comunidad fue preservada; se presenta como testimonio hagiográfico de las hermanas. Inocencio IV aprobó su Regla dos días antes de su muerte, el 11 de agosto de 1253. Fue canonizada en 1255."],
             whyItMattersToday: "Clara muestra un liderazgo firme dentro de la vida contemplativa. Su perseverancia para obtener una regla fiel a su vocación habla a quien necesita proteger una convicción sin perder la caridad.",
-            prayer: "",
+            prayer: "Santa Clara de Asís, ruega por nosotros.",
             artworkName: "clara-assis"
         ),
         .init(
@@ -1024,7 +1024,7 @@ extension MockSaints {
             calendarNote: "Memoria litúrgica · 10 de mayo",
             bioParagraphs: ["Jozef de Veuster nació en Tremelo, Bélgica, e ingresó en la Congregación de los Sagrados Corazones, tomando el nombre de Damián. Viajó a Hawái en lugar de su hermano enfermo, llegó en 1864 y fue ordenado en Honolulu. En 1873 se ofreció para servir a las personas con enfermedad de Hansen aisladas por la fuerza en la península de Kalaupapa, en Molokai.", "Damián decidió permanecer con la comunidad. Organizó capillas, viviendas, abastecimiento de agua, escuela, atención a los enfermos y entierros dignos, trabajando con residentes y colaboradores de distintas creencias. En 1884 reconoció en sí mismo signos de la enfermedad; continuó su ministerio hasta morir el 15 de abril de 1889, a los cuarenta y nueve años, tras dieciséis años en Molokai.", "Fue beatificado en 1995 y canonizado en 2009. Para la canonización, la Iglesia examinó la recuperación de Audrey Toguchi, que padecía cáncer metastásico; la consulta médica declaró inexplicable la curación y el proceso la atribuyó a la intercesión de Damián. Este caso reconocido debe distinguirse de los numerosos relatos devocionales vinculados al misionero."],
             whyItMattersToday: "Damián hizo concreta la dignidad de personas que la sociedad había aislado y reducido a una enfermedad. Su vida desafía a sustituir distancia y estigma por presencia, atención competente y participación de los propios enfermos.",
-            prayer: "",
+            prayer: "San Damián de Molokai, ruega por nosotros.",
             artworkName: "damiao-molokai"
         ),
         .init(
@@ -1036,7 +1036,7 @@ extension MockSaints {
             calendarNote: "Calendario Romano General · 8 de agosto",
             bioParagraphs: ["Domingo nació en Caleruega, Castilla, estudió en Palencia y fue canónigo de la catedral de Osma. Durante una hambruna vendió sus valiosos libros para socorrer a los necesitados. En viajes por el sur de Francia encontró comunidades separadas de la Iglesia y decidió responder mediante la predicación, el diálogo y una vida pobre coherente con el Evangelio.", "En Prouille apoyó una comunidad femenina y reunió compañeros dedicados al estudio y la predicación. Honorio III confirmó la Orden de Predicadores en 1216. Domingo envió pronto a los frailes a ciudades universitarias, especialmente París y Bolonia, porque consideraba la formación, la vida común y la misión partes inseparables del mismo servicio.", "Jordán de Sajonia y otros contemporáneos describen su oración nocturna, sus lágrimas por quienes sufrían y su cordialidad durante el día. La tradición dominicana vincula a Domingo con el Rosario, aunque su forma actual se desarrolló gradualmente en siglos posteriores. Murió en Bolonia el 6 de agosto de 1221 y fue canonizado en 1234."],
             whyItMattersToday: "Domingo muestra que las convicciones religiosas deben comunicarse con estudio, coherencia de vida y cuidado de las personas. Su respuesta a la división fue formar predicadores capaces de escuchar, aprender y explicar.",
-            prayer: "",
+            prayer: "Santo Domingo de Guzmán, ruega por nosotros.",
             artworkName: "domingos-gusmao"
         ),
         .init(
@@ -1048,7 +1048,7 @@ extension MockSaints {
             calendarNote: "Calendario Romano General · 9 de agosto",
             bioParagraphs: ["Edith Stein nació en Breslavia en una familia judía. Estudió filosofía, colaboró con Edmund Husserl y escribió sobre empatía, persona y comunidad. Después de un período sin práctica religiosa, la lectura de la Vida de Teresa de Jesús marcó su aproximación a la fe católica; fue bautizada en 1922 y continuó enseñando y escribiendo.", "Impedida de enseñar por las leyes antijudías nazis, entró en el Carmelo de Colonia en 1933 y tomó el nombre Teresa Benedicta de la Cruz. En 1938 fue trasladada a Echt, Países Bajos, para mayor seguridad. Tras la protesta pública de los obispos holandeses contra las deportaciones, los nazis arrestaron a católicos de origen judío, incluidas Edith y su hermana Rosa.", "Las dos fueron deportadas a Auschwitz-Birkenau y asesinadas en la cámara de gas el 9 de agosto de 1942. Edith fue beatificada como mártir en 1987 y canonizada en 1998. Para la canonización, la Iglesia reconoció la curación de Teresa Benedicta McCarthy tras una grave intoxicación por paracetamol y fallo hepático. En 1999 fue declarada copatrona de Europa."],
             whyItMattersToday: "Edith Stein impide separar fácilmente identidad, razón y fe. Su vida une investigación filosófica, origen judío, vocación cristiana y solidaridad en el sufrimiento sin permitir que una dimensión borre las demás.",
-            prayer: "",
+            prayer: "Santa Teresa Benedicta de la Cruz, ruega por nosotros.",
             artworkName: "edith-stein"
         ),
         .init(
@@ -1060,7 +1060,7 @@ extension MockSaints {
             calendarNote: "Calendario Romano General · 26 de mayo",
             bioParagraphs: ["Felipe nació en Florencia y, siendo joven, se trasladó a Roma. Estudió durante un tiempo, pero se dedicó después a la oración, al cuidado de enfermos y peregrinos y a la enseñanza de la fe. Reunía personas para conversaciones espirituales, visitas a iglesias y servicio a los necesitados. Fue ordenado presbítero en 1551.", "Las reuniones en su habitación crecieron y dieron origen al Oratorio, donde laicos y sacerdotes leían la Escritura, escuchaban historia de la Iglesia, cantaban y conversaban sobre la vida cristiana. Felipe fue un confesor buscado por personas de toda condición y usó humor, música y pequeñas tareas para combatir vanidad y rigidez. La Congregación del Oratorio fue aprobada en 1575.", "Los primeros relatos describen experiencias intensas de oración y una dilatación inusual de su corazón, interpretada por sus contemporáneos como signo místico; esto pertenece a la tradición biográfica del Oratorio. Felipe murió en Roma el 26 de mayo de 1595, después de celebrar y confesar. Fue canonizado en 1622."],
             whyItMattersToday: "Felipe muestra que alegría y profundidad pueden caminar juntas. Creó espacios donde amistad, cultura, oración y servicio ayudaban a cambiar sin miedo ni dureza.",
-            prayer: "",
+            prayer: "San Felipe Neri, ruega por nosotros.",
             artworkName: "filipe-neri"
         ),
         .init(
@@ -1072,7 +1072,7 @@ extension MockSaints {
             calendarNote: "Calendario Romano General · 4 de octubre",
             bioParagraphs: ["Francisco nació en Asís, hijo del comerciante Pietro di Bernardone. De joven buscó el prestigio militar, combatió contra Perugia y fue hecho prisionero. Después de una enfermedad y una larga crisis, su conversión tomó forma al encontrarse con los leprosos y al orar ante el crucifijo de San Damián. Renunció públicamente a la riqueza familiar y comenzó a vivir del trabajo y la limosna, sirviendo a los pobres y reparando pequeñas iglesias.", "En 1209 fue a Roma con sus primeros compañeros y recibió de Inocencio III una aprobación inicial para su forma de vida evangélica. La fraternidad se convirtió en los Hermanos Menores; Clara de Asís inició en San Damián la comunidad que sería la Orden de las Clarisas. Francisco predicó la paz y la penitencia, se encontró con el sultán al-Malik al-Kamil en Egipto en 1219 y celebró la Navidad en Greccio en 1223 con una representación viva del pesebre.", "Las primeras fuentes franciscanas sitúan en La Verna, en 1224, la experiencia de los estigmas durante un retiro de oración. Muy enfermo y casi ciego, compuso el Cántico de las criaturas. Murió junto a la Porciúncula la noche del 3 de octubre de 1226 y fue canonizado en 1228. Los episodios extraordinarios se identifican como tradición hagiográfica franciscana; el núcleo histórico de su vida es la conversión, la pobreza evangélica, la fraternidad y la paz."],
             whyItMattersToday: "Francisco muestra que la conversión puede cambiar el uso del dinero, la relación con quien sufre y la manera de ejercer la autoridad. Su vida une oración, cuidado de los pobres, reconciliación y responsabilidad por la creación.",
-            prayer: "",
+            prayer: "San Francisco de Asís, ruega por nosotros.",
             artworkName: "francisco-assis"
         ),
         .init(
@@ -1084,7 +1084,7 @@ extension MockSaints {
             calendarNote: "Calendario Romano General · 3 de diciembre",
             bioParagraphs: ["Francisco nació en el castillo de Javier, Navarra, y fue a estudiar a París con intención de seguir una carrera académica. Compartió alojamiento con Pedro Fabro e Ignacio de Loyola. Después de una resistencia inicial se unió al grupo que hizo votos en Montmartre en 1534, fue ordenado presbítero en 1537 y participó en la fundación de la Compañía de Jesús.", "Enviado a Asia como representante pontificio, llegó a Goa en 1542. Trabajó en la costa de la India, Malaca y las Molucas, catequizando, organizando comunidades y escribiendo cartas que atrajeron nuevos misioneros. Llegó a Japón en 1549, aprendió de su cultura y comprendió que el anuncio cristiano exigía formación intelectual y respeto por sus interlocutores.", "Convencido de que China era decisiva para la misión asiática, intentó entrar en el país, pero murió el 3 de diciembre de 1552 en la isla de Sancián, frente a la costa china. Su cuerpo fue llevado a Goa. Fue canonizado con Ignacio en 1622 y declarado patrono de las misiones. Los relatos de prodigios de sus viajes pertenecen a las fuentes hagiográficas y al proceso de canonización."],
             whyItMattersToday: "Javier muestra tanto la valentía misionera como la necesidad de aprender de otra cultura. Sus cartas revelan entusiasmo, límites y cambios de método, útiles para una evangelización que escucha antes de hablar.",
-            prayer: "",
+            prayer: "San Francisco Javier, ruega por nosotros.",
             artworkName: "francisco-xavier"
         ),
         .init(
@@ -1096,7 +1096,7 @@ extension MockSaints {
             calendarNote: "Calendario Romano General · 31 de julio",
             bioParagraphs: ["Íñigo López de Loyola nació en el País Vasco y fue educado para la corte y las armas. En 1521 una bala de cañón hirió gravemente su pierna durante la defensa de Pamplona. En la convalecencia leyó vidas de Cristo y de los santos; al comparar los efectos de sus sueños de gloria y de servicio a Dios comenzó a reconocer lo que llamaría discernimiento de espíritus.", "Después de Montserrat y de meses de oración en Manresa, donde tomó forma el núcleo de los Ejercicios Espirituales, peregrinó a Jerusalén. Comprendió que necesitaba estudiar y pasó por Barcelona, Alcalá y Salamanca antes de París. Allí reunió compañeros que hicieron votos en Montmartre el 15 de agosto de 1534. Pablo III aprobó la Compañía de Jesús en 1540.", "Elegido primer superior general, permaneció en Roma coordinando misiones, escribiendo las Constituciones y acompañando personas mediante miles de cartas. Los jesuitas abrieron colegios y fueron enviados a varios continentes. Ignacio murió en Roma el 31 de julio de 1556 y fue canonizado en 1622. Su Autobiografía lo llama simplemente ‘el peregrino’."],
             whyItMattersToday: "Ignacio ofrece un método para decidir sin confundir el impulso inmediato con la libertad. Observar duración, dirección y frutos de los movimientos interiores sigue siendo útil para decisiones de fe, trabajo y relaciones.",
-            prayer: "",
+            prayer: "San Ignacio de Loyola, ruega por nosotros.",
             artworkName: "inacio-loyola"
         ),
         .init(
@@ -1108,7 +1108,7 @@ extension MockSaints {
             calendarNote: "Calendario carmelita · 8 de noviembre",
             bioParagraphs: ["Élisabeth Catez nació en 1880 en el campamento militar de Avord, Francia, y creció en Dijon. Tras la muerte de su padre, desarrolló su talento como pianista premiada y participó activamente en la vida social y parroquial. De fuerte temperamento, describió la primera Comunión como el inicio de un esfuerzo por dominar su impulsividad por amor. Hizo voto privado de virginidad y esperó el permiso de su madre para entrar en el Carmelo.", "Entró en el Carmelo de Dijon en 1901 y recibió el nombre Isabel de la Santísima Trinidad. Su espiritualidad se centró en la presencia de Dios en el alma y produjo cartas, retiros y la oración 'Oh Dios mío, Trinidad que adoro', citada por el Catecismo. Poco después de la profesión aparecieron síntomas de la enfermedad de Addison, entonces sin tratamiento eficaz.", "Isabel murió el 9 de noviembre de 1906, a los veintiséis años, tras intensos sufrimientos. Juan Pablo II la beatificó en 1984. Para la canonización, la Iglesia reconoció la curación de una mujer con síndrome de Sjögren y otras graves limitaciones, juzgada inexplicable por la consulta médica y atribuida a su intercesión. Francisco la canonizó en 2016."],
             whyItMattersToday: "Isabel muestra que el recogimiento interior no exige huir de la vida: antes del Carmelo encontró a Dios entre música, amistades y deberes; en la enfermedad no redujo la persona al sufrimiento. Su espiritualidad ofrece profundidad en medio de la dispersión.",
-            prayer: "",
+            prayer: "Santa Isabel de la Trinidad, ruega por nosotros.",
             artworkName: "isabel-trindade"
         ),
         .init(
@@ -1120,7 +1120,7 @@ extension MockSaints {
             calendarNote: "Calendario Romano General · 24 de junio",
             bioParagraphs: ["Lucas presenta a Juan como hijo de Zacarías e Isabel y sitúa su nacimiento antes del de Jesús. Ya adulto, vivió en el desierto y predicó junto al Jordán un bautismo de conversión. Llamó al pueblo a producir frutos de justicia y preparó el camino del Señor; los Evangelios registran que bautizó a Jesús y lo señaló a sus discípulos como el Cordero de Dios.", "Juan rechazó convertir su popularidad en poder: afirmó que no era el Mesías y encaminó a sus discípulos hacia Jesús. También denunció públicamente la unión de Herodes Antipas con Herodías, mujer de su hermano, y por eso fue encarcelado. Marcos y Mateo narran que Herodes ordenó decapitarlo durante un banquete después de una promesa precipitada a la hija de Herodías.", "La muerte violenta pertenece al relato evangélico; los detalles sobre reliquias y hallazgos de su cabeza proceden de tradiciones posteriores. La Iglesia celebra su nacimiento el 24 de junio y su martirio el 29 de agosto. Benedicto XVI señaló que la veneración del martirio ya estaba vinculada a Sebaste en el siglo IV."],
             whyItMattersToday: "Juan Bautista une conversión personal y valentía pública. Recuerda que preparar el camino de Dios incluye decir la verdad al poder y, al mismo tiempo, apartarse del centro para señalar a Cristo.",
-            prayer: "",
+            prayer: "San Juan Bautista, ruega por nosotros.",
             artworkName: "joao-batista"
         ),
         .init(
@@ -1132,7 +1132,7 @@ extension MockSaints {
             calendarNote: "Calendario Romano General · 31 de enero",
             bioParagraphs: ["Giovanni Bosco nació en 1815 en I Becchi, Piamonte, y perdió a su padre a los dos años. Trabajó desde niño para poder estudiar y aprendió habilidades de feria, música y oficios que después usaría con los jóvenes. Ordenado en Turín en 1841, visitó cárceles y encontró adolescentes migrantes, pobres y sin apoyo en medio de la industrialización de la ciudad.", "Creó un oratorio itinerante que se estableció en Valdocco, combinando catequesis, recreación, escuela y formación profesional. Su sistema preventivo se apoyaba en razón, religión y amabilidad, buscando educar mediante presencia y confianza en vez de castigo. Fundó la Sociedad de San Francisco de Sales, colaboró con María Dominica Mazzarello en las Hijas de María Auxiliadora y envió misioneros a América del Sur.", "Juan Bosco murió en Turín el 31 de enero de 1888. Pío XI lo beatificó en 1929 y lo canonizó en 1934. Sus sueños tuvieron gran importancia para su espiritualidad y pedagogía y se conservan en memorias salesianas; deben presentarse como relatos autobiográficos y tradición de la congregación, no como predicciones históricas verificables."],
             whyItMattersToday: "Don Bosco muestra que la educación eficaz nace de presencia estable, afecto responsable, formación profesional y horizonte espiritual. Su método pregunta si las instituciones juveniles conocen a cada joven o solo administran conductas.",
-            prayer: "",
+            prayer: "San Juan Bosco, ruega por nosotros.",
             artworkName: "joao-bosco"
         ),
         .init(
@@ -1144,7 +1144,7 @@ extension MockSaints {
             calendarNote: "Calendario Romano General · 14 de diciembre",
             bioParagraphs: ["Juan de Yepes nació en Fontiveros, en una familia empobrecida después de que su padre fuera desheredado. Huérfano desde niño, se trasladó con su madre a Medina del Campo, trabajó en un hospital y estudió con los jesuitas. Entró en el Carmelo en 1563, estudió en Salamanca y fue ordenado en 1567.", "El encuentro con Teresa de Jesús lo llevó a participar en la reforma carmelita. En 1568 ayudó a abrir la primera casa masculina reformada en Duruelo y tomó el nombre de Juan de la Cruz. El conflicto dentro de la Orden provocó su prisión en Toledo en 1577; sufrió aislamiento y malos tratos, compuso allí parte del Cántico espiritual y escapó en agosto de 1578.", "Después ejerció tareas de formación y gobierno en Andalucía y Segovia. Escribió Subida del Monte Carmelo, Noche oscura, Cántico espiritual y Llama de amor viva. Apartado del gobierno y enfermo, murió en Úbeda la noche del 13 al 14 de diciembre de 1591. Fue canonizado en 1726 y proclamado Doctor de la Iglesia en 1926."],
             whyItMattersToday: "Juan ayuda a nombrar épocas en las que la fe parece carecer de consuelo. Su ‘noche’ no glorifica el abuso o la enfermedad; describe la libertad respecto de apegos desordenados para amar con mayor verdad.",
-            prayer: "",
+            prayer: "San Juan de la Cruz, ruega por nosotros.",
             artworkName: "joao-cruz"
         ),
         .init(
@@ -1156,7 +1156,7 @@ extension MockSaints {
             calendarNote: "Calendario Romano General · 22 de octubre",
             bioParagraphs: ["Karol Józef Wojtyła nació en Wadowice, Polonia, y perdió siendo joven a su madre, hermano y padre. Durante la ocupación nazi trabajó en una cantera y una fábrica para evitar la deportación, participó en el clandestino Teatro Rapsódico y estudió en el seminario secreto de Cracovia. Ordenado en 1946, llegó a ser obispo auxiliar, arzobispo y cardenal.", "Participó activamente en el Vaticano II y fue elegido papa el 16 de octubre de 1978. Su pontificado incluyó viajes a 129 países, diálogo ecuménico e interreligioso, apoyo a Solidaridad, el Catecismo y amplia enseñanza sobre Cristo, dignidad humana, trabajo, familia y misericordia. Sobrevivió al atentado del 13 de mayo de 1981 y después visitó al agresor en prisión.", "En sus últimos años hizo visible la fragilidad causada por el Parkinson. Murió en el Vaticano el 2 de abril de 2005. La curación de sor Marie Simon-Pierre del Parkinson fue reconocida para la beatificación; la curación de Floribeth Mora Díaz de un grave aneurisma cerebral, para la canonización. Francisco lo canonizó el 27 de abril de 2014."],
             whyItMattersToday: "Juan Pablo II muestra cómo la experiencia de guerra y totalitarismo puede sostener una defensa de la dignidad humana. Su largo pontificado también requiere estudio histórico atento de logros, decisiones y límites institucionales.",
-            prayer: "",
+            prayer: "San Juan Pablo II, ruega por nosotros.",
             artworkName: "joao-paulo-ii"
         ),
         .init(
@@ -1168,7 +1168,7 @@ extension MockSaints {
             calendarNote: "Calendario Romano General · 19 de marzo",
             bioParagraphs: ["Los Evangelios de Mateo y Lucas presentan a José como esposo de María y padre legal de Jesús, vinculado a la casa de David. Mateo lo llama hombre justo: ante el embarazo de María, decide no exponerla y acoge la misión recibida en sueños. Da al niño el nombre de Jesús, protege a madre e hijo en la huida a Egipto y después establece la familia en Nazaret.", "Mateo llama a José tekton, término que puede significar carpintero o artesano de la construcción. Era un trabajo duro y modestamente remunerado, y Jesús aprendió el mismo oficio. En el episodio de Jesús a los doce años, José aparece buscándolo con María; después, los Evangelios no registran palabras suyas ni informan cuándo o cómo murió.", "La devoción que lo llama patrono de la buena muerte parte de la tradición de que murió acompañado por Jesús y María. El propio magisterio señala que no hay datos históricos para esa escena. Por eso la ficha conserva como hecho el testimonio evangélico y presenta la muerte en Nazaret como tradición piadosa, no como relato comprobado."],
             whyItMattersToday: "José muestra una paternidad ejercida mediante presencia, trabajo y protección. Su grandeza bíblica aparece en decisiones concretas: escuchar, acoger a María, cuidar de Jesús y actuar sin buscar protagonismo.",
-            prayer: "",
+            prayer: "San José, ruega por nosotros.",
             artworkName: "jose"
         ),
         .init(
@@ -1180,7 +1180,7 @@ extension MockSaints {
             calendarNote: "Memoria litúrgica · 10 de febrero",
             bioParagraphs: ["José Sánchez del Río nació en Sahuayo, en el estado mexicano de Michoacán, el 28 de marzo de 1913. Creció durante la persecución religiosa que restringió el culto católico y, siendo todavía adolescente, pidió acompañar a los cristeros. Al principio prestó servicios auxiliares, llevando la bandera y cuidando los caballos, sin ocultar su deseo de permanecer fiel a Cristo.", "Fue capturado en febrero de 1928 después de entregar su caballo a un compañero. Encarcelado en una iglesia profanada, rechazó ofertas de libertad condicionadas a renunciar a la fe. Según la documentación de su martirio, fue torturado, obligado a caminar con los pies heridos hasta el cementerio y asesinado con disparos y golpes el 10 de febrero, poco antes de cumplir quince años.", "La Iglesia reconoció que José murió por odio a la fe; por eso su beatificación como mártir, en 2005, no necesitó un milagro. Francisco lo canonizó en 2016. Las palabras dirigidas a su madre y las aclamaciones a Cristo Rey y a la Virgen de Guadalupe pertenecen a los testimonios recogidos por la causa, no a una reconstrucción ficticia."],
             whyItMattersToday: "José muestra que la libertad religiosa y la conciencia no son temas abstractos. Su valentía juvenil no debe romantizar la violencia: el centro de su testimonio fue rechazar la apostasía y mantenerse fiel bajo coacción.",
-            prayer: "",
+            prayer: "San José Sánchez del Río, ruega por nosotros.",
             artworkName: "jose-sanchez-del-rio"
         ),
         .init(
@@ -1192,7 +1192,7 @@ extension MockSaints {
             calendarNote: "Calendario Romano General · 8 de febrero",
             bioParagraphs: ["Bakhita nació hacia 1869 en Darfur, en el actual Sudán. Secuestrada de niña, fue vendida repetidas veces y sufrió una violencia física y psicológica tan grave que olvidó el nombre recibido de su familia; 'Bakhita', impuesto por sus captores, significa 'afortunada'. Más tarde fue comprada por el cónsul italiano Callisto Legnani y llevada a Italia.", "En Venecia, confiada a las Canosianas, conoció la fe cristiana. Cuando una familia intentó llevarla otra vez a Sudán, las autoridades italianas reconocieron que era libre. Recibió el Bautismo, la Confirmación y la primera Comunión el 9 de enero de 1890, con el nombre Josefina, y profesó sus votos con las Hijas de la Caridad Canosianas en 1896. En Schio sirvió como cocinera, costurera y portera, acogiendo sobre todo a niños y pobres.", "Josefina murió en Schio el 8 de febrero de 1947 después de una larga enfermedad. Juan Pablo II la beatificó en 1992 y la canonizó en 2000. Su biografía oficial registra una amplia fama de santidad y la causa canónica, mientras que la fuerza histórica de su vida queda documentada también en su camino de la esclavitud a la libertad y en el perdón que ofreció sin negar el mal sufrido."],
             whyItMattersToday: "Bakhita da un rostro concreto a las víctimas de la trata y la esclavitud. Su libertad, su fe y su capacidad de perdonar no borran la violencia: hacen más urgente defender la dignidad y la libertad de quienes aún son explotados.",
-            prayer: "",
+            prayer: "Santa Josefina Bakhita, ruega por nosotros.",
             artworkName: "josefina-bakhita"
         ),
         .init(
@@ -1204,7 +1204,7 @@ extension MockSaints {
             calendarNote: "Calendario Romano General · 21 de junio",
             bioParagraphs: ["Luis nació en 1568 en Castiglione delle Stiviere, heredero de una familia principesca. Fue preparado para la carrera militar y cortesana y vivió en Florencia, Mantua y Madrid. Siendo todavía adolescente decidió seguir la vida religiosa. Tras una larga oposición de su padre, en 1585 renunció a títulos y herencia en favor de su hermano e ingresó en la Compañía de Jesús en Roma.", "En el Colegio Romano estudió filosofía y teología y recibió orientación de Roberto Belarmino. Durante la epidemia de 1591, los jesuitas abrieron hospitales y Luis pidió servir a los enfermos. Transportaba pacientes, los lavaba y realizaba tareas de cuidado pese a su sensibilidad y frágil salud. Después de cargar a un enfermo abandonado, enfermó y pasó meses alternando mejorías y recaídas.", "Luis murió en Roma durante la noche del 20 al 21 de junio de 1591, a los veintitrés años. Fue beatificado en 1605, canonizado en 1726 y declarado patrono de la juventud católica. Su muerte por una enfermedad contraída cuidando a víctimas de la epidemia está documentada; las prácticas ascéticas muy severas descritas en sus biografías deben leerse en su contexto histórico y no copiarse sin discernimiento."],
             whyItMattersToday: "Luis muestra una libertad juvenil capaz de dejar el prestigio y elegir el servicio. Su final desplaza la imagen de pureza hacia la caridad concreta: se acercó a cuerpos enfermos cuando hacerlo costaba seguridad y salud.",
-            prayer: "",
+            prayer: "San Luis Gonzaga, ruega por nosotros.",
             artworkName: "luis-gonzaga"
         ),
         .init(
@@ -1216,7 +1216,7 @@ extension MockSaints {
             calendarNote: "Calendario Romano General · 22 de julio",
             bioParagraphs: ["Los Evangelios identifican a María como natural de Magdala y registran que Jesús la liberó de siete demonios. Formó parte del grupo de mujeres que acompañaba a Jesús y sostenía la misión con sus bienes. Los textos no la identifican con la pecadora anónima de Lucas 7 ni con María de Betania; esa fusión pertenece a una tradición occidental posterior.", "María permaneció junto a la cruz, presenció la sepultura y fue al sepulcro el primer día de la semana. En el Evangelio de Juan encontró el sepulcro vacío, lloró, reconoció a Jesús resucitado cuando él la llamó por su nombre y recibió la misión de anunciar a los discípulos: 'He visto al Señor'. Por eso la tradición la llama apóstol de los apóstoles.", "El Nuevo Testamento no narra su vida posterior ni su muerte. Tradiciones posteriores la vinculan con Éfeso o Provenza, pero no tienen el mismo peso histórico que los relatos evangélicos. En 2016 Francisco elevó su celebración en el Calendario Romano General de memoria a fiesta, destacándola como primera testigo de la Resurrección y mensajera para los apóstoles."],
             whyItMattersToday: "María Magdalena muestra que el encuentro con Cristo genera misión. Su historia pide reconocer a las mujeres por el testimonio que los propios Evangelios les atribuyen, sin reducir su identidad a confusiones posteriores.",
-            prayer: "",
+            prayer: "Santa María Magdalena, ruega por nosotros.",
             artworkName: "maria-madalena"
         ),
         .init(
@@ -1228,7 +1228,7 @@ extension MockSaints {
             calendarNote: "Calendario Romano General · 11 de noviembre",
             bioParagraphs: ["Martín nació en Panonia, región de la actual Hungría, de padres paganos, e ingresó joven en el ejército romano por la carrera de su padre. Se hizo catecúmeno y recibió el bautismo siendo joven. Tras dejar el servicio militar, se acercó al obispo Hilario de Poitiers, fue ordenado y fundó en Ligugé una comunidad considerada entre los primeros monasterios de Occidente.", "Hacia 371 fue aclamado obispo de Tours. Conservó un modo de vida monástico, formó clérigos y recorrió zonas rurales de la Galia, evangelizando y fundando comunidades. También intervino contra la ejecución de herejes, sosteniendo que los errores religiosos no debían castigarse con la muerte. Murió en Candes durante una visita pastoral, en 397.", "La historia más conocida, transmitida por su antiguo biógrafo Sulpicio Severo, cuenta que el joven soldado dividió su manto con un hombre que temblaba de frío y después soñó con Cristo vestido con la mitad entregada. La escena es antigua y central en la tradición, pero su forma narrativa viene de la hagiografía; los numerosos milagros atribuidos a Martín pertenecen a la misma fuente devocional."],
             whyItMattersToday: "Martín hizo del compartir una imagen concreta de la fe y usó la autoridad episcopal para evangelizar y también contener la violencia religiosa. Su memoria une caridad personal, vida comunitaria y responsabilidad pública.",
-            prayer: "",
+            prayer: "San Martín de Tours, ruega por nosotros.",
             artworkName: "martinho-tours"
         ),
         .init(
@@ -1240,7 +1240,7 @@ extension MockSaints {
             calendarNote: "Calendario Romano General · 14 de agosto",
             bioParagraphs: ["Rajmund Kolbe nació en Zduńska Wola, Polonia, e ingresó adolescente en los Franciscanos Conventuales. Estudió filosofía y teología en Roma, tomó el nombre Maximiliano María y fundó en 1917 la Milicia de la Inmaculada. Ordenado en 1918, regresó a Polonia y usó prensa y radio para evangelizar, fundando el centro de Niepokalanów; también trabajó en Japón.", "Durante la ocupación nazi, Niepokalanów acogió refugiados, entre ellos judíos. Kolbe fue arrestado, liberado y detenido nuevamente en 1941; fue enviado a Auschwitz como prisionero 16670. Cuando diez hombres fueron elegidos para morir de hambre tras una fuga, se ofreció para sustituir a Franciszek Gajowniczek, esposo y padre.", "Después de unas dos semanas en el búnker del hambre seguía vivo y fue asesinado mediante una inyección el 14 de agosto de 1941. Pablo VI lo beatificó en 1971 y Juan Pablo II lo canonizó como mártir de la caridad en 1982, con Gajowniczek presente. El acto de sustitución está documentado por testigos del campo y por la causa canónica."],
             whyItMattersToday: "Kolbe muestra una forma concreta de resistencia: preservar la dignidad de otra persona dentro de un sistema construido para destruirla. Su sacrificio final pertenece a una vida dedicada a comunicación, comunidad y cuidado.",
-            prayer: "",
+            prayer: "San Maximiliano María Kolbe, ruega por nosotros.",
             artworkName: "maximiliano-kolbe"
         ),
         .init(
@@ -1252,7 +1252,7 @@ extension MockSaints {
             calendarNote: "Calendario Romano General · 27 de agosto",
             bioParagraphs: ["Mónica nació en Tagaste, en el norte de África romana, y creció en una familia cristiana. Se casó con Patricio, a quien Agustín describe como irascible y que fue bautizado cerca del final de su vida. Mónica afrontó tensiones domésticas, administró la casa y acompañó la formación de sus hijos, entre ellos Agustín.", "Cuando Agustín se hizo maniqueo y partió hacia Roma, Mónica perseveró en la oración y lo siguió hasta Italia. En Milán se acercó al obispo Ambrosio y presenció el camino que llevó a Agustín al bautismo en la Pascua de 387. Sus lágrimas se hicieron símbolo de perseverancia, aunque las Confesiones muestran también a una mujer que aprendió a confiar a Dios el futuro de su hijo.", "Mientras esperaban en Ostia el barco de regreso a África, madre e hijo compartieron la conversación contemplativa narrada en Confesiones IX. Poco después Mónica enfermó y murió allí a los cincuenta y seis años. Fue sepultada en Ostia; sus restos fueron trasladados en el siglo XV a la iglesia de San Agustín en Roma."],
             whyItMattersToday: "Mónica ofrece esperanza a familias que no pueden controlar las decisiones de quienes aman. Su perseverancia unió oración, presencia, corrección y la capacidad final de confiar.",
-            prayer: "",
+            prayer: "Santa Mónica, ruega por nosotros.",
             artworkName: "monica"
         ),
         .init(
@@ -1264,7 +1264,7 @@ extension MockSaints {
             calendarNote: "Memoria litúrgica · 24 de marzo",
             bioParagraphs: ["Óscar Arnulfo Romero nació en Ciudad Barrios, El Salvador, y fue ordenado sacerdote en Roma en 1942. Trabajó durante décadas en parroquias, el seminario y la conferencia episcopal. Fue obispo auxiliar de San Salvador, obispo de Santiago de María y, en 1977, arzobispo de la capital, en un país marcado por la represión, la pobreza y la violencia política.", "El asesinato del jesuita Rutilio Grande y sus compañeros profundizó su defensa pública de las víctimas. Romero documentó desapariciones, torturas y asesinatos, visitó comunidades y denunció la violencia de grupos armados y del Estado a la luz del Evangelio. El 24 de marzo de 1980, un tirador lo asesinó mientras celebraba la Misa en la capilla del Hospital de la Divina Providencia.", "La Iglesia reconoció su martirio por odio a la fe y lo beatificó en 2015. Para la canonización, reconoció como inexplicable y atribuida a su intercesión la recuperación, en 2015, de una mujer con preeclampsia grave, síndrome antifosfolípido y síndrome HELLP. Francisco lo canonizó el 14 de octubre de 2018."],
             whyItMattersToday: "Romero enseña que el ministerio cristiano no puede ignorar a quienes son aplastados por la violencia. Su historia pide atención a los hechos, cercanía a las víctimas y valor para anunciar la dignidad humana sin convertir el Evangelio en propaganda partidista.",
-            prayer: "",
+            prayer: "San Óscar Romero, ruega por nosotros.",
             artworkName: "oscar-romero"
         ),
         .init(
@@ -1276,7 +1276,7 @@ extension MockSaints {
             calendarNote: "Calendario Romano General · 23 de septiembre",
             bioParagraphs: ["Francesco Forgione nació en Pietrelcina, sur de Italia, en una familia campesina. Entró en el noviciado capuchino en 1903, tomó el nombre Pío y fue ordenado en 1910. La mala salud marcó sus primeros años. En 1916 se estableció en San Giovanni Rotondo, donde vivió hasta su muerte dedicando largas horas a la Misa, la confesión y la dirección espiritual.", "Desde 1918 presentó heridas interpretadas como estigmas. Autoridades médicas y eclesiásticas examinaron el caso, y la Santa Sede restringió aspectos de su ministerio en algunos períodos; una biografía honesta conserva tanto la devoción como esta historia de investigación. Pío impulsó grupos de oración y la Casa Sollievo della Sofferenza, hospital inaugurado en 1956.", "Murió el 23 de septiembre de 1968. En la causa canónica, la curación de Consiglia De Martino fue reconocida para la beatificación de 1999 y la del niño Matteo Pio Colella para la canonización de 2002. La Iglesia reconoció formalmente esos casos tras evaluación médica y teológica, distinguiéndolos de relatos devocionales no examinados."],
             whyItMattersToday: "Padre Pío recuerda que la devoción debe caminar con discernimiento y responsabilidad. Su legado más verificable une reconciliación sacramental, oración perseverante y atención médica organizada a quienes sufren.",
-            prayer: "",
+            prayer: "San Pío de Pietrelcina, ruega por nosotros.",
             artworkName: "padre-pio"
         ),
         .init(
@@ -1288,7 +1288,7 @@ extension MockSaints {
             calendarNote: "Calendario Romano General · 29 de junio",
             bioParagraphs: ["Simón Pedro era pescador de Galilea cuando Jesús lo llamó. Fue portavoz de los Doce, confesó a Jesús como Mesías, lo negó durante la Pasión y recibió del Resucitado la misión de apacentar el rebaño. Hechos lo presenta predicando en Jerusalén y abriendo la comunidad a los gentiles. Saulo de Tarso persiguió a la Iglesia hasta el encuentro con Cristo resucitado; como Pablo, anunció el Evangelio en extensos viajes y formó comunidades con su presencia y sus cartas.", "Pedro y Pablo tuvieron temperamentos y misiones diferentes, y el propio Pablo narra un enfrentamiento entre ambos en Antioquía. Aun así, reconocieron la comunión en el mismo Evangelio: Pedro con una misión destacada entre los judíos y Pablo entre los gentiles. Hechos termina con Pablo preso en Roma; el Nuevo Testamento no narra la muerte de ninguno.", "La tradición cristiana más antigua testimonia que ambos fueron martirizados en Roma bajo Nerón, entre los años 64 y 68. Fuentes posteriores especifican la crucifixión de Pedro y la decapitación de Pablo; detalles como que la cabeza de Pablo hizo brotar tres fuentes son clasificados por el propio Benedicto XVI como legendarios. Sus sepulcros se veneran en el Vaticano y en la vía Ostiense."],
             whyItMattersToday: "Pedro y Pablo muestran que la unidad no exige biografías, opiniones o funciones idénticas. La comunión cristiana madura cuando las diferencias reales se trabajan dentro de la fidelidad al mismo Evangelio.",
-            prayer: "",
+            prayer: "Santos Pedro y Pablo, rueguen por nosotros.",
             artworkName: "pedro-paulo"
         ),
         .init(
@@ -1300,7 +1300,7 @@ extension MockSaints {
             calendarNote: "Calendario Romano General · 22 de mayo",
             bioParagraphs: ["Margarita Lotti nació en Roccaporena, cerca de Casia. Las fechas y muchos detalles de su juventud son discutidos porque Rita no dejó escritos y las primeras fuentes son tardías. La tradición del santuario recuerda a sus padres como pacificadores locales. Se casó, tuvo dos hijos y quedó viuda cuando su marido fue asesinado en conflictos familiares.", "Rita procuró impedir la venganza y reconciliar a las familias. Después de la muerte de sus hijos ingresó en el monasterio agustino de Santa María Magdalena de Casia, donde vivió unos cuarenta años en oración, servicio y penitencia. El leño seco que floreció y su entrada milagrosa en el monasterio son tradiciones hagiográficas, no documentación contemporánea.", "La devoción recuerda una herida en la frente, asociada a una espina de la corona de Cristo, durante sus últimos quince años; el santuario presenta este signo dentro de la tradición espiritual de Rita. Murió en Casia en 1457, su culto fue aprobado en 1626 y fue canonizada en 1900. Las rosas vinculadas a sus últimos días se hicieron símbolo de esperanza en situaciones difíciles."],
             whyItMattersToday: "Rita es recordada menos por soluciones fáciles que por perseverar entre violencia familiar, duelo y reconciliación. Su historia ofrece un lenguaje cristiano para romper ciclos de venganza.",
-            prayer: "",
+            prayer: "Santa Rita de Casia, ruega por nosotros.",
             artworkName: "rita-cassia"
         ),
         .init(
@@ -1312,7 +1312,7 @@ extension MockSaints {
             calendarNote: "Calendario Romano General · 15 de octubre",
             bioParagraphs: ["Teresa de Cepeda y Ahumada nació en Ávila, España. Entró en el monasterio carmelita de la Encarnación en 1535 y padeció años de grave enfermedad. Su vida de oración maduró lentamente entre distracciones, amistades y dirección espiritual. Describió experiencias místicas extraordinarias, incluida la transverberación, como gracias recibidas y sometidas al discernimiento de la Iglesia.", "En 1562 fundó en Ávila el monasterio de San José, inicio de la reforma de las Carmelitas Descalzas. Recorrió España fundando comunidades marcadas por la pobreza, la fraternidad y la oración; con san Juan de la Cruz promovió también la reforma masculina. Escribió Libro de la vida, Camino de perfección, Fundaciones y Castillo interior.", "Teresa murió en Alba de Tormes en 1582 durante el cambio del calendario juliano al gregoriano, cuando al 4 de octubre siguió el 15 de octubre. Fue canonizada en 1622 y en 1970 fue, con Catalina de Siena, una de las primeras mujeres proclamadas Doctoras de la Iglesia. Sus relatos místicos son testimonio personal; sus fundaciones, cartas y libros forman su legado documentado."],
             whyItMattersToday: "Teresa enseña una oración realista que no exige sentirse perfecto. Su unión de interioridad, humor, amistad y capacidad administrativa muestra que la vida espiritual y la responsabilidad práctica pueden fortalecerse mutuamente.",
-            prayer: "",
+            prayer: "Santa Teresa de Jesús, ruega por nosotros.",
             artworkName: "teresa-avila"
         ),
         .init(
@@ -1324,7 +1324,7 @@ extension MockSaints {
             calendarNote: "Calendario Romano General · 1 de octubre",
             bioParagraphs: ["Thérèse Martin nació en Alençon, Francia, el 2 de enero de 1873, hija de Luis y Celia Martin. Después de la muerte de su madre, la familia se trasladó a Lisieux. Su autobiografía y la biografía oficial registran una grave enfermedad infantil y la curación que atribuyó a la intercesión de Nuestra Señora de las Victorias. A los quince años, después de pedir permiso incluso a León XIII, ingresó en el Carmelo de Lisieux.", "En el Carmelo recibió el nombre Teresa del Niño Jesús y de la Santa Faz. Cumplió tareas ordinarias de comunidad, acompañó a novicias y sostuvo a misioneros mediante cartas, oración y sacrificio. En sus manuscritos describió el 'caminito': confianza en la misericordia de Dios y fidelidad amorosa en las acciones pequeñas. También atravesó una dura prueba interior de fe, sin ocultar sufrimiento ni duda.", "Los primeros signos de tuberculosis aparecieron en 1896. Teresa murió en el Carmelo el 30 de septiembre de 1897, a los veinticuatro años. Sus escritos se publicaron y difundieron rápidamente. Pío XI la canonizó en 1925 y la declaró patrona de las misiones con Francisco Javier en 1927; Juan Pablo II la proclamó Doctora de la Iglesia en 1997. La imagen de la 'lluvia de rosas' pertenece al lenguaje espiritual de sus promesas y a la tradición devocional."],
             whyItMattersToday: "Teresita muestra que la profundidad espiritual no depende de obras públicas extraordinarias. Su caminito ofrece una respuesta concreta al perfeccionismo: confianza, verdad sobre la propia fragilidad y amor en las responsabilidades posibles de hoy.",
-            prayer: "",
+            prayer: "Santa Teresa del Niño Jesús, ruega por nosotros.",
             artworkName: "teresinha"
         ),
         .init(
@@ -1336,7 +1336,7 @@ extension MockSaints {
             calendarNote: "Calendario Romano General · 28 de enero",
             bioParagraphs: ["Tomás nació en Roccasecca y recibió su primera educación en Montecasino. Estudió en Nápoles, donde conoció la filosofía de Aristóteles y decidió entrar en la recién fundada Orden de Predicadores. Su familia se opuso y lo retuvo cerca de un año, pero permaneció fiel a su vocación dominicana y después estudió en París y Colonia con Alberto Magno.", "Como maestro comentó la Escritura y a Aristóteles, participó en los debates universitarios y escribió la Suma contra los gentiles y la Suma teológica. Buscó mostrar la armonía entre fe y razón distinguiendo sus métodos. Los primeros biógrafos narran que, orando ante un crucifijo, oyó que había escrito bien sobre Cristo y respondió que solo deseaba al mismo Cristo; el episodio pertenece a la tradición antigua sobre su vida.", "Después de una experiencia espiritual durante la Misa en diciembre de 1273 dejó inacabada la Suma teológica y dijo que sus escritos le parecían paja ante lo contemplado. Convocado al Concilio de Lyon, enfermó durante el viaje y murió en la abadía de Fossanova el 7 de marzo de 1274. Fue canonizado en 1323 y declarado Doctor de la Iglesia en 1567."],
             whyItMattersToday: "Tomás muestra que la fe no necesita temer preguntas rigurosas. Su disciplina intelectual, apertura a autores diferentes y humildad ante el misterio ofrecen un modelo para estudiar sin convertir el conocimiento en vanidad.",
-            prayer: "",
+            prayer: "Santo Tomás de Aquino, ruega por nosotros.",
             artworkName: "tomas-aquino"
         ),
         .init(
@@ -1348,7 +1348,7 @@ extension MockSaints {
             calendarNote: "Calendario Romano General · 27 de septiembre",
             bioParagraphs: ["Vicente nació en una familia campesina del sudoeste de Francia y fue ordenado sacerdote en 1600. Después de buscar inicialmente seguridad y posición, las experiencias pastorales entre campesinos pobres y el encuentro con personas en extrema necesidad cambiaron su rumbo. Como capellán de la familia Gondi, inició misiones rurales y organizó a laicos para que la asistencia a los pobres fuera continua y bien administrada.", "En 1625 fundó la Congregación de la Misión, luego conocida como Lazaristas, para evangelizar el campo y formar al clero. Con Luisa de Marillac fundó en 1633 las Hijas de la Caridad, cuya vida de servicio se realizaba en calles, hospitales y casas. También coordinó ayuda a víctimas de guerra, niños abandonados, enfermos, prisioneros de las galeras y regiones castigadas por el hambre.", "Vicente murió en París el 27 de septiembre de 1660, a los setenta y nueve años. Fue canonizado en 1737 y León XIII lo declaró patrono de las asociaciones católicas de caridad en 1885. Los relatos de su anterior captura por piratas y esclavitud en el norte de África proceden de cartas que se le atribuyen, pero su historicidad es discutida; su obra institucional de caridad está ampliamente documentada."],
             whyItMattersToday: "Vicente muestra que la compasión necesita organización, formación y continuidad. No opuso oración y gestión: transformó encuentros con los pobres en redes duraderas de servicio y responsabilidad.",
-            prayer: "",
+            prayer: "San Vicente de Paúl, ruega por nosotros.",
             artworkName: "vicente-paulo"
         ),
     ]
