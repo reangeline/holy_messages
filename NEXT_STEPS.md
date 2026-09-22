@@ -1,0 +1,248 @@
+# Missale — o que falta, o que está pendente de decisão, por onde continuar
+
+Escrito em 22 de setembro de 2026, no commit `905b025`. Todos os números abaixo
+foram medidos no código, não escritos de memória — e a forma de medir está no
+fim, para você poder refazer a conta depois.
+
+Estado: **43 testes unitários e 44 de UI, 0 falhas.** `xcodegen generate` e
+build limpos.
+
+---
+
+## 1. O mínimo para publicar
+
+Quatro coisas. Duas são suas, duas são minhas.
+
+### 1.1 A captura de revisão da assinatura — sua, 5 minutos
+
+A App Store Connect exige, em **Informações de revisão** de cada assinatura,
+uma captura da tela onde a compra é oferecida.
+
+O passo a passo está em `capturas-appstore/LEIA.md`. Resumo: em *Edit Scheme ›
+Run › Arguments* adicione `-openScreen paywall` e `-hasCompletedOnboarding 1`,
+⌘R, ⌘S. A tela sai com **Mensal R$ 19,90/mês** e **Anual R$ 129,90/ano**.
+
+Não dá para automatizar: a configuração local do StoreKit se liga à ação Run, e
+`SKTestSession` configura o processo de teste, não o do app sob teste
+(verificado).
+
+### 1.2 Hospedar a política de privacidade — sua
+
+A App Store Connect exige uma **URL** de política de privacidade para todo app.
+O texto está pronto em `Legal/`, nos três idiomas, e também embarcado no app.
+Falta publicar numa URL e colar no App Store Connect.
+
+### 1.3 Os três números de crise — sua, e a mais séria
+
+`Sources/Models/CrisisLine.swift` tem duas marcas de `NEEDS A FINAL CHECK`:
+CVV 188 (Brasil), 988 (EUA) e Línea de la Vida (México). A mexicana é a mais
+frágil, porque o número federal mudou de operador.
+
+**O peso disso aumentou:** depois do bloqueio de conteúdo, o caminho do apoio é
+a única parte do app que qualquer pessoa alcança sem pagar. Eu não quero ser
+quem assina esses três números.
+
+### 1.4 Mecânico — minha e sua
+
+- Screenshots da listagem, descrição, classificação de idade, questionário de
+  privacidade (fácil: tudo local, nada sai do aparelho).
+- Assinatura e provisionamento.
+- **Um teste em aparelho real.** A suíte roda só no Simulador, que não tem App
+  Store: a compra, a restauração e o estado da assinatura nunca foram
+  exercitados de verdade. Isto é o maior risco não testado do projeto.
+
+---
+
+## 2. Decisões pendentes
+
+### 2.1 Existe período de teste gratuito? — pendente
+
+O app lê do produto (`introductoryOffer`) e o botão diz os dias reais, ou
+"Assinar" quando não há. **Não preciso mexer em código.** Só preciso saber para
+deixar a configuração local igual, e a captura sair com o mesmo texto que o
+revisor vai ver.
+
+A configuração local hoje está com `introductoryOffer: null`.
+
+### 2.2 O que fazer com os 111 santos e as 111 festas que faltam — pendente
+
+Ver §3.1 e §3.2. A decisão é de ritmo: bloquear o lançamento por isso, ou
+publicar com o acervo atual e crescer por atualização. **Recomendo publicar:** o
+app degrada com honestidade, diz "ainda não cadastrado" onde falta, e os termos
+declaram isso em §7.
+
+### 2.3 Apagar e exportar dados — adiado por você, e precisa voltar
+
+Você pediu para tirar por enquanto, e eu tirei — junto com o código que só
+existia para os botões. A política de privacidade e os termos foram reescritos
+para dizer a verdade: hoje a forma de apagar é apagar o app.
+
+Isso é defensável para um app que não coleta nada, mas **o botão precisa
+voltar** antes de o acervo pessoal crescer. Quando voltar, a limpeza vai em
+`LocalData`, sobre a lista de chaves que já está lá.
+
+---
+
+## 3. O que falta de conteúdo
+
+Medido em 22/09/2026.
+
+| coleção | tem | alvo | falta |
+|---|---:|---:|---|
+| Palavra do dia | 90 / 90 / 90 | 90 | **0** |
+| Exame do dia | 240 / 240 / 240 | 240 | **0** |
+| Formação | 36 / 36 / 36 | 36 | **0** |
+| Lecionário (domingos) | 156 / 156 / 156 | 156 | **0** |
+| Orações devocionais | 28 pt / 35 en / 33 es | 28 | **0** |
+| Aparições marianas | 3 / 3 / 3 | — | 3 fichas (§3.3) |
+| **Santos detalhados** | 37 por idioma | 100 | **63 × 3 = 189 registros** |
+| **Festas de data fixa** | 69 por idioma | 180 | **111 × 3 = 333 registros** |
+
+Nenhum catálogo do app está sem espanhol: **27 de 27 são trilíngues.**
+
+Fora `Text("MISSALE")`, que é a marca, nenhuma tela tem texto fora do catálogo.
+
+### 3.1 Festas de data fixa — o mais fácil dos dois grandes
+
+A fonte é **um documento só**: o Calendário Romano Geral publica as celebrações
+de data fixa com grau e cor, e é de onde as 69 saíram. A distribuição mostra
+onde falta: janeiro 11, maio 11, mas **setembro 2, novembro 2, dezembro 2**.
+
+Não é pesquisa de 333 fontes — é transcrever uma tabela publicada e usar as
+edições oficiais de cada idioma para os nomes (Missal brasileiro, USCCB, CEE).
+Estimativa: lotes de ~30 datas, 4 ou 5 sessões.
+
+### 3.2 Santos detalhados — o trabalho mais longo do projeto
+
+Cada ficha precisa de datas, função, grau, nota de calendário, parágrafos
+biográficos factuais, "por que importa hoje" e a invocação da Ladainha — com
+fonte por registro. As 37 atuais vieram de sete lotes de pesquisa.
+
+Dá para fazer em lotes de 5 fichas, com fonte verificada (vaticano,
+martirológio, santuários). Estimativa: 12 a 15 sessões. **Sugiro tratar como
+trabalho de fundo**, não como bloqueio.
+
+### 3.3 Três aparições com imagem e sem ficha — curto, e destrava arte parada
+
+Aparecida, Lourdes e Graças têm arte no bundle e **nenhuma ficha**. Knock tem
+ficha e nenhuma imagem (a tela desenha o marcador listrado, honesto).
+
+Os três santuários publicam a documentação online — é o mesmo trabalho que fiz
+nas Completas. **Uma sessão curta.** Sem as fichas, três imagens ocupam o bundle
+sem uso.
+
+### 3.4 Revisão editorial — 762 registros
+
+O acervo de pesquisa marca `verificar: true` em 468 registros de lecionário,
+105 de santos e 189 de palavra do dia. É status de pesquisa, não erro visível.
+Eu posso conferir por amostragem e te dar a taxa de erro; **aprovar para
+publicação é seu.**
+
+---
+
+## 4. Como o dinheiro está montado
+
+Decisão desta versão: **só a palavra do dia é gratuita.**
+
+| grátis | pede assinatura |
+|---|---|
+| Palavra do dia | Calendário |
+| Check-in de humor → alívio → tela pastoral → linha de crise | Formação |
+| Ajustes, idioma, os dois documentos legais | Orações e Terço |
+| | Santo do dia, Exame, Completas |
+
+**As duas exceções não são comerciais, e estão travadas por teste.**
+`SubscriptionGateTests` lê as fontes e falha se um portão aparecer em qualquer
+arquivo do caminho do apoio, ou nas telas de Ajustes e legais.
+
+Produtos: `mensal` e `anual` (Product IDs, não os Apple IDs 6814659756 e
+6814660801, que o `Product.products(for:)` ignora em silêncio). Preços R$ 19,90
+e R$ 129,90 no Brasil, 175 regiões na planilha.
+
+Nenhum preço, período ou prazo de teste está escrito no app — um teste proíbe,
+**inclusive os valores certos**, porque são 175 regiões e nenhuma cabe no
+código. Tudo vem do StoreKit.
+
+---
+
+## 5. O que este app não faz, e é bom lembrar
+
+Estas são propriedades que os testes defendem. Se alguma cair, a política de
+privacidade e os termos passam a mentir.
+
+- **Nenhuma requisição de rede.** Zero `URLSession` no app.
+  `LocalDataTests.testTheAppMakesNoNetworkRequests` falha se aparecer uma.
+- **Nenhuma conta, nenhum login.** Os botões Apple/Google/Facebook do desenho
+  original nunca foram construídos.
+- **Nenhum analytics, rastreador ou anúncio.**
+- **O direito de assinatura nunca é gravado no aparelho** — lido de
+  `Transaction.currentEntitlements` a cada verificação.
+- **Toda chave persistida está listada em `LocalData`**, e um teste falha se
+  aparecer uma fora da lista. É de lá que a política é escrita.
+
+---
+
+## 6. Ordem que eu sugiro
+
+1. **As três aparições** (§3.3) — curto, destrava arte parada no bundle.
+2. **A captura de revisão** (§1.1) e **hospedar a política** (§1.2) — suas.
+3. **Conferir os três números de crise** (§1.3) — sua, e a mais séria.
+4. **Teste em aparelho real** da compra e da restauração (§1.4) — o maior risco
+   não testado.
+5. **As festas de data fixa** (§3.1) — fonte única, ganho grande.
+6. **Os santos** (§3.2) — trabalho de fundo.
+7. **Devolver apagar e exportar** (§2.3) antes que o acervo pessoal cresça.
+
+---
+
+## 7. Como refazer as contas
+
+```sh
+# Suíte inteira
+xcodebuild -project Missale.xcodeproj -scheme Missale \
+  -destination 'platform=iOS Simulator,name=iPhone 17' test
+
+# Contagem do acervo por idioma (fatia por declaração, em ordem de arquivo)
+python3 - <<'EOF'
+import re, pathlib
+segs = {}
+for f in ("Sources/MockData/MockWordOfDay.swift",
+          "Sources/MockData/Generated/GeneratedWordOfDay.swift"):
+    t = pathlib.Path(f).read_text()
+    marcas = [(m.start(), m.group(1)) for m in
+              re.finditer(r"static let (\w+)\s*:\s*\[WordOfDay\]", t)]
+    marcas.append((len(t), "FIM"))
+    for k, (i, n) in enumerate(marcas[:-1]):
+        segs[n] = t[i:marcas[k+1][0]]
+for lang in ("pt", "en", "es"):
+    refs = re.findall(r'reference:\s*"([^"]+)"', segs[f"{lang}Pool"]) + \
+           re.findall(r'reference:\s*"([^"]+)"', segs[f"{lang}ImportedPool"])
+    print(lang, len(refs), "registros,", len(set(refs)), "distintos")
+EOF
+```
+
+Um aviso sobre medir: um regex que procura a próxima declaração com um padrão
+diferente do que achou a anterior **vaza entre blocos** e conta o arquivo
+inteiro. Errei isso duas vezes nesta sessão e reportei 91 onde eram 90. Fatie
+por posições em ordem de arquivo, numa passagem, como acima.
+
+---
+
+## 8. Regras do projeto que continuam valendo
+
+- **Não usar tradução livre para conteúdo católico nem bíblico.** Cada idioma
+  usa uma fonte pública ou oficialmente publicada naquele idioma. O texto
+  bíblico é copiado do inventário, nunca traduzido a partir de outro idioma.
+- **Nunca editar `Sources/MockData/Generated/`** à mão: ajustar o JSON de
+  entrega em `~/Documents/Missale-pesquisa/entregas` e rodar o gerador
+  (`scripts/import_acervo.py`, `scripts/import_mood_relief.py`,
+  `scripts/build_exam_relief.py`).
+- **Textos de interface** vão no `.xcstrings` via `L.string(...)` ou
+  `Text(_:tableName:)`; **conteúdo do acervo** vai em
+  `LocalizedCatalog(pt:en:es:)`.
+- Depois de criar ou remover arquivos, rodar `xcodegen generate`. O target do
+  widget tem lista de fontes própria e explícita.
+- Mensagens de commit em português, terminando com as linhas de co-autoria e de
+  sessão.
+- **Não usar `git add -A`** neste repositório: há trabalho paralelo na árvore, e
+  eu já commitei arquivos que não eram meus uma vez.
