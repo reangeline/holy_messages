@@ -155,28 +155,6 @@
         }
       }
     },
-    "Assinatura anual · renova em 14 de outubro": {
-      "localizations": {
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Assinatura anual · renova em 14 de outubro"
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Yearly subscription · renews on October 14"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Suscripción anual · se renueva el 14 de octubre"
-          }
-        }
-      }
-    },
     "Ativa": {
       "localizations": {
         "pt": {
@@ -195,28 +173,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Activa"
-          }
-        }
-      }
-    },
-    "Automatically renews on October 14, 2026. Billed through the App Store.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Automatically renews on October 14, 2026. Billed through the App Store."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Se renueva automáticamente el 14 de octubre de 2026. Cobro a través de la App Store."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Renova automaticamente em 14 de outubro de 2026. Cobrança pela App Store."
           }
         }
       }
@@ -527,6 +483,29 @@
           "stringUnit": {
             "state": "translated",
             "value": "Cada país tem seu calendário próprio sobre o romano geral. Isso muda o santo do dia e as solenidades."
+          }
+        }
+      }
+    },
+    "Everything in the app is available without one. If you subscribed with another Apple ID, restore below.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Everything in the app is available without one. If you subscribed with another Apple ID, restore below."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tudo no app está disponível sem ela. Se você assinou com outro Apple ID, restaure abaixo."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Todo en la app está disponible sin ella. Si te suscribiste con otro Apple ID, restaura abajo."
           }
         }
       }
@@ -883,6 +862,29 @@
         }
       }
     },
+    "Managed in the App Store, where you can see the renewal date and the amount, and cancel.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Managed in the App Store, where you can see the renewal date and the amount, and cancel."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gerenciada na App Store, onde você vê a data de renovação e o valor, e pode cancelar."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gestionada en la App Store, donde puedes ver la fecha de renovación y el importe, y cancelar."
+          }
+        }
+      }
+    },
     "Missale 1.0 (build 214) · o que você registra fica neste aparelho.": {
       "localizations": {
         "pt": {
@@ -905,24 +907,48 @@
         }
       }
     },
-    "Missale Premium · yearly": {
+    "Missale Premium": {
+      "extractionState": "manual",
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Missale Premium · yearly"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Missale Premium · anual"
+            "value": "Missale Premium"
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Missale Premium · anual"
+            "value": "Missale Premium"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Missale Premium"
+          }
+        }
+      }
+    },
+    "Missale Premium · active": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Missale Premium · active"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Missale Premium · ativa"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Missale Premium · activa"
           }
         }
       }
@@ -945,6 +971,52 @@
           "stringUnit": {
             "state": "translated",
             "value": "Sem perguntas e sem oferta de desconto"
+          }
+        }
+      }
+    },
+    "No subscription on this device": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No subscription on this device"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nenhuma assinatura neste aparelho"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ninguna suscripción en este dispositivo"
+          }
+        }
+      }
+    },
+    "No subscription · everything available": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No subscription · everything available"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sem assinatura · tudo disponível"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sin suscripción · todo disponible"
           }
         }
       }
@@ -1830,28 +1902,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Orações e devoções da tradição, offline"
-          }
-        }
-      }
-    },
-    "US$ 39.99/year": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "US$ 39.99/year"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "US$ 39,99/año"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "US$ 39,99/ano"
           }
         }
       }

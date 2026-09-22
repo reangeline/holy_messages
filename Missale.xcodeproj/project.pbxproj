@@ -63,6 +63,7 @@
 		4715C6F1AA83DFB0BF92B68B /* MockFormation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9975789A3E180E7DD5AD61 /* MockFormation.swift */; };
 		4734D3BC87E5E9BA4E30DFB5 /* ExamenStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEFC3FB69F33F6ADDAC88D4 /* ExamenStep.swift */; };
 		474FFA1E3B486CF5E9841453 /* FormationRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8386DB427306B75159719D /* FormationRootView.swift */; };
+		47E0127BE26EB2CCC19443EE /* SubscriptionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6CA3A65E9825B3305170B9 /* SubscriptionStore.swift */; };
 		4C79424985C57BF62827686A /* SaintsArchiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C7FA4E62CAB5039172A284 /* SaintsArchiveView.swift */; };
 		4D9EBD3A0F8A66D391334763 /* Saint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A92ABBE467814F0124A8AA9 /* Saint.swift */; };
 		5123E50F1589C1B3E2A9B5E2 /* Rosary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB6736347B58C2DD3718609 /* Rosary.swift */; };
@@ -83,7 +84,6 @@
 		61CCB142CA0E0386439B1324 /* MissaleWidgetsBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62F7E1BD0B7CD468C18F3C7 /* MissaleWidgetsBundle.swift */; };
 		678F840463719615D0C2C7D8 /* LiturgicalSanctoral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCE63842C986A2F595CA8D4 /* LiturgicalSanctoral.swift */; };
 		67DF463317F1F1E5DB602AC3 /* Date+RelativeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB960CD92A24E48F2535010 /* Date+RelativeLabel.swift */; };
-		6A8A62A02D7F0331AD915DED /* SubscriptionPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A87801F1104BDD82BCEF9F /* SubscriptionPlan.swift */; };
 		6B4D0F5004E4AC9179E8B246 /* EBGaramond-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4EF3E16915DDAF1EB7255E2 /* EBGaramond-MediumItalic.ttf */; };
 		6D4B9DD6659FF86E73BD00DE /* ExamenEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3078F169C814DF3A8A450A /* ExamenEntry.swift */; };
 		7056EE04F1447BA4E81F89FC /* MoodCheckInSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA44835E8D3EB720434BDDF /* MoodCheckInSheet.swift */; };
@@ -186,6 +186,7 @@
 		E47D18E514B05B964807CFB6 /* Onboarding.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F357D9E69EA277412092DAC8 /* Onboarding.xcstrings */; };
 		E4F5BC268AA4382CDD30AFE5 /* WordOfDayWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75F69D72E41B33F85A10F6F /* WordOfDayWidget.swift */; };
 		E5011BCAD3C080FD91F62058 /* OnboardingNotificationPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EF530B18A29BB2885EE480 /* OnboardingNotificationPreviewView.swift */; };
+		E563B6A5D9B768F462485460 /* SubscriptionStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F8E78CA6DFFF7C6B55B765 /* SubscriptionStoreTests.swift */; };
 		E625C6488EFCFF958A45B71B /* Formation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227E67920FE2449FD6170F46 /* Formation.swift */; };
 		E83077B9CC3B13F17AE8AEC9 /* GeneratedMarianApparitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF7D2F3849F22A0A5D60717 /* GeneratedMarianApparitions.swift */; };
 		E8E6AB7F050A1632FB2EA6EC /* OnboardingFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059392A80AD166C1D4330AF3 /* OnboardingFlow.swift */; };
@@ -295,6 +296,7 @@
 		469EA47C5E6841055C7E4B23 /* FormationProgressStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormationProgressStore.swift; sourceTree = "<group>"; };
 		4A9445BD38B8F8F1820F8DE6 /* FormationTrackDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormationTrackDetailView.swift; sourceTree = "<group>"; };
 		4AA725209135D65B8B6FE950 /* RosaryHistoryStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RosaryHistoryStore.swift; sourceTree = "<group>"; };
+		4B6CA3A65E9825B3305170B9 /* SubscriptionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionStore.swift; sourceTree = "<group>"; };
 		4BE7A1785F8D77047D6754CC /* CormorantGaramond-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CormorantGaramond-Italic.ttf"; sourceTree = "<group>"; };
 		4BE8B6F79570C98E79ACE2B4 /* LocalizedCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedCatalog.swift; sourceTree = "<group>"; };
 		4D6494C870F0202D155720C4 /* CormorantGaramond-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CormorantGaramond-Medium.ttf"; sourceTree = "<group>"; };
@@ -340,6 +342,7 @@
 		80C91E7AE38D2D10C31CB156 /* DevotionalPrayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevotionalPrayer.swift; sourceTree = "<group>"; };
 		815AF8878E526A8E12790A3B /* MockCompline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCompline.swift; sourceTree = "<group>"; };
 		81A7894A34904119DDEBC585 /* MockSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSettings.swift; sourceTree = "<group>"; };
+		84F8E78CA6DFFF7C6B55B765 /* SubscriptionStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionStoreTests.swift; sourceTree = "<group>"; };
 		88256E6C4CCFEC9D6FB7A82C /* MassBulletinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MassBulletinView.swift; sourceTree = "<group>"; };
 		89B15BE7FE79DA0EE43CDFB9 /* PastoralNoteDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastoralNoteDetailView.swift; sourceTree = "<group>"; };
 		8BAC36F87255861947FB745D /* OnboardingSynthesisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSynthesisView.swift; sourceTree = "<group>"; };
@@ -422,7 +425,6 @@
 		F22DB6C4624EEE8D2B885B05 /* SaintDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaintDetailView.swift; sourceTree = "<group>"; };
 		F357D9E69EA277412092DAC8 /* Onboarding.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Onboarding.xcstrings; sourceTree = "<group>"; };
 		F56BF93F3622EF92D3F78F05 /* ScrupulosityRedirectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrupulosityRedirectView.swift; sourceTree = "<group>"; };
-		F6A87801F1104BDD82BCEF9F /* SubscriptionPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionPlan.swift; sourceTree = "<group>"; };
 		F72BC40316F8F4567CE44E5E /* termos-de-uso.pt.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "termos-de-uso.pt.md"; sourceTree = "<group>"; };
 		F8D265308DDF252A3DD76D4C /* OnboardingReliefView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingReliefView.swift; sourceTree = "<group>"; };
 		F91386C412B4AB8097C8166B /* ExamenLanguageUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamenLanguageUITests.swift; sourceTree = "<group>"; };
@@ -580,6 +582,7 @@
 				C8662EED745A768F6D88EB3F /* LocalizationKeyTests.swift */,
 				5BCCCDE258D8AFA7BF6F3440 /* MarianApparitionArtTests.swift */,
 				704ABB4D5C5D142A3DFDD130 /* SaintPrayerFormTests.swift */,
+				84F8E78CA6DFFF7C6B55B765 /* SubscriptionStoreTests.swift */,
 			);
 			name = Unit;
 			path = Tests/Unit;
@@ -681,7 +684,6 @@
 				1AB6736347B58C2DD3718609 /* Rosary.swift */,
 				2A92ABBE467814F0124A8AA9 /* Saint.swift */,
 				3AE002AEFCF86FBB99104C91 /* SettingsContent.swift */,
-				F6A87801F1104BDD82BCEF9F /* SubscriptionPlan.swift */,
 				9536EEE16DBB6EFCD2579641 /* UserProfile.swift */,
 				B05918B538C545B788FC186A /* WordOfDay.swift */,
 			);
@@ -760,6 +762,7 @@
 				310BE3218669FF7F03615007 /* AngelusNudgeView.swift */,
 				C001F88A11BB17BA890EEF83 /* AngelusScheduler.swift */,
 				A6229DFA801AE3A4CA71FFE6 /* SubscriptionCancellationView.swift */,
+				4B6CA3A65E9825B3305170B9 /* SubscriptionStore.swift */,
 			);
 			path = Subscription;
 			sourceTree = "<group>";
@@ -1098,7 +1101,7 @@
 				5A03142066ECAA7D4A4818B4 /* ShareCardView.swift in Sources */,
 				363F452FC43E782675CBAA65 /* SubscriptionCancellationView.swift in Sources */,
 				F874D51ABFBD571588324624 /* SubscriptionDetailView.swift in Sources */,
-				6A8A62A02D7F0331AD915DED /* SubscriptionPlan.swift in Sources */,
+				47E0127BE26EB2CCC19443EE /* SubscriptionStore.swift in Sources */,
 				C3C9AD948A20CB260F146548 /* SupportView.swift in Sources */,
 				8F14F39D961C2BEDA07BE3EC /* TodayRootView.swift in Sources */,
 				313CA19CE3ED8B71E9015A24 /* Typography.swift in Sources */,
@@ -1159,6 +1162,7 @@
 				76F71429247C64065B0940E0 /* LocalizationKeyTests.swift in Sources */,
 				DA53C2F9E59E75B09E3BC6BB /* MarianApparitionArtTests.swift in Sources */,
 				864EDBA51D196E0C74454AA1 /* SaintPrayerFormTests.swift in Sources */,
+				E563B6A5D9B768F462485460 /* SubscriptionStoreTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

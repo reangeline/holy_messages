@@ -6,12 +6,14 @@ import Foundation
 /// Portuguese in English and Spanish. (That table's other keys are English —
 /// mixed, but the alternative was translating the data itself.)
 enum MockSettings {
-    static let subscriptionStatusLine = "Assinatura anual · renova em 14 de outubro"
     static let buildLine = "Missale 1.0 (build 214) · o que você registra fica neste aparelho."
 
     static let groups: [SettingsGroup] = [
         .init(id: "account", label: "Conta", items: [
-            .init(id: "subscription", title: "Assinatura", subtitle: "Anual · renova em 14 de outubro", value: "Ativa", destination: .subscription),
+            // Sem subtítulo nem valor fixos: o estado real está na tela, lido
+            // do StoreKit. Antes esta linha dizia "Anual · renova em 14 de
+            // outubro · Ativa" em qualquer instalação.
+            .init(id: "subscription", title: "Assinatura", subtitle: "", value: nil, destination: .subscription),
         ]),
         .init(id: "preferences", label: "Preferências", items: [
             .init(id: "calendar", title: "Calendário litúrgico", subtitle: "Região e forma do rito", value: nil, destination: .regionalCalendar),

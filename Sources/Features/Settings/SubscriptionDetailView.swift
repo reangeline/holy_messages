@@ -1,8 +1,20 @@
 import SwiftUI
+import StoreKit
 
-/// t5 screen 2 (fIs2) — active subscription detail, explicit restore button,
-/// what's included vs. free-forever, and the path to cancellation (fIs9).
+/// t5 screen 2 (fIs2) — subscription status, restore, and the path to
+/// cancellation (fIs9).
+///
+/// The status card used to read "ACTIVE · US$ 39.99/year · Automatically
+/// renews on October 14, 2026. Billed through the App Store." on every
+/// install, for everyone, having charged no one. A fabricated billing
+/// statement in shipped UI is both an App Store rejection and the kind of
+/// thing that makes a reader doubt a charge they never made. It now shows what
+/// StoreKit reports for this Apple ID, and says plainly when there is no
+/// subscription.
 struct SubscriptionDetailView: View {
+    @ObservedObject private var store = SubscriptionStore.shared
+    @State private var restaurando = false
+
     var body: some View {
         ZStack {
             LiturgicalColor.red.pageBackground
@@ -11,24 +23,33 @@ struct SubscriptionDetailView: View {
                     Text("Subscription", tableName: "SettingsDetail")
                         .font(MissaleFont.display(29, weight: .semibold))
 
-                    LiturgicalGradientCard(color: .red) {
-                        VStack(alignment: .leading, spacing: 6) {
-                            HStack {
+                    if store.isSubscribed {
+                        LiturgicalGradientCard(color: .red) {
+                            VStack(alignment: .leading, spacing: 6) {
                                 Text("ACTIVE", tableName: "SettingsDetail")
                                     .font(MissaleFont.body(11, weight: .semibold))
                                     .tracking(1.4)
                                     .foregroundStyle(Palette.goldBright)
-                                Spacer()
-                                Text("US$ 39.99/year", tableName: "SettingsDetail")
-                                    .font(MissaleFont.body(14))
-                                    .foregroundStyle(.white.opacity(0.85))
+                                Text("Missale Premium", tableName: "SettingsDetail")
+                                    .font(MissaleFont.display(21, weight: .medium))
+                                    .foregroundStyle(.white)
+                                // O valor, a data de renovação e o plano ficam
+                                // na App Store, que é quem cobra. Repeti-los
+                                // aqui foi o que produziu a declaração falsa.
+                                Text("Managed in the App Store, where you can see the renewal date and the amount, and cancel.", tableName: "SettingsDetail")
+                                    .font(MissaleFont.body(15))
+                                    .foregroundStyle(.white.opacity(0.88))
                             }
-                            Text("Missale Premium · yearly", tableName: "SettingsDetail")
-                                .font(MissaleFont.display(21, weight: .medium))
-                                .foregroundStyle(.white)
-                            Text("Automatically renews on October 14, 2026. Billed through the App Store.", tableName: "SettingsDetail")
-                                .font(MissaleFont.body(15))
-                                .foregroundStyle(.white.opacity(0.88))
+                        }
+                    } else {
+                        GlassCard {
+                            VStack(alignment: .leading, spacing: 6) {
+                                Text("No subscription on this device", tableName: "SettingsDetail")
+                                    .font(MissaleFont.body(18, weight: .medium))
+                                Text("Everything in the app is available without one. If you subscribed with another Apple ID, restore below.", tableName: "SettingsDetail")
+                                    .font(MissaleFont.body(15))
+                                    .foregroundStyle(Palette.ink.opacity(0.72))
+                            }
                         }
                     }
 
@@ -58,7 +79,11 @@ struct SubscriptionDetailView: View {
                     }
 
                     Button {
-                        // UI-only for this pass — no real StoreKit transaction to restore.
+                        restaurando = true
+                        Task {
+                            await store.restore()
+                            restaurando = false
+                        }
                     } label: {
                         Text("Restore Purchases", tableName: "SettingsDetail")
                             .font(MissaleFont.body(17))
@@ -68,7 +93,11 @@ struct SubscriptionDetailView: View {
                             .overlay(Capsule().strokeBorder(Color.white.opacity(0.7), lineWidth: 1))
                             .foregroundStyle(Palette.ink)
                     }
+                    .disabled(restaurando)
 
+                    // A tela de cancelamento explica o que acontece; o
+                    // cancelamento em si é feito na App Store, porque só a
+                    // Apple pode fazê-lo — os termos dizem isso.
                     NavigationLink {
                         SubscriptionCancellationView()
                     } label: {

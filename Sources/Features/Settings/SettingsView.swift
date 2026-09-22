@@ -74,7 +74,11 @@ struct SettingsView: View {
                 }
             }
             .buttonStyle(.plain)
-            Text(L.string(MockSettings.subscriptionStatusLine, table: "SettingsDetail"))
+            // Vinha de um texto fixo: "Assinatura anual · renova em 14 de
+            // outubro", para todo mundo, sem ninguém ter assinado.
+            Text(SubscriptionStore.shared.isSubscribed
+                 ? L.string("Missale Premium · active", table: "SettingsDetail")
+                 : L.string("No subscription · everything available", table: "SettingsDetail"))
                 .font(MissaleFont.body(15))
                 .foregroundStyle(Palette.ink.opacity(0.68))
         }

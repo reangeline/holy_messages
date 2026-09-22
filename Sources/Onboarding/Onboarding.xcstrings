@@ -265,6 +265,29 @@
         }
       }
     },
+    "Continue free": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Continue free"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Continuar de graça"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Continuar gratis"
+          }
+        }
+      }
+    },
     "Every season and feast explained as it arrives": {
       "localizations": {
         "en": {
@@ -283,6 +306,29 @@
           "stringUnit": {
             "state": "translated",
             "value": "Cada tempo e festa explicados conforme chegam"
+          }
+        }
+      }
+    },
+    "Everything in the app works without a subscription. You can subscribe later, in Settings.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Everything in the app works without a subscription. You can subscribe later, in Settings."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tudo no app funciona sem assinatura. Você pode assinar depois, nas Configurações."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Todo en la app funciona sin suscripción. Puedes suscribirte después, en Ajustes."
           }
         }
       }
@@ -551,6 +597,29 @@
         }
       }
     },
+    "Nothing was charged. You can try again, or keep using the app free.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nothing was charged. You can try again, or keep using the app free."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nada foi cobrado. Você pode tentar de novo, ou seguir usando o app de graça."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No se cobró nada. Puedes intentarlo de nuevo, o seguir usando la app gratis."
+          }
+        }
+      }
+    },
     "Now four questions the Church has always asked": {
       "localizations": {
         "en": {
@@ -569,6 +638,29 @@
           "stringUnit": {
             "state": "translated",
             "value": "Agora, quatro perguntas que a Igreja sempre fez"
+          }
+        }
+      }
+    },
+    "OK": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OK"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OK"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OK"
           }
         }
       }
@@ -657,6 +749,29 @@
           "stringUnit": {
             "state": "translated",
             "value": "Lendo o calendário de hoje…"
+          }
+        }
+      }
+    },
+    "Restore purchases": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restore purchases"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restaurar compras"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restaurar compras"
           }
         }
       }
@@ -815,6 +930,29 @@
         }
       }
     },
+    "Subscribe": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Subscribe"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Assinar"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Suscribirse"
+          }
+        }
+      }
+    },
     "Suicide & Crisis Lifeline. Call or text, any hour, free and confidential.": {
       "localizations": {
         "en": {
@@ -965,6 +1103,29 @@
           "stringUnit": {
             "state": "translated",
             "value": "A palavra do dia, o santo e a rede de apoio continuam grátis para sempre."
+          }
+        }
+      }
+    },
+    "The purchase didn't complete": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The purchase didn't complete"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A compra não foi concluída"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La compra no se completó"
           }
         }
       }
@@ -1167,6 +1328,52 @@
         }
       }
     },
+    "Try free for {n} days": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Try free for {n} days"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Teste grátis por {n} dias"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prueba gratis por {n} días"
+          }
+        }
+      }
+    },
+    "We couldn't reach the App Store to load the plans.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "We couldn't reach the App Store to load the plans."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Não foi possível consultar a App Store para carregar os planos."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No se pudo consultar la App Store para cargar los planes."
+          }
+        }
+      }
+    },
     "When should the day's reading reach you?": {
       "localizations": {
         "en": {
@@ -1255,6 +1462,52 @@
         }
       }
     },
+    "day": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "day"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "dia"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "día"
+          }
+        }
+      }
+    },
+    "month": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "month"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "mês"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "mes"
+          }
+        }
+      }
+    },
     "now": {
       "localizations": {
         "en": {
@@ -1277,6 +1530,98 @@
         }
       }
     },
+    "week": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "week"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "semana"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "semana"
+          }
+        }
+      }
+    },
+    "year": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "year"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ano"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "año"
+          }
+        }
+      }
+    },
+    "{n} days free first": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "{n} days free first"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Primeiros {n} dias grátis"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Primeros {n} días gratis"
+          }
+        }
+      }
+    },
+    "{n} days free, then {price}, renewing automatically. Cancel anytime in the App Store.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "{n} days free, then {price}, renewing automatically. Cancel anytime in the App Store."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "{n} dias grátis, depois {price}, com renovação automática. Cancele quando quiser na App Store."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "{n} días gratis, después {price}, con renovación automática. Cancela cuando quieras en la App Store."
+          }
+        }
+      }
+    },
     "{n} of {total}": {
       "localizations": {
         "en": {
@@ -1295,6 +1640,29 @@
           "stringUnit": {
             "state": "translated",
             "value": "{n} de {total}"
+          }
+        }
+      }
+    },
+    "{price}, renewing automatically. Cancel anytime in the App Store.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "{price}, renewing automatically. Cancel anytime in the App Store."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "{price}, com renovação automática. Cancele quando quiser na App Store."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "{price}, con renovación automática. Cancela cuando quieras en la App Store."
           }
         }
       }
