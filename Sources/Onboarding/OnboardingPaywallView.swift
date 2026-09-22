@@ -29,15 +29,12 @@ struct OnboardingPaywallView: View {
                             .multilineTextAlignment(.center)
                             .foregroundStyle(Palette.ink)
 
-                        HStack(spacing: 6) {
-                            Text("4.8")
-                                .font(MissaleFont.body(15, weight: .semibold))
-                            Text("\u{2605}\u{2605}\u{2605}\u{2605}\u{2605}")
-                                .foregroundStyle(Palette.goldMuted)
-                            Text("12.4K App Ratings", tableName: "Onboarding")
-                                .font(MissaleFont.body(13))
-                                .foregroundStyle(Palette.ink.opacity(0.55))
-                        }
+                        // Havia aqui "4.8 ★★★★★ · 12,4 mil avaliações", numa
+                        // nota e numa contagem inventadas para um app que nunca
+                        // foi publicado. Prova social falsa é rejeição direta na
+                        // App Store, e não é o que este app quer ser. Volta
+                        // quando houver avaliações de verdade, lidas da App
+                        // Store — não cravadas no código.
 
                         VStack(spacing: 10) {
                             ForEach(plans) { plan in

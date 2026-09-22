@@ -5,6 +5,7 @@ struct AppRootView: View {
     @State private var showSettings = false
 #if DEBUG
     @State private var showExamen = false
+    @State private var showPaywall = false
 #endif
     @AppStorage(AppLanguagePreference.storageKey, store: AppLanguagePreference.store) private var languageOverride = AppLanguagePreference.systemValue
     @Environment(\.scenePhase) private var scenePhase
@@ -25,11 +26,16 @@ struct AppRootView: View {
         debugOpenScreen == "settings"
     }
 
-    /// Which screen the launch argument asks for, if any. "examen" opens the
-    /// Examen intro: reaching it by tapping the nightly card was the flakiest
-    /// step in the UI suite — the card is the last item in the scroll and the
-    /// floating tab bar covers part of it, by an amount that changes with the
-    /// language of the card's own text.
+    /// Which screen the launch argument asks for, if any.
+    ///
+    /// "examen" opens the Examen intro: reaching it by tapping the nightly card
+    /// was the flakiest step in the UI suite — the card is the last item in the
+    /// scroll and the floating tab bar covers part of it, by an amount that
+    /// changes with the language of the card's own text.
+    ///
+    /// "paywall" opens the subscription screen. App Store Connect requires a
+    /// screenshot of it for subscription review, and it is otherwise only
+    /// reachable at the end of onboarding, after eighteen screens.
     private var debugOpenScreen: String? {
         UserDefaults.standard.string(forKey: "openScreen")
     }
@@ -61,6 +67,10 @@ struct AppRootView: View {
         // picking a language updates the app behind it without closing it.
         .environment(\.settingsPresented, $showSettings)
 #if DEBUG
+        .fullScreenCover(isPresented: $showPaywall) {
+            OnboardingPaywallView(onFinish: { showPaywall = false })
+                .appLanguageLocale()
+        }
         .fullScreenCover(isPresented: $showExamen) {
             NavigationStack {
                 ExamenIntroView(onFinished: { showExamen = false })
@@ -80,6 +90,7 @@ struct AppRootView: View {
 #if DEBUG
             if debugOpensSettings { showSettings = true }
             if debugOpenScreen == "examen" { showExamen = true }
+            if debugOpenScreen == "paywall" { showPaywall = true }
 #endif
         }
         // Rolling-window notifications need refreshing on every foreground, not just

@@ -192,25 +192,31 @@ enum OnboardingRelief {
 }
 
 enum OnboardingPaywallContent {
+    /// Os dois planos que existem como produto na App Store Connect: mensal e
+    /// anual. Havia um terceiro, "Vitalício", sem produto cadastrado — e com
+    /// preço diferente aqui (R$ 649,90) e nas Configurações (R$ 349,90).
+    /// Oferecer uma compra que não existe é rejeição na revisão.
+    ///
+    /// Os valores abaixo ainda são fixos no código. Precisam vir do StoreKit,
+    /// que é o que os termos já declaram: "o preço vigente na sua região
+    /// aparece na tela, antes da compra". Enquanto não vierem, um preço editado
+    /// na App Store Connect não chega a esta tela.
     static func plans(for language: AppLanguage) -> [SubscriptionPlan] {
         switch language {
         case .en:
             [
                 .init(id: "monthly", title: "Monthly", rate: "$6.99/mo", subtitle: "Billed monthly", total: "$6.99", badge: nil),
                 .init(id: "annual", title: "Annual", rate: "$3.33/mo", subtitle: "Billed once a year", total: "$39.99/yr", badge: "Most popular"),
-                .init(id: "lifetime", title: "Lifetime", rate: "One-time", subtitle: "Yours for good", total: "$129.99", badge: nil),
             ]
         case .pt:
             [
                 .init(id: "monthly", title: "Mensal", rate: "R$ 34,90/mês", subtitle: "Cobrado todo mês", total: "R$ 34,90", badge: nil),
                 .init(id: "annual", title: "Anual", rate: "R$ 16,65/mês", subtitle: "Cobrado uma vez por ano", total: "R$ 199,90/ano", badge: "Mais popular"),
-                .init(id: "lifetime", title: "Vitalício", rate: "Pagamento único", subtitle: "Seu para sempre", total: "R$ 649,90", badge: nil),
             ]
         case .es:
             [
                 .init(id: "monthly", title: "Mensual", rate: "$6.99/mes", subtitle: "Se cobra cada mes", total: "$6.99", badge: nil),
                 .init(id: "annual", title: "Anual", rate: "$3.33/mes", subtitle: "Se cobra una vez al año", total: "$39.99/año", badge: "Más popular"),
-                .init(id: "lifetime", title: "De por vida", rate: "Pago único", subtitle: "Tuyo para siempre", total: "$129.99", badge: nil),
             ]
         }
     }

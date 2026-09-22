@@ -1,28 +1,6 @@
 {
   "sourceLanguage": "en",
   "strings": {
-    "12.4K App Ratings": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "12.4K App Ratings"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "12,4 mil valoraciones"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "12,4 mil avaliações"
-          }
-        }
-      }
-    },
     "A few short questions. No account yet.": {
       "localizations": {
         "en": {
