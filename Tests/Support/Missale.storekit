@@ -1,57 +1,84 @@
 {
-  "identifier" : "MISSALE-LOCAL",
-  "nonRenewingSubscriptions" : [],
-  "products" : [],
-  "settings" : {
-    "_failTransactionsEnabled" : false,
-    "_storeKitErrors" : []
+  "identifier": "MISSALE-LOCAL",
+  "nonRenewingSubscriptions": [],
+  "products": [],
+  "settings": {
+    "_failTransactionsEnabled": false,
+    "_storeKitErrors": []
   },
-  "subscriptionGroups" : [
+  "subscriptionGroups": [
     {
-      "id" : "21451234",
-      "localizations" : [],
-      "name" : "Missale Premium",
-      "subscriptions" : [
+      "id": "21451234",
+      "localizations": [],
+      "name": "Missale Premium",
+      "subscriptions": [
         {
-          "adHocOffers" : [],
-          "codeOffers" : [],
-          "displayPrice" : "34.90",
-          "familyShareable" : false,
-          "groupNumber" : 1,
-          "internalID" : "MONTHLY-LOCAL",
-          "introductoryOffer" : null,
-          "localizations" : [
-            { "description" : "Missale Premium, cobrado todo mês", "displayName" : "Mensal", "locale" : "pt_BR" },
-            { "description" : "Missale Premium, billed monthly", "displayName" : "Monthly", "locale" : "en_US" },
-            { "description" : "Missale Premium, se cobra cada mes", "displayName" : "Mensual", "locale" : "es_ES" }
+          "adHocOffers": [],
+          "codeOffers": [],
+          "displayPrice": "34.90",
+          "familyShareable": false,
+          "groupNumber": 1,
+          "internalID": "MONTHLY-LOCAL",
+          "introductoryOffer": null,
+          "localizations": [
+            {
+              "description": "Missale Premium, cobrado todo m\u00eas",
+              "displayName": "Mensal",
+              "locale": "pt_BR"
+            },
+            {
+              "description": "Missale Premium, billed monthly",
+              "displayName": "Monthly",
+              "locale": "en_US"
+            },
+            {
+              "description": "Missale Premium, se cobra cada mes",
+              "displayName": "Mensual",
+              "locale": "es_ES"
+            }
           ],
-          "productID" : "com.missale.app.monthly",
-          "recurringSubscriptionPeriod" : "P1M",
-          "referenceName" : "Mensal",
-          "subscriptionGroupID" : "21451234",
-          "type" : "RecurringSubscription"
+          "productID": "mensal",
+          "recurringSubscriptionPeriod": "P1M",
+          "referenceName": "Mensal",
+          "subscriptionGroupID": "21451234",
+          "type": "RecurringSubscription"
         },
         {
-          "adHocOffers" : [],
-          "codeOffers" : [],
-          "displayPrice" : "199.90",
-          "familyShareable" : false,
-          "groupNumber" : 1,
-          "internalID" : "ANNUAL-LOCAL",
-          "introductoryOffer" : null,
-          "localizations" : [
-            { "description" : "Missale Premium, cobrado uma vez por ano", "displayName" : "Anual", "locale" : "pt_BR" },
-            { "description" : "Missale Premium, billed once a year", "displayName" : "Annual", "locale" : "en_US" },
-            { "description" : "Missale Premium, se cobra una vez al año", "displayName" : "Anual", "locale" : "es_ES" }
+          "adHocOffers": [],
+          "codeOffers": [],
+          "displayPrice": "199.90",
+          "familyShareable": false,
+          "groupNumber": 1,
+          "internalID": "ANNUAL-LOCAL",
+          "introductoryOffer": null,
+          "localizations": [
+            {
+              "description": "Missale Premium, cobrado uma vez por ano",
+              "displayName": "Anual",
+              "locale": "pt_BR"
+            },
+            {
+              "description": "Missale Premium, billed once a year",
+              "displayName": "Annual",
+              "locale": "en_US"
+            },
+            {
+              "description": "Missale Premium, se cobra una vez al a\u00f1o",
+              "displayName": "Anual",
+              "locale": "es_ES"
+            }
           ],
-          "productID" : "com.missale.app.annual",
-          "recurringSubscriptionPeriod" : "P1Y",
-          "referenceName" : "Anual",
-          "subscriptionGroupID" : "21451234",
-          "type" : "RecurringSubscription"
+          "productID": "anual",
+          "recurringSubscriptionPeriod": "P1Y",
+          "referenceName": "Anual",
+          "subscriptionGroupID": "21451234",
+          "type": "RecurringSubscription"
         }
       ]
     }
   ],
-  "version" : { "major" : 3, "minor" : 0 }
+  "version": {
+    "major": 3,
+    "minor": 0
+  }
 }

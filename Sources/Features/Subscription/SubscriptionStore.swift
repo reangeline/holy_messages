@@ -18,12 +18,18 @@ final class SubscriptionStore: ObservableObject {
     ///
     /// These are the **Product ID** strings (App Store Connect › Subscriptions
     /// › the subscription › "Product ID"), not the numeric Apple ID shown in
-    /// the URL and in the product list. `Product.products(for:)` matches on
-    /// these strings and silently returns nothing when they are wrong — which
-    /// is why `state` has a `failed` case the paywall shows instead of prices.
+    /// the URL and in the product list — 6814659756 and 6814660801 here.
+    /// `Product.products(for:)` matches on these strings and silently returns
+    /// nothing when they are wrong, which is why `state` has a `failed` case
+    /// the paywall shows instead of prices.
+    ///
+    /// They are plain words because that is what was registered. App Store
+    /// Connect accepts any unique alphanumeric string (periods, underscores and
+    /// hyphens allowed) and does not require the reverse-DNS convention — and
+    /// it does not allow changing a Product ID once the subscription exists.
     enum ProductID {
-        static let monthly = "com.missale.app.monthly"
-        static let annual = "com.missale.app.annual"
+        static let monthly = "mensal"
+        static let annual = "anual"
         static let all = [monthly, annual]
     }
 

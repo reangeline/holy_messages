@@ -3,43 +3,65 @@
 ## assinatura-revisao-{pt,en,es}.png
 
 A captura que a App Store Connect exige em **Informações de revisão** de cada
-assinatura. Mostra a tela onde a compra é oferecida. 1206 × 2622, iPhone 17.
+assinatura: a tela onde a compra é oferecida. 1206 × 2622, iPhone 17.
 
-Use a `pt` se a conta da revisão estiver em português; a `en` é a mais segura
-para o revisor da Apple, que trabalha em inglês.
+Use a `en` — o revisor da Apple trabalha em inglês.
 
-### O que foi corrigido antes de gerar
+**Estas imagens estão desatualizadas.** Foram feitas antes de o StoreKit ser
+ligado, e mostram os preços que estavam cravados no código. Refaça pelo passo
+a passo abaixo, que produz a tela com os valores reais da App Store Connect.
 
-A tela anterior seria rejeitada por três motivos, e os três estavam no código:
+## Como refazer, com os preços de verdade
+
+A captura precisa vir da ação **Run** do Xcode, porque é ela que carrega os
+produtos locais. Um teste de UI não serve: a configuração do StoreKit não
+alcança o app sob teste (o `SKTestSession` configura o processo de teste, não o
+processo do app — testei).
+
+1. Abra `Missale.xcodeproj` no Xcode.
+2. Confirme em **Product › Scheme › Edit Scheme › Run › Options › StoreKit
+   Configuration** que está `Tests/Support/Missale.storekit`. Já vem assim.
+3. Em `Tests/Support/Missale.storekit`, ajuste `displayPrice` das duas
+   assinaturas para os valores que você cadastrou na App Store Connect. Hoje
+   estão 34.90 e 199.90, que foram os do código antigo — se não forem os seus,
+   troque, senão a captura mostra preço que não será cobrado.
+4. Rode no simulador (⌘R). A tela abre direto se você usar o argumento
+   `-openScreen paywall` em **Run › Arguments**; sem ele, a tela está no fim do
+   onboarding.
+5. ⌘S no simulador salva a captura na Mesa.
+
+Se a assinatura tiver **teste gratuito**, coloque-o em `introductoryOffer` no
+mesmo arquivo — o botão passa a dizer os dias que o produto oferece, em vez de
+prometer trinta como antes.
+
+## O que o app faz agora
+
+Nada de preço, período ou prazo de teste está escrito no app. Tudo vem do
+StoreKit: o valor já na moeda de quem abre, o período da assinatura, e o teste
+gratuito do `introductoryOffer` do produto. Se a App Store não responder, a
+tela diz isso e oferece continuar de graça — nunca cai num preço próprio.
+
+Os identificadores são `mensal` e `anual`, em
+`SubscriptionStore.ProductID`. São os Product IDs, não os Apple IDs
+(6814659756 e 6814660801), que o `Product.products(for:)` ignora em silêncio.
+
+## O que foi corrigido para a captura poder existir
 
 1. **"4.8 ★★★★★ · 12,4 mil avaliações"** — nota e contagem inventadas para um
-   app que nunca foi publicado. Prova social falsa é rejeição direta.
-2. **Plano "Vitalício", R$ 649,90** — não há produto cadastrado para ele.
-   Oferecer uma compra que não existe é rejeição.
-3. O mesmo plano aparecia nas Configurações por **R$ 349,90** — dois preços
-   contraditórios para a mesma coisa, no mesmo app.
+   app que nunca foi publicado. Rejeição direta.
+2. **Plano "Vitalício", R$ 649,90** — sem produto cadastrado. E aparecia por
+   R$ 349,90 nas Configurações: dois preços para a mesma coisa.
+3. **Configurações › Assinatura** declarava "ACTIVE · US$ 39.99/year · renova
+   em 14 de outubro de 2026, cobrado pela App Store" em toda instalação, sem
+   ter cobrado ninguém.
 
-## Falta para a captura valer de verdade
-
-Os preços na imagem (**R$ 34,90/mês** e **R$ 199,90/ano**) estão **fixos no
-código**, não vêm da App Store. Se os valores que você cadastrou forem outros,
-o revisor vê uma divergência entre a captura e o produto.
-
-Para resolver preciso de duas coisas da App Store Connect:
-
-- o **ID de produto** das duas assinaturas (algo como `com.missale.app.monthly`
-  e `com.missale.app.yearly`);
-- se existe **período de teste gratuito** e de quantos dias — o botão hoje diz
-  "Teste grátis por 30 dias", e isso também tem que ser verdade.
-
-Com isso eu ligo o StoreKit 2: a tela passa a ler preço, período e duração do
-teste da própria App Store, na moeda da região de quem abre — que é o que os
-termos de uso já declaram que ela faz. Aí a captura vale para qualquer preço
-que você decida depois, sem regerar nada.
+`PaywallUITests` e `SubscriptionStoreTests` falham se qualquer um dos três
+voltar.
 
 ## Ainda pendente, e não é captura
 
-A tela `SubscriptionDetailView` (Configurações › Assinatura) mostra uma
-assinatura **falsa e ativa**: "ACTIVE · US$ 39.99/year · renova em 14 de
-outubro de 2026, cobrado pela App Store". É uma declaração de cobrança
-fabricada na interface entregue, e sai junto com a ligação do StoreKit.
+**Nada no app está atrás da assinatura.** Não existe um `if isSubscribed` em
+nenhuma tela de conteúdo. O paywall promete desbloquear quatro coisas — todas
+as trilhas de Formação, o calendário completo, as orações offline, o Terço
+guiado — e as quatro já estão abertas. Decidir o que fica atrás do muro, ou
+transformar a assinatura em apoio sem desbloqueio, é decisão de produto.

@@ -151,6 +151,9 @@ schemes:
         MissaleTests: [test]
     run:
       config: Debug
+      # Produtos locais para rodar e capturar a tela de assinatura sem
+      # depender da App Store. Não entra no app — ver Tests/Support/LEIA.md.
+      storeKitConfiguration: Tests/Support/Missale.storekit
     test:
       config: Debug
       targets:

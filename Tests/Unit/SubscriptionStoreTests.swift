@@ -12,17 +12,28 @@ import StoreKit
 /// identifiers are the kind StoreKit can actually resolve.
 final class SubscriptionStoreTests: XCTestCase {
 
-    /// App Store Connect shows both a numeric Apple ID (6814659756) and a
-    /// Product ID string. `Product.products(for:)` matches the string and
-    /// silently returns nothing for the number — which would leave the paywall
-    /// permanently in its "couldn't load" state.
+    /// App Store Connect shows both a numeric Apple ID (6814659756 and
+    /// 6814660801 for these two) and a Product ID string.
+    /// `Product.products(for:)` matches the string and silently returns
+    /// nothing for the number — which would leave the paywall permanently in
+    /// its "couldn't load" state.
+    ///
+    /// The identifiers here are plain words, "mensal" and "anual", because
+    /// that is what was registered: App Store Connect accepts any unique
+    /// alphanumeric string and does not require the reverse-DNS convention.
+    /// This test asserted a dot at first, which was a convention of mine
+    /// rather than a rule of Apple's, and would have rejected the real values.
     func testTheProductIdentifiersAreStringsNotAppleIDs() {
         for id in SubscriptionStore.ProductID.all {
             XCTAssertFalse(
                 id.allSatisfy(\.isNumber),
                 "\(id) parece um Apple ID numérico; o StoreKit precisa do Product ID"
             )
-            XCTAssertTrue(id.contains("."), "\(id) não tem a forma de um Product ID")
+            XCTAssertFalse(id.isEmpty)
+            XCTAssertTrue(
+                id.allSatisfy { $0.isLetter || $0.isNumber || ".-_".contains($0) },
+                "\(id) tem caractere que a App Store Connect não aceita num Product ID"
+            )
         }
     }
 

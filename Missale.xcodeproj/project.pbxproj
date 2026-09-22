@@ -113,6 +113,7 @@
 		8DCD0C81B208FB6C390ACDC1 /* LiturgicalYearRibbonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E079C4E39E9ED0EC7D50BFE /* LiturgicalYearRibbonView.swift */; };
 		8F14F39D961C2BEDA07BE3EC /* TodayRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4584EA772E91637C377A6B12 /* TodayRootView.swift */; };
 		8FAAD1CF69D5D94335D92AA4 /* RegionalCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DECEE18CD43B47224FA77A /* RegionalCalendarView.swift */; };
+		902ABC21A13E8D5A064B6D13 /* PaywallUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BDAF4F2725B9E77EE5B273 /* PaywallUITests.swift */; };
 		91D45C1E126BC0384D42DBD1 /* EditNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B185F457C98E6EDFD242DD28 /* EditNameView.swift */; };
 		929F53550875CEDB33AEEAB2 /* RosaryHowToView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7FF250824CB84308F98FF9 /* RosaryHowToView.swift */; };
 		92FA1A1D3094BCA88B127E56 /* OnboardingLifeQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648C9F2A61F1864864B18855 /* OnboardingLifeQuestionView.swift */; };
@@ -426,6 +427,7 @@
 		F357D9E69EA277412092DAC8 /* Onboarding.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Onboarding.xcstrings; sourceTree = "<group>"; };
 		F56BF93F3622EF92D3F78F05 /* ScrupulosityRedirectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrupulosityRedirectView.swift; sourceTree = "<group>"; };
 		F72BC40316F8F4567CE44E5E /* termos-de-uso.pt.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "termos-de-uso.pt.md"; sourceTree = "<group>"; };
+		F8BDAF4F2725B9E77EE5B273 /* PaywallUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallUITests.swift; sourceTree = "<group>"; };
 		F8D265308DDF252A3DD76D4C /* OnboardingReliefView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingReliefView.swift; sourceTree = "<group>"; };
 		F91386C412B4AB8097C8166B /* ExamenLanguageUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamenLanguageUITests.swift; sourceTree = "<group>"; };
 		FD0ED9AE0EB888D7B364CC3E /* terminos-de-uso.es.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "terminos-de-uso.es.md"; sourceTree = "<group>"; };
@@ -472,6 +474,7 @@
 				A0EBFA9BB2662D16CA3B8B05 /* MarianApparitionsUITests.swift */,
 				3F85F696283D2E7A80005495 /* MassReadingsLinkUITests.swift */,
 				68679B19DDBA4966550D2198 /* OnboardingLanguageUITests.swift */,
+				F8BDAF4F2725B9E77EE5B273 /* PaywallUITests.swift */,
 				589AC7E7D0D147C3E48C5914 /* PrayersLanguageUITests.swift */,
 				3A591FCA4B253A6F3F3A30AF /* SaintArtUITests.swift */,
 			);
@@ -1125,6 +1128,7 @@
 				C3E7667087C4402C59B23F1F /* MarianApparitionsUITests.swift in Sources */,
 				87382A10F1D5E9694420BFF5 /* MassReadingsLinkUITests.swift in Sources */,
 				2390A52C14C6976F89B7DFA2 /* OnboardingLanguageUITests.swift in Sources */,
+				902ABC21A13E8D5A064B6D13 /* PaywallUITests.swift in Sources */,
 				5B0944EB3F5ED8D50A3B657A /* PrayersLanguageUITests.swift in Sources */,
 				E0F75A3DE2155A0E63E50CB5 /* SaintArtUITests.swift in Sources */,
 			);
