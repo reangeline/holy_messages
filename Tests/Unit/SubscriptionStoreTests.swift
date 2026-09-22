@@ -55,7 +55,11 @@ final class SubscriptionStoreTests: XCTestCase {
             "Sources/MockData/MockSettings.swift",
         ]
         // Valores que estavam cravados, e a forma geral de um preço.
-        let proibidos = ["34,90", "199,90", "649,90", "349,90", "39.99", "129.99", "6.99", "3.33",
+        // Os valores que estavam cravados, e também os reais: o ponto é que
+        // nenhum preço fique no app, nem mesmo o certo — a App Store tem 175
+        // regiões e o valor muda em cada uma.
+        let proibidos = ["34,90", "199,90", "649,90", "349,90", "39.99", "129.99", "3.33",
+                         "19,90", "19.90", "129,90", "129.90", "7.99", "49.99", "6.99", "59.99",
                          "30 dias", "30 days", "4.8", "12,4 mil", "12.4K"]
         for caminho in telas {
             let fonte = try String(contentsOf: raiz.appendingPathComponent(caminho), encoding: .utf8)
@@ -71,24 +75,54 @@ final class SubscriptionStoreTests: XCTestCase {
         }
     }
 
-    /// And the entitlement is never persisted: a flag in UserDefaults is a flag
-    /// someone can flip.
+    /// The entitlement is never persisted. A stored flag is a flag someone can
+    /// flip, so it is read from `Transaction.currentEntitlements` on every
+    /// check.
+    ///
+    /// There is one read of UserDefaults in the file: a DEBUG-only launch
+    /// argument that lets the UI suite exercise the paid screens, since a
+    /// simulator has no App Store. That is the volatile argument domain — it
+    /// never persists, and it is compiled out of release builds. What must not
+    /// appear is a *write*, or `@AppStorage`.
     func testTheEntitlementIsNotStoredOnDevice() throws {
         let raiz = URL(fileURLWithPath: #filePath)
             .deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent()
         let fonte = try String(
             contentsOf: raiz.appendingPathComponent("Sources/Features/Subscription/SubscriptionStore.swift"),
             encoding: .utf8)
-        // Só o código: o próprio comentário do arquivo cita UserDefaults para
-        // dizer por que não o usa.
         let codigo = fonte
             .components(separatedBy: .newlines)
             .filter { !$0.trimmingCharacters(in: .whitespaces).hasPrefix("//") }
             .joined(separator: "\n")
-        XCTAssertFalse(codigo.contains("UserDefaults"), "a assinatura passou a ser gravada no aparelho")
+
         XCTAssertFalse(codigo.contains("@AppStorage"), "a assinatura passou a ser gravada no aparelho")
-        XCTAssertTrue(fonte.contains("Transaction.currentEntitlements"),
+        for escrita in [".set(", ".setValue(", ".removeObject("] {
+            XCTAssertFalse(codigo.contains(escrita),
+                           "apareceu uma gravação (\(escrita)) no estado da assinatura")
+        }
+        XCTAssertTrue(codigo.contains("Transaction.currentEntitlements"),
                       "o direito deixou de ser lido do StoreKit")
+
+        // A única leitura permitida, e só em DEBUG. Percorre as linhas
+        // contando o aninhamento: o arquivo tem mais de um bloco #if DEBUG, e
+        // comparar com o primeiro #endif dava falso negativo.
+        var dentroDeDebug = 0
+        for linha in fonte.components(separatedBy: .newlines) {
+            let corte = linha.trimmingCharacters(in: .whitespaces)
+            if corte.hasPrefix("#if DEBUG") { dentroDeDebug += 1; continue }
+            if corte.hasPrefix("#endif") { dentroDeDebug = max(0, dentroDeDebug - 1); continue }
+            if corte.hasPrefix("//") { continue }
+            if corte.contains("UserDefaults") {
+                XCTAssertGreaterThan(
+                    dentroDeDebug, 0,
+                    "leitura de UserDefaults fora de #if DEBUG, e portanto em produção: \(corte)"
+                )
+                XCTAssertTrue(
+                    fonte.contains("volatileDomain"),
+                    "leitura de UserDefaults fora do domínio volátil de argumentos"
+                )
+            }
+        }
     }
 
     /// Guideline 3.1.1: restoring has to exist inside the app.

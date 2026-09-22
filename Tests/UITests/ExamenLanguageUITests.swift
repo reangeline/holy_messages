@@ -16,7 +16,7 @@ final class ExamenLanguageUITests: XCTestCase {
     private func launch() -> XCUIApplication {
         let app = XCUIApplication()
         // No -appLanguageOverride: it would outrank what the picker writes.
-        app.launchArguments = ["-hasCompletedOnboarding", "1", "-openScreen", "settings"]
+        app.launchArguments = ["-subscribed", "1", "-hasCompletedOnboarding", "1", "-openScreen", "settings"]
         app.launch()
         return app
     }

@@ -288,6 +288,29 @@
         }
       }
     },
+    "Every day of the year with its season, its colour and its feast, and the Sunday readings.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Every day of the year with its season, its colour and its feast, and the Sunday readings."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cada dia do ano com seu tempo, sua cor e sua festa, e as leituras dos domingos."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cada día del año con su tiempo, su color y su fiesta, y las lecturas de los domingos."
+          }
+        }
+      }
+    },
     "Every season and feast explained as it arrives": {
       "localizations": {
         "en": {
@@ -351,6 +374,29 @@
           "stringUnit": {
             "state": "translated",
             "value": "Primeiros 30 dias grátis, depois {price}. Cancele quando quiser. Termos"
+          }
+        }
+      }
+    },
+    "Formation": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Formation"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Formação"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Formación"
           }
         }
       }
@@ -709,6 +755,29 @@
         }
       }
     },
+    "Prayers and the Rosary": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prayers and the Rosary"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Orações e o Terço"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Oraciones y el Rosario"
+          }
+        }
+      }
+    },
     "Read now →": {
       "localizations": {
         "en": {
@@ -794,6 +863,29 @@
           "stringUnit": {
             "state": "translated",
             "value": "Santo do dia"
+          }
+        }
+      }
+    },
+    "See the plans": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "See the plans"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ver os planos"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ver los planes"
           }
         }
       }
@@ -1041,6 +1133,29 @@
         }
       }
     },
+    "The Mass part by part, the liturgical year, confession, the Rosary — in short daily parts.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The Mass part by part, the liturgical year, confession, the Rosary — in short daily parts."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A Missa parte por parte, o ano litúrgico, a confissão, o Terço — em partes curtas por dia."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La Misa parte por parte, el año litúrgico, la confesión, el Rosario — en partes cortas por día."
+          }
+        }
+      }
+    },
     "The Mass, part by part · 1 of 14": {
       "localizations": {
         "en": {
@@ -1107,6 +1222,52 @@
         }
       }
     },
+    "The guided Rosary, the traditional prayers, and the Marian shrines with their sources.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The guided Rosary, the traditional prayers, and the Marian shrines with their sources."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O Terço guiado, as orações tradicionais, e os santuários marianos com suas fontes."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El Rosario guiado, las oraciones tradicionales, y los santuarios marianos con sus fuentes."
+          }
+        }
+      }
+    },
+    "The liturgical calendar": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The liturgical calendar"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O calendário litúrgico"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El calendario litúrgico"
+          }
+        }
+      }
+    },
     "The purchase didn't complete": {
       "extractionState": "manual",
       "localizations": {
@@ -1148,6 +1309,29 @@
           "stringUnit": {
             "state": "translated",
             "value": "La palabra del día, el santo del día, y la parte 1 de {track}."
+          }
+        }
+      }
+    },
+    "The word of the day, and the support screens if you need them, are free — and always will be.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The word of the day, and the support screens if you need them, are free — and always will be."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A palavra do dia, e as telas de apoio se você precisar delas, são grátis — e vão continuar."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La palabra del día, y las pantallas de apoyo si las necesitas, son gratis — y lo seguirán siendo."
           }
         }
       }

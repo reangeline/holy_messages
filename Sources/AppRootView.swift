@@ -110,10 +110,23 @@ struct MainTabView: View {
     var body: some View {
         Group {
             switch selection {
-            case .today: TodayRootView()
-            case .calendar: CalendarRootView()
-            case .formation: FormationRootView()
-            case .prayers: PrayersRootView()
+            case .today:
+                // Fica aberta: é onde está a palavra do dia e o caminho para o
+                // apoio em momento de crise. Os cartões pagos do Hoje têm o
+                // portão em cada um — ver TodayRootView.
+                TodayRootView()
+            case .calendar:
+                GatedTab(content: { CalendarRootView() },
+                         title: L.string("The liturgical calendar", table: "Onboarding"),
+                         explanation: L.string("Every day of the year with its season, its colour and its feast, and the Sunday readings.", table: "Onboarding"))
+            case .formation:
+                GatedTab(content: { FormationRootView() },
+                         title: L.string("Formation", table: "Onboarding"),
+                         explanation: L.string("The Mass part by part, the liturgical year, confession, the Rosary — in short daily parts.", table: "Onboarding"))
+            case .prayers:
+                GatedTab(content: { PrayersRootView() },
+                         title: L.string("Prayers and the Rosary", table: "Onboarding"),
+                         explanation: L.string("The guided Rosary, the traditional prayers, and the Marian shrines with their sources.", table: "Onboarding"))
             }
         }
         .environment(\.mainTabSelection, $selection)

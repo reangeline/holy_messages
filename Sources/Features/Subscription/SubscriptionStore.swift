@@ -48,7 +48,30 @@ final class SubscriptionStore: ObservableObject {
     /// Whether this Apple ID has an active subscription on this device. Read
     /// from `Transaction.currentEntitlements`, never stored: a flag in
     /// UserDefaults is a flag someone can flip.
-    @Published private(set) var isSubscribed = false
+    @Published private(set) var entitledByStore = false
+
+    var isSubscribed: Bool {
+#if DEBUG
+        if debugForcedSubscription { return true }
+#endif
+        return entitledByStore
+    }
+
+#if DEBUG
+    /// Lets the UI suite exercise the paid screens, which are most of the app.
+    /// A simulator has no App Store, so without this every test that opens the
+    /// calendar, Formation or the prayers would only ever see the paywall.
+    ///
+    ///     app.launchArguments = ["-subscribed", "1"]
+    ///
+    /// Compiled out of release builds, and read from the argument domain
+    /// rather than from a stored value, so nothing persists it — the same
+    /// reason the entitlement itself is never written to the device.
+    private var debugForcedSubscription: Bool {
+        UserDefaults.standard
+            .volatileDomain(forName: UserDefaults.argumentDomain)["subscribed"] as? String == "1"
+    }
+#endif
 
     private var updates: Task<Void, Never>?
 
@@ -113,7 +136,7 @@ final class SubscriptionStore: ObservableObject {
             // here are subscriptions, so an absent date means keep looking.
             if let expiry = transaction.expirationDate, expiry > .now { ativa = true }
         }
-        isSubscribed = ativa
+        entitledByStore = ativa
     }
 }
 

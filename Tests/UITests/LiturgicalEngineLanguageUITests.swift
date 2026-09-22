@@ -16,7 +16,7 @@ final class LiturgicalEngineLanguageUITests: XCTestCase {
 
     private func launch() -> XCUIApplication {
         let app = XCUIApplication()
-        app.launchArguments = ["-hasCompletedOnboarding", "1", "-openScreen", "settings"]
+        app.launchArguments = ["-subscribed", "1", "-hasCompletedOnboarding", "1", "-openScreen", "settings"]
         app.launch()
         return app
     }

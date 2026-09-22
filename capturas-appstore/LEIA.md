@@ -1,67 +1,69 @@
-# Capturas para a App Store Connect
+# Captura de revisão da assinatura
 
-## assinatura-revisao-{pt,en,es}.png
+A App Store Connect exige, em **Informações de revisão** de cada assinatura,
+uma captura da tela onde a compra é oferecida.
 
-A captura que a App Store Connect exige em **Informações de revisão** de cada
-assinatura: a tela onde a compra é oferecida. 1206 × 2622, iPhone 17.
+**As capturas antigas foram apagadas.** Mostravam R$ 34,90/mês e R$ 199,90/ano,
+que estavam cravados no código e **não são os preços cadastrados** — os reais
+são R$ 19,90 e R$ 129,90. Uma captura com preço que não será cobrado é
+divergência na mão do revisor.
 
-Use a `en` — o revisor da Apple trabalha em inglês.
+## Como capturar
 
-**Estas imagens estão desatualizadas.** Foram feitas antes de o StoreKit ser
-ligado, e mostram os preços que estavam cravados no código. Refaça pelo passo
-a passo abaixo, que produz a tela com os valores reais da App Store Connect.
+A captura tem de vir da ação **Run** do Xcode: é ela que carrega os produtos
+locais. Teste de UI não serve — a configuração do StoreKit não alcança o app
+sob teste (`SKTestSession` configura o processo de teste, não o do app;
+verificado).
 
-## Como refazer, com os preços de verdade
-
-A captura precisa vir da ação **Run** do Xcode, porque é ela que carrega os
-produtos locais. Um teste de UI não serve: a configuração do StoreKit não
-alcança o app sob teste (o `SKTestSession` configura o processo de teste, não o
-processo do app — testei).
-
-1. Abra `Missale.xcodeproj` no Xcode.
-2. Confirme em **Product › Scheme › Edit Scheme › Run › Options › StoreKit
-   Configuration** que está `Tests/Support/Missale.storekit`. Já vem assim.
-3. Em `Tests/Support/Missale.storekit`, ajuste `displayPrice` das duas
-   assinaturas para os valores que você cadastrou na App Store Connect. Hoje
-   estão 34.90 e 199.90, que foram os do código antigo — se não forem os seus,
-   troque, senão a captura mostra preço que não será cobrado.
-4. Rode no simulador (⌘R). A tela abre direto se você usar o argumento
-   `-openScreen paywall` em **Run › Arguments**; sem ele, a tela está no fim do
-   onboarding.
+1. Abra `Missale.xcodeproj`.
+2. **Product › Scheme › Edit Scheme › Run › Arguments**, adicione
+   `-openScreen paywall` e `-hasCompletedOnboarding 1`. A tela abre direto; sem
+   isso, ela está no fim do onboarding.
+3. Confirme em **Run › Options › StoreKit Configuration** que está
+   `Tests/Support/Missale.storekit`. Já vem assim.
+4. ⌘R. A tela mostra **Mensal R$ 19,90/mês** e **Anual R$ 129,90/ano**, que são
+   os valores de `Tests/Support/Missale.storekit`, iguais aos do Brasil na sua
+   planilha de preços.
 5. ⌘S no simulador salva a captura na Mesa.
 
-Se a assinatura tiver **teste gratuito**, coloque-o em `introductoryOffer` no
-mesmo arquivo — o botão passa a dizer os dias que o produto oferece, em vez de
-prometer trinta como antes.
+Para capturar em outra moeda, mude o `displayPrice` no mesmo arquivo — a
+planilha tem os 175 valores por região.
+
+## Teste gratuito
+
+A configuração local está com `introductoryOffer: null`, então o botão diz
+"Assinar". **Se você cadastrou período de teste na App Store Connect**, o app
+lê do produto e o botão passa a dizer os dias reais — não precisa mexer em
+código. Para ver isso na captura, preencha `introductoryOffer` no arquivo
+local.
 
 ## O que o app faz agora
 
-Nada de preço, período ou prazo de teste está escrito no app. Tudo vem do
-StoreKit: o valor já na moeda de quem abre, o período da assinatura, e o teste
-gratuito do `introductoryOffer` do produto. Se a App Store não responder, a
-tela diz isso e oferece continuar de graça — nunca cai num preço próprio.
+Nenhum preço, período ou prazo de teste está escrito no app — um teste falha se
+voltarem, inclusive os valores certos, porque são 175 regiões e o valor muda em
+cada uma. Tudo vem do StoreKit: valor na moeda de quem abre, período da
+assinatura, e teste do `introductoryOffer` do produto.
 
-Os identificadores são `mensal` e `anual`, em
-`SubscriptionStore.ProductID`. São os Product IDs, não os Apple IDs
-(6814659756 e 6814660801), que o `Product.products(for:)` ignora em silêncio.
+Identificadores: `mensal` e `anual`, em `SubscriptionStore.ProductID`. São os
+Product IDs — não os Apple IDs (6814659756 e 6814660801), que o
+`Product.products(for:)` ignora em silêncio.
 
-## O que foi corrigido para a captura poder existir
+Se a App Store não responder, a tela declara isso e oferece continuar de graça.
+Nunca cai num preço próprio.
 
-1. **"4.8 ★★★★★ · 12,4 mil avaliações"** — nota e contagem inventadas para um
-   app que nunca foi publicado. Rejeição direta.
-2. **Plano "Vitalício", R$ 649,90** — sem produto cadastrado. E aparecia por
-   R$ 349,90 nas Configurações: dois preços para a mesma coisa.
-3. **Configurações › Assinatura** declarava "ACTIVE · US$ 39.99/year · renova
-   em 14 de outubro de 2026, cobrado pela App Store" em toda instalação, sem
-   ter cobrado ninguém.
+## O que fica grátis, e o que não
 
-`PaywallUITests` e `SubscriptionStoreTests` falham se qualquer um dos três
-voltar.
+Decisão desta versão: **só a palavra do dia** é gratuita. Calendário, Formação,
+Orações, santo do dia, Terço, Exame e Completas pedem assinatura.
 
-## Ainda pendente, e não é captura
+Duas exceções que não são comerciais e estão travadas por teste
+(`SubscriptionGateUITests`):
 
-**Nada no app está atrás da assinatura.** Não existe um `if isSubscribed` em
-nenhuma tela de conteúdo. O paywall promete desbloquear quatro coisas — todas
-as trilhas de Formação, o calendário completo, as orações offline, o Terço
-guiado — e as quatro já estão abertas. Decidir o que fica atrás do muro, ou
-transformar a assinatura em apoio sem desbloqueio, é decisão de produto.
+- **O caminho de apoio.** O check-in de humor, o alívio e as telas pastorais
+  que terminam no número de crise do país do leitor nunca ficam atrás do muro.
+- **Ajustes e os dois documentos legais**, para a pessoa poder cancelar, ler o
+  que é guardado e apagar o app sabendo o que ele reteve.
+
+E a tela bloqueada mantém a barra de abas: a primeira versão do portão a
+removia e prendia a pessoa na aba, sem caminho de volta ao Hoje — e portanto
+sem caminho para o apoio.

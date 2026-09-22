@@ -122,7 +122,7 @@ struct TodayRootView: View {
         let track = MockFormation.track
         let next = track.resumeLesson(progressStore) ?? track.lessons.last ?? MockFormation.atoPenitencial
         let trackFinished = track.completedCount(in: progressStore) == track.lessons.count
-        return NavigationLink {
+        return GatedLink {
             FormationLessonView(lesson: next, onBackToTracks: {
                 mainTabSelection?.wrappedValue = .formation
             })
@@ -151,7 +151,6 @@ struct TodayRootView: View {
                 }
             }
         }
-        .buttonStyle(.plain)
     }
 
     private var wordOfDayTeaserCard: some View {
@@ -176,7 +175,7 @@ struct TodayRootView: View {
     }
 
     private var saintTeaserCard: some View {
-        NavigationLink {
+        GatedLink {
             SaintDetailView(saint: saintOfDay)
         } label: {
             GlassCard {
@@ -197,12 +196,11 @@ struct TodayRootView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
         }
-        .buttonStyle(.plain)
     }
 
     private var rosaryTeaserCard: some View {
         let todays = MockRosary.todays
-        return NavigationLink {
+        return GatedLink {
             RosaryMysteriesPickerView()
         } label: {
             GlassCard {
@@ -222,12 +220,11 @@ struct TodayRootView: View {
                 }
             }
         }
-        .buttonStyle(.plain)
     }
 
     private var complineCard: some View {
-        Button {
-            navigateToExamen = true
+        GatedLink {
+            ExamenIntroView(onFinished: { navigateToExamen = false })
         } label: {
             HStack {
                 VStack(alignment: .leading, spacing: 3) {
@@ -251,7 +248,6 @@ struct TodayRootView: View {
                     .strokeBorder(Color.white.opacity(0.16), lineWidth: 1)
             )
         }
-        .buttonStyle(.plain)
     }
 }
 
