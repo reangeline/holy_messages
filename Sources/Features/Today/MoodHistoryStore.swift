@@ -59,13 +59,6 @@ final class MoodHistoryStore: ObservableObject {
         return count(ofState: state.id, withinDays: Self.scrupulosityWindowDays) >= Self.scrupulosityThreshold
     }
 
-    /// Irreversible, local-only wipe — backs Settings' "Apagar tudo".
-    func deleteAll() {
-        entries = []
-        save()
-        lastReliefIndexByState = [:]
-        UserDefaults.standard.removeObject(forKey: Self.lastReliefIndexKey)
-    }
 
     private func save() {
         guard let data = try? JSONEncoder().encode(entries) else { return }

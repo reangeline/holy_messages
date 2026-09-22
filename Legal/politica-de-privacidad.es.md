@@ -86,16 +86,15 @@ de privacidad de Apple.
 
 ## Borrar tus datos
 
-En **Ajustes › Tus datos › Borrar todo** eliminas, de una vez y en este
-dispositivo: tu registro de ánimo, tus notas del Examen, los rosarios
-registrados, tu progreso en Formación y tu nombre. Es inmediato y no se puede
-deshacer. Tus preferencias de idioma y calendario se mantienen, para que la
-aplicación no vuelva a abrirse en un idioma que no elegiste.
+**Borrar la aplicación del dispositivo elimina todo lo que guardó**: tus notas,
+tu registro, tu progreso y tu nombre. Como nunca se envía nada a nosotros, esa
+es la supresión completa: no hay solicitud de supresión que hacer, ni copia
+nuestra que borrar después.
 
-Borrar la aplicación del dispositivo también elimina todo lo que guardó.
-
-Como nunca se envía nada a nosotros, no hay solicitud de supresión que hacer:
-borrar en el dispositivo es la supresión completa.
+Borrar registros sin borrar la aplicación, y exportar una copia antes, son dos
+cosas que **todavía no están hechas**. La pantalla Ajustes › Tus datos lo dice
+en lugar de ofrecer un botón que no funcione. Cuando esas funciones existan,
+esta política se actualizará antes de que esa versión llegue a la App Store.
 
 ## Menores
 
@@ -107,7 +106,7 @@ El RGPD, la CCPA y la LGPD te dan derechos de acceso, rectificación, supresión
 y portabilidad sobre los datos personales tratados por un responsable.
 **Nosotros no somos responsables de ningún dato tuyo**, porque no recogemos ni
 recibimos nada. Los datos descritos en esta política quedan bajo tu propio
-control, en tu dispositivo, y los borras cuando quieras con el botón de arriba.
+control, en tu dispositivo, y se van con la aplicación cuando la borras.
 
 ## Cambios en esta política
 

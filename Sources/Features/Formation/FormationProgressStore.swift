@@ -47,13 +47,6 @@ final class FormationProgressStore: ObservableObject {
         completedLessonIDs = Set(UserDefaults.standard.stringArray(forKey: Self.storageKey) ?? [])
         completionOrder = UserDefaults.standard.stringArray(forKey: Self.orderKey) ?? []
     }
-    /// Backs Settings' "Delete everything" — see LocalData.
-    func deleteAll() {
-        completedLessonIDs = []
-        completionOrder = []
-        UserDefaults.standard.removeObject(forKey: Self.storageKey)
-        UserDefaults.standard.removeObject(forKey: Self.orderKey)
-    }
 }
 
 @MainActor

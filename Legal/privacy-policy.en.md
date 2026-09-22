@@ -81,16 +81,15 @@ Apple's handling of your payment data is governed by Apple's privacy policy.
 
 ## Deleting your data
 
-In **Settings › Your data › Delete everything** you remove, at once and on this
-device: your mood log, your Examen notes, the rosaries you logged, your
-Formation progress, and your name. It is immediate and cannot be undone. Your
-language and calendar choices stay, so the app does not reopen in a language
-you never chose.
+**Deleting the app from your device removes everything it saved** — your notes,
+your log, your progress, and your name. Because nothing is ever sent to us,
+that is the complete deletion: there is no deletion request to make, and no
+copy of ours to erase afterwards.
 
-Deleting the app from your device also removes everything it stored.
-
-Because nothing is ever sent to us, there is no deletion request to make:
-deleting on the device is the complete deletion.
+Deleting records without deleting the app, and exporting a copy first, are two
+things that **are not built yet**. The Settings › Your data screen says so
+rather than offering a button that does nothing. When those functions exist,
+this policy will be updated before that version reaches the App Store.
 
 ## Children
 
@@ -103,7 +102,7 @@ The GDPR, CCPA, and LGPD give you rights of access, correction, deletion, and
 portability over personal data processed by a controller. **We are not a
 controller of any data of yours**, because we neither collect nor receive
 anything. The data described in this policy stays under your own control, on
-your device, and you delete it whenever you want with the button above.
+your device, and it goes with the app when you delete it.
 
 ## Changes to this policy
 

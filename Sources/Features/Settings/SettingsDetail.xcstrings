@@ -111,28 +111,6 @@
         }
       }
     },
-    "Anonymous analytics": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Anonymous analytics"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Analítica anónima"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Analítica anônima"
-          }
-        }
-      }
-    },
     "Anual · renova em 14 de outubro": {
       "localizations": {
         "pt": {
@@ -486,47 +464,25 @@
         }
       }
     },
-    "Deletes your calendar, logs, notes, and progress on this device. It's immediate and can't be undone — export first if you want to keep a copy.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Deletes your calendar, logs, notes, and progress on this device. It's immediate and can't be undone — export first if you want to keep a copy."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Elimina tu calendario, registros, notas y progreso en este dispositivo. Es inmediato y no se puede deshacer — exporta antes si quieres guardar una copia."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Apaga o calendário, os registros, as anotações e o progresso deste aparelho. É imediato e não tem volta — exporte antes, se quiser guardar."
-          }
-        }
-      }
-    },
-    "Deletes your mood log, your Examen notes, the rosaries you logged, your formation progress, and your name. It's immediate and can't be undone. Your language and calendar choices stay.": {
+    "Deleting the app from this device removes everything it saved. Exporting a copy, and deleting your records without deleting the app, are not built yet.": {
       "extractionState": "manual",
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Deletes your mood log, your Examen notes, the rosaries you logged, your formation progress, and your name. It's immediate and can't be undone. Your language and calendar choices stay."
+            "value": "Deleting the app from this device removes everything it saved. Exporting a copy, and deleting your records without deleting the app, are not built yet."
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Apaga seu registro de humor, suas notas do Exame, os terços que você registrou, seu progresso na Formação e seu nome. É imediato e não dá para desfazer. Suas escolhas de idioma e calendário permanecem."
+            "value": "Apagar o app deste aparelho remove tudo o que ele guardou. Exportar uma cópia, e apagar seus registros sem apagar o app, ainda não estão prontos."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Borra tu registro de ánimo, tus notas del Examen, los rosarios que registraste, tu progreso en Formación y tu nombre. Es inmediato y no se puede deshacer. Tus preferencias de idioma y calendario se mantienen."
+            "value": "Borrar la app de este dispositivo elimina todo lo que guardó. Exportar una copia, y borrar tus registros sin borrar la app, todavía no están hechos."
           }
         }
       }
@@ -571,50 +527,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Cada país tem seu calendário próprio sobre o romano geral. Isso muda o santo do dia e as solenidades."
-          }
-        }
-      }
-    },
-    "Even when on, your mood log and Examen notes never upload: they never leave this device. Your subscription, track progress, and rosaries prayed do sync.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Even when on, your mood log and Examen notes never upload: they never leave this device. Your subscription, track progress, and rosaries prayed do sync."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Incluso activada, tu registro de estado y tus notas del Examen nunca se suben: nunca salen de este dispositivo. Tu suscripción, el progreso de las trilhas y los rosarios rezados sí se sincronizan."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mesmo ligada, o registro de estado e as anotações do Exame não sobem: eles nunca saem deste aparelho. Sincronizam a assinatura, o progresso das trilhas e os terços rezados."
-          }
-        }
-      }
-    },
-    "Everything here is yours, and leaves whenever you want.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Everything here is yours, and leaves whenever you want."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Todo esto es tuyo, y sale de aquí cuando quieras."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tudo o que está aqui é seu, e sai daqui quando você quiser."
           }
         }
       }
@@ -1436,28 +1348,6 @@
         }
       }
     },
-    "Screen views only, no content": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Screen views only, no content"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Solo pantallas abiertas, sin contenido"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Só telas abertas, sem conteúdo"
-          }
-        }
-      }
-    },
     "Search country or diocese": {
       "localizations": {
         "en": {
@@ -1630,28 +1520,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Suporte"
-          }
-        }
-      }
-    },
-    "Sync across devices": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sync across devices"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sincronizar entre dispositivos"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sincronizar entre aparelhos"
           }
         }
       }
@@ -1921,51 +1789,6 @@
         }
       }
     },
-    "This deletes your mood log, your Examen notes, the rosaries you logged, your formation progress, and your name — {count} record(s) on this device. It is immediate and can't be undone.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "This deletes your mood log, your Examen notes, the rosaries you logged, your formation progress, and your name — {count} record(s) on this device. It is immediate and can't be undone."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Isto apaga seu registro de humor, suas notas do Exame, os terços registrados, seu progresso na Formação e seu nome — {count} registro(s) neste aparelho. É imediato e não dá para desfazer."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Esto borra tu registro de ánimo, tus notas del Examen, los rosarios registrados, tu progreso en Formación y tu nombre — {count} registro(s) en este dispositivo. Es inmediato y no se puede deshacer."
-          }
-        }
-      }
-    },
-    "This deletes {count} mood entry(ies) saved on this device. This is immediate and can't be undone.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "This deletes {count} mood entry(ies) saved on this device. This is immediate and can't be undone."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Esto elimina {count} registro(s) de estado guardado(s) en este dispositivo. Es inmediato y no se puede deshacer."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Isso apaga {count} registro(s) de humor guardados neste aparelho. É imediato e não tem volta."
-          }
-        }
-      }
-    },
     "This text hasn't been written yet.": {
       "extractionState": "manual",
       "localizations": {
@@ -2056,28 +1879,6 @@
         }
       }
     },
-    "We don't sell data, there are no third-party trackers, and there are no ads. Analytics are anonymous and can be turned off below.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "We don't sell data, there are no third-party trackers, and there are no ads. Analytics are anonymous and can be turned off below."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "No vendemos datos, no hay rastreadores de terceros y no hay anuncios. La analítica es anónima y se puede desactivar abajo."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Não vendemos dados, não há rastreadores de terceiros e não há anúncios. A analítica é anônima e pode ser desligada abaixo."
-          }
-        }
-      }
-    },
     "We respond within two business days, in Portuguese or English. One of the three people who make the app answers.": {
       "localizations": {
         "en": {
@@ -2118,6 +1919,29 @@
           "stringUnit": {
             "state": "translated",
             "value": "O que ele é"
+          }
+        }
+      }
+    },
+    "What the app keeps, and where it keeps it.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "What the app keeps, and where it keeps it."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O que o app guarda, e onde guarda."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Qué guarda la app, y dónde lo guarda."
           }
         }
       }
@@ -2272,28 +2096,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Seu calendário e tudo o que você registrou"
-          }
-        }
-      }
-    },
-    "Your calendar, logs, intentions, and progress, in a readable file. No account and no cloud in between.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Your calendar, logs, intentions, and progress, in a readable file. No account and no cloud in between."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tu calendario, registros, intenciones y progreso, en un archivo legible. Sin cuenta y sin nube en el medio."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Seu calendário, os registros, as intenções e o progresso, em um arquivo legível. Sem conta e sem nuvem no meio."
           }
         }
       }

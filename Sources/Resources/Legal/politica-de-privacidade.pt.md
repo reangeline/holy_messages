@@ -84,16 +84,15 @@ privacidade da Apple.
 
 ## Apagar os seus dados
 
-Em **Configurações › Seus dados › Apagar tudo** você remove, de uma vez e neste
-aparelho: o registro de humor, as notas do Exame, os terços registrados, o
-progresso na Formação e o seu nome. É imediato e não há como desfazer. As suas
-escolhas de idioma e de calendário permanecem, para que o aplicativo não
-reabra num idioma que você não escolheu.
+**Apagar o aplicativo do aparelho remove tudo o que ele guardou** — as suas
+anotações, o seu registro, o seu progresso e o seu nome. Como nada é enviado
+para nós, essa é a exclusão completa: não existe pedido de exclusão a fazer,
+nem cópia nossa para apagar depois.
 
-Apagar o aplicativo do aparelho também remove tudo o que ele guardou.
-
-Como nada é enviado para nós, não existe pedido de exclusão a fazer: apagar no
-aparelho é a exclusão completa.
+Apagar registros sem apagar o aplicativo, e exportar uma cópia antes, são duas
+coisas que **ainda não estão prontas**. A tela Configurações › Seus dados diz
+isso e não oferece um botão que não funcione. Quando essas funções existirem,
+esta política será atualizada antes de a versão chegar à App Store.
 
 ## Crianças
 
@@ -106,7 +105,7 @@ A LGPD, o GDPR e a CCPA dão a você direitos de acesso, correção, exclusão e
 portabilidade sobre os seus dados pessoais tratados por um controlador. **Nós
 não somos controladores de nenhum dado seu**, porque não coletamos nem
 recebemos nada. Os dados descritos nesta política ficam sob o seu próprio
-controle, no seu aparelho, e você os apaga quando quiser pelo botão acima.
+controle, no seu aparelho, e saem com o aplicativo quando você o apaga.
 
 ## Mudanças nesta política
 

@@ -80,12 +80,13 @@ Se o custo for um impedimento real, escreva para acesso@missale.app.
 ## 5. Os seus dados
 
 O Missale não coleta nem recebe dados seus. O que você escreve fica no seu
-aparelho e você apaga quando quiser, em Configurações › Seus dados. Os detalhes
-estão na Política de Privacidade, que faz parte destes termos.
+aparelho. Os detalhes estão na Política de Privacidade, que faz parte destes
+termos.
 
 Como nada é copiado para fora do aparelho, **fazer backup é responsabilidade
-sua**. Se você apagar o aplicativo, trocar de aparelho ou usar "Apagar tudo",
-as suas anotações vão embora e não temos cópia para devolver.
+sua**. Se você apagar o aplicativo ou trocar de aparelho, as suas anotações vão
+embora e não temos cópia para devolver. Exportar uma cópia ainda não é possível
+no aplicativo.
 
 ## 6. Uso aceitável
 

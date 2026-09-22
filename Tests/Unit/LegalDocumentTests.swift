@@ -61,9 +61,9 @@ final class LegalDocumentTests: XCTestCase {
     /// collection, no network, and how to delete.
     func testPrivacyPolicyStatesTheRealClaims() throws {
         let exigencias: [AppLanguage: [String]] = [
-            .pt: ["não faz nenhuma requisição de rede", "Apagar tudo", "não tem conta"],
-            .en: ["makes no network requests", "Delete everything", "no account"],
-            .es: ["no hace ninguna petición de red", "Borrar todo", "no tiene cuenta"],
+            .pt: ["não faz nenhuma requisição de rede", "Apagar o aplicativo do aparelho", "não tem conta"],
+            .en: ["makes no network requests", "Deleting the app from your device", "no account"],
+            .es: ["no hace ninguna petición de red", "Borrar la aplicación del dispositivo", "no tiene cuenta"],
         ]
         for (language, termos) in exigencias {
             let texto = try markdown(.privacy, language)

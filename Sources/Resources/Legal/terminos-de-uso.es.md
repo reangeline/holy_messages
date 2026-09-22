@@ -80,12 +80,13 @@ Si el costo es un obstáculo real, escribe a acesso@missale.app.
 ## 5. Tus datos
 
 Missale no recoge ni recibe ningún dato tuyo. Lo que escribes se queda en tu
-dispositivo, y lo borras cuando quieras en Ajustes › Tus datos. Los detalles
-están en la Política de Privacidad, que forma parte de estos términos.
+dispositivo. Los detalles están en la Política de Privacidad, que forma parte
+de estos términos.
 
 Como nada se copia fuera del dispositivo, **hacer copias de seguridad es tu
-responsabilidad**. Si borras la aplicación, cambias de dispositivo o usas
-"Borrar todo", tus notas desaparecen y no tenemos copia que devolverte.
+responsabilidad**. Si borras la aplicación o cambias de dispositivo, tus notas
+desaparecen y no tenemos copia que devolverte. Exportar una copia todavía no es
+posible en la aplicación.
 
 ## 6. Uso aceptable
 

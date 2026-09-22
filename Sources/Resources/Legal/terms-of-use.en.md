@@ -79,12 +79,13 @@ If the cost is a genuine obstacle, write to acesso@missale.app.
 ## 5. Your data
 
 Missale neither collects nor receives any data of yours. What you write stays
-on your device, and you delete it whenever you want, in Settings › Your data.
-The details are in the Privacy Policy, which forms part of these terms.
+on your device. The details are in the Privacy Policy, which forms part of
+these terms.
 
 Because nothing is copied off the device, **backing up is your
-responsibility**. If you delete the app, change devices, or use "Delete
-everything", your notes are gone and we have no copy to return.
+responsibility**. If you delete the app or change devices, your notes are gone
+and we have no copy to return. Exporting a copy is not yet possible in the
+app.
 
 ## 6. Acceptable use
 

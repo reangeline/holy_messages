@@ -2,18 +2,22 @@ import Foundation
 
 /// Everything the app keeps on the device, in one place.
 ///
-/// This exists so "Delete everything" can actually mean it, and so the privacy
-/// policy can describe the app from a list that is checked by a test rather
-/// than from memory. Before this, the delete button cleared the mood log only:
-/// a reader who wrote something in the Examen and then tapped "Apagar tudo"
-/// kept that text on the device, while the screen said notes were deleted.
+/// This exists so the privacy policy can describe the app from a list that is
+/// checked by a test rather than from memory — `LocalDataTests` fails when a
+/// key is persisted without being listed here.
+///
+/// There is no wipe function: the screen that offered one cleared the mood log
+/// only, while telling the reader their Examen notes were gone, and both it and
+/// the export beside it are deferred. Until they exist, deleting the app is
+/// what removes the data, which is what the policy says. When the button comes
+/// back, the wipe belongs here, over this same list.
 ///
 /// Nothing here is ever uploaded. The app makes no network requests at all —
 /// see `LocalDataTests`, which fails if a key is added without being listed.
 enum LocalData {
 
-    /// Text and records the reader creates. This is what "Delete everything"
-    /// must remove, and what the policy calls "what you write".
+    /// Text and records the reader creates — what the policy calls "what you
+    /// write", and what a future wipe has to remove.
     static let personalKeys = [
         "mood_history_entries",          // registro de humor: estado, data e a nota opcional
         "mood_last_relief_index",        // qual alívio foi mostrado por último, por estado
@@ -24,44 +28,13 @@ enum LocalData {
         "userDisplayName",               // o nome digitado nas Configurações
     ]
 
-    /// Choices about how the app behaves. Kept on delete: wiping the reader's
-    /// language and calendar would restart the app in a language they did not
-    /// choose, which is not what the button offers to do.
+    /// Choices about how the app behaves, as opposed to what the reader wrote.
+    /// The distinction matters for a future wipe: clearing the language and the
+    /// calendar would restart the app in a language nobody chose.
     static let preferenceKeys = [
         "appLanguageOverride",           // no grupo do app, partilhado com o widget
         "liturgicalCalendarRegionID",
         "rosaryBeginnerMode",
         "hasCompletedOnboarding",
     ]
-
-    /// How many records the reader has created, for the delete confirmation.
-    /// Counts entries, not keys: a reader deciding whether to wipe wants to
-    /// know how much of their own writing is at stake.
-    @MainActor
-    static var recordCount: Int {
-        MoodHistoryStore.shared.entries.count
-            + ExamenHistoryStore.shared.list.items.count
-            + RosaryHistoryStore.shared.list.items.count
-            + FormationProgressStore.shared.completedLessonIDs.count
-    }
-
-    /// Irreversible, local, immediate.
-    ///
-    /// Clears the live stores first — each keeps an in-memory copy, so wiping
-    /// only the stored keys would leave the deleted entries on screen and save
-    /// them back on the next write — then removes any remaining key directly.
-    @MainActor
-    static func deleteEverything() {
-        MoodHistoryStore.shared.deleteAll()
-        ExamenHistoryStore.shared.deleteAll()
-        RosaryHistoryStore.shared.deleteAll()
-        FormationProgressStore.shared.deleteAll()
-
-        let stores = [UserDefaults.standard, AppLanguagePreference.store]
-        for key in personalKeys {
-            for store in stores {
-                store.removeObject(forKey: key)
-            }
-        }
-    }
 }

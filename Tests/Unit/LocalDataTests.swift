@@ -2,11 +2,14 @@ import XCTest
 @testable import Missale
 
 /// The privacy policy describes this app from `LocalData`, so the list there
-/// has to be the truth. These tests fail when a new persisted key appears
-/// without being listed, and when "Delete everything" stops deleting
-/// everything — which is how it shipped before: it cleared the mood log only,
-/// while the screen told the reader their Examen notes were gone.
-@MainActor
+/// has to be the truth: these tests fail when a new persisted key appears
+/// without being listed, when a listed key disappears from the code, and when
+/// any networking API shows up — the policy's central claim is that the app
+/// makes no network requests.
+///
+/// There is nothing here about a wipe: the delete button and the export beside
+/// it are deferred, and the policy says deleting the app is what removes the
+/// data. When the button returns, its test belongs here.
 final class LocalDataTests: XCTestCase {
 
     /// Every key the app writes, found by reading the sources rather than by
@@ -65,41 +68,7 @@ final class LocalDataTests: XCTestCase {
         XCTAssertTrue(sobrando.isEmpty, "listada em LocalData mas ausente do código: \(sobrando.sorted())")
     }
 
-    /// The point of the whole file: the button empties every store.
-    func testDeleteEverythingEmptiesEveryStore() {
-        let estado = MockMood.stateGroups.flatMap(\.items).first!
-        _ = MoodHistoryStore.shared.record(state: estado, note: "uma nota privada")
-        ExamenHistoryStore.shared.list.append(
-            ExamenEntry(id: UUID(), date: Date(), gratitude: "g", lightRequest: "l", review: "r", response: "p"))
-        FormationProgressStore.shared.markCompleted("sacraments-1-pt")
-        UserDefaults.standard.set("Reangeline", forKey: "userDisplayName")
 
-        XCTAssertGreaterThan(LocalData.recordCount, 0, "não consegui criar dados para apagar")
-
-        LocalData.deleteEverything()
-
-        XCTAssertEqual(MoodHistoryStore.shared.entries.count, 0, "o registro de humor sobreviveu")
-        XCTAssertEqual(ExamenHistoryStore.shared.list.items.count, 0, "as notas do Exame sobreviveram")
-        XCTAssertEqual(RosaryHistoryStore.shared.list.items.count, 0, "o histórico do terço sobreviveu")
-        XCTAssertEqual(FormationProgressStore.shared.completedLessonIDs.count, 0, "o progresso sobreviveu")
-        // Afirma o que o app controla: o valor que ele gravou saiu. Num
-        // simulador o `UserDefaults.standard` do processo de teste ainda pode
-        // resolver um valor de um plist de nível de dispositivo, uma camada
-        // abaixo do container do app — que o app não escreve nem apaga, e que
-        // não existe num aparelho real.
-        XCTAssertNotEqual(UserDefaults.standard.string(forKey: "userDisplayName"), "Reangeline",
-                          "o nome gravado pelo app sobreviveu ao apagamento")
-        XCTAssertEqual(LocalData.recordCount, 0)
-    }
-
-    /// Preferences are kept on purpose: wiping the language would restart the
-    /// app in one the reader never chose.
-    func testDeleteEverythingKeepsPreferences() {
-        UserDefaults.standard.set("BR-general", forKey: "liturgicalCalendarRegionID")
-        LocalData.deleteEverything()
-        XCTAssertEqual(UserDefaults.standard.string(forKey: "liturgicalCalendarRegionID"), "BR-general")
-        UserDefaults.standard.removeObject(forKey: "liturgicalCalendarRegionID")
-    }
 
     /// The claim the policy rests on: the app has no network code.
     func testTheAppMakesNoNetworkRequests() throws {

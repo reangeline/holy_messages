@@ -63,7 +63,7 @@ final class LegalDocumentUITests: XCTestCase {
         // analytics para dizer que não tem, e isso deve continuar aparecendo.
         XCTAssertEqual(app.switches.count, 0,
                        "a tela de dados ainda tem interruptor — sincronização ou analytics voltaram")
-        for ausente in ["Sincronizar", "PDF", "JSON"] {
+        for ausente in ["Sincronizar", "PDF", "JSON", "Apagar tudo"] {
             XCTAssertFalse(
                 app.staticTexts.matching(NSPredicate(format: "label CONTAINS %@", ausente)).firstMatch.exists,
                 "a tela de dados ainda oferece \(ausente), que o app não faz"
@@ -74,8 +74,8 @@ final class LegalDocumentUITests: XCTestCase {
             "a tela deixou de declarar que não há analytics"
         )
         XCTAssertTrue(
-            app.buttons.matching(NSPredicate(format: "label CONTAINS[c] 'Apagar tudo'")).firstMatch.exists,
-            "o botão de apagar desapareceu"
+            app.staticTexts.matching(NSPredicate(format: "label CONTAINS[c] 'ainda não'")).firstMatch.exists,
+            "a tela deixou de dizer que exportar e apagar não estão prontos"
         )
     }
 }
