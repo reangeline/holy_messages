@@ -9,4 +9,5 @@ enum UserProfile {
     /// worked and never did.
     static let calendarRegionKey = "liturgicalCalendarRegionID"
     static let rosaryBeginnerModeKey = "rosaryBeginnerMode"
+    static let rosaryVoiceGuideKey = "rosaryVoiceGuide"
 }

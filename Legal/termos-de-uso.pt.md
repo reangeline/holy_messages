@@ -43,7 +43,20 @@ Sé, e cada idioma cita uma edição própria — nunca uma tradução feita por
 partir de outro idioma.
 
 As edições históricas conservam a grafia original e **não são a tradução
-litúrgica vigente**. Onde isso importa, a tela avisa.
+litúrgica vigente**. A tela mostra só o nome da edição e o ano; a referência
+completa fica aqui.
+
+As edições bíblicas da palavra do dia são:
+
+- Português: António Pereira de Figueiredo, *Biblia Sagrada Illustrada*, Porto,
+  1896; e Matos Soares, *Bíblia Sagrada*, 1956. Edições católicas históricas em
+  domínio público, com a grafia preservada. Não são a tradução litúrgica atual
+  da CNBB.
+- Inglês: Douay-Rheims, edição de 1899, marcada como domínio público pelo
+  eBible.org. Não é a tradução litúrgica atual da USCCB.
+- Espanhol: Félix Torres Amat, *Sagrada Biblia*, Madri, 1823, e a *Biblia de
+  Oro*, 1884. Edições católicas históricas em domínio público. Não são a
+  tradução litúrgica atual da CEE.
 
 As imagens de santos e santuários vêm de obras em domínio público ou de arte
 produzida para este aplicativo, com o crédito registrado no acervo.

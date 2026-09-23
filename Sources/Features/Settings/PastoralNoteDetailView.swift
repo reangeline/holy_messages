@@ -50,16 +50,26 @@ struct PastoralNoteDetailView: View {
                     DashedUtilityCard {
                         VStack(alignment: .leading, spacing: 8) {
                             Eyebrow(text: L.string( "If the question is serious", table: "SettingsDetail"))
-                            Text("Grave sin, a doubt of conscience, a life decision, a crisis: take it to a priest. This app shows you the nearest parish and confession hours, and that's the best it has to offer on this point.", tableName: "SettingsDetail")
+                            // Dizia que o app mostrava a paróquia mais perto e os
+                            // horários de confissão — o app não tem essa busca. O
+                            // Mapas tem, sem pedir localização ao app.
+                            Text("Grave sin, a doubt of conscience, a life decision, a crisis: take it to a priest. The button below opens Maps with the Catholic churches near you — confession times are best confirmed with the parish itself.", tableName: "SettingsDetail")
                                 .font(MissaleFont.body(16))
                                 .foregroundStyle(Palette.ink.opacity(0.82))
+                            if let mapas = Self.churchesInMaps {
+                                Link(destination: mapas) {
+                                    Text("Find churches in Maps →", tableName: "SettingsDetail")
+                                }
+                                .font(MissaleFont.body(16, weight: .medium))
+                                .foregroundStyle(Palette.wine)
+                            }
                             Button {
                                 showFullResources = true
                             } label: {
-                                Text("Find a parish →", tableName: "SettingsDetail")
+                                Text("See where else to find help →", tableName: "SettingsDetail")
                             }
-                            .font(MissaleFont.body(16, weight: .medium))
-                            .foregroundStyle(Palette.wine)
+                            .font(MissaleFont.body(15))
+                            .foregroundStyle(Palette.ink.opacity(0.65))
                         }
                     }
                 }
@@ -81,5 +91,13 @@ struct PastoralNoteDetailView: View {
             Text(title).font(MissaleFont.body(17, weight: .semibold)).foregroundStyle(.white)
             Text(body).font(MissaleFont.body(15)).foregroundStyle(.white.opacity(0.88))
         }
+    }
+
+    /// Apple Maps, searching "Catholic church" near wherever the reader is.
+    /// The app opens a link; the search, and the location, stay with Maps.
+    static var churchesInMaps: URL? {
+        var partes = URLComponents(string: "https://maps.apple.com/")
+        partes?.queryItems = [URLQueryItem(name: "q", value: L.string("Catholic church", table: "SettingsDetail"))]
+        return partes?.url
     }
 }

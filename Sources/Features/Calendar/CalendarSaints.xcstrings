@@ -749,28 +749,6 @@
         }
       }
     },
-    "See your Lent ›": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "See your Lent ›"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ver sua Quaresma ›"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ver tu Cuaresma ›"
-          }
-        }
-      }
-    },
     "September": {
       "localizations": {
         "en": {
@@ -1123,28 +1101,6 @@
         }
       }
     },
-    "Why she matters today": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Why she matters today"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Por qué ella importa hoy"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Por que ela importa hoje"
-          }
-        }
-      }
-    },
     "Year {cycle}": {
       "localizations": {
         "en": {
@@ -1279,65 +1235,200 @@
     },
     "A small archive sourced from the shrines themselves.": {
       "localizations": {
-        "en": { "stringUnit": { "state": "translated", "value": "A small archive sourced from the shrines themselves." } },
-        "pt": { "stringUnit": { "state": "translated", "value": "Um pequeno acervo com fontes dos próprios santuários." } },
-        "es": { "stringUnit": { "state": "translated", "value": "Un pequeño acervo con fuentes de los propios santuarios." } }
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A small archive sourced from the shrines themselves."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Um pequeno acervo com fontes dos próprios santuários."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Un pequeño acervo con fuentes de los propios santuarios."
+          }
+        }
       }
     },
     "Ecclesial reception": {
       "localizations": {
-        "en": { "stringUnit": { "state": "translated", "value": "Ecclesial reception" } },
-        "pt": { "stringUnit": { "state": "translated", "value": "Recepção eclesial" } },
-        "es": { "stringUnit": { "state": "translated", "value": "Recepción eclesial" } }
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ecclesial reception"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recepção eclesial"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recepción eclesial"
+          }
+        }
       }
     },
     "Marian apparitions": {
       "localizations": {
-        "en": { "stringUnit": { "state": "translated", "value": "Marian apparitions" } },
-        "pt": { "stringUnit": { "state": "translated", "value": "Aparições marianas" } },
-        "es": { "stringUnit": { "state": "translated", "value": "Apariciones marianas" } }
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Marian apparitions"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aparições marianas"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apariciones marianas"
+          }
+        }
       }
     },
     "Open source": {
       "localizations": {
-        "en": { "stringUnit": { "state": "translated", "value": "Open source" } },
-        "pt": { "stringUnit": { "state": "translated", "value": "Abrir fonte" } },
-        "es": { "stringUnit": { "state": "translated", "value": "Abrir fuente" } }
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open source"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abrir fonte"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abrir fuente"
+          }
+        }
       }
     },
     "Place": {
       "localizations": {
-        "en": { "stringUnit": { "state": "translated", "value": "Place" } },
-        "pt": { "stringUnit": { "state": "translated", "value": "Local" } },
-        "es": { "stringUnit": { "state": "translated", "value": "Lugar" } }
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Place"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Local"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lugar"
+          }
+        }
       }
     },
     "Places of Marian devotion": {
       "localizations": {
-        "en": { "stringUnit": { "state": "translated", "value": "Places of Marian devotion" } },
-        "pt": { "stringUnit": { "state": "translated", "value": "Lugares de devoção mariana" } },
-        "es": { "stringUnit": { "state": "translated", "value": "Lugares de devoción mariana" } }
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Places of Marian devotion"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lugares de devoção mariana"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lugares de devoción mariana"
+          }
+        }
       }
     },
     "Sources": {
       "localizations": {
-        "en": { "stringUnit": { "state": "translated", "value": "Sources" } },
-        "pt": { "stringUnit": { "state": "translated", "value": "Fontes" } },
-        "es": { "stringUnit": { "state": "translated", "value": "Fuentes" } }
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sources"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fontes"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fuentes"
+          }
+        }
       }
     },
     "What the shrine records": {
       "localizations": {
-        "en": { "stringUnit": { "state": "translated", "value": "What the shrine records" } },
-        "pt": { "stringUnit": { "state": "translated", "value": "O que o santuário registra" } },
-        "es": { "stringUnit": { "state": "translated", "value": "Lo que registra el santuario" } }
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "What the shrine records"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O que o santuário registra"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lo que registra el santuario"
+          }
+        }
       }
     },
     "Witnesses": {
       "localizations": {
-        "en": { "stringUnit": { "state": "translated", "value": "Witnesses" } },
-        "pt": { "stringUnit": { "state": "translated", "value": "Videntes e testemunhas" } },
-        "es": { "stringUnit": { "state": "translated", "value": "Videntes y testigos" } }
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Witnesses"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Videntes e testemunhas"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Videntes y testigos"
+          }
+        }
       }
     },
     "you are here": {
@@ -1358,6 +1449,336 @@
           "stringUnit": {
             "state": "translated",
             "value": "estás aquí"
+          }
+        }
+      }
+    },
+    "{n} Rosaries prayed": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "{n} Rosaries prayed"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "{n} Rosarios rezados"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "{n} Terços rezados"
+          }
+        }
+      }
+    },
+    "{n} Examens of the day": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "{n} Examens of the day"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "{n} Exámenes del día"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "{n} Exames do dia"
+          }
+        }
+      }
+    },
+    "{n} check-ins of how you were": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "{n} check-ins of how you were"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "{n} registros de cómo estabas"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "{n} registros de como você estava"
+          }
+        }
+      }
+    },
+    "Most logged: {state}": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Most logged: {state}"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lo más registrado: {state}"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O mais registrado: {state}"
+          }
+        }
+      }
+    },
+    "Nothing was logged in this season. It passed all the same — the liturgical year doesn't wait for a record.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nothing was logged in this season. It passed all the same — the liturgical year doesn't wait for a record."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No se registró nada en este tiempo. Pasó igual: el año litúrgico no espera un registro."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nada foi registrado neste tempo. Ele passou do mesmo jeito — o ano litúrgico não espera por um registro."
+          }
+        }
+      }
+    },
+    "{n} days with something logged in this season.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "{n} days with something logged in this season."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "{n} días con algún registro en este tiempo."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "{n} dias com algum registro neste tempo."
+          }
+        }
+      }
+    },
+    "This season is still under way, until {date}.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This season is still under way, until {date}."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Este tiempo todavía está en curso, hasta el {date}."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Este tempo ainda está em curso, até {date}."
+          }
+        }
+      }
+    },
+    "Counted only from what you logged on this device.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Counted only from what you logged on this device."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Contado solo a partir de lo que registraste en este dispositivo."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Contado só a partir do que você registrou neste aparelho."
+          }
+        }
+      }
+    },
+    "Under way": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Under way"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "En curso"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Em curso"
+          }
+        }
+      }
+    },
+    "See this season ›": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "See this season ›"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ver este tiempo ›"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ver este tempo ›"
+          }
+        }
+      }
+    },
+    "Sunday · Cycle {c}": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sunday · Cycle {c}"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Domingo · Ciclo {c}"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Domingo · Ciclo {c}"
+          }
+        }
+      }
+    },
+    "Weekdays · Year {c}": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Weekdays · Year {c}"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Semana · Año {c}"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Semana · Ano {c}"
+          }
+        }
+      }
+    },
+    "Stories and miracles": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stories and miracles"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Historias y milagros"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Histórias e milagres"
+          }
+        }
+      }
+    },
+    "Why it matters today": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Why it matters today"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Por qué importa hoy"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Por que importa hoje"
+          }
+        }
+      }
+    },
+    "Saints of the day": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Saints of the day"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Santos del día"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Santos do dia"
           }
         }
       }

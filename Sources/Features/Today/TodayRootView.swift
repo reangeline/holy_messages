@@ -9,6 +9,9 @@ struct TodayRootView: View {
     @Environment(\.mainTabSelection) private var mainTabSelection
     @Environment(\.settingsPresented) private var settingsPresented
     @AppStorage(UserProfile.nameStorageKey) private var userDisplayName = ""
+    /// Observed so the night card shows the new time as soon as it is changed
+    /// on the Examen screen.
+    @AppStorage(ExamenSchedule.storageKey) private var examenMinutes = ExamenSchedule.defaultMinutes
 
     private let day = MockLiturgical.today
 
@@ -25,10 +28,19 @@ struct TodayRootView: View {
         guard !firstName.isEmpty else { return L.string(withoutName, table: "Today") }
         return L.string(withName, table: "Today").replacingOccurrences(of: "{name}", with: firstName)
     }
-    // Goes through the region-keyed sanctoral calendar rather than a hardcoded
-    // saint, even though only MockSaints.notburga is registered for today's date
-    // right now — see SaintCalendarRegion.
-    private var saintOfDay: Saint { MockSaints.saint(on: String(day.dateKey.suffix(5))) ?? MockSaints.notburga }
+    // Goes through the region-keyed sanctoral calendar — see SaintCalendarRegion.
+    // On a day with no record yet, the most recent saint before it, dated.
+    private var saintEntry: (saint: Saint, monthDay: String) { MockSaints.saintOfDay(on: String(day.dateKey.suffix(5))) }
+    private var saintOfDay: Saint { saintEntry.saint }
+
+    /// "Seu papel · 3 min" today; "21 de set. · seu papel" when the card is
+    /// showing the last registered saint rather than today's.
+    private var saintSubtitle: String {
+        let hoje = String(day.dateKey.suffix(5))
+        guard saintEntry.monthDay != hoje else { return "\(saintOfDay.role) · 3 min" }
+        let data = DateKeyLabel.dayMonth(fromKey: "\(day.dateKey.prefix(4))-\(saintEntry.monthDay)")
+        return "\(data) · \(saintOfDay.role)"
+    }
 
     var body: some View {
         NavigationStack {
@@ -187,7 +199,7 @@ struct TodayRootView: View {
                         Text(saintOfDay.name)
                             .font(MissaleFont.body(17, weight: .medium))
                             .foregroundStyle(Palette.ink)
-                        Text("\(saintOfDay.role) · 3 min")
+                        Text(saintSubtitle)
                             .font(MissaleFont.body(14))
                             .foregroundStyle(Palette.ink.opacity(0.65))
                     }
@@ -223,8 +235,10 @@ struct TodayRootView: View {
     }
 
     private var complineCard: some View {
-        GatedLink {
-            ExamenIntroView(onFinished: { navigateToExamen = false })
+        // A navegação é do Hoje (ver navigationDestination no body), para o
+        // "Encerrar" do fim do Exame conseguir voltar até aqui de uma vez.
+        GatedLink(presented: $navigateToExamen) {
+            EmptyView()
         } label: {
             HStack {
                 VStack(alignment: .leading, spacing: 3) {

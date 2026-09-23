@@ -14,6 +14,11 @@ import SwiftUI
 /// abandoned: until they exist, deleting the app is what removes the data, and
 /// that is what the policy says. The inventory of what is stored stays in
 /// LocalData, which the policy and its tests read.
+///
+/// Analytics is coming (anonymous usage only), so the screen no longer
+/// promises "no analytics": it says what will be collected and what never is.
+/// When the SDK lands, the privacy policy in Legal/ and the App Store privacy
+/// answers have to change with it.
 struct DataSettingsView: View {
 
     var body: some View {
@@ -29,7 +34,7 @@ struct DataSettingsView: View {
                             .foregroundStyle(Palette.ink.opacity(0.68))
                     }
 
-                    Text("Nothing here is uploaded. The app makes no network requests, has no account, no third-party trackers, no analytics, and no ads. What you write stays on this device.", tableName: "SettingsDetail")
+                    Text("What you write stays on this device and is never sent anywhere. To keep improving the app, we may collect anonymous usage data — which screens are opened and how often — never what you write, and never linked to you. No account, no ads, no third-party trackers.", tableName: "SettingsDetail")
                         .font(MissaleFont.body(15))
                         .foregroundStyle(Palette.ink.opacity(0.8))
 

@@ -23,6 +23,7 @@ final class OnboardingLanguageUITests: XCTestCase {
     private func launch(language: String) -> XCUIApplication {
         let app = XCUIApplication()
         app.launchArguments = [
+            "-demoDate", "2026-09-14",
             "-hasCompletedOnboarding", "0",
             "-appLanguageOverride", language,
         ]

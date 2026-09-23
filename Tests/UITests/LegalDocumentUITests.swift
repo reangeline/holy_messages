@@ -12,7 +12,7 @@ final class LegalDocumentUITests: XCTestCase {
 
     private func openSettings(_ language: String) -> XCUIApplication {
         let app = XCUIApplication()
-        app.launchArguments = ["-hasCompletedOnboarding", "1", "-appLanguageOverride", language,
+        app.launchArguments = ["-demoDate", "2026-09-14", "-hasCompletedOnboarding", "1", "-appLanguageOverride", language,
                                "-openScreen", "settings"]
         app.launch()
         return app
@@ -59,8 +59,8 @@ final class LegalDocumentUITests: XCTestCase {
         let app = openSettings("pt")
         row(app, matching: "label CONTAINS[c] 'Seus dados' OR label CONTAINS[c] 'dados'").tap()
 
-        // A oferta é o interruptor, não a palavra: a tela agora *menciona*
-        // analytics para dizer que não tem, e isso deve continuar aparecendo.
+        // A oferta é o interruptor, não a palavra: a tela menciona os dados de
+        // uso anônimos para dizer o que é e o que nunca é coletado.
         XCTAssertEqual(app.switches.count, 0,
                        "a tela de dados ainda tem interruptor — sincronização ou analytics voltaram")
         for ausente in ["Sincronizar", "PDF", "JSON", "Apagar tudo"] {
@@ -70,8 +70,8 @@ final class LegalDocumentUITests: XCTestCase {
             )
         }
         XCTAssertTrue(
-            app.staticTexts.matching(NSPredicate(format: "label CONTAINS[c] 'não tem analytics'")).firstMatch.exists,
-            "a tela deixou de declarar que não há analytics"
+            app.staticTexts.matching(NSPredicate(format: "label CONTAINS[c] 'nunca o que você escreve'")).firstMatch.exists,
+            "a tela deixou de dizer que o que a pessoa escreve nunca é coletado"
         )
         XCTAssertTrue(
             app.staticTexts.matching(NSPredicate(format: "label CONTAINS[c] 'ainda não'")).firstMatch.exists,

@@ -2338,6 +2338,28 @@
           }
         }
       }
+    },
+    "Examen time": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Examen time"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hora del Examen"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hora do Exame"
+          }
+        }
+      }
     }
   },
   "version": "1.0"

@@ -35,6 +35,8 @@ enum LocalData {
         "appLanguageOverride",           // no grupo do app, partilhado com o widget
         "liturgicalCalendarRegionID",
         "rosaryBeginnerMode",
+        "rosaryVoiceGuide",              // a voz lendo o Terço, ligada ou não
+        "examenMinutesOfDay",            // a hora escolhida para o Exame da noite
         "hasCompletedOnboarding",
     ]
 }

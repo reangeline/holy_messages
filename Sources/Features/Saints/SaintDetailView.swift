@@ -35,6 +35,26 @@ struct SaintDetailView: View {
                         }
                     }
 
+                    if !saint.stories.isEmpty {
+                        VStack(alignment: .leading, spacing: 10) {
+                            Eyebrow(text: L.string("Stories and miracles", table: "CalendarSaints"))
+                            ForEach(saint.stories, id: \.self) { story in
+                                GlassCard {
+                                    VStack(alignment: .leading, spacing: 6) {
+                                        Text(story.title)
+                                            .font(MissaleFont.display(20, weight: .medium))
+                                        Text(story.body)
+                                            .font(MissaleFont.body(16))
+                                            .foregroundStyle(Palette.ink.opacity(0.82))
+                                        Text(story.source)
+                                            .font(MissaleFont.body(12))
+                                            .foregroundStyle(Palette.ink.opacity(0.45))
+                                    }
+                                }
+                            }
+                        }
+                    }
+
                     // Both cards are skipped when the record has nothing for them.
                     // Most saints came in with a factual biography and no authored
                     // "why it matters" or prayer yet, and an empty card reads as a
@@ -42,7 +62,7 @@ struct SaintDetailView: View {
                     if !saint.whyItMattersToday.isEmpty {
                         GlassCard {
                             VStack(alignment: .leading, spacing: 6) {
-                                Eyebrow(text: L.string( "Why she matters today", table: "CalendarSaints"))
+                                Eyebrow(text: L.string("Why it matters today", table: "CalendarSaints"))
                                 Text(saint.whyItMattersToday)
                                     .font(MissaleFont.body(16))
                                     .foregroundStyle(Palette.ink.opacity(0.78))

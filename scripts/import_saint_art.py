@@ -53,6 +53,21 @@ def sw(s):
          .replace("\n", "\\n").replace("\t", "\\t").replace("\r", ""))
     return f'"{s}"'
 
+
+def stories_swift(stories):
+    """Histórias e milagres da ficha: cada uma com título, texto e fonte.
+    Sem fonte não entra — é a mesma regra do resto do acervo."""
+    if not stories:
+        return ""
+    for s in stories:
+        if not s.get("source"):
+            raise ValueError(f"história sem fonte: {s.get('title')}")
+    itens = ", ".join(
+        f'.init(title: {sw(s["title"])}, body: {sw(s["body"])}, source: {sw(s["source"])})'
+        for s in stories)
+    return f",\n            stories: [{itens}]"
+
+
 def find_art():
     """id do santo -> caminho do hero."""
     art = {}
@@ -174,8 +189,9 @@ extension MockSaints {
                        f'            bioParagraphs: [{", ".join(sw(p) for p in bio)}],\n'
                        f'            whyItMattersToday: {sw(why)},\n'
                        f'            prayer: {sw(prayer)},\n'
-                       f'            artworkName: {artwork}\n'
-                       "        ),\n")
+                       f'            artworkName: {artwork}'
+                       + stories_swift(o.get("stories", []))
+                       + "\n        ),\n")
             if o.get("dateKey"):
                 entries.append((o["dateKey"], saint_id))
             counts[lang] += 1

@@ -6,6 +6,12 @@ struct ExamenIntroView: View {
 
     @Environment(\.dismiss) private var dismiss
     @State private var goToExamenFlow = false
+    @AppStorage(ExamenSchedule.storageKey) private var examenMinutes = ExamenSchedule.defaultMinutes
+
+    private var examenTime: Binding<Date> {
+        Binding(get: { ExamenSchedule.date(forMinutes: examenMinutes) },
+                set: { examenMinutes = ExamenSchedule.minutes(from: $0) })
+    }
 
     var body: some View {
         ZStack {
@@ -18,10 +24,12 @@ struct ExamenIntroView: View {
                     Button(L.string("‹ Voltar", table: "Today")) { dismiss() }
                         .foregroundStyle(Palette.goldBright)
                     Spacer()
-                    Text(ExamenSchedule.timeLabel)
-                        .font(MissaleFont.body(12, weight: .semibold))
-                        .tracking(1.4)
-                        .foregroundStyle(.white.opacity(0.5))
+                    // Era 21:30 fixo. Tocar abre o seletor de hora do sistema;
+                    // o cartão da noite no Hoje passa a mostrar a nova hora.
+                    DatePicker(L.string("Examen time", table: "Today"), selection: examenTime, displayedComponents: .hourAndMinute)
+                        .labelsHidden()
+                        .colorScheme(.dark)
+                        .tint(Palette.goldBright)
                 }
                 .padding(.top, 8)
 

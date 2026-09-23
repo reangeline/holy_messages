@@ -48,7 +48,8 @@ enum MockSaints {
             "Padre francês da Congregação da Missão, partiu para a China sabendo que a perseguição aos missionários era real. Foi preso, torturado e, por fim, estrangulado por se recusar a pisar numa cruz.",
         ],
         whyItMattersToday: "Sua morte imitou deliberadamente a Paixão: foi arrastado por ruas, açoitado e exposto — uma vida moldada pela Cruz até o fim.",
-        prayer: "São João Gabriel Perboyre, rogai por nós."
+        prayer: "São João Gabriel Perboyre, rogai por nós.",
+        artworkName: "perboyre"
     )
 
     // The two records written before the imported sanctoral need their own
@@ -99,7 +100,8 @@ enum MockSaints {
             "He was strangled on 11 September 1840. The Holy See’s account of his life remembers both his missionary service and his fidelity to Christ under persecution."
         ],
         whyItMattersToday: "Perboyre shows that Christian witness is not a search for suffering: it is fidelity to Christ and to the people entrusted to us when fear makes that fidelity costly.",
-        prayer: "St John Gabriel Perboyre, pray for us."
+        prayer: "St John Gabriel Perboyre, pray for us.",
+        artworkName: "perboyre"
     )
 
     private static let esJohnGabrielPerboyre = Saint(
@@ -114,7 +116,8 @@ enum MockSaints {
             "Murió estrangulado el 11 de septiembre de 1840. El relato de la Santa Sede recuerda tanto su servicio misionero como su fidelidad a Cristo en la persecución."
         ],
         whyItMattersToday: "Perboyre muestra que el testimonio cristiano no busca el sufrimiento: permanece fiel a Cristo y a las personas confiadas a nosotros cuando el miedo hace costosa esa fidelidad.",
-        prayer: "San Juan Gabriel Perboyre, ruega por nosotros."
+        prayer: "San Juan Gabriel Perboyre, ruega por nosotros.",
+        artworkName: "perboyre"
     )
 
     static var notburga: Saint { notburgaCatalog.current }
@@ -138,21 +141,23 @@ enum MockSaints {
     /// Dates with a hand-written record, which wins over the imported one: those
     /// two have a real biography, a "why it matters today" and a prayer, and the
     /// imported batch only carries the factual first paragraph.
-    private static let handWrittenDates: Set<String> = ["09-14", "09-23"]
+    // Perboyre estava em 23/09 — que é São Pio de Pietrelcina, e a ficha manual
+    // escondia a importada. A memória dele é 11 de setembro.
+    private static let handWrittenDates: Set<String> = ["09-14", "09-11"]
 
     private static let ptCalendar: [SaintOfDay] = [
         SaintOfDay(dateKey: "09-14", region: .general, saint: ptNotburga),
-        SaintOfDay(dateKey: "09-23", region: .general, saint: ptJohnGabrielPerboyre),
+        SaintOfDay(dateKey: "09-11", region: .general, saint: ptJohnGabrielPerboyre),
     ]
 
     private static let enCalendar: [SaintOfDay] = [
         SaintOfDay(dateKey: "09-14", region: .general, saint: enNotburga),
-        SaintOfDay(dateKey: "09-23", region: .general, saint: enJohnGabrielPerboyre),
+        SaintOfDay(dateKey: "09-11", region: .general, saint: enJohnGabrielPerboyre),
     ]
 
     private static let esCalendar: [SaintOfDay] = [
         SaintOfDay(dateKey: "09-14", region: .general, saint: esNotburga),
-        SaintOfDay(dateKey: "09-23", region: .general, saint: esJohnGabrielPerboyre),
+        SaintOfDay(dateKey: "09-11", region: .general, saint: esJohnGabrielPerboyre),
     ]
 
     /// Looks up the saint for a fixed date ("MM-dd"), preferring `region` and
@@ -164,6 +169,27 @@ enum MockSaints {
             return regional.saint
         }
         return calendar.first { $0.dateKey == dateKey && $0.region == .general }?.saint
+    }
+
+    /// Every saint with a record on "MM-dd", in every region — the calendar's
+    /// day screen lists them all, each opening its own page.
+    static func saints(on monthDay: String) -> [Saint] {
+        var vistos = Set<String>()
+        return calendar.filter { $0.dateKey == monthDay }
+            .map(\.saint)
+            .filter { vistos.insert($0.id).inserted }
+    }
+
+    /// The saint for "MM-dd", or — on the many days the sanctoral has no
+    /// record yet — the most recent one before it, with its own date so the
+    /// screen can say which day it belongs to. Always Notburga before this,
+    /// which is why the saint of the day never changed.
+    static func saintOfDay(on monthDay: String, region: SaintCalendarRegion = .general) -> (saint: Saint, monthDay: String) {
+        if let exato = saint(on: monthDay, region: region) { return (exato, monthDay) }
+        let datas = Set(calendar.map(\.dateKey)).sorted()
+        let anterior = datas.last { $0 < monthDay } ?? datas.last
+        if let anterior, let santo = saint(on: anterior, region: region) { return (santo, anterior) }
+        return (notburga, "09-14")
     }
 
     /// Resolves a cross-feature link (for example, a devotional prayer) to the

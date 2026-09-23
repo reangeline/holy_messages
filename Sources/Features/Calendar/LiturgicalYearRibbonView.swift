@@ -3,32 +3,40 @@ import SwiftUI
 /// Spec §4.3 — the whole liturgical year as one horizontal ribbon, proportional to
 /// each season's real length, with "you are here." Teaches the year's shape in one
 /// glance: Ordinary Time is most of it, Lent is 40 days, the Triduum barely shows.
-/// Demo data — approximate day counts, not a computed calendar; see MockLiturgical.
 struct LiturgicalYearRibbonView: View {
     private struct Segment {
-        let season: LiturgicalSeason
-        let approximateDays: Double
+        let entry: SeasonJourney.Entry
+        let days: Double
+        var season: LiturgicalSeason { entry.season }
     }
 
     // Ordered by the liturgical year, which begins with Advent, not January.
-    // Widths are approximate lengths in days; Tempo Comum is drawn as a single
-    // block even though the real calendar splits it around Lent/Easter — the
-    // mock's own season list doesn't model that split yet.
-    private let segments: [Segment] = [
-        .init(season: MockLiturgical.seasons.first { $0.id == "advent" }!, approximateDays: 28),
-        .init(season: MockLiturgical.seasons.first { $0.id == "lent" }!, approximateDays: 40),
-        .init(season: MockLiturgical.seasons.first { $0.id == "easter" }!, approximateDays: 50),
-        .init(season: MockLiturgical.seasons.first { $0.id == "ordinary" }!, approximateDays: 247),
-    ]
+    // Widths are the real day counts of the year in force, from the engine.
+    // Ordinary Time is drawn as one block even though it is split around
+    // Lent and Easter; the marker counts only its days already lived.
+    private let segments: [Segment] = SeasonJourney.currentYear().map { entry in
+        let dias = entry.intervals.reduce(0.0) { soma, faixa in
+            soma + faixa.upperBound.timeIntervalSince(faixa.lowerBound) / 86_400 + 1
+        }
+        return Segment(entry: entry, days: dias)
+    }
 
-    // "Today" (Sept 14) sits roughly 57% of the way through the Tempo Comum block
-    // in this mock's date ranges — a fixed illustrative fraction, not computed.
-    private let markerSegmentID = "ordinary"
-    private let markerFraction = 0.57
+    /// Where today falls inside the season in force, 0...1.
+    private var markerFraction: Double? {
+        guard let atual = segments.first(where: { $0.entry.status == .current }) else { return nil }
+        let hoje = SeasonJourney.utcDay(.now)
+        let vividos = atual.entry.intervals.reduce(0.0) { soma, faixa in
+            guard hoje >= faixa.lowerBound else { return soma }
+            let fim = min(hoje, faixa.upperBound)
+            return soma + fim.timeIntervalSince(faixa.lowerBound) / 86_400 + 1
+        }
+        return min(vividos / atual.days, 1)
+    }
 
-    @State private var selectedSeasonID: String = "ordinary"
+    @State private var selectedSeasonID: String =
+        SeasonJourney.currentYear().first { $0.status == .current }?.id ?? "ordinary"
 
-    private var totalDays: Double { segments.reduce(0) { $0 + $1.approximateDays } }
+    private var totalDays: Double { segments.reduce(0) { $0 + $1.days } }
     private var selectedSegment: Segment { segments.first { $0.season.id == selectedSeasonID } ?? segments[0] }
 
     var body: some View {
@@ -75,7 +83,7 @@ struct LiturgicalYearRibbonView: View {
                                     RoundedRectangle(cornerRadius: 6, style: .continuous)
                                         .strokeBorder(selectedSeasonID == segment.season.id ? Palette.wine : .clear, lineWidth: 2)
                                 )
-                                .frame(width: max(proxy.size.width * segment.approximateDays / totalDays - 2, 4))
+                                .frame(width: max(proxy.size.width * segment.days / totalDays - 2, 4))
                         }
                         .buttonStyle(.plain)
                     }
@@ -100,14 +108,14 @@ struct LiturgicalYearRibbonView: View {
     }
 
     private func markerOffset(in width: CGFloat) -> CGFloat? {
+        guard let markerFraction else { return nil }
         var runningDays: Double = 0
         for segment in segments {
-            if segment.season.id == markerSegmentID {
-                let start = runningDays
-                let position = start + segment.approximateDays * markerFraction
+            if segment.entry.status == .current {
+                let position = runningDays + segment.days * markerFraction
                 return width * position / totalDays
             }
-            runningDays += segment.approximateDays
+            runningDays += segment.days
         }
         return nil
     }
@@ -127,11 +135,11 @@ struct LiturgicalYearRibbonView: View {
                     .font(MissaleFont.body(15))
                     .foregroundStyle(Palette.ink.opacity(0.75))
 
-                if selectedSegment.season.id == MockLiturgical.lentRetrospective.seasonID {
+                if selectedSegment.entry.status != .upcoming {
                     NavigationLink {
-                        SeasonRetrospectiveView(retrospective: MockLiturgical.lentRetrospective)
+                        SeasonRetrospectiveView(retrospective: SeasonJourney.retrospective(for: selectedSegment.entry))
                     } label: {
-                        Text(L.string("See your Lent ›", table: "CalendarSaints"))
+                        Text(L.string("See this season ›", table: "CalendarSaints"))
                             .font(MissaleFont.body(15))
                             .foregroundStyle(Palette.wine)
                     }

@@ -12,7 +12,7 @@ final class SaintArtUITests: XCTestCase {
 
     private func launch() -> XCUIApplication {
         let app = XCUIApplication()
-        app.launchArguments = ["-subscribed", "1", "-hasCompletedOnboarding", "1"]
+        app.launchArguments = ["-demoDate", "2026-09-14", "-subscribed", "1", "-hasCompletedOnboarding", "1"]
         app.launch()
         return app
     }
@@ -75,7 +75,7 @@ final class SaintArtUITests: XCTestCase {
         )
         // An imported record has a biography and nothing else authored yet, so
         // neither of the other two cards may be on screen carrying empty text.
-        for header in ["Por que ela importa hoje", "Why she matters today", "Por qué importa hoy"] {
+        for header in ["Por que importa hoje", "Why it matters today", "Por qué importa hoy"] {
             XCTAssertFalse(app.staticTexts[header].exists,
                            "a ficha importada mostrou a seção '\(header)' sem conteúdo")
         }

@@ -6,7 +6,7 @@ struct RosaryMysteriesPickerView: View {
     /// A real preference, not screen state: someone who turns the teaching hints
     /// off expects them to stay off on the next rosary.
     @AppStorage(UserProfile.rosaryBeginnerModeKey) private var beginnerMode = true
-    @State private var voiceGuiding = false
+    @AppStorage(UserProfile.rosaryVoiceGuideKey) private var voiceGuiding = false
     @State private var intention = ""
 
     var body: some View {
@@ -36,7 +36,7 @@ struct RosaryMysteriesPickerView: View {
                                 .font(MissaleFont.body(16, weight: .medium))
                                 .tint(Palette.wine)
                             Divider()
-                            Toggle(L.string( "Human voice guiding", table: "Prayers"), isOn: $voiceGuiding)
+                            Toggle(L.string("Voice reading the prayers", table: "Prayers"), isOn: $voiceGuiding)
                                 .font(MissaleFont.body(16, weight: .medium))
                                 .tint(Palette.wine)
                         }
@@ -49,7 +49,7 @@ struct RosaryMysteriesPickerView: View {
 
                     VStack(spacing: 12) {
                         NavigationLink {
-                            RosaryGuidedPrayerView(mystery: selected, beginnerMode: beginnerMode, intention: intention)
+                            RosaryGuidedPrayerView(mystery: selected, beginnerMode: beginnerMode, voiceGuiding: voiceGuiding, intention: intention)
                         } label: {
                             Text("Start", tableName: "Prayers")
                                 .font(MissaleFont.body(17, weight: .medium))
@@ -59,7 +59,7 @@ struct RosaryMysteriesPickerView: View {
                                 .foregroundStyle(.white)
                         }
                         NavigationLink {
-                            RosaryDarkModeView(mystery: selected, startIndex: 0, intention: intention)
+                            RosaryDarkModeView(mystery: selected, startIndex: 0, voiceGuiding: voiceGuiding, intention: intention)
                         } label: {
                             Text("Start with the screen off", tableName: "Prayers")
                                 .font(MissaleFont.body(16))

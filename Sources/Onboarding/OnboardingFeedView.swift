@@ -12,7 +12,7 @@ struct OnboardingFeedView: View {
     private let day = MockLiturgical.today
     private var word: WordOfDay { MockWordOfDay.today }
     private var saint: Saint {
-        MockSaints.saint(on: String(MockLiturgical.today.dateKey.suffix(5))) ?? MockSaints.notburga
+        MockSaints.saintOfDay(on: String(MockLiturgical.today.dateKey.suffix(5))).saint
     }
     private var firstLesson: FormationLesson? { MockFormation.track.lessons.first }
 

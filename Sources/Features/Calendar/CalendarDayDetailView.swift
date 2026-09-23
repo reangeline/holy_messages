@@ -20,8 +20,19 @@ struct CalendarDayDetailView: View {
         MockLiturgical.date(fromKey: mark.dateKey).map(LiturgicalEngine.day(for:))
     }
 
+    /// The last check-in logged on this civil day. Only today could show one
+    /// while the calendar was fixed on a demo September; now any day can.
+    private var latestOnThisDay: MoodEntry? {
+        moodHistory.entries.last { entry in
+            let c = Calendar.current.dateComponents([.year, .month, .day], from: entry.date)
+            return String(format: "%04d-%02d-%02d", c.year!, c.month!, c.day!) == mark.dateKey
+        }
+    }
+
+    private var saintsOfTheDay: [Saint] { MockSaints.saints(on: String(mark.dateKey.suffix(5))) }
+
     private var detail: DayDetail {
-        let latest = isToday ? moodHistory.entries.last : nil
+        let latest = latestOnThisDay
         let relief = latest.map { MockMood.relief(for: $0.stateID).content }
         return DayDetail(
             dateLabel: DateKeyLabel.dayMonth(fromKey: mark.dateKey),
@@ -98,6 +109,36 @@ struct CalendarDayDetailView: View {
                         }
                     }
 
+                    if !saintsOfTheDay.isEmpty {
+                        VStack(alignment: .leading, spacing: 8) {
+                            Eyebrow(text: L.string("Saints of the day", table: "CalendarSaints"))
+                            ForEach(saintsOfTheDay) { saint in
+                                NavigationLink {
+                                    SaintDetailView(saint: saint)
+                                } label: {
+                                    GlassCard {
+                                        HStack(spacing: 12) {
+                                            SaintPortrait(artworkName: saint.artworkName)
+                                                .frame(width: 44, height: 44)
+                                            VStack(alignment: .leading, spacing: 2) {
+                                                Text(saint.name)
+                                                    .font(MissaleFont.body(17, weight: .medium))
+                                                    .foregroundStyle(Palette.ink)
+                                                Text(saint.role)
+                                                    .font(MissaleFont.body(14))
+                                                    .foregroundStyle(Palette.ink.opacity(0.6))
+                                                    .lineLimit(2)
+                                            }
+                                            Spacer(minLength: 0)
+                                            Image(systemName: "chevron.right").foregroundStyle(Palette.wine)
+                                        }
+                                    }
+                                }
+                                .buttonStyle(.plain)
+                            }
+                        }
+                    }
+
                     if let computedDay, computedDay.weekday == 1 {
                         NavigationLink {
                             MassBulletinView(day: computedDay)
@@ -128,7 +169,8 @@ struct CalendarDayDetailView: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .principal) {
-                Text("September", tableName: "CalendarSaints").font(MissaleFont.body(15, weight: .medium))
+                // Era "Setembro" fixo, mesmo abrindo um dia de dezembro.
+                Text(DateKeyLabel.month(fromKey: mark.dateKey)).font(MissaleFont.body(15, weight: .medium))
             }
         }
     }

@@ -554,28 +554,6 @@
         }
       }
     },
-    "Find a parish →": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Find a parish →"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Encontrar una parroquia →"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Encontrar uma paróquia →"
-          }
-        }
-      }
-    },
     "Free forever, with or without a subscription": {
       "localizations": {
         "en": {
@@ -638,28 +616,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Responden personas, no un formulario"
-          }
-        }
-      }
-    },
-    "Grave sin, a doubt of conscience, a life decision, a crisis: take it to a priest. This app shows you the nearest parish and confession hours, and that's the best it has to offer on this point.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Grave sin, a doubt of conscience, a life decision, a crisis: take it to a priest. This app shows you the nearest parish and confession hours, and that's the best it has to offer on this point."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pecado grave, duda de conciencia, decisión de vida, crisis: llévalo a un sacerdote. Esta app te muestra la parroquia más cercana y los horarios de confesión, y eso es lo mejor que puede ofrecer en este punto."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pecado grave, dúvida de consciência, decisão de vida, crise: leve a um padre. Este app mostra a paróquia mais perto e os horários de confissão, e é o melhor que ele tem a oferecer nesse ponto."
           }
         }
       }
@@ -1039,29 +995,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Nota pastoral"
-          }
-        }
-      }
-    },
-    "Nothing here is uploaded. The app makes no network requests, has no account, no third-party trackers, no analytics, and no ads. What you write stays on this device.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nothing here is uploaded. The app makes no network requests, has no account, no third-party trackers, no analytics, and no ads. What you write stays on this device."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nada daqui é enviado. O app não faz nenhuma requisição de rede, não tem conta, não tem rastreadores de terceiros, não tem analytics e não tem anúncios. O que você escreve fica neste aparelho."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nada de esto se envía. La app no hace ninguna petición de red, no tiene cuenta, no tiene rastreadores de terceros, no tiene analíticas y no tiene anuncios. Lo que escribes se queda en este dispositivo."
           }
         }
       }
@@ -2191,6 +2124,116 @@
           "stringUnit": {
             "state": "translated",
             "value": "Tu nombre"
+          }
+        }
+      }
+    },
+    "What you write stays on this device and is never sent anywhere. To keep improving the app, we may collect anonymous usage data — which screens are opened and how often — never what you write, and never linked to you. No account, no ads, no third-party trackers.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "What you write stays on this device and is never sent anywhere. To keep improving the app, we may collect anonymous usage data — which screens are opened and how often — never what you write, and never linked to you. No account, no ads, no third-party trackers."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lo que escribes se queda en este dispositivo y nunca se envía. Para seguir mejorando la app, podemos recoger datos de uso anónimos — qué pantallas se abren y con qué frecuencia —, nunca lo que escribes y nunca vinculados a ti. Sin cuenta, sin anuncios, sin rastreadores de terceros."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O que você escreve fica neste aparelho e nunca é enviado. Para melhorar sempre o app, podemos coletar dados de uso anônimos — quais telas são abertas e com que frequência —, nunca o que você escreve e nunca ligados a você. Sem conta, sem anúncios, sem rastreadores de terceiros."
+          }
+        }
+      }
+    },
+    "Grave sin, a doubt of conscience, a life decision, a crisis: take it to a priest. The button below opens Maps with the Catholic churches near you — confession times are best confirmed with the parish itself.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Grave sin, a doubt of conscience, a life decision, a crisis: take it to a priest. The button below opens Maps with the Catholic churches near you — confession times are best confirmed with the parish itself."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pecado grave, duda de conciencia, decisión de vida, crisis: llévalo a un sacerdote. El botón de abajo abre Mapas con las iglesias católicas cerca de ti — los horarios de confesión, confírmalos con la propia parroquia."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pecado grave, dúvida de consciência, decisão de vida, crise: leve a um padre. O botão abaixo abre o Mapas com as igrejas católicas perto de você — os horários de confissão, confirme com a própria paróquia."
+          }
+        }
+      }
+    },
+    "Find churches in Maps →": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Find churches in Maps →"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buscar iglesias en Mapas →"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Procurar igrejas no Mapas →"
+          }
+        }
+      }
+    },
+    "See where else to find help →": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "See where else to find help →"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ver dónde más buscar ayuda →"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ver onde mais buscar ajuda →"
+          }
+        }
+      }
+    },
+    "Catholic church": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Catholic church"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iglesia católica"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "igreja católica"
           }
         }
       }

@@ -24,7 +24,7 @@ final class SubscriptionGateUITests: XCTestCase {
     /// since the simulator has no App Store.
     private func launch(_ language: String = "pt") -> XCUIApplication {
         let app = XCUIApplication()
-        app.launchArguments = ["-hasCompletedOnboarding", "1", "-appLanguageOverride", language]
+        app.launchArguments = ["-demoDate", "2026-09-14", "-hasCompletedOnboarding", "1", "-appLanguageOverride", language]
         app.launch()
         return app
     }
@@ -127,7 +127,7 @@ final class SubscriptionGateUITests: XCTestCase {
     /// and the two legal documents live.
     func testSettingsAndTheLegalDocumentsStayFree() {
         let app = XCUIApplication()
-        app.launchArguments = ["-hasCompletedOnboarding", "1", "-appLanguageOverride", "pt",
+        app.launchArguments = ["-demoDate", "2026-09-14", "-hasCompletedOnboarding", "1", "-appLanguageOverride", "pt",
                                "-openScreen", "settings"]
         app.launch()
 

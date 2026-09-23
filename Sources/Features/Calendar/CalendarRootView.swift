@@ -4,12 +4,15 @@ import SwiftUI
 struct CalendarRootView: View {
     private let weekdaySymbols = ["D", "S", "T", "Q", "Q", "S", "S"]
     @ObservedObject private var moodHistory = MoodHistoryStore.shared
-    @State private var displayedYear = 2026
-    @State private var displayedMonth = 9
+    @State private var displayedYear = Calendar.gregorianUTC.component(.year, from: MockLiturgical.currentDate)
+    @State private var displayedMonth = Calendar.gregorianUTC.component(.month, from: MockLiturgical.currentDate)
 
     private var days: [CalendarDayMark] { MockLiturgical.days(year: displayedYear, month: displayedMonth) }
     private var leadingEmptyDays: Int { MockLiturgical.leadingEmptyDays(year: displayedYear, month: displayedMonth) }
-    private var isViewingCurrentMonth: Bool { displayedYear == 2026 && displayedMonth == 9 }
+    private var isViewingCurrentMonth: Bool {
+        displayedYear == Calendar.gregorianUTC.component(.year, from: MockLiturgical.currentDate)
+            && displayedMonth == Calendar.gregorianUTC.component(.month, from: MockLiturgical.currentDate)
+    }
 
     private func isToday(_ mark: CalendarDayMark) -> Bool { mark.dateKey == MockLiturgical.today.dateKey }
 

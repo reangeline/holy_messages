@@ -38,7 +38,7 @@ struct OnboardingSpiritualIntroView: View {
                                 Text("Talk to a priest", tableName: "Onboarding")
                                     .font(MissaleFont.body(17, weight: .medium))
                                     .foregroundStyle(Palette.ink)
-                                Text("Confession, or simply a conversation. We can show you the nearest parish office and its hours.", tableName: "Onboarding")
+                                Text("Confession, or simply a conversation. Maps can show you the Catholic churches nearby; the parish itself will tell you its hours.", tableName: "Onboarding")
                                     .font(MissaleFont.body(15))
                                     .foregroundStyle(Palette.ink.opacity(0.72))
                             }

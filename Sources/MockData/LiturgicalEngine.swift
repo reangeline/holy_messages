@@ -171,8 +171,20 @@ enum LiturgicalEngine {
             sundayCycle: cycle, weekdayCycle: weekdayCycle,
             isHolyDayOfObligation: weekday(of: date) == 1,
             isAbstinenceDay: weekday(of: date) == 6,
-            explanation: isGaudete ? n.gaudeteExplanation : n.adventExplanation
+            explanation: isGaudete ? n.gaudeteExplanation : adventExplanation(date, weekIndex: weekIndex, names: n)
         )
+    }
+
+    /// Each week has its own sentence, and 17–24 December one per day: the
+    /// whole season used to repeat "Advent: four weeks of waiting".
+    private static func adventExplanation(_ date: Date, weekIndex: Int, names n: LiturgicalNames) -> String {
+        let cal = Calendar.gregorianUTC
+        let dia = cal.component(.day, from: date)
+        if cal.component(.month, from: date) == 12, dia >= 17, dia - 17 < n.lateAdventExplanations.count {
+            return n.lateAdventExplanations[dia - 17]
+        }
+        let semana = min(max(weekIndex, 1), n.adventWeekExplanations.count) - 1
+        return n.adventWeekExplanations.indices.contains(semana) ? n.adventWeekExplanations[semana] : n.adventExplanation
     }
 
     private static func christmasDay(_ date: Date, baptism: Date, cycle: String, weekdayCycle: String, dateKey: String) -> ComputedDay {

@@ -29,9 +29,38 @@ extension MockLiturgical {
 }
 
 enum MockLiturgical {
-    /// The app's fixed "today" for this mocked-data pass, matching the design's demo day.
-    /// One catalog per language — see LocalizedCatalog.
-    static var today: LiturgicalDay { todayCatalog.current }
+    /// The reader's real day, from the engine. It used to be the design's demo
+    /// day, 14 September, forever — the header, the saint and the word of the
+    /// day never moved. The hand-written 14 and 15 September are kept only for
+    /// their fuller explanation, when the real date lands on them.
+    static var today: LiturgicalDay { day(for: currentDate) }
+
+    static var tomorrow: LiturgicalDay {
+        day(for: Calendar.gregorianUTC.date(byAdding: .day, value: 1, to: currentDate)!)
+    }
+
+    /// Today's civil date, as the UTC midnight the engine works in.
+    static var currentDate: Date {
+#if DEBUG
+        // `-demoDate 2026-09-14` fixa o dia, para os testes de interface e as
+        // capturas da App Store saírem sempre iguais.
+        if let fixo = UserDefaults.standard.string(forKey: "demoDate"), let data = date(fromKey: fixo) {
+            return data
+        }
+#endif
+        let c = Calendar.current.dateComponents([.year, .month, .day], from: .now)
+        return Calendar.gregorianUTC.date(from: c)!
+    }
+
+    static func day(for date: Date) -> LiturgicalDay {
+        let computed = LiturgicalEngine.day(for: date)
+        if let authored = [todayCatalog.current, tomorrowCatalog.current].first(where: { $0.dateKey == computed.dateKey }) {
+            return authored
+        }
+        return LiturgicalDay(dateKey: computed.dateKey, seasonName: computed.seasonLabel,
+                             feastName: computed.feastName, rank: computed.rank,
+                             color: computed.color, explanation: computed.explanation)
+    }
 
     static let todayCatalog = LocalizedCatalog(pt: ptToday, en: enToday, es: esToday)
 
@@ -65,8 +94,6 @@ enum MockLiturgical {
         color: .red,
         explanation: "El rojo es el color de la sangre y del fuego: mártires, Pentecostés y la Cruz. Hoy la Iglesia celebra la Exaltación de la Santa Cruz, por eso la liturgia usa el rojo."
     )
-
-    static var tomorrow: LiturgicalDay { tomorrowCatalog.current }
 
     static let tomorrowCatalog = LocalizedCatalog(pt: ptTomorrow, en: enTomorrow, es: esTomorrow)
 
@@ -165,68 +192,6 @@ enum MockLiturgical {
         .init(id: "ordinary", name: "Tiempo Ordinario", dateRange: "12 ene – 17 feb · 25 may – 28 nov", color: .green, summaryLine: "La vida ordinaria de la Iglesia, semana tras semana."),
     ]
 
-    static var lentRetrospective: SeasonRetrospective { lentRetrospectiveCatalog.current }
-
-    static let lentRetrospectiveCatalog = LocalizedCatalog(
-        pt: ptLentRetrospective,
-        en: enLentRetrospective,
-        es: esLentRetrospective
-    )
-
-    private static let ptLentRetrospective = SeasonRetrospective(
-        seasonID: "lent",
-        seasonLabel: "Quaresma · 5 mar a 17 abr",
-        color: .purple,
-        title: "Sua Quaresma",
-        narrative: "Você atravessou os quarenta dias em aridez, e foi até o fim deles.",
-        accompaniments: [
-            "40 dias seguidos de Terço, do primeiro ao último",
-            "Os Salmos 62, 129 e 41 voltaram mais de uma vez",
-            "Santa Teresa de Calcutá e São João da Cruz apareceram sete vezes",
-            "Duas confissões: 12 e 30 de março",
-            "A trilha da Missa chegou à Liturgia Eucarística",
-        ],
-        milestoneTitle: "Marcos",
-        milestoneBody: "Você voltou a rezar em março, depois de três semanas sem registro. Na Semana Santa, registrou paz pela primeira vez no ano.",
-        closingLine: "Sua Páscoa começa em 5 de abril e ainda está sendo escrita."
-    )
-
-    private static let enLentRetrospective = SeasonRetrospective(
-        seasonID: "lent",
-        seasonLabel: "Lent · 18 Feb – 2 Apr",
-        color: .purple,
-        title: "Your Lent",
-        narrative: "You went through the forty days in dryness and stayed with them to the end.",
-        accompaniments: [
-            "40 consecutive days of the Rosary, from the first to the last",
-            "Psalms 62, 129, and 41 returned more than once",
-            "St Teresa of Calcutta and St John of the Cross appeared seven times",
-            "Two confessions: 12 and 30 March",
-            "The Mass track reached the Liturgy of the Eucharist",
-        ],
-        milestoneTitle: "Milestones",
-        milestoneBody: "You returned to prayer in March after three weeks without a record. During Holy Week, you recorded peace for the first time that year.",
-        closingLine: "Easter begins on 5 April and is still being written."
-    )
-
-    private static let esLentRetrospective = SeasonRetrospective(
-        seasonID: "lent",
-        seasonLabel: "Cuaresma · 18 feb – 2 abr",
-        color: .purple,
-        title: "Tu Cuaresma",
-        narrative: "Atravesaste los cuarenta días en aridez y los llevaste hasta el final.",
-        accompaniments: [
-            "40 días seguidos de Rosario, del primero al último",
-            "Los Salmos 62, 129 y 41 volvieron más de una vez",
-            "Santa Teresa de Calcuta y san Juan de la Cruz aparecieron siete veces",
-            "Dos confesiones: 12 y 30 de marzo",
-            "La formación sobre la Misa llegó a la Liturgia Eucarística",
-        ],
-        milestoneTitle: "Hitos",
-        milestoneBody: "Volviste a la oración en marzo, después de tres semanas sin registro. En Semana Santa registraste paz por primera vez ese año.",
-        closingLine: "La Pascua comienza el 5 de abril y todavía se está escribiendo."
-    )
-
     /// "Today" and "tomorrow" keep their fuller hand-authored content (it's
     /// what the rest of the app's fixed demo day depends on); every other date
     /// now falls through to LiturgicalEngine instead of showing nothing.
@@ -245,7 +210,40 @@ enum MockLiturgical {
     /// Sunday per the liturgical convention — see LiturgicalWeek. Demo data: no real
     /// lectionary/cycle computation exists yet, so the Sunday/weekday cycle labels
     /// and the Gospel range are illustrative, not computed.
-    static var currentWeek: LiturgicalWeek { currentWeekCatalog.current }
+    ///
+    /// Used only when the real date falls in that week; any other week is built
+    /// from the engine, without the hand-written Gospel thread.
+    static var currentWeek: LiturgicalWeek {
+        let escrita = currentWeekCatalog.current
+        let hoje = today.dateKey
+        if escrita.days.contains(where: { $0.dateKey == hoje }) { return escrita }
+        return computedWeek(containing: currentDate)
+    }
+
+    static func computedWeek(containing date: Date) -> LiturgicalWeek {
+        let cal = Calendar.gregorianUTC
+        let domingo = cal.date(byAdding: .day, value: 1 - cal.component(.weekday, from: date), to: date)!
+        let dias = (0..<7).map { cal.date(byAdding: .day, value: $0, to: domingo)! }
+        let calculados = dias.map(LiturgicalEngine.day(for:))
+        let primeiro = calculados[0]
+        return LiturgicalWeek(
+            id: primeiro.dateKey,
+            name: primeiro.seasonLabel,
+            sundayCycle: L.string("Sunday · Cycle {c}", table: "CalendarSaints").replacingOccurrences(of: "{c}", with: primeiro.sundayCycle),
+            weekdayCycle: L.string("Weekdays · Year {c}", table: "CalendarSaints").replacingOccurrences(of: "{c}", with: primeiro.weekdayCycle),
+            gospelThreadBody: "",
+            whatChangesNote: nil,
+            days: zip(dias, calculados).map { data, dia in
+                LiturgicalWeekDay(dateKey: dia.dateKey,
+                                  dayNumber: cal.component(.day, from: data),
+                                  color: dia.color, rank: dia.rank,
+                                  celebrationName: dia.rank == .weekday ? nil : dia.feastName,
+                                  isHolyDayOfObligation: dia.isHolyDayOfObligation,
+                                  isAbstinenceDay: dia.isAbstinenceDay,
+                                  mysterySet: .forWeekday(dia.weekday))
+            }
+        )
+    }
 
     static let currentWeekCatalog = LocalizedCatalog(pt: ptCurrentWeek, en: enCurrentWeek, es: esCurrentWeek)
 

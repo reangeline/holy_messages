@@ -14,7 +14,7 @@ final class PrayersLanguageUITests: XCTestCase {
     private func launch() -> XCUIApplication {
         let app = XCUIApplication()
         // No -appLanguageOverride: it would outrank what the picker writes.
-        app.launchArguments = ["-subscribed", "1", "-hasCompletedOnboarding", "1", "-openScreen", "settings"]
+        app.launchArguments = ["-demoDate", "2026-09-14", "-subscribed", "1", "-hasCompletedOnboarding", "1", "-openScreen", "settings"]
         app.launch()
         return app
     }

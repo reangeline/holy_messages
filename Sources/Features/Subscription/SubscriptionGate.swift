@@ -29,17 +29,35 @@ import SwiftUI
 /// depends on the entitlement at the moment of the tap: a reader who
 /// subscribes in the sheet should land on the screen they asked for.
 struct GatedLink<Label: View, Destination: View>: View {
+    /// When the caller owns the navigation (and its `navigationDestination`),
+    /// so the destination can pop itself by setting this back to false. Without
+    /// it, the Examen's "Encerrar" cleared a flag nobody had set, and did nothing.
+    var presented: Binding<Bool>? = nil
     @ViewBuilder let destination: () -> Destination
     @ViewBuilder let label: () -> Label
 
     @ObservedObject private var store = SubscriptionStore.shared
     @State private var showPaywall = false
-    @State private var abrirDestino = false
+    @State private var abrirDestinoInterno = false
+
+    private var abrirDestino: Bool {
+        get { presented?.wrappedValue ?? abrirDestinoInterno }
+        nonmutating set {
+            if let presented { presented.wrappedValue = newValue } else { abrirDestinoInterno = newValue }
+        }
+    }
 
     var body: some View {
         Button {
             if store.isSubscribed {
                 abrirDestino = true
+            } else if !store.isEntitlementKnown {
+                // Ainda lendo a assinatura: espera a resposta em vez de abrir
+                // o paywall para quem já assina.
+                Task {
+                    await store.refreshOnForeground()
+                    if store.isSubscribed { abrirDestino = true } else { showPaywall = true }
+                }
             } else {
                 showPaywall = true
             }
@@ -47,7 +65,8 @@ struct GatedLink<Label: View, Destination: View>: View {
             label()
         }
         .buttonStyle(.plain)
-        .navigationDestination(isPresented: $abrirDestino) { destination() }
+        // Com `presented`, este destino nunca abre: quem chama tem o seu.
+        .navigationDestination(isPresented: $abrirDestinoInterno) { destination() }
         .sheet(isPresented: $showPaywall, onDismiss: {
             // Assinou dentro da folha: abre o que a pessoa foi buscar.
             if store.isSubscribed { abrirDestino = true }
@@ -71,6 +90,11 @@ struct GatedTab<Content: View>: View {
     var body: some View {
         if store.isSubscribed {
             content()
+        } else if !store.isEntitlementKnown {
+            // StoreKit ainda não respondeu: fundo neutro em vez do cadeado,
+            // para quem assina não ver a tela de bloqueio ao reabrir o app.
+            LiturgicalColor.red.pageBackground
+                .hubTabBarOverlay()
         } else {
             ZStack {
                 LiturgicalColor.red.pageBackground

@@ -4,11 +4,19 @@ import SwiftUI
 struct SaintsArchiveView: View {
     @State private var query = ""
     @State private var selectedTab = 0
-    private let tabs = [L.string( "September", table: "CalendarSaints"), L.string( "Search all", table: "CalendarSaints")]
+    /// The first tab is the real current month — it said "September" for
+    /// everyone and filtered nothing; the second is the whole archive.
+    private var tabs: [String] {
+        [DateKeyLabel.month(fromKey: MockLiturgical.today.dateKey), L.string("Search all", table: "CalendarSaints")]
+    }
 
     private var filtered: [SaintOfDay] {
-        guard !query.isEmpty else { return MockSaints.archive }
-        return MockSaints.archive.filter {
+        let mes = String(MockLiturgical.today.dateKey.dropFirst(5).prefix(2))
+        let base = selectedTab == 0 && query.isEmpty
+            ? MockSaints.archive.filter { $0.dateKey.hasPrefix(mes) }
+            : MockSaints.archive
+        guard !query.isEmpty else { return base }
+        return base.filter {
             $0.saint.name.localizedCaseInsensitiveContains(query)
             || $0.saint.role.localizedCaseInsensitiveContains(query)
         }
@@ -81,7 +89,7 @@ struct SaintsArchiveView: View {
                 HStack {
                     Text(entry.saint.role).font(MissaleFont.body(14)).foregroundStyle(Palette.ink.opacity(0.6))
                     Spacer()
-                    Text(DateKeyLabel.dayMonth(fromKey: "2026-" + entry.dateKey))
+                    Text(DateKeyLabel.dayMonth(fromKey: "\(MockLiturgical.today.dateKey.prefix(4))-" + entry.dateKey))
                         .font(MissaleFont.body(14)).foregroundStyle(Palette.ink.opacity(0.5))
                 }
             }

@@ -50,6 +50,20 @@ final class SubscriptionStore: ObservableObject {
     /// UserDefaults is a flag someone can flip.
     @Published private(set) var entitledByStore = false
 
+    /// False until `Transaction.currentEntitlements` has been read once since
+    /// launch. Before that, "not entitled" means "not known yet": a subscriber
+    /// who reopened the app was shown the locked tabs for the second or two
+    /// it took StoreKit to answer.
+    @Published private(set) var hasResolvedEntitlement = false
+
+    /// Whether the gates can decide yet. Always true when forced in DEBUG.
+    var isEntitlementKnown: Bool {
+#if DEBUG
+        if debugForcedSubscription { return true }
+#endif
+        return hasResolvedEntitlement
+    }
+
     var isSubscribed: Bool {
 #if DEBUG
         if debugForcedSubscription { return true }
@@ -76,6 +90,9 @@ final class SubscriptionStore: ObservableObject {
     private var updates: Task<Void, Never>?
 
     private init() {
+        // Read at launch, not only when the paywall opens — otherwise the gates
+        // would wait for `Transaction.updates`, which may never fire.
+        Task { [weak self] in await self?.refreshEntitlement() }
         // Purchases made outside the app — a renewal, a refund, a family-sharing
         // change, a purchase begun in the App Store — arrive here.
         updates = Task { [weak self] in
@@ -137,6 +154,13 @@ final class SubscriptionStore: ObservableObject {
             if let expiry = transaction.expirationDate, expiry > .now { ativa = true }
         }
         entitledByStore = ativa
+        hasResolvedEntitlement = true
+    }
+
+    /// Called when the app returns to the foreground, so a subscription that
+    /// lapsed or renewed while it was closed is reflected without a relaunch.
+    func refreshOnForeground() async {
+        await refreshEntitlement()
     }
 }
 

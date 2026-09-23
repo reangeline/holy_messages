@@ -199,28 +199,6 @@
         }
       }
     },
-    "Confession, or simply a conversation. We can show you the nearest parish office and its hours.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Confession, or simply a conversation. We can show you the nearest parish office and its hours."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Confesión, o simplemente una conversación. Podemos mostrarte la parroquia más cercana y sus horarios."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Confissão, ou apenas uma conversa. Podemos mostrar a paróquia mais perto e os horários."
-          }
-        }
-      }
-    },
     "Consolation and desolation, dryness, doubt, weight. Not a mood test, not a score, no diagnosis — the vocabulary the Church uses for what a soul carries.": {
       "localizations": {
         "en": {
@@ -1869,6 +1847,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "“{quote}” {reference} — y la parte 1 de {track}."
+          }
+        }
+      }
+    },
+    "Confession, or simply a conversation. Maps can show you the Catholic churches nearby; the parish itself will tell you its hours.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Confession, or simply a conversation. Maps can show you the Catholic churches nearby; the parish itself will tell you its hours."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Confesión, o simplemente una conversación. Mapas te muestra las iglesias católicas cercanas; los horarios, te los da la propia parroquia."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Confissão, ou só uma conversa. O Mapas mostra as igrejas católicas perto de você; os horários, a própria paróquia informa."
           }
         }
       }

@@ -22,23 +22,27 @@ struct SeasonRetrospectiveView: View {
                             .font(MissaleFont.display(22, italic: true))
                     }
 
-                    GlassCard {
-                        VStack(alignment: .leading, spacing: 10) {
-                            Eyebrow(text: L.string( "What accompanied the way", table: "CalendarSaints"))
-                            VStack(alignment: .leading, spacing: 9) {
-                                ForEach(retrospective.accompaniments, id: \.self) { line in
-                                    Text(line).font(MissaleFont.body(16))
+                    if !retrospective.accompaniments.isEmpty {
+                        GlassCard {
+                            VStack(alignment: .leading, spacing: 10) {
+                                Eyebrow(text: L.string( "What accompanied the way", table: "CalendarSaints"))
+                                VStack(alignment: .leading, spacing: 9) {
+                                    ForEach(retrospective.accompaniments, id: \.self) { line in
+                                        Text(line).font(MissaleFont.body(16))
+                                    }
                                 }
                             }
                         }
                     }
 
-                    LiturgicalGradientCard(color: retrospective.color) {
-                        VStack(alignment: .leading, spacing: 8) {
-                            Eyebrow(text: retrospective.milestoneTitle, color: Palette.goldBright)
-                            Text(retrospective.milestoneBody)
-                                .font(MissaleFont.body(17))
-                                .foregroundStyle(.white)
+                    if !retrospective.milestoneBody.isEmpty {
+                        LiturgicalGradientCard(color: retrospective.color) {
+                            VStack(alignment: .leading, spacing: 8) {
+                                Eyebrow(text: retrospective.milestoneTitle, color: Palette.goldBright)
+                                Text(retrospective.milestoneBody)
+                                    .font(MissaleFont.body(17))
+                                    .foregroundStyle(.white)
+                            }
                         }
                     }
 

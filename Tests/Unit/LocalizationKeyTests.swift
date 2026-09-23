@@ -76,6 +76,7 @@ final class LocalizationKeyTests: XCTestCase {
     private let identicasPorDireito: Set<String> = [
         "part {n} of {total}",          // "parte {n} de {total}" nos dois
         "Missale Premium · yearly",     // "Missale Premium · anual" nos dois
+        "Sunday · Cycle {c}",           // "Domingo · Ciclo {c}" nos dois
     ]
 
     /// And a long text identical in Portuguese and Spanish is an entry that was

@@ -39,7 +39,9 @@ struct WordOfDayView: View {
                                 Text(word.quote)
                                     .font(MissaleFont.display(24, italic: true))
                                     .foregroundStyle(.white)
-                                Text("\(word.reference) · \(word.translationNote)")
+                                // Só a edição, curta: o texto completo de domínio público está nos
+                                // Termos de Uso, §3.
+                                Text("\(word.reference) · \(word.shortSource)")
                                     .font(MissaleFont.body(14))
                                     .foregroundStyle(.white.opacity(0.85))
                             }

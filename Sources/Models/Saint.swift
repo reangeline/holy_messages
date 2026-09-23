@@ -14,6 +14,19 @@ struct Saint: Identifiable, Codable, Hashable {
     /// for this saint. Nil falls back to SaintPortraitPlaceholder — most saints
     /// have no art yet, and a striped placeholder is honest about that.
     var artworkName: String? = nil
+    /// Miracles and well-known episodes — Francis and the wolf of Gubbio, Rita
+    /// and the rose in winter — each with its source. Empty until the research
+    /// batch carries a `stories` list for the record; the screen hides the
+    /// section when there is none.
+    var stories: [SaintStory] = []
+}
+
+struct SaintStory: Codable, Hashable {
+    let title: String
+    let body: String
+    /// Where the account comes from, shown under it: a Vatican page, a
+    /// shrine, a hagiography with its edition.
+    let source: String
 }
 
 /// The sanctoral cycle differs by calendar region: the General Roman Calendar plus

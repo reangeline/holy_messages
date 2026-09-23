@@ -19,7 +19,7 @@ final class LanguageSwitchUITests: XCTestCase {
 
     private func launchInSettings() -> XCUIApplication {
         let app = XCUIApplication()
-        app.launchArguments = ["-hasCompletedOnboarding", "1", "-openScreen", "settings"]
+        app.launchArguments = ["-demoDate", "2026-09-14", "-hasCompletedOnboarding", "1", "-openScreen", "settings"]
         app.launch()
         return app
     }

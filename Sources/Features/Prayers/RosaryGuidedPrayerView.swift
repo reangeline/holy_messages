@@ -4,8 +4,11 @@ import SwiftUI
 struct RosaryGuidedPrayerView: View {
     let mystery: RosaryMystery
     var beginnerMode: Bool = true
+    /// Reads each bead aloud and advances when it finishes — see RosaryVoiceGuide.
+    var voiceGuiding: Bool = false
     var intention: String = ""
 
+    @StateObject private var voice = RosaryVoiceGuide()
     @State private var index = 0
     @State private var navigateToDark = false
     @State private var hasRecorded = false
@@ -23,20 +26,32 @@ struct RosaryGuidedPrayerView: View {
                 beadRow
                     .padding(.top, 18)
 
-                Spacer()
-
-                if isFinished {
-                    completionCard
-                } else {
-                    let bead = beads[index]
-                    let step = MockRosary.step(for: bead, mystery: mystery)
-                    mainCard(step: step)
+                // Rola quando o texto não cabe: entre dois Spacers, sem rolagem,
+                // o SwiftUI cortava o fruto do mistério com "…".
+                GeometryReader { geo in
+                    ScrollView {
+                        VStack {
+                            Spacer(minLength: 0)
+                            if isFinished {
+                                completionCard
+                            } else {
+                                let bead = beads[index]
+                                let step = MockRosary.step(for: bead, mystery: mystery)
+                                mainCard(step: step)
+                            }
+                            Spacer(minLength: 0)
+                        }
+                        .frame(minHeight: geo.size.height)
+                    }
+                    .scrollBounceBehavior(.basedOnSize)
                 }
 
-                Spacer()
-
                 if !isFinished {
-                    Text(L.string("Tap anywhere to advance. Auto-advance is on.", table: "Prayers"))
+                    // "Avanço automático está ligado" aparecia sempre, e não
+                    // existia avanço automático: agora só com a voz ligada.
+                    Text(voiceGuiding
+                         ? L.string("Tap anywhere to advance. Auto-advance is on.", table: "Prayers")
+                         : L.string("Tap anywhere to advance.", table: "Prayers"))
                         .font(MissaleFont.body(13))
                         .foregroundStyle(Palette.ink.opacity(0.55))
                         .multilineTextAlignment(.center)
@@ -53,6 +68,7 @@ struct RosaryGuidedPrayerView: View {
             }
         }
         .onChange(of: index, initial: true) { _, _ in
+            speakCurrentBead()
             guard isFinished, !hasRecorded else { return }
             hasRecorded = true
             RosaryHistoryStore.shared.record(
@@ -61,11 +77,12 @@ struct RosaryGuidedPrayerView: View {
                 intention: intention
             )
         }
+        .onDisappear { voice.finish() }
         .navigationTitle("")
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
         .navigationDestination(isPresented: $navigateToDark) {
-            RosaryDarkModeView(mystery: mystery, startIndex: index, beginnerMode: beginnerMode, intention: intention)
+            RosaryDarkModeView(mystery: mystery, startIndex: index, beginnerMode: beginnerMode, voiceGuiding: voiceGuiding, intention: intention)
         }
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
@@ -78,6 +95,19 @@ struct RosaryGuidedPrayerView: View {
                     .font(MissaleFont.body(15))
                     .foregroundStyle(Palette.wine)
             }
+        }
+    }
+
+    /// With the voice on, reads the bead on screen and moves to the next one
+    /// when it finishes. A tap still advances at once and cuts the voice.
+    private func speakCurrentBead() {
+        guard voiceGuiding, !navigateToDark else { return voice.stop() }
+        guard !isFinished else { return voice.finish() }
+        let step = MockRosary.step(for: beads[index], mystery: mystery)
+        let atual = index
+        voice.speak(step.spokenText) {
+            guard index == atual, !isFinished else { return }
+            withAnimation(.easeInOut(duration: 0.2)) { index += 1 }
         }
     }
 
@@ -247,6 +277,9 @@ struct RosaryGuidedPrayerView: View {
                     .foregroundStyle(Palette.ink.opacity(0.7))
                     .multilineTextAlignment(.center)
             }
+            // O GlassCard alinha à esquerda; sem isto a cruz, o título e a
+            // frase ficavam tortos dentro do cartão.
+            .frame(maxWidth: .infinity)
         }
         .padding(.horizontal, 24)
     }

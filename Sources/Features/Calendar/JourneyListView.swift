@@ -15,16 +15,18 @@ struct JourneyListView: View {
                         .foregroundStyle(Palette.ink.opacity(0.7))
                         .padding(.bottom, 6)
 
-                    ForEach(MockLiturgical.seasons) { season in
-                        if season.id == MockLiturgical.lentRetrospective.seasonID {
+                    // Todo tempo que já começou abre; só o que ainda não chegou
+                    // fica apagado. Antes só a Quaresma abria, com um texto fixo.
+                    ForEach(SeasonJourney.currentYear()) { entry in
+                        if entry.status == .upcoming {
+                            seasonRow(entry.season, disabled: true)
+                        } else {
                             NavigationLink {
-                                SeasonRetrospectiveView(retrospective: MockLiturgical.lentRetrospective)
+                                SeasonRetrospectiveView(retrospective: SeasonJourney.retrospective(for: entry))
                             } label: {
-                                seasonRow(season)
+                                seasonRow(entry.season, current: entry.status == .current)
                             }
                             .buttonStyle(.plain)
-                        } else {
-                            seasonRow(season, disabled: true)
                         }
                     }
 
@@ -38,14 +40,9 @@ struct JourneyListView: View {
             }
         }
         .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .principal) {
-                Text("September", tableName: "CalendarSaints").font(MissaleFont.body(15, weight: .medium))
-            }
-        }
     }
 
-    private func seasonRow(_ season: LiturgicalSeason, disabled: Bool = false) -> some View {
+    private func seasonRow(_ season: LiturgicalSeason, disabled: Bool = false, current: Bool = false) -> some View {
         GlassCard {
             VStack(alignment: .leading, spacing: 7) {
                 HStack {
@@ -61,7 +58,11 @@ struct JourneyListView: View {
                 Text(season.summaryLine)
                     .font(MissaleFont.body(15))
                     .foregroundStyle(Palette.ink.opacity(0.74))
-                if disabled {
+                if current {
+                    Text("Under way", tableName: "CalendarSaints")
+                        .font(MissaleFont.body(12))
+                        .foregroundStyle(season.color.accent)
+                } else if disabled {
                     Text("Not yet crossed", tableName: "CalendarSaints")
                         .font(MissaleFont.body(12))
                         .foregroundStyle(Palette.ink.opacity(0.4))

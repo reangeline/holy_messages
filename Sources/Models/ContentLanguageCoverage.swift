@@ -13,7 +13,6 @@ enum ContentLanguageCoverage {
             LiturgicalSanctoral.catalog.hasOwnCatalog(for: language),
             MockLiturgical.currentWeekCatalog.hasOwnCatalog(for: language),
             MockLiturgical.glossaryCatalog.hasOwnCatalog(for: language),
-            MockLiturgical.lentRetrospectiveCatalog.hasOwnCatalog(for: language),
             MockLiturgical.ranksExplainerCatalog.hasOwnCatalog(for: language),
             MockLiturgical.seasonsCatalog.hasOwnCatalog(for: language),
             MockLiturgical.todayCatalog.hasOwnCatalog(for: language),

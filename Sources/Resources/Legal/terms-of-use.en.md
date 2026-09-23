@@ -42,7 +42,20 @@ Holy See, and each language quotes an edition of its own — never a translation
 made by us from another language.
 
 Historical editions keep their original spelling and **are not the current
-liturgical translation**. Where that matters, the screen says so.
+liturgical translation**. The screen shows only the edition's name and year;
+the full reference is here.
+
+The Bible editions used for the word of the day are:
+
+- Portuguese: António Pereira de Figueiredo, *Biblia Sagrada Illustrada*, Porto,
+  1896; and Matos Soares, *Bíblia Sagrada*, 1956. Historical Catholic editions
+  in the public domain, with their spelling preserved. Not the current CNBB
+  liturgical translation.
+- English: Douay-Rheims, 1899 edition, marked public domain by eBible.org. Not
+  the current USCCB liturgical translation.
+- Spanish: Félix Torres Amat, *Sagrada Biblia*, Madrid, 1823, and the *Biblia
+  de Oro*, 1884. Historical Catholic editions in the public domain. Not the
+  current CEE liturgical translation.
 
 Images of saints and shrines come from public-domain works or from art produced
 for this app, with the credit recorded in the content archive.

@@ -5,8 +5,12 @@ struct RosaryDarkModeView: View {
     let mystery: RosaryMystery
     let startIndex: Int
     var beginnerMode: Bool = true
+    /// Reads each bead aloud and advances when it finishes — the mode where a
+    /// voice matters most, with the phone in a pocket.
+    var voiceGuiding: Bool = false
     var intention: String = ""
 
+    @StateObject private var voice = RosaryVoiceGuide()
     @State private var index: Int = 0
     @State private var hasRecorded = false
     @Environment(\.dismiss) private var dismiss
@@ -75,10 +79,12 @@ struct RosaryDarkModeView: View {
             generator.prepare()
         }
         .onChange(of: index, initial: true) { _, _ in
+            speakCurrentBead()
             guard isFinished, !hasRecorded else { return }
             hasRecorded = true
             RosaryHistoryStore.shared.record(mysterySet: mystery.mysterySet, modeLabel: "Tela apagada", intention: intention)
         }
+        .onDisappear { voice.finish() }
         .toolbarBackground(.hidden, for: .navigationBar)
         .navigationBarBackButtonHidden(true)
         .toolbar {
@@ -93,6 +99,18 @@ struct RosaryDarkModeView: View {
                     .tracking(1.2)
                     .foregroundStyle(.white.opacity(0.4))
             }
+        }
+    }
+
+    private func speakCurrentBead() {
+        guard voiceGuiding else { return }
+        guard !isFinished else { return voice.finish() }
+        let step = MockRosary.step(for: beads[index], mystery: mystery)
+        let atual = index
+        voice.speak(step.spokenText) {
+            guard index == atual, !isFinished else { return }
+            generator.impactOccurred()
+            withAnimation(.easeInOut(duration: 0.15)) { index += 1 }
         }
     }
 

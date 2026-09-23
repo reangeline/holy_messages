@@ -331,28 +331,6 @@
         }
       }
     },
-    "Human voice guiding": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Human voice guiding"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Voz humana guiando"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Voz humana guiando"
-          }
-        }
-      }
-    },
     "If you've never prayed it, start here. Almost everyone gets stuck on the mechanics, not the faith.": {
       "localizations": {
         "en": {
@@ -1187,6 +1165,50 @@
           "stringUnit": {
             "state": "translated",
             "value": "‹ Sair"
+          }
+        }
+      }
+    },
+    "Tap anywhere to advance.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tap anywhere to advance."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toque en cualquier lugar para avanzar."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toque em qualquer lugar para avançar."
+          }
+        }
+      }
+    },
+    "Voice reading the prayers": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Voice reading the prayers"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Voz leyendo las oraciones"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Voz lendo as orações"
           }
         }
       }

@@ -25,7 +25,7 @@ struct LiturgicalWeekView: View {
                     header
                     weekStrip
                     dayDetail
-                    gospelThread
+                    if !week.gospelThreadBody.isEmpty { gospelThread }
                     if let note = week.whatChangesNote {
                         whatChanges(note)
                     }

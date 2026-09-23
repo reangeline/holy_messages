@@ -43,6 +43,13 @@ enum DateKeyLabel {
     }
 
     /// "14 de setembro" · "September 14" · "14 de septiembre"
+    /// "Setembro" · "December" — the month of the key, for a screen's title.
+    static func month(fromKey key: String) -> String {
+        guard let date = date(fromKey: key) else { return "" }
+        let nome = formatter(template: "LLLL").string(from: date)
+        return nome.prefix(1).localizedUppercase + nome.dropFirst()
+    }
+
     static func dayMonth(fromKey key: String) -> String {
         guard let date = date(fromKey: key) else { return "" }
         return formatter(template: "dMMMM").string(from: date)
