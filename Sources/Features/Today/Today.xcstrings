@@ -3005,6 +3005,29 @@
           }
         }
       }
+    },
+    "DE MANHÃ VOCÊ ESCREVEU": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "THIS MORNING YOU WROTE"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ESTA MAÑANA ESCRIBISTE"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "DE MANHÃ VOCÊ ESCREVEU"
+          }
+        }
+      }
     }
   },
   "version": "1.0"

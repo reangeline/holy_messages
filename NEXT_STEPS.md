@@ -126,7 +126,7 @@ Do 2.0 (1):
 - Devocional para mandar uma mensagem a alguém conhecido.
 - Áudios gravados com as orações (hoje a voz é a síntese do aparelho).
 - Avaliar os termos do suporte.
-- Aparições: uma sem imagem, e acrescentar mais duas (ver §3.3).
+- Aparições: falta a imagem de Knock (as três fichas novas entraram, §3.3).
 
 Do 2.0 (2), sem a tela no texto do feedback — conferir pela captura antes de
 apagar:
@@ -138,7 +138,7 @@ apagar:
 - "Essa primeira parte está confusa" (o começo do onboarding foi refeito).
 
 Do 2.0 (3), o que depende de conteúdo:
-- Santo do dia: só 35 dias do ano têm santo registrado. Nos outros, o app agora
+- Santo do dia: 43 dias do ano têm santo registrado. Nos outros, o app agora
   mostra "Um santo para conhecer", um diferente a cada dia; o completo é o
   trabalho de §3.2.
 
@@ -175,20 +175,25 @@ Estimativa: lotes de ~30 datas, 4 ou 5 sessões.
 
 Cada ficha precisa de datas, função, grau, nota de calendário, parágrafos
 biográficos factuais, "por que importa hoje" e a invocação da Ladainha — com
-fonte por registro. As 37 atuais vieram de sete lotes de pesquisa.
+fonte por registro. As 37 primeiras vieram de sete lotes de pesquisa em
+`~/Documents`; o segundo lote (24/09, `scripts/lotes/santos-segundo-lote`,
+importado por `scripts/import_saints_batch.py`) trouxe mais 8 para o fim de
+setembro e outubro: Cosme e Damião, Arcanjos, Jerônimo, Faustina, Bruno,
+João XXIII, Inácio de Antioquia e Lucas. Nenhum dos 8 tem arte ainda.
+
+Os lotes seguintes podem seguir o mesmo caminho, um arquivo gerado por lote.
 
 Dá para fazer em lotes de 5 fichas, com fonte verificada (vaticano,
 martirológio, santuários). Estimativa: 12 a 15 sessões. **Sugiro tratar como
 trabalho de fundo**, não como bloqueio.
 
-### 3.3 Três aparições com imagem e sem ficha — curto, e destrava arte parada
+### 3.3 Aparições — feito, falta a arte de Knock
 
-Aparecida, Lourdes e Graças têm arte no bundle e **nenhuma ficha**. Knock tem
-ficha e nenhuma imagem (a tela desenha o marcador listrado, honesto).
-
-Os três santuários publicam a documentação online — é o mesmo trabalho que fiz
-nas Completas. **Uma sessão curta.** Sem as fichas, três imagens ocupam o bundle
-sem uso.
+Aparecida, Lourdes e Rue du Bac (Nossa Senhora das Graças) ganharam ficha com
+fonte dos santuários, nos três idiomas, e agora usam a arte que estava parada
+no bundle. Ficam no segundo lote, `scripts/lotes/aparicoes-segundo-lote`, com
+arquivo gerado próprio, para reimportar o primeiro lote (em `~/Documents`) não
+apagar estas. Knock continua com ficha e sem imagem: falta a arte.
 
 ### 3.4 Revisão editorial — 762 registros
 
@@ -243,13 +248,12 @@ privacidade e os termos passam a mentir.
 
 ## 6. Ordem que eu sugiro
 
-1. **As três aparições** (§3.3) — curto, destrava arte parada no bundle.
-2. **A captura de revisão** (§1.1) e **hospedar a política** (§1.2) — suas.
-3. **Teste em aparelho real** da compra e da restauração (§1.4) — o maior risco
+1. **A captura de revisão** (§1.1) e **hospedar a política** (§1.2) — suas.
+2. **Teste em aparelho real** da compra e da restauração (§1.4) — o maior risco
    não testado.
-4. **As festas de data fixa** (§3.1) — fonte única, ganho grande.
-5. **Os santos** (§3.2) — trabalho de fundo.
-6. **Devolver apagar e exportar** (§2.3) antes que o acervo pessoal cresça.
+3. **As festas de data fixa** (§3.1) — fonte única, ganho grande.
+4. **Os santos** (§3.2) — trabalho de fundo.
+5. **Devolver apagar e exportar** (§2.3) antes que o acervo pessoal cresça.
 
 ---
 

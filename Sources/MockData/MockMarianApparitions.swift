@@ -6,9 +6,12 @@ enum MockMarianApparitions {
     /// Portuguese content into the English or Spanish calendar.
     static var all: [MarianApparition] { catalog.current }
 
+    /// One generated file per research batch, so reimporting one never drops
+    /// the other: the first batch comes from ~/Documents, the second from
+    /// scripts/lotes/aparicoes-segundo-lote.
     static let catalog = LocalizedCatalog(
-        pt: ptApparitions,
-        en: enApparitions,
-        es: esApparitions
+        pt: ptApparitions + ptApparitionsSecondBatch,
+        en: enApparitions + enApparitionsSecondBatch,
+        es: esApparitions + esApparitionsSecondBatch
     )
 }

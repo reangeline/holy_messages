@@ -34,13 +34,14 @@ enum MarianApparitionArt {
     private static let porID = [
         "fatima-1917": "fatima",
         "guadalupe-1531": "guadalupe",
-        // aparecida, lourdes e gracas já têm arte no catálogo, mas ainda não
-        // têm ficha com fonte; assim que a ficha entrar, basta a linha aqui.
+        "aparecida-1717": "aparecida",
+        "lourdes-1858": "lourdes",
+        "rue-du-bac-1830": "gracas",
     ]
 
     static func artwork(forID id: String) -> String? { porID[id] }
 
     /// Art present in the catalog with no record to attach it to. Surfaced by
     /// a test so the gap stays visible instead of sitting unused in the bundle.
-    static let semFicha = ["aparecida", "lourdes", "gracas"]
+    static let semFicha: [String] = []
 }

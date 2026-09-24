@@ -16,7 +16,7 @@ struct SaintDetailView: View {
                         .frame(height: 190)
 
                     HStack(spacing: 8) {
-                        pill(saint.rank, tinted: true)
+                        pill(saint.displayRank, tinted: true)
                         pill(saint.calendarNote, tinted: false)
                     }
 

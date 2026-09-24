@@ -4,10 +4,19 @@
 As três edições linguísticas são fontes de conteúdo independentes. O
 importador recusa qualquer registro ainda marcado `verificar: true`; assim o
 app nunca apresenta uma fórmula canônica provisória como fato publicado.
+
+Sem argumentos, importa o primeiro lote (em ~/Documents). Um lote seguinte
+vira um arquivo gerado próprio, para reimportar um não apagar o outro:
+
+    python3 scripts/import_marian_apparitions.py \
+        --lote scripts/lotes/aparicoes-segundo-lote \
+        --saida Sources/MockData/Generated/GeneratedMarianApparitionsSecondBatch.swift \
+        --sufixo SecondBatch
 """
 
 from __future__ import annotations
 
+import argparse
 import json
 import pathlib
 import sys
@@ -24,8 +33,8 @@ def swift(value: str) -> str:
     return '"' + value.replace("\\", "\\\\").replace('"', '\\"').replace("\n", "\\n") + '"'
 
 
-def read(language: str) -> list[dict]:
-    path = INPUT / f"apparition_additions.{language}.json"
+def read(folder: pathlib.Path, language: str) -> list[dict]:
+    path = folder / f"apparition_additions.{language}.json"
     try:
         payload = json.loads(path.read_text())
     except FileNotFoundError as error:
@@ -64,8 +73,8 @@ def validate(rows: list[dict], language: str, expected_ids: set[str] | None) -> 
     return ids
 
 
-def render(language: str, rows: list[dict]) -> str:
-    lines = [f"    static let {language}Apparitions: [MarianApparition] = [\n"]
+def render(language: str, rows: list[dict], suffix: str) -> str:
+    lines = [f"    static let {language}Apparitions{suffix}: [MarianApparition] = [\n"]
     for row in rows:
         lines.extend([
             "        .init(\n",
@@ -84,22 +93,27 @@ def render(language: str, rows: list[dict]) -> str:
 
 
 def main() -> None:
-    catalogs = {language: read(language) for language in LANGUAGES}
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--lote", type=pathlib.Path, default=INPUT)
+    parser.add_argument("--saida", type=pathlib.Path, default=OUTPUT)
+    parser.add_argument("--sufixo", default="")
+    args = parser.parse_args()
+    catalogs = {language: read(args.lote, language) for language in LANGUAGES}
     canonical_ids = validate(catalogs["pt"], "pt", None)
     for language in ("en", "es"):
         validate(catalogs[language], language, canonical_ids)
     output = [
         "// GERADO — não editar à mão.\n",
-        "// Origem: ~/Documents/Missale-pesquisa/entregas/aparicoes-marianas-primeiro-lote,\n",
+        f"// Origem: {str(args.lote).replace(str(ROOT), '~')},\n",
         "// importado por scripts/import_marian_apparitions.py.\n\n",
         "import Foundation\n\n",
         "extension MockMarianApparitions {\n",
     ]
     for language in LANGUAGES:
-        output.append(render(language, catalogs[language]))
+        output.append(render(language, catalogs[language], args.sufixo))
     output.append("}\n")
-    OUTPUT.write_text("".join(output))
-    print("Importadas: 3 aparições × 3 idiomas")
+    args.saida.write_text("".join(output))
+    print(f"Importadas: {len(canonical_ids)} aparições × 3 idiomas")
 
 
 if __name__ == "__main__":

@@ -56,3 +56,19 @@ struct SaintOfDay: Identifiable, Codable, Hashable {
     let region: SaintCalendarRegion
     let saint: Saint
 }
+
+extension Saint {
+    /// The rank as the reader's language says it. The first research batches
+    /// wrote it in Portuguese for every language, so an English or Spanish
+    /// page showed "Memória"; known values are translated here, anything else
+    /// is shown as written.
+    var displayRank: String {
+        let byLanguage: [String: [AppLanguage: String]] = [
+            "Solenidade": [.en: "Solemnity", .es: "Solemnidad"],
+            "Festa": [.en: "Feast", .es: "Fiesta"],
+            "Memória": [.en: "Memorial", .es: "Memoria"],
+            "Memória facultativa": [.en: "Optional memorial", .es: "Memoria libre"],
+        ]
+        return byLanguage[rank]?[AppLanguagePreference.resolveCurrent()] ?? rank
+    }
+}

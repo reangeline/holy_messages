@@ -2,14 +2,10 @@ import XCTest
 @testable import Missale
 
 /// The art batch delivered five Marian titles — Aparecida, Fátima, Graças,
-/// Guadalupe, Lourdes — but only three apparitions have a sourced record, and
-/// they are not the same three: Knock has a record and no picture, while
-/// Aparecida, Lourdes and Graças have pictures and no record.
-///
-/// None of that is fixed by code: the three missing records need the same
-/// shrine-sourced research the first batch had. These tests keep the mismatch
-/// measurable instead of leaving unused images in the bundle and a silent gap
-/// in the archive.
+/// Guadalupe, Lourdes — and the second research batch gave Aparecida, Lourdes
+/// and Graças (Rue du Bac) their sourced records. Knock still has a record and
+/// no picture. These tests keep any mismatch measurable instead of leaving
+/// unused images in the bundle and a silent gap in the archive.
 final class MarianApparitionArtTests: XCTestCase {
 
     func testEveryRecordExistsInAllThreeLanguages() {

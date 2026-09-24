@@ -12,6 +12,12 @@ struct ExamenStepView: View {
     @State private var text: String = ""
     @FocusState private var isFocused: Bool
 
+    /// The review step looks back at what the reader hoped for this morning,
+    /// in the Morning Offering — the routine's day read end to end.
+    private var morningIntention: String? {
+        step.number == 3 ? DailyRoutineStore.shared.intention() : nil
+    }
+
     var body: some View {
         ZStack {
             LinearGradient(colors: [Color(hex: 0x1C1618).opacity(0.92), Color(hex: 0x2C1A1E).opacity(0.92)],
@@ -37,6 +43,22 @@ struct ExamenStepView: View {
                     .font(MissaleFont.display(26, weight: .semibold))
                     .foregroundStyle(.white)
                     .fixedSize(horizontal: false, vertical: true)
+
+                if let morningIntention {
+                    VStack(alignment: .leading, spacing: 4) {
+                        Eyebrow(text: L.string("DE MANHÃ VOCÊ ESCREVEU", table: "Today"), color: .white.opacity(0.5))
+                        Text("\u{201C}\(morningIntention)\u{201D}")
+                            .font(MissaleFont.display(19, italic: true))
+                            .foregroundStyle(Palette.goldBright)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(14)
+                    .overlay(alignment: .leading) {
+                        Capsule().fill(Palette.goldBright.opacity(0.6)).frame(width: 2).padding(.vertical, 12)
+                    }
+                    .background(Color.white.opacity(0.05), in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+                }
 
                 TextEditor(text: $text)
                     .focused($isFocused)

@@ -1,0 +1,32 @@
+[
+  {
+    "id": "aparecida-1717",
+    "name": "Nuestra Señora Aparecida",
+    "place": "Río Paraíba do Sul, Guaratinguetá, São Paulo, Brasil",
+    "year": "1717",
+    "visionaries": "Los pescadores João Alves, Felipe Pedroso y Domingos Garcia",
+    "summary": "No es una aparición: el Santuario Nacional registra que en octubre de 1717 tres pescadores sacaron del río Paraíba una pequeña imagen de Nuestra Señora de la Concepción, primero el cuerpo y luego la cabeza, y después una pesca abundante. La devoción nació en torno a esa imagen.",
+    "recognition": "El culto fue aprobado el 5 de mayo de 1743 por el obispo de Río de Janeiro, Dom Frei João da Cruz. Por decreto del 16 de julio de 1930, Pío XI constituyó a Nuestra Señora de la Concepción Aparecida Patrona de Brasil, proclamada el 31 de mayo de 1931.",
+    "fonte": "Santuário Nacional de Aparecida, História de Nossa Senhora Aparecida: https://www.a12.com/santuario/historia-de-nossa-senhora-aparecida-1717; decreto de 1930: https://www.a12.com/academia/artigos/por-que-nossa-senhora-aparecida-e-padroeira-do-brasil"
+  },
+  {
+    "id": "lourdes-1858",
+    "name": "Nuestra Señora de Lourdes",
+    "place": "Gruta de Massabielle, Lourdes, Francia",
+    "year": "1858",
+    "visionaries": "Santa Bernadette Soubirous",
+    "summary": "El Santuario de Lourdes registra dieciocho apariciones a Bernadette Soubirous en la gruta de Massabielle, a partir del 11 de febrero de 1858.",
+    "recognition": "El 18 de enero de 1862, Mons. Laurence, obispo de Tarbes, juzgó en un mandato que la Inmaculada se apareció realmente a Bernadette, dieciocho veces, y que los fieles tienen fundamento para creerlo; autorizó el culto y pidió construir un santuario. El juicio se apoyó en una comisión de investigación abierta en 1858.",
+    "fonte": "Sanctuaire Notre-Dame de Lourdes, La reconnaissance des Apparitions: https://www.lourdes-france.com/reconnaissance-apparitions-lourdes/"
+  },
+  {
+    "id": "rue-du-bac-1830",
+    "name": "Nuestra Señora de la Medalla Milagrosa",
+    "place": "Capilla de las Hijas de la Caridad, Rue du Bac, París, Francia",
+    "year": "1830",
+    "visionaries": "Santa Catalina Labouré",
+    "summary": "La capilla de la Rue du Bac registra tres apariciones a Catalina Labouré, novicia de las Hijas de la Caridad, el 18 de julio, el 27 de noviembre y en diciembre de 1830. El 27 de noviembre, María pidió que se acuñara una medalla con la invocación \"Oh María sin pecado concebida, ruega por nosotros que recurrimos a ti\".",
+    "recognition": "El arzobispo de París, Mons. de Quélen, autorizó las primeras medallas, acuñadas en junio de 1832. La investigación canónica abierta en 1835 quedó incompleta, porque Catalina mantuvo el anonimato; la capilla registra que León XIII aprobó la Misa de la fiesta en 1894 y que Pío XII la canonizó en 1947, tras un proceso que incluyó el examen de las apariciones.",
+    "fonte": "Chapelle Notre-Dame de la Médaille Miraculeuse, 27 novembre 1830: https://www.chapellenotredamedelamedaillemiraculeuse.com/apparitions-et-medaille/27-novembre-1830/; Histoire de la Médaille: https://www.chapellenotredamedelamedaillemiraculeuse.com/apparitions-et-medaille/medaille-miraculeuse/histoire-de-la-medaille/"
+  }
+]
