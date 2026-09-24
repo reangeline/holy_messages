@@ -256,29 +256,4 @@ enum MockOnboarding {
             ]
         }
     }
-
-    // MARK: - Formation-track synthesis steps (dIs14)
-
-    static func planSteps(for language: AppLanguage) -> [(number: Int, title: String, subtitle: String)] {
-        switch language {
-        case .en:
-            [
-                (1, "The Mass, part by part", "One short part a day — you're starting at the Penitential Act."),
-                (2, "The daily verse and saint", "Free, every day, forever."),
-                (3, "The Rosary, guided", "Today's mystery, with a beginner mode and a teaching layer."),
-            ]
-        case .pt:
-            [
-                (1, "A Missa, parte por parte", "Uma parte curta por dia — você começa no Ato Penitencial."),
-                (2, "A palavra e o santo do dia", "Grátis, todo dia, para sempre."),
-                (3, "O Terço, guiado", "O mistério de hoje, com modo iniciante e camada de ensino."),
-            ]
-        case .es:
-            [
-                (1, "La Misa, parte por parte", "Una parte corta al día — empiezas en el Acto Penitencial."),
-                (2, "El versículo y el santo del día", "Gratis, todos los días, para siempre."),
-                (3, "El Rosario, guiado", "El misterio de hoy, con modo principiante y una capa de enseñanza."),
-            ]
-        }
-    }
 }

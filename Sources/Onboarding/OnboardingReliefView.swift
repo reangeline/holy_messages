@@ -18,7 +18,7 @@ struct OnboardingReliefView: View {
                     VStack(alignment: .leading, spacing: 14) {
                         Eyebrow(text: L.string("Before anything else", table: "Onboarding"))
                         Text(relief.title)
-                            .font(MissaleFont.display(27))
+                            .font(MissaleFont.display(30))
                             .foregroundStyle(Palette.ink)
 
                         LiturgicalGradientCard(color: .red) {
@@ -28,10 +28,10 @@ struct OnboardingReliefView: View {
                                     .tracking(1.4)
                                     .foregroundStyle(Palette.goldBright)
                                 Text(relief.psalmText)
-                                    .font(MissaleFont.display(20, italic: true))
+                                    .font(MissaleFont.display(24, italic: true))
                                     .foregroundStyle(.white)
                                 Text(relief.psalmWhy)
-                                    .font(MissaleFont.body(15))
+                                    .font(MissaleFont.body(17))
                                     .foregroundStyle(.white.opacity(0.85))
                             }
                         }
@@ -40,10 +40,10 @@ struct OnboardingReliefView: View {
                             VStack(alignment: .leading, spacing: 6) {
                                 Eyebrow(text: L.string("Someone who went through it", table: "Onboarding"))
                                 Text(relief.saintName)
-                                    .font(MissaleFont.body(17, weight: .medium))
+                                    .font(MissaleFont.body(19, weight: .medium))
                                     .foregroundStyle(Palette.ink)
                                 Text(relief.saintWhy)
-                                    .font(MissaleFont.body(15))
+                                    .font(MissaleFont.body(17))
                                     .foregroundStyle(Palette.ink.opacity(0.75))
                             }
                         }
@@ -52,7 +52,7 @@ struct OnboardingReliefView: View {
                             VStack(alignment: .leading, spacing: 6) {
                                 Eyebrow(text: relief.stepTitle)
                                 Text(relief.stepBody)
-                                    .font(MissaleFont.body(16))
+                                    .font(MissaleFont.body(18))
                                     .foregroundStyle(Palette.ink.opacity(0.85))
                             }
                         }

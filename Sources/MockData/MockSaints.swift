@@ -132,13 +132,16 @@ enum MockSaints {
     /// One catalog per language — see LocalizedCatalog.
     static var calendar: [SaintOfDay] { catalog.current }
 
-    /// The second batch (scripts/lotes/santos-segundo-lote) has its own
+    /// Later batches (scripts/lotes/santos-*-lote) each have their own
     /// generated file, so reimporting the first batch from ~/Documents never
-    /// drops it.
+    /// drops them.
     static let catalog = LocalizedCatalog(
-        pt: ptCalendar + ptImportedCalendar.filter { !handWrittenDates.contains($0.dateKey) } + ptCalendarSecondBatch,
-        en: enImportedCalendar.filter { !handWrittenDates.contains($0.dateKey) } + enCalendar + enCalendarSecondBatch,
-        es: esImportedCalendar.filter { !handWrittenDates.contains($0.dateKey) } + esCalendar + esCalendarSecondBatch
+        pt: ptCalendar + ptImportedCalendar.filter { !handWrittenDates.contains($0.dateKey) }
+            + ptCalendarSecondBatch + ptCalendarThirdBatch,
+        en: enImportedCalendar.filter { !handWrittenDates.contains($0.dateKey) } + enCalendar
+            + enCalendarSecondBatch + enCalendarThirdBatch,
+        es: esImportedCalendar.filter { !handWrittenDates.contains($0.dateKey) } + esCalendar
+            + esCalendarSecondBatch + esCalendarThirdBatch
     )
 
     /// Dates with a hand-written record, which wins over the imported one: those
@@ -211,7 +214,8 @@ enum MockSaints {
         let key = referenceKey(name)
         let id = saintReferenceIDs[key]
             ?? ([notburga, johnGabrielPerboyre] + ptImportedSaints + enImportedSaints + esImportedSaints
-                + ptSaintsSecondBatch + enSaintsSecondBatch + esSaintsSecondBatch)
+                + ptSaintsSecondBatch + enSaintsSecondBatch + esSaintsSecondBatch
+                + ptSaintsThirdBatch + enSaintsThirdBatch + esSaintsThirdBatch)
                 .first { referenceKey($0.name) == key }?.id
         return id.flatMap(saint(withID:))
     }

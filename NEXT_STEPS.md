@@ -138,9 +138,29 @@ apagar:
 - "Essa primeira parte está confusa" (o começo do onboarding foi refeito).
 
 Do 2.0 (3), o que depende de conteúdo:
-- Santo do dia: 43 dias do ano têm santo registrado. Nos outros, o app agora
+- Santo do dia: 53 dias do ano têm santo registrado. Nos outros, o app agora
   mostra "Um santo para conhecer", um diferente a cada dia; o completo é o
   trabalho de §3.2.
+
+### 2.6 Próximas features — pedidas em 24/09
+
+- **Uma história ou curiosidade.** Uma mensagem curta, que muda a cada dia: um
+  episódio da vida de um santo, a origem de um costume, uma curiosidade da
+  liturgia. Precisa de acervo com fonte, como os santos. O modelo `SaintStory`
+  (título, texto, fonte) já existe e pode servir de base.
+- **Comentários em lugares a definir.** É a primeira feature que exige
+  servidor: hoje o app não faz nenhuma requisição de rede (ver `LocalData` e a
+  política). Antes de escrever código: decidir onde se comenta, se há conta ou
+  login, a moderação (denúncia, filtro, quem revisa), e reescrever a política
+  de privacidade e o questionário da App Store, que hoje dizem "nada sai do
+  aparelho". A App Store também exige denúncia e bloqueio em conteúdo gerado
+  por usuários (diretriz 1.2).
+- **Bíblia: marcar, buscar e continuar.** Três partes, todas locais:
+  versículos marcados (destacados e reunidos numa lista), busca por palavra ou
+  referência nos textos que já estão no app, e um marcador de "onde parei"
+  que o leitor põe à mão. O plano do Novo Testamento no Hoje já guarda a
+  posição do roteiro; o marcador da Bíblia seria separado. Novas chaves
+  entram em `LocalData` e na política.
 
 ## 3. O que falta de conteúdo
 
@@ -179,7 +199,10 @@ fonte por registro. As 37 primeiras vieram de sete lotes de pesquisa em
 `~/Documents`; o segundo lote (24/09, `scripts/lotes/santos-segundo-lote`,
 importado por `scripts/import_saints_batch.py`) trouxe mais 8 para o fim de
 setembro e outubro: Cosme e Damião, Arcanjos, Jerônimo, Faustina, Bruno,
-João XXIII, Inácio de Antioquia e Lucas. Nenhum dos 8 tem arte ainda.
+João XXIII, Inácio de Antioquia e Lucas. O terceiro lote (`santos-terceiro-lote`)
+trouxe mais 10 para o fim de outubro e novembro: Paulo da Cruz, Antônio Maria
+Claret, Simão e Judas, Todos os Santos, Carlos Borromeu, Leão Magno, Alberto
+Magno, Isabel da Hungria, Cecília e André. Nenhum dos 18 novos tem arte ainda.
 
 Os lotes seguintes podem seguir o mesmo caminho, um arquivo gerado por lote.
 

@@ -43,15 +43,13 @@ struct OnboardingNotificationPreviewView: View {
                                         .font(.system(size: 12))
                                         .foregroundStyle(Palette.ink.opacity(0.4))
                                 }
-                                Text("\(MockLiturgical.today.feastName) \u{00B7} \(MockLiturgical.today.color.name)")
+                                // Exactly what ReadingReminderScheduler sends: the
+                                // preview used to promise a feast and a formation part
+                                // that the notice never carried.
+                                Text(L.string("Palavra de hoje", table: "Today"))
                                     .font(.system(size: 14, weight: .semibold))
                                     .foregroundStyle(Palette.ink)
-                                // The notification mirrors what the app will actually
-                                // send, so it is composed from the same catalogs.
-                                Text(L.string("\u{201C}{quote}\u{201D} {reference} \u{2014} and part 1 of {track}.", table: "Onboarding")
-                                    .replacingOccurrences(of: "{quote}", with: MockWordOfDay.today.quote)
-                                    .replacingOccurrences(of: "{reference}", with: MockWordOfDay.today.reference)
-                                    .replacingOccurrences(of: "{track}", with: MockFormation.track.title))
+                                Text("\u{201C}\(MockWordOfDay.today.quote)\u{201D} \(MockWordOfDay.today.reference)")
                                     .lineLimit(3)
                                     .font(.system(size: 14))
                                     .foregroundStyle(Palette.ink.opacity(0.8))

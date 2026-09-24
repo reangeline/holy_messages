@@ -1,0 +1,162 @@
+[
+  {
+    "id": "paulo-da-cruz",
+    "dateKey": "10-19",
+    "name": "Saint Paul of the Cross",
+    "lifespan": "1694–1775",
+    "role": "Priest, founder of the Passionists",
+    "rank": "Optional memorial",
+    "calendarNote": "General Roman Calendar · 19 October",
+    "bio": [
+      "Paul Francis Danei was born in Ovada, in the Republic of Genoa, on 3 January 1694. He turned down his father's career as a merchant and, after a time as a soldier, lived as a hermit.",
+      "He founded the Congregation of the Passion, the Passionists, who add to the vows of poverty, chastity and obedience one to keep the memory of Christ's Passion alive among the faithful, preaching above all to the poor. The Rule was approved by Benedict XIV in 1741. He died in Rome on 18 October 1775 and was canonized by Pius IX in 1867."
+    ],
+    "why": "Paul of the Cross looked at the Passion not as a tragedy but as the greatest act of love. Before suffering, one's own or another's, he teaches us to look for Christ's love there.",
+    "prayer": "Saint Paul of the Cross, pray for us.",
+    "fonte": "Vatican News, Santo do dia: https://www.vaticannews.va/pt/santo-do-dia/10/19.html; Passionistas, St. Paul of the Cross: https://passionist.org/about/saints-blesseds/st-paul-of-the-cross/"
+  },
+  {
+    "id": "antonio-maria-claret",
+    "dateKey": "10-24",
+    "name": "Saint Anthony Mary Claret",
+    "lifespan": "1807–1870",
+    "role": "Bishop and missionary, founder of the Claretians",
+    "rank": "Optional memorial",
+    "calendarNote": "General Roman Calendar · 24 October",
+    "bio": [
+      "Anthony Mary Claret was born in Sallent, Catalonia, on 23 December 1807, and worked as a weaver before becoming a priest. He preached popular missions all over Catalonia and in 1849 founded the Missionary Sons of the Immaculate Heart of Mary, the Claretians.",
+      "He was Archbishop of Santiago de Cuba, where he pressed for spiritual and social reforms and defended the poorest, and later confessor to Queen Isabella II of Spain. He died in exile at the Cistercian monastery of Fontfroide, in France, on 24 October 1870."
+    ],
+    "why": "Claret preached all his life, on foot, from the pulpit and through the press. He is a reminder that proclaiming the Gospel takes creativity and courage to reach those who are far away.",
+    "prayer": "Saint Anthony Mary Claret, pray for us.",
+    "fonte": "Vatican News, Santo do dia: https://www.vaticannews.va/pt/santo-do-dia/10/24.html; Catholic Ireland, St Anthony Mary Claret: https://www.catholicireland.net/saintoftheday/st-anthony-mary-claret-1807-70-archbishop-of-santiago-cuba/"
+  },
+  {
+    "id": "simao-judas",
+    "dateKey": "10-28",
+    "name": "Saints Simon and Jude",
+    "lifespan": "1st century",
+    "role": "Apostles",
+    "rank": "Feast",
+    "calendarNote": "General Roman Calendar · 28 October",
+    "bio": [
+      "The Gospels always name the two together in the list of the Twelve. Simon is called \"the Cananean\" in Matthew and \"the Zealot\" in Luke, a sign of burning zeal for the faith of Israel. Jude, also called Thaddeus and \"Judas son of James\", is the one who at the Last Supper asks Jesus why he would reveal himself to the disciples and not to the world.",
+      "Tradition attributes to Jude the New Testament letter that bears his name, an appeal to hold fast to the faith received. Ancient accounts say the two preached in the East and died as martyrs, which is why they are celebrated on the same day."
+    ],
+    "why": "Simon the Zealot and Matthew the tax collector were called into the same group. Jesus gathers very different people, and the Church is made in that reconciled difference.",
+    "prayer": "Saint Simon and Saint Jude, pray for us.",
+    "fonte": "Benedict XVI, General Audience: https://www.vatican.va/content/benedict-xvi/en/audiences/2006/documents/hf_ben-xvi_aud_20061011.html"
+  },
+  {
+    "id": "todos-os-santos",
+    "dateKey": "11-01",
+    "name": "All Saints",
+    "lifespan": "",
+    "role": "Solemnity",
+    "rank": "Solemnity",
+    "calendarNote": "General Roman Calendar · 1 November",
+    "bio": [
+      "On this day the Church celebrates, in a single feast, all who are already with God: the canonized and the multitude no calendar records, ordinary people who lived the Gospel without being known.",
+      "The Second Vatican Council recalled, in the constitution Lumen gentium, that all the faithful, in every state of life, are called to the fullness of Christian life and the perfection of charity. Today's solemnity is that call seen from its goal."
+    ],
+    "why": "All Saints says holiness is not for a few. Among those we celebrate today are parents, workers and sick people no one knew: the same way is open today.",
+    "prayer": "All you Saints of God, pray for us.",
+    "fonte": "Vatican News, Santo do dia: https://www.vaticannews.va/pt/santo-do-dia/11/01.html; Concílio Vaticano II, Lumen gentium, cap. V: https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19641121_lumen-gentium_po.html"
+  },
+  {
+    "id": "carlos-borromeu",
+    "dateKey": "11-04",
+    "name": "Saint Charles Borromeo",
+    "lifespan": "1538–1584",
+    "role": "Bishop",
+    "rank": "Memorial",
+    "calendarNote": "General Roman Calendar · 4 November",
+    "bio": [
+      "Charles Borromeo was born into a noble Lombard family in 1538 and was the nephew of Pope Pius IV, who made him a cardinal while still young and called him to Rome to help govern the Church. He played an important part in the resumption and conclusion of the Council of Trent.",
+      "As Archbishop of Milan he put the Council's reforms into practice: he visited his diocese, saw to the formation of the clergy and devoted himself to the poor and the sick. He died in Milan in 1584. Benedict XVI called him a \"light of charity\" for that self-giving."
+    ],
+    "why": "Charles Borromeo could have lived on privilege and chose to serve. He shows that reform begins by converting one's own life.",
+    "prayer": "Saint Charles Borromeo, pray for us.",
+    "fonte": "Vatican News, Santo do dia: https://www.vaticannews.va/pt/santo-do-dia/11/04.html; Bento XVI, Lumen caritatis (2010): https://www.vatican.va/content/benedict-xvi/en/letters/2010/documents/hf_ben-xvi_let_20101101_lumen-caritatis.html"
+  },
+  {
+    "id": "leao-magno",
+    "dateKey": "11-10",
+    "name": "Saint Leo the Great",
+    "lifespan": "† 461",
+    "role": "Pope and Doctor of the Church",
+    "rank": "Memorial",
+    "calendarNote": "General Roman Calendar · 10 November",
+    "bio": [
+      "Leo came from Tuscia and was elected pope in 440. In 452 he went to meet Attila at Mantua and persuaded him not to advance on Italy; in 455 he could not prevent the sack of Rome by Genseric's Vandals, but obtained that the great basilicas be spared.",
+      "His doctrinal letter to Bishop Flavian, on the two natures of Christ, was acclaimed at the Council of Chalcedon in 451 with the words \"Peter has spoken through Leo\". He died on 10 November 461, and Benedict XIV declared him a Doctor of the Church in 1754."
+    ],
+    "why": "Leo the Great faced invasions and divisions without losing clarity about who Christ is. In confused times, he is a reminder that faith well thought through is also a way of caring for people.",
+    "prayer": "Saint Leo the Great, pray for us.",
+    "fonte": "Benedict XVI, General Audience: https://www.vatican.va/content/benedict-xvi/en/audiences/2008/documents/hf_ben-xvi_aud_20080305.html"
+  },
+  {
+    "id": "alberto-magno",
+    "dateKey": "11-15",
+    "name": "Saint Albert the Great",
+    "lifespan": "c. 1200–1280",
+    "role": "Bishop and Doctor of the Church",
+    "rank": "Optional memorial",
+    "calendarNote": "General Roman Calendar · 15 November",
+    "bio": [
+      "Albert was born in Germany early in the thirteenth century and joined the Order of Preachers after studying in Padua. He was the teacher of Thomas Aquinas, whom he took with him to Cologne in 1248, and Bishop of Regensburg from 1260 to 1262.",
+      "He studied theology and the natural sciences with equal interest: physics, chemistry, astronomy, mineralogy, botany and zoology. He died in his cell at the convent of the Holy Cross in Cologne in 1280. Pius XI canonized him and declared him a Doctor of the Church in 1931, and Pius XII made him patron of scientists."
+    ],
+    "why": "Albert saw no rivalry between faith and science: studying creation was, for him, another way of knowing the Creator.",
+    "prayer": "Saint Albert the Great, pray for us.",
+    "fonte": "Benedict XVI, General Audience: https://www.vatican.va/content/benedict-xvi/en/audiences/2010/documents/hf_ben-xvi_aud_20100324.html"
+  },
+  {
+    "id": "isabel-hungria",
+    "dateKey": "11-17",
+    "name": "Saint Elizabeth of Hungary",
+    "lifespan": "1207–1231",
+    "role": "Religious",
+    "rank": "Memorial",
+    "calendarNote": "General Roman Calendar · 17 November",
+    "bio": [
+      "Elizabeth was born in 1207, daughter of King Andrew II of Hungary, and married Louis of Thuringia while still young, in a marriage of sincere love animated by faith. She used her wealth and position to help the poor and the sick.",
+      "Widowed at 20, when Louis died in 1227, she was driven out of Wartburg Castle. She became a Franciscan tertiary and spent her last years in a hospital she founded in Marburg, caring for the sick and keeping vigil with the dying. She died on 17 November 1231, aged about 24, and was canonized by Gregory IX in 1235."
+    ],
+    "why": "Elizabeth made her home, and then her whole life, a place of welcome. She shows that charity does not wait for ideal conditions: it begins with what one has in hand.",
+    "prayer": "Saint Elizabeth of Hungary, pray for us.",
+    "fonte": "Benedict XVI, General Audience: https://www.vatican.va/content/benedict-xvi/en/audiences/2010/documents/hf_ben-xvi_aud_20101020.html"
+  },
+  {
+    "id": "cecilia",
+    "dateKey": "11-22",
+    "name": "Saint Cecilia",
+    "lifespan": "2nd–3rd century",
+    "role": "Virgin and martyr",
+    "rank": "Memorial",
+    "calendarNote": "General Roman Calendar · 22 November",
+    "bio": [
+      "Cecilia was a young Roman woman who died a martyr between the second and third centuries. Tradition says she was married to Valerian, whom she led to the faith. Her story mixes historical data with legendary accounts, but her cult is ancient and her name is in the Roman Canon of the Mass.",
+      "The basilica dedicated to her in Trastevere, in Rome, keeps the memory of her house, and her body was found and displayed in 1599. She is patron of music, musicians and singers."
+    ],
+    "why": "Cecilia is remembered singing to God in her heart. She invites us to make music and praise a place of prayer, not only ornament.",
+    "prayer": "Saint Cecilia, pray for us.",
+    "fonte": "Vatican News, Santo do dia: https://www.vaticannews.va/pt/santo-do-dia/11/22.html"
+  },
+  {
+    "id": "andre",
+    "dateKey": "11-30",
+    "name": "Saint Andrew",
+    "lifespan": "1st century",
+    "role": "Apostle",
+    "rank": "Feast",
+    "calendarNote": "General Roman Calendar · 30 November",
+    "bio": [
+      "Andrew came from Bethsaida, brother of Simon Peter and a fisherman like him. He was a disciple of John the Baptist and one of the two who, hearing John, followed Jesus; for this the Byzantine Church calls him \"the first called\". It was he who brought his brother to Jesus.",
+      "In the Gospels, he is the one who points out the boy with the loaves and fish before the multiplication and who brings to Jesus the Greeks who wanted to see him. Tradition says he died crucified at Patras, in Greece, on an X-shaped cross, \"Saint Andrew's cross\"."
+    ],
+    "why": "Andrew met Jesus and went straight to fetch his brother. His faith began by bringing someone to Christ: a gesture within anyone's reach.",
+    "prayer": "Saint Andrew, pray for us.",
+    "fonte": "Benedict XVI, General Audience: https://www.vatican.va/content/benedict-xvi/en/audiences/2006/documents/hf_ben-xvi_aud_20060614.html"
+  }
+]

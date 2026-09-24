@@ -175,4 +175,55 @@ enum OnboardingStory {
         .pt: "Quero reservar alguns minutos por dia para Deus.",
         .es: "Quiero reservar unos minutos al día para Dios.",
     ]
+
+    // MARK: - Plan (synthesis)
+
+    typealias PlanStep = (title: [AppLanguage: String], subtitle: [AppLanguage: String])
+
+    /// Three steps: the daily routine, the one the reader asked for in
+    /// "what's missing most" (life-3), and the free daily word and saint. It
+    /// used to be the same list for everyone under "built from what you told us".
+    static func plan(missing: Set<String>) -> [PlanStep] {
+        let chosen = ["understanding", "consistency", "peace", "community"].first { missing.contains($0) } ?? "understanding"
+        return [routineStep, byMissing[chosen]!, freeStep]
+    }
+
+    private static let routineStep: PlanStep = (
+        [.pt: "Seu dia com Deus", .en: "Your day with God", .es: "Tu día con Dios"],
+        [.pt: "Cinco momentos, da manhã à noite: oferecimento, oração, como vai o dia, um capítulo do Novo Testamento e o Exame.",
+         .en: "Five moments, from morning to night: the offering, a prayer, how the day is going, a New Testament chapter and the Examen.",
+         .es: "Cinco momentos, de la mañana a la noche: ofrecimiento, oración, cómo va el día, un capítulo del Nuevo Testamento y el Examen."]
+    )
+
+    private static let freeStep: PlanStep = (
+        [.pt: "A palavra e o santo do dia", .en: "The daily verse and saint", .es: "El versículo y el santo del día"],
+        [.pt: "Grátis, todo dia, para sempre.", .en: "Free, every day, forever.", .es: "Gratis, todos los días, para siempre."]
+    )
+
+    private static let byMissing: [String: PlanStep] = [
+        "understanding": (
+            [.pt: "A Missa, parte por parte", .en: "The Mass, part by part", .es: "La Misa, parte por parte"],
+            [.pt: "Uma parte curta por dia, para entender o que acontece no altar.",
+             .en: "One short part a day, to understand what happens at the altar.",
+             .es: "Una parte corta al día, para entender lo que sucede en el altar."]
+        ),
+        "consistency": (
+            [.pt: "Um capítulo por dia", .en: "One chapter a day", .es: "Un capítulo al día"],
+            [.pt: "O Novo Testamento inteiro, sem pressa: constância se faz com passos pequenos.",
+             .en: "The whole New Testament, without hurry: consistency is built in small steps.",
+             .es: "Todo el Nuevo Testamento, sin prisa: la constancia se hace con pasos pequeños."]
+        ),
+        "peace": (
+            [.pt: "Hoje eu estou…", .en: "Today I am…", .es: "Hoy estoy…"],
+            [.pt: "Quando o dia pesar, um salmo, um santo e um passo concreto.",
+             .en: "When the day weighs heavy, a psalm, a saint and one concrete step.",
+             .es: "Cuando el día pese, un salmo, un santo y un paso concreto."]
+        ),
+        "community": (
+            [.pt: "O calendário da Igreja", .en: "The Church's calendar", .es: "El calendario de la Iglesia"],
+            [.pt: "O mesmo dia que a Igreja inteira celebra, com o santo e a cor de cada dia.",
+             .en: "The same day the whole Church is celebrating, with each day's saint and colour.",
+             .es: "El mismo día que celebra toda la Iglesia, con el santo y el color de cada día."]
+        ),
+    ]
 }

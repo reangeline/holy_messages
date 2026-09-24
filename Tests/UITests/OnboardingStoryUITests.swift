@@ -53,11 +53,13 @@ final class OnboardingStoryUITests: XCTestCase {
 
         let skipSpiritual = app.buttons["Pular as quatro"]
         XCTAssertTrue(skipSpiritual.waitForExistence(timeout: 5))
+        snapshot(app, "2b-intro-espiritual")
         skipSpiritual.tap()
 
         // Relief, then the guided prayer.
         let reliefContinue = app.buttons["Continuar"]
         XCTAssertTrue(reliefContinue.waitForExistence(timeout: 5))
+        snapshot(app, "2c-alivio")
         reliefContinue.tap()
 
         let pray = app.buttons["Rezar agora"]
@@ -88,5 +90,11 @@ final class OnboardingStoryUITests: XCTestCase {
             "segurar o botão não levou para a tela de notificação"
         )
         snapshot(app, "8-depois-do-compromisso")
+        app.buttons["Ver como fica"].tap()
+        XCTAssertTrue(
+            app.staticTexts["Palavra de hoje"].waitForExistence(timeout: 5),
+            "a prévia não mostra o aviso que o app envia de verdade"
+        )
+        snapshot(app, "9-previa-aviso")
     }
 }

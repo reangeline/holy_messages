@@ -179,28 +179,6 @@
         }
       }
     },
-    "Catholic Charities": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Catholic Charities"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cáritas"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cáritas"
-          }
-        }
-      }
-    },
     "Close": {
       "extractionState": "manual",
       "localizations": {
@@ -220,28 +198,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Close"
-          }
-        }
-      }
-    },
-    "Consolation and desolation, dryness, doubt, weight. Not a mood test, not a score, no diagnosis — the vocabulary the Church uses for what a soul carries.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Consolation and desolation, dryness, doubt, weight. Not a mood test, not a score, no diagnosis — the vocabulary the Church uses for what a soul carries."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Consolación y desolación, aridez, duda, peso. No es un test de humor, no es una nota, no es un diagnóstico — es el vocabulario que la Iglesia usa para lo que un alma carga."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Consolação e desolação, aridez, dúvida, peso. Não é um teste de humor, não é uma nota, não é diagnóstico — é o vocabulário que a Igreja usa para o que uma alma carrega."
           }
         }
       }
@@ -468,28 +424,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Livre para explorar"
-          }
-        }
-      }
-    },
-    "Grief support, counseling, and material help through your diocese.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Grief support, counseling, and material help through your diocese."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Apoyo en el duelo, escucha y ayuda material a través de tu diócesis."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Apoio no luto, escuta e ajuda material pela sua diocese."
           }
         }
       }
@@ -1276,28 +1210,6 @@
         }
       }
     },
-    "The verse of the day, the saint of the day, and part 1 of {track}.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "The verse of the day, the saint of the day, and part 1 of {track}."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "A palavra do dia, o santo do dia, e a parte 1 de {track}."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "La palabra del día, el santo del día, y la parte 1 de {track}."
-          }
-        }
-      }
-    },
     "The word of the day, and the support screens if you need them, are free — and always will be.": {
       "extractionState": "manual",
       "localizations": {
@@ -1317,28 +1229,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "La palabra del día, y las pantallas de apoyo si las necesitas, son gratis — y lo seguirán siendo."
-          }
-        }
-      }
-    },
-    "These answers stay on this device. They are never sent to a server, never used for ads, never used to sell you anything. Every question can be left unanswered.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "These answers stay on this device. They are never sent to a server, never used for ads, never used to sell you anything. Every question can be left unanswered."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Estas respuestas se quedan en este dispositivo. Nunca se envían a un servidor, nunca se usan para anuncios, nunca se usan para venderte nada. Toda pregunta puede quedar sin responder."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Essas respostas ficam neste aparelho. Nunca são enviadas a um servidor, nunca usadas para anúncios, nunca usadas para vender nada a você. Toda pergunta pode ficar sem resposta."
           }
         }
       }
@@ -1631,28 +1521,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Quando a leitura do dia deve chegar até você?"
-          }
-        }
-      }
-    },
-    "White vestments. The app changes color that morning.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "White vestments. The app changes color that morning."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vestiduras blancas. La app cambia de color esa mañana."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vestes brancas. O app muda de cor naquela manhã."
           }
         }
       }
@@ -1952,50 +1820,6 @@
         }
       }
     },
-    "“{quote}” {reference} — and part 1 of {track}.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "“{quote}” {reference} — and part 1 of {track}."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "“{quote}” {reference} — e a parte 1 de {track}."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "“{quote}” {reference} — y la parte 1 de {track}."
-          }
-        }
-      }
-    },
-    "Confession, or simply a conversation. Maps can show you the Catholic churches nearby; the parish itself will tell you its hours.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Confession, or simply a conversation. Maps can show you the Catholic churches nearby; the parish itself will tell you its hours."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Confesión, o simplemente una conversación. Mapas te muestra las iglesias católicas cercanas; los horarios, te los da la propia parroquia."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Confissão, ou só uma conversa. O Mapas mostra as igrejas católicas perto de você; os horários, a própria paróquia informa."
-          }
-        }
-      }
-    },
     "Choose one or more. Tap the hour to adjust it.": {
       "extractionState": "manual",
       "localizations": {
@@ -2061,6 +1885,121 @@
           "stringUnit": {
             "state": "translated",
             "value": "Horário"
+          }
+        }
+      }
+    },
+    "Liturgical color: {color}. The app changes color that morning.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Liturgical color: {color}. The app changes color that morning."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Color litúrgico: {color}. La app cambia de color esa mañana."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cor litúrgica: {color}. O app muda de cor naquela manhã."
+          }
+        }
+      }
+    },
+    "The Church's words for what a soul carries. Not a test, not a diagnosis.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The Church's words for what a soul carries. Not a test, not a diagnosis."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El vocabulario de la Iglesia para lo que carga un alma. No es un test ni un diagnóstico."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O vocabulário da Igreja para o que uma alma carrega. Não é teste nem diagnóstico."
+          }
+        }
+      }
+    },
+    "It stays on this device. Every question can be skipped.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "It stays on this device. Every question can be skipped."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se queda en este dispositivo. Toda pregunta puede quedar sin respuesta."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fica neste aparelho. Toda pergunta pode ficar sem resposta."
+          }
+        }
+      }
+    },
+    "Confession, or simply a conversation.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Confession, or simply a conversation."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Confesión, o simplemente una conversación."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Confissão, ou só uma conversa."
+          }
+        }
+      }
+    },
+    "The day's verse, and your day with God ready in the app.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The day's verse, and your day with God ready in the app."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La palabra del día, y tu día con Dios listo en la app."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A palavra do dia, e o seu dia com Deus pronto no app."
           }
         }
       }

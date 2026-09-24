@@ -18,40 +18,31 @@ struct OnboardingSpiritualIntroView: View {
                         Text("Now four questions the Church has always asked", tableName: "Onboarding")
                             .font(MissaleFont.display(28))
                             .foregroundStyle(Palette.ink)
-                        Text("Consolation and desolation, dryness, doubt, weight. Not a mood test, not a score, no diagnosis — the vocabulary the Church uses for what a soul carries.", tableName: "Onboarding")
-                            .font(MissaleFont.body(16))
+                        // Was four blocks of text before the first question ("tá com
+                        // muito texto", TestFlight 2.0 (2)); one line each now.
+                        Text("The Church's words for what a soul carries. Not a test, not a diagnosis.", tableName: "Onboarding")
+                            .font(MissaleFont.body(17))
                             .foregroundStyle(Palette.ink.opacity(0.75))
-
-                        GlassCard {
-                            Text("These answers stay on this device. They are never sent to a server, never used for ads, never used to sell you anything. Every question can be left unanswered.", tableName: "Onboarding")
-                                .font(MissaleFont.body(15))
-                                .foregroundStyle(Palette.ink.opacity(0.85))
+                        Label {
+                            Text("It stays on this device. Every question can be skipped.", tableName: "Onboarding")
+                        } icon: {
+                            Image(systemName: "lock")
                         }
+                        .font(MissaleFont.body(15))
+                        .foregroundStyle(Palette.ink.opacity(0.6))
 
-                        // Static, always shown here — not gated behind detecting a
-                        // "crisis" answer below. If any of the next four questions
-                        // touch something heavier than an app should handle alone,
-                        // this is already the same place you saw it.
                         Eyebrow(text: L.string("If any of this is heavier than a question", table: "Onboarding"))
+                            .padding(.top, 6)
                         GlassCard {
-                            VStack(alignment: .leading, spacing: 6) {
+                            VStack(alignment: .leading, spacing: 4) {
                                 Text("Talk to a priest", tableName: "Onboarding")
                                     .font(MissaleFont.body(17, weight: .medium))
                                     .foregroundStyle(Palette.ink)
-                                Text("Confession, or simply a conversation. Maps can show you the Catholic churches nearby; the parish itself will tell you its hours.", tableName: "Onboarding")
-                                    .font(MissaleFont.body(15))
+                                Text("Confession, or simply a conversation.", tableName: "Onboarding")
+                                    .font(MissaleFont.body(16))
                                     .foregroundStyle(Palette.ink.opacity(0.72))
                             }
-                        }
-                        GlassCard {
-                            VStack(alignment: .leading, spacing: 6) {
-                                Text("Catholic Charities", tableName: "Onboarding")
-                                    .font(MissaleFont.body(17, weight: .medium))
-                                    .foregroundStyle(Palette.ink)
-                                Text("Grief support, counseling, and material help through your diocese.", tableName: "Onboarding")
-                                    .font(MissaleFont.body(15))
-                                    .foregroundStyle(Palette.ink.opacity(0.72))
-                            }
+                            .frame(maxWidth: .infinity, alignment: .leading)
                         }
                         LiturgicalGradientCard(color: .red) {
                             // Generic by decision, with no number of our own — see CrisisLines.

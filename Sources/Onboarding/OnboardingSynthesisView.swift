@@ -21,7 +21,10 @@ struct OnboardingSynthesisView: View {
                             .foregroundStyle(Palette.ink.opacity(0.65))
 
                         VStack(spacing: 10) {
-                            ForEach(Array(MockOnboarding.planSteps(for: AppLanguagePreference.resolveCurrent()).enumerated()), id: \.offset) { _, step in
+                            ForEach(Array(OnboardingStory.plan(missing: viewModel.lifeAnswers["life-3"] ?? []).enumerated()), id: \.offset) { index, planStep in
+                                let step = (number: index + 1,
+                                            title: OnboardingStory.text(planStep.title),
+                                            subtitle: OnboardingStory.text(planStep.subtitle))
                                 HStack(alignment: .top, spacing: 12) {
                                     Text("\(step.number)")
                                         .font(MissaleFont.display(20, weight: .medium))
@@ -51,7 +54,8 @@ struct OnboardingSynthesisView: View {
                                 Text("\(MockLiturgical.tomorrow.dayMonthLabel) · \(MockLiturgical.tomorrow.feastName)")
                                     .font(MissaleFont.body(14))
                                     .foregroundStyle(Palette.ink.opacity(0.7))
-                                Text("White vestments. The app changes color that morning.", tableName: "Onboarding")
+                                Text(L.string("Liturgical color: {color}. The app changes color that morning.", table: "Onboarding")
+                                    .replacingOccurrences(of: "{color}", with: MockLiturgical.tomorrow.color.name.lowercased()))
                                     .font(MissaleFont.body(13))
                                     .foregroundStyle(Palette.ink.opacity(0.55))
                             }
@@ -62,8 +66,7 @@ struct OnboardingSynthesisView: View {
                                 Text("Tomorrow morning you get", tableName: "Onboarding")
                                     .font(MissaleFont.body(14, weight: .medium))
                                     .foregroundStyle(Palette.ink)
-                                Text(L.string("The verse of the day, the saint of the day, and part 1 of {track}.", table: "Onboarding")
-                                    .replacingOccurrences(of: "{track}", with: MockFormation.track.title))
+                                Text(L.string("The day's verse, and your day with God ready in the app.", table: "Onboarding"))
                                     .font(MissaleFont.body(13))
                                     .foregroundStyle(Palette.ink.opacity(0.7))
                             }

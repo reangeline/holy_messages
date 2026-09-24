@@ -49,6 +49,7 @@
 		2909E8285FF5C191C0594765 /* LiturgicalDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF47B756C7A9EADDDDDA3DF /* LiturgicalDay.swift */; };
 		290CCF9AAE169967BA4CC907 /* LegalDocumentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101CD6716CDF7F97E10197DA /* LegalDocumentTests.swift */; };
 		2EA1309C5A653C1A5AE2EA15 /* EBGaramond-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A5E469A2668E22E83B8E4BF2 /* EBGaramond-Italic.ttf */; };
+		30359DFA44407554ADAFC958 /* GeneratedSaintsThirdBatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E20DA0E0CC324280743744 /* GeneratedSaintsThirdBatch.swift */; };
 		30AB0317AFFDD1BE6541A2E3 /* WordOfDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E416E5A20CB92AE084D9E048 /* WordOfDayView.swift */; };
 		31003D72563CA5BEED79DED9 /* MoodState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B272A3B51CBFE80DEF87ED5C /* MoodState.swift */; };
 		313CA19CE3ED8B71E9015A24 /* Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF026ED1AE79D8B6C5A3B51 /* Typography.swift */; };
@@ -186,6 +187,7 @@
 		C47D6DAE88EAD086657A5B97 /* EBGaramond-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A5E469A2668E22E83B8E4BF2 /* EBGaramond-Italic.ttf */; };
 		C8E2CC57776D7A41DF736841 /* JourneyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53F78D382401057C36C6C92 /* JourneyListView.swift */; };
 		C9AD1AD5DD0E2499DF5DC567 /* GlassTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DDF3EE5A32A80F704EB0B4 /* GlassTabBar.swift */; };
+		CA2D1F39DAF4BBA7EA41E320 /* GeneratedSaintsThirdBatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E20DA0E0CC324280743744 /* GeneratedSaintsThirdBatch.swift */; };
 		CBE2F1F6786C343C9AD2C10D /* OnboardingStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B90477A1BA569F4FC3A06A /* OnboardingStory.swift */; };
 		CDE85F01CEE6A9E65A4F69D8 /* PrayerCategoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56F6238D04D8924CF1AC227 /* PrayerCategoryDetailView.swift */; };
 		CE9BDF6431C3E4394711183F /* GeneratedFormation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36ABA46BD0FFFD9FF54F4A8 /* GeneratedFormation.swift */; };
@@ -286,6 +288,7 @@
 		085B0E7DB07DABBDD6D616C6 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		0894528AE93DE82D930F20AE /* bible-torres-amat.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "bible-torres-amat.json"; sourceTree = "<group>"; };
 		08ED0A85B603CF5F2FB65F9C /* DailyRoutineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyRoutineTests.swift; sourceTree = "<group>"; };
+		09E20DA0E0CC324280743744 /* GeneratedSaintsThirdBatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedSaintsThirdBatch.swift; sourceTree = "<group>"; };
 		09E21282FE20307A06E088E6 /* GeneratedSaints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedSaints.swift; sourceTree = "<group>"; };
 		0BF026ED1AE79D8B6C5A3B51 /* Typography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typography.swift; sourceTree = "<group>"; };
 		0C74389C0E7F2A38107F6475 /* MissaleUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = MissaleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -610,6 +613,7 @@
 				C60A08EF026DFCA2A8DA453B /* GeneratedPrayers.swift */,
 				09E21282FE20307A06E088E6 /* GeneratedSaints.swift */,
 				E82BDE0FAA3B75C60AC2BFD9 /* GeneratedSaintsSecondBatch.swift */,
+				09E20DA0E0CC324280743744 /* GeneratedSaintsThirdBatch.swift */,
 				D5F7D20CB070FF9B9EF8B3F2 /* GeneratedSanctoral.swift */,
 				1A6FF53F14EDDA18F751468C /* GeneratedWordOfDay.swift */,
 			);
@@ -1148,6 +1152,7 @@
 				16749512EE8A960FE2B7747D /* GeneratedPrayers.swift in Sources */,
 				3D1CE8E92850E381B8BFFE3B /* GeneratedSaints.swift in Sources */,
 				13E72DBFD4FB2C7AADD5B66C /* GeneratedSaintsSecondBatch.swift in Sources */,
+				CA2D1F39DAF4BBA7EA41E320 /* GeneratedSaintsThirdBatch.swift in Sources */,
 				807B208F88678CB09D76DC98 /* GeneratedSanctoral.swift in Sources */,
 				51DFA543BD9255E46B606EEF /* GeneratedWordOfDay.swift in Sources */,
 				71A518CE73E4BA9C5AE12993 /* GlassCard.swift in Sources */,
@@ -1281,6 +1286,7 @@
 				B216104E194C6CDDC2569989 /* Colors.swift in Sources */,
 				2521915611C97978A46DAB10 /* GeneratedSaints.swift in Sources */,
 				246B0414F558795185EEB2CD /* GeneratedSaintsSecondBatch.swift in Sources */,
+				30359DFA44407554ADAFC958 /* GeneratedSaintsThirdBatch.swift in Sources */,
 				03E0845B2E47C98B5AD55016 /* GeneratedWordOfDay.swift in Sources */,
 				9B4C6F62559A9D57E3817E34 /* LocalizedCatalog.swift in Sources */,
 				61CCB142CA0E0386439B1324 /* MissaleWidgetsBundle.swift in Sources */,
