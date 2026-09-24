@@ -2,6 +2,7 @@ import SwiftUI
 
 /// dIs14 — formation track synthesis. Back to the flat/practical register.
 struct OnboardingSynthesisView: View {
+    @ObservedObject var viewModel: OnboardingViewModel
     let onNext: () -> Void
 
     var body: some View {
@@ -34,6 +35,7 @@ struct OnboardingSynthesisView: View {
                                             .foregroundStyle(Palette.ink.opacity(0.65))
                                     }
                                 }
+                                .frame(maxWidth: .infinity, alignment: .leading)
                                 .padding(14)
                                 .background(Color.white)
                                 .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
@@ -69,7 +71,16 @@ struct OnboardingSynthesisView: View {
                     }
                     .padding(.horizontal, 24)
                 }
-                OnboardingPrimaryButton(title: L.string("This is mine", table: "Onboarding"), action: onNext)
+                VStack(spacing: 8) {
+                    Eyebrow(text: OnboardingStory.text(OnboardingStory.commitmentEyebrow))
+                    Text("\u{201C}\(viewModel.commitment)\u{201D}")
+                        .font(MissaleFont.display(22, italic: true))
+                        .foregroundStyle(Palette.ink)
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal, 32)
+                }
+                .padding(.top, 16)
+                OnboardingHoldButton(title: OnboardingStory.text(OnboardingStory.holdToCommit), action: onNext)
                     .padding(.vertical, 20)
             }
         }

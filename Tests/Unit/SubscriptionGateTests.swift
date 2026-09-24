@@ -23,8 +23,13 @@ final class SubscriptionGateTests: XCTestCase {
     /// The support path: logging a state, the relief, the pastoral screen, and
     /// the crisis line for the reader's country. A paywall anywhere in here is
     /// the worst thing this app could do.
+    ///
+    /// `MoodCheckInSheet.swift` saiu desta lista quando o alívio (o Salmo, o
+    /// santo e o passo) passou a pedir assinatura: é o arquivo que decide isso,
+    /// e por isso cita `isSubscribed`. O que ele não pode fazer está coberto
+    /// por `testTheMoodSheetGatesOnlyTheReliefStep` logo abaixo — a folha
+    /// continua abrindo de graça, e o caminho da crise continua dentro dela.
     private let caminhoDoApoio = [
-        "Sources/Features/Today/MoodCheckInSheet.swift",
         "Sources/Features/Today/MoodReflectionView.swift",
         "Sources/Features/Today/MoodReliefView.swift",
         "Sources/Features/Today/PastoralCareNudgeView.swift",
@@ -61,6 +66,35 @@ final class SubscriptionGateTests: XCTestCase {
                 XCTAssertFalse(fonte.contains(portao), "\(caminho) ficou atrás da assinatura")
             }
         }
+    }
+
+    /// The mood sheet is the one file on the support path allowed to know about
+    /// the subscription, and only for the relief step. It must still open for
+    /// free, and it must still carry the way out.
+    ///
+    /// The count is the teeth of this test: one mention of `isSubscribed` is
+    /// the relief branch. A second one would be someone gating the picker, the
+    /// note, or the crisis link — the things that must never ask for money.
+    func testTheMoodSheetGatesOnlyTheReliefStep() throws {
+        let fonte = try self.fonte("Sources/Features/Today/MoodCheckInSheet.swift")
+
+        XCTAssertEqual(
+            fonte.components(separatedBy: "isSubscribed").count - 1, 1,
+            "a folha do humor passou a consultar a assinatura em mais de um ponto: só o alívio pode pedir"
+        )
+        for portao in ["GatedLink", "GatedTab"] {
+            XCTAssertFalse(fonte.contains(portao), "a folha do humor inteira ficou atrás da assinatura")
+        }
+        // A porta para o padre, a diocese e a crise, nos dois lugares em que a
+        // pessoa pode estar: a primeira tela e o muro que substitui o alívio.
+        XCTAssertEqual(
+            fonte.components(separatedBy: "showPastoralCare = true").count - 1, 2,
+            "o caminho do apoio sumiu de dentro da folha do humor"
+        )
+        XCTAssertTrue(
+            fonte.contains("PastoralCareNudgeView()"),
+            "a folha do humor deixou de abrir a tela pastoral"
+        )
     }
 
     /// And the files that exist to show the crisis line must still show it.

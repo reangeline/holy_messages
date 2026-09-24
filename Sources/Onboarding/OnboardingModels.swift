@@ -1,12 +1,13 @@
 import Foundation
 
 enum OnboardingStep: Equatable {
-    case feed
-    case sample
+    case verseIntro
+    case promise
     case life(Int)
     case spiritualIntro
     case spiritual(Int)
     case relief
+    case prayer
     case loader
     case synthesis
     case notificationTime

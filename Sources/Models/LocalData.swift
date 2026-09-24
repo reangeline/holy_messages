@@ -26,6 +26,9 @@ enum LocalData {
         "formation_completed_lesson_ids",
         "formation_completed_lesson_order",
         "userDisplayName",               // o nome digitado nas Configurações
+        "routine_completions",           // o que do "Seu dia com Deus" foi feito em cada dia (últimos 60)
+        "routine_nt_position",           // quantos capítulos do Novo Testamento já foram lidos
+        "review_routine_days",           // dias com o "Seu dia com Deus" completo, para o pedido de avaliação
     ]
 
     /// Choices about how the app behaves, as opposed to what the reader wrote.
@@ -38,5 +41,6 @@ enum LocalData {
         "rosaryVoiceGuide",              // a voz lendo o Terço, ligada ou não
         "examenMinutesOfDay",            // a hora escolhida para o Exame da noite
         "hasCompletedOnboarding",
+        "review_prompt_asked",           // se o pedido de avaliação já foi feito
     ]
 }

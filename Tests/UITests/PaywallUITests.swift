@@ -5,9 +5,12 @@ import XCTest
 ///
 /// A UI test cannot give the app under test a local StoreKit configuration —
 /// the configuration attaches to Xcode's Run action, and `SKTestSession`
-/// configures the test process, not the separate app process. So what is
-/// covered here is the branch that matters most for honesty: with no products,
-/// the screen must say so and offer to carry on free. It must never fall back
+/// configures the test process, not the separate app process. It can't take
+/// one away either: a simulator where the app was once run from Xcode keeps
+/// serving that run's products, and these tests failed there. So the launch
+/// passes `-noStore 1`, and what is covered is the branch that matters most
+/// for honesty: with no products, the screen must say so and offer to carry
+/// on free. It must never fall back
 /// to a price of its own, which is exactly what it used to do — three plans
 /// with prices written into the source, one of them a "Lifetime" with no
 /// product behind it.
@@ -24,7 +27,7 @@ final class PaywallUITests: XCTestCase {
     private func abrir(_ language: String) -> XCUIApplication {
         let app = XCUIApplication()
         app.launchArguments = ["-demoDate", "2026-09-14", "-hasCompletedOnboarding", "1", "-appLanguageOverride", language,
-                               "-openScreen", "paywall"]
+                               "-openScreen", "paywall", "-noStore", "1"]
         app.launch()
         return app
     }

@@ -28,6 +28,10 @@ dispositivo.
 - Los rosarios que registres, con el misterio, el modo y la intención cuando
   escribas una.
 - Tu progreso en Formación: qué partes completaste y en qué orden.
+- Lo que completaste de "Tu día con Dios" cada día (lectura y oración,
+  de los últimos 60 días) y hasta qué capítulo del Nuevo Testamento leíste.
+- Los días en que completaste "Tu día con Dios" (solo la fecha), usados para
+  pedir una valoración en la App Store una sola vez, el tercer día.
 - El nombre que escribas en Ajustes, usado solo para llamarte por tu nombre en
   las pantallas de la aplicación.
 

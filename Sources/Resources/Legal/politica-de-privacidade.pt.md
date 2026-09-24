@@ -26,6 +26,10 @@ Tudo abaixo fica no armazenamento local do aplicativo, no seu aparelho.
 - Os terços que você registrar, com o mistério, o modo e a intenção, quando
   você escrever uma.
 - O seu progresso na Formação: quais partes você concluiu e em que ordem.
+- O que você concluiu do "Seu dia com Deus" em cada dia (leitura e oração,
+  dos últimos 60 dias) e até qual capítulo do Novo Testamento você leu.
+- Os dias em que você completou o "Seu dia com Deus" (só a data), usados para
+  pedir uma avaliação na App Store uma única vez, no terceiro dia.
 - O nome que você digitar nas Configurações, usado apenas para chamá-lo pelo
   nome nas telas do aplicativo.
 

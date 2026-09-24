@@ -1,15 +1,24 @@
+import StoreKit
 import SwiftUI
 
-/// Screen 1 (eIs1) — Today home. Greeting, mood entry, formation/word/saint/rosary
-/// teaser cards, and the nightly Examen/Compline card.
+/// Screen 1 (eIs1) — Today home. Greeting, the daily routine (mood, New
+/// Testament chapter, prayer, Examen), and formation/word/saint/rosary teasers.
 struct TodayRootView: View {
     @State private var showMoodSheet = false
     @State private var navigateToExamen = false
     @ObservedObject private var progressStore = FormationProgressStore.shared
+    @ObservedObject private var routine = DailyRoutineStore.shared
+    @ObservedObject private var moodHistory = MoodHistoryStore.shared
+    @ObservedObject private var examenHistory = ExamenHistoryStore.shared.list
+    /// The reader's Bible, decoded off the main thread; nil until loaded, and
+    /// nil after it when the app has no Bible in this language.
+    @State private var bible: Bible?
+    @State private var bibleLoaded = false
+    @Environment(\.requestReview) private var requestReview
     @Environment(\.mainTabSelection) private var mainTabSelection
     @Environment(\.settingsPresented) private var settingsPresented
     @AppStorage(UserProfile.nameStorageKey) private var userDisplayName = ""
-    /// Observed so the night card shows the new time as soon as it is changed
+    /// Observed so the Examen row shows the new time as soon as it is changed
     /// on the Examen screen.
     @AppStorage(ExamenSchedule.storageKey) private var examenMinutes = ExamenSchedule.defaultMinutes
 
@@ -50,12 +59,11 @@ struct TodayRootView: View {
                 ScrollView {
                     VStack(alignment: .leading, spacing: 12) {
                         header
-                        moodCard
+                        routineSection
                         formationTeaserCard
                         wordOfDayTeaserCard
                         saintTeaserCard
                         rosaryTeaserCard
-                        complineCard
                     }
                     .padding(.horizontal, 24)
                     .padding(.top, 12)
@@ -65,6 +73,31 @@ struct TodayRootView: View {
             .hubTabBarOverlay()
             .navigationDestination(isPresented: $navigateToExamen) {
                 ExamenIntroView(onFinished: { navigateToExamen = false })
+            }
+            .task {
+                // Several megabytes of JSON: decoded off the main thread, once.
+                let language = AppLanguagePreference.resolveCurrent()
+                let all = await Task.detached(priority: .utility) { BibleCatalog.all }.value
+                bible = all.first { $0.language == language.rawValue }
+                bibleLoaded = true
+            }
+            .task {
+#if DEBUG
+                // "mood" e "mood-write" abrem a folha do humor direto: ela só
+                // abre por toque, e as capturas da App Store são destas telas.
+                if let tela = UserDefaults.standard.string(forKey: "openScreen"),
+                   tela == "mood" || tela == "mood-write" { showMoodSheet = true }
+#endif
+            }
+            // The whole routine done: a third such day is when the App Store
+            // review is asked, once — see ReviewMilestone.
+            .onChange(of: routineComplete, initial: true) { _, complete in
+                guard complete, ReviewMilestone.recordCompleteRoutine() else { return }
+                Task {
+                    // Let the last check mark land before the system sheet.
+                    try? await Task.sleep(for: .seconds(2))
+                    requestReview()
+                }
             }
             .sheet(isPresented: $showMoodSheet) {
                 MoodCheckInSheet()
@@ -107,27 +140,6 @@ struct TodayRootView: View {
                     .overlay(Circle().strokeBorder(Color.white.opacity(0.6), lineWidth: 1))
             }
         }
-    }
-
-    private var moodCard: some View {
-        Button {
-            showMoodSheet = true
-        } label: {
-            GlassCard {
-                HStack {
-                    VStack(alignment: .leading, spacing: 3) {
-                        Eyebrow(text: L.string("Hoje eu estou…", table: "Today"))
-                        Text("Toque para registrar", tableName: "Today")
-                            .font(MissaleFont.body(17, weight: .medium))
-                            .foregroundStyle(Palette.ink)
-                    }
-                    Spacer()
-                    Image(systemName: "chevron.right")
-                        .foregroundStyle(Palette.wine)
-                }
-            }
-        }
-        .buttonStyle(.plain)
     }
 
     private var formationTeaserCard: some View {
@@ -234,34 +246,175 @@ struct TodayRootView: View {
         }
     }
 
-    private var complineCard: some View {
-        // A navegação é do Hoje (ver navigationDestination no body), para o
-        // "Encerrar" do fim do Exame conseguir voltar até aqui de uma vez.
-        GatedLink(presented: $navigateToExamen) {
-            EmptyView()
-        } label: {
+    // MARK: - Seu dia com Deus
+
+    private var moodDone: Bool { moodHistory.entries.contains { Calendar.current.isDateInToday($0.date) } }
+    private var examenDone: Bool { examenHistory.items.contains { Calendar.current.isDateInToday($0.date) } }
+
+    /// Today's chapter, once the Bible has loaded. No Bible in this language
+    /// means no reading row, rather than a row that can't open.
+    private var reading: (plan: NewTestamentPlan, index: Int)? {
+        guard let bible else { return nil }
+        let plan = NewTestamentPlan(bible: bible)
+        guard !plan.chapters.isEmpty else { return nil }
+        return (plan, routine.chapterIndex(total: plan.chapters.count))
+    }
+
+    private var showsReading: Bool { !bibleLoaded || reading != nil }
+    private var routineTotal: Int { showsReading ? 4 : 3 }
+    private var routineDone: Int {
+        [moodDone, routine.isDone(.reading) && showsReading, routine.isDone(.prayer), examenDone].filter { $0 }.count
+    }
+    /// Only once the Bible has loaded, so a missing reading row can't make
+    /// three items look like the whole routine.
+    private var routineComplete: Bool { bibleLoaded && routineDone == routineTotal }
+
+    private var routineSection: some View {
+        let total = routineTotal
+        let done = routineDone
+        return VStack(alignment: .leading, spacing: 10) {
             HStack {
-                VStack(alignment: .leading, spacing: 3) {
-                    Text(L.string("À NOITE, ÀS {time}", table: "Today")
-                        .replacingOccurrences(of: "{time}", with: ExamenSchedule.timeLabel))
-                        .font(MissaleFont.body(11, weight: .semibold))
-                        .tracking(1.4)
-                        .foregroundStyle(Palette.goldBright)
-                    Text("Exame do dia e Completas", tableName: "Today")
-                        .font(MissaleFont.body(17, weight: .medium))
-                        .foregroundStyle(.white)
-                }
+                Eyebrow(text: L.string("SEU DIA COM DEUS", table: "Today"))
                 Spacer()
-                Image(systemName: "chevron.right")
-                    .foregroundStyle(.white.opacity(0.7))
+                Text(L.string("{done} de {total}", table: "Today")
+                    .replacingOccurrences(of: "{done}", with: "\(done)")
+                    .replacingOccurrences(of: "{total}", with: "\(total)"))
+                    .font(MissaleFont.body(13, weight: .semibold))
+                    .foregroundStyle(Palette.ink.opacity(0.5))
             }
-            .padding(16)
-            .background(Palette.night, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
-            .overlay(
-                RoundedRectangle(cornerRadius: 18, style: .continuous)
-                    .strokeBorder(Color.white.opacity(0.16), lineWidth: 1)
-            )
+            .padding(.top, 6)
+
+            Button {
+                showMoodSheet = true
+            } label: {
+                routineRow(icon: "sun.max", title: L.string("Hoje eu estou…", table: "Today"),
+                           trailing: minutes(1), isDone: moodDone)
+            }
+            .buttonStyle(.plain)
+
+            if showsReading { readingRow }
+
+            NavigationLink {
+                DailyPrayerView()
+            } label: {
+                routineRow(icon: "hands.and.sparkles", title: L.string("Oração", table: "Today"),
+                           subtitle: DailyPrayer.today()?.title.uppercased(),
+                           trailing: minutes(DailyPrayer.today().map(DailyPrayer.minutes) ?? 1),
+                           isDone: routine.isDone(.prayer))
+            }
+            .buttonStyle(.plain)
+
+            // A navegação é do Hoje (ver navigationDestination no body), para o
+            // "Encerrar" do fim do Exame conseguir voltar até aqui de uma vez.
+            GatedLink(presented: $navigateToExamen) {
+                EmptyView()
+            } label: {
+                routineRow(icon: "moon.stars", title: L.string("Exame do dia", table: "Today"),
+                           subtitle: L.string("À NOITE, ÀS {time}", table: "Today")
+                               .replacingOccurrences(of: "{time}", with: ExamenSchedule.timeLabel),
+                           trailing: minutes(5), isDone: examenDone)
+            }
         }
+    }
+
+    @ViewBuilder
+    private var readingRow: some View {
+        if let bible, let reading {
+            let (book, chapter) = reading.plan.chapters[reading.index]
+            NavigationLink {
+                BibleChapterView(bible: bible, book: book, chapter: chapter,
+                                 onFinished: routine.isDone(.reading) ? nil : { routine.markDone(.reading) })
+            } label: {
+                HStack(alignment: .center, spacing: 14) {
+                    routineIcon("book")
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text(L.string("Novo Testamento · {n} de {total}", table: "Today")
+                            .replacingOccurrences(of: "{n}", with: "\(reading.index + 1)")
+                            .replacingOccurrences(of: "{total}", with: "\(reading.plan.chapters.count)")
+                            .uppercased())
+                            .font(MissaleFont.body(11, weight: .semibold))
+                            .tracking(1.2)
+                            .foregroundStyle(Palette.wine)
+                        Text("\(book.name) \(chapter)")
+                            .font(MissaleFont.display(24, weight: .medium))
+                            .foregroundStyle(Palette.ink)
+                        Text(minutes(NewTestamentPlan.minutes(book, chapter: chapter)))
+                            .font(MissaleFont.body(14))
+                            .foregroundStyle(Palette.ink.opacity(0.55))
+                    }
+                    Spacer()
+                    if routine.isDone(.reading) {
+                        doneMark
+                    } else {
+                        Text(L.string("Ler", table: "Today"))
+                            .font(MissaleFont.body(15, weight: .medium))
+                            .foregroundStyle(.white)
+                            .padding(.horizontal, 18)
+                            .padding(.vertical, 9)
+                            .background(Palette.wine, in: Capsule())
+                    }
+                }
+                .routineRowBackground()
+            }
+            .buttonStyle(.plain)
+        } else {
+            routineRow(icon: "book", title: L.string("Novo Testamento", table: "Today"), trailing: "", isDone: false)
+                .redacted(reason: .placeholder)
+        }
+    }
+
+    private func routineRow(icon: String, title: String, subtitle: String? = nil, trailing: String, isDone: Bool) -> some View {
+        HStack(spacing: 14) {
+            routineIcon(icon)
+            VStack(alignment: .leading, spacing: 2) {
+                Text(title)
+                    .font(MissaleFont.body(17, weight: .medium))
+                    .foregroundStyle(Palette.ink)
+                if let subtitle {
+                    Text(subtitle)
+                        .font(MissaleFont.body(11, weight: .semibold))
+                        .tracking(1.2)
+                        .foregroundStyle(Palette.ink.opacity(0.5))
+                }
+            }
+            Spacer()
+            if isDone {
+                doneMark
+            } else {
+                Text(trailing)
+                    .font(MissaleFont.body(14))
+                    .foregroundStyle(Palette.ink.opacity(0.55))
+            }
+        }
+        .routineRowBackground()
+    }
+
+    private func routineIcon(_ name: String) -> some View {
+        Image(systemName: name)
+            .font(.system(size: 19, weight: .light))
+            .foregroundStyle(Palette.wine)
+            .frame(width: 28)
+    }
+
+    private var doneMark: some View {
+        Image(systemName: "checkmark.circle.fill")
+            .font(.system(size: 24))
+            .foregroundStyle(.white, Palette.green)
+            .accessibilityLabel(L.string("Feito", table: "Today"))
+    }
+
+    private func minutes(_ n: Int) -> String {
+        L.string("{n} min", table: "Today").replacingOccurrences(of: "{n}", with: "\(n)")
+    }
+}
+
+private extension View {
+    func routineRowBackground() -> some View {
+        padding(16)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background(Color.white.opacity(0.72), in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+            .overlay(RoundedRectangle(cornerRadius: 16, style: .continuous).strokeBorder(Palette.wine.opacity(0.1)))
+            .contentShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
     }
 }
 

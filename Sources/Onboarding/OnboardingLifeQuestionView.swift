@@ -52,7 +52,21 @@ struct OnboardingLifeQuestionView: View {
                             }
                         }
                         .padding(.top, 8)
+
+                        if let reflection = viewModel.reflection(questionID: question.id) {
+                            HStack(alignment: .top, spacing: 14) {
+                                Capsule().fill(Palette.wine.opacity(0.5)).frame(width: 2)
+                                Text(reflection)
+                                    .font(MissaleFont.display(20, italic: true))
+                                    .foregroundStyle(Palette.wine)
+                                    .fixedSize(horizontal: false, vertical: true)
+                            }
+                            .padding(.top, 10)
+                            .id(reflection)
+                            .transition(.opacity.combined(with: .offset(y: 8)))
+                        }
                     }
+                    .animation(.easeOut(duration: 0.5), value: viewModel.reflection(questionID: question.id))
                     .padding(.horizontal, 24)
                     .padding(.bottom, 24)
                 }

@@ -30,7 +30,9 @@ enum CrisisLines {
 
     /// CVV — Centro de Valorização da Vida. Free, 24h, nationwide in Brazil,
     /// and the line Brazilian public-health material itself points to.
-    /// Source: cvv.org.br. NEEDS A FINAL CHECK before publishing.
+    /// Verified against cvv.org.br on 22 Sep 2026: "Converse gratuitamente com
+    /// um dos nossos voluntários, em todo o Brasil, 24 horas por dia — LIGUE
+    /// 188."
     static let brazil = CrisisLine(
         regionLabel: "Brasil",
         number: "188",
@@ -41,7 +43,9 @@ enum CrisisLines {
     )
 
     /// 988 Suicide & Crisis Lifeline.
-    /// Source: 988lifeline.org. NEEDS A FINAL CHECK before publishing.
+    /// Verified against 988lifeline.org on 22 Sep 2026: available 24/7/365,
+    /// free and confidential, reachable by both call and text — which is why
+    /// this is the one entry here that carries an `smsURL`.
     static let unitedStates = CrisisLine(
         regionLabel: "United States",
         number: "988",
@@ -51,10 +55,16 @@ enum CrisisLines {
         smsURL: "sms:988"
     )
 
-    /// Línea de la Vida, the Mexican federal line (CONADIC / Secretaría de
-    /// Salud). This one I am least sure of — the number has changed form over
-    /// the years. MUST BE CONFIRMED against gob.mx before publishing; until
-    /// then treat the Spanish card as unverified.
+    /// Línea de la Vida, the Mexican federal line. Verified against
+    /// gob.mx/conasama on 22 Sep 2026: 800 911 2000, free, 24 hours a day, 365
+    /// days a year, nationwide.
+    ///
+    /// The doubt recorded here was well placed, but it was about the operator,
+    /// not the number: the line moved from CONADIC to **CONASAMA** (Comisión
+    /// Nacional de Salud Mental y Adicciones). The number did not change, and
+    /// the service now covers mental health explicitly — emotional pain,
+    /// depression, anxiety and suicide attempt — not only addictions, which is
+    /// what `detail` below claims.
     static let mexico = CrisisLine(
         regionLabel: "México",
         number: "800 911 2000",

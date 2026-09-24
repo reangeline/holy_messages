@@ -99,18 +99,15 @@ final class SubscriptionGateUITests: XCTestCase {
     func testTheMoodCheckInIsNeverBehindThePaywall() {
         let app = launch()
 
-        let checkIn = app.buttons.matching(NSPredicate(format: "label CONTAINS[c] 'Toque para registrar'")).firstMatch
+        // The first row of "Seu dia com Deus".
+        let checkIn = app.buttons.matching(NSPredicate(format: "label CONTAINS[c] 'Hoje eu estou'")).firstMatch
         XCTAssertTrue(checkIn.waitForExistence(timeout: 15), "o check-in de humor desapareceu")
         checkIn.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
 
-        XCTAssertTrue(
-            app.staticTexts.matching(NSPredicate(format: "label CONTAINS[c] 'Hoje eu estou'")).firstMatch.waitForExistence(timeout: 5),
-            "o check-in de humor ficou atrás da assinatura"
-        )
-
-        // Um estado de desolação, que é o caminho que leva ao apoio.
+        // Um estado de desolação, que é o caminho que leva ao apoio. Os estados
+        // só existem dentro da folha, então achá-los prova que ela abriu.
         let chip = app.buttons.matching(NSPredicate(format: "label CONTAINS[c] 'Culpado' OR label CONTAINS[c] 'Sozinho' OR label CONTAINS[c] 'Luto'")).firstMatch
-        XCTAssertTrue(chip.waitForExistence(timeout: 5), "nenhum estado de desolação apareceu")
+        XCTAssertTrue(chip.waitForExistence(timeout: 5), "o check-in de humor ficou atrás da assinatura")
         chip.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
 
         XCTAssertTrue(

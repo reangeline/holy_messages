@@ -81,6 +81,36 @@ Isso é defensável para um app que não coleta nada, mas **o botão precisa
 voltar** antes de o acervo pessoal crescer. Quando voltar, a limpeza vai em
 `LocalData`, sobre a lista de chaves que já está lá.
 
+### 2.4 Bíblia em espanhol (Torres Amat) incompleta — pendente
+
+Situação em 23 de setembro de 2026. As três Bíblias estão no app; inglês
+(Douay-Rheims) e português (Matos Soares, direitos confirmados por você) podem
+ir para a loja. A Torres Amat não, porque o teste `testBiblesReadyForRelease`
+barra `missingVerses > 0`:
+
+| | Versículos |
+|---|---|
+| Faltando | 463 (199 nos deuterocanônicos: Eclesiástico, Macabeus, Baruc…) |
+| Com resto de OCR | 630 (1,8%) |
+| Da Reina-Valera 1909, marcados com † no app | 1.488 (4,2%) |
+
+O texto vem do Wikisource onde há transcrição, e no resto do OCR de quatro
+edições (1823, 1836, 1882, 1894) cotejadas entre si. O que sobrou são
+versículos soltos que o OCR de todas as edições perdeu; a busca automática
+chegou ao limite.
+
+**Decidir entre:**
+
+- **Continuar a procurar** — transcrever à mão os 463 contra o fac-símile. A
+  lista pronta, com o texto da Douay-Rheims de cada um para achar a passagem,
+  está em `../missale-biblias-revisao/restantes-torres-amat.csv`. Algumas
+  horas de trabalho. O teste libera sozinho quando `missingVerses` chegar a 0.
+- **Publicar com aviso** — afrouxar o teste só para a Torres Amat e mostrar no
+  app que a edição tem versículos faltando. Decisão editorial.
+
+Os scripts para refazer tudo (conversão, preenchimento com a RV, Wikisource,
+OCR das edições) estão na mesma pasta `../missale-biblias-revisao/`.
+
 ---
 
 ## 3. O que falta de conteúdo

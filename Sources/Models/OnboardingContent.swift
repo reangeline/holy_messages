@@ -31,13 +31,3 @@ struct SpiritualQuestion: Identifiable, Codable {
     let subtitle: String
     let options: [OnboardingOption]
 }
-
-/// Sample content shown on the pre-login "navigable sample" screen, switchable by tab.
-struct SampleTab: Identifiable, Codable {
-    let id: String
-    let label: String
-    let kicker: String
-    let title: String
-    let body: String
-    let quote: String
-}

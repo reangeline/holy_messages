@@ -36,7 +36,7 @@ enum AppLanguagePreference {
     /// against `store`.
     static let storageKey = "appLanguageOverride"
     static let systemValue = "system"
-    static let appGroup = "group.com.missale.app"
+    static let appGroup = "group.com.holymessages.app"
 
     /// The app group, not `.standard`. A widget renders in its own process with
     /// its own defaults, so a preference kept in `.standard` is invisible to it:

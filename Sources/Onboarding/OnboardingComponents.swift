@@ -127,3 +127,45 @@ struct OnboardingTextLink: View {
         .padding(.top, 4)
     }
 }
+
+/// Press and hold to confirm: the fill grows while pressed and resets on release,
+/// so the commitment is a small deliberate act rather than a tap.
+struct OnboardingHoldButton: View {
+    let title: String
+    var duration: Double = 1.5
+    let action: () -> Void
+
+    @State private var progress = 0.0
+    @State private var committed = false
+
+    var body: some View {
+        Text(title)
+            .font(MissaleFont.body(17, weight: .medium))
+            .frame(maxWidth: .infinity)
+            .padding(.vertical, 16)
+            .foregroundStyle(.white)
+            .background {
+                GeometryReader { proxy in
+                    ZStack(alignment: .leading) {
+                        Palette.wine.opacity(0.45)
+                        Palette.wine.frame(width: proxy.size.width * progress)
+                    }
+                }
+                .clipShape(Capsule())
+            }
+            .scaleEffect(progress > 0 && !committed ? 0.97 : 1)
+            .padding(.horizontal, 24)
+            .onLongPressGesture(minimumDuration: duration) {
+                committed = true
+                action()
+            } onPressingChanged: { pressing in
+                guard !committed else { return }
+                withAnimation(pressing ? .linear(duration: duration) : .easeOut(duration: 0.25)) {
+                    progress = pressing ? 1 : 0
+                }
+            }
+            .sensoryFeedback(.success, trigger: committed)
+            .accessibilityAddTraits(.isButton)
+            .accessibilityAction { committed = true; action() }
+    }
+}

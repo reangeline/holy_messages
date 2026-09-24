@@ -3,53 +3,10 @@ import Foundation
 /// Onboarding content, now fully trilingual (en/pt/es) since the app unifies
 /// onboarding and the main app under one interface language. Each piece of
 /// content is authored once per language as a parallel array/dictionary rather
-/// than field-by-field, since the structs (LifeQuestion, SpiritualQuestion,
-/// SampleTab) don't carry per-language variants themselves — simplest to keep
+/// than field-by-field, since the structs (LifeQuestion, SpiritualQuestion)
+/// don't carry per-language variants themselves — simplest to keep
 /// correct and easy to audit side by side.
 enum MockOnboarding {
-    // MARK: - Sample tabs (dIs1)
-
-    static func sampleTabs(for language: AppLanguage) -> [SampleTab] {
-        switch language {
-        case .en:
-            [
-                .init(id: "verse", label: "Verse", kicker: "Today's verse", title: "Exaltation of the Holy Cross",
-                      body: "Monday, September 14. Red vestments today — the color of blood and of the Cross. This screen carries the color of the day, and it changes when the calendar does.",
-                      quote: "And as Moses lifted up the serpent in the desert, so must the Son of Man be lifted up."),
-                .init(id: "saint", label: "Saint", kicker: "Saint of the day", title: "St. Notburga of Eben",
-                      body: "A Tyrolean servant, dismissed from her post for giving the poor food that would otherwise be thrown away. She kept giving from what little she had.",
-                      quote: "Remembered for what she did with the leftovers, and for not stopping when it cost her the job."),
-                .init(id: "mass", label: "Mass", kicker: "The Mass, part by part · 1 of 14", title: "The Introductory Rites",
-                      body: "Before anything is read or offered, the Church gathers and admits what it is.",
-                      quote: "Why the sign of the cross comes first, and what the greeting actually claims."),
-            ]
-        case .pt:
-            [
-                .init(id: "verse", label: "Versículo", kicker: "Versículo de hoje", title: "Exaltação da Santa Cruz",
-                      body: "Segunda-feira, 14 de setembro. Vestes vermelhas hoje — a cor do sangue e da Cruz. Esta tela carrega a cor do dia, e ela muda quando o calendário muda.",
-                      quote: "Como Moisés levantou a serpente no deserto, assim deve ser levantado o Filho do Homem."),
-                .init(id: "saint", label: "Santo", kicker: "Santo do dia", title: "Santa Notburga de Eben",
-                      body: "Serva tirolesa, foi despedida do trabalho por dar aos pobres a comida que seria jogada fora. Continuou dando o pouco que tinha.",
-                      quote: "Lembrada pelo que fazia com as sobras, e por não ter parado quando isso lhe custou o emprego."),
-                .init(id: "mass", label: "Missa", kicker: "A Missa, parte por parte · 1 de 14", title: "Os Ritos Iniciais",
-                      body: "Antes de qualquer leitura ou oferta, a Igreja se reúne e admite o que é.",
-                      quote: "Por que o sinal da cruz vem primeiro, e o que a saudação realmente afirma."),
-            ]
-        case .es:
-            [
-                .init(id: "verse", label: "Versículo", kicker: "Versículo de hoy", title: "Exaltación de la Santa Cruz",
-                      body: "Lunes, 14 de septiembre. Vestiduras rojas hoy — el color de la sangre y de la Cruz. Esta pantalla lleva el color del día, y cambia cuando cambia el calendario.",
-                      quote: "Y como Moisés levantó la serpiente en el desierto, así debe ser levantado el Hijo del Hombre."),
-                .init(id: "saint", label: "Santo", kicker: "Santo del día", title: "Santa Notburga de Eben",
-                      body: "Sirvienta tirolesa, fue despedida de su trabajo por dar a los pobres la comida que se tiraría. Siguió dando de lo poco que tenía.",
-                      quote: "Recordada por lo que hacía con las sobras, y por no detenerse cuando eso le costó el empleo."),
-                .init(id: "mass", label: "Misa", kicker: "La Misa, parte por parte · 1 de 14", title: "Los Ritos Iniciales",
-                      body: "Antes de que se lea o se ofrezca nada, la Iglesia se reúne y admite lo que es.",
-                      quote: "Por qué la señal de la cruz viene primero, y qué afirma realmente el saludo."),
-            ]
-        }
-    }
-
     // MARK: - Life-state questions (dIsLife × 4)
 
     static func lifeQuestions(for language: AppLanguage) -> [LifeQuestion] {

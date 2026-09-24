@@ -3,13 +3,13 @@ import UserNotifications
 
 @MainActor
 final class OnboardingViewModel: ObservableObject {
-    @Published private(set) var path: [OnboardingStep] = [.feed]
+    @Published private(set) var path: [OnboardingStep] = [.verseIntro]
     @Published var lifeAnswers: [String: Set<String>] = [:]
     @Published var spiritualAnswers: [String: String] = [:]
     @Published var selectedNotificationTimeID: String = MockOnboarding.notificationTimes(for: .en).first?.id ?? ""
     @Published var notificationPermissionRequested = false
 
-    var current: OnboardingStep { path.last ?? .feed }
+    var current: OnboardingStep { path.last ?? .verseIntro }
 
     func reliefContent(for language: AppLanguage) -> ReliefContent {
         OnboardingRelief.content(spirit2: spiritualAnswers["spirit-2"], language: language)
@@ -26,9 +26,9 @@ final class OnboardingViewModel: ObservableObject {
         path.removeLast()
     }
 
-    func advanceFromFeed() { push(.sample) }
+    func advanceFromVerseIntro() { push(.promise) }
 
-    func advanceFromSample() { push(.life(0)) }
+    func advanceFromPromise() { push(.life(0)) }
 
     func advanceFromLife(index: Int) {
         if index < MockOnboarding.lifeQuestions(for: .en).count - 1 {
@@ -50,7 +50,9 @@ final class OnboardingViewModel: ObservableObject {
         }
     }
 
-    func advanceFromRelief() { push(.loader) }
+    func advanceFromRelief() { push(.prayer) }
+
+    func advanceFromPrayer() { push(.loader) }
 
     func advanceFromLoader() { push(.synthesis) }
 
@@ -87,6 +89,19 @@ final class OnboardingViewModel: ObservableObject {
 
     func hasAnyLifeAnswer(questionID: String) -> Bool {
         !(lifeAnswers[questionID]?.isEmpty ?? true)
+    }
+
+    /// A short answer to the reader's choice on a single-choice question, when
+    /// the story has one for it.
+    func reflection(questionID: String) -> String? {
+        guard let optionID = lifeAnswers[questionID]?.first,
+              let byLanguage = OnboardingStory.reflections[optionID] else { return nil }
+        return OnboardingStory.text(byLanguage)
+    }
+
+    var commitment: String {
+        let optionID = lifeAnswers["life-1"]?.first ?? ""
+        return OnboardingStory.text(OnboardingStory.commitments[optionID] ?? OnboardingStory.commitmentFallback)
     }
 
     func selectSpiritual(questionID: String, optionID: String) {

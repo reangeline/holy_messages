@@ -19,7 +19,7 @@ struct AppRootView: View {
     /// driven from a shell, so screens behind a tap (everything under Settings)
     /// were impossible to check with a screenshot:
     ///
-    ///     xcrun simctl launch <device> com.missale.app -openScreen settings
+    ///     xcrun simctl launch <device> com.holymessages.app -openScreen settings
     ///
     /// Debug-only and off unless the argument is passed.
     private var debugOpensSettings: Bool {
@@ -49,6 +49,15 @@ struct AppRootView: View {
                 OnboardingFlow(onFinished: { hasCompletedOnboarding = true })
             }
         }
+        // A paleta deste app é clara e cravada em hexadecimal — pergaminho,
+        // tinta, vinho, ouro. Os materiais do sistema (`.ultraThinMaterial`
+        // no GlassCard, nos chips do humor e na barra de abas), porém, seguem
+        // a aparência do aparelho: com o modo escuro ligado o fundo continuava
+        // pergaminho e cada cartão virava uma laje cinza-escura por cima dele.
+        // Declarar a aparência é o conserto honesto enquanto não existir uma
+        // paleta escura de verdade — e não existe: nenhuma cor do Palette tem
+        // variante escura.
+        .preferredColorScheme(.light)
         // Unifies onboarding and the main app under one language, detected from
         // the device by default with a manual override in Settings.
         .environment(\.locale, resolvedLanguage.locale)

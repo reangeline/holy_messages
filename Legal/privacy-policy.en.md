@@ -26,6 +26,10 @@ Everything below stays in the app's local storage, on your device.
 - The rosaries you log, with the mystery, the mode, and the intention when you
   write one.
 - Your Formation progress: which parts you completed, and in what order.
+- What you completed of "Your day with God" each day (reading and prayer,
+  for the last 60 days) and how far you've read in the New Testament.
+- The days you completed "Your day with God" (the date only), used to ask for
+  an App Store rating once, on the third day.
 - The name you type in Settings, used only to greet you by name in the app.
 
 **Your preferences**

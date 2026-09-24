@@ -13,6 +13,7 @@ struct PrayersRootView: View {
                                       subtitle: L.string("Today's mystery, guided", table: "Prayers"))
                         rosaryTeaserCard
                         row(title: L.string( "How to pray the Rosary", table: "Prayers"), subtitle: L.string( "The object, the mechanics, what to do with your mind", table: "Prayers"), destination: .howTo)
+                        bibleSection
                         devotionsSection
                         apparitionsSection
                     }
@@ -84,6 +85,30 @@ struct PrayersRootView: View {
                 .foregroundStyle(Palette.ink.opacity(0.65))
         }
         .padding(.top, 8)
+    }
+
+    private var bibleSection: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            sectionHeader(L.string("Holy Bible", table: "Bible"),
+                          subtitle: L.string("The whole Bible, offline", table: "Bible"))
+            NavigationLink {
+                BibleHomeView()
+            } label: {
+                GlassCard {
+                    HStack {
+                        Image(systemName: "book")
+                            .foregroundStyle(Palette.wine)
+                        Text("Read the Bible", tableName: "Bible")
+                            .font(MissaleFont.body(17, weight: .medium))
+                            .foregroundStyle(Palette.ink)
+                        Spacer()
+                        Image(systemName: "chevron.right")
+                            .foregroundStyle(Palette.wine)
+                    }
+                }
+            }
+            .buttonStyle(.plain)
+        }
     }
 
     private var devotionsSection: some View {

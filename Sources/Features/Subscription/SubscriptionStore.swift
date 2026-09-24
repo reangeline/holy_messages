@@ -85,6 +85,16 @@ final class SubscriptionStore: ObservableObject {
         UserDefaults.standard
             .volatileDomain(forName: UserDefaults.argumentDomain)["subscribed"] as? String == "1"
     }
+
+    /// Lets the UI suite reach the "couldn't reach the App Store" branch on
+    /// purpose. A simulator where the app was once run from Xcode keeps that
+    /// run's local StoreKit products, so "no store" can't be left to chance.
+    ///
+    ///     app.launchArguments = ["-noStore", "1"]
+    private var debugNoStore: Bool {
+        UserDefaults.standard
+            .volatileDomain(forName: UserDefaults.argumentDomain)["noStore"] as? String == "1"
+    }
 #endif
 
     private var updates: Task<Void, Never>?
@@ -108,16 +118,41 @@ final class SubscriptionStore: ObservableObject {
 
     func load() async {
         state = .loading
+#if DEBUG
+        if debugNoStore { return state = .failed }
+#endif
         do {
             let products = try await Product.products(for: ProductID.all)
             guard !products.isEmpty else { return state = .failed }
-            state = .loaded(products.sorted { primeiro, segundo in
+            let ordenados = products.sorted { primeiro, segundo in
                 (primeiro.id == ProductID.monthly ? 0 : 1) < (segundo.id == ProductID.monthly ? 0 : 1)
-            })
+            }
+            // Antes de publicar `.loaded`, para a tela nunca chegar a desenhar
+            // um botão de teste grátis que depois some.
+            await refreshTrialEligibility(from: ordenados)
+            state = .loaded(ordenados)
         } catch {
             state = .failed
         }
         await refreshEntitlement()
+    }
+
+    /// Whether this Apple ID can still receive the introductory offer.
+    ///
+    /// A product carries the offer it advertises, not the offer this reader is
+    /// owed: `introductoryOffer` is the same object for everyone. Someone who
+    /// already spent the free trial and let the subscription lapse would have
+    /// been shown "try free for 14 days" on a button that charges at once.
+    /// Eligibility is granted once per subscription group, so one question
+    /// answers for every plan in it.
+    @Published private(set) var eligibleForTrial = false
+
+    private func refreshTrialEligibility(from products: [Product]) async {
+        guard let subscription = products.first?.subscription else {
+            eligibleForTrial = false
+            return
+        }
+        eligibleForTrial = await subscription.isEligibleForIntroOffer
     }
 
     /// True when the purchase completed. `false` covers the reader cancelling
@@ -180,8 +215,23 @@ extension Product {
         return "\(displayPrice)/\(unidade)"
     }
 
+    /// "R$ 10,82" — what a yearly plan works out to per month, so the annual
+    /// price can be compared against the monthly one without arithmetic in the
+    /// reader's head. Nil for anything that isn't billed by the year; the
+    /// division and the currency both come from StoreKit.
+    var missaleMonthlyEquivalent: String? {
+        guard let period = subscription?.subscriptionPeriod, period.unit == .year else { return nil }
+        let meses = Decimal(12 * period.value)
+        guard meses > 0 else { return nil }
+        return (price / meses).formatted(priceFormatStyle)
+    }
+
     /// The trial the product actually offers, in days, or nil when there is
     /// none. The paywall's button used to promise 30 days regardless.
+    ///
+    /// This is what the product advertises to everyone. Before showing it to a
+    /// reader, gate it on `SubscriptionStore.eligibleForTrial` — an Apple ID
+    /// that already spent the trial gets charged immediately.
     var missaleFreeTrialDays: Int? {
         guard let offer = subscription?.introductoryOffer, offer.paymentMode == .freeTrial else { return nil }
         let period = offer.period

@@ -19,10 +19,16 @@
           "familyShareable": false,
           "groupNumber": 1,
           "internalID": "MONTHLY-LOCAL",
-          "introductoryOffer": null,
+          "introductoryOffer": {
+            "displayPrice": "0.00",
+            "internalID": "MONTHLY-INTRO",
+            "numberOfPeriods": 1,
+            "paymentMode": "free",
+            "subscriptionPeriod": "P1W"
+          },
           "localizations": [
             {
-              "description": "Missale Premium, cobrado todo m\u00eas",
+              "description": "Missale Premium, cobrado todo mês",
               "displayName": "Mensal",
               "locale": "pt_BR"
             },
@@ -50,7 +56,13 @@
           "familyShareable": false,
           "groupNumber": 1,
           "internalID": "ANNUAL-LOCAL",
-          "introductoryOffer": null,
+          "introductoryOffer": {
+            "displayPrice": "0.00",
+            "internalID": "ANNUAL-INTRO",
+            "numberOfPeriods": 1,
+            "paymentMode": "free",
+            "subscriptionPeriod": "P1W"
+          },
           "localizations": [
             {
               "description": "Missale Premium, cobrado uma vez por ano",
@@ -63,7 +75,7 @@
               "locale": "en_US"
             },
             {
-              "description": "Missale Premium, se cobra una vez al a\u00f1o",
+              "description": "Missale Premium, se cobra una vez al año",
               "displayName": "Anual",
               "locale": "es_ES"
             }

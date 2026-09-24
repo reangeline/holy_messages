@@ -1,6 +1,29 @@
 {
   "sourceLanguage": "en",
   "strings": {
+    "({price} per month)": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "({price}/mês)"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "({price}/mes)"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "({price} per month)"
+          }
+        }
+      }
+    },
     "A few short questions. No account yet.": {
       "localizations": {
         "en": {
@@ -41,6 +64,29 @@
           "stringUnit": {
             "state": "translated",
             "value": "Um plano curto, a partir de hoje"
+          }
+        }
+      }
+    },
+    "And Compline for the night.": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "E as Completas para a noite."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Y las Completas para la noche."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "And Compline for the night."
           }
         }
       }
@@ -199,6 +245,29 @@
         }
       }
     },
+    "Close": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fechar"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cerrar"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Close"
+          }
+        }
+      }
+    },
     "Consolation and desolation, dryness, doubt, weight. Not a mood test, not a score, no diagnosis — the vocabulary the Church uses for what a soul carries.": {
       "localizations": {
         "en": {
@@ -289,6 +358,29 @@
         }
       }
     },
+    "Every season and feast": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cada tempo e festa"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cada tiempo y fiesta"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Every season and feast"
+          }
+        }
+      }
+    },
     "Every season and feast explained as it arrives": {
       "localizations": {
         "en": {
@@ -330,6 +422,29 @@
           "stringUnit": {
             "state": "translated",
             "value": "Todo en la app funciona sin suscripción. Puedes suscribirte después, en Ajustes."
+          }
+        }
+      }
+    },
+    "Explained as it arrives.": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Explicados conforme chegam."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Explicados a medida que llegan."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Explained as it arrives."
           }
         }
       }
@@ -419,6 +534,29 @@
           "stringUnit": {
             "state": "translated",
             "value": "Apoio no luto, escuta e ajuda material pela sua diocese."
+          }
+        }
+      }
+    },
+    "Hide plans": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ocultar planos"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ocultar planes"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hide plans"
           }
         }
       }
@@ -1178,6 +1316,29 @@
         }
       }
     },
+    "The Mass, the sacraments, the Rosary, confession — {n} lessons in all.": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A Missa, os sacramentos, o Terço, a confissão — {n} lições ao todo."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La Misa, los sacramentos, el Rosario, la confesión — {n} lecciones en total."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The Mass, the sacraments, the Rosary, confession — {n} lessons in all."
+          }
+        }
+      }
+    },
     "The daily verse, the saint, and the safety net stay free forever.": {
       "localizations": {
         "en": {
@@ -1358,28 +1519,6 @@
         }
       }
     },
-    "This is mine": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "This is mine"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Esto es mío"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Isso é meu"
-          }
-        }
-      }
-    },
     "This is what arrives at {time}": {
       "localizations": {
         "en": {
@@ -1442,6 +1581,29 @@
           "stringUnit": {
             "state": "translated",
             "value": "Amanhã de manhã você recebe"
+          }
+        }
+      }
+    },
+    "Traditional prayers": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Orações tradicionais"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Oraciones tradicionales"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Traditional prayers"
           }
         }
       }
@@ -1513,6 +1675,52 @@
         }
       }
     },
+    "Unlock all content": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Todo o conteúdo liberado"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Todo el contenido"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unlock all content"
+          }
+        }
+      }
+    },
+    "View all plans": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ver todos os planos"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ver todos los planes"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "View all plans"
+          }
+        }
+      }
+    },
     "We couldn't reach the App Store to load the plans.": {
       "extractionState": "manual",
       "localizations": {
@@ -1532,6 +1740,29 @@
           "stringUnit": {
             "state": "translated",
             "value": "No se pudo consultar la App Store para cargar los planes."
+          }
+        }
+      }
+    },
+    "What you get with Missale Premium": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O que você recebe com o Missale Premium"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lo que recibes con Missale Premium"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "What you get with Missale Premium"
           }
         }
       }
@@ -1715,6 +1946,29 @@
         }
       }
     },
+    "with Missale Premium": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "com o Missale Premium"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "con Missale Premium"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "with Missale Premium"
+          }
+        }
+      }
+    },
     "year": {
       "extractionState": "manual",
       "localizations": {
@@ -1802,6 +2056,29 @@
           "stringUnit": {
             "state": "translated",
             "value": "{n} de {total}"
+          }
+        }
+      }
+    },
+    "{n} paths of formation": {
+      "extractionState": "manual",
+      "localizations": {
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "{n} trilhas de formação"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "{n} itinerarios de formación"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "{n} paths of formation"
           }
         }
       }
