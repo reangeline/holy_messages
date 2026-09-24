@@ -16,7 +16,7 @@ final class OnboardingLanguageUITests: XCTestCase {
     /// only way to reach the flow in a given language.
     private func launch(language: String) -> XCUIApplication {
         let app = XCUIApplication()
-        app.launchArguments = [
+        app.launchArguments = ["-signedIn", "1",
             "-demoDate", "2026-09-14",
             "-hasCompletedOnboarding", "0",
             "-appLanguageOverride", language,

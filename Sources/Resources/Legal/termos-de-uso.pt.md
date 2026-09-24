@@ -1,6 +1,6 @@
 # Termos de Uso do Missale
 
-**Última atualização: 21 de setembro de 2026**
+**Última atualização: 25 de setembro de 2026**
 
 Ao usar o aplicativo Missale você concorda com estes termos. Leia-os: eles são
 curtos e dizem exatamente o que o aplicativo é e o que ele não é.
@@ -11,7 +11,9 @@ O Missale é um aplicativo de espiritualidade católica para iPhone e iPad.
 Ele reúne a palavra do dia, o santo do dia, o calendário litúrgico, trilhas de
 formação, o Terço guiado, orações, o Exame do dia e as Completas.
 
-O aplicativo funciona inteiramente no seu aparelho, sem conta e sem conexão.
+Para usar o aplicativo é preciso uma conta, criada com o "Entrar com a Apple".
+O que você escreve e registra fica no seu aparelho; a conta é descrita na
+Política de Privacidade.
 
 ## 2. O que o Missale não é
 

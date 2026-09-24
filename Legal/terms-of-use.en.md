@@ -1,6 +1,6 @@
 # Missale Terms of Use
 
-**Last updated: 21 September 2026**
+**Last updated: 25 September 2026**
 
 By using the Missale app you agree to these terms. Please read them: they are
 short, and they say exactly what the app is and what it is not.
@@ -11,8 +11,9 @@ Missale is a Catholic spirituality app for iPhone and iPad. It brings together
 the word of the day, the saint of the day, the liturgical calendar, formation
 tracks, the guided Rosary, prayers, the daily Examen, and Compline.
 
-The app runs entirely on your device, without an account and without a
-connection.
+Using the app requires an account, created with Sign in with Apple. What you
+write and log stays on your device; the account is described in the Privacy
+Policy.
 
 ## 2. What Missale is not
 

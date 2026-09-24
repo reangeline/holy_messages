@@ -11,7 +11,7 @@ final class BibleUITests: XCTestCase {
 
     private func launch(_ language: String) -> XCUIApplication {
         let app = XCUIApplication()
-        app.launchArguments = ["-subscribed", "1", "-hasCompletedOnboarding", "1", "-appLanguageOverride", language]
+        app.launchArguments = ["-signedIn", "1", "-subscribed", "1", "-hasCompletedOnboarding", "1", "-appLanguageOverride", language]
         app.launch()
         return app
     }
@@ -88,7 +88,7 @@ final class BibleUITests: XCTestCase {
     /// and find both back on the Bible's front page; then a word search.
     func testSearchHighlightAndBookmarkInPortuguese() {
         let app = XCUIApplication()
-        app.launchArguments = ["-subscribed", "1", "-hasCompletedOnboarding", "1", "-appLanguageOverride", "pt",
+        app.launchArguments = ["-signedIn", "1", "-subscribed", "1", "-hasCompletedOnboarding", "1", "-appLanguageOverride", "pt",
                                "-resetBibleNotes", "1"]
         app.launch()
         openBible("Orações", "Ler a Bíblia", in: app)

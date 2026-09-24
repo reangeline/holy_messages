@@ -13,7 +13,7 @@ final class MarianApparitionsUITests: XCTestCase {
 
     private func openPrayers(_ language: String) -> XCUIApplication {
         let app = XCUIApplication()
-        app.launchArguments = ["-demoDate", "2026-09-14", "-subscribed", "1", "-hasCompletedOnboarding", "1", "-appLanguageOverride", language]
+        app.launchArguments = ["-signedIn", "1", "-demoDate", "2026-09-14", "-subscribed", "1", "-hasCompletedOnboarding", "1", "-appLanguageOverride", language]
         app.launch()
 
         let tab = app.buttons.matching(
@@ -70,7 +70,7 @@ final class MarianApparitionsUITests: XCTestCase {
     /// was the reason to move it, not to duplicate it.
     func testCalendarNoLongerLinksToApparitions() {
         let app = XCUIApplication()
-        app.launchArguments = ["-demoDate", "2026-09-14", "-subscribed", "1", "-hasCompletedOnboarding", "1", "-appLanguageOverride", "pt"]
+        app.launchArguments = ["-signedIn", "1", "-demoDate", "2026-09-14", "-subscribed", "1", "-hasCompletedOnboarding", "1", "-appLanguageOverride", "pt"]
         app.launch()
 
         let tab = app.buttons.matching(NSPredicate(format: "label CONTAINS[c] 'Calendário'")).firstMatch

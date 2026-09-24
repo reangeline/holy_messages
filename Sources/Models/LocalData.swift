@@ -10,8 +10,12 @@ import Foundation
 /// the policy describes, what the file carries and what the button removes can
 /// never drift apart.
 ///
-/// Nothing here is ever uploaded. The app makes no network requests at all —
-/// see `LocalDataTests`, which fails if a key is added without being listed.
+/// Nothing here is ever uploaded. The only network code is `MissaleAPI`
+/// (sign-in and the account), which sends none of these keys — see
+/// `LocalDataTests`, which also fails if a key is added without being listed.
+///
+/// Outside UserDefaults, the Keychain holds the account session
+/// (`SessionKeychain`: tokens and Apple's user identifier), on this device only.
 enum LocalData {
 
     /// Text and records the reader creates — what the policy calls "what you

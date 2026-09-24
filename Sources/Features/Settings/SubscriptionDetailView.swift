@@ -14,6 +14,7 @@ import StoreKit
 struct SubscriptionDetailView: View {
     @ObservedObject private var store = SubscriptionStore.shared
     @State private var restaurando = false
+    @State private var diagnostico: [String]?
 
     var body: some View {
         ZStack {
@@ -78,10 +79,29 @@ struct SubscriptionDetailView: View {
                         }
                     }
 
+                    // Só no TestFlight: o que a App Store responde, para
+                    // separar comportamento do sandbox de defeito do app.
+                    if let diagnostico {
+                        GlassCard {
+                            VStack(alignment: .leading, spacing: 6) {
+                                Text(verbatim: "TESTFLIGHT · APP STORE")
+                                    .font(MissaleFont.body(11, weight: .semibold))
+                                    .tracking(1.4)
+                                    .foregroundStyle(Palette.wine)
+                                ForEach(diagnostico, id: \.self) { linha in
+                                    Text(verbatim: linha)
+                                        .font(.system(.footnote, design: .monospaced))
+                                        .textSelection(.enabled)
+                                }
+                            }
+                        }
+                    }
+
                     Button {
                         restaurando = true
                         Task {
                             await store.restore()
+                            diagnostico = await store.sandboxDiagnostics()
                             restaurando = false
                         }
                     } label: {
@@ -142,5 +162,6 @@ struct SubscriptionDetailView: View {
         }
         .navigationTitle("")
         .navigationBarTitleDisplayMode(.inline)
+        .task { diagnostico = await store.sandboxDiagnostics() }
     }
 }

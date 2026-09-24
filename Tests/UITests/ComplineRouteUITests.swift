@@ -21,7 +21,7 @@ final class ComplineRouteUITests: XCTestCase {
     /// language and missed in another, three fixes in a row. The card's own
     /// route is covered by ExamenLanguageUITests; this file is about Compline.
     private func openCompline(_ language: String, _ app: XCUIApplication) {
-        app.launchArguments = ["-demoDate", "2026-09-14", "-subscribed", "1", "-hasCompletedOnboarding", "1", "-appLanguageOverride", language,
+        app.launchArguments = ["-signedIn", "1", "-demoDate", "2026-09-14", "-subscribed", "1", "-hasCompletedOnboarding", "1", "-appLanguageOverride", language,
                                "-openScreen", "examen"]
         app.launch()
 

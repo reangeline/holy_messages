@@ -3,6 +3,7 @@ import SwiftUI
 struct AppRootView: View {
     @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding = false
     @State private var showSettings = false
+    @ObservedObject private var account = AccountStore.shared
 #if DEBUG
     @State private var showExamen = false
     @State private var showPaywall = false
@@ -44,7 +45,13 @@ struct AppRootView: View {
     var body: some View {
         Group {
             if hasCompletedOnboarding {
-                MainTabView()
+                // Readers from before accounts existed, and anyone whose session
+                // ended, sign in here; the onboarding has its own step for it.
+                if account.isSignedIn {
+                    MainTabView()
+                } else {
+                    SignInView(onSignedIn: {})
+                }
             } else {
                 OnboardingFlow(onFinished: { hasCompletedOnboarding = true })
             }
@@ -105,11 +112,17 @@ struct AppRootView: View {
         // Rolling-window notifications need refreshing on every foreground, not just
         // cold launch — that's the only way a liturgical-season wording change
         // (Angelus → Regina Caeli) or the 64-pending cap stay honored over time.
+        // Signing out or deleting the account happens inside Settings; close
+        // it so the sign-in screen underneath is what the reader sees.
+        .onChange(of: account.isSignedIn) { _, signedIn in
+            if !signedIn { showSettings = false }
+        }
         .onChange(of: scenePhase, initial: true) { _, newPhase in
             if newPhase == .active {
                 AngelusScheduler.refresh()
                 ReadingReminderScheduler.refresh()
                 Task { await SubscriptionStore.shared.refreshOnForeground() }
+                Task { await AccountStore.shared.checkAppleCredential() }
             }
         }
     }

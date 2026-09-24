@@ -12,7 +12,7 @@ final class SaintArtUITests: XCTestCase {
 
     private func launch() -> XCUIApplication {
         let app = XCUIApplication()
-        app.launchArguments = ["-demoDate", "2026-09-14", "-subscribed", "1", "-hasCompletedOnboarding", "1"]
+        app.launchArguments = ["-signedIn", "1", "-demoDate", "2026-09-14", "-subscribed", "1", "-hasCompletedOnboarding", "1"]
         app.launch()
         return app
     }

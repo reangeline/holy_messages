@@ -182,14 +182,55 @@ final class SubscriptionStore: ObservableObject {
         for await result in Transaction.currentEntitlements {
             guard let transaction = try? result.payloadValue,
                   ProductID.all.contains(transaction.productID),
-                  transaction.revocationDate == nil
+                  transaction.revocationDate == nil,
+                  !transaction.isUpgraded
             else { continue }
-            // `expirationDate` is nil only for non-subscriptions; both products
-            // here are subscriptions, so an absent date means keep looking.
-            if let expiry = transaction.expirationDate, expiry > .now { ativa = true }
+            // No expiry check: `currentEntitlements` already leaves expired
+            // subscriptions out, and keeps the ones in a billing grace period,
+            // whose `expirationDate` is in the past. Checking it here took the
+            // app away from a subscriber whose card was merely being retried.
+            ativa = true
         }
         entitledByStore = ativa
         hasResolvedEntitlement = true
+    }
+
+    /// What the App Store reports, in plain lines, for the TestFlight-only
+    /// diagnostics on the subscription screen. TestFlight renews daily and
+    /// stops after six renewals, and never grants a second free trial to an
+    /// Apple ID — both look like bugs from inside the app. Nil outside the
+    /// sandbox, so App Store customers never see it.
+    func sandboxDiagnostics() async -> [String]? {
+        guard let app = try? await AppTransaction.shared.payloadValue,
+              app.environment != .production
+        else { return nil }
+        var lines = ["Ambiente: \(app.environment.rawValue)"]
+        let date = Date.FormatStyle(date: .abbreviated, time: .shortened)
+        for id in ProductID.all {
+            guard let latest = await Transaction.latest(for: id) else {
+                lines.append("\(id): nenhuma compra")
+                continue
+            }
+            switch latest {
+            case .verified(let t):
+                var line = "\(id): comprado \(t.purchaseDate.formatted(date))"
+                if let expiry = t.expirationDate { line += ", vence \(expiry.formatted(date))" }
+                if t.revocationDate != nil { line += ", reembolsado" }
+                if t.isUpgraded { line += ", trocado de plano" }
+                lines.append(line)
+            case .unverified(_, let error):
+                lines.append("\(id): transação NÃO verificada (\(error.localizedDescription))")
+            }
+        }
+        if case .loaded(let products) = state, let subscription = products.first?.subscription {
+            for status in (try? await subscription.status) ?? [] {
+                lines.append("Status do grupo: \(String(describing: status.state))")
+            }
+            let trial = products.first?.missaleFreeTrialDays.map { "\($0) dias" } ?? "nenhum no produto"
+            lines.append("Teste grátis: \(trial); este Apple ID tem direito: \(eligibleForTrial ? "sim" : "não")")
+        }
+        lines.append("Assinatura ativa no app: \(entitledByStore ? "sim" : "não")")
+        return lines
     }
 
     /// Called when the app returns to the foreground, so a subscription that

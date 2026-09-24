@@ -4,6 +4,7 @@ import SwiftUI
 /// conditional trigger), then grouped rows, per the design's "Ajustes · 10 telas".
 struct SettingsView: View {
     @Environment(\.dismiss) private var dismiss
+    @ObservedObject private var subscriptions = SubscriptionStore.shared
     @AppStorage(AppLanguagePreference.storageKey, store: AppLanguagePreference.store) private var languageOverride = AppLanguagePreference.systemValue
     @AppStorage(UserProfile.nameStorageKey) private var userDisplayName = ""
     @AppStorage(UserProfile.calendarRegionKey) private var storedRegionID = ""
@@ -24,6 +25,7 @@ struct SettingsView: View {
                         ForEach(MockSettings.groups) { group in
                             groupSection(group)
                         }
+                        AccountSettingsCard()
                         Text(L.string(MockSettings.buildLine, table: "SettingsDetail"))
                             .font(MissaleFont.body(13))
                             .foregroundStyle(Palette.ink.opacity(0.55))
@@ -76,7 +78,7 @@ struct SettingsView: View {
             .buttonStyle(.plain)
             // Vinha de um texto fixo: "Assinatura anual · renova em 14 de
             // outubro", para todo mundo, sem ninguém ter assinado.
-            Text(SubscriptionStore.shared.isSubscribed
+            Text(subscriptions.isSubscribed
                  ? L.string("Missale Premium · active", table: "SettingsDetail")
                  : L.string("No subscription · everything available", table: "SettingsDetail"))
                 .font(MissaleFont.body(15))

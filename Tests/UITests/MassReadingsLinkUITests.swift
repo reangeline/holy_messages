@@ -16,7 +16,7 @@ final class MassReadingsLinkUITests: XCTestCase {
 
     private func launch(_ language: String) -> XCUIApplication {
         let app = XCUIApplication()
-        app.launchArguments = ["-demoDate", "2026-09-14", "-hasCompletedOnboarding", "1", "-appLanguageOverride", language]
+        app.launchArguments = ["-signedIn", "1", "-demoDate", "2026-09-14", "-hasCompletedOnboarding", "1", "-appLanguageOverride", language]
         app.launch()
         return app
     }

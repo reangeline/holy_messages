@@ -24,7 +24,7 @@ final class SubscriptionGateUITests: XCTestCase {
     /// since the simulator has no App Store.
     private func launch(_ language: String = "pt") -> XCUIApplication {
         let app = XCUIApplication()
-        app.launchArguments = ["-demoDate", "2026-09-14", "-hasCompletedOnboarding", "1", "-appLanguageOverride", language]
+        app.launchArguments = ["-signedIn", "1", "-demoDate", "2026-09-14", "-hasCompletedOnboarding", "1", "-appLanguageOverride", language]
         app.launch()
         return app
     }
@@ -124,7 +124,7 @@ final class SubscriptionGateUITests: XCTestCase {
     /// and the two legal documents live.
     func testSettingsAndTheLegalDocumentsStayFree() {
         let app = XCUIApplication()
-        app.launchArguments = ["-demoDate", "2026-09-14", "-hasCompletedOnboarding", "1", "-appLanguageOverride", "pt",
+        app.launchArguments = ["-signedIn", "1", "-demoDate", "2026-09-14", "-hasCompletedOnboarding", "1", "-appLanguageOverride", "pt",
                                "-openScreen", "settings"]
         app.launch()
 
@@ -133,7 +133,7 @@ final class SubscriptionGateUITests: XCTestCase {
         XCTAssertTrue(privacidade.waitForExistence(timeout: 5), "não achei a política de privacidade")
         privacidade.tap()
         XCTAssertTrue(
-            app.staticTexts.matching(NSPredicate(format: "label CONTAINS[c] 'não faz nenhuma requisição de rede'")).firstMatch.waitForExistence(timeout: 5),
+            app.staticTexts.matching(NSPredicate(format: "label CONTAINS[c] 'Nada do que você escreve ou registra sai do seu aparelho'")).firstMatch.waitForExistence(timeout: 5),
             "a política de privacidade ficou atrás da assinatura"
         )
     }

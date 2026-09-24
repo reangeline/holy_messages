@@ -4,8 +4,7 @@ import XCTest
 /// The privacy policy describes this app from `LocalData`, so the list there
 /// has to be the truth: these tests fail when a new persisted key appears
 /// without being listed, when a listed key disappears from the code, and when
-/// any networking API shows up — the policy's central claim is that the app
-/// makes no network requests.
+/// networking shows up anywhere but the Missale API client.
 ///
 /// There is nothing here about a wipe: the delete button and the export beside
 /// it are deferred, and the policy says deleting the app is what removes the
@@ -70,15 +69,19 @@ final class LocalDataTests: XCTestCase {
 
 
 
-    /// The claim the policy rests on: the app has no network code.
-    func testTheAppMakesNoNetworkRequests() throws {
+    /// The claim the policy rests on: the only network code is the Missale API
+    /// client (account and orientação), and it talks to one host. Anything
+    /// that reaches the network from another file is outside the policy.
+    func testOnlyTheMissaleAPIClientUsesTheNetwork() throws {
         let raiz = URL(fileURLWithPath: #filePath)
             .deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent()
         var ofensores: [String] = []
         guard let caminhos = FileManager.default.enumerator(
             at: raiz.appendingPathComponent("Sources"), includingPropertiesForKeys: nil) else { return }
         for caso in caminhos {
-            guard let url = caso as? URL, url.pathExtension == "swift" else { continue }
+            guard let url = caso as? URL, url.pathExtension == "swift",
+                  url.lastPathComponent != "MissaleAPI.swift"
+            else { continue }
             let fonte = try String(contentsOf: url, encoding: .utf8)
             for api in ["URLSession", "URLRequest", "NWConnection", "CFNetwork", "Network.framework"] {
                 if fonte.contains(api) { ofensores.append("\(url.lastPathComponent): \(api)") }
@@ -86,8 +89,19 @@ final class LocalDataTests: XCTestCase {
         }
         XCTAssertTrue(
             ofensores.isEmpty,
-            "a política diz que o app não faz requisições de rede, e apareceu: \(ofensores)"
+            "a política diz que só a API do Missale usa a rede, e apareceu: \(ofensores)"
         )
+    }
+
+    func testTheAPIClientTalksToOneHost() throws {
+        let fonte = try String(contentsOf: URL(fileURLWithPath: #filePath)
+            .deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent()
+            .appendingPathComponent("Sources/Features/Account/MissaleAPI.swift"), encoding: .utf8)
+        let hosts = try NSRegularExpression(pattern: #"https://[^"/]+"#)
+            .matches(in: fonte, range: NSRange(fonte.startIndex..., in: fonte))
+            .map { (fonte as NSString).substring(with: $0.range) }
+        XCTAssertEqual(Set(hosts), [MissaleAPI.baseURL.absoluteString.trimmingCharacters(in: CharacterSet(charactersIn: "/"))],
+                       "o cliente da API só pode falar com a API do Missale")
     }
 }
 

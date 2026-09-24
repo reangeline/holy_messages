@@ -140,6 +140,23 @@ Do 2.0 (3), o que depende de conteúdo:
   mostra "Um santo para conhecer", um diferente a cada dia; o completo é o
   trabalho de §3.2.
 
+### 2.5b Conta e orientação com IA (Jev) — em andamento, 25/09
+
+- **Feito:** login obrigatório com "Entrar com a Apple" (passo do onboarding
+  depois da síntese, e tela na abertura para quem já usava o app); sessão no
+  Keychain; Ajustes › Conta com sair e apagar conta; políticas e termos nos 3
+  idiomas atualizados (25/09). Backend em `~/Projects/missale-backend` (Go,
+  ports & adapters, Cognito + Aurora DSQL, ambiente dev no ar).
+- **Falta:** a tela da orientação (escrever o que sente → Jev escolhe estado,
+  risco e a resposta revisada), com volta para os botões sem internet ou sem
+  assinatura; ambiente prod e a URL de produção no `MissaleAPI`; revogar o
+  token da Apple ao apagar a conta (precisa de uma chave .p8 de Sign in with
+  Apple); respostas de privacidade na App Store Connect (agora há "Identificadores
+  › ID do usuário" e "Informações de contato › E-mail", ligados à conta).
+- **Assinatura no TestFlight:** Ajustes › Assinatura mostra, só no TestFlight,
+  o que a App Store responde. O TestFlight renova todo dia e para depois de 6
+  renovações, e o teste grátis nunca volta para o mesmo Apple ID.
+
 ### 2.6 Próximas features — pedidas em 24/09
 
 - **Uma história ou curiosidade.** Uma mensagem curta, que muda a cada dia: um

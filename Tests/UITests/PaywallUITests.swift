@@ -26,7 +26,7 @@ final class PaywallUITests: XCTestCase {
 
     private func abrir(_ language: String) -> XCUIApplication {
         let app = XCUIApplication()
-        app.launchArguments = ["-demoDate", "2026-09-14", "-hasCompletedOnboarding", "1", "-appLanguageOverride", language,
+        app.launchArguments = ["-signedIn", "1", "-demoDate", "2026-09-14", "-hasCompletedOnboarding", "1", "-appLanguageOverride", language,
                                "-openScreen", "paywall", "-noStore", "1"]
         app.launch()
         return app
@@ -78,7 +78,7 @@ final class PaywallUITests: XCTestCase {
     /// Settings must not claim a subscription nobody bought.
     func testSettingsReportsNoSubscription() {
         let app = XCUIApplication()
-        app.launchArguments = ["-demoDate", "2026-09-14", "-hasCompletedOnboarding", "1", "-appLanguageOverride", "pt",
+        app.launchArguments = ["-signedIn", "1", "-demoDate", "2026-09-14", "-hasCompletedOnboarding", "1", "-appLanguageOverride", "pt",
                                "-openScreen", "settings"]
         app.launch()
 

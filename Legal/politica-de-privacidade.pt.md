@@ -1,6 +1,6 @@
 # Política de Privacidade do Missale
 
-**Última atualização: 21 de setembro de 2026**
+**Última atualização: 25 de setembro de 2026**
 
 Esta política descreve o aplicativo Missale para iPhone e iPad. Ela foi escrita
 a partir do código do aplicativo, não de um modelo: a lista de tudo o que é
@@ -9,9 +9,14 @@ se um dado novo passar a ser guardado sem entrar nesta política.
 
 ## O resumo
 
-O Missale não tem conta, não tem servidor e não faz nenhuma requisição de rede.
-Nada do que você escreve ou registra sai do seu aparelho. Nós não recebemos os
-seus dados porque não existe para onde eles irem.
+O Missale pede uma conta, criada com o "Entrar com a Apple". Essa conta é a
+única coisa que o aplicativo envia para um servidor nosso: o identificador que
+a Apple nos dá e, se você escolher compartilhá-lo, o seu e-mail (que pode ser um
+endereço de encaminhamento da Apple).
+
+**Nada do que você escreve ou registra sai do seu aparelho.** As anotações, o
+Exame, o registro do "Hoje eu estou…", os terços e o progresso ficam só no seu
+iPhone, como sempre ficaram.
 
 ## O que fica guardado no seu aparelho
 
@@ -50,16 +55,45 @@ local, no seu aparelho.
 
 ## O que o aplicativo não faz
 
-- **Não tem conta nem login.** Não pedimos e-mail, telefone, senha ou qualquer
-  outro identificador.
-- **Não faz requisições de rede.** O aplicativo não contém código de rede.
+- **Não envia o que você escreve.** Anotações, Exame, registros e progresso
+  ficam no seu aparelho.
 - **Não tem sincronização.** Nada é copiado para outro aparelho por nós.
 - **Não tem analytics, telemetria nem rastreadores de terceiros.** Nenhum SDK
   de análise, publicidade ou atribuição está incluído.
 - **Não tem anúncios.**
-- **Não vende, aluga nem compartilha dados.** Não há dados nossos para vender.
+- **Não vende, aluga nem compartilha dados.**
 - **Não acessa** seus contatos, sua agenda, suas fotos, seu microfone, sua
   câmera ou sua localização.
+
+## A sua conta
+
+Para usar o Missale você entra com o **"Entrar com a Apple"**. Não existe senha
+nossa: quem confirma que é você é a Apple.
+
+**O que o nosso servidor recebe e guarda**
+
+- O identificador que a Apple cria para você no Missale (um código que não
+  serve em nenhum outro aplicativo).
+- O seu e-mail, só se você escolher compartilhá-lo na tela da Apple. A Apple
+  permite esconder o e-mail; nesse caso recebemos um endereço de
+  encaminhamento.
+- A data em que a conta foi criada.
+
+**No seu aparelho**, a sessão da conta (as chaves que provam para o servidor
+que você entrou) fica nas Chaves do iPhone (Keychain), criptografada, apenas
+neste aparelho, fora de backups e do iCloud.
+
+**Onde fica.** O servidor roda na Amazon Web Services (AWS), nos Estados
+Unidos, que processa esses dados em nosso nome. Ao criar a conta, você concorda
+com essa transferência internacional, feita para prestar o serviço que você
+pediu.
+
+**Por quanto tempo.** Até você apagar a conta. Não usamos esses dados para
+publicidade, não os vendemos e não os cruzamos com nada.
+
+**O aplicativo só se comunica com o servidor do Missale**, e só para entrar,
+manter a sessão e apagar a conta. Um teste automatizado falha se código de rede
+aparecer em qualquer outra parte do aplicativo.
 
 ## Notificações
 
@@ -92,10 +126,15 @@ privacidade da Apple.
 
 ## Apagar os seus dados
 
-**Apagar o aplicativo do aparelho remove tudo o que ele guardou** — as suas
-anotações, o seu registro, o seu progresso e o seu nome. Como nada é enviado
-para nós, essa é a exclusão completa: não existe pedido de exclusão a fazer,
-nem cópia nossa para apagar depois.
+**Apagar a conta**: em **Configurações › Conta › Apagar conta**. Isso apaga do
+nosso servidor tudo o que ele guarda sobre você (o identificador da Apple, o
+e-mail, se houver, e a data de criação) e encerra a sessão neste aparelho. A
+assinatura não é cancelada por aí: ela é da App Store, e se cancela lá.
+
+**Apagar o aplicativo do aparelho remove tudo o que ele guardou nele** — as suas
+anotações, o seu registro, o seu progresso, o seu nome e a sessão. A conta no
+servidor continua até você apagá-la, pelo aplicativo ou escrevendo para o
+contato abaixo.
 
 Em **Configurações › Seus dados** você também pode:
 
@@ -109,16 +148,19 @@ Em **Configurações › Seus dados** você também pode:
 
 ## Crianças
 
-O Missale não é dirigido a crianças e não coleta dados de ninguém, de qualquer
-idade.
+O Missale não é dirigido a crianças e não coleta, de propósito, dados de menores
+de 13 anos. Se você souber de uma conta criada por uma criança, escreva para o
+contato abaixo e ela será apagada.
 
 ## Os seus direitos (LGPD, GDPR, CCPA)
 
-A LGPD, o GDPR e a CCPA dão a você direitos de acesso, correção, exclusão e
-portabilidade sobre os seus dados pessoais tratados por um controlador. **Nós
-não somos controladores de nenhum dado seu**, porque não coletamos nem
-recebemos nada. Os dados descritos nesta política ficam sob o seu próprio
-controle, no seu aparelho, e saem com o aplicativo quando você o apaga.
+Para os dados da conta descritos acima, **nós somos os controladores**. A LGPD,
+o GDPR e a CCPA dão a você direitos de acesso, correção, exclusão e
+portabilidade sobre eles. Você pode apagar a conta a qualquer momento no
+aplicativo, e pode pedir acesso, correção ou exclusão pelo contato abaixo.
+
+O que você escreve e registra não chega até nós: fica sob o seu próprio
+controle, no seu aparelho, e sai com o aplicativo quando você o apaga.
 
 ## Mudanças nesta política
 

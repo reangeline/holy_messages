@@ -55,6 +55,9 @@ struct OnboardingFlow: View {
             case .synthesis:
                 OnboardingSynthesisView(viewModel: viewModel, onNext: viewModel.advanceFromSynthesis)
 
+            case .signIn:
+                SignInView(onSignedIn: viewModel.advanceFromSignIn)
+
             case .notificationTime:
                 OnboardingNotificationTimeView(viewModel: viewModel, onBack: viewModel.back, onNext: viewModel.advanceFromNotificationTime)
 

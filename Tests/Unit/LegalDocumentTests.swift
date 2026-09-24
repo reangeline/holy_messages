@@ -57,13 +57,18 @@ final class LegalDocumentTests: XCTestCase {
         }
     }
 
-    /// And the privacy policy must state the claim the app actually backs: no
-    /// collection, no network, and how to delete.
+    /// And the privacy policy must state the claims the app actually backs:
+    /// what the reader writes stays on the device (LocalDataTests allows
+    /// network only in the account client), the account can be deleted in
+    /// the app, and deleting the app removes what it kept.
     func testPrivacyPolicyStatesTheRealClaims() throws {
         let exigencias: [AppLanguage: [String]] = [
-            .pt: ["não faz nenhuma requisição de rede", "Apagar o aplicativo do aparelho", "não tem conta"],
-            .en: ["makes no network requests", "Deleting the app from your device", "no account"],
-            .es: ["no hace ninguna petición de red", "Borrar la aplicación del dispositivo", "no tiene cuenta"],
+            .pt: ["Nada do que você escreve ou registra sai do seu aparelho", "Apagar o aplicativo do aparelho",
+                  "Configurações › Conta › Apagar conta", "só se comunica com o servidor do Missale"],
+            .en: ["Nothing you write or log leaves your device", "Deleting the app from your device",
+                  "Settings › Account › Delete account", "only talks to the Missale server"],
+            .es: ["Nada de lo que escribes o registras sale de tu dispositivo", "Borrar la aplicación del dispositivo",
+                  "Ajustes › Cuenta › Eliminar cuenta", "solo se comunica con el servidor de Missale"],
         ]
         for (language, termos) in exigencias {
             let texto = try markdown(.privacy, language)

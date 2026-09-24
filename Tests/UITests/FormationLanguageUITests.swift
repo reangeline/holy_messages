@@ -16,7 +16,7 @@ final class FormationLanguageUITests: XCTestCase {
     private func launch() -> XCUIApplication {
         let app = XCUIApplication()
         // No -appLanguageOverride: it would outrank what the picker writes.
-        app.launchArguments = ["-demoDate", "2026-09-14", "-subscribed", "1", "-hasCompletedOnboarding", "1", "-openScreen", "settings"]
+        app.launchArguments = ["-signedIn", "1", "-demoDate", "2026-09-14", "-subscribed", "1", "-hasCompletedOnboarding", "1", "-openScreen", "settings"]
         app.launch()
         return app
     }

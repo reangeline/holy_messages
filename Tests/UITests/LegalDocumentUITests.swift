@@ -12,7 +12,7 @@ final class LegalDocumentUITests: XCTestCase {
 
     private func openSettings(_ language: String) -> XCUIApplication {
         let app = XCUIApplication()
-        app.launchArguments = ["-demoDate", "2026-09-14", "-hasCompletedOnboarding", "1", "-appLanguageOverride", language,
+        app.launchArguments = ["-signedIn", "1", "-demoDate", "2026-09-14", "-hasCompletedOnboarding", "1", "-appLanguageOverride", language,
                                "-openScreen", "settings"]
         app.launch()
         return app
@@ -35,7 +35,7 @@ final class LegalDocumentUITests: XCTestCase {
         row(app, matching: "label CONTAINS[c] 'privacidade'").tap()
 
         XCTAssertTrue(
-            app.staticTexts.matching(NSPredicate(format: "label CONTAINS[c] 'não faz nenhuma requisição de rede'")).firstMatch.waitForExistence(timeout: 5),
+            app.staticTexts.matching(NSPredicate(format: "label CONTAINS[c] 'Nada do que você escreve ou registra sai do seu aparelho'")).firstMatch.waitForExistence(timeout: 5),
             "a política não abriu, ou não afirma o que o app cumpre"
         )
         XCTAssertFalse(

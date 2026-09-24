@@ -57,7 +57,20 @@ final class OnboardingViewModel: ObservableObject {
 
     func advanceFromLoader() { push(.synthesis) }
 
-    func advanceFromSynthesis() { push(.notificationTime) }
+    /// The account comes right after the reader commits, before the
+    /// notification times and the paywall. Already signed in (a reader who
+    /// went back through the story), the step is skipped.
+    func advanceFromSynthesis() {
+        push(AccountStore.shared.isSignedIn ? .notificationTime : .signIn)
+    }
+
+    /// Replaces the sign-in step rather than stacking on it, so "back" from
+    /// the notification times returns to the synthesis, not to a sign-in
+    /// that already happened.
+    func advanceFromSignIn() {
+        if current == .signIn { path.removeLast() }
+        push(.notificationTime)
+    }
 
     func advanceFromNotificationTime() { push(.notificationPreview) }
 
