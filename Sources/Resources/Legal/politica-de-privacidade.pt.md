@@ -26,6 +26,8 @@ Tudo abaixo fica no armazenamento local do aplicativo, no seu aparelho.
 - Os terços que você registrar, com o mistério, o modo e a intenção, quando
   você escrever uma.
 - O seu progresso na Formação: quais partes você concluiu e em que ordem.
+- Na Bíblia, os versículos que você marcou e o capítulo marcado como "onde
+  parei".
 - O que você concluiu do "Seu dia com Deus" em cada dia (dos últimos 60 dias),
   o que você escreveu que espera de cada dia no oferecimento da manhã, e até
   qual capítulo do Novo Testamento você leu.

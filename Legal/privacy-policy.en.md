@@ -26,6 +26,8 @@ Everything below stays in the app's local storage, on your device.
 - The rosaries you log, with the mystery, the mode, and the intention when you
   write one.
 - Your Formation progress: which parts you completed, and in what order.
+- In the Bible, the verses you highlighted and the chapter marked as "where I
+  stopped".
 - What you completed of "Your day with God" each day (for the last 60 days),
   what you wrote you hope for each day in the Morning Offering, and how far
   you've read in the New Testament.

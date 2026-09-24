@@ -28,7 +28,9 @@ enum LocalData {
         "userDisplayName",               // o nome digitado nas Configurações
         "routine_completions",           // o que do "Seu dia com Deus" foi feito em cada dia (últimos 60)
         "routine_nt_position",
-        "routine_intentions",            // o que a pessoa escreveu que espera do dia, no oferecimento (últimos 60)           // quantos capítulos do Novo Testamento já foram lidos
+        "routine_intentions",
+        "bible_highlights",              // versículos marcados na Bíblia
+        "bible_bookmarks",               // o capítulo marcado como "onde parei", por Bíblia            // o que a pessoa escreveu que espera do dia, no oferecimento (últimos 60)           // quantos capítulos do Novo Testamento já foram lidos
         "review_routine_days",           // dias com o "Seu dia com Deus" completo, para o pedido de avaliação
     ]
 

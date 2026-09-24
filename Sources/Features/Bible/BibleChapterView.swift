@@ -7,12 +7,16 @@ struct BibleChapterView: View {
     /// Set when opened from the daily routine: the chapter ends with a button
     /// that checks the reading off, instead of stepping to the next chapter.
     var onFinished: (() -> Void)? = nil
+    /// Scrolled to on open — from a search hit or a highlighted verse.
+    var focusVerse: Int? = nil
     @Environment(\.dismiss) private var dismiss
+    @ObservedObject private var notes = BibleNotesStore.shared
     @State private var book: BibleBook
     @State private var chapter: Int
 
-    init(bible: Bible, book: BibleBook, chapter: Int, onFinished: (() -> Void)? = nil) {
+    init(bible: Bible, book: BibleBook, chapter: Int, focusVerse: Int? = nil, onFinished: (() -> Void)? = nil) {
         self.bible = bible
+        self.focusVerse = focusVerse
         self.onFinished = onFinished
         _book = State(initialValue: book)
         _chapter = State(initialValue: chapter)
@@ -48,9 +52,13 @@ struct BibleChapterView: View {
                             .id("top")
                         Text(Self.title(bible: bible, book: book, chapter: chapter))
                             .font(MissaleFont.display(28))
+                        Text(L.string("Tap a verse to highlight it.", table: "Bible"))
+                            .font(MissaleFont.body(13))
+                            .foregroundStyle(Palette.ink.opacity(0.5))
                             .padding(.bottom, 6)
 
                         ForEach(verses, id: \.n) { verse in
+                            let marked = notes.isHighlighted(bible, book.id, chapter, verse.n)
                             (Text(verse.s == nil ? "\(verse.n)  " : "\(verse.n)† ")
                                 .font(MissaleFont.body(12, weight: .semibold))
                                 .foregroundColor(Palette.wine)
@@ -59,6 +67,16 @@ struct BibleChapterView: View {
                                 .foregroundStyle(Palette.ink)
                                 .lineSpacing(4)
                                 .fixedSize(horizontal: false, vertical: true)
+                                .padding(.vertical, 2)
+                                .padding(.horizontal, 6)
+                                .background(marked ? Palette.goldBright.opacity(0.45) : .clear,
+                                            in: RoundedRectangle(cornerRadius: 6, style: .continuous))
+                                .padding(.horizontal, -6)
+                                .contentShape(Rectangle())
+                                .onTapGesture { notes.toggleHighlight(bible, book.id, chapter, verse.n) }
+                                .sensoryFeedback(.selection, trigger: marked)
+                                .accessibilityAddTraits(marked ? [.isSelected, .isButton] : .isButton)
+                                .id("v\(verse.n)")
                         }
 
                         supplementNote
@@ -87,10 +105,26 @@ struct BibleChapterView: View {
                     .padding(.top, 20)
                     .padding(.bottom, 40)
                 }
+                .onAppear {
+                    if let focusVerse { proxy.scrollTo("v\(focusVerse)", anchor: .center) }
+                }
             }
         }
         .navigationTitle("")
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                let here = notes.isBookmarked(bible, book.id, chapter)
+                Button {
+                    notes.toggleBookmark(bible, book.id, chapter)
+                } label: {
+                    Image(systemName: here ? "bookmark.fill" : "bookmark")
+                        .foregroundStyle(Palette.wine)
+                }
+                .accessibilityLabel(L.string("Mark where I stopped", table: "Bible"))
+                .sensoryFeedback(.success, trigger: here)
+            }
+        }
     }
 
     /// Names the other Bible behind any † verse in this chapter, so a filled

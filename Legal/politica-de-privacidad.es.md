@@ -28,6 +28,8 @@ dispositivo.
 - Los rosarios que registres, con el misterio, el modo y la intención cuando
   escribas una.
 - Tu progreso en Formación: qué partes completaste y en qué orden.
+- En la Biblia, los versículos que marcaste y el capítulo marcado como "dónde
+  me quedé".
 - Lo que completaste de "Tu día con Dios" cada día (de los últimos 60 días),
   lo que escribiste que esperas de cada día en el ofrecimiento de la mañana, y
   hasta qué capítulo del Nuevo Testamento leíste.

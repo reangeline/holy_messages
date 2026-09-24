@@ -83,4 +83,45 @@ final class BibleUITests: XCTestCase {
         XCTAssertTrue(app.staticTexts["Salmo 22 (23)"].waitForExistence(timeout: 5))
         screenshot("bible-psalm-es", app)
     }
+
+    /// Find a passage by reference, highlight a verse, mark where I stopped,
+    /// and find both back on the Bible's front page; then a word search.
+    func testSearchHighlightAndBookmarkInPortuguese() {
+        let app = XCUIApplication()
+        app.launchArguments = ["-subscribed", "1", "-hasCompletedOnboarding", "1", "-appLanguageOverride", "pt",
+                               "-resetBibleNotes", "1"]
+        app.launch()
+        openBible("Orações", "Ler a Bíblia", in: app)
+
+        let search = app.textFields.firstMatch
+        XCTAssertTrue(search.waitForExistence(timeout: 15), "a busca da Bíblia não apareceu")
+        search.tap()
+        search.typeText("Jo 3,16")
+        let go = app.buttons.matching(NSPredicate(format: "label CONTAINS 'Ir para João 3, 16'")).firstMatch
+        XCTAssertTrue(go.waitForExistence(timeout: 5), "a referência não foi reconhecida")
+        screenshot("bible-search-reference", app)
+        go.tap()
+
+        let verse = app.buttons.matching(NSPredicate(format: "label BEGINSWITH '16'")).firstMatch
+        XCTAssertTrue(verse.waitForExistence(timeout: 5), "o capítulo não abriu no versículo")
+        verse.tap()
+        XCTAssertTrue(verse.isSelected, "tocar no versículo não o marcou")
+        app.buttons["Marcar onde parei"].tap()
+        screenshot("bible-highlighted", app)
+
+        app.navigationBars.buttons.element(boundBy: 0).tap()
+        app.buttons.matching(NSPredicate(format: "label CONTAINS 'Limpar'")).firstMatch.tap()
+        XCTAssertTrue(app.buttons.matching(NSPredicate(format: "label CONTAINS[c] 'Continuar de onde parei' AND label CONTAINS 'João 3'")).firstMatch.waitForExistence(timeout: 5),
+                      "o marcador não apareceu no início")
+        XCTAssertTrue(app.buttons.matching(NSPredicate(format: "label CONTAINS 'Versículos marcados'")).firstMatch.exists)
+        screenshot("bible-home-bookmark", app)
+
+        search.tap()
+        search.typeText("misericórdia")
+        XCTAssertTrue(
+            app.staticTexts.matching(NSPredicate(format: "label ENDSWITH 'resultados' OR label BEGINSWITH 'Mostrando'")).firstMatch.waitForExistence(timeout: 10),
+            "a busca por palavra não trouxe resultados"
+        )
+        screenshot("bible-search-words", app)
+    }
 }

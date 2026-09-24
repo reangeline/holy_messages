@@ -194,6 +194,7 @@
 		CEF5FC07255102C8C716A5A6 /* CrisisLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06588836BD84ABB4FD2A67F2 /* CrisisLine.swift */; };
 		CF59790E166828DF28DBD19D /* GeneratedMarianApparitionsSecondBatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB47D8C7630F48A815D1D65 /* GeneratedMarianApparitionsSecondBatch.swift */; };
 		CF605A9222782AC0223D5928 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 085B0E7DB07DABBDD6D616C6 /* SettingsView.swift */; };
+		CFF53D3A2D37B57471BF4D5D /* BibleNotesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E18926607A65D7BF3BA5845 /* BibleNotesStore.swift */; };
 		D01B162F80DFACB0F6634DE2 /* EBGaramond-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4EF3E16915DDAF1EB7255E2 /* EBGaramond-MediumItalic.ttf */; };
 		D0ACDFF4ACCD6D79712EEC25 /* AppLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99F88CC334F965A61006194 /* AppLanguage.swift */; };
 		D1237B7AAD7F8945F12A47D8 /* LiturgicalEngineCycleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F022EFE78E6DFDE7A7B2A37C /* LiturgicalEngineCycleTests.swift */; };
@@ -221,6 +222,7 @@
 		E5011BCAD3C080FD91F62058 /* OnboardingNotificationPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EF530B18A29BB2885EE480 /* OnboardingNotificationPreviewView.swift */; };
 		E563B6A5D9B768F462485460 /* SubscriptionStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F8E78CA6DFFF7C6B55B765 /* SubscriptionStoreTests.swift */; };
 		E625C6488EFCFF958A45B71B /* Formation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227E67920FE2449FD6170F46 /* Formation.swift */; };
+		E7D7484084F4ECC07753720D /* BibleNotesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16324CC90C21AA4FBB4710BA /* BibleNotesTests.swift */; };
 		E83077B9CC3B13F17AE8AEC9 /* GeneratedMarianApparitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF7D2F3849F22A0A5D60717 /* GeneratedMarianApparitions.swift */; };
 		E8E6AB7F050A1632FB2EA6EC /* OnboardingFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059392A80AD166C1D4330AF3 /* OnboardingFlow.swift */; };
 		EA51422BF619517A43EE0241 /* LegalDocumentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C9B3907732744F5929D9AF /* LegalDocumentUITests.swift */; };
@@ -301,6 +303,7 @@
 		142E1A04992C9DA1D5DA4C88 /* GeneratedMoodRelief.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedMoodRelief.swift; sourceTree = "<group>"; };
 		154186E66CC235421132887F /* ExamenHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamenHistoryView.swift; sourceTree = "<group>"; };
 		15710211E66C705F9516F87A /* DevotionalPrayerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevotionalPrayerDetailView.swift; sourceTree = "<group>"; };
+		16324CC90C21AA4FBB4710BA /* BibleNotesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleNotesTests.swift; sourceTree = "<group>"; };
 		163F2FDA7FDF246BE786FBD6 /* MockDevotionalPrayers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDevotionalPrayers.swift; sourceTree = "<group>"; };
 		1668B3A356BECD3D877B21B0 /* terms-of-use.en.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "terms-of-use.en.md"; sourceTree = "<group>"; };
 		180078D6FB2642939C75C0D9 /* SupportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportView.swift; sourceTree = "<group>"; };
@@ -372,6 +375,7 @@
 		68A9BE85D47037D1EC390672 /* ContentLanguageCoverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentLanguageCoverage.swift; sourceTree = "<group>"; };
 		6C9AD15B2BD32B9BB69CADD3 /* EndOfSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndOfSessionView.swift; sourceTree = "<group>"; };
 		6D3078F169C814DF3A8A450A /* ExamenEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamenEntry.swift; sourceTree = "<group>"; };
+		6E18926607A65D7BF3BA5845 /* BibleNotesStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleNotesStore.swift; sourceTree = "<group>"; };
 		6E3DF764D898A0B4486FA739 /* CalendarLanguageUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarLanguageUITests.swift; sourceTree = "<group>"; };
 		6F388D7D90A0EFC07A34EE27 /* politica-de-privacidade.pt.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "politica-de-privacidade.pt.md"; sourceTree = "<group>"; };
 		704ABB4D5C5D142A3DFDD130 /* SaintPrayerFormTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaintPrayerFormTests.swift; sourceTree = "<group>"; };
@@ -642,6 +646,7 @@
 				25FF604FF4B3A4A23E34E780 /* Bible.xcstrings */,
 				F68A4D655587BEB1DA54FD09 /* BibleChapterView.swift */,
 				8DBB2CE1FC397963FA4AAA00 /* BibleHomeView.swift */,
+				6E18926607A65D7BF3BA5845 /* BibleNotesStore.swift */,
 			);
 			path = Bible;
 			sourceTree = "<group>";
@@ -661,6 +666,7 @@
 			isa = PBXGroup;
 			children = (
 				B191B950E06F756B8B6832EC /* BibleCatalogTests.swift */,
+				16324CC90C21AA4FBB4710BA /* BibleNotesTests.swift */,
 				77C3626D399D1EC11A15F85B /* ComplineTextTests.swift */,
 				08ED0A85B603CF5F2FB65F9C /* DailyRoutineTests.swift */,
 				101CD6716CDF7F97E10197DA /* LegalDocumentTests.swift */,
@@ -1111,6 +1117,7 @@
 				69430D0ADAF92F9F5C14D8BB /* Bible.swift in Sources */,
 				3F0F2BF66575C29953C59F24 /* BibleChapterView.swift in Sources */,
 				8E726FF412867E0E280D69FC /* BibleHomeView.swift in Sources */,
+				CFF53D3A2D37B57471BF4D5D /* BibleNotesStore.swift in Sources */,
 				D2E9AFA1231C326405429ADD /* CalendarDayDetailView.swift in Sources */,
 				0082D9ABA853C8599FC11185 /* CalendarRootView.swift in Sources */,
 				DAB60DB9F381E826E1D27841 /* Colors.swift in Sources */,
@@ -1306,6 +1313,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				284794D0CEC7DEE7A205C965 /* BibleCatalogTests.swift in Sources */,
+				E7D7484084F4ECC07753720D /* BibleNotesTests.swift in Sources */,
 				38A737FB42319919A83E8D24 /* ComplineTextTests.swift in Sources */,
 				19745E4CC44E72CF26F4A57E /* DailyRoutineTests.swift in Sources */,
 				290CCF9AAE169967BA4CC907 /* LegalDocumentTests.swift in Sources */,

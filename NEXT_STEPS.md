@@ -155,12 +155,12 @@ Do 2.0 (3), o que depende de conteúdo:
   de privacidade e o questionário da App Store, que hoje dizem "nada sai do
   aparelho". A App Store também exige denúncia e bloqueio em conteúdo gerado
   por usuários (diretriz 1.2).
-- **Bíblia: marcar, buscar e continuar.** Três partes, todas locais:
-  versículos marcados (destacados e reunidos numa lista), busca por palavra ou
-  referência nos textos que já estão no app, e um marcador de "onde parei"
-  que o leitor põe à mão. O plano do Novo Testamento no Hoje já guarda a
-  posição do roteiro; o marcador da Bíblia seria separado. Novas chaves
-  entram em `LocalData` e na política.
+- **Bíblia: marcar, buscar e continuar — feito em 24/09.** Tocar num
+  versículo marca (lista em "Versículos marcados", deslizar remove); busca
+  por referência ("Jo 3,16", "1Cor 13", "Sl 22") ou por palavras, sem acento
+  nem maiúsculas; e o marcador "onde parei" na barra do capítulo, com o
+  cartão "Continuar de onde parei" no início da Bíblia. Tudo local, em
+  `bible_highlights` e `bible_bookmarks`.
 
 ## 3. O que falta de conteúdo
 
