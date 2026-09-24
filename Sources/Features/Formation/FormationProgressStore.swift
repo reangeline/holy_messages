@@ -43,6 +43,8 @@ final class FormationProgressStore: ObservableObject {
         UserDefaults.standard.set(completionOrder, forKey: Self.orderKey)
     }
 
+    func reload() { load() }
+
     private func load() {
         completedLessonIDs = Set(UserDefaults.standard.stringArray(forKey: Self.storageKey) ?? [])
         completionOrder = UserDefaults.standard.stringArray(forKey: Self.orderKey) ?? []

@@ -420,29 +420,6 @@
         }
       }
     },
-    "Deleting the app from this device removes everything it saved. Exporting a copy, and deleting your records without deleting the app, are not built yet.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Deleting the app from this device removes everything it saved. Exporting a copy, and deleting your records without deleting the app, are not built yet."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Apagar o app deste aparelho remove tudo o que ele guardou. Exportar uma cópia, e apagar seus registros sem apagar o app, ainda não estão prontos."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Borrar la app de este dispositivo elimina todo lo que guardó. Exportar una copia, y borrar tus registros sin borrar la app, todavía no están hechos."
-          }
-        }
-      }
-    },
     "Didn't find it? Write to {email} — we respond within two business days.": {
       "localizations": {
         "en": {
@@ -2234,6 +2211,213 @@
           "stringUnit": {
             "state": "translated",
             "value": "igreja católica"
+          }
+        }
+      }
+    },
+    "My Missale data": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "My Missale data"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mis datos de Missale"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Meus dados do Missale"
+          }
+        }
+      }
+    },
+    "Export my data": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Export my data"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Exportar mis datos"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Exportar meus dados"
+          }
+        }
+      }
+    },
+    "A file with everything you wrote and recorded, to keep or send wherever you want.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A file with everything you wrote and recorded, to keep or send wherever you want."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Un archivo con todo lo que escribiste y registraste, para guardarlo o enviarlo donde quieras."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Um arquivo com tudo o que você escreveu e registrou, para guardar ou mandar para onde quiser."
+          }
+        }
+      }
+    },
+    "Delete my data": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Delete my data"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Borrar mis datos"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apagar meus dados"
+          }
+        }
+      }
+    },
+    "Removes what you wrote and recorded from this device. Your language and settings stay.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Removes what you wrote and recorded from this device. Your language and settings stay."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Elimina de este dispositivo lo que escribiste y registraste. El idioma y los ajustes se mantienen."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Remove deste aparelho o que você escreveu e registrou. O idioma e os ajustes continuam."
+          }
+        }
+      }
+    },
+    "Your data was deleted.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your data was deleted."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tus datos fueron borrados."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seus dados foram apagados."
+          }
+        }
+      }
+    },
+    "Deleting the app from this device also removes everything it saved.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Deleting the app from this device also removes everything it saved."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Borrar la app del dispositivo también elimina todo lo que guardó."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apagar o app do aparelho também remove tudo o que ele guardou."
+          }
+        }
+      }
+    },
+    "Delete everything you wrote and recorded?": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Delete everything you wrote and recorded?"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Borrar todo lo que escribiste y registraste?"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apagar tudo o que você escreveu e registrou?"
+          }
+        }
+      }
+    },
+    "Your mood log, Examens, rosaries, Formation progress, the day's routine and what you wrote in the morning, Bible highlights and bookmark, and your name. This cannot be undone.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your mood log, Examens, rosaries, Formation progress, the day's routine and what you wrote in the morning, Bible highlights and bookmark, and your name. This cannot be undone."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El registro de ánimo, los Exámenes, los rosarios, el progreso en Formación, la rutina del día y lo que escribiste por la mañana, las marcas y el marcador de la Biblia, y tu nombre. No se puede deshacer."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O registro de humor, os Exames, os terços, o progresso na Formação, o roteiro do dia e o que você escreveu de manhã, as marcações e o marcador da Bíblia, e o seu nome. Não dá para desfazer."
           }
         }
       }

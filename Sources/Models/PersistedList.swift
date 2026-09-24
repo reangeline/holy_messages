@@ -23,6 +23,12 @@ final class PersistedList<Element: Codable>: ObservableObject {
         UserDefaults.standard.set(data, forKey: storageKey)
     }
 
+    /// Re-reads the stored list — after LocalData erases it, for instance.
+    func reload() {
+        items = []
+        load()
+    }
+
     private func load() {
         guard let data = UserDefaults.standard.data(forKey: storageKey),
               let decoded = try? JSONDecoder().decode([Element].self, from: data) else { return }

@@ -97,8 +97,8 @@ these terms.
 
 Because nothing is copied off the device, **backing up is your
 responsibility**. If you delete the app or change devices, your notes are gone
-and we have no copy to return. Exporting a copy is not yet possible in the
-app.
+and we have no copy to return. To keep a copy, use Settings › Your data ›
+Export my data.
 
 ## 6. Acceptable use
 

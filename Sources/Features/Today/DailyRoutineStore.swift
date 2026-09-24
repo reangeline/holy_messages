@@ -35,6 +35,13 @@ final class DailyRoutineStore: ObservableObject {
         intentions = defaults.dictionary(forKey: Self.intentionsKey) as? [String: String] ?? [:]
     }
 
+    /// Re-reads what is stored — after LocalData erases it, for instance.
+    func reload() {
+        completions = defaults.dictionary(forKey: Self.completionsKey) as? [String: [String]] ?? [:]
+        position = defaults.integer(forKey: Self.positionKey)
+        intentions = defaults.dictionary(forKey: Self.intentionsKey) as? [String: String] ?? [:]
+    }
+
     func intention(on date: Date = Date()) -> String? {
         intentions[Self.dayKey(date)]
     }

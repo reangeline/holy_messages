@@ -137,11 +137,11 @@ enum MockSaints {
     /// drops them.
     static let catalog = LocalizedCatalog(
         pt: ptCalendar + ptImportedCalendar.filter { !handWrittenDates.contains($0.dateKey) }
-            + ptCalendarSecondBatch + ptCalendarThirdBatch,
+            + ptCalendarSecondBatch + ptCalendarThirdBatch + ptCalendarFourthBatch,
         en: enImportedCalendar.filter { !handWrittenDates.contains($0.dateKey) } + enCalendar
-            + enCalendarSecondBatch + enCalendarThirdBatch,
+            + enCalendarSecondBatch + enCalendarThirdBatch + enCalendarFourthBatch,
         es: esImportedCalendar.filter { !handWrittenDates.contains($0.dateKey) } + esCalendar
-            + esCalendarSecondBatch + esCalendarThirdBatch
+            + esCalendarSecondBatch + esCalendarThirdBatch + esCalendarFourthBatch
     )
 
     /// Dates with a hand-written record, which wins over the imported one: those
@@ -215,7 +215,8 @@ enum MockSaints {
         let id = saintReferenceIDs[key]
             ?? ([notburga, johnGabrielPerboyre] + ptImportedSaints + enImportedSaints + esImportedSaints
                 + ptSaintsSecondBatch + enSaintsSecondBatch + esSaintsSecondBatch
-                + ptSaintsThirdBatch + enSaintsThirdBatch + esSaintsThirdBatch)
+                + ptSaintsThirdBatch + enSaintsThirdBatch + esSaintsThirdBatch
+                + ptSaintsFourthBatch + enSaintsFourthBatch + esSaintsFourthBatch)
                 .first { referenceKey($0.name) == key }?.id
         return id.flatMap(saint(withID:))
     }

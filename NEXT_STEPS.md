@@ -74,15 +74,13 @@ publicar com o acervo atual e crescer por atualização. **Recomendo publicar:**
 app degrada com honestidade, diz "ainda não cadastrado" onde falta, e os termos
 declaram isso em §7.
 
-### 2.3 Apagar e exportar dados — adiado por você, e precisa voltar
+### 2.3 Apagar e exportar dados — feito em 24/09
 
-Você pediu para tirar por enquanto, e eu tirei — junto com o código que só
-existia para os botões. A política de privacidade e os termos foram reescritos
-para dizer a verdade: hoje a forma de apagar é apagar o app.
-
-Isso é defensável para um app que não coleta nada, mas **o botão precisa
-voltar** antes de o acervo pessoal crescer. Quando voltar, a limpeza vai em
-`LocalData`, sobre a lista de chaves que já está lá.
+Configurações › Seus dados tem **Exportar meus dados** (um JSON legível pela
+folha de compartilhar, com as datas em ISO 8601) e **Apagar meus dados** (com
+confirmação; remove as `personalKeys`, mantém as preferências e recarrega os
+registros na hora). As duas ações leem a mesma lista de `LocalData` que a
+política descreve. Política e termos atualizados nos três idiomas.
 
 ### 2.4 Bíblia em espanhol (Torres Amat) incompleta — pendente
 
@@ -138,7 +136,7 @@ apagar:
 - "Essa primeira parte está confusa" (o começo do onboarding foi refeito).
 
 Do 2.0 (3), o que depende de conteúdo:
-- Santo do dia: 53 dias do ano têm santo registrado. Nos outros, o app agora
+- Santo do dia: 63 dias do ano têm santo registrado. Nos outros, o app agora
   mostra "Um santo para conhecer", um diferente a cada dia; o completo é o
   trabalho de §3.2.
 
@@ -202,7 +200,10 @@ setembro e outubro: Cosme e Damião, Arcanjos, Jerônimo, Faustina, Bruno,
 João XXIII, Inácio de Antioquia e Lucas. O terceiro lote (`santos-terceiro-lote`)
 trouxe mais 10 para o fim de outubro e novembro: Paulo da Cruz, Antônio Maria
 Claret, Simão e Judas, Todos os Santos, Carlos Borromeu, Leão Magno, Alberto
-Magno, Isabel da Hungria, Cecília e André. Nenhum dos 18 novos tem arte ainda.
+Magno, Isabel da Hungria, Cecília e André. O quarto (`santos-quarto-lote`)
+cobriu dezembro: Nicolau, Ambrósio, Imaculada Conceição, Juan Diego, Luzia,
+Estêvão, João Evangelista, Santos Inocentes, Tomás Becket e Silvestre. Nenhum
+dos 28 novos tem arte ainda.
 
 Os lotes seguintes podem seguir o mesmo caminho, um arquivo gerado por lote.
 
@@ -276,7 +277,6 @@ privacidade e os termos passam a mentir.
    não testado.
 3. **As festas de data fixa** (§3.1) — fonte única, ganho grande.
 4. **Os santos** (§3.2) — trabalho de fundo.
-5. **Devolver apagar e exportar** (§2.3) antes que o acervo pessoal cresça.
 
 ---
 

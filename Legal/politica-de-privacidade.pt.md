@@ -97,10 +97,15 @@ anotações, o seu registro, o seu progresso e o seu nome. Como nada é enviado
 para nós, essa é a exclusão completa: não existe pedido de exclusão a fazer,
 nem cópia nossa para apagar depois.
 
-Apagar registros sem apagar o aplicativo, e exportar uma cópia antes, são duas
-coisas que **ainda não estão prontas**. A tela Configurações › Seus dados diz
-isso e não oferece um botão que não funcione. Quando essas funções existirem,
-esta política será atualizada antes de a versão chegar à App Store.
+Em **Configurações › Seus dados** você também pode:
+
+- **Exportar os seus dados**: um arquivo JSON com tudo o que você escreveu e
+  registrou, entregue pela folha de compartilhar do iOS, para você guardar ou
+  enviar para onde quiser. O arquivo é gerado no aparelho e só sai dele se
+  você mandar.
+- **Apagar os seus dados**: remove do aparelho, de uma vez, tudo o que está em
+  "O que você escreve e registra" acima. As preferências (idioma, calendário,
+  horários) continuam. Não dá para desfazer.
 
 ## Crianças
 

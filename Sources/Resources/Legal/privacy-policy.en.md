@@ -94,10 +94,14 @@ your log, your progress, and your name. Because nothing is ever sent to us,
 that is the complete deletion: there is no deletion request to make, and no
 copy of ours to erase afterwards.
 
-Deleting records without deleting the app, and exporting a copy first, are two
-things that **are not built yet**. The Settings › Your data screen says so
-rather than offering a button that does nothing. When those functions exist,
-this policy will be updated before that version reaches the App Store.
+In **Settings › Your data** you can also:
+
+- **Export your data**: a JSON file with everything you wrote and recorded,
+  handed to the iOS share sheet for you to keep or send wherever you want. The
+  file is made on the device and only leaves it if you send it.
+- **Delete your data**: removes from the device, at once, everything listed
+  under "What you write and log" above. Your preferences (language,
+  calendar, times) stay. It cannot be undone.
 
 ## Children
 

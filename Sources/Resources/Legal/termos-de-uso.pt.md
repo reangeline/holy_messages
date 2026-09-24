@@ -98,8 +98,8 @@ termos.
 
 Como nada é copiado para fora do aparelho, **fazer backup é responsabilidade
 sua**. Se você apagar o aplicativo ou trocar de aparelho, as suas anotações vão
-embora e não temos cópia para devolver. Exportar uma cópia ainda não é possível
-no aplicativo.
+embora e não temos cópia para devolver. Para guardar uma cópia, use
+Configurações › Seus dados › Exportar meus dados.
 
 ## 6. Uso aceitável
 

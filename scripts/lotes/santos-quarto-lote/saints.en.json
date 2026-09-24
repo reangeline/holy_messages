@@ -1,0 +1,162 @@
+[
+  {
+    "id": "nicolau",
+    "dateKey": "12-06",
+    "name": "Saint Nicholas",
+    "lifespan": "4th century",
+    "role": "Bishop",
+    "rank": "Optional memorial",
+    "calendarNote": "General Roman Calendar · 6 December",
+    "bio": [
+      "Nicholas was Bishop of Myra, in Lycia, in present-day Turkey, in the fourth century. Tradition remembers him for a quiet charity: it is said he secretly gave the dowries of three poor young women so that they could marry.",
+      "In 1087, with Myra under Seljuk rule, sailors and merchants from Bari took his relics to Italy, where the basilica that keeps them was built; it draws Catholic and Orthodox pilgrims today. He is the protector of children and the young, and his feast gave rise to the custom of year-end gifts."
+    ],
+    "why": "Nicholas gave without being seen. He is a reminder that the most beautiful charity is often the one nobody notices.",
+    "prayer": "Saint Nicholas, pray for us.",
+    "fonte": "Vatican News, Santo do dia: https://www.vaticannews.va/pt/santo-do-dia/12/06.html; St. Nicholas Center, Saint in Bari: https://www.stnicholascenter.org/who-is-st-nicholas/saint-in-bari"
+  },
+  {
+    "id": "ambrosio",
+    "dateKey": "12-07",
+    "name": "Saint Ambrose",
+    "lifespan": "c. 340–397",
+    "role": "Bishop and Doctor of the Church",
+    "rank": "Memorial",
+    "calendarNote": "General Roman Calendar · 7 December",
+    "bio": [
+      "Ambrose was born in Trier around 340, son of the prefect of the Gauls, and followed a public career: around 370 he governed Emilia and Liguria, with his seat in Milan. When the bishop died and the city was divided over his successor, the people acclaimed Ambrose, who was still a catechumen; he was baptized and ordained within days.",
+      "As bishop he preached from an attentive reading of Scripture, and it was by listening to him that Augustine drew near the faith; Ambrose baptized him in 387. He died in Milan in 397, on Holy Saturday, and is a Doctor of the Church."
+    ],
+    "why": "Ambrose was called to a mission he had not sought and gave himself to it. He shows that God sometimes calls through the request of others, and that the answer is learned along the way.",
+    "prayer": "Saint Ambrose, pray for us.",
+    "fonte": "Benedict XVI, General Audience: https://www.vatican.va/content/benedict-xvi/en/audiences/2007/documents/hf_ben-xvi_aud_20071024.html"
+  },
+  {
+    "id": "imaculada-conceicao",
+    "dateKey": "12-08",
+    "name": "Immaculate Conception of Mary",
+    "lifespan": "",
+    "role": "Solemnity",
+    "rank": "Solemnity",
+    "calendarNote": "General Roman Calendar · 8 December",
+    "bio": [
+      "The Church celebrates that Mary, from the first instant of her conception, was preserved from every stain of original sin, by a singular grace of God and in view of the merits of Jesus Christ, the Saviour.",
+      "This faith, long held in the Church, was defined as dogma by Pius IX on 8 December 1854, in the constitution Ineffabilis Deus. Four years later, at Lourdes, the Lady introduced herself to Bernadette saying: \"I am the Immaculate Conception\"."
+    ],
+    "why": "The Immaculate Conception is God's work before any human merit. It is a reminder that grace comes first, and that our part is to welcome it.",
+    "prayer": "O Mary, conceived without sin, pray for us.",
+    "fonte": "Pio IX, Ineffabilis Deus (1854): https://www.ewtn.com/catholicism/teachings/pius-ixs-ineffabilis-deus-defining-the-immaculate-conception-153"
+  },
+  {
+    "id": "juan-diego",
+    "dateKey": "12-09",
+    "name": "Saint Juan Diego",
+    "lifespan": "1474–1548",
+    "role": "Layman",
+    "rank": "Optional memorial",
+    "calendarNote": "General Roman Calendar · 9 December",
+    "bio": [
+      "Juan Diego Cuauhtlatoatzin was an indigenous Mexican who, in December 1531, on the hill of Tepeyac, received the apparitions of Our Lady of Guadalupe and carried to the bishop her request that a church be built there.",
+      "John Paul II canonized him at the Basilica of Guadalupe on 31 July 2002 and called him \"the simple, humble Indian\" who contemplated Mary's face. He is the first indigenous saint of the American continent."
+    ],
+    "why": "Juan Diego thought himself too small for the mission, and it was precisely to him that Mary entrusted her message. He is a reminder that God does not choose by size.",
+    "prayer": "Saint Juan Diego, pray for us.",
+    "fonte": "João Paulo II, Homilia da canonização, 31 de julho de 2002: https://www.vatican.va/content/john-paul-ii/en/homilies/2002/documents/hf_jp-ii_hom_20020731_canonization-mexico.html"
+  },
+  {
+    "id": "luzia",
+    "dateKey": "12-13",
+    "name": "Saint Lucy",
+    "lifespan": "† 304",
+    "role": "Virgin and martyr",
+    "rank": "Memorial",
+    "calendarNote": "General Roman Calendar · 13 December",
+    "bio": [
+      "Lucy was a young Christian of Syracuse, in Sicily, who died a martyr in the persecution of Diocletian, around 304. Her name comes from the Latin for \"light\".",
+      "Her cult is very ancient, and her name is in the Roman Canon of the Mass. Tradition made her protector of the eyes and of sight."
+    ],
+    "why": "Lucy is remembered close to Christmas, when the nights are longest in the northern hemisphere. She invites us to keep the light of faith even when everything around grows dark.",
+    "prayer": "Saint Lucy, pray for us.",
+    "fonte": "Vatican News, Santo do dia: https://www.vaticannews.va/pt/santo-do-dia/12/13.html"
+  },
+  {
+    "id": "estevao",
+    "dateKey": "12-26",
+    "name": "Saint Stephen",
+    "lifespan": "1st century",
+    "role": "Deacon and first martyr",
+    "rank": "Feast",
+    "calendarNote": "General Roman Calendar · 26 December",
+    "bio": [
+      "Stephen was one of the seven men chosen by the Jerusalem community to serve at table and care for the poor, as the Acts of the Apostles recounts. He was a Greek-speaking Jew and preached boldly that the risen Jesus is the new temple.",
+      "Condemned, he was stoned and died praying that the sin not be held against those who killed him, as Jesus did on the cross. A young man named Saul kept the cloaks of those who stoned him. He is the Church's first martyr."
+    ],
+    "why": "Stephen forgave while he was being stoned, and Saul, who was watching, would become Paul. He shows that forgiveness can open ways no one imagines.",
+    "prayer": "Saint Stephen, pray for us.",
+    "fonte": "Benedict XVI, General Audience: https://www.vatican.va/content/benedict-xvi/en/audiences/2007/documents/hf_ben-xvi_aud_20070110.html"
+  },
+  {
+    "id": "joao-evangelista",
+    "dateKey": "12-27",
+    "name": "Saint John the Evangelist",
+    "lifespan": "1st century",
+    "role": "Apostle and evangelist",
+    "rank": "Feast",
+    "calendarNote": "General Roman Calendar · 27 December",
+    "bio": [
+      "John, son of Zebedee and brother of James, was a fisherman on the Sea of Tiberias when Jesus called him. He was among the three closest disciples, present at the Transfiguration, and tradition identifies him with the beloved disciple who at the cross received Mary as his mother.",
+      "Tradition attributes to him the fourth Gospel, three letters and Revelation, and says he spent his last years in Ephesus, where he died old. The East calls him \"the Theologian\"."
+    ],
+    "why": "John stayed at the foot of the cross when almost everyone fled. He teaches that true love proves itself by staying.",
+    "prayer": "Saint John the Evangelist, pray for us.",
+    "fonte": "Benedict XVI, General Audience: https://www.vatican.va/content/benedict-xvi/en/audiences/2006/documents/hf_ben-xvi_aud_20060705.html"
+  },
+  {
+    "id": "inocentes",
+    "dateKey": "12-28",
+    "name": "Holy Innocents",
+    "lifespan": "1st century",
+    "role": "Martyrs",
+    "rank": "Feast",
+    "calendarNote": "General Roman Calendar · 28 December",
+    "bio": [
+      "Matthew's Gospel recounts that Herod, on learning of Jesus' birth, ordered the killing of the boys of Bethlehem up to two years old, to be rid of the new king. Matthew recalls Jeremiah's prophecy: \"Rachel weeping for her children\".",
+      "Since the first centuries the Church has honoured these children as martyrs: they did not confess the faith in words, but died in Christ's place."
+    ],
+    "why": "The Innocents recall every child who suffers from the violence and ambition of adults. It is a day to pray for them and to defend them.",
+    "prayer": "Holy Innocents, pray for us.",
+    "fonte": "Vatican News, Santo do dia: https://www.vaticannews.va/pt/santo-do-dia/12/28.html; Mt 2,16-18"
+  },
+  {
+    "id": "tomas-becket",
+    "dateKey": "12-29",
+    "name": "Saint Thomas Becket",
+    "lifespan": "c. 1118–1170",
+    "role": "Bishop and martyr",
+    "rank": "Optional memorial",
+    "calendarNote": "General Roman Calendar · 29 December",
+    "bio": [
+      "Thomas Becket was chancellor and friend of King Henry II of England. Named Archbishop of Canterbury in 1162, he began to defend the freedom of the Church against the king's claims, which led him into exile.",
+      "After his return he was murdered in his cathedral on 29 December 1170. He was canonized three years later, in 1173."
+    ],
+    "why": "Thomas Becket changed sides when conscience asked it, even against a powerful friend. He is a reminder that fidelity to God sometimes costs closeness to those in power.",
+    "prayer": "Saint Thomas Becket, pray for us.",
+    "fonte": "Vatican News, Santo do dia: https://www.vaticannews.va/pt/santo-do-dia/12/29.html"
+  },
+  {
+    "id": "silvestre",
+    "dateKey": "12-31",
+    "name": "Saint Sylvester I",
+    "lifespan": "† 335",
+    "role": "Pope",
+    "rank": "Optional memorial",
+    "calendarNote": "General Roman Calendar · 31 December",
+    "bio": [
+      "Sylvester governed the Church from 314 to 335, in the time of the emperor Constantine, just after the Edict of Milan in 313 ended the persecutions. It was the period when Rome's first great basilicas rose, such as the Lateran and Saint Peter's.",
+      "He was represented by legates at the Council of Nicaea in 325. He died on 31 December 335 and was buried in the cemetery of Priscilla, in Rome."
+    ],
+    "why": "Sylvester led the Church in the passage from persecution to freedom. On the last day of the year, he is a reminder that every change of season also asks for fidelity.",
+    "prayer": "Saint Sylvester, pray for us.",
+    "fonte": "Vatican News, Santo do dia: https://www.vaticannews.va/pt/santo-do-dia/12/31.html"
+  }
+]

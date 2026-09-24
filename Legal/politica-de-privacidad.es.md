@@ -99,10 +99,15 @@ tu registro, tu progreso y tu nombre. Como nunca se envía nada a nosotros, esa
 es la supresión completa: no hay solicitud de supresión que hacer, ni copia
 nuestra que borrar después.
 
-Borrar registros sin borrar la aplicación, y exportar una copia antes, son dos
-cosas que **todavía no están hechas**. La pantalla Ajustes › Tus datos lo dice
-en lugar de ofrecer un botón que no funcione. Cuando esas funciones existan,
-esta política se actualizará antes de que esa versión llegue a la App Store.
+En **Ajustes › Tus datos** también puedes:
+
+- **Exportar tus datos**: un archivo JSON con todo lo que escribiste y
+  registraste, entregado por la hoja de compartir de iOS, para guardarlo o
+  enviarlo donde quieras. El archivo se genera en el dispositivo y solo sale de
+  él si lo envías.
+- **Borrar tus datos**: elimina del dispositivo, de una vez, todo lo que figura
+  en "Lo que escribes y registras" arriba. Las preferencias (idioma,
+  calendario, horarios) se mantienen. No se puede deshacer.
 
 ## Menores
 

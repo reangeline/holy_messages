@@ -60,6 +60,13 @@ final class MoodHistoryStore: ObservableObject {
     }
 
 
+    /// Re-reads what is stored — after LocalData erases it, for instance.
+    func reload() {
+        entries = []
+        load()
+        loadReliefIndex()
+    }
+
     private func save() {
         guard let data = try? JSONEncoder().encode(entries) else { return }
         UserDefaults.standard.set(data, forKey: Self.storageKey)

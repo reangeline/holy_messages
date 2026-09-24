@@ -47,6 +47,12 @@ final class BibleNotesStore: ObservableObject {
         bookmarks = Self.decode([String: BibleBookmark].self, defaults.data(forKey: Self.bookmarksKey)) ?? [:]
     }
 
+    /// Re-reads what is stored — after LocalData erases it, for instance.
+    func reload() {
+        highlights = Self.decode([BibleHighlight].self, defaults.data(forKey: Self.highlightsKey)) ?? []
+        bookmarks = Self.decode([String: BibleBookmark].self, defaults.data(forKey: Self.bookmarksKey)) ?? [:]
+    }
+
     // MARK: Highlights
 
     func highlights(in bible: Bible) -> [BibleHighlight] {

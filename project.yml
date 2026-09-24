@@ -127,6 +127,7 @@ targets:
       - path: Sources/MockData/Generated/GeneratedSaints.swift
       - path: Sources/MockData/Generated/GeneratedSaintsSecondBatch.swift
       - path: Sources/MockData/Generated/GeneratedSaintsThirdBatch.swift
+      - path: Sources/MockData/Generated/GeneratedSaintsFourthBatch.swift
       - path: Sources/Fonts
     info:
       path: WidgetExtension/Info.plist

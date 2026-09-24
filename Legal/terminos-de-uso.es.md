@@ -98,8 +98,8 @@ de estos términos.
 
 Como nada se copia fuera del dispositivo, **hacer copias de seguridad es tu
 responsabilidad**. Si borras la aplicación o cambias de dispositivo, tus notas
-desaparecen y no tenemos copia que devolverte. Exportar una copia todavía no es
-posible en la aplicación.
+desaparecen y no tenemos copia que devolverte. Para guardar una copia, usa
+Ajustes › Tus datos › Exportar mis datos.
 
 ## 6. Uso aceptable
 

@@ -54,7 +54,8 @@ final class LegalDocumentUITests: XCTestCase {
         )
     }
 
-    /// The data screen must no longer offer what the app doesn't do.
+    /// The data screen offers only what the app really does: no sync or
+    /// analytics switch, and export and delete now that both exist.
     func testTheDataScreenOffersNothingItCannotDo() {
         let app = openSettings("pt")
         row(app, matching: "label CONTAINS[c] 'Seus dados' OR label CONTAINS[c] 'dados'").tap()
@@ -63,7 +64,7 @@ final class LegalDocumentUITests: XCTestCase {
         // uso anônimos para dizer o que é e o que nunca é coletado.
         XCTAssertEqual(app.switches.count, 0,
                        "a tela de dados ainda tem interruptor — sincronização ou analytics voltaram")
-        for ausente in ["Sincronizar", "PDF", "JSON", "Apagar tudo"] {
+        for ausente in ["Sincronizar", "PDF", "Apagar tudo"] {
             XCTAssertFalse(
                 app.staticTexts.matching(NSPredicate(format: "label CONTAINS %@", ausente)).firstMatch.exists,
                 "a tela de dados ainda oferece \(ausente), que o app não faz"
@@ -73,9 +74,15 @@ final class LegalDocumentUITests: XCTestCase {
             app.staticTexts.matching(NSPredicate(format: "label CONTAINS[c] 'nunca o que você escreve'")).firstMatch.exists,
             "a tela deixou de dizer que o que a pessoa escreve nunca é coletado"
         )
-        XCTAssertTrue(
+        XCTAssertFalse(
             app.staticTexts.matching(NSPredicate(format: "label CONTAINS[c] 'ainda não'")).firstMatch.exists,
-            "a tela deixou de dizer que exportar e apagar não estão prontos"
+            "a tela ainda diz que exportar e apagar não estão prontos"
         )
+        for oferta in ["Exportar meus dados", "Apagar meus dados"] {
+            XCTAssertTrue(
+                app.buttons.matching(NSPredicate(format: "label CONTAINS %@", oferta)).firstMatch.exists,
+                "a tela de dados não oferece \(oferta)"
+            )
+        }
     }
 }
