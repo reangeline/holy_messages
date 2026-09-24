@@ -180,16 +180,18 @@ enum MockSaints {
             .filter { vistos.insert($0.id).inserted }
     }
 
-    /// The saint for "MM-dd", or — on the many days the sanctoral has no
-    /// record yet — the most recent one before it, with its own date so the
-    /// screen can say which day it belongs to. Always Notburga before this,
-    /// which is why the saint of the day never changed.
-    static func saintOfDay(on monthDay: String, region: SaintCalendarRegion = .general) -> (saint: Saint, monthDay: String) {
-        if let exato = saint(on: monthDay, region: region) { return (exato, monthDay) }
-        let datas = Set(calendar.map(\.dateKey)).sorted()
-        let anterior = datas.last { $0 < monthDay } ?? datas.last
-        if let anterior, let santo = saint(on: anterior, region: region) { return (santo, anterior) }
-        return (notburga, "09-14")
+    /// The saint for "MM-dd" when the sanctoral has a record for that day.
+    /// On the many days it doesn't yet, a different saint from the catalog each
+    /// day, not dated — it used to repeat the last dated saint with its own
+    /// date ("Padre Pio · 23 de setembro" on the 24th), which read as stale.
+    static func saintOfDay(on monthDay: String, region: SaintCalendarRegion = .general) -> (saint: Saint, isTodaysFeast: Bool) {
+        if let exato = saint(on: monthDay, region: region) { return (exato, true) }
+        var vistos = Set<String>()
+        let acervo = calendar.map(\.saint).filter { vistos.insert($0.id).inserted }.sorted { $0.id < $1.id }
+        guard !acervo.isEmpty else { return (notburga, false) }
+        let partes = monthDay.split(separator: "-").compactMap { Int($0) }
+        let dia = partes.count == 2 ? (partes[0] - 1) * 31 + partes[1] : 0
+        return (acervo[dia % acervo.count], false)
     }
 
     /// Resolves a cross-feature link (for example, a devotional prayer) to the

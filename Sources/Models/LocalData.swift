@@ -27,7 +27,8 @@ enum LocalData {
         "formation_completed_lesson_order",
         "userDisplayName",               // o nome digitado nas Configurações
         "routine_completions",           // o que do "Seu dia com Deus" foi feito em cada dia (últimos 60)
-        "routine_nt_position",           // quantos capítulos do Novo Testamento já foram lidos
+        "routine_nt_position",
+        "routine_intentions",            // o que a pessoa escreveu que espera do dia, no oferecimento (últimos 60)           // quantos capítulos do Novo Testamento já foram lidos
         "review_routine_days",           // dias com o "Seu dia com Deus" completo, para o pedido de avaliação
     ]
 
@@ -41,6 +42,7 @@ enum LocalData {
         "rosaryVoiceGuide",              // a voz lendo o Terço, ligada ou não
         "examenMinutesOfDay",            // a hora escolhida para o Exame da noite
         "hasCompletedOnboarding",
+        "reading_reminder_minutes",      // os horários escolhidos para o aviso da leitura do dia
         "review_prompt_asked",           // se o pedido de avaliação já foi feito
     ]
 }

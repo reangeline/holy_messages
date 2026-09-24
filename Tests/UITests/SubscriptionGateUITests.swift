@@ -8,9 +8,9 @@ import XCTest
 /// cannot quietly remove them:
 ///
 /// - **The support path.** Logging a state like "culpado" or "sozinho" leads to
-///   relief and, when the pattern repeats, to a pastoral screen that ends at a
-///   crisis line for the reader's country. A paywall between someone in that
-///   state and that number is the worst thing this app could do.
+///   relief and, when the pattern repeats, to a pastoral screen that ends at
+///   the crisis guidance. A paywall between someone in that state and that
+///   guidance is the worst thing this app could do.
 /// - **A way out of a locked tab.** The first version of the gate dropped the
 ///   floating tab bar, which left the reader stuck on the locked screen with no
 ///   route back to Today — and so no route to the support path either.
@@ -99,8 +99,8 @@ final class SubscriptionGateUITests: XCTestCase {
     func testTheMoodCheckInIsNeverBehindThePaywall() {
         let app = launch()
 
-        // The first row of "Seu dia com Deus".
-        let checkIn = app.buttons.matching(NSPredicate(format: "label CONTAINS[c] 'Hoje eu estou'")).firstMatch
+        // The afternoon row of "Seu dia com Deus" opens the mood check-in.
+        let checkIn = app.buttons.matching(NSPredicate(format: "label CONTAINS[c] 'Como está sendo meu dia'")).firstMatch
         XCTAssertTrue(checkIn.waitForExistence(timeout: 15), "o check-in de humor desapareceu")
         checkIn.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
 

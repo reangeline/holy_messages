@@ -108,6 +108,7 @@ struct AppRootView: View {
         .onChange(of: scenePhase, initial: true) { _, newPhase in
             if newPhase == .active {
                 AngelusScheduler.refresh()
+                ReadingReminderScheduler.refresh()
                 Task { await SubscriptionStore.shared.refreshOnForeground() }
             }
         }

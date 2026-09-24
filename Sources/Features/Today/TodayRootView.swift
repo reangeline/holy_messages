@@ -38,18 +38,9 @@ struct TodayRootView: View {
         return L.string(withName, table: "Today").replacingOccurrences(of: "{name}", with: firstName)
     }
     // Goes through the region-keyed sanctoral calendar — see SaintCalendarRegion.
-    // On a day with no record yet, the most recent saint before it, dated.
-    private var saintEntry: (saint: Saint, monthDay: String) { MockSaints.saintOfDay(on: String(day.dateKey.suffix(5))) }
+    // On a day with no record yet, a different saint from the catalog each day.
+    private var saintEntry: (saint: Saint, isTodaysFeast: Bool) { MockSaints.saintOfDay(on: String(day.dateKey.suffix(5))) }
     private var saintOfDay: Saint { saintEntry.saint }
-
-    /// "Seu papel · 3 min" today; "21 de set. · seu papel" when the card is
-    /// showing the last registered saint rather than today's.
-    private var saintSubtitle: String {
-        let hoje = String(day.dateKey.suffix(5))
-        guard saintEntry.monthDay != hoje else { return "\(saintOfDay.role) · 3 min" }
-        let data = DateKeyLabel.dayMonth(fromKey: "\(day.dateKey.prefix(4))-\(saintEntry.monthDay)")
-        return "\(data) · \(saintOfDay.role)"
-    }
 
     var body: some View {
         NavigationStack {
@@ -207,11 +198,13 @@ struct TodayRootView: View {
                     SaintPortrait(artworkName: saintOfDay.artworkName)
                         .frame(width: 50, height: 50)
                     VStack(alignment: .leading, spacing: 2) {
-                        Eyebrow(text: L.string("Santo do dia", table: "Today"))
+                        Eyebrow(text: saintEntry.isTodaysFeast
+                                ? L.string("Santo do dia", table: "Today")
+                                : L.string("Um santo para conhecer", table: "Today"))
                         Text(saintOfDay.name)
                             .font(MissaleFont.body(17, weight: .medium))
                             .foregroundStyle(Palette.ink)
-                        Text(saintSubtitle)
+                        Text("\(saintOfDay.role) · 3 min")
                             .font(MissaleFont.body(14))
                             .foregroundStyle(Palette.ink.opacity(0.65))
                     }
@@ -261,9 +254,10 @@ struct TodayRootView: View {
     }
 
     private var showsReading: Bool { !bibleLoaded || reading != nil }
-    private var routineTotal: Int { showsReading ? 4 : 3 }
+    private var routineTotal: Int { showsReading ? 5 : 4 }
     private var routineDone: Int {
-        [moodDone, routine.isDone(.reading) && showsReading, routine.isDone(.prayer), examenDone].filter { $0 }.count
+        [routine.isDone(.morning), routine.isDone(.prayer), moodDone,
+         routine.isDone(.reading) && showsReading, examenDone].filter { $0 }.count
     }
     /// Only once the Bible has loaded, so a missing reading row can't make
     /// three items look like the whole routine.
@@ -284,34 +278,47 @@ struct TodayRootView: View {
             }
             .padding(.top, 6)
 
+            NavigationLink {
+                MorningOfferingView()
+            } label: {
+                routineRow(icon: "sunrise", period: L.string("MANHÃ", table: "Today"),
+                           title: L.string("Oferecimento do dia", table: "Today"),
+                           subtitle: routine.intention().map { "\u{201C}\($0)\u{201D}" }
+                               ?? L.string("Oração e o que espero do dia", table: "Today"),
+                           trailing: minutes(2), isDone: routine.isDone(.morning))
+            }
+            .buttonStyle(.plain)
+
+            NavigationLink {
+                DailyPrayerView()
+            } label: {
+                routineRow(icon: "hands.and.sparkles", title: L.string("Oração", table: "Today"),
+                           subtitle: DailyPrayer.today()?.title,
+                           trailing: minutes(DailyPrayer.today().map(DailyPrayer.minutes) ?? 1),
+                           isDone: routine.isDone(.prayer))
+            }
+            .buttonStyle(.plain)
+
             Button {
                 showMoodSheet = true
             } label: {
-                routineRow(icon: "sun.max", title: L.string("Hoje eu estou…", table: "Today"),
+                routineRow(icon: "sun.max", period: L.string("TARDE", table: "Today"),
+                           title: L.string("Como está sendo meu dia?", table: "Today"),
                            trailing: minutes(1), isDone: moodDone)
             }
             .buttonStyle(.plain)
 
             if showsReading { readingRow }
 
-            NavigationLink {
-                DailyPrayerView()
-            } label: {
-                routineRow(icon: "hands.and.sparkles", title: L.string("Oração", table: "Today"),
-                           subtitle: DailyPrayer.today()?.title.uppercased(),
-                           trailing: minutes(DailyPrayer.today().map(DailyPrayer.minutes) ?? 1),
-                           isDone: routine.isDone(.prayer))
-            }
-            .buttonStyle(.plain)
-
             // A navegação é do Hoje (ver navigationDestination no body), para o
             // "Encerrar" do fim do Exame conseguir voltar até aqui de uma vez.
             GatedLink(presented: $navigateToExamen) {
                 EmptyView()
             } label: {
-                routineRow(icon: "moon.stars", title: L.string("Exame do dia", table: "Today"),
-                           subtitle: L.string("À NOITE, ÀS {time}", table: "Today")
+                routineRow(icon: "moon.stars",
+                           period: L.string("À NOITE, ÀS {time}", table: "Today")
                                .replacingOccurrences(of: "{time}", with: ExamenSchedule.timeLabel),
+                           title: L.string("Exame do dia", table: "Today"),
                            trailing: minutes(5), isDone: examenDone)
             }
         }
@@ -363,18 +370,27 @@ struct TodayRootView: View {
         }
     }
 
-    private func routineRow(icon: String, title: String, subtitle: String? = nil, trailing: String, isDone: Bool) -> some View {
+    /// `period` is the time of day the task belongs to (MANHÃ, TARDE, À NOITE…);
+    /// `subtitle`, what it holds today — the prayer's name, the morning's line.
+    private func routineRow(icon: String, period: String? = nil, title: String, subtitle: String? = nil,
+                            trailing: String, isDone: Bool) -> some View {
         HStack(spacing: 14) {
             routineIcon(icon)
             VStack(alignment: .leading, spacing: 2) {
+                if let period {
+                    Text(period)
+                        .font(MissaleFont.body(11, weight: .semibold))
+                        .tracking(1.2)
+                        .foregroundStyle(Palette.wine)
+                }
                 Text(title)
                     .font(MissaleFont.body(17, weight: .medium))
                     .foregroundStyle(Palette.ink)
                 if let subtitle {
                     Text(subtitle)
-                        .font(MissaleFont.body(11, weight: .semibold))
-                        .tracking(1.2)
-                        .foregroundStyle(Palette.ink.opacity(0.5))
+                        .font(MissaleFont.body(14, italic: true))
+                        .foregroundStyle(Palette.ink.opacity(0.6))
+                        .lineLimit(2)
                 }
             }
             Spacer()

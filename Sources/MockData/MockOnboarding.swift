@@ -233,25 +233,26 @@ enum MockOnboarding {
 
     // MARK: - Notification time options (dIs15)
 
-    static func notificationTimes(for language: AppLanguage) -> [(id: String, title: String, subtitle: String, hour: String)] {
+    /// `minutes` is the suggested time, after midnight; the reader can adjust it.
+    static func notificationTimes(for language: AppLanguage) -> [(id: String, title: String, subtitle: String, minutes: Int)] {
         switch language {
         case .en:
             [
-                ("morning", "Morning", "Right when the day starts", "7:00 AM"),
-                ("midday", "Midday", "A pause, not a start", "12:00 PM"),
-                ("evening", "Evening", "Before the day winds down", "8:30 PM"),
+                ("morning", "Morning", "Right when the day starts", 420),
+                ("midday", "Midday", "A pause, not a start", 720),
+                ("evening", "Evening", "Before the day winds down", 1230),
             ]
         case .pt:
             [
-                ("morning", "Manhã", "Bem quando o dia começa", "7h"),
-                ("midday", "Meio-dia", "Uma pausa, não um começo", "12h"),
-                ("evening", "Noite", "Antes de o dia se encerrar", "20h30"),
+                ("morning", "Manhã", "Bem quando o dia começa", 420),
+                ("midday", "Meio-dia", "Uma pausa, não um começo", 720),
+                ("evening", "Noite", "Antes de o dia se encerrar", 1230),
             ]
         case .es:
             [
-                ("morning", "Mañana", "Justo cuando empieza el día", "7:00"),
-                ("midday", "Mediodía", "Una pausa, no un comienzo", "12:00"),
-                ("evening", "Noche", "Antes de que termine el día", "20:30"),
+                ("morning", "Mañana", "Justo cuando empieza el día", 420),
+                ("midday", "Mediodía", "Una pausa, no un comienzo", 720),
+                ("evening", "Noche", "Antes de que termine el día", 1230),
             ]
         }
     }

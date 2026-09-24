@@ -21,7 +21,7 @@ final class SubscriptionGateTests: XCTestCase {
     }
 
     /// The support path: logging a state, the relief, the pastoral screen, and
-    /// the crisis line for the reader's country. A paywall anywhere in here is
+    /// the crisis guidance. A paywall anywhere in here is
     /// the worst thing this app could do.
     ///
     /// `MoodCheckInSheet.swift` saiu desta lista quando o alívio (o Salmo, o
@@ -53,7 +53,7 @@ final class SubscriptionGateTests: XCTestCase {
             for portao in ["GatedLink", "GatedTab", "isSubscribed", "SubscriptionStore"] {
                 XCTAssertFalse(
                     fonte.contains(portao),
-                    "\(caminho) passou a depender da assinatura: é o caminho que termina numa linha de crise"
+                    "\(caminho) passou a depender da assinatura: é o caminho que termina na orientação de crise"
                 )
             }
         }
@@ -97,17 +97,18 @@ final class SubscriptionGateTests: XCTestCase {
         )
     }
 
-    /// And the files that exist to show the crisis line must still show it.
+    /// And the files that exist to show the crisis guidance must still show it.
     func testTheCrisisLineIsStillReachable() throws {
         for caminho in ["Sources/Features/Today/PastoralCareNudgeView.swift",
                         "Sources/Onboarding/OnboardingSpiritualIntroView.swift"] {
             XCTAssertTrue(
                 try fonte(caminho).contains("CrisisLines.current"),
-                "\(caminho) deixou de mostrar a linha de crise do país do leitor"
+                "\(caminho) deixou de mostrar a orientação de crise"
             )
         }
-        XCTAssertFalse(CrisisLines.current.number.isEmpty, "a linha de crise ficou sem número")
-        XCTAssertFalse(CrisisLines.current.telURL.isEmpty, "a linha de crise ficou sem discagem")
+        for idioma in AppLanguage.allCases {
+            XCTAssertFalse(CrisisLines.catalog[idioma].message.isEmpty, "a orientação de crise ficou vazia em \(idioma)")
+        }
     }
 
     /// The paid side, so a later change that quietly opens everything shows up

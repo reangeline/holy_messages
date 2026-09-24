@@ -9,7 +9,7 @@ struct OnboardingNotificationPreviewView: View {
     let onNotNow: () -> Void
 
     private var timeHour: String {
-        MockOnboarding.notificationTimes(for: AppLanguagePreference.resolveCurrent()).first { $0.id == viewModel.selectedNotificationTimeID }?.hour ?? "7:00 AM"
+        ReadingReminderScheduler.label(Array(viewModel.notificationTimes.values))
     }
 
     var body: some View {
@@ -24,7 +24,7 @@ struct OnboardingNotificationPreviewView: View {
                             .font(MissaleFont.display(26))
                             .foregroundStyle(Palette.ink)
                             .padding(.top, 20)
-                        Text("One notice. No badges, no nudging.", tableName: "Onboarding")
+                        Text("No badges, no nudging.", tableName: "Onboarding")
                             .font(MissaleFont.body(15))
                             .foregroundStyle(Palette.ink.opacity(0.65))
 

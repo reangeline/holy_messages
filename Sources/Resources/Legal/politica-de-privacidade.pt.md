@@ -26,8 +26,9 @@ Tudo abaixo fica no armazenamento local do aplicativo, no seu aparelho.
 - Os terços que você registrar, com o mistério, o modo e a intenção, quando
   você escrever uma.
 - O seu progresso na Formação: quais partes você concluiu e em que ordem.
-- O que você concluiu do "Seu dia com Deus" em cada dia (leitura e oração,
-  dos últimos 60 dias) e até qual capítulo do Novo Testamento você leu.
+- O que você concluiu do "Seu dia com Deus" em cada dia (dos últimos 60 dias),
+  o que você escreveu que espera de cada dia no oferecimento da manhã, e até
+  qual capítulo do Novo Testamento você leu.
 - Os dias em que você completou o "Seu dia com Deus" (só a data), usados para
   pedir uma avaliação na App Store uma única vez, no terceiro dia.
 - O nome que você digitar nas Configurações, usado apenas para chamá-lo pelo
@@ -39,6 +40,7 @@ Tudo abaixo fica no armazenamento local do aplicativo, no seu aparelho.
 - O calendário litúrgico regional escolhido.
 - Se o modo iniciante do Terço está ligado.
 - Se você já concluiu a apresentação inicial.
+- Os horários escolhidos para o aviso da leitura do dia.
 
 O idioma fica num armazenamento compartilhado entre o aplicativo e os seus
 widgets, para que o widget apareça no mesmo idioma. Esse compartilhamento é

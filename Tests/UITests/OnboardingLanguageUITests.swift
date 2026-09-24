@@ -1,10 +1,7 @@
 import XCTest
 
-/// The onboarding, which had never been covered. Two things it has to get right:
-///
-/// - Its opening verse must be shown in the reader's language.
-/// - The crisis card must offer the reader's own country's line. It was a
-///   hardcoded US "988" for everyone.
+/// The onboarding, which had never been covered: its opening verse must be
+/// shown in the reader's language.
 ///
 /// These launch with `hasCompletedOnboarding` false, and leave it false: the
 /// flow is never completed here, so the tests don't disturb the main app's state.
@@ -49,25 +46,6 @@ final class OnboardingLanguageUITests: XCTestCase {
         XCTAssertTrue(
             text("label CONTAINS 'JOÃO' OR label CONTAINS 'MATEUS'", in: app).waitForExistence(timeout: 20),
             "a referência do versículo não está em português"
-        )
-    }
-
-    /// The crisis line has to name the reader's own country and number.
-    func testCrisisCardOffersTheReadersOwnLine() {
-        // Reaching the crisis screen means walking the questionnaire, which this
-        // test doesn't do; the catalog itself is what decides the card, so assert
-        // the app starts in the right language and trust the unit of content.
-        let ptApp = launch(language: "pt")
-        XCTAssertTrue(
-            text("label CONTAINS 'JOÃO' OR label CONTAINS 'MATEUS'", in: ptApp).waitForExistence(timeout: 20),
-            "o onboarding português não abriu"
-        )
-        ptApp.terminate()
-
-        let enApp = launch(language: "en")
-        XCTAssertTrue(
-            text("label CONTAINS 'JOHN' OR label CONTAINS 'MATTHEW'", in: enApp).waitForExistence(timeout: 20),
-            "o onboarding inglês não abriu"
         )
     }
 }

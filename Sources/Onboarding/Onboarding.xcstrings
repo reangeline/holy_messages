@@ -179,50 +179,6 @@
         }
       }
     },
-    "Call 988": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Call 988"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Llamar al 988"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ligar para 988"
-          }
-        }
-      }
-    },
-    "Call {number}": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Call {number}"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ligar {number}"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Llamar {number}"
-          }
-        }
-      }
-    },
     "Catholic Charities": {
       "localizations": {
         "en": {
@@ -627,28 +583,6 @@
         }
       }
     },
-    "If you are in crisis · {region}": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "If you are in crisis · {region}"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Se for crise · {region}"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Si estás en crisis · {region}"
-          }
-        }
-      }
-    },
     "Look around — no account needed": {
       "localizations": {
         "en": {
@@ -823,50 +757,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "OK"
-          }
-        }
-      }
-    },
-    "One notice a day. Choose the hour that already belongs to prayer.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "One notice a day. Choose the hour that already belongs to prayer."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Un aviso al día. Elige la hora que ya pertenece a la oración."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Um aviso por dia. Escolha a hora que já pertence à oração."
-          }
-        }
-      }
-    },
-    "One notice. No badges, no nudging.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "One notice. No badges, no nudging."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Un aviso. Sin insignias, sin insistencia."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Um aviso. Sem selos, sem insistência."
           }
         }
       }
@@ -1201,50 +1091,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Falar com um padre"
-          }
-        }
-      }
-    },
-    "Text 988": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Text 988"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Enviar mensaje al 988"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Enviar mensagem para 988"
-          }
-        }
-      }
-    },
-    "Text {number}": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Text {number}"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mensagem {number}"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mensaje {number}"
           }
         }
       }
@@ -2146,6 +1992,75 @@
           "stringUnit": {
             "state": "translated",
             "value": "Confissão, ou só uma conversa. O Mapas mostra as igrejas católicas perto de você; os horários, a própria paróquia informa."
+          }
+        }
+      }
+    },
+    "Choose one or more. Tap the hour to adjust it.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choose one or more. Tap the hour to adjust it."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Elige uno o más horarios. Toca la hora para ajustarla."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Escolha um ou mais horários. Toque na hora para ajustar."
+          }
+        }
+      }
+    },
+    "No badges, no nudging.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No badges, no nudging."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sin insignias, sin insistencia."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sem selos, sem insistência."
+          }
+        }
+      }
+    },
+    "Time": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Time"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hora"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Horário"
           }
         }
       }

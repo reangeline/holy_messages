@@ -6,7 +6,8 @@ final class OnboardingViewModel: ObservableObject {
     @Published private(set) var path: [OnboardingStep] = [.verseIntro]
     @Published var lifeAnswers: [String: Set<String>] = [:]
     @Published var spiritualAnswers: [String: String] = [:]
-    @Published var selectedNotificationTimeID: String = MockOnboarding.notificationTimes(for: .en).first?.id ?? ""
+    /// Chosen notice times, by option id, each with its (adjustable) minutes.
+    @Published var notificationTimes: [String: Int] = ["morning": 7 * 60]
     @Published var notificationPermissionRequested = false
 
     var current: OnboardingStep { path.last ?? .verseIntro }
@@ -60,11 +61,26 @@ final class OnboardingViewModel: ObservableObject {
 
     func advanceFromNotificationTime() { push(.notificationPreview) }
 
-    func skipNotifications() { push(.paywall) }
+    func toggleNotificationTime(id: String, defaultMinutes: Int) {
+        if notificationTimes[id] == nil {
+            notificationTimes[id] = defaultMinutes
+        } else {
+            notificationTimes[id] = nil
+        }
+    }
+
+    func skipNotifications() {
+        // Kept even without permission: turning notices on later in the
+        // system settings finds the times already chosen.
+        ReadingReminderScheduler.times = Array(notificationTimes.values)
+        push(.paywall)
+    }
 
     func requestNotificationsThenAdvance() {
         notificationPermissionRequested = true
+        ReadingReminderScheduler.times = Array(notificationTimes.values)
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { [weak self] _, _ in
+            ReadingReminderScheduler.refresh()
             DispatchQueue.main.async {
                 self?.push(.paywall)
             }

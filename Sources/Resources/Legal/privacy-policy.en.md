@@ -26,8 +26,9 @@ Everything below stays in the app's local storage, on your device.
 - The rosaries you log, with the mystery, the mode, and the intention when you
   write one.
 - Your Formation progress: which parts you completed, and in what order.
-- What you completed of "Your day with God" each day (reading and prayer,
-  for the last 60 days) and how far you've read in the New Testament.
+- What you completed of "Your day with God" each day (for the last 60 days),
+  what you wrote you hope for each day in the Morning Offering, and how far
+  you've read in the New Testament.
 - The days you completed "Your day with God" (the date only), used to ask for
   an App Store rating once, on the third day.
 - The name you type in Settings, used only to greet you by name in the app.
@@ -38,6 +39,7 @@ Everything below stays in the app's local storage, on your device.
 - The regional liturgical calendar you chose.
 - Whether the Rosary's beginner mode is on.
 - Whether you have finished the introduction.
+- The times you chose for the daily reading notice.
 
 The language setting lives in storage shared between the app and its widgets,
 so the widget appears in the same language. That sharing is local, on your

@@ -54,35 +54,16 @@ struct OnboardingSpiritualIntroView: View {
                             }
                         }
                         LiturgicalGradientCard(color: .red) {
+                            // Generic by decision, with no number of our own — see CrisisLines.
+                            let crisis = CrisisLines.current
                             VStack(alignment: .leading, spacing: 8) {
-                                // The line for the reader's own country — see CrisisLines.
-                                let crisis = CrisisLines.current
-                                Eyebrow(text: L.string("If you are in crisis · {region}", table: "Onboarding")
-                                    .replacingOccurrences(of: "{region}", with: crisis.regionLabel),
-                                        color: Palette.goldBright)
-                                Text(crisis.number)
-                                    .font(MissaleFont.display(30))
+                                Text(crisis.title)
+                                    .font(MissaleFont.display(24))
                                     .foregroundStyle(.white)
-                                Text("\(crisis.serviceName). \(crisis.detail)")
-                                    .font(MissaleFont.body(15))
-                                    .foregroundStyle(.white.opacity(0.9))
-                                HStack(spacing: 12) {
-                                    if let tel = URL(string: crisis.telURL) {
-                                        Link(destination: tel) {
-                                            Text(L.string("Call {number}", table: "Onboarding")
-                                                .replacingOccurrences(of: "{number}", with: crisis.number))
-                                        }
-                                    }
-                                    if let smsURL = crisis.smsURL, let sms = URL(string: smsURL) {
-                                        Link(destination: sms) {
-                                            Text(L.string("Text {number}", table: "Onboarding")
-                                                .replacingOccurrences(of: "{number}", with: crisis.number))
-                                        }
-                                    }
-                                }
-                                .font(MissaleFont.body(15, weight: .medium))
-                                .foregroundStyle(.white)
-                                .padding(.top, 4)
+                                Text(crisis.message)
+                                    .font(MissaleFont.body(16))
+                                    .foregroundStyle(.white.opacity(0.92))
+                                    .fixedSize(horizontal: false, vertical: true)
                             }
                         }
                         Text("This app offers formation and prayer. It is not confession, spiritual direction, or therapy, and it never pretends to be.", tableName: "Onboarding")

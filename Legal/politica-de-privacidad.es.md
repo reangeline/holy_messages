@@ -28,8 +28,9 @@ dispositivo.
 - Los rosarios que registres, con el misterio, el modo y la intención cuando
   escribas una.
 - Tu progreso en Formación: qué partes completaste y en qué orden.
-- Lo que completaste de "Tu día con Dios" cada día (lectura y oración,
-  de los últimos 60 días) y hasta qué capítulo del Nuevo Testamento leíste.
+- Lo que completaste de "Tu día con Dios" cada día (de los últimos 60 días),
+  lo que escribiste que esperas de cada día en el ofrecimiento de la mañana, y
+  hasta qué capítulo del Nuevo Testamento leíste.
 - Los días en que completaste "Tu día con Dios" (solo la fecha), usados para
   pedir una valoración en la App Store una sola vez, el tercer día.
 - El nombre que escribas en Ajustes, usado solo para llamarte por tu nombre en
@@ -41,6 +42,7 @@ dispositivo.
 - El calendario litúrgico regional elegido.
 - Si el modo principiante del Rosario está activado.
 - Si ya completaste la presentación inicial.
+- Los horarios elegidos para el aviso de la lectura del día.
 
 El idioma se guarda en un almacenamiento compartido entre la aplicación y sus
 widgets, para que el widget aparezca en el mismo idioma. Ese compartir es

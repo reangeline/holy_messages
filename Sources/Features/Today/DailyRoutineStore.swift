@@ -1,26 +1,30 @@
 import Foundation
 
-/// "Seu dia com Deus": four things a day — the mood check-in, a New Testament
-/// chapter, a short prayer, and the Examen at night.
+/// "Seu dia com Deus", as a day's tasks: the morning offering with what the
+/// reader hopes for the day, a short prayer, "how is my day going" in the
+/// afternoon (the mood check-in), a New Testament chapter, and the Examen.
 ///
 /// The mood and the Examen already keep dated records, so they count as done
-/// from those. Only the reading and the prayer need a record of their own,
-/// plus where the reader is in the New Testament.
+/// from those. The rest need a record of their own, plus where the reader is
+/// in the New Testament and what they wrote in the morning.
 @MainActor
 final class DailyRoutineStore: ObservableObject {
     static let shared = DailyRoutineStore()
 
     static let completionsKey = "routine_completions"
     static let positionKey = "routine_nt_position"
+    static let intentionsKey = "routine_intentions"
     /// Older days are dropped: the list only ever answers "done today?".
     private static let keptDays = 60
 
-    enum Item: String { case reading, prayer }
+    enum Item: String { case morning, reading, prayer }
 
     /// Day key -> items done that day.
     @Published private(set) var completions: [String: [String]]
     /// New Testament chapters finished so far, in canonical order.
     @Published private(set) var position: Int
+    /// Day key -> what the reader hopes for that day, written in the morning.
+    @Published private(set) var intentions: [String: String]
 
     private let defaults: UserDefaults
 
@@ -28,6 +32,23 @@ final class DailyRoutineStore: ObservableObject {
         self.defaults = defaults
         completions = defaults.dictionary(forKey: Self.completionsKey) as? [String: [String]] ?? [:]
         position = defaults.integer(forKey: Self.positionKey)
+        intentions = defaults.dictionary(forKey: Self.intentionsKey) as? [String: String] ?? [:]
+    }
+
+    func intention(on date: Date = Date()) -> String? {
+        intentions[Self.dayKey(date)]
+    }
+
+    func saveIntention(_ text: String, on date: Date = Date()) {
+        let trimmed = text.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmed.isEmpty else { return }
+        intentions[Self.dayKey(date)] = trimmed
+        intentions = intentions.filter { $0.key >= Self.cutoff(from: date) }
+        defaults.set(intentions, forKey: Self.intentionsKey)
+    }
+
+    private static func cutoff(from date: Date) -> String {
+        dayKey(Calendar.current.date(byAdding: .day, value: -keptDays, to: date) ?? date)
     }
 
     nonisolated static func dayKey(_ date: Date) -> String {
@@ -55,8 +76,7 @@ final class DailyRoutineStore: ObservableObject {
             position += 1
             defaults.set(position, forKey: Self.positionKey)
         }
-        let cutoff = Self.dayKey(Calendar.current.date(byAdding: .day, value: -Self.keptDays, to: date) ?? date)
-        completions = completions.filter { $0.key >= cutoff }
+        completions = completions.filter { $0.key >= Self.cutoff(from: date) }
         defaults.set(completions, forKey: Self.completionsKey)
     }
 }

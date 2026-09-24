@@ -40,7 +40,7 @@ targets:
       properties:
         CFBundleDisplayName: Missale
         CFBundleShortVersionString: "2.0"
-        CFBundleVersion: "3"
+        CFBundleVersion: "4"
         # O app não usa criptografia própria (nenhuma rede; a compra é do
         # StoreKit). Declarado aqui, o App Store Connect para de perguntar a
         # cada build.
@@ -131,7 +131,7 @@ targets:
       properties:
         CFBundleDisplayName: Missale Widgets
         CFBundleShortVersionString: "2.0"
-        CFBundleVersion: "3"
+        CFBundleVersion: "4"
         NSExtension:
           NSExtensionPointIdentifier: com.apple.widgetkit-extension
         UIAppFonts:

@@ -32,15 +32,13 @@ A App Store Connect exige uma **URL** de política de privacidade para todo app.
 O texto está pronto em `Legal/`, nos três idiomas, e também embarcado no app.
 Falta publicar numa URL e colar no App Store Connect.
 
-### 1.3 Os três números de crise — sua, e a mais séria
+### 1.3 Orientação de crise — decidida
 
-`Sources/Models/CrisisLine.swift` tem duas marcas de `NEEDS A FINAL CHECK`:
-CVV 188 (Brasil), 988 (EUA) e Línea de la Vida (México). A mexicana é a mais
-frágil, porque o número federal mudou de operador.
-
-**O peso disso aumentou:** depois do bloqueio de conteúdo, o caminho do apoio é
-a única parte do app que qualquer pessoa alcança sem pagar. Eu não quero ser
-quem assina esses três números.
+Por decisão sua (feedback do 2.0 (3)), o cartão de crise deixou de citar
+números (CVV 188, 988, Línea de la Vida) e passou a um texto genérico: procurar
+os serviços públicos de apoio emocional e de saúde, e o serviço de emergência
+local em perigo imediato. Está em `Sources/Models/CrisisLine.swift`, nas duas
+telas de apoio. Nada mais a conferir aqui.
 
 ### 1.4 Mecânico — minha e sua
 
@@ -55,14 +53,19 @@ quem assina esses três números.
 
 ## 2. Decisões pendentes
 
-### 2.1 Existe período de teste gratuito? — pendente
+### 2.1 Teste gratuito de 7 dias — feito
 
-O app lê do produto (`introductoryOffer`) e o botão diz os dias reais, ou
-"Assinar" quando não há. **Não preciso mexer em código.** Só preciso saber para
-deixar a configuração local igual, e a captura sair com o mesmo texto que o
-revisor vai ver.
+O app lê do produto (`introductoryOffer`) e só mostra o teste a quem a Apple
+diz que tem direito (`isEligibleForIntroOffer`).
 
-A configuração local hoje está com `introductoryOffer: null`.
+- Em 24/09 as ofertas de 2 semanas (desde 22/09) foram apagadas e trocadas por
+  **Grátis na primeira semana**, na Mensal e na Anual, nos mesmos 175 países,
+  sem data final. Quem já estava no teste de 2 semanas continua nele.
+- A configuração local (`Tests/Support/Missale.storekit`) também está com 1
+  semana.
+- Uma conta que já assinou não tem mais direito ao teste: é o caso da conta
+  usada no TestFlight. Para ver o botão de 7 dias, teste com uma conta Sandbox
+  nova.
 
 ### 2.2 O que fazer com os 111 santos e as 111 festas que faltam — pendente
 
@@ -112,6 +115,32 @@ Os scripts para refazer tudo (conversão, preenchimento com a RV, Wikisource,
 OCR das edições) estão na mesma pasta `../missale-biblias-revisao/`.
 
 ---
+
+### 2.5 Feedbacks do TestFlight ainda abertos
+
+Registrados aqui para poderem ser apagados do App Store Connect. Os do 2.0 (1)
+que o commit `a75d293` tratou e os do 2.0 (3) tratados depois não entram.
+
+Do 2.0 (1):
+- Fazer o "Em defesa da fé católica".
+- Devocional para mandar uma mensagem a alguém conhecido.
+- Áudios gravados com as orações (hoje a voz é a síntese do aparelho).
+- Avaliar os termos do suporte.
+- Aparições: uma sem imagem, e acrescentar mais duas (ver §3.3).
+
+Do 2.0 (2), sem a tela no texto do feedback — conferir pela captura antes de
+apagar:
+- "Avaliar se a mensagem chega assim mesmo" (o aviso da leitura agora é
+  agendado de verdade, nos horários escolhidos no onboarding).
+- "Está genérico e mal formatado".
+- "Deixar o texto maior".
+- "Tá com muito texto".
+- "Essa primeira parte está confusa" (o começo do onboarding foi refeito).
+
+Do 2.0 (3), o que depende de conteúdo:
+- Santo do dia: só 35 dias do ano têm santo registrado. Nos outros, o app agora
+  mostra "Um santo para conhecer", um diferente a cada dia; o completo é o
+  trabalho de §3.2.
 
 ## 3. O que falta de conteúdo
 
@@ -216,12 +245,11 @@ privacidade e os termos passam a mentir.
 
 1. **As três aparições** (§3.3) — curto, destrava arte parada no bundle.
 2. **A captura de revisão** (§1.1) e **hospedar a política** (§1.2) — suas.
-3. **Conferir os três números de crise** (§1.3) — sua, e a mais séria.
-4. **Teste em aparelho real** da compra e da restauração (§1.4) — o maior risco
+3. **Teste em aparelho real** da compra e da restauração (§1.4) — o maior risco
    não testado.
-5. **As festas de data fixa** (§3.1) — fonte única, ganho grande.
-6. **Os santos** (§3.2) — trabalho de fundo.
-7. **Devolver apagar e exportar** (§2.3) antes que o acervo pessoal cresça.
+4. **As festas de data fixa** (§3.1) — fonte única, ganho grande.
+5. **Os santos** (§3.2) — trabalho de fundo.
+6. **Devolver apagar e exportar** (§2.3) antes que o acervo pessoal cresça.
 
 ---
 
