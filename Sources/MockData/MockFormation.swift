@@ -272,7 +272,27 @@ enum MockFormation {
 
     /// Ordered by partNumber — this order is what drives "next up" once a lesson
     /// is marked complete. See FormationProgressStore.nextLesson(_:).
-    static var track: FormationTrack { trackCatalog.current }
+    static var track: FormationTrack {
+        if let published = publishedTracks {
+            return published.first { $0.id == mainTrackID } ?? published[0]
+        }
+        return trackCatalog.current
+    }
+
+    /// The track the app presents as started, above the others.
+    static let mainTrackID = "mass-part-by-part"
+
+    /// Formation published from the admin page — used only when both its
+    /// tracks and its lessons were published for this language, so the app
+    /// never shows a track without lessons or lessons without a track.
+    static var publishedTracks: [FormationTrack]? {
+        let language = AppLanguagePreference.resolveCurrent()
+        guard let tracks = RemoteContent.items("formation_tracks", language: language, as: PublishedFormationTrack.self),
+              let lessons = RemoteContent.items("formation_lessons", language: language, as: PublishedFormationLesson.self)
+        else { return nil }
+        let assembled = PublishedFormationLesson.assemble(tracks: tracks, lessons: lessons)
+        return assembled.isEmpty ? nil : assembled
+    }
 
     static let trackCatalog = LocalizedCatalog(pt: ptTrack, en: enTrack, es: esTrack)
 
@@ -373,7 +393,13 @@ enum MockFormation {
     // extra tracks beyond that list rather than removed — they're already-written,
     // complementary content, not a gap.
     /// One catalog per language — see LocalizedCatalog.
-    static var otherTracks: [FormationTrack] { otherTracksCatalog.current }
+    static var otherTracks: [FormationTrack] {
+        if let published = publishedTracks {
+            let main = track.id
+            return published.filter { $0.id != main }
+        }
+        return otherTracksCatalog.current
+    }
 
     /// The started track plus the rest, so a lesson screen can name its own
     /// track instead of hardcoding one title.

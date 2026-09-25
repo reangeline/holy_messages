@@ -9,7 +9,7 @@ final class RemoteContentTests: XCTestCase {
     private var language: AppLanguage { AppLanguagePreference.resolveCurrent() }
 
     override func tearDown() {
-        for c in [collection, "saints", "mood_reliefs"] {
+        for c in [collection, "saints", "mood_reliefs", "formation_tracks", "formation_lessons"] {
             if let url = RemoteContent.fileURL(collection: c, lang: language.rawValue) {
                 try? FileManager.default.removeItem(at: url)
             }
@@ -112,5 +112,45 @@ final class RemoteContentTests: XCTestCase {
         XCTAssertEqual(MockMood.reliefVariants(for: "peace")?.count, 1)
         XCTAssertNil(MockMood.reliefVariants(for: "grief")?.first?.saintID, "santo vazio vira sem link")
         XCTAssertEqual(MockMood.relief(for: "grief", excluding: 0).index, 1, "sem repetir a última mostrada")
+    }
+
+    // MARK: - Formação
+
+    /// Taking the tracks apart into the two published lists and assembling
+    /// them again gives back the same lessons — part numbers included, which
+    /// the published format derives from order instead of storing.
+    func testFormationRoundTripsThroughThePublishedFormat() throws {
+        for language in AppLanguage.allCases where MockFormation.trackCatalog.hasOwnCatalog(for: language) {
+            let bundled = [MockFormation.trackCatalog[language]] + MockFormation.otherTracksCatalog[language]
+            let tracks = try JSONDecoder().decode([PublishedFormationTrack].self, from: JSONEncoder().encode(
+                bundled.map { PublishedFormationTrack(id: $0.id, title: $0.title, meta: $0.meta) }))
+            let lessons = try JSONDecoder().decode([PublishedFormationLesson].self, from: JSONEncoder().encode(
+                bundled.flatMap(\.lessons).map(PublishedFormationLesson.init)))
+            let assembled = PublishedFormationLesson.assemble(tracks: tracks, lessons: lessons)
+
+            XCTAssertEqual(assembled.map(\.id), bundled.map(\.id), "\(language)")
+            XCTAssertEqual(assembled.map(\.title), bundled.map(\.title))
+            for (a, b) in zip(assembled, bundled) {
+                XCTAssertEqual(a.lessons, b.lessons, "\(b.id) em \(language)")
+            }
+        }
+    }
+
+    func testFormationNeedsBothListsPublished() throws {
+        let tracks = #"[{"id":"t1","title":"Trilha","meta":"m"}]"#
+        try publish(Data(tracks.utf8), to: "formation_tracks")
+        XCTAssertEqual(MockFormation.track.id, MockFormation.trackCatalog[language].id,
+                       "só as trilhas publicadas: a formação embutida continua")
+
+        let lessons = #"""
+        [{"id":"l2","trackID":"t1","kicker":"K","title":"Segunda","bodyParagraphs":["p"],"quoteText":"","quoteAttribution":"","glossaryTerms":[]},
+         {"id":"l1","trackID":"t1","kicker":"K","title":"Primeira","bodyParagraphs":["p"],"quoteText":"","quoteAttribution":"","glossaryTerms":[]},
+         {"id":"x","trackID":"sem-trilha","kicker":"K","title":"Órfã","bodyParagraphs":["p"],"quoteText":"","quoteAttribution":"","glossaryTerms":[]}]
+        """#
+        try publish(Data(lessons.utf8), to: "formation_lessons")
+        XCTAssertEqual(MockFormation.allTracks.map(\.id), ["t1"], "lição sem trilha fica de fora")
+        XCTAssertEqual(MockFormation.track.lessons.map(\.title), ["Segunda", "Primeira"])
+        XCTAssertEqual(MockFormation.track.lessons.map(\.partNumber), [1, 2], "a parte sai da ordem")
+        XCTAssertNil(MockFormation.track.lessons[0].quoteText, "citação vazia vira sem citação")
     }
 }
