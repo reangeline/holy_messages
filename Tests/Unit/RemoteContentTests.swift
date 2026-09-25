@@ -9,7 +9,7 @@ final class RemoteContentTests: XCTestCase {
     private var language: AppLanguage { AppLanguagePreference.resolveCurrent() }
 
     override func tearDown() {
-        for c in [collection, "saints", "mood_reliefs", "formation_tracks", "formation_lessons", "prayer_categories", "prayers", "apparitions"] {
+        for c in [collection, "saints", "mood_reliefs", "formation_tracks", "formation_lessons", "prayer_categories", "prayers", "apparitions", "sunday_readings", "feasts"] {
             if let url = RemoteContent.fileURL(collection: c, lang: language.rawValue) {
                 try? FileManager.default.removeItem(at: url)
             }
@@ -197,5 +197,31 @@ final class RemoteContentTests: XCTestCase {
             let bundled = MockMarianApparitions.catalog[language]
             XCTAssertEqual(try JSONDecoder().decode([MarianApparition].self, from: JSONEncoder().encode(bundled)), bundled)
         }
+    }
+
+    // MARK: - Lecionário e festas
+
+    func testLiturgyRoundTripsThroughThePublishedFormat() throws {
+        for language in AppLanguage.allCases where MockLectionary.catalog.hasOwnCatalog(for: language) {
+            let bundled = MockLectionary.catalog[language]
+            let flat = try JSONDecoder().decode([PublishedSundayReadings].self, from: JSONEncoder().encode(
+                bundled.map { PublishedSundayReadings(key: $0.key, $0.value) }))
+            XCTAssertEqual(Dictionary(flat.map { ($0.key, $0.readings) }, uniquingKeysWith: { a, _ in a }), bundled, "\(language)")
+        }
+        for language in AppLanguage.allCases where LiturgicalSanctoral.catalog.hasOwnCatalog(for: language) {
+            let bundled = LiturgicalSanctoral.catalog[language]
+            let flat = try JSONDecoder().decode([PublishedFeast].self, from: JSONEncoder().encode(bundled.map(PublishedFeast.init)))
+            XCTAssertEqual(flat.compactMap(\.feast), bundled, "\(language)")
+        }
+    }
+
+    func testAFeastWithAnUnknownRankOrColourIsDropped() throws {
+        let json = #"""
+        [{"id":"12-25","monthDay":"12-25","name":"Natal","rank":"Solenidade","color":"white"},
+         {"id":"12-26","monthDay":"12-26","name":"Errada","rank":"Solene","color":"white"},
+         {"id":"12-27","monthDay":"12-27","name":"Errada","rank":"Festa","color":"azul"}]
+        """#
+        try publish(Data(json.utf8), to: "feasts")
+        XCTAssertEqual(LiturgicalSanctoral.feasts.map(\.name), ["Natal"])
     }
 }

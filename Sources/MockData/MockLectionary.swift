@@ -15,7 +15,14 @@ enum MockLectionary {
     /// One catalog per language: the book names and the psalm numbering differ,
     /// so this is not a translation of one list. Filled from the research
     /// deliveries — see Sources/MockData/Generated.
-    static var sundayReadings: [String: MassReadings] { catalog.current }
+    /// What the admin page published wins; the catalog is what ships.
+    static var sundayReadings: [String: MassReadings] {
+        let language = AppLanguagePreference.resolveCurrent()
+        if let published = RemoteContent.items("sunday_readings", language: language, as: PublishedSundayReadings.self) {
+            return Dictionary(published.map { ($0.key, $0.readings) }, uniquingKeysWith: { first, _ in first })
+        }
+        return catalog[language]
+    }
 
     static let catalog = LocalizedCatalog(pt: ptSundays, en: enSundays, es: esSundays)
 

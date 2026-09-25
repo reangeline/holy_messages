@@ -27,3 +27,27 @@ struct LiturgicalDay: Identifiable, Codable {
     let color: LiturgicalColor
     let explanation: String
 }
+
+/// A fixed-date celebration as the admin page publishes it. Rank and colour
+/// are the app's own coded values ("Memória", "white"); an entry with a value
+/// the app doesn't know is dropped rather than shown wrong.
+struct PublishedFeast: Codable, Hashable {
+    let id: String
+    let monthDay: String
+    let name: String
+    let rank: String
+    let color: String
+
+    init(_ feast: LiturgicalSanctoral.FixedFeast) {
+        id = feast.monthDay
+        monthDay = feast.monthDay
+        name = feast.name
+        rank = feast.rank.rawValue
+        color = feast.color.rawValue
+    }
+
+    var feast: LiturgicalSanctoral.FixedFeast? {
+        guard let rank = LiturgicalRank(rawValue: rank), let color = LiturgicalColor(rawValue: color) else { return nil }
+        return .init(monthDay: monthDay, name: name, rank: rank, color: color)
+    }
+}
