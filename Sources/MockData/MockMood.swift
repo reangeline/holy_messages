@@ -104,7 +104,23 @@ enum MockMood {
     // Psalm and saint every time — see MoodHistoryStore.lastReliefIndex /
     // relief(for:excluding:).
     /// One catalog per language — see LocalizedCatalog.
-    static var reliefByState: [String: [ReliefContent]] { reliefCatalog.current }
+    static var reliefByState: [String: [ReliefContent]] {
+        reliefs(for: AppLanguagePreference.resolveCurrent()) ?? reliefCatalog.current
+    }
+
+    /// The replies for `language`, grouped by state: what the admin page
+    /// published, regrouped in its order, or else the reviewed catalog that
+    /// ships with the app. Nil where neither exists and the onboarding's pool
+    /// stands in.
+    static func reliefs(for language: AppLanguage) -> [String: [ReliefContent]]? {
+        if let published = RemoteContent.items("mood_reliefs", language: language, as: PublishedRelief.self) {
+            var byState: [String: [ReliefContent]] = [:]
+            for item in published { byState[item.stateID, default: []].append(item.relief) }
+            return byState
+        }
+        guard language == .pt || reliefCatalog.hasOwnCatalog(for: language) else { return nil }
+        return reliefCatalog[language]
+    }
 
     // Os catálogos novos só substituem a base quando o importador aceitou as
     // quinze respostas distintas por estado. Português e inglês já passaram:
@@ -960,8 +976,7 @@ enum MockMood {
         for stateID: String,
         language: AppLanguage = AppLanguagePreference.resolveCurrent()
     ) -> [ReliefContent]? {
-        guard language == .pt || reliefCatalog.hasOwnCatalog(for: language) else { return nil }
-        return reliefCatalog[language][stateID]
+        reliefs(for: language)?[stateID]
     }
 
     /// Picks a variation for `stateID`, avoiding `excluding` (the index shown last
@@ -972,11 +987,11 @@ enum MockMood {
         excluding: Int? = nil,
         language: AppLanguage = AppLanguagePreference.resolveCurrent()
     ) -> (content: ReliefContent, index: Int) {
-        guard language == .pt || reliefCatalog.hasOwnCatalog(for: language) else {
+        guard let catalog = reliefs(for: language) else {
             return (OnboardingRelief.content(spirit2: onboardingState(for: stateID), language: language), 0)
         }
 
-        let variants = reliefCatalog[language][stateID] ?? [defaultRelief]
+        let variants = catalog[stateID] ?? [defaultRelief]
         guard variants.count > 1 else {
             return (variants.first ?? defaultRelief, 0)
         }

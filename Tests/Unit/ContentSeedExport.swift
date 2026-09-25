@@ -21,6 +21,12 @@ final class ContentSeedExport: XCTestCase {
         try XCTSkipUnless(ProcessInfo.processInfo.environment["EXPORT_CONTENT"] == "1", "exportação só quando pedida")
         let encoder = JSONEncoder()
         encoder.outputFormatting = [.prettyPrinted, .sortedKeys, .withoutEscapingSlashes]
+        for language in AppLanguage.allCases where MockMood.reliefCatalog.hasOwnCatalog(for: language) {
+            let pasta = destino.appendingPathComponent("mood_reliefs")
+            try FileManager.default.createDirectory(at: pasta, withIntermediateDirectories: true)
+            try encoder.encode(PublishedRelief.flatten(MockMood.reliefCatalog[language]))
+                .write(to: pasta.appendingPathComponent("\(language.rawValue).json"))
+        }
         for language in AppLanguage.allCases where MockSaints.catalog.hasOwnCatalog(for: language) {
             let pasta = destino.appendingPathComponent("saints")
             try FileManager.default.createDirectory(at: pasta, withIntermediateDirectories: true)

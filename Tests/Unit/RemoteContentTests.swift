@@ -9,7 +9,7 @@ final class RemoteContentTests: XCTestCase {
     private var language: AppLanguage { AppLanguagePreference.resolveCurrent() }
 
     override func tearDown() {
-        for c in [collection, "saints"] {
+        for c in [collection, "saints", "mood_reliefs"] {
             if let url = RemoteContent.fileURL(collection: c, lang: language.rawValue) {
                 try? FileManager.default.removeItem(at: url)
             }
@@ -81,5 +81,36 @@ final class RemoteContentTests: XCTestCase {
         XCTAssertEqual(santo.bioParagraphs, ["Primeiro.", "Segundo."])
         XCTAssertNil(santo.artworkName, "arte vazia deve virar sem arte, não uma imagem inexistente")
         XCTAssertTrue(santo.stories.isEmpty)
+    }
+
+    // MARK: - Respostas do check-in
+
+    func testEveryReplyRoundTripsThroughThePublishedFormat() throws {
+        for language in AppLanguage.allCases where MockMood.reliefCatalog.hasOwnCatalog(for: language) {
+            let catalog = MockMood.reliefCatalog[language]
+            let flat = try JSONDecoder().decode([PublishedRelief].self,
+                                                from: JSONEncoder().encode(PublishedRelief.flatten(catalog)))
+            var regrouped: [String: [ReliefContent]] = [:]
+            for item in flat { regrouped[item.stateID, default: []].append(item.relief) }
+            for (state, replies) in catalog {
+                XCTAssertEqual(regrouped[state]?.map(\.title), replies.map(\.title), "\(state) em \(language): ordem ou conteúdo mudou")
+                XCTAssertEqual(regrouped[state]?.map(\.saintID), replies.map(\.saintID))
+                XCTAssertEqual(regrouped[state]?.map(\.stepBody), replies.map(\.stepBody))
+            }
+        }
+    }
+
+    func testPublishedRepliesKeepTheAdminsOrderPerState() throws {
+        func reply(_ id: String, _ state: String) -> String {
+            #"{"id":"\#(id)","stateID":"\#(state)","title":"\#(id)","psalmRef":"Sl 1","psalmText":"t","psalmWhy":"w","saintID":"","saintName":"S","saintWhy":"sw","stepTitle":"Passo","stepBody":"b"}"#
+        }
+        let json = "[" + [reply("grief-02", "grief"), reply("peace-01", "peace"), reply("grief-01", "grief")].joined(separator: ",") + "]"
+        try publish(Data(json.utf8), to: "mood_reliefs")
+
+        XCTAssertEqual(MockMood.reliefVariants(for: "grief")?.map(\.title), ["grief-02", "grief-01"],
+                       "a ordem dentro do estado é a do painel")
+        XCTAssertEqual(MockMood.reliefVariants(for: "peace")?.count, 1)
+        XCTAssertNil(MockMood.reliefVariants(for: "grief")?.first?.saintID, "santo vazio vira sem link")
+        XCTAssertEqual(MockMood.relief(for: "grief", excluding: 0).index, 1, "sem repetir a última mostrada")
     }
 }
