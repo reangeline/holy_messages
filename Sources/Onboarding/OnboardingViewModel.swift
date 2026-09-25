@@ -3,7 +3,19 @@ import UserNotifications
 
 @MainActor
 final class OnboardingViewModel: ObservableObject {
-    @Published private(set) var path: [OnboardingStep] = [.verseIntro]
+    @Published private(set) var path: [OnboardingStep] = OnboardingViewModel.initialPath
+
+    /// `-openScreen onboarding-orientation` starts on the free orientação, which
+    /// is otherwise eighteen screens deep — the same reason the other
+    /// `openScreen` values exist (see `AppRootView.debugOpenScreen`).
+    private static var initialPath: [OnboardingStep] {
+#if DEBUG
+        if UserDefaults.standard.string(forKey: "openScreen") == "onboarding-orientation" {
+            return [.verseIntro, .orientation]
+        }
+#endif
+        return [.verseIntro]
+    }
     @Published var lifeAnswers: [String: Set<String>] = [:]
     @Published var spiritualAnswers: [String: String] = [:]
     /// Chosen notice times, by option id, each with its (adjustable) minutes.
@@ -61,16 +73,19 @@ final class OnboardingViewModel: ObservableObject {
     /// notification times and the paywall. Already signed in (a reader who
     /// went back through the story), the step is skipped.
     func advanceFromSynthesis() {
-        push(AccountStore.shared.isSignedIn ? .notificationTime : .signIn)
+        push(AccountStore.shared.isSignedIn ? .orientation : .signIn)
     }
 
     /// Replaces the sign-in step rather than stacking on it, so "back" from
-    /// the notification times returns to the synthesis, not to a sign-in
-    /// that already happened.
+    /// the next step returns to the synthesis, not to a sign-in that already
+    /// happened.
     func advanceFromSignIn() {
         if current == .signIn { path.removeLast() }
-        push(.notificationTime)
+        push(.orientation)
     }
+
+    /// The free orientação (written, or skipped) leads to the notice times.
+    func advanceFromOrientation() { push(.notificationTime) }
 
     func advanceFromNotificationTime() { push(.notificationPreview) }
 

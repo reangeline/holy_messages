@@ -85,6 +85,13 @@ final class OnboardingStoryUITests: XCTestCase {
         snapshot(app, "7-compromisso")
         app.buttons["Segure para se comprometer"].press(forDuration: 2)
 
+        // The free orientação comes right after the account (-signedIn skips
+        // the sign-in step); this story skips it.
+        let pular = app.buttons["onboardingOrientationSkip"]
+        XCTAssertTrue(pular.waitForExistence(timeout: 10), "a orientação grátis não apareceu depois do compromisso")
+        snapshot(app, "8a-orientacao")
+        pular.tap()
+
         XCTAssertTrue(
             app.buttons["Ver como fica"].waitForExistence(timeout: 10),
             "segurar o botão não levou para a tela de notificação"

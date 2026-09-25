@@ -35,6 +35,9 @@ final class SubscriptionGateTests: XCTestCase {
         "Sources/Features/Today/PastoralCareNudgeView.swift",
         "Sources/Features/Settings/PastoralNoteDetailView.swift",
         "Sources/Models/CrisisLine.swift",
+        // A orientação paga fica em OrientationWritingCard.swift; a tela de
+        // crise que ela abre é caminho do apoio como as outras.
+        "Sources/Features/Today/OrientationCrisisView.swift",
     ]
 
     /// Reachable without paying for reasons that are not commercial either:

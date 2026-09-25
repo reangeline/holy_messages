@@ -195,6 +195,21 @@ final class SubscriptionStore: ObservableObject {
         hasResolvedEntitlement = true
     }
 
+    /// The signed StoreKit transaction of the active subscription, which the
+    /// Missale API verifies (Apple's signature, bundle, product, expiry) before
+    /// running the orientação. Nil when there is no active subscription.
+    func activeSubscriptionJWS() async -> String? {
+        for await result in Transaction.currentEntitlements {
+            guard let transaction = try? result.payloadValue,
+                  ProductID.all.contains(transaction.productID),
+                  transaction.revocationDate == nil,
+                  !transaction.isUpgraded
+            else { continue }
+            return result.jwsRepresentation
+        }
+        return nil
+    }
+
     /// What the App Store reports, in plain lines, for the TestFlight-only
     /// diagnostics on the subscription screen. TestFlight renews daily and
     /// stops after six renewals, and never grants a second free trial to an

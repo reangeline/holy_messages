@@ -14,9 +14,11 @@ the only thing the app sends to a server of ours: the identifier Apple gives us
 and, if you choose to share it, your email (which may be an Apple relay
 address).
 
-**Nothing you write or log leaves your device.** Your notes, the Examen, your
-"Today I am…" log, your rosaries and your progress stay only on your iPhone, as
-they always have.
+**What you write and log stays on your device.** Your notes, the Examen, your
+"Today I am…" log, your rosaries and your progress stay only on your iPhone.
+**The one exception is the guidance:** the text you write in the "Write what
+you are feeling" box leaves the device when, and only when, you tap "Receive
+guidance". See "The guidance" below.
 
 ## What is stored on your device
 
@@ -54,8 +56,8 @@ device.
 
 ## What the app does not do
 
-- **It does not send what you write.** Notes, the Examen, your log and your
-  progress stay on your device.
+- **It does not send what you write**, except the guidance text, when you ask
+  for it. Notes, the Examen, your log and your progress stay on your device.
 - **No sync.** Nothing is copied to another device by us.
 - **No analytics, telemetry, or third-party trackers.** No analytics,
   advertising, or attribution SDK is included.
@@ -90,8 +92,30 @@ for.
 advertising, do not sell it and do not combine it with anything.
 
 **The app only talks to the Missale server**, and only to sign in, keep the
-session and delete the account. An automated test fails if networking code
+session, delete the account and ask for guidance. An automated test fails if networking code
 appears anywhere else in the app.
+
+## The guidance
+
+In the "Write what you are feeling" box you can describe how you are. When you
+tap **"Receive guidance"**:
+
+- The text goes to the Missale server, which passes it to **Jev**, an
+  artificial intelligence model by **TypeSafe AI**, through **OpenRouter**
+  (both in the United States). Jev writes nothing: it only **chooses**, from
+  Missale's reviewed collection, the state the text describes and the reply
+  (the Psalm, the saint and the step) that fits it best, and indicates whether
+  the text carries a sign of risk to life, so the crisis guidance comes first.
+- **We do not keep the text**, and it does not go into the server's logs. The
+  server keeps only how many guidance requests your account made each day, for
+  a daily limit, and how many it used without a subscription. OpenRouter and
+  TypeSafe process the text to answer, under their own policies.
+- On your device, the text is saved as the note of that "Today I am…" entry,
+  like any note of yours.
+- Because the text may speak of your faith and your emotional health, which are
+  sensitive data, it is only sent by your tap on the button, each time, and the
+  notice sits right below the box. You can always log how you are with the
+  buttons alone, sending nothing.
 
 ## Notifications
 

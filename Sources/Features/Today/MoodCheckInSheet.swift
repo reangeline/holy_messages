@@ -24,9 +24,22 @@ struct MoodCheckInSheet: View {
     private enum Step: Equatable {
         case picker
         case reflection(MoodStateOption)
-        case relief(MoodStateOption)
+        /// `Int?`: the reply the orientação chose, when it chose one.
+        case relief(MoodStateOption, Int?)
         case scrupulosity
+        case guiding
+        /// Crisis guidance first; the state and reply wait behind "continue".
+        case crisis(MoodStateOption?, Int?)
     }
+
+    /// What the reader wrote for the orientação.
+    @State private var writtenText = ""
+    /// Text that already went through the orientação but still needs a state
+    /// from the reader (no connection, Jev unsure, the daily limit): the next
+    /// chip tap logs it as that state's note, skipping the writing screen.
+    @State private var pendingNote: String?
+    /// Why the chips are being asked for after the reader wrote.
+    @State private var orientationMessage: String?
 
     /// Normally the picker. `-openScreen mood-write` starts on the writing
     /// screen instead, which is otherwise two taps deep and so unreachable for
@@ -58,9 +71,9 @@ struct MoodCheckInSheet: View {
                         onContinue: { note in finalize(option, note: note) }
                     )
                     .transition(transition)
-                case .relief(let option):
+                case .relief(let option, let chosenIndex):
                     if store.isSubscribed {
-                        MoodReliefView(state: option) { dismiss() }
+                        MoodReliefView(state: option, chosenIndex: chosenIndex) { dismiss() }
                             .transition(transition)
                     } else {
                         reliefBloqueado
@@ -72,6 +85,18 @@ struct MoodCheckInSheet: View {
                     // reassurance on top.
                     ScrupulosityRedirectView()
                         .transition(transition)
+                case .guiding:
+                    guidingBody
+                        .transition(transition)
+                case .crisis(let option, let chosenIndex):
+                    OrientationCrisisView {
+                        if let option, let note = pendingNote {
+                            complete(option, note: note, chosenIndex: chosenIndex)
+                        } else {
+                            retreat(to: .picker)
+                        }
+                    }
+                    .transition(transition)
                 }
             }
         }
@@ -145,9 +170,72 @@ struct MoodCheckInSheet: View {
     }
 
     private func finalize(_ option: MoodStateOption, note: String) {
+        complete(option, note: note, chosenIndex: nil)
+    }
+
+    private func complete(_ option: MoodStateOption, note: String, chosenIndex: Int?) {
+        pendingNote = nil
+        orientationMessage = nil
         let count = MoodHistoryStore.shared.record(state: option, note: note.isEmpty ? nil : note)
-        let next: Step = (option.isScrupulosityTrigger && count >= 3) ? .scrupulosity : .relief(option)
+        let next: Step = (option.isScrupulosityTrigger && count >= 3) ? .scrupulosity : .relief(option, chosenIndex)
         advance(to: next)
+    }
+
+    // MARK: - Orientação
+
+    private func requestOrientation() {
+        let text = writtenText.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !text.isEmpty else { return }
+        pendingNote = text
+        orientationMessage = nil
+        advance(to: .guiding)
+        Task {
+            do {
+                let result = try await OrientationService.orient(text)
+                let option = result.stateID.flatMap(Self.option(forID:))
+                if result.showCrisisFirst {
+                    advance(to: .crisis(option, result.reliefIndex))
+                } else if let option {
+                    complete(option, note: text, chosenIndex: result.reliefIndex)
+                } else {
+                    askForState(L.string("Não consegui entender bem como você está. Escolha abaixo — o que você escreveu vai junto.", table: "Today"))
+                }
+            } catch MissaleAPI.Failure.subscriptionRequired {
+                askForState(nil)
+                showPaywall = true
+            } catch MissaleAPI.Failure.dailyLimit {
+                askForState(L.string("Você já recebeu muitas orientações hoje. Escolha abaixo como você está — o que você escreveu vai junto.", table: "Today"))
+            } catch {
+                // Offline, the server, or a session that ended (the account
+                // store signs out, and the app shows the sign-in screen).
+                let crisis = CrisisPhrases.matches(text)
+                askForState(L.string("Não consegui buscar a orientação agora. Escolha abaixo como você está — o que você escreveu vai junto.", table: "Today"))
+                if crisis { advance(to: .crisis(nil, nil)) }
+            }
+        }
+    }
+
+    private func askForState(_ message: String?) {
+        orientationMessage = message
+        retreat(to: .picker)
+    }
+
+    private static func option(forID id: String) -> MoodStateOption? {
+        MockMood.stateGroups.flatMap(\.items).first { $0.id == id }
+    }
+
+    private var guidingBody: some View {
+        VStack(spacing: 18) {
+            CrossGlyph(size: 30, color: Palette.wine)
+            ProgressView().tint(Palette.wine)
+            Text("Buscando nas Escrituras e nos santos uma palavra para você…", tableName: "Today")
+                .font(MissaleFont.display(22))
+                .foregroundStyle(Palette.ink)
+                .multilineTextAlignment(.center)
+        }
+        .padding(.horizontal, 36)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .accessibilityIdentifier("orientationGuiding")
     }
 
     private var pickerBody: some View {
@@ -181,16 +269,32 @@ struct MoodCheckInSheet: View {
                     }
                     .buttonStyle(.plain)
 
+                    OrientationWritingCard(text: $writtenText,
+                                           onSend: requestOrientation,
+                                           onLocked: { showPaywall = true })
+
+                    if let orientationMessage {
+                        Text(orientationMessage)
+                            .font(MissaleFont.body(15))
+                            .foregroundStyle(Palette.wine)
+                            .accessibilityIdentifier("orientationMessage")
+                    }
+
                     ForEach(MockMood.stateGroups) { group in
                         VStack(alignment: .leading, spacing: 8) {
                             Eyebrow(text: group.label)
                             FlowChips(items: group.items) { option in
-                                advance(to: .reflection(option))
+                                if let note = pendingNote {
+                                    finalize(option, note: note)
+                                } else {
+                                    advance(to: .reflection(option))
+                                }
                             }
                         }
                     }
                 }
             }
+            .scrollDismissesKeyboard(.interactively)
         }
         .padding(.horizontal, 22)
         .padding(.bottom, 24)

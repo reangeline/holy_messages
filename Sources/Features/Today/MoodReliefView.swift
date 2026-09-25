@@ -5,15 +5,27 @@ import SwiftUI
 struct MoodReliefView: View {
     let state: MoodStateOption
     var onDone: () -> Void
+    /// In the onboarding the reply is a step forward, not a sheet to close:
+    /// the "‹ Voltar" at the top gives way to this button at the bottom.
+    var continueTitle: String? = nil
     private let relief: ReliefContent
 
     // Picked once, at init, rather than as a computed property — a computed
     // property would re-roll a new (possibly different) variation on every
     // body re-render, which would both look buggy and record the wrong "last
     // shown" index for the anti-repetition check.
-    init(state: MoodStateOption, onDone: @escaping () -> Void) {
+    /// `chosenIndex` is the variation the orientação picked for what the
+    /// reader wrote; without it, one is drawn avoiding the last shown.
+    init(state: MoodStateOption, chosenIndex: Int? = nil, continueTitle: String? = nil, onDone: @escaping () -> Void) {
         self.state = state
         self.onDone = onDone
+        self.continueTitle = continueTitle
+        if let chosenIndex, let variants = MockMood.reliefVariants(for: state.id),
+           variants.indices.contains(chosenIndex) {
+            self.relief = variants[chosenIndex]
+            MoodHistoryStore.shared.recordReliefShown(stateID: state.id, index: chosenIndex)
+            return
+        }
         let lastIndex = MoodHistoryStore.shared.lastReliefIndex(for: state.id)
         let (content, index) = MockMood.relief(for: state.id, excluding: lastIndex)
         self.relief = content
@@ -26,9 +38,11 @@ struct MoodReliefView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 14) {
                     HStack {
-                        Button(L.string("‹ Voltar", table: "Today"), action: onDone)
-                            .font(MissaleFont.body(16))
-                            .foregroundStyle(Palette.wine)
+                        if continueTitle == nil {
+                            Button(L.string("‹ Voltar", table: "Today"), action: onDone)
+                                .font(MissaleFont.body(16))
+                                .foregroundStyle(Palette.wine)
+                        }
                         Spacer()
                         Text(L.string("Registrado · {date}", table: "Today")
                             .replacingOccurrences(of: "{date}", with: MockLiturgical.today.dayMonthLabel))
@@ -80,6 +94,11 @@ struct MoodReliefView: View {
                     Text("Este registro entra no seu calendário. Ninguém além de você o vê — ele não sai deste aparelho.", tableName: "Today")
                         .font(MissaleFont.body(13))
                         .foregroundStyle(Palette.ink.opacity(0.55))
+
+                    if let continueTitle {
+                        OnboardingPrimaryButton(title: continueTitle, isEnabled: true, action: onDone)
+                            .padding(.top, 8)
+                    }
                 }
                 .padding(.horizontal, 24)
                 .padding(.bottom, 30)

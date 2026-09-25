@@ -63,11 +63,11 @@ final class LegalDocumentTests: XCTestCase {
     /// the app, and deleting the app removes what it kept.
     func testPrivacyPolicyStatesTheRealClaims() throws {
         let exigencias: [AppLanguage: [String]] = [
-            .pt: ["Nada do que você escreve ou registra sai do seu aparelho", "Apagar o aplicativo do aparelho",
+            .pt: ["O que você escreve e registra fica no seu aparelho", "Nós não guardamos o texto", "Apagar o aplicativo do aparelho",
                   "Configurações › Conta › Apagar conta", "só se comunica com o servidor do Missale"],
-            .en: ["Nothing you write or log leaves your device", "Deleting the app from your device",
+            .en: ["What you write and log stays on your device", "We do not keep the text", "Deleting the app from your device",
                   "Settings › Account › Delete account", "only talks to the Missale server"],
-            .es: ["Nada de lo que escribes o registras sale de tu dispositivo", "Borrar la aplicación del dispositivo",
+            .es: ["Lo que escribes y registras queda en tu dispositivo", "No guardamos el texto", "Borrar la aplicación del dispositivo",
                   "Ajustes › Cuenta › Eliminar cuenta", "solo se comunica con el servidor de Missale"],
         ]
         for (language, termos) in exigencias {

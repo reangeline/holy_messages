@@ -11,6 +11,7 @@ enum OnboardingStep: Equatable {
     case loader
     case synthesis
     case signIn
+    case orientation
     case notificationTime
     case notificationPreview
     case paywall

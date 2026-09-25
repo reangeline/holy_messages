@@ -953,6 +953,17 @@ enum MockMood {
         ],
     ]
 
+    /// All reviewed variations for `stateID` in `language`, or nil where that
+    /// language still borrows the onboarding's pool. The orientação chooses
+    /// among these instead of at random.
+    static func reliefVariants(
+        for stateID: String,
+        language: AppLanguage = AppLanguagePreference.resolveCurrent()
+    ) -> [ReliefContent]? {
+        guard language == .pt || reliefCatalog.hasOwnCatalog(for: language) else { return nil }
+        return reliefCatalog[language][stateID]
+    }
+
     /// Picks a variation for `stateID`, avoiding `excluding` (the index shown last
     /// time) whenever more than one variation exists — see
     /// MoodHistoryStore.lastReliefIndex / recordReliefShown.

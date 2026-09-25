@@ -35,7 +35,7 @@ final class LegalDocumentUITests: XCTestCase {
         row(app, matching: "label CONTAINS[c] 'privacidade'").tap()
 
         XCTAssertTrue(
-            app.staticTexts.matching(NSPredicate(format: "label CONTAINS[c] 'Nada do que você escreve ou registra sai do seu aparelho'")).firstMatch.waitForExistence(timeout: 5),
+            app.staticTexts.matching(NSPredicate(format: "label CONTAINS[c] 'O que você escreve e registra fica no seu aparelho'")).firstMatch.waitForExistence(timeout: 5),
             "a política não abriu, ou não afirma o que o app cumpre"
         )
         XCTAssertFalse(

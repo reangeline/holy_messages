@@ -58,6 +58,9 @@ struct OnboardingFlow: View {
             case .signIn:
                 SignInView(onSignedIn: viewModel.advanceFromSignIn)
 
+            case .orientation:
+                OnboardingOrientationView(onBack: viewModel.back, onNext: viewModel.advanceFromOrientation)
+
             case .notificationTime:
                 OnboardingNotificationTimeView(viewModel: viewModel, onBack: viewModel.back, onNext: viewModel.advanceFromNotificationTime)
 

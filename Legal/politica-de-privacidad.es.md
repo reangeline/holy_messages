@@ -15,9 +15,11 @@ Missale pide una cuenta, creada con "Iniciar sesión con Apple". Esa cuenta es l
 nos da y, si eliges compartirlo, tu correo (que puede ser una dirección de
 reenvío de Apple).
 
-**Nada de lo que escribes o registras sale de tu dispositivo.** Tus notas, el
-Examen, el registro de "Hoy estoy…", los rosarios y tu progreso quedan solo en
-tu iPhone, como siempre.
+**Lo que escribes y registras queda en tu dispositivo.** Tus notas, el Examen,
+el registro de "Hoy estoy…", los rosarios y tu progreso quedan solo en tu
+iPhone. **La única excepción es la orientación:** el texto que escribas en el
+cuadro "Escribe lo que estás sintiendo" sale del dispositivo cuando, y solo
+cuando, tocas "Recibir orientación". Mira "La orientación" más abajo.
 
 ## Qué se guarda en tu dispositivo
 
@@ -57,8 +59,8 @@ local, en tu dispositivo.
 
 ## Qué no hace la aplicación
 
-- **No envía lo que escribes.** Notas, Examen, registros y progreso quedan en
-  tu dispositivo.
+- **No envía lo que escribes**, salvo el texto de la orientación, cuando la
+  pides. Notas, Examen, registros y progreso quedan en tu dispositivo.
 - **No tiene sincronización.** Nosotros no copiamos nada a otro dispositivo.
 - **No tiene analíticas, telemetría ni rastreadores de terceros.** No incluye
   ningún SDK de análisis, publicidad o atribución.
@@ -92,8 +94,31 @@ esta transferencia internacional, hecha para prestar el servicio que pediste.
 para publicidad, no los vendemos y no los cruzamos con nada.
 
 **La aplicación solo se comunica con el servidor de Missale**, y solo para
-iniciar sesión, mantenerla y borrar la cuenta. Una prueba automatizada falla si
+iniciar sesión, mantenerla, borrar la cuenta y pedir la orientación. Una prueba automatizada falla si
 aparece código de red en cualquier otra parte de la aplicación.
+
+## La orientación
+
+En el cuadro "Escribe lo que estás sintiendo" puedes describir cómo estás. Al
+tocar **"Recibir orientación"**:
+
+- El texto va al servidor de Missale, que lo pasa a **Jev**, un modelo de
+  inteligencia artificial de **TypeSafe AI**, a través de **OpenRouter** (ambas
+  en Estados Unidos). Jev no escribe nada: solo **elige**, en el acervo
+  revisado de Missale, el estado que el texto describe y la respuesta (el
+  Salmo, el santo y el paso) que mejor le corresponde, e indica si el texto
+  trae señales de riesgo para la vida, para mostrar primero la orientación de
+  crisis.
+- **No guardamos el texto** y no entra en los registros del servidor. El
+  servidor guarda solo cuántas orientaciones pidió tu cuenta cada día, para un
+  límite diario, y cuántas usó sin suscripción. OpenRouter y TypeSafe procesan
+  el texto para responder, según sus propias políticas.
+- En tu dispositivo, el texto queda guardado como la nota de ese registro de
+  "Hoy estoy…", como cualquier nota tuya.
+- Como el texto puede hablar de tu fe y de tu salud emocional, que son datos
+  sensibles, solo se envía con tu toque en el botón, cada vez, y el aviso está
+  justo debajo del cuadro. Siempre puedes registrar cómo estás solo con los
+  botones, sin enviar nada.
 
 ## Notificaciones
 

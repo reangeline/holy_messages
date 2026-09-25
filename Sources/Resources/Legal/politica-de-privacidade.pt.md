@@ -14,9 +14,11 @@ O Missale pede uma conta, criada com o "Entrar com a Apple". Essa conta é a
 a Apple nos dá e, se você escolher compartilhá-lo, o seu e-mail (que pode ser um
 endereço de encaminhamento da Apple).
 
-**Nada do que você escreve ou registra sai do seu aparelho.** As anotações, o
+**O que você escreve e registra fica no seu aparelho.** As anotações, o
 Exame, o registro do "Hoje eu estou…", os terços e o progresso ficam só no seu
-iPhone, como sempre ficaram.
+iPhone. **A única exceção é a orientação:** o texto que você escrever na caixa
+"Escreva o que você está sentindo" sai do aparelho quando, e só quando, você
+toca em "Receber orientação". Veja "A orientação" abaixo.
 
 ## O que fica guardado no seu aparelho
 
@@ -55,8 +57,8 @@ local, no seu aparelho.
 
 ## O que o aplicativo não faz
 
-- **Não envia o que você escreve.** Anotações, Exame, registros e progresso
-  ficam no seu aparelho.
+- **Não envia o que você escreve**, exceto o texto da orientação, quando você
+  pede. Anotações, Exame, registros e progresso ficam no seu aparelho.
 - **Não tem sincronização.** Nada é copiado para outro aparelho por nós.
 - **Não tem analytics, telemetria nem rastreadores de terceiros.** Nenhum SDK
   de análise, publicidade ou atribuição está incluído.
@@ -92,8 +94,30 @@ pediu.
 publicidade, não os vendemos e não os cruzamos com nada.
 
 **O aplicativo só se comunica com o servidor do Missale**, e só para entrar,
-manter a sessão e apagar a conta. Um teste automatizado falha se código de rede
+manter a sessão, apagar a conta e pedir a orientação. Um teste automatizado falha se código de rede
 aparecer em qualquer outra parte do aplicativo.
+
+## A orientação
+
+Na caixa "Escreva o que você está sentindo", você pode descrever como está. Ao
+tocar em **"Receber orientação"**:
+
+- O texto vai para o servidor do Missale, que o repassa ao **Jev**, um modelo
+  de inteligência artificial da **TypeSafe AI**, por meio da **OpenRouter**
+  (ambas nos Estados Unidos). O Jev não escreve nada: ele só **escolhe**, no
+  acervo revisado do Missale, o estado que o texto descreve e a resposta (o
+  Salmo, o santo e o passo) que mais combina, e indica se o texto traz sinal
+  de risco à vida, para mostrarmos primeiro a orientação de crise.
+- **Nós não guardamos o texto** e ele não entra nos registros do servidor. O
+  servidor guarda apenas quantas orientações a sua conta pediu em cada dia,
+  para um limite diário, e quantas usou sem assinatura. A OpenRouter e a
+  TypeSafe processam o texto para responder, conforme as políticas delas.
+- No seu aparelho, o texto fica salvo como a anotação daquele registro do
+  "Hoje eu estou…", como qualquer anotação sua.
+- Como o texto pode falar da sua fé e da sua saúde emocional, que são dados
+  sensíveis, ele só é enviado com o seu toque no botão, em cada vez, e o aviso
+  está logo abaixo da caixa. Você pode sempre registrar como está só com os
+  botões, sem enviar nada.
 
 ## Notificações
 

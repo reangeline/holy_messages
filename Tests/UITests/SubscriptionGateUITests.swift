@@ -133,7 +133,7 @@ final class SubscriptionGateUITests: XCTestCase {
         XCTAssertTrue(privacidade.waitForExistence(timeout: 5), "não achei a política de privacidade")
         privacidade.tap()
         XCTAssertTrue(
-            app.staticTexts.matching(NSPredicate(format: "label CONTAINS[c] 'Nada do que você escreve ou registra sai do seu aparelho'")).firstMatch.waitForExistence(timeout: 5),
+            app.staticTexts.matching(NSPredicate(format: "label CONTAINS[c] 'O que você escreve e registra fica no seu aparelho'")).firstMatch.waitForExistence(timeout: 5),
             "a política de privacidade ficou atrás da assinatura"
         )
     }

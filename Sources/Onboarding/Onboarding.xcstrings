@@ -2003,6 +2003,116 @@
           }
         }
       }
+    },
+    "Tell us what you are feeling right now": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tell us what you are feeling right now"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cuéntanos lo que estás sintiendo ahora"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Conte o que você está sentindo agora"
+          }
+        }
+      }
+    },
+    "Your first guidance is a gift: a word from Scripture and the saints, chosen for what you write.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your first guidance is a gift: a word from Scripture and the saints, chosen for what you write."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tu primera orientación es un regalo: una palabra de las Escrituras y de los santos, elegida para lo que escribas."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A sua primeira orientação é um presente: uma palavra das Escrituras e dos santos, escolhida para o que você escrever."
+          }
+        }
+      }
+    },
+    "Skip for now": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Skip for now"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Omitir por ahora"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pular por agora"
+          }
+        }
+      }
+    },
+    "I couldn't quite tell how you are. In the app, \"Today I am…\" lets you choose it with one tap.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "I couldn't quite tell how you are. In the app, \"Today I am…\" lets you choose it with one tap."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No logré entender bien cómo estás. En la app, \"Hoy estoy…\" te deja elegirlo con un toque."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Não consegui entender bem como você está. No app, o \"Hoje eu estou…\" deixa você escolher com um toque."
+          }
+        }
+      }
+    },
+    "I couldn't get the guidance right now. You'll find it in the app, in \"Today I am…\".": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "I couldn't get the guidance right now. You'll find it in the app, in \"Today I am…\"."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No pude buscar la orientación ahora. La encontrarás en la app, en \"Hoy estoy…\"."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Não consegui buscar a orientação agora. Você a encontra no app, no \"Hoje eu estou…\"."
+          }
+        }
+      }
     }
   },
   "version": "1.0"

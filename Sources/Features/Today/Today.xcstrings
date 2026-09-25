@@ -3028,6 +3028,314 @@
           }
         }
       }
+    },
+    "Antes de tudo": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Before anything else"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Antes que nada"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Antes de tudo"
+          }
+        }
+      }
+    },
+    "O que você escreveu pede cuidado": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "What you wrote calls for care"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lo que escribiste pide cuidado"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O que você escreveu pede cuidado"
+          }
+        }
+      }
+    },
+    "Você não precisa atravessar isso sozinho. Falar com alguém agora pode ser o passo mais importante do dia.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You don't have to go through this alone. Talking to someone now may be the most important step of the day."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No tienes que atravesar esto solo. Hablar con alguien ahora puede ser el paso más importante del día."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Você não precisa atravessar isso sozinho. Falar com alguém agora pode ser o passo mais importante do dia."
+          }
+        }
+      }
+    },
+    "Padre, diocese e outros caminhos de apoio": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A priest, the diocese, and other ways to find support"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sacerdote, diócesis y otros caminos de apoyo"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Padre, diocese e outros caminhos de apoio"
+          }
+        }
+      }
+    },
+    "Continuar para a palavra de hoje": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Continue to today's word"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Continuar a la palabra de hoy"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Continuar para a palavra de hoje"
+          }
+        }
+      }
+    },
+    "Não consegui entender bem como você está. Escolha abaixo — o que você escreveu vai junto.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "I couldn't quite tell how you are. Choose below — what you wrote goes with it."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No logré entender bien cómo estás. Elige abajo: lo que escribiste va junto."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Não consegui entender bem como você está. Escolha abaixo — o que você escreveu vai junto."
+          }
+        }
+      }
+    },
+    "Você já recebeu muitas orientações hoje. Escolha abaixo como você está — o que você escreveu vai junto.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You've received a lot of guidance today. Choose below how you are — what you wrote goes with it."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ya recibiste muchas orientaciones hoy. Elige abajo cómo estás: lo que escribiste va junto."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Você já recebeu muitas orientações hoje. Escolha abaixo como você está — o que você escreveu vai junto."
+          }
+        }
+      }
+    },
+    "Não consegui buscar a orientação agora. Escolha abaixo como você está — o que você escreveu vai junto.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "I couldn't get the guidance right now. Choose below how you are — what you wrote goes with it."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No pude buscar la orientación ahora. Elige abajo cómo estás: lo que escribiste va junto."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Não consegui buscar a orientação agora. Escolha abaixo como você está — o que você escreveu vai junto."
+          }
+        }
+      }
+    },
+    "Buscando nas Escrituras e nos santos uma palavra para você…": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Searching Scripture and the saints for a word for you…"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buscando en las Escrituras y en los santos una palabra para ti…"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buscando nas Escrituras e nos santos uma palavra para você…"
+          }
+        }
+      }
+    },
+    "Orientação": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Guidance"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Orientación"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Orientação"
+          }
+        }
+      }
+    },
+    "Escreva o que você está sentindo": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Write what you are feeling"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Escribe lo que estás sintiendo"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Escreva o que você está sentindo"
+          }
+        }
+      }
+    },
+    "Com as suas palavras, do jeito que vier.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "In your own words, however they come."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Con tus palabras, como te salgan."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Com as suas palavras, do jeito que vier."
+          }
+        }
+      }
+    },
+    "Receber orientação": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Receive guidance"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recibir orientación"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Receber orientação"
+          }
+        }
+      }
+    },
+    "Ao tocar, o que você escreveu vai para o servidor do Missale e para a IA que escolhe a resposta no nosso acervo. Não guardamos o texto.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "When you tap, what you wrote goes to the Missale server and to the AI that chooses the reply from our collection. We don't keep the text."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Al tocar, lo que escribiste va al servidor de Missale y a la IA que elige la respuesta en nuestro acervo. No guardamos el texto."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ao tocar, o que você escreveu vai para o servidor do Missale e para a IA que escolhe a resposta no nosso acervo. Não guardamos o texto."
+          }
+        }
+      }
     }
   },
   "version": "1.0"
