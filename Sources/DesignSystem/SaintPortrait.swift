@@ -8,14 +8,25 @@ struct SaintPortrait: View {
     var cornerRadius: CGFloat = 12
 
     var body: some View {
-        if let artworkName, !artworkName.isEmpty {
+        if let artworkName, artworkName.hasPrefix(RemoteContent.localImagePrefix),
+           let image = DownloadedImages.image(named: String(artworkName.dropFirst(RemoteContent.localImagePrefix.count))) {
+            framed(Image(uiImage: image))
+        } else if let artworkName, !artworkName.isEmpty, !artworkName.hasPrefix(RemoteContent.localImagePrefix) {
+            framed(Image(artworkName))
+        } else {
+            SaintPortraitPlaceholder(cornerRadius: cornerRadius)
+        }
+    }
+
+    private func framed(_ image: Image) -> some View {
+        Group {
             // Color.clear takes whatever size the parent proposes and the overlay
             // fills it, so the clip happens at the final frame. Clipping the image
             // directly would clip before `.frame` is applied at the call site, and
             // a `.fill` image would spill over its card.
             Color.clear
                 .overlay(
-                    Image(artworkName)
+                    image
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                 )
@@ -24,8 +35,21 @@ struct SaintPortrait: View {
                     RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
                         .strokeBorder(Color.white.opacity(0.5), lineWidth: 1)
                 )
-        } else {
-            SaintPortraitPlaceholder(cornerRadius: cornerRadius)
         }
+    }
+}
+
+/// Images downloaded from the admin page, decoded once and kept in memory
+/// (the saint of the day shows on several screens).
+enum DownloadedImages {
+    private static let cache = NSCache<NSString, UIImage>()
+
+    static func image(named name: String) -> UIImage? {
+        if let hit = cache.object(forKey: name as NSString) { return hit }
+        guard let file = RemoteContent.imagesDirectory?.appendingPathComponent(name),
+              let image = UIImage(contentsOfFile: file.path)
+        else { return nil }
+        cache.setObject(image, forKey: name as NSString)
+        return image
     }
 }

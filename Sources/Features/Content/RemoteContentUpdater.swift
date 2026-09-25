@@ -1,5 +1,6 @@
 import CryptoKit
 import Foundation
+import UIKit
 import WidgetKit
 
 /// Brings the content published from the admin page to this device.
@@ -46,6 +47,10 @@ enum RemoteContentUpdater {
                     try data.write(to: url, options: .atomic)
                 }
             }
+            // Images the new content points at, before the manifest commits
+            // it: an interrupted download means the next launch tries again.
+            try await downloadImages(referencedIn: remote)
+
             // A language no longer published goes back to the bundled list.
             for (collection, languages) in local?.files ?? [:] {
                 for lang in languages.keys where remote.files[collection]?[lang] == nil {
@@ -60,6 +65,50 @@ enum RemoteContentUpdater {
         } catch {
             // Offline, CloudFront unreachable, or a file that didn't match its
             // hash: nothing was committed, the current content stays.
+        }
+    }
+
+    /// Downloads every image under the content host's /images/ that the
+    /// published files mention and isn't on the device yet. Images have
+    /// random, never-reused names, so a present file is always current.
+    static func downloadImages(referencedIn manifest: Manifest) async throws {
+        guard let folder = RemoteContent.imagesDirectory else { return }
+        var urls = Set<String>()
+        for (collection, languages) in manifest.files {
+            for lang in languages.keys {
+                guard let file = RemoteContent.fileURL(collection: collection, lang: lang),
+                      let data = try? Data(contentsOf: file),
+                      let json = try? JSONSerialization.jsonObject(with: data)
+                else { continue }
+                urls.formUnion(imageURLs(in: json))
+            }
+        }
+        let missing = urls.filter { RemoteContent.localImageFile(forURL: $0) == nil }
+        guard !missing.isEmpty else { return }
+        try FileManager.default.createDirectory(at: folder, withIntermediateDirectories: true)
+        for url in missing {
+            let path = String(url.dropFirst(MissaleAPI.contentBaseURL.absoluteString.count))
+                .trimmingCharacters(in: CharacterSet(charactersIn: "/"))
+            let data = try await MissaleAPI.contentFile(path)
+            guard UIImage(data: data) != nil, let name = url.split(separator: "/").last else {
+                throw MissaleAPI.Failure.unavailable
+            }
+            try data.write(to: folder.appendingPathComponent(String(name)), options: .atomic)
+        }
+    }
+
+    /// Every string in `json` that is an image uploaded through the admin page.
+    static func imageURLs(in json: Any) -> Set<String> {
+        let prefix = MissaleAPI.contentBaseURL.absoluteString.trimmingCharacters(in: CharacterSet(charactersIn: "/")) + "/images/"
+        switch json {
+        case let s as String:
+            return s.hasPrefix(prefix) && !s.contains("..") ? [s] : []
+        case let array as [Any]:
+            return array.reduce(into: Set<String>()) { $0.formUnion(imageURLs(in: $1)) }
+        case let object as [String: Any]:
+            return object.values.reduce(into: Set<String>()) { $0.formUnion(imageURLs(in: $1)) }
+        default:
+            return []
         }
     }
 
