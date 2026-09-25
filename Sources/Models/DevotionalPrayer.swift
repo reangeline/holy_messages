@@ -33,3 +33,48 @@ struct PrayerCategory: Identifiable, Codable, Hashable {
     let title: String
     let prayers: [DevotionalPrayer]
 }
+
+/// A prayer category as the admin page publishes it (its prayers are their
+/// own collection).
+struct PublishedPrayerCategory: Codable, Hashable {
+    let id: String
+    let title: String
+}
+
+/// A devotional prayer as the admin page publishes it, with its category.
+struct PublishedPrayer: Codable, Hashable {
+    let id: String
+    let categoryID: String
+    let title: String
+    var attribution: String? = nil
+    let focus: String
+    var saintID: String? = nil
+    let fullText: String
+
+    init(_ prayer: DevotionalPrayer, categoryID: String) {
+        id = prayer.id
+        self.categoryID = categoryID
+        title = prayer.title
+        attribution = prayer.attribution
+        focus = prayer.focus
+        saintID = prayer.saintID
+        fullText = prayer.fullText
+    }
+
+    var prayer: DevotionalPrayer {
+        DevotionalPrayer(id: id, title: title,
+                         attribution: (attribution?.isEmpty ?? true) ? nil : attribution,
+                         focus: focus,
+                         saintID: (saintID?.isEmpty ?? true) ? nil : saintID,
+                         fullText: fullText)
+    }
+
+    /// The categories in the published order, each with its prayers in the
+    /// published order. An empty category is left out.
+    static func assemble(categories: [PublishedPrayerCategory], prayers: [PublishedPrayer]) -> [PrayerCategory] {
+        categories.compactMap { category in
+            let own = prayers.filter { $0.categoryID == category.id }.map(\.prayer)
+            return own.isEmpty ? nil : PrayerCategory(id: category.id, title: category.title, prayers: own)
+        }
+    }
+}

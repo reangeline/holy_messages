@@ -9,7 +9,7 @@ final class RemoteContentTests: XCTestCase {
     private var language: AppLanguage { AppLanguagePreference.resolveCurrent() }
 
     override func tearDown() {
-        for c in [collection, "saints", "mood_reliefs", "formation_tracks", "formation_lessons"] {
+        for c in [collection, "saints", "mood_reliefs", "formation_tracks", "formation_lessons", "prayer_categories", "prayers"] {
             if let url = RemoteContent.fileURL(collection: c, lang: language.rawValue) {
                 try? FileManager.default.removeItem(at: url)
             }
@@ -152,5 +152,30 @@ final class RemoteContentTests: XCTestCase {
         XCTAssertEqual(MockFormation.track.lessons.map(\.title), ["Segunda", "Primeira"])
         XCTAssertEqual(MockFormation.track.lessons.map(\.partNumber), [1, 2], "a parte sai da ordem")
         XCTAssertNil(MockFormation.track.lessons[0].quoteText, "citação vazia vira sem citação")
+    }
+
+    // MARK: - Orações
+
+    func testPrayersRoundTripThroughThePublishedFormat() throws {
+        for language in AppLanguage.allCases where MockDevotionalPrayers.catalog.hasOwnCatalog(for: language) {
+            let bundled = MockDevotionalPrayers.catalog[language]
+            let categories = try JSONDecoder().decode([PublishedPrayerCategory].self, from: JSONEncoder().encode(
+                bundled.map { PublishedPrayerCategory(id: $0.id, title: $0.title) }))
+            let prayers = try JSONDecoder().decode([PublishedPrayer].self, from: JSONEncoder().encode(
+                bundled.flatMap { c in c.prayers.map { PublishedPrayer($0, categoryID: c.id) } }))
+            XCTAssertEqual(PublishedPrayer.assemble(categories: categories, prayers: prayers),
+                           bundled.filter { !$0.prayers.isEmpty }, "\(language)")
+        }
+    }
+
+    func testPublishedPrayersReplaceTheCatalog() throws {
+        try publish(Data(#"[{"id":"c1","title":"Paz"},{"id":"vazia","title":"Vazia"}]"#.utf8), to: "prayer_categories")
+        XCTAssertEqual(MockDevotionalPrayers.categories, MockDevotionalPrayers.catalog[language],
+                       "sem as orações publicadas, fica o catálogo embutido")
+        try publish(Data(#"[{"id":"p1","categoryID":"c1","title":"Oração","attribution":"","focus":"f","saintID":"","fullText":"Amém."}]"#.utf8), to: "prayers")
+        XCTAssertEqual(MockDevotionalPrayers.categories.map(\.id), ["c1"], "categoria vazia fica de fora")
+        let oracao = try XCTUnwrap(MockDevotionalPrayers.categories.first?.prayers.first)
+        XCTAssertNil(oracao.attribution)
+        XCTAssertNil(oracao.saintID)
     }
 }

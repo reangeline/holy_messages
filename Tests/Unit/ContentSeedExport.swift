@@ -21,6 +21,17 @@ final class ContentSeedExport: XCTestCase {
         try XCTSkipUnless(ProcessInfo.processInfo.environment["EXPORT_CONTENT"] == "1", "exportação só quando pedida")
         let encoder = JSONEncoder()
         encoder.outputFormatting = [.prettyPrinted, .sortedKeys, .withoutEscapingSlashes]
+        for language in AppLanguage.allCases where MockDevotionalPrayers.catalog.hasOwnCatalog(for: language) {
+            let categorias = MockDevotionalPrayers.catalog[language]
+            for (nome, valor) in [
+                ("prayer_categories", try encoder.encode(categorias.map { PublishedPrayerCategory(id: $0.id, title: $0.title) })),
+                ("prayers", try encoder.encode(categorias.flatMap { c in c.prayers.map { PublishedPrayer($0, categoryID: c.id) } })),
+            ] {
+                let pasta = destino.appendingPathComponent(nome)
+                try FileManager.default.createDirectory(at: pasta, withIntermediateDirectories: true)
+                try valor.write(to: pasta.appendingPathComponent("\(language.rawValue).json"))
+            }
+        }
         for language in AppLanguage.allCases where MockFormation.trackCatalog.hasOwnCatalog(for: language) {
             let tracks = [MockFormation.trackCatalog[language]] + MockFormation.otherTracksCatalog[language]
             for (nome, valor) in [
