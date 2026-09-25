@@ -72,3 +72,44 @@ extension Saint {
         return byLanguage[rank]?[AppLanguagePreference.resolveCurrent()] ?? rank
     }
 }
+
+/// A saint as the admin page publishes it: the record and its date, flat, so
+/// the page edits one form per saint. Decodes into the app's `SaintOfDay`.
+struct PublishedSaint: Codable, Hashable {
+    let id: String
+    /// "MM-dd": the fixed civil date of the memorial.
+    let dateKey: String
+    let name: String
+    let lifespan: String
+    let role: String
+    let rank: String
+    let calendarNote: String
+    let bioParagraphs: [String]
+    let whyItMattersToday: String
+    let prayer: String
+    var artworkName: String? = nil
+    var stories: [SaintStory]? = nil
+
+    init(_ entry: SaintOfDay) {
+        let s = entry.saint
+        id = s.id
+        dateKey = entry.dateKey
+        name = s.name
+        lifespan = s.lifespan
+        role = s.role
+        rank = s.rank
+        calendarNote = s.calendarNote
+        bioParagraphs = s.bioParagraphs
+        whyItMattersToday = s.whyItMattersToday
+        prayer = s.prayer
+        artworkName = s.artworkName
+        stories = s.stories.isEmpty ? nil : s.stories
+    }
+
+    var saintOfDay: SaintOfDay {
+        SaintOfDay(dateKey: dateKey, region: .general, saint: Saint(
+            id: id, name: name, lifespan: lifespan, role: role, rank: rank, calendarNote: calendarNote,
+            bioParagraphs: bioParagraphs, whyItMattersToday: whyItMattersToday, prayer: prayer,
+            artworkName: (artworkName?.isEmpty ?? true) ? nil : artworkName, stories: stories ?? []))
+    }
+}
