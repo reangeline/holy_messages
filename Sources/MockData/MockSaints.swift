@@ -130,7 +130,15 @@ enum MockSaints {
     /// populated so far; a country override would be another entry with the same
     /// `dateKey` and a different `region`, resolved by `saint(on:region:)` below.
     /// One catalog per language — see LocalizedCatalog.
-    static var calendar: [SaintOfDay] { catalog.current }
+    /// What the admin page published wins; the catalog below is what ships
+    /// in the app (offline, first launch, any language not published).
+    static var calendar: [SaintOfDay] {
+        let language = AppLanguagePreference.resolveCurrent()
+        if let published = RemoteContent.items("saints", language: language, as: PublishedSaint.self) {
+            return published.map(\.saintOfDay)
+        }
+        return catalog[language]
+    }
 
     /// Later batches (scripts/lotes/santos-*-lote) each have their own
     /// generated file, so reimporting the first batch from ~/Documents never
