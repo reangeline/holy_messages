@@ -9,7 +9,7 @@ final class RemoteContentTests: XCTestCase {
     private var language: AppLanguage { AppLanguagePreference.resolveCurrent() }
 
     override func tearDown() {
-        for c in [collection, "saints", "mood_reliefs", "formation_tracks", "formation_lessons", "prayer_categories", "prayers"] {
+        for c in [collection, "saints", "mood_reliefs", "formation_tracks", "formation_lessons", "prayer_categories", "prayers", "apparitions"] {
             if let url = RemoteContent.fileURL(collection: c, lang: language.rawValue) {
                 try? FileManager.default.removeItem(at: url)
             }
@@ -177,5 +177,25 @@ final class RemoteContentTests: XCTestCase {
         let oracao = try XCTUnwrap(MockDevotionalPrayers.categories.first?.prayers.first)
         XCTAssertNil(oracao.attribution)
         XCTAssertNil(oracao.saintID)
+    }
+
+    // MARK: - Aparições
+
+    func testPublishedApparitionsReplaceTheCatalogAndKeepTheirArt() throws {
+        let json = #"""
+        [{"id":"lourdes-1858","name":"Nossa Senhora de Lourdes","place":"Lourdes, França","year":"1858",
+          "visionaries":"Bernadette Soubirous","summary":"Resumo.","ecclesialRecognition":"Reconhecida em 1862.",
+          "source":"Santuário de Lourdes"}]
+        """#
+        try publish(Data(json.utf8), to: "apparitions")
+        XCTAssertEqual(MockMarianApparitions.all.map(\.id), ["lourdes-1858"])
+        XCTAssertEqual(MockMarianApparitions.all.first?.artworkName, "lourdes", "a arte continua saindo do id")
+    }
+
+    func testEveryApparitionRoundTrips() throws {
+        for language in AppLanguage.allCases where MockMarianApparitions.catalog.hasOwnCatalog(for: language) {
+            let bundled = MockMarianApparitions.catalog[language]
+            XCTAssertEqual(try JSONDecoder().decode([MarianApparition].self, from: JSONEncoder().encode(bundled)), bundled)
+        }
     }
 }
