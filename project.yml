@@ -16,6 +16,10 @@ settings:
     # desaparecem na próxima geração — foi o que derrubou o widget.
     CODE_SIGN_STYLE: Automatic
     DEVELOPMENT_TEAM: 3Q524UT33T
+    # O número do build, um só para o app e o widget. O workflow do TestFlight
+    # sobrescreve na linha de comando (CURRENT_PROJECT_VERSION=…) a cada envio;
+    # este valor é o do último build enviado à mão.
+    CURRENT_PROJECT_VERSION: "6"
     # Os .xcstrings aqui são escritos à mão e um teste exige que toda chave
     # exista nos três idiomas. A extração automática despejava no catálogo as
     # strings de interpolação pura ("%@ · %@", "•", "‹ %@"), que não têm o que
@@ -40,10 +44,10 @@ targets:
       properties:
         CFBundleDisplayName: Missale
         CFBundleShortVersionString: "2.0"
-        CFBundleVersion: "6"
-        # O app não usa criptografia própria (nenhuma rede; a compra é do
-        # StoreKit). Declarado aqui, o App Store Connect para de perguntar a
-        # cada build.
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        # O app não usa criptografia própria: só HTTPS do sistema (a API do
+        # Missale), que é isento, e a compra é do StoreKit. Declarado aqui, o
+        # App Store Connect para de perguntar a cada build.
         ITSAppUsesNonExemptEncryption: false
         UILaunchScreen: {}
         UISupportedInterfaceOrientations:
@@ -136,7 +140,7 @@ targets:
       properties:
         CFBundleDisplayName: Missale Widgets
         CFBundleShortVersionString: "2.0"
-        CFBundleVersion: "6"
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
         NSExtension:
           NSExtensionPointIdentifier: com.apple.widgetkit-extension
         UIAppFonts:
