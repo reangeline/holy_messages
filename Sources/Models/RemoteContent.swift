@@ -13,10 +13,16 @@ enum RemoteContent {
     /// `Library/Caches` would be purged by the system under pressure and
     /// silently revert the reader to the bundled text; Application Support
     /// inside the group is kept until the app is deleted.
+    ///
+    /// Without the App Group (an unsigned build, as on CI) the app's own
+    /// Application Support is used: the app still updates, only the widget
+    /// keeps the bundled text.
     static var directory: URL? {
-        FileManager.default
-            .containerURL(forSecurityApplicationGroupIdentifier: appGroup)?
-            .appendingPathComponent("Library/Application Support/Content", isDirectory: true)
+        if let group = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: appGroup) {
+            return group.appendingPathComponent("Library/Application Support/Content", isDirectory: true)
+        }
+        return FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first?
+            .appendingPathComponent("Content", isDirectory: true)
     }
 
     static func fileURL(collection: String, lang: String) -> URL? {
