@@ -4,7 +4,19 @@ enum MockDevotionalPrayers {
     /// One catalog per language — see LocalizedCatalog. English and Spanish
     /// catalogs get their own official prayer wordings via the Acervo, rather
     /// than translations of the Portuguese ones.
-    static var categories: [PrayerCategory] { catalog.current }
+    ///
+    /// What the admin page published wins — only when both the categories and
+    /// the prayers were published for this language, so a category never
+    /// shows up empty.
+    static var categories: [PrayerCategory] {
+        let language = AppLanguagePreference.resolveCurrent()
+        if let categories = RemoteContent.items("prayer_categories", language: language, as: PublishedPrayerCategory.self),
+           let prayers = RemoteContent.items("prayers", language: language, as: PublishedPrayer.self) {
+            let assembled = PublishedPrayer.assemble(categories: categories, prayers: prayers)
+            if !assembled.isEmpty { return assembled }
+        }
+        return catalog[language]
+    }
 
     static let catalog = LocalizedCatalog(
         pt: withImported(ptCategories, ptImportedPrayers),
