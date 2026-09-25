@@ -123,6 +123,8 @@ struct AppRootView: View {
                 ReadingReminderScheduler.refresh()
                 Task { await SubscriptionStore.shared.refreshOnForeground() }
                 Task { await AccountStore.shared.checkAppleCredential() }
+                // Content published from the admin page since the last visit.
+                Task { await RemoteContentUpdater.refresh() }
             }
         }
     }

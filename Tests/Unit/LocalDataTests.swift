@@ -100,8 +100,10 @@ final class LocalDataTests: XCTestCase {
         let hosts = try NSRegularExpression(pattern: #"https://[^"/]+"#)
             .matches(in: fonte, range: NSRange(fonte.startIndex..., in: fonte))
             .map { (fonte as NSString).substring(with: $0.range) }
-        XCTAssertEqual(Set(hosts), [MissaleAPI.baseURL.absoluteString.trimmingCharacters(in: CharacterSet(charactersIn: "/"))],
-                       "o cliente da API só pode falar com a API do Missale")
+        let permitidos = [MissaleAPI.baseURL, MissaleAPI.contentBaseURL]
+            .map { $0.absoluteString.trimmingCharacters(in: CharacterSet(charactersIn: "/")) }
+        XCTAssertEqual(Set(hosts), Set(permitidos),
+                       "o cliente da API só pode falar com a API do Missale e com os arquivos de conteúdo")
     }
 }
 

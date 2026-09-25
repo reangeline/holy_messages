@@ -1,6 +1,7 @@
 import Foundation
 
-/// The app's only network code, and it talks to one host: the Missale API.
+/// The app's only network code, and it talks to two hosts: the Missale API,
+/// and the content files the admin page publishes (download only).
 ///
 /// Until the account arrived the app had no network code at all, and
 /// `LocalDataTests` enforced that. It now allows this file and no other, so a
@@ -13,6 +14,22 @@ enum MissaleAPI {
     /// Dev stack for now (TestFlight). Production gets its own URL before the
     /// App Store release.
     static let baseURL = URL(string: "https://ule22ss715.execute-api.us-east-1.amazonaws.com")!
+
+    /// Where the admin page publishes the app's content (CloudFront). Only
+    /// files are fetched from here, never anything of the reader's sent.
+    static let contentBaseURL = URL(string: "https://dbwbh4btw116j.cloudfront.net")!
+
+    /// A published content file (`manifest.json`, `v3/word_of_day/pt.json`…).
+    static func contentFile(_ path: String) async throws -> Data {
+        let data: Data, response: URLResponse
+        do {
+            (data, response) = try await session.data(from: contentBaseURL.appending(path: path))
+        } catch {
+            throw Failure.unavailable
+        }
+        guard (response as? HTTPURLResponse)?.statusCode == 200 else { throw Failure.unavailable }
+        return data
+    }
 
     struct Session: Codable, Equatable {
         let accessToken: String

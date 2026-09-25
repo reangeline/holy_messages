@@ -123,6 +123,7 @@ targets:
       - path: Sources/Models/LocalizedCatalog.swift
       - path: Sources/Models/WordOfDay.swift
       - path: Sources/MockData/MockWordOfDay.swift
+      - path: Sources/Models/RemoteContent.swift
       # O pool importado vive num arquivo gerado; sem ele o widget
       # mostraria um pool menor que o do app.
       - path: Sources/MockData/Generated/GeneratedWordOfDay.swift

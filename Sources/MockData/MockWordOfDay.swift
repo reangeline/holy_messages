@@ -1,9 +1,13 @@
 import Foundation
 
 enum MockWordOfDay {
-    /// The pool a day's word is drawn from — one catalog per language, grown
-    /// over time via the Acervo tool. See LocalizedCatalog.
-    static var pool: [WordOfDay] { catalog.current }
+    /// The pool a day's word is drawn from — one catalog per language. What
+    /// the admin page published wins; the lists below are what ships in the
+    /// app, used offline, on first launch, and for any language not published.
+    static var pool: [WordOfDay] {
+        let language = AppLanguagePreference.resolveCurrent()
+        return RemoteContent.items("word_of_day", language: language, as: WordOfDay.self) ?? catalog[language]
+    }
 
     static let catalog = LocalizedCatalog(
         pt: ptPool + ptImportedPool,

@@ -8,3 +8,6 @@ xcuserdata/
 # bytecode dos módulos de conteúdo do Exame
 __pycache__/
 *.pyc
+
+# Gerado pelo teste ContentSeedExport para importar no painel; sai do código.
+content-seed/
