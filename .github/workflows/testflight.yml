@@ -21,9 +21,11 @@ jobs:
     timeout-minutes: 60
     env:
       HAS_KEY: ${{ secrets.ASC_KEY_P8 != '' }}
-      # Above every build sent by hand (the last was 6) and always increasing.
-      BUILD_NUMBER: ${{ github.run_number + 6 }}
     steps:
+      # Above every build sent by hand (the last was 6) and always increasing.
+      # Expressions can't add, so the shell does it.
+      - name: Build number
+        run: echo "BUILD_NUMBER=$(( ${{ github.run_number }} + 6 ))" >> "$GITHUB_ENV"
       - name: Key check
         if: env.HAS_KEY != 'true'
         run: echo "::notice::Sem a chave da App Store Connect (ASC_KEY_P8); o envio ao TestFlight foi pulado."
