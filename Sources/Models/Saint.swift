@@ -88,6 +88,9 @@ struct PublishedSaint: Codable, Hashable {
     let whyItMattersToday: String
     let prayer: String
     var artworkName: String? = nil
+    /// An image uploaded in the admin page; wins over `artworkName` once the
+    /// app has downloaded it.
+    var artworkURL: String? = nil
     var stories: [SaintStory]? = nil
 
     init(_ entry: SaintOfDay) {
@@ -110,6 +113,8 @@ struct PublishedSaint: Codable, Hashable {
         SaintOfDay(dateKey: dateKey, region: .general, saint: Saint(
             id: id, name: name, lifespan: lifespan, role: role, rank: rank, calendarNote: calendarNote,
             bioParagraphs: bioParagraphs, whyItMattersToday: whyItMattersToday, prayer: prayer,
-            artworkName: (artworkName?.isEmpty ?? true) ? nil : artworkName, stories: stories ?? []))
+            artworkName: RemoteContent.artworkName(forURL: artworkURL)
+                ?? ((artworkName?.isEmpty ?? true) ? nil : artworkName),
+            stories: stories ?? []))
     }
 }

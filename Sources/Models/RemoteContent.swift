@@ -44,6 +44,34 @@ enum RemoteContent {
         }
     }
 
+    // MARK: - Images uploaded in the admin page
+
+    /// Where downloaded images live, next to the content that references them.
+    static var imagesDirectory: URL? { directory?.appendingPathComponent("images", isDirectory: true) }
+
+    /// `artworkName` values that point at a downloaded image rather than an
+    /// asset in the app bundle.
+    static let localImagePrefix = "remote:"
+
+    /// The downloaded file for an image URL published by the admin page
+    /// (".../images/<name>"), or nil while it hasn't been downloaded.
+    static func localImageFile(forURL url: String) -> URL? {
+        guard let name = url.split(separator: "/").last.map(String.init), !name.isEmpty,
+              let file = imagesDirectory?.appendingPathComponent(name),
+              FileManager.default.fileExists(atPath: file.path)
+        else { return nil }
+        return file
+    }
+
+    /// The `artworkName` for an uploaded image, once downloaded; nil otherwise,
+    /// so the caller keeps its bundled art.
+    static func artworkName(forURL url: String?) -> String? {
+        guard let url, !url.isEmpty, localImageFile(forURL: url) != nil,
+              let name = url.split(separator: "/").last
+        else { return nil }
+        return localImagePrefix + name
+    }
+
     /// Forgets decoded lists after the updater replaces files.
     static func invalidate() { cache.removeAll() }
 

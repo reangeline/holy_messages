@@ -224,4 +224,47 @@ final class RemoteContentTests: XCTestCase {
         try publish(Data(json.utf8), to: "feasts")
         XCTAssertEqual(LiturgicalSanctoral.feasts.map(\.name), ["Natal"])
     }
+
+    // MARK: - Imagens enviadas pelo painel
+
+    private var imagemDeTeste: String { MissaleAPI.contentBaseURL.absoluteString + "/images/teste-unitario.png" }
+
+    private func removeImagemDeTeste() {
+        if let file = RemoteContent.imagesDirectory?.appendingPathComponent("teste-unitario.png") {
+            try? FileManager.default.removeItem(at: file)
+        }
+    }
+
+    func testOnlyImagesFromTheContentHostAreCollected() {
+        let json: [String: Any] = [
+            "artworkURL": imagemDeTeste,
+            "stories": [["source": "https://outro.site/images/x.png"], ["body": imagemDeTeste]],
+            "outro": MissaleAPI.contentBaseURL.absoluteString + "/v3/saints/pt.json",
+            "subindo": MissaleAPI.contentBaseURL.absoluteString + "/images/../manifest.json",
+        ]
+        XCTAssertEqual(RemoteContentUpdater.imageURLs(in: json), [imagemDeTeste])
+    }
+
+    func testUploadedArtWinsOnlyOnceDownloaded() throws {
+        removeImagemDeTeste()
+        defer { removeImagemDeTeste() }
+        let json = #"""
+        [{"id":"agostinho","dateKey":"08-28","name":"Santo Agostinho","lifespan":"354–430","role":"Bispo",
+          "rank":"Memória","calendarNote":"n","bioParagraphs":["p"],"whyItMattersToday":"w","prayer":"r",
+          "artworkName":"agostinho","artworkURL":"\#(imagemDeTeste)","stories":[]}]
+        """#
+        try publish(Data(json.utf8), to: "saints")
+        XCTAssertEqual(MockSaints.saint(on: "08-28")?.artworkName, "agostinho", "antes de baixar: a arte embutida")
+
+        let folder = try XCTUnwrap(RemoteContent.imagesDirectory)
+        try FileManager.default.createDirectory(at: folder, withIntermediateDirectories: true)
+        let png = UIGraphicsImageRenderer(size: CGSize(width: 4, height: 4)).pngData { ctx in
+            UIColor.red.setFill(); ctx.fill(CGRect(x: 0, y: 0, width: 4, height: 4))
+        }
+        try png.write(to: folder.appendingPathComponent("teste-unitario.png"))
+
+        let nome = try XCTUnwrap(MockSaints.saint(on: "08-28")?.artworkName)
+        XCTAssertEqual(nome, "remote:teste-unitario.png", "depois de baixar: a arte enviada")
+        XCTAssertNotNil(DownloadedImages.image(named: "teste-unitario.png"), "o retrato carrega o arquivo baixado")
+    }
 }
