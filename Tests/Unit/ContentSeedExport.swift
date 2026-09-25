@@ -21,6 +21,18 @@ final class ContentSeedExport: XCTestCase {
         try XCTSkipUnless(ProcessInfo.processInfo.environment["EXPORT_CONTENT"] == "1", "exportação só quando pedida")
         let encoder = JSONEncoder()
         encoder.outputFormatting = [.prettyPrinted, .sortedKeys, .withoutEscapingSlashes]
+        for language in AppLanguage.allCases where MockLectionary.catalog.hasOwnCatalog(for: language) {
+            let pasta = destino.appendingPathComponent("sunday_readings")
+            try FileManager.default.createDirectory(at: pasta, withIntermediateDirectories: true)
+            let lista = MockLectionary.catalog[language].sorted { $0.key < $1.key }.map { PublishedSundayReadings(key: $0.key, $0.value) }
+            try encoder.encode(lista).write(to: pasta.appendingPathComponent("\(language.rawValue).json"))
+        }
+        for language in AppLanguage.allCases where LiturgicalSanctoral.catalog.hasOwnCatalog(for: language) {
+            let pasta = destino.appendingPathComponent("feasts")
+            try FileManager.default.createDirectory(at: pasta, withIntermediateDirectories: true)
+            try encoder.encode(LiturgicalSanctoral.catalog[language].map(PublishedFeast.init))
+                .write(to: pasta.appendingPathComponent("\(language.rawValue).json"))
+        }
         for language in AppLanguage.allCases where MockMarianApparitions.catalog.hasOwnCatalog(for: language) {
             let pasta = destino.appendingPathComponent("apparitions")
             try FileManager.default.createDirectory(at: pasta, withIntermediateDirectories: true)

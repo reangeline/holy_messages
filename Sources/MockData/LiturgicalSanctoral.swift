@@ -13,7 +13,7 @@ import Foundation
 /// aren't strong enough to move this engine's own color/rank computation, so
 /// the two lists intentionally don't have to agree on every date.
 enum LiturgicalSanctoral {
-    struct FixedFeast {
+    struct FixedFeast: Equatable {
         let monthDay: String // "MM-dd"
         let name: String
         let rank: LiturgicalRank
@@ -21,7 +21,15 @@ enum LiturgicalSanctoral {
     }
 
     /// One catalog per language — see LocalizedCatalog.
-    static var feasts: [FixedFeast] { catalog.current }
+    /// What the admin page published wins; the catalog is what ships.
+    static var feasts: [FixedFeast] {
+        let language = AppLanguagePreference.resolveCurrent()
+        if let published = RemoteContent.items("feasts", language: language, as: PublishedFeast.self) {
+            let valid = published.compactMap(\.feast).sorted { $0.monthDay < $1.monthDay }
+            if !valid.isEmpty { return valid }
+        }
+        return catalog[language]
+    }
 
     static let catalog = LocalizedCatalog(
         pt: merged(ptFeasts), en: merged(enFeasts), es: merged(esFeasts)
