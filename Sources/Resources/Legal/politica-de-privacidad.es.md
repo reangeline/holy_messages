@@ -94,7 +94,11 @@ esta transferencia internacional, hecha para prestar el servicio que pediste.
 para publicidad, no los vendemos y no los cruzamos con nada.
 
 **La aplicación solo se comunica con el servidor de Missale**, y solo para
-iniciar sesión, mantenerla, borrar la cuenta y pedir la orientación. Una prueba automatizada falla si
+iniciar sesión, mantenerla, borrar la cuenta y pedir la orientación. Además,
+descarga de nuestro servidor de archivos los textos de la propia aplicación
+(santos, la palabra del día y otros) cuando publicamos correcciones o
+novedades. En esa descarga no se envía nada tuyo: la aplicación solo pide los
+archivos, como cualquier página web. Una prueba automatizada falla si
 aparece código de red en cualquier otra parte de la aplicación.
 
 ## La orientación

@@ -94,7 +94,10 @@ pediu.
 publicidade, não os vendemos e não os cruzamos com nada.
 
 **O aplicativo só se comunica com o servidor do Missale**, e só para entrar,
-manter a sessão, apagar a conta e pedir a orientação. Um teste automatizado falha se código de rede
+manter a sessão, apagar a conta e pedir a orientação. Além disso, ele baixa do
+nosso servidor de arquivos os textos do próprio aplicativo (santos, palavra do
+dia e outros) quando publicamos correções ou novidades. Nesse download nada seu
+é enviado: o aplicativo só pede os arquivos, como qualquer página da web. Um teste automatizado falha se código de rede
 aparecer em qualquer outra parte do aplicativo.
 
 ## A orientação

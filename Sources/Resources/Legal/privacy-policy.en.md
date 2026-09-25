@@ -92,7 +92,10 @@ for.
 advertising, do not sell it and do not combine it with anything.
 
 **The app only talks to the Missale server**, and only to sign in, keep the
-session, delete the account and ask for guidance. An automated test fails if networking code
+session, delete the account and ask for guidance. Besides that, it downloads
+from our file server the app's own texts (saints, the word of the day and
+others) when we publish corrections or new content. Nothing of yours is sent
+in that download: the app only asks for the files, like any web page. An automated test fails if networking code
 appears anywhere else in the app.
 
 ## The guidance
