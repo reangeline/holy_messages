@@ -12,7 +12,7 @@ import pathlib
 from collections import Counter
 
 
-ENTREGAS = pathlib.Path("/Users/reangeline/Documents/Missale-pesquisa/entregas")
+ENTREGAS = pathlib.Path("/Users/reangeline/Projects/Missale/Missale-pesquisa/entregas")
 REPORT = ENTREGAS / "RELATORIO-REVISAO-EDITORIAL.md"
 
 

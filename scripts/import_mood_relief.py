@@ -18,8 +18,8 @@ from collections import Counter, defaultdict
 
 
 ROOT = pathlib.Path("/Users/reangeline")
-ENTREGAS = ROOT / "Documents/Missale-pesquisa/entregas/exame-revisado"
-OUTPUT = ROOT / "Projects/holy_messages/Sources/MockData/Generated/GeneratedMoodRelief.swift"
+ENTREGAS = ROOT / "Projects/Missale/Missale-pesquisa/entregas/exame-revisado"
+OUTPUT = ROOT / "Projects/Missale/holy_messages/Sources/MockData/Generated/GeneratedMoodRelief.swift"
 LANGS = ("pt", "en", "es")
 STATE_IDS = (
     "peace", "grateful", "joyful", "hopeful", "forgiven", "loved", "steadfast",
@@ -32,7 +32,7 @@ REQUIRED = (
 EXPECTED_PER_STATE = 15
 
 HEADER = """// GERADO — não editar à mão.
-// Origem: ~/Documents/Missale-pesquisa/entregas/exame-revisado, importado por
+// Origem: ~/Projects/Missale/Missale-pesquisa/entregas/exame-revisado, importado por
 // scripts/import_mood_relief.py. Cada catálogo tem quinze respostas próprias
 // por estado, com texto bíblico e fonte indicados no JSON de origem.
 //

@@ -136,6 +136,31 @@ final class SubscriptionStoreTests: XCTestCase {
         }
     }
 
+    /// Restoring used to end in silence whatever happened. Each outcome now
+    /// has its own answer, and closing the password sheet is not an error.
+    func testRestoreSaysWhatHappened() {
+        typealias R = SubscriptionStore.RestoreResult
+        XCTAssertEqual(SubscriptionStore.restoreResult(syncError: nil, entitled: true), R.restored)
+        XCTAssertEqual(SubscriptionStore.restoreResult(syncError: nil, entitled: false), R.nothingFound)
+        XCTAssertEqual(SubscriptionStore.restoreResult(syncError: StoreKitError.userCancelled, entitled: false), R.cancelled)
+        XCTAssertEqual(SubscriptionStore.restoreResult(syncError: SKError(.paymentCancelled), entitled: false), R.cancelled)
+        XCTAssertEqual(SubscriptionStore.restoreResult(syncError: StoreKitError.networkError(URLError(.notConnectedToInternet)), entitled: false), R.failed)
+        // Uma sincronização que falhou não apaga uma assinatura que já estava no aparelho.
+        XCTAssertEqual(SubscriptionStore.restoreResult(syncError: StoreKitError.unknown, entitled: true), R.restored)
+    }
+
+    /// "Cancelar a renovação" opened the app's own page in the iPhone Settings,
+    /// where there is no subscription to cancel. It must open Apple's sheet.
+    func testCancellingOpensTheInAppSubscriptionSheet() throws {
+        let raiz = URL(fileURLWithPath: #filePath)
+            .deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent()
+        let fonte = try String(
+            contentsOf: raiz.appendingPathComponent("Sources/Features/Subscription/SubscriptionCancellationView.swift"),
+            encoding: .utf8)
+        XCTAssertTrue(fonte.contains(".manageSubscriptionsSheet("), "o cancelamento não abre a folha de assinaturas")
+        XCTAssertFalse(fonte.contains("UIApplication.shared.open"), "o cancelamento voltou a sair do app")
+    }
+
     /// The local StoreKit configuration exists and its product identifiers
     /// match the app's — otherwise a test passes and production loads nothing.
     func testTheLocalStoreKitConfigurationMatchesTheApp() throws {

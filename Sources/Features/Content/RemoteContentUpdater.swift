@@ -23,6 +23,16 @@ enum RemoteContentUpdater {
 
     private static var running = false
 
+    /// Bumped after new content (and its images) is committed. Catalogs are
+    /// read while a body is evaluated, so a screen already on display — the
+    /// saint of the day on Today — kept its placeholder until something else
+    /// redrew it; observing this redraws it as soon as the download lands.
+    @MainActor
+    final class Revision: ObservableObject {
+        static let shared = Revision()
+        @Published fileprivate(set) var count = 0
+    }
+
     /// Called when the app comes to the foreground. Quiet on failure: the app
     /// keeps what it has (downloaded or bundled) and tries again next time.
     @MainActor
@@ -61,6 +71,7 @@ enum RemoteContentUpdater {
             }
             try JSONEncoder().encode(remote).write(to: manifestURL, options: .atomic)
             RemoteContent.invalidate()
+            Revision.shared.count += 1
             WidgetCenter.shared.reloadAllTimelines()
         } catch {
             // Offline, CloudFront unreachable, or a file that didn't match its

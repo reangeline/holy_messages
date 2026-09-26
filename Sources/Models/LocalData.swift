@@ -48,6 +48,7 @@ enum LocalData {
         "hasCompletedOnboarding",
         "reading_reminder_minutes",      // os horários escolhidos para o aviso da leitura do dia
         "review_prompt_asked",           // se o pedido de avaliação já foi feito
+        "reading_text_size",             // o tamanho escolhido para o texto da Bíblia, dos santos e da formação
     ]
 
     // MARK: - Export and erase

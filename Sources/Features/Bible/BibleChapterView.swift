@@ -11,6 +11,8 @@ struct BibleChapterView: View {
     var focusVerse: Int? = nil
     @Environment(\.dismiss) private var dismiss
     @ObservedObject private var notes = BibleNotesStore.shared
+    @ObservedObject private var routine = DailyRoutineStore.shared
+    @AppStorage(ReadingTextSize.storageKey) private var textSize = ReadingTextSize.defaultStep
     @State private var book: BibleBook
     @State private var chapter: Int
 
@@ -35,6 +37,15 @@ struct BibleChapterView: View {
         book.chapters.first { $0.n == chapter }?.verses ?? []
     }
 
+    /// Today's New Testament chapter, opened from the Bible rather than from
+    /// Today, still gets its button to check the reading off.
+    private var isTodaysReading: Bool {
+        guard onFinished == nil, !routine.isDone(.reading) else { return false }
+        let plan = NewTestamentPlan(bible: bible)
+        guard !plan.chapters.isEmpty else { return false }
+        return plan.index(of: book.id, chapter: chapter) == routine.chapterIndex(total: plan.chapters.count)
+    }
+
     /// Every (book, chapter) in reading order, to step through.
     private var position: (all: [(BibleBook, Int)], index: Int) {
         let all = bible.books.flatMap { b in b.chapters.map { (b, $0.n) } }
@@ -48,7 +59,7 @@ struct BibleChapterView: View {
             ScrollViewReader { proxy in
                 ScrollView {
                     VStack(alignment: .leading, spacing: 12) {
-                        Eyebrow(text: book.id == "PSA" ? book.name : bible.abbreviation)
+                        Eyebrow(text: book.id == "PSA" ? book.name : L.string("Holy Bible", table: "Bible"))
                             .id("top")
                         Text(Self.title(bible: bible, book: book, chapter: chapter))
                             .font(MissaleFont.display(28))
@@ -60,10 +71,10 @@ struct BibleChapterView: View {
                         ForEach(verses, id: \.n) { verse in
                             let marked = notes.isHighlighted(bible, book.id, chapter, verse.n)
                             (Text(verse.s == nil ? "\(verse.n)  " : "\(verse.n)† ")
-                                .font(MissaleFont.body(12, weight: .semibold))
+                                .font(MissaleFont.body(12 * ReadingTextSize.scale(textSize), weight: .semibold))
                                 .foregroundColor(Palette.wine)
                              + Text(verse.t)
-                                .font(MissaleFont.body(18)))
+                                .font(MissaleFont.body(18 * ReadingTextSize.scale(textSize))))
                                 .foregroundStyle(Palette.ink)
                                 .lineSpacing(4)
                                 .fixedSize(horizontal: false, vertical: true)
@@ -82,20 +93,14 @@ struct BibleChapterView: View {
                         supplementNote
 
                         if let onFinished {
-                            Button {
+                            finishButton {
                                 onFinished()
                                 dismiss()
-                            } label: {
-                                Text(L.string("Concluir leitura", table: "Today"))
-                                    .font(MissaleFont.body(17, weight: .medium))
-                                    .frame(maxWidth: .infinity)
-                                    .padding(.vertical, 16)
-                                    .foregroundStyle(.white)
-                                    .background(Palette.wine, in: Capsule())
                             }
-                            .buttonStyle(.plain)
-                            .padding(.top, 24)
                         } else {
+                            if isTodaysReading {
+                                finishButton { routine.markDone(.reading) }
+                            }
                             stepper { proxy.scrollTo("top", anchor: .top) }
                                 .padding(.top, 20)
                         }
@@ -113,6 +118,9 @@ struct BibleChapterView: View {
         .navigationTitle("")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                ReadingTextSizeButton()
+            }
             ToolbarItem(placement: .topBarTrailing) {
                 let here = notes.isBookmarked(bible, book.id, chapter)
                 Button {
@@ -140,6 +148,19 @@ struct BibleChapterView: View {
                 .foregroundStyle(Palette.ink.opacity(0.6))
                 .padding(.top, 12)
         }
+    }
+
+    private func finishButton(action: @escaping () -> Void) -> some View {
+        Button(action: action) {
+            Text(L.string("Concluir leitura", table: "Today"))
+                .font(MissaleFont.body(17, weight: .medium))
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 16)
+                .foregroundStyle(.white)
+                .background(Palette.wine, in: Capsule())
+        }
+        .buttonStyle(.plain)
+        .padding(.top, 24)
     }
 
     private func stepper(scrollToTop: @escaping () -> Void) -> some View {

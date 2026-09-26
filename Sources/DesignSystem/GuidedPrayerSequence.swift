@@ -5,6 +5,9 @@ import SwiftUI
 /// `onFinished` after the last phrase fades.
 struct GuidedPrayerSequence: View {
     let phrases: [String]
+    /// Seconds added to how long each phrase stays up — the onboarding's Our
+    /// Father holds each one a second less than the daily prayers.
+    var holdAdjustment: Double = 0
     let onFinished: () -> Void
 
     @State private var index: Int? = nil
@@ -69,7 +72,7 @@ struct GuidedPrayerSequence: View {
                 withAnimation(.easeOut(duration: 1)) { phraseVisible = true }
                 // Roughly reading pace, with room to actually pray it.
                 let words = phrases[phrase].split(separator: " ").count
-                try await Task.sleep(for: .seconds(max(2.5, Double(words) * 0.45 + 1.5)))
+                try await Task.sleep(for: .seconds(max(2.5, Double(words) * 0.45 + 1.5) + holdAdjustment))
                 withAnimation(.easeIn(duration: 0.7)) { phraseVisible = false }
                 try await Task.sleep(for: .milliseconds(700))
             }

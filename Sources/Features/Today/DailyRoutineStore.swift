@@ -27,12 +27,20 @@ final class DailyRoutineStore: ObservableObject {
     @Published private(set) var intentions: [String: String]
 
     private let defaults: UserDefaults
+    private var dayChange: NSObjectProtocol?
 
     init(defaults: UserDefaults = .standard) {
         self.defaults = defaults
         completions = defaults.dictionary(forKey: Self.completionsKey) as? [String: [String]] ?? [:]
         position = defaults.integer(forKey: Self.positionKey)
         intentions = defaults.dictionary(forKey: Self.intentionsKey) as? [String: String] ?? [:]
+        // "Done today?" is asked of the clock, not of anything published, so
+        // an app left open overnight kept showing yesterday's checks until some
+        // unrelated change redrew Today — and then they all vanished at once.
+        // Redraw when the day turns (posted on wake-up if it turned asleep).
+        dayChange = NotificationCenter.default.addObserver(forName: .NSCalendarDayChanged, object: nil, queue: .main) { [weak self] _ in
+            MainActor.assumeIsolated { self?.objectWillChange.send() }
+        }
     }
 
     /// Re-reads what is stored — after LocalData erases it, for instance.
@@ -96,6 +104,11 @@ struct NewTestamentPlan {
     init(bible: Bible) {
         let start = bible.books.firstIndex { $0.id == BibleBook.firstNewTestamentBook } ?? bible.books.endIndex
         chapters = bible.books[start...].flatMap { book in book.chapters.map { (book, $0.n) } }
+    }
+
+    /// Where a chapter sits in the plan, or nil outside the New Testament.
+    func index(of bookID: String, chapter: Int) -> Int? {
+        chapters.firstIndex { $0.book.id == bookID && $0.chapter == chapter }
     }
 
     /// Reading time at an unhurried ~180 words a minute.

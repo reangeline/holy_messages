@@ -4,6 +4,9 @@ import SwiftUI
 struct CalendarRootView: View {
     private let weekdaySymbols = ["D", "S", "T", "Q", "Q", "S", "S"]
     @ObservedObject private var moodHistory = MoodHistoryStore.shared
+    @ObservedObject private var examenHistory = ExamenHistoryStore.shared.list
+    @ObservedObject private var rosaryHistory = RosaryHistoryStore.shared.list
+    @ObservedObject private var routine = DailyRoutineStore.shared
     @State private var displayedYear = Calendar.gregorianUTC.component(.year, from: MockLiturgical.currentDate)
     @State private var displayedMonth = Calendar.gregorianUTC.component(.month, from: MockLiturgical.currentDate)
 
@@ -25,13 +28,20 @@ struct CalendarRootView: View {
         displayedYear = newYear
     }
 
-    /// "consolation", "desolation", or nil (nothing logged). Only "today" can
-    /// ever return non-nil: this calendar's other dates are a fixed/fictional
-    /// range with no real per-day history, so they never show a registro mark
-    /// that didn't actually happen — see spec §1.5.
-    private func loggedGroup(for mark: CalendarDayMark) -> String? {
-        guard mark.dateKey == MockLiturgical.today.dateKey, let latest = moodHistory.entries.last else { return nil }
-        return MockMood.group(forStateID: latest.stateID)
+    /// Day key -> the reader's mark on that day: "consolation" or
+    /// "desolation" from the day's last check-in, or "" for a day with only
+    /// the routine, the Examen or the Rosary. It used to mark today alone,
+    /// from the last check-in ever — so every past day looked empty.
+    private var readerMarks: [String: String] {
+        var marks: [String: String] = [:]
+        let dates = examenHistory.items.map(\.date) + rosaryHistory.items.map(\.date)
+        for key in dates.map(DailyRoutineStore.dayKey) + Array(routine.completions.keys) + Array(routine.intentions.keys) {
+            marks[key] = ""
+        }
+        for entry in moodHistory.entries { // oldest first: the last one wins
+            marks[DailyRoutineStore.dayKey(entry.date)] = MockMood.group(forStateID: entry.stateID) ?? ""
+        }
+        return marks
     }
 
     private func markColor(for group: String) -> Color {
@@ -101,8 +111,9 @@ struct CalendarRootView: View {
                 }
                 if !isViewingCurrentMonth {
                     Button {
-                        displayedYear = 2026
-                        displayedMonth = 9
+                        // Era setembro de 2026 fixo, de qualquer mês.
+                        displayedYear = Calendar.gregorianUTC.component(.year, from: MockLiturgical.currentDate)
+                        displayedMonth = Calendar.gregorianUTC.component(.month, from: MockLiturgical.currentDate)
                     } label: {
                         Text("Today", tableName: "CalendarSaints")
                             .font(MissaleFont.body(14, weight: .medium))
@@ -159,20 +170,21 @@ struct CalendarRootView: View {
 
     private var dayGrid: some View {
         let columns = Array(repeating: GridItem(.flexible(), spacing: 6), count: 7)
+        let marks = readerMarks
         return LazyVGrid(columns: columns, spacing: 6) {
             ForEach(0..<leadingEmptyDays, id: \.self) { _ in
                 Color.clear.frame(height: 40)
             }
             ForEach(days) { mark in
                 NavigationLink(value: CalendarDestination.day(mark)) {
-                    dayCell(mark)
+                    dayCell(mark, readerMark: marks[mark.dateKey])
                 }
                 .buttonStyle(.plain)
             }
         }
     }
 
-    private func dayCell(_ mark: CalendarDayMark) -> some View {
+    private func dayCell(_ mark: CalendarDayMark, readerMark: String?) -> some View {
         let today = isToday(mark)
         return ZStack(alignment: .bottom) {
             RoundedRectangle(cornerRadius: 10, style: .continuous)
@@ -195,11 +207,16 @@ struct CalendarRootView: View {
                 .foregroundStyle(mark.color == .white ? Palette.ink : Color.white)
                 .frame(maxHeight: .infinity, alignment: .top)
                 .padding(.top, 6)
-            if let group = loggedGroup(for: mark) {
+            if let readerMark, !readerMark.isEmpty {
                 RoundedRectangle(cornerRadius: 2)
-                    .fill(markColor(for: group))
+                    .fill(markColor(for: readerMark))
                     .frame(width: 16, height: 3)
                     .padding(.bottom, 4)
+            } else if readerMark != nil {
+                Circle()
+                    .fill(Palette.wine)
+                    .frame(width: 4, height: 4)
+                    .padding(.bottom, 5)
             }
         }
         .aspectRatio(1, contentMode: .fit)
@@ -225,6 +242,12 @@ struct CalendarRootView: View {
                         .font(MissaleFont.body(13))
                         .foregroundStyle(Palette.ink.opacity(0.7))
                 }
+            }
+            HStack(spacing: 6) {
+                Circle().fill(Palette.wine).frame(width: 4, height: 4)
+                Text("Prayer or writing", tableName: "CalendarSaints")
+                    .font(MissaleFont.body(13))
+                    .foregroundStyle(Palette.ink.opacity(0.7))
             }
             Text("No heat map and no good-day/bad-day colors: the color is the liturgy's, the mark is yours.", tableName: "CalendarSaints")
                 .font(MissaleFont.body(13))

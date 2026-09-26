@@ -6,8 +6,8 @@ está listado no relatório final, com a evidência.
 """
 import json, glob, os, re, collections, pathlib
 
-ENTREGAS = pathlib.Path("/Users/reangeline/Documents/Missale-pesquisa/entregas")
-OUT = pathlib.Path("/Users/reangeline/Projects/holy_messages/Sources/MockData/Generated")
+ENTREGAS = pathlib.Path("/Users/reangeline/Projects/Missale/Missale-pesquisa/entregas")
+OUT = pathlib.Path("/Users/reangeline/Projects/Missale/holy_messages/Sources/MockData/Generated")
 OUT.mkdir(parents=True, exist_ok=True)
 LANGS = ("pt", "en", "es")
 
@@ -34,7 +34,7 @@ def sw(s):
     return f'"{s}"'
 
 HEADER = """// GERADO — não editar à mão.
-// Origem: ~/Documents/Missale-pesquisa/entregas, importado por
+// Origem: ~/Projects/Missale/Missale-pesquisa/entregas, importado por
 // scripts/import_acervo.py. Reimportar em vez de corrigir aqui.
 //
 """

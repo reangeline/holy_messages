@@ -595,6 +595,28 @@
         }
       }
     },
+    "Prayer or writing": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prayer or writing"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Oración o escritura"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Oração ou escrita"
+          }
+        }
+      }
+    },
     "Responsorial Psalm": {
       "localizations": {
         "en": {

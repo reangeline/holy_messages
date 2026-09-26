@@ -14,6 +14,7 @@ import StoreKit
 struct SubscriptionDetailView: View {
     @ObservedObject private var store = SubscriptionStore.shared
     @State private var restaurando = false
+    @State private var resultadoDaRestauracao: SubscriptionStore.RestoreResult?
     @State private var diagnostico: [String]?
 
     var body: some View {
@@ -100,24 +101,31 @@ struct SubscriptionDetailView: View {
                     Button {
                         restaurando = true
                         Task {
-                            await store.restore()
+                            let resultado = await store.restore()
                             diagnostico = await store.sandboxDiagnostics()
                             restaurando = false
+                            resultadoDaRestauracao = resultado
                         }
                     } label: {
-                        Text("Restore Purchases", tableName: "SettingsDetail")
-                            .font(MissaleFont.body(17))
-                            .frame(maxWidth: .infinity)
-                            .padding(16)
-                            .background(.ultraThinMaterial, in: Capsule())
-                            .overlay(Capsule().strokeBorder(Color.white.opacity(0.7), lineWidth: 1))
-                            .foregroundStyle(Palette.ink)
+                        Group {
+                            if restaurando {
+                                ProgressView()
+                            } else {
+                                Text("Restore Purchases", tableName: "SettingsDetail")
+                            }
+                        }
+                        .font(MissaleFont.body(17))
+                        .frame(maxWidth: .infinity)
+                        .padding(16)
+                        .background(.ultraThinMaterial, in: Capsule())
+                        .overlay(Capsule().strokeBorder(Color.white.opacity(0.7), lineWidth: 1))
+                        .foregroundStyle(Palette.ink)
                     }
                     .disabled(restaurando)
 
                     // A tela de cancelamento explica o que acontece; o
-                    // cancelamento em si é feito na App Store, porque só a
-                    // Apple pode fazê-lo — os termos dizem isso.
+                    // cancelamento em si é da Apple, na folha de assinaturas
+                    // que ela abre por cima do app.
                     NavigationLink {
                         SubscriptionCancellationView()
                     } label: {
@@ -163,5 +171,6 @@ struct SubscriptionDetailView: View {
         .navigationTitle("")
         .navigationBarTitleDisplayMode(.inline)
         .task { diagnostico = await store.sandboxDiagnostics() }
+        .restoreResultAlert($resultadoDaRestauracao)
     }
 }

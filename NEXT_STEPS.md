@@ -1,8 +1,10 @@
 # Missale — o que falta, o que está pendente de decisão, por onde continuar
 
-Escrito em 22 de setembro de 2026, no commit `905b025`. Todos os números abaixo
-foram medidos no código, não escritos de memória — e a forma de medir está no
-fim, para você poder refazer a conta depois.
+Escrito em 22 de setembro de 2026, no commit `905b025`; atualizado em 26 de
+setembro de 2026, sobre `1339948` com as mudanças ainda não commitadas do branch
+`fix/feedback-testflight`. Todos os números abaixo foram medidos no código, não
+escritos de memória — e a forma de medir está no fim, para você poder refazer a
+conta depois.
 
 Estado: **43 testes unitários e 44 de UI, 0 falhas.** `xcodegen generate` e
 build limpos.
@@ -43,7 +45,8 @@ telas de apoio. Nada mais a conferir aqui.
 ### 1.4 Mecânico — minha e sua
 
 - Screenshots da listagem, descrição, classificação de idade, questionário de
-  privacidade (fácil: tudo local, nada sai do aparelho).
+  privacidade (não é mais "nada sai do aparelho": há a conta e a orientação,
+  ver §2.5b e §5).
 - Assinatura e provisionamento.
 - **Um teste em aparelho real.** A suíte roda só no Simulador, que não tem App
   Store: a compra, a restauração e o estado da assinatura nunca foram
@@ -145,7 +148,7 @@ Do 2.0 (3), o que depende de conteúdo:
 - **Feito:** login obrigatório com "Entrar com a Apple" (passo do onboarding
   depois da síntese, e tela na abertura para quem já usava o app); sessão no
   Keychain; Ajustes › Conta com sair e apagar conta; políticas e termos nos 3
-  idiomas atualizados (25/09). Backend em `~/Projects/missale-backend` (Go,
+  idiomas atualizados (25/09). Backend em `../missale-backend` (Go,
   ports & adapters, Cognito + Aurora DSQL, ambiente dev no ar).
 - **Falta:** a tela da orientação (escrever o que sente → Jev escolhe estado,
   risco e a resposta revisada), com volta para os botões sem internet ou sem
@@ -157,18 +160,50 @@ Do 2.0 (3), o que depende de conteúdo:
   o que a App Store responde. O TestFlight renova todo dia e para depois de 6
   renovações, e o teste grátis nunca volta para o mesmo Apple ID.
 
+### 2.5c Rodada de feedback do TestFlight de 26/09 — no branch, sem commit
+
+Corrigido no branch `fix/feedback-testflight` (ainda não commitado nem
+mergeado):
+
+- **Pai-Nosso do onboarding:** cada frase fica 1 s a menos na tela
+  (`GuidedPrayerSequence.holdAdjustment`, −1 no onboarding).
+- **Leitura diária do NT:** já avançava; agora "Concluir leitura" aparece
+  também na aba Bíblia, no capítulo do dia.
+- **Tamanho do texto** (A−/A+) na Bíblia, nos santos e na formação
+  (`reading_text_size`, listada em `LocalData`).
+- **Referências de edição tiradas das telas:** Palavra do dia, início e
+  capítulo da Bíblia, Completas, histórias dos santos, atribuição da citação na
+  formação e o cartão de fontes das aparições marianas. Ficam: a nota † da
+  RV1909, os autores das orações, as referências dos versículos e as páginas
+  legais.
+- **Calendário:** mostra de cada dia os check-ins, as notas, os itens da
+  rotina, a intenção, os Exames e os Terços. Antes mostrava só o humor de hoje.
+  O "hoje" se redesenha quando o dia vira.
+- **Restaurar compras** agora responde: restaurada, nada encontrado ou falhou;
+  em silêncio se a pessoa cancela.
+- **Cancelar**, em Ajustes, abre a `.manageSubscriptionsSheet` dentro do app.
+  Antes abria a página do app nos Ajustes do iPhone.
+- **Imagens remotas:** o cartão de Hoje se redesenha depois que o conteúdo do
+  painel baixa. As imagens chegaram ao TestFlight no 2.0 (18); o conteúdo v6 do
+  painel foi publicado em 26/09, 01:57 UTC, com 65 santos, todos com arte.
+
+Falta:
+- Conferir restaurar e cancelar em aparelho real (§1.4).
+- Confirmar se a atribuição da citação na formação e as fontes das aparições
+  devem mesmo ficar escondidas.
+
 ### 2.6 Próximas features — pedidas em 24/09
 
 - **Uma história ou curiosidade.** Uma mensagem curta, que muda a cada dia: um
   episódio da vida de um santo, a origem de um costume, uma curiosidade da
   liturgia. Precisa de acervo com fonte, como os santos. O modelo `SaintStory`
   (título, texto, fonte) já existe e pode servir de base.
-- **Comentários em lugares a definir.** É a primeira feature que exige
-  servidor: hoje o app não faz nenhuma requisição de rede (ver `LocalData` e a
-  política). Antes de escrever código: decidir onde se comenta, se há conta ou
-  login, a moderação (denúncia, filtro, quem revisa), e reescrever a política
-  de privacidade e o questionário da App Store, que hoje dizem "nada sai do
-  aparelho". A App Store também exige denúncia e bloqueio em conteúdo gerado
+- **Comentários em lugares a definir.** Seria o primeiro conteúdo da pessoa
+  guardado no servidor: hoje a rede serve só à conta, à orientação e ao
+  download de conteúdo, e o servidor não guarda nada do que se escreve (§5).
+  A conta já existe (§2.5b). Antes de escrever código: decidir onde se
+  comenta, a moderação (denúncia, filtro, quem revisa), e reescrever a
+  política de privacidade e o questionário da App Store. A App Store também exige denúncia e bloqueio em conteúdo gerado
   por usuários (diretriz 1.2).
 - **Bíblia: marcar, buscar e continuar — feito em 24/09.** Tocar num
   versículo marca (lista em "Versículos marcados", deslizar remove); busca
@@ -192,6 +227,10 @@ Medido em 22/09/2026.
 | **Santos detalhados** | 37 por idioma | 100 | **63 × 3 = 189 registros** |
 | **Festas de data fixa** | 69 por idioma | 180 | **111 × 3 = 333 registros** |
 
+Atualização de 26/09: o painel (manifesto v6) tem agora **65 santos por
+idioma, todos com arte**. A arte dos 28 santos mais novos (§3.2) vem do
+painel, não do bundle. O resto da tabela não foi recontado.
+
 Nenhum catálogo do app está sem espanhol: **27 de 27 são trilíngues.**
 
 Fora `Text("MISSALE")`, que é a marca, nenhuma tela tem texto fora do catálogo.
@@ -211,7 +250,7 @@ Estimativa: lotes de ~30 datas, 4 ou 5 sessões.
 Cada ficha precisa de datas, função, grau, nota de calendário, parágrafos
 biográficos factuais, "por que importa hoje" e a invocação da Ladainha — com
 fonte por registro. As 37 primeiras vieram de sete lotes de pesquisa em
-`~/Documents`; o segundo lote (24/09, `scripts/lotes/santos-segundo-lote`,
+`../Missale-pesquisa`; o segundo lote (24/09, `scripts/lotes/santos-segundo-lote`,
 importado por `scripts/import_saints_batch.py`) trouxe mais 8 para o fim de
 setembro e outubro: Cosme e Damião, Arcanjos, Jerônimo, Faustina, Bruno,
 João XXIII, Inácio de Antioquia e Lucas. O terceiro lote (`santos-terceiro-lote`)
@@ -219,8 +258,8 @@ trouxe mais 10 para o fim de outubro e novembro: Paulo da Cruz, Antônio Maria
 Claret, Simão e Judas, Todos os Santos, Carlos Borromeu, Leão Magno, Alberto
 Magno, Isabel da Hungria, Cecília e André. O quarto (`santos-quarto-lote`)
 cobriu dezembro: Nicolau, Ambrósio, Imaculada Conceição, Juan Diego, Luzia,
-Estêvão, João Evangelista, Santos Inocentes, Tomás Becket e Silvestre. Nenhum
-dos 28 novos tem arte ainda.
+Estêvão, João Evangelista, Santos Inocentes, Tomás Becket e Silvestre. A arte
+dos 28 novos veio depois, pelo painel (manifesto v6, 26/09).
 
 Os lotes seguintes podem seguir o mesmo caminho, um arquivo gerado por lote.
 
@@ -233,7 +272,7 @@ trabalho de fundo**, não como bloqueio.
 Aparecida, Lourdes e Rue du Bac (Nossa Senhora das Graças) ganharam ficha com
 fonte dos santuários, nos três idiomas, e agora usam a arte que estava parada
 no bundle. Ficam no segundo lote, `scripts/lotes/aparicoes-segundo-lote`, com
-arquivo gerado próprio, para reimportar o primeiro lote (em `~/Documents`) não
+arquivo gerado próprio, para reimportar o primeiro lote (em `../Missale-pesquisa`) não
 apagar estas. Knock continua com ficha e sem imagem: falta a arte.
 
 ### 3.4 Revisão editorial — 762 registros
@@ -273,12 +312,25 @@ código. Tudo vem do StoreKit.
 ## 5. O que este app não faz, e é bom lembrar
 
 Estas são propriedades que os testes defendem. Se alguma cair, a política de
-privacidade e os termos passam a mentir.
+privacidade e os termos passam a mentir. Revisto em 26/09: o app deixou de ser
+só local com a conta (25/09) e o conteúdo remoto.
 
-- **Nenhuma requisição de rede.** Zero `URLSession` no app.
-  `LocalDataTests.testTheAppMakesNoNetworkRequests` falha se aparecer uma.
-- **Nenhuma conta, nenhum login.** Os botões Apple/Google/Facebook do desenho
-  original nunca foram construídos.
+- **A rede só passa por `MissaleAPI`.** São dois hosts: a API do Missale
+  (entrar com a Apple, renovar a sessão, apagar a conta, a orientação do Jev) e
+  os arquivos de conteúdo no CloudFront (só download: manifesto, textos,
+  imagens). O antigo `testTheAppMakesNoNetworkRequests` não existe mais; no
+  lugar, `LocalDataTests.testOnlyTheMissaleAPIClientUsesTheNetwork` falha se
+  `URLSession`, `URLRequest` etc. aparecerem em outro arquivo, e
+  `testTheAPIClientTalksToOneHost` (apesar do nome) aceita só essas duas URLs.
+- **O que sai do aparelho:** o token de identidade da Apple, as chaves da
+  sessão e, só quando a pessoa toca "Receber orientação", o texto daquela
+  caixa, que o servidor repassa ao Jev e, segundo a política, não guarda.
+  Nenhuma chave de `LocalData` (humor, Exame, notas, Bíblia, rotina) é
+  enviada. Que o servidor não guarda o texto é do backend; nenhum teste do app
+  cobre isso.
+- **Conta obrigatória, só com a Apple.** Os botões Google/Facebook do desenho
+  original nunca foram construídos. A sessão fica no Keychain, fora de
+  `LocalData`.
 - **Nenhum analytics, rastreador ou anúncio.**
 - **O direito de assinatura nunca é gravado no aparelho** — lido de
   `Transaction.currentEntitlements` a cada verificação.
@@ -336,9 +388,13 @@ por posições em ordem de arquivo, numa passagem, como acima.
   usa uma fonte pública ou oficialmente publicada naquele idioma. O texto
   bíblico é copiado do inventário, nunca traduzido a partir de outro idioma.
 - **Nunca editar `Sources/MockData/Generated/`** à mão: ajustar o JSON de
-  entrega em `~/Documents/Missale-pesquisa/entregas` e rodar o gerador
+  entrega em `../Missale-pesquisa/entregas` e rodar o gerador
   (`scripts/import_acervo.py`, `scripts/import_mood_relief.py`,
-  `scripts/build_exam_relief.py`).
+  `scripts/build_exam_relief.py`). Atenção: em 26/09 só
+  `import_saint_art.py` lê a pasta nova; `import_acervo.py`,
+  `build_exam_relief.py`, `audit_editorial.py` e
+  `import_marian_apparitions.py` ainda apontam para
+  `~/Documents/Missale-pesquisa`, cópia antiga que ainda existe.
 - **Textos de interface** vão no `.xcstrings` via `L.string(...)` ou
   `Text(_:tableName:)`; **conteúdo do acervo** vai em
   `LocalizedCatalog(pt:en:es:)`.
