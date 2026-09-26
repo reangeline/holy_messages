@@ -79,6 +79,23 @@ jobs:
             -authenticationKeyID "${{ secrets.ASC_KEY_ID }}" \
             -authenticationKeyIssuerID "${{ secrets.ASC_ISSUER_ID }}" | tail -20
           echo "::notice::Build 2.0 ($BUILD_NUMBER) enviado ao TestFlight."
+      - name: Revoke development certificate created by this run
+        # Xcode's cloud-managed signing creates a fresh "Apple Development"
+        # certificate on every run (fresh runner, empty keychain). Left
+        # unrevoked these pile up until Apple refuses to issue more. This
+        # only ever deletes certificates whose serial number matches one
+        # found in THIS runner's keychain, and never touches DISTRIBUTION
+        # certificates. Runs even if earlier steps failed, and can never
+        # fail or block the job itself.
+        if: always() && env.HAS_KEY == 'true'
+        continue-on-error: true
+        env:
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+        run: |
+          pip3 install --quiet --disable-pip-version-check cryptography 2>/dev/null || \
+            pip3 install --quiet --disable-pip-version-check --break-system-packages cryptography
+          python3 "$GITHUB_WORKSPACE/scripts/revoke_dev_certificates.py" "$RUNNER_TEMP/asc/AuthKey.p8"
       - name: Remove key
         if: always() && env.HAS_KEY == 'true'
         run: rm -rf "$RUNNER_TEMP/asc"
