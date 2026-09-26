@@ -170,11 +170,12 @@ final class JevPickerTests: XCTestCase {
         fake.risk = 0.5
         let fromJev = await run("Rezo pela minha família", [pick("a", 4)], fake)
         XCTAssertEqual(fromJev?.showCrisisFirst, true)
+        XCTAssertEqual(fromJev?.answered, true, "a chamada foi respondida")
 
         let offline = FakeJev()
         offline.fails = true
         let fromPhrase = await run("Não quero mais viver", [pick("a", 4)], offline)
-        XCTAssertEqual(fromPhrase, JevPicker.Result(choices: [:], showCrisisFirst: true),
+        XCTAssertEqual(fromPhrase, JevPicker.Result(choices: [:], showCrisisFirst: true, answered: false),
                        "sem rede: nenhuma escolha, mas a frase de risco ainda abre a orientação de crise")
 
         let calm = FakeJev()

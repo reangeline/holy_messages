@@ -50,6 +50,11 @@ enum JevPicker {
         /// confident, or its call failed.
         var choices: [String: String]
         var showCrisisFirst: Bool
+        /// True once at least one `decide` call actually returned — Jev
+        /// answered, confident or not. False when every call failed (offline,
+        /// the server, the daily limit): callers that gate on "asked today"
+        /// should leave that gate open so the next chance tries again.
+        var answered: Bool = true
 
         subscript(key: String) -> String? { choices[key] }
     }
@@ -100,6 +105,7 @@ enum JevPicker {
         let picks = picks.map(normalized)
         var risk = CrisisPhrases.matches(text)
         var choices: [String: String] = [:]
+        var answered = false
 
         let rounds = plan(picks.map(\.candidates.count))
         var chunkWinners: [Int: [(id: String, probability: Double)]] = [:]
@@ -126,6 +132,7 @@ enum JevPicker {
                     }
                 }
                 guard !asked.isEmpty, let answers = try? await decide(state, questions) else { continue }
+                answered = true
 
                 let riskProbability = ((answers["risk"] as? [String: Any])?["noul"] as? Double) ?? 0
                 if riskProbability >= OrientationService.riskThreshold { risk = true }
@@ -144,7 +151,7 @@ enum JevPicker {
                 }
             }
         }
-        return Result(choices: choices, showCrisisFirst: risk)
+        return Result(choices: choices, showCrisisFirst: risk, answered: answered)
     }
 
     // MARK: - Planning
@@ -253,7 +260,9 @@ enum JevPicker {
     /// `-fakeJevPick sorrowful,sorrowful.0` answers without the network, so UI
     /// tests and previews work offline: each pick chooses the first candidate
     /// whose id is in the list, or its first candidate. `crisis` adds the risk
-    /// flag; `unsure` answers with no choices; `off` behaves as unsubscribed.
+    /// flag; `unsure` answers with no choices (still `answered`); `fail`
+    /// simulates every call failing (`answered` false, as offline); `off`
+    /// behaves as unsubscribed.
     private static func debugFakeResult(for text: String, _ picks: [Pick]) -> Result? {
         guard let fake = UserDefaults.standard
             .volatileDomain(forName: UserDefaults.argumentDomain)["fakeJevPick"] as? String
@@ -261,6 +270,7 @@ enum JevPicker {
         let wanted = Set(fake.split(separator: ",").map(String.init))
         if wanted.contains("off") { return nil }
         let risk = wanted.contains("crisis") || CrisisPhrases.matches(text)
+        if wanted.contains("fail") { return Result(choices: [:], showCrisisFirst: risk, answered: false) }
         if wanted.contains("unsure") { return Result(choices: [:], showCrisisFirst: risk) }
         var choices: [String: String] = [:]
         for pick in picks {
