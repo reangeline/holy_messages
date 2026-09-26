@@ -37,6 +37,16 @@ struct MorningOfferingView: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbarColorScheme(.dark, for: .navigationBar)
         .toolbar(phase == .praying ? .hidden : .visible, for: .navigationBar)
+#if DEBUG
+        // `-openScreen morning-intention` skips the minute-long prayer, so a UI
+        // test can reach the intention box.
+        .onAppear {
+            if phase == .intro, UserDefaults.standard.string(forKey: "openScreen") == "morning-intention" {
+                text = routine.intention() ?? ""
+                phase = .intention
+            }
+        }
+#endif
     }
 
     private var intro: some View {
@@ -85,7 +95,12 @@ struct MorningOfferingView: View {
             .background(.white.opacity(0.08), in: RoundedRectangle(cornerRadius: 16, style: .continuous))
             Spacer()
             lightButton(L.string("Guardar", table: "Today")) {
-                routine.saveIntention(text)
+                // Only on save, never per keystroke. Jev picks the day's verse
+                // in the background; Today shows it when it arrives.
+                if routine.saveIntention(text) || routine.intentionVerseID() == nil,
+                   let saved = routine.intention() {
+                    IntentionVerse.request(for: saved)
+                }
                 finish()
             }
             .disabled(text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)

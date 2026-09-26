@@ -91,7 +91,12 @@ struct MoodReliefView: View {
                         }
                     }
 
-                    Text("Este registro entra no seu calendário. Ninguém além de você o vê — ele não sai deste aparelho.", tableName: "Today")
+                    // Same exception as MoodReflectionView's note: with
+                    // personalization on, this entry's note may go to Jev for
+                    // the Word of the Day.
+                    Text(JevPicker.isActive
+                         ? L.string("Este registro entra no seu calendário. Pode ir ao Jev para escolher a palavra do dia, sem ser guardado. Dá para desligar em Ajustes.", table: "Today")
+                         : L.string("Este registro entra no seu calendário. Ninguém além de você o vê — ele não sai deste aparelho.", table: "Today"))
                         .font(MissaleFont.body(13))
                         .foregroundStyle(Palette.ink.opacity(0.55))
 

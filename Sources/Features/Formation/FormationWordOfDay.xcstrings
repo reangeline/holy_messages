@@ -771,6 +771,28 @@
           }
         }
       }
+    },
+    "Chosen from what you wrote": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chosen from what you wrote"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Elegida a partir de lo que escribiste"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Escolhida a partir do que você escreveu"
+          }
+        }
+      }
     }
   },
   "version": "1.0"

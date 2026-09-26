@@ -65,3 +65,47 @@ struct OrientationCrisisView: View {
         }
     }
 }
+
+/// The same crisis guidance, as a card inside another screen: what the
+/// personalized features (JevPicker) show above their suggestion when what the
+/// reader wrote carries a sign of risk. Same copy as the screen above.
+struct CrisisSupportCard: View {
+    @State private var showPastoralCare = false
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Eyebrow(text: L.string("Antes de tudo", table: "Today"))
+            Text("O que você escreveu pede cuidado", tableName: "Today")
+                .font(MissaleFont.display(22, weight: .semibold))
+                .foregroundStyle(Palette.ink)
+            Text("Você não precisa atravessar isso sozinho. Falar com alguém agora pode ser o passo mais importante do dia.", tableName: "Today")
+                .font(MissaleFont.body(15))
+                .foregroundStyle(Palette.ink.opacity(0.75))
+            LiturgicalGradientCard(color: .red) {
+                VStack(alignment: .leading, spacing: 6) {
+                    Text(CrisisLines.current.title)
+                        .font(MissaleFont.body(17, weight: .medium))
+                        .foregroundStyle(.white)
+                    Text(CrisisLines.current.message)
+                        .font(MissaleFont.body(15))
+                        .foregroundStyle(.white.opacity(0.9))
+                }
+            }
+            Button {
+                showPastoralCare = true
+            } label: {
+                Text("Padre, diocese e outros caminhos de apoio", tableName: "Today")
+                    .font(MissaleFont.body(15))
+                    .foregroundStyle(Palette.wine)
+                    .underline()
+            }
+            .buttonStyle(.plain)
+        }
+        .accessibilityElement(children: .contain)
+        .accessibilityIdentifier("crisisSupportCard")
+        .sheet(isPresented: $showPastoralCare) {
+            PastoralCareNudgeView()
+                .appLanguageLocale()
+        }
+    }
+}

@@ -36,7 +36,9 @@ enum ReadingReminderScheduler {
         let today = calendar.startOfDay(for: Date())
         for dayOffset in 0..<windowDays {
             guard let day = calendar.date(byAdding: .day, value: dayOffset, to: today) else { continue }
-            let word = MockWordOfDay.wordOfDay(for: DailyRoutineStore.dayKey(day))
+            // Days ahead get the date draw; today, the word already chosen for
+            // the reader, if any, so the notice matches the app.
+            let word = MockWordOfDay.word(for: DailyRoutineStore.dayKey(day))
             for minutes in times {
                 guard let fireDate = calendar.date(bySettingHour: minutes / 60, minute: minutes % 60, second: 0, of: day),
                       fireDate > Date() else { continue }

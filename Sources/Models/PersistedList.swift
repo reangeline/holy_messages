@@ -17,6 +17,12 @@ final class PersistedList<Element: Codable>: ObservableObject {
         save()
     }
 
+    /// Changes the first item that `matches`, if any, and saves.
+    func update(where matches: (Element) -> Bool, _ change: (inout Element) -> Void) {
+        guard let index = items.firstIndex(where: matches) else { return }
+        change(&items[index])
+        save()
+    }
 
     private func save() {
         guard let data = try? JSONEncoder().encode(items) else { return }

@@ -1,134 +1,25 @@
 {
   "sourceLanguage": "en",
   "strings": {
-    "Subscription restored": {
+    "A file with everything you wrote and recorded, to keep or send wherever you want.": {
+      "extractionState": "manual",
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Subscription restored"
+            "value": "A file with everything you wrote and recorded, to keep or send wherever you want."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Suscripción restaurada"
+            "value": "Un archivo con todo lo que escribiste y registraste, para guardarlo o enviarlo donde quieras."
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Assinatura restaurada"
-          }
-        }
-      }
-    },
-    "Your subscription is active on this device.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Your subscription is active on this device."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tu suscripción está activa en este dispositivo."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sua assinatura está ativa neste aparelho."
-          }
-        }
-      }
-    },
-    "No active subscription found": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "No active subscription found"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "No se encontró ninguna suscripción activa"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nenhuma assinatura ativa encontrada"
-          }
-        }
-      }
-    },
-    "This Apple ID has no active Missale subscription. If you subscribed with another Apple ID, sign in with it in the App Store and try again.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "This Apple ID has no active Missale subscription. If you subscribed with another Apple ID, sign in with it in the App Store and try again."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Este Apple ID no tiene una suscripción activa de Missale. Si te suscribiste con otro Apple ID, inicia sesión con él en la App Store y vuelve a intentarlo."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Este Apple ID não tem uma assinatura ativa do Missale. Se você assinou com outro Apple ID, entre com ele na App Store e tente de novo."
-          }
-        }
-      }
-    },
-    "Couldn't restore": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Couldn't restore"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "No se pudo restaurar"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Não foi possível restaurar"
-          }
-        }
-      }
-    },
-    "The App Store couldn't be reached. Check your connection and try again.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "The App Store couldn't be reached. Check your connection and try again."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "No se pudo contactar con la App Store. Revisa tu conexión y vuelve a intentarlo."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Não foi possível falar com a App Store. Verifique sua conexão e tente de novo."
+            "value": "Um arquivo com tudo o que você escreveu e registrou, para guardar ou mandar para onde quiser."
           }
         }
       }
@@ -179,12 +70,6 @@
     },
     "Adicionar seu nome": {
       "localizations": {
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Adicionar seu nome"
-          }
-        },
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -196,17 +81,17 @@
             "state": "translated",
             "value": "Añade tu nombre"
           }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Adicionar seu nome"
+          }
         }
       }
     },
     "Ajustes": {
       "localizations": {
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ajustes"
-          }
-        },
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -214,6 +99,12 @@
           }
         },
         "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ajustes"
+          }
+        },
+        "pt": {
           "stringUnit": {
             "state": "translated",
             "value": "Ajustes"
@@ -245,12 +136,6 @@
     },
     "Anual · renova em 14 de outubro": {
       "localizations": {
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Anual · renova em 14 de outubro"
-          }
-        },
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -262,17 +147,17 @@
             "state": "translated",
             "value": "Anual · se renueva el 14 de octubre"
           }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Anual · renova em 14 de outubro"
+          }
         }
       }
     },
     "Assinatura": {
       "localizations": {
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Assinatura"
-          }
-        },
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -284,17 +169,17 @@
             "state": "translated",
             "value": "Suscripción"
           }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Assinatura"
+          }
         }
       }
     },
     "Ativa": {
       "localizations": {
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ativa"
-          }
-        },
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -305,6 +190,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Activa"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ativa"
           }
         }
       }
@@ -333,12 +224,6 @@
     },
     "Calendário litúrgico": {
       "localizations": {
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Calendário litúrgico"
-          }
-        },
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -349,6 +234,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Calendario litúrgico"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Calendário litúrgico"
           }
         }
       }
@@ -397,6 +288,28 @@
         }
       }
     },
+    "Catholic church": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Catholic church"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iglesia católica"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "igreja católica"
+          }
+        }
+      }
+    },
     "Close": {
       "extractionState": "manual",
       "localizations": {
@@ -406,28 +319,22 @@
             "value": "Close"
           }
         },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Fechar"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Cerrar"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fechar"
           }
         }
       }
     },
     "Conta": {
       "localizations": {
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Conta"
-          }
-        },
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -438,6 +345,34 @@
           "stringUnit": {
             "state": "translated",
             "value": "Cuenta"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Conta"
+          }
+        }
+      }
+    },
+    "Couldn't restore": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Couldn't restore"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No se pudo restaurar"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Não foi possível restaurar"
           }
         }
       }
@@ -552,6 +487,75 @@
         }
       }
     },
+    "Delete everything you wrote and recorded?": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Delete everything you wrote and recorded?"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Borrar todo lo que escribiste y registraste?"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apagar tudo o que você escreveu e registrou?"
+          }
+        }
+      }
+    },
+    "Delete my data": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Delete my data"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Borrar mis datos"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apagar meus dados"
+          }
+        }
+      }
+    },
+    "Deleting the app from this device also removes everything it saved.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Deleting the app from this device also removes everything it saved."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Borrar la app del dispositivo también elimina todo lo que guardó."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apagar o app do aparelho também remove tudo o que ele guardou."
+          }
+        }
+      }
+    },
     "Didn't find it? Write to {email} — we respond within two business days.": {
       "localizations": {
         "en": {
@@ -605,16 +609,16 @@
             "value": "Everything in the app is available without one. If you subscribed with another Apple ID, restore below."
           }
         },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tudo no app está disponível sem ela. Se você assinou com outro Apple ID, restaure abaixo."
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Todo en la app está disponible sin ella. Si te suscribiste con otro Apple ID, restaura abajo."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tudo no app está disponível sem ela. Se você assinou com outro Apple ID, restaure abaixo."
           }
         }
       }
@@ -641,6 +645,51 @@
         }
       }
     },
+    "Export my data": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Export my data"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Exportar mis datos"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Exportar meus dados"
+          }
+        }
+      }
+    },
+    "Exportar, apagar": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Export, delete"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Exportar, borrar"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Exportar, apagar"
+          }
+        }
+      }
+    },
     "FREE ACCESS": {
       "localizations": {
         "en": {
@@ -659,6 +708,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "ACESSO GRATUITO"
+          }
+        }
+      }
+    },
+    "Find churches in Maps →": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Find churches in Maps →"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buscar iglesias en Mapas →"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Procurar igrejas no Mapas →"
           }
         }
       }
@@ -709,12 +780,6 @@
     },
     "Gente responde, não um formulário": {
       "localizations": {
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Gente responde, não um formulário"
-          }
-        },
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -725,6 +790,34 @@
           "stringUnit": {
             "state": "translated",
             "value": "Responden personas, no un formulario"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gente responde, não um formulário"
+          }
+        }
+      }
+    },
+    "Grave sin, a doubt of conscience, a life decision, a crisis: take it to a priest. The button below opens Maps with the Catholic churches near you — confession times are best confirmed with the parish itself.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Grave sin, a doubt of conscience, a life decision, a crisis: take it to a priest. The button below opens Maps with the Catholic churches near you — confession times are best confirmed with the parish itself."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pecado grave, duda de conciencia, decisión de vida, crisis: llévalo a un sacerdote. El botón de abajo abre Mapas con las iglesias católicas cerca de ti — los horarios de confesión, confírmalos con la propia parroquia."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pecado grave, dúvida de consciência, decisão de vida, crise: leve a um padre. O botão abaixo abre o Mapas com as igrejas católicas perto de você — os horários de confissão, confirme com a própria paróquia."
           }
         }
       }
@@ -753,12 +846,6 @@
     },
     "Idioma": {
       "localizations": {
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Idioma"
-          }
-        },
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -766,6 +853,12 @@
           }
         },
         "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Idioma"
+          }
+        },
+        "pt": {
           "stringUnit": {
             "state": "translated",
             "value": "Idioma"
@@ -819,12 +912,6 @@
     },
     "Interface do app": {
       "localizations": {
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Interface do app"
-          }
-        },
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -835,6 +922,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Interfaz de la app"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Interface do app"
           }
         }
       }
@@ -936,38 +1029,38 @@
             "value": "Managed in the App Store, where you can see the renewal date and the amount, and cancel."
           }
         },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Gerenciada na App Store, onde você vê a data de renovação e o valor, e pode cancelar."
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Gestionada en la App Store, donde puedes ver la fecha de renovación y el importe, y cancelar."
           }
-        }
-      }
-    },
-    "Missale 1.0 (build 214) · o que você registra fica neste aparelho.": {
-      "localizations": {
+        },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Missale 1.0 (build 214) · o que você registra fica neste aparelho."
+            "value": "Gerenciada na App Store, onde você vê a data de renovação e o valor, e pode cancelar."
           }
-        },
+        }
+      }
+    },
+    "Missale 1.0 (build 214) · veja o que fica neste aparelho em Seus dados.": {
+      "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Missale 1.0 (build 214) · what you log stays on this device."
+            "value": "Missale 1.0 (build 214) · see what stays on this device in Your data."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Missale 1.0 (build 214) · lo que registras queda en este dispositivo."
+            "value": "Missale 1.0 (build 214) · mira qué se queda en este dispositivo en Tus datos."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Missale 1.0 (build 214) · veja o que fica neste aparelho em Seus dados."
           }
         }
       }
@@ -981,13 +1074,13 @@
             "value": "Missale Premium"
           }
         },
-        "pt": {
+        "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Missale Premium"
           }
         },
-        "es": {
+        "pt": {
           "stringUnit": {
             "state": "translated",
             "value": "Missale Premium"
@@ -1004,16 +1097,61 @@
             "value": "Missale Premium · active"
           }
         },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Missale Premium · activa"
+          }
+        },
         "pt": {
           "stringUnit": {
             "state": "translated",
             "value": "Missale Premium · ativa"
           }
+        }
+      }
+    },
+    "My Missale data": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "My Missale data"
+          }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Missale Premium · activa"
+            "value": "Mis datos de Missale"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Meus dados do Missale"
+          }
+        }
+      }
+    },
+    "No active subscription found": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No active subscription found"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No se encontró ninguna suscripción activa"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nenhuma assinatura ativa encontrada"
           }
         }
       }
@@ -1049,16 +1187,16 @@
             "value": "No subscription on this device"
           }
         },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nenhuma assinatura neste aparelho"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Ninguna suscripción en este dispositivo"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nenhuma assinatura neste aparelho"
           }
         }
       }
@@ -1072,28 +1210,22 @@
             "value": "No subscription · everything available"
           }
         },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sem assinatura · tudo disponível"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Sin suscripción · todo disponible"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sem assinatura · tudo disponível"
           }
         }
       }
     },
     "Nota pastoral": {
       "localizations": {
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nota pastoral"
-          }
-        },
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -1101,6 +1233,12 @@
           }
         },
         "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nota pastoral"
+          }
+        },
+        "pt": {
           "stringUnit": {
             "state": "translated",
             "value": "Nota pastoral"
@@ -1132,12 +1270,6 @@
     },
     "Não é confissão, direção espiritual nem terapia": {
       "localizations": {
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Não é confissão, direção espiritual nem terapia"
-          }
-        },
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -1148,6 +1280,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "No es confesión, dirección espiritual ni terapia"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Não é confissão, direção espiritual nem terapia"
           }
         }
       }
@@ -1205,16 +1343,16 @@
             "value": "Only used to greet you by name on Today and here in Settings."
           }
         },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Usado só para te chamar pelo nome no Hoje e aqui nas Configurações."
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Solo se usa para llamarte por tu nombre en Hoy y aquí en Ajustes."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Usado só para te chamar pelo nome no Hoje e aqui nas Configurações."
           }
         }
       }
@@ -1285,14 +1423,30 @@
         }
       }
     },
-    "Política de privacidade": {
+    "Personalize with what I write": {
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Personalize with what I write"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Personalizar con lo que escribo"
+          }
+        },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Política de privacidade"
+            "value": "Personalizar com o que escrevo"
           }
-        },
+        }
+      }
+    },
+    "Política de privacidade": {
+      "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -1304,17 +1458,17 @@
             "state": "translated",
             "value": "Política de privacidad"
           }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Política de privacidade"
+          }
         }
       }
     },
     "Preferências": {
       "localizations": {
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Preferências"
-          }
-        },
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -1326,17 +1480,17 @@
             "state": "translated",
             "value": "Preferencias"
           }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Preferências"
+          }
         }
       }
     },
     "Privacidade": {
       "localizations": {
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Privacidade"
-          }
-        },
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -1347,6 +1501,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Privacidad"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Privacidade"
           }
         }
       }
@@ -1375,12 +1535,6 @@
     },
     "Região e forma do rito": {
       "localizations": {
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Região e forma do rito"
-          }
-        },
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -1391,6 +1545,35 @@
           "stringUnit": {
             "state": "translated",
             "value": "Región y forma del rito"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Região e forma do rito"
+          }
+        }
+      }
+    },
+    "Removes what you wrote and recorded from this device. Your language and settings stay.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Removes what you wrote and recorded from this device. Your language and settings stay."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Elimina de este dispositivo lo que escribiste y registraste. El idioma y los ajustes se mantienen."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Remove deste aparelho o que você escreveu e registrou. O idioma e os ajustes continuam."
           }
         }
       }
@@ -1419,12 +1602,6 @@
     },
     "SEMPRE AQUI": {
       "localizations": {
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "SEMPRE AQUI"
-          }
-        },
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -1435,6 +1612,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "SIEMPRE AQUÍ"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "SEMPRE AQUI"
           }
         }
       }
@@ -1448,16 +1631,16 @@
             "value": "Save"
           }
         },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Salvar"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Guardar"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Salvar"
           }
         }
       }
@@ -1484,14 +1667,30 @@
         }
       }
     },
-    "Seus dados": {
+    "See where else to find help →": {
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "See where else to find help →"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ver dónde más buscar ayuda →"
+          }
+        },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Seus dados"
+            "value": "Ver onde mais buscar ajuda →"
           }
-        },
+        }
+      }
+    },
+    "Seus dados": {
+      "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -1502,6 +1701,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Tus datos"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seus dados"
           }
         }
       }
@@ -1528,36 +1733,8 @@
         }
       }
     },
-    "Sincronização, exportar, apagar": {
-      "localizations": {
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sincronização, exportar, apagar"
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sync, export, delete"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sincronización, exportar, borrar"
-          }
-        }
-      }
-    },
     "Sobre": {
       "localizations": {
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sobre"
-          }
-        },
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -1568,6 +1745,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Acerca de"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sobre"
           }
         }
       }
@@ -1594,14 +1777,30 @@
         }
       }
     },
-    "Suporte": {
+    "Subscription restored": {
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Subscription restored"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Suscripción restaurada"
+          }
+        },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Suporte"
+            "value": "Assinatura restaurada"
           }
-        },
+        }
+      }
+    },
+    "Suporte": {
+      "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -1612,6 +1811,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Soporte"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Suporte"
           }
         }
       }
@@ -1684,12 +1889,6 @@
     },
     "Termos de uso": {
       "localizations": {
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Termos de uso"
-          }
-        },
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -1700,6 +1899,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Términos de uso"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Termos de uso"
           }
         }
       }
@@ -1722,6 +1927,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "Termos de uso"
+          }
+        }
+      }
+    },
+    "The App Store couldn't be reached. Check your connection and try again.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The App Store couldn't be reached. Check your connection and try again."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No se pudo contactar con la App Store. Revisa tu conexión y vuelve a intentarlo."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Não foi possível falar com a App Store. Verifique sua conexão e tente de novo."
           }
         }
       }
@@ -1801,16 +2028,16 @@
             "value": "The current version is published at missale.app, and the App Store listing links to it."
           }
         },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "A versão vigente está publicada em missale.app, e a página da App Store leva até ela."
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "La versión vigente está publicada en missale.app, y la página de la App Store enlaza a ella."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A versão vigente está publicada em missale.app, e a página da App Store leva até ela."
           }
         }
       }
@@ -1845,16 +2072,16 @@
             "value": "The proper calendars aren't loaded yet: your choice is saved and takes effect once each country's sanctoral is in the catalog."
           }
         },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Os calendários próprios ainda não estão carregados: sua escolha fica guardada e passa a valer quando o santoral de cada país entrar no acervo."
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Los calendarios propios aún no están cargados: tu elección queda guardada y pasa a valer cuando el santoral de cada país entre en el acervo."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Os calendários próprios ainda não estão carregados: sua escolha fica guardada e passa a valer quando o santoral de cada país entrar no acervo."
           }
         }
       }
@@ -1903,6 +2130,28 @@
         }
       }
     },
+    "This Apple ID has no active Missale subscription. If you subscribed with another Apple ID, sign in with it in the App Store and try again.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This Apple ID has no active Missale subscription. If you subscribed with another Apple ID, sign in with it in the App Store and try again."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Este Apple ID no tiene una suscripción activa de Missale. Si te suscribiste con otro Apple ID, inicia sesión con él en la App Store y vuelve a intentarlo."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Este Apple ID não tem uma assinatura ativa do Missale. Se você assinou com outro Apple ID, entre com ele na App Store e tente de novo."
+          }
+        }
+      }
+    },
     "This text hasn't been written yet.": {
       "extractionState": "manual",
       "localizations": {
@@ -1912,16 +2161,16 @@
             "value": "This text hasn't been written yet."
           }
         },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Este texto ainda não foi escrito."
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Este texto aún no se ha escrito."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Este texto ainda não foi escrito."
           }
         }
       }
@@ -1957,16 +2206,16 @@
             "value": "We couldn't open this document on your device."
           }
         },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Não foi possível abrir este documento no seu aparelho."
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "No se pudo abrir este documento en tu dispositivo."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Não foi possível abrir este documento no seu aparelho."
           }
         }
       }
@@ -2024,16 +2273,16 @@
             "value": "What the app keeps, and where it keeps it."
           }
         },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "O que o app guarda, e onde guarda."
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Qué guarda la app, y dónde lo guarda."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O que o app guarda, e onde guarda."
           }
         }
       }
@@ -2060,6 +2309,28 @@
         }
       }
     },
+    "What you write is kept only on this device. It is sent, without being stored, only for the guidance you ask for and, with a subscription, for the personalization you can turn off in Settings. You have an account, created with Sign in with Apple. No analytics, no ads, no third-party trackers.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "What you write is kept only on this device. It is sent, without being stored, only for the guidance you ask for and, with a subscription, for the personalization you can turn off in Settings. You have an account, created with Sign in with Apple. No analytics, no ads, no third-party trackers."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lo que escribes se guarda solo en este dispositivo. Solo se envía, sin guardarse, en la orientación que pides y, con la suscripción, en la personalización, que puedes desactivar en Ajustes. Tienes una cuenta, creada con \"Iniciar sesión con Apple\". Sin analíticas, sin anuncios, sin rastreadores de terceros."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O que você escreve fica só neste aparelho. Ele só é enviado, sem ser guardado, na orientação que você pede e, com a assinatura, na personalização, que pode ser desligada nos Ajustes. Você tem uma conta, criada com o \"Entrar com a Apple\". Sem analytics, sem anúncios, sem rastreadores de terceiros."
+          }
+        }
+      }
+    },
     "What's included": {
       "localizations": {
         "en": {
@@ -2078,6 +2349,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "O que está incluído"
+          }
+        }
+      }
+    },
+    "With a subscription, what you write in the Rosary, the Examen, the morning intention and when you log how you are is used to choose texts from the reviewed collection, and is not stored. When off, none of it is sent.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "With a subscription, what you write in the Rosary, the Examen, the morning intention and when you log how you are is used to choose texts from the reviewed collection, and is not stored. When off, none of it is sent."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Con la suscripción, lo que escribes en el Rosario, el Examen, la intención de la mañana y al registrar cómo estás se usa para elegir textos del acervo revisado, y no se guarda. Desactivado, nada de eso se envía."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Com a assinatura, o que você escreve no Terço, no Exame, na intenção da manhã e ao registrar como está é usado para escolher textos do acervo revisado, e não é guardado. Desligado, nada disso é enviado."
           }
         }
       }
@@ -2214,254 +2507,6 @@
         }
       }
     },
-    "Your name": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Your name"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Seu nome"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tu nombre"
-          }
-        }
-      }
-    },
-    "What you write stays on this device and is never sent anywhere. To keep improving the app, we may collect anonymous usage data — which screens are opened and how often — never what you write, and never linked to you. No account, no ads, no third-party trackers.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "What you write stays on this device and is never sent anywhere. To keep improving the app, we may collect anonymous usage data — which screens are opened and how often — never what you write, and never linked to you. No account, no ads, no third-party trackers."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lo que escribes se queda en este dispositivo y nunca se envía. Para seguir mejorando la app, podemos recoger datos de uso anónimos — qué pantallas se abren y con qué frecuencia —, nunca lo que escribes y nunca vinculados a ti. Sin cuenta, sin anuncios, sin rastreadores de terceros."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "O que você escreve fica neste aparelho e nunca é enviado. Para melhorar sempre o app, podemos coletar dados de uso anônimos — quais telas são abertas e com que frequência —, nunca o que você escreve e nunca ligados a você. Sem conta, sem anúncios, sem rastreadores de terceiros."
-          }
-        }
-      }
-    },
-    "Grave sin, a doubt of conscience, a life decision, a crisis: take it to a priest. The button below opens Maps with the Catholic churches near you — confession times are best confirmed with the parish itself.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Grave sin, a doubt of conscience, a life decision, a crisis: take it to a priest. The button below opens Maps with the Catholic churches near you — confession times are best confirmed with the parish itself."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pecado grave, duda de conciencia, decisión de vida, crisis: llévalo a un sacerdote. El botón de abajo abre Mapas con las iglesias católicas cerca de ti — los horarios de confesión, confírmalos con la propia parroquia."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pecado grave, dúvida de consciência, decisão de vida, crise: leve a um padre. O botão abaixo abre o Mapas com as igrejas católicas perto de você — os horários de confissão, confirme com a própria paróquia."
-          }
-        }
-      }
-    },
-    "Find churches in Maps →": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Find churches in Maps →"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Buscar iglesias en Mapas →"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Procurar igrejas no Mapas →"
-          }
-        }
-      }
-    },
-    "See where else to find help →": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "See where else to find help →"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ver dónde más buscar ayuda →"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ver onde mais buscar ajuda →"
-          }
-        }
-      }
-    },
-    "Catholic church": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Catholic church"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "iglesia católica"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "igreja católica"
-          }
-        }
-      }
-    },
-    "My Missale data": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "My Missale data"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mis datos de Missale"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Meus dados do Missale"
-          }
-        }
-      }
-    },
-    "Export my data": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Export my data"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Exportar mis datos"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Exportar meus dados"
-          }
-        }
-      }
-    },
-    "A file with everything you wrote and recorded, to keep or send wherever you want.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "A file with everything you wrote and recorded, to keep or send wherever you want."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Un archivo con todo lo que escribiste y registraste, para guardarlo o enviarlo donde quieras."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Um arquivo com tudo o que você escreveu e registrou, para guardar ou mandar para onde quiser."
-          }
-        }
-      }
-    },
-    "Delete my data": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Delete my data"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Borrar mis datos"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Apagar meus dados"
-          }
-        }
-      }
-    },
-    "Removes what you wrote and recorded from this device. Your language and settings stay.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Removes what you wrote and recorded from this device. Your language and settings stay."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Elimina de este dispositivo lo que escribiste y registraste. El idioma y los ajustes se mantienen."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Remove deste aparelho o que você escreveu e registrou. O idioma e os ajustes continuam."
-          }
-        }
-      }
-    },
     "Your data was deleted.": {
       "extractionState": "manual",
       "localizations": {
@@ -2485,52 +2530,6 @@
         }
       }
     },
-    "Deleting the app from this device also removes everything it saved.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Deleting the app from this device also removes everything it saved."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Borrar la app del dispositivo también elimina todo lo que guardó."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Apagar o app do aparelho também remove tudo o que ele guardou."
-          }
-        }
-      }
-    },
-    "Delete everything you wrote and recorded?": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Delete everything you wrote and recorded?"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "¿Borrar todo lo que escribiste y registraste?"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Apagar tudo o que você escreveu e registrou?"
-          }
-        }
-      }
-    },
     "Your mood log, Examens, rosaries, Formation progress, the day's routine and what you wrote in the morning, Bible highlights and bookmark, and your name. This cannot be undone.": {
       "extractionState": "manual",
       "localizations": {
@@ -2550,6 +2549,51 @@
           "stringUnit": {
             "state": "translated",
             "value": "O registro de humor, os Exames, os terços, o progresso na Formação, o roteiro do dia e o que você escreveu de manhã, as marcações e o marcador da Bíblia, e o seu nome. Não dá para desfazer."
+          }
+        }
+      }
+    },
+    "Your name": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your name"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tu nombre"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seu nome"
+          }
+        }
+      }
+    },
+    "Your subscription is active on this device.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your subscription is active on this device."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tu suscripción está activa en este dispositivo."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sua assinatura está ativa neste aparelho."
           }
         }
       }

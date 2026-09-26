@@ -1,6 +1,6 @@
 # Missale Terms of Use
 
-**Last updated: 25 September 2026**
+**Last updated: 26 September 2026**
 
 By using the Missale app you agree to these terms. Please read them: they are
 short, and they say exactly what the app is and what it is not.
@@ -92,11 +92,19 @@ If the cost is a genuine obstacle, write to acesso@missale.app.
 
 ## 5. Your data
 
-Missale neither collects nor receives any data of yours. What you write stays
-on your device. The details are in the Privacy Policy, which forms part of
-these terms.
+Missale does not keep what you write: it stays on your device. There are two
+exceptions, where the text passes through our server to Jev without being kept
+or logged: the guidance, when you ask for it, and, if you subscribe with
+"Personalize with what I write" on, the Rosary intention, the Examen answers,
+the morning intention and your latest log of how you are, used to choose
+content from the reviewed collection. You can turn personalization off in
+Settings. The details are in the Privacy Policy, which forms part of these
+terms.
 
-Because nothing is copied off the device, **backing up is your
+What Jev chooses is a suggestion drawn from the collection based on your text,
+not a word addressed to you by God, nor spiritual direction.
+
+Because nothing you write is kept off the device, **backing up is your
 responsibility**. If you delete the app or change devices, your notes are gone
 and we have no copy to return. To keep a copy, use Settings › Your data ›
 Export my data.

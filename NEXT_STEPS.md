@@ -6,8 +6,11 @@ setembro de 2026, sobre `1339948` com as mudanças ainda não commitadas do bran
 escritos de memória — e a forma de medir está no fim, para você poder refazer a
 conta depois.
 
-Estado: **43 testes unitários e 44 de UI, 0 falhas.** `xcodegen generate` e
-build limpos.
+Estado: **144 testes unitários, 0 falhas (1 pulado), e 67 de UI**
+(`grep -rhoE "func test[A-Za-z0-9_]*\(" Tests/Unit Tests/UITests | wc -l` por
+pasta); rodados sem falha nesta sessão: a suíte unitária inteira,
+`ExamenSuggestionUITests`, `ExamenLanguageUITests` e `SignInGateUITests`.
+`xcodegen generate` e build limpos.
 
 ---
 
@@ -325,9 +328,38 @@ só local com a conta (25/09) e o conteúdo remoto.
 - **O que sai do aparelho:** o token de identidade da Apple, as chaves da
   sessão e, só quando a pessoa toca "Receber orientação", o texto daquela
   caixa, que o servidor repassa ao Jev e, segundo a política, não guarda.
-  Nenhuma chave de `LocalData` (humor, Exame, notas, Bíblia, rotina) é
-  enviada. Que o servidor não guarda o texto é do backend; nenhum teste do app
-  cobre isso.
+  Além disso, para assinantes com "Personalizar com o que escrevo" ligado
+  (chave `jev_personalization_enabled`, ligada por padrão), o texto passa por
+  `JevPicker`, sempre com a pergunta de risco, em quatro pontos — todos
+  construídos em 26/09:
+  - a intenção do Terço, para sugerir o mistério e a dezena (`RosarySuggestion`);
+  - as quatro respostas do Exame do dia, para sugerir um santo e uma oração de
+    fechamento (`ExamenSuggestion`);
+  - a intenção da manhã, para escolher o versículo do dia que reaparece nas
+    Completas (`IntentionVerse`, guardado em `routine_intention_verses`);
+  - o mais novo entre o último registro de humor e a intenção da manhã, uma
+    vez por dia, para escolher a Palavra do dia (`PersonalizedWordOfDay`,
+    guardado no grupo do app em `word_of_day_shown`, e que exclui da lista de
+    candidatas o versículo que `IntentionVerse` já escolheu para o dia, para
+    os dois cartões do Hoje nunca mostrarem a mesma passagem).
+
+  Desligado ou sem assinatura, nada é enviado (`JevPickerTests`). Nenhuma
+  chave de `LocalData` (humor, Exame, notas, Bíblia, rotina) é enviada além
+  do texto que passa, ponto a ponto, por `JevPicker` como descrito acima. Que
+  o servidor não guarda o texto é do backend; nenhum teste do app cobre isso.
+
+  **Para revisar, não código:** os pisos de confiança abaixo dos quais uma
+  resposta do Jev é descartada (`JevPicker.minimumConfidence` e as
+  `minimumConfidence` de cada `Pick`) são palpites — 0,35 por padrão (o mesmo
+  da orientação), 0,25 no mistério do Terço e no santo/oração do Exame, 0,2 na
+  intenção do Terço, 0,15 na Palavra do dia (a lista mais longa, onde a
+  probabilidade se espalha mais fino). Nenhum foi calibrado contra respostas
+  reais do Jev — só a sensação, ao escrever cada `Pick`, de quantas opções
+  competem. Ajustar depois de ver os primeiros dias de uso real. Também vale
+  uma revisão editorial das descrições dos quatro conjuntos de mistérios do
+  Terço em `MysterySet.jevDescription` (`RosarySuggestion.swift`) — foram escritas para o Jev
+  entender a que cada conjunto se aplica, não para serem lidas por uma
+  pessoa, mas nunca passaram por revisão de conteúdo.
 - **Conta obrigatória, só com a Apple.** Os botões Google/Facebook do desenho
   original nunca foram construídos. A sessão fica no Keychain, fora de
   `LocalData`.

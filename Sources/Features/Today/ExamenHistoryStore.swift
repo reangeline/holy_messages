@@ -10,8 +10,19 @@ final class ExamenHistoryStore {
 
     private init() {}
 
-    func record(gratitude: String, lightRequest: String, review: String, response: String) {
-        list.append(ExamenEntry(gratitude: gratitude, lightRequest: lightRequest, review: review, response: response))
+    @discardableResult
+    func record(gratitude: String, lightRequest: String, review: String, response: String) -> ExamenEntry {
+        let entry = ExamenEntry(gratitude: gratitude, lightRequest: lightRequest, review: review, response: response)
+        list.append(entry)
+        return entry
+    }
+
+    /// Keeps Jev's saint and prayer with the entry they were chosen from.
+    func attach(_ suggestion: ExamenSuggestion, to entryID: UUID) {
+        list.update(where: { $0.id == entryID }) { entry in
+            entry.saintID = suggestion.saintID
+            entry.prayerID = suggestion.prayerID
+        }
     }
 
 }

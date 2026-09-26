@@ -60,8 +60,8 @@ final class LegalDocumentUITests: XCTestCase {
         let app = openSettings("pt")
         row(app, matching: "label CONTAINS[c] 'Seus dados' OR label CONTAINS[c] 'dados'").tap()
 
-        // A oferta é o interruptor, não a palavra: a tela menciona os dados de
-        // uso anônimos para dizer o que é e o que nunca é coletado.
+        // A tela não tem interruptor: não há sincronização, e não há analytics
+        // — nem a versão "anônima" que a tela dizia antes de ter conta.
         XCTAssertEqual(app.switches.count, 0,
                        "a tela de dados ainda tem interruptor — sincronização ou analytics voltaram")
         for ausente in ["Sincronizar", "PDF", "Apagar tudo"] {
@@ -71,8 +71,12 @@ final class LegalDocumentUITests: XCTestCase {
             )
         }
         XCTAssertTrue(
-            app.staticTexts.matching(NSPredicate(format: "label CONTAINS[c] 'nunca o que você escreve'")).firstMatch.exists,
-            "a tela deixou de dizer que o que a pessoa escreve nunca é coletado"
+            app.staticTexts.matching(NSPredicate(format: "label CONTAINS[c] 'Sem analytics'")).firstMatch.exists,
+            "a tela deixou de dizer que não há analytics"
+        )
+        XCTAssertTrue(
+            app.staticTexts.matching(NSPredicate(format: "label CONTAINS[c] 'Entrar com a Apple'")).firstMatch.exists,
+            "a tela deixou de dizer que há conta, feita com o Entrar com a Apple"
         )
         XCTAssertFalse(
             app.staticTexts.matching(NSPredicate(format: "label CONTAINS[c] 'ainda não'")).firstMatch.exists,

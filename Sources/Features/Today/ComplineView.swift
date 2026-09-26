@@ -5,6 +5,7 @@ import SwiftUI
 struct ComplineView: View {
     @Environment(\.dismiss) private var dismiss
     @State private var darkScreen = true
+    @ObservedObject private var routine = DailyRoutineStore.shared
 
     /// Read at body time, not stored: the language can change under the screen.
     private var texts: ComplineText { MockCompline.today }
@@ -54,6 +55,7 @@ struct ComplineView: View {
                         Text(texts.note)
                             .font(MissaleFont.body(15))
                             .foregroundStyle(.white.opacity(0.55))
+                        morningRecall
                     }
                     .padding(.top, 16)
                     .padding(.bottom, 24)
@@ -77,6 +79,37 @@ struct ComplineView: View {
             .brightness(darkScreen ? 0 : 0.15)
         }
         .navigationBarBackButtonHidden(true)
+    }
+
+    /// Before closing the day, what the reader asked for this morning — in
+    /// their own words, exactly — and the verse Jev chose for it. Only when
+    /// both exist.
+    @ViewBuilder
+    private var morningRecall: some View {
+        if let intention = routine.intention(), let id = routine.intentionVerseID(),
+           let verse = IntentionVerse.verse(id: id) {
+            VStack(alignment: .leading, spacing: 10) {
+                if routine.showsCrisisForIntention() {
+                    CrisisSupportCard()
+                        .padding(16)
+                        .background(Palette.parchment, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
+                }
+                Text(L.string("Hoje de manhã você pediu por:", table: "Today"))
+                    .font(MissaleFont.body(15))
+                    .foregroundStyle(.white.opacity(0.6))
+                Text("\u{201C}\(intention)\u{201D}")
+                    .font(MissaleFont.display(19, italic: true))
+                    .foregroundStyle(.white.opacity(0.9))
+                IntentionVerseText(verse: verse, ink: .white.opacity(0.88), accent: Palette.goldBright)
+                    .padding(.top, 4)
+                Text(L.string("Entregue a Deus o que o dia trouxe.", table: "Today"))
+                    .font(MissaleFont.body(15))
+                    .foregroundStyle(.white.opacity(0.55))
+            }
+            .padding(.top, 10)
+            .accessibilityElement(children: .contain)
+            .accessibilityIdentifier("complineMorningRecall")
+        }
     }
 }
 

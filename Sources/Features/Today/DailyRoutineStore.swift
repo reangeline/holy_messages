@@ -14,6 +14,7 @@ final class DailyRoutineStore: ObservableObject {
     static let completionsKey = "routine_completions"
     static let positionKey = "routine_nt_position"
     static let intentionsKey = "routine_intentions"
+    static let intentionVersesKey = "routine_intention_verses"
     /// Older days are dropped: the list only ever answers "done today?".
     private static let keptDays = 60
 
@@ -25,6 +26,12 @@ final class DailyRoutineStore: ObservableObject {
     @Published private(set) var position: Int
     /// Day key -> what the reader hopes for that day, written in the morning.
     @Published private(set) var intentions: [String: String]
+    /// Day key -> id of the verse Jev chose for that day's intention, from the
+    /// Word of the Day pool (see IntentionVerse).
+    @Published private(set) var intentionVerses: [String: String]
+    /// Day key whose intention Jev flagged for risk. Kept in memory only: the
+    /// crisis card shows over the verse while the app is open.
+    @Published private(set) var crisisIntentionDay: String?
 
     private let defaults: UserDefaults
     private var dayChange: NSObjectProtocol?
@@ -34,6 +41,7 @@ final class DailyRoutineStore: ObservableObject {
         completions = defaults.dictionary(forKey: Self.completionsKey) as? [String: [String]] ?? [:]
         position = defaults.integer(forKey: Self.positionKey)
         intentions = defaults.dictionary(forKey: Self.intentionsKey) as? [String: String] ?? [:]
+        intentionVerses = defaults.dictionary(forKey: Self.intentionVersesKey) as? [String: String] ?? [:]
         // "Done today?" is asked of the clock, not of anything published, so
         // an app left open overnight kept showing yesterday's checks until some
         // unrelated change redrew Today — and then they all vanished at once.
@@ -48,18 +56,49 @@ final class DailyRoutineStore: ObservableObject {
         completions = defaults.dictionary(forKey: Self.completionsKey) as? [String: [String]] ?? [:]
         position = defaults.integer(forKey: Self.positionKey)
         intentions = defaults.dictionary(forKey: Self.intentionsKey) as? [String: String] ?? [:]
+        intentionVerses = defaults.dictionary(forKey: Self.intentionVersesKey) as? [String: String] ?? [:]
+        crisisIntentionDay = nil
     }
 
     func intention(on date: Date = Date()) -> String? {
         intentions[Self.dayKey(date)]
     }
 
-    func saveIntention(_ text: String, on date: Date = Date()) {
+    /// Returns whether the text changed. A changed intention drops the day's
+    /// verse, which was chosen for the old words.
+    @discardableResult
+    func saveIntention(_ text: String, on date: Date = Date()) -> Bool {
         let trimmed = text.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard !trimmed.isEmpty else { return }
-        intentions[Self.dayKey(date)] = trimmed
+        let key = Self.dayKey(date)
+        guard !trimmed.isEmpty, intentions[key] != trimmed else { return false }
+        intentions[key] = trimmed
         intentions = intentions.filter { $0.key >= Self.cutoff(from: date) }
         defaults.set(intentions, forKey: Self.intentionsKey)
+        if crisisIntentionDay == key { crisisIntentionDay = nil }
+        if intentionVerses.removeValue(forKey: key) != nil {
+            defaults.set(intentionVerses, forKey: Self.intentionVersesKey)
+        }
+        return true
+    }
+
+    func intentionVerseID(on date: Date = Date()) -> String? {
+        intentionVerses[Self.dayKey(date)]
+    }
+
+    func showsCrisisForIntention(on date: Date = Date()) -> Bool {
+        crisisIntentionDay == Self.dayKey(date)
+    }
+
+    /// Jev's answer for `intention`, kept only while it is still that day's
+    /// intention — an answer for words since edited is dropped.
+    func recordIntentionVerse(_ verseID: String?, showCrisisFirst: Bool, for intention: String, on date: Date = Date()) {
+        let key = Self.dayKey(date)
+        guard intentions[key] == intention else { return }
+        crisisIntentionDay = showCrisisFirst ? key : (crisisIntentionDay == key ? nil : crisisIntentionDay)
+        guard let verseID else { return }
+        intentionVerses[key] = verseID
+        intentionVerses = intentionVerses.filter { $0.key >= Self.cutoff(from: date) }
+        defaults.set(intentionVerses, forKey: Self.intentionVersesKey)
     }
 
     private static func cutoff(from date: Date) -> String {

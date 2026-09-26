@@ -5,7 +5,9 @@ import Foundation
 /// widget extension too, and a widget has no business pulling in the liturgical
 /// calendar or the Mass bulletin — see project.yml.
 extension MockWordOfDay {
-    static var today: WordOfDay { wordOfDay(for: MockLiturgical.today.dateKey) }
+    /// Today's word as the reader sees it: chosen for them, or drawn by date
+    /// — see `word(for:)` and PersonalizedWordOfDay.
+    static var today: WordOfDay { word(for: MockLiturgical.today.dateKey) }
 
     static let shareCardWatermark = "Missale"
 }
