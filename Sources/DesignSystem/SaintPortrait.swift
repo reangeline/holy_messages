@@ -24,12 +24,18 @@ struct SaintPortrait: View {
             // fills it, so the clip happens at the final frame. Clipping the image
             // directly would clip before `.frame` is applied at the call site, and
             // a `.fill` image would spill over its card.
+            //
+            // Top-aligned, not centered: portraits — bundled or from the admin
+            // page — put the face in the upper part of the picture, so a frame
+            // shorter than the source (the detail hero against a square upload,
+            // for one) should keep the top and lose the bottom, not crop evenly
+            // from both edges and cut through the face.
             Color.clear
-                .overlay(
+                .overlay(alignment: .top) {
                     image
                         .resizable()
                         .aspectRatio(contentMode: .fill)
-                )
+                }
                 .clipShape(RoundedRectangle(cornerRadius: cornerRadius, style: .continuous))
                 .overlay(
                     RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)

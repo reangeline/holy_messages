@@ -7,8 +7,12 @@ import Foundation
 ///
 /// Asked when the intention is saved, never while it is typed; saving a
 /// different text the same day asks again. Nil from `JevPicker` (off, not
-/// subscribed) or no confident answer: nothing is stored, and the screens
-/// stay as they were.
+/// subscribed), no confident answer, or every call failing (offline, the
+/// server, the daily limit): nothing is stored, and the screens stay as they
+/// were. A stored verse and "Jev was asked" are the same thing here — there is
+/// no separate flag — so a failed attempt naturally leaves room for another:
+/// `IntentionVerseSection` asks again when the app becomes active while
+/// today has an intention and no verse.
 enum IntentionVerse {
     static let versePick = "verse"
 

@@ -1,3 +1,4 @@
+import AVFoundation
 import SwiftUI
 
 /// Shared small pieces used across many onboarding screens. Kept local to this
@@ -167,5 +168,72 @@ struct OnboardingHoldButton: View {
             .sensoryFeedback(.success, trigger: committed)
             .accessibilityAddTraits(.isButton)
             .accessibilityAction { committed = true; action() }
+    }
+}
+
+// MARK: - Plan video
+
+/// The feature-reel slot on the "short plan" (synthesis) screen. Drop a file
+/// named exactly `onboarding-plano.mp4` into `Sources/Resources/` (bundled as
+/// a plain resource, same as the Bible JSON files there) and it starts
+/// playing automatically — nothing else to wire up. Until that file exists,
+/// this shows a tasteful placeholder instead of a broken or blank box.
+struct OnboardingPlanVideoSlot: View {
+    private static let resourceURL = Bundle.main.url(forResource: "onboarding-plano", withExtension: "mp4")
+
+    var body: some View {
+        ZStack {
+            if let url = Self.resourceURL {
+                LoopingSilentVideo(url: url)
+            } else {
+                VStack(spacing: 8) {
+                    Image(systemName: "play.circle.fill")
+                        .font(.system(size: 32))
+                        .foregroundStyle(Palette.ink.opacity(0.3))
+                    Text("Video coming soon", tableName: "Onboarding")
+                        .font(MissaleFont.body(13))
+                        .foregroundStyle(Palette.ink.opacity(0.45))
+                }
+            }
+        }
+        .frame(maxWidth: .infinity)
+        .frame(height: 190)
+        .background(Palette.ink.opacity(0.05))
+        .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
+        .overlay(
+            RoundedRectangle(cornerRadius: 18, style: .continuous)
+                .strokeBorder(Color.black.opacity(0.06))
+        )
+    }
+}
+
+/// Muted, looping, chrome-free video. AVKit's `VideoPlayer` always shows
+/// playback controls, so this wraps `AVPlayerLayer` directly instead.
+private struct LoopingSilentVideo: UIViewRepresentable {
+    let url: URL
+
+    func makeUIView(context: Context) -> PlayerLayerView {
+        let item = AVPlayerItem(url: url)
+        let player = AVQueuePlayer()
+        player.isMuted = true
+        context.coordinator.looper = AVPlayerLooper(player: player, templateItem: item)
+        let view = PlayerLayerView()
+        view.playerLayer.player = player
+        view.playerLayer.videoGravity = .resizeAspectFill
+        player.play()
+        return view
+    }
+
+    func updateUIView(_ uiView: PlayerLayerView, context: Context) {}
+
+    func makeCoordinator() -> Coordinator { Coordinator() }
+
+    final class Coordinator {
+        var looper: AVPlayerLooper?
+    }
+
+    final class PlayerLayerView: UIView {
+        override static var layerClass: AnyClass { AVPlayerLayer.self }
+        var playerLayer: AVPlayerLayer { layer as! AVPlayerLayer }
     }
 }

@@ -12,6 +12,8 @@ struct OnboardingSynthesisView: View {
                 Spacer().frame(height: 60)
                 ScrollView {
                     VStack(alignment: .leading, spacing: 16) {
+                        OnboardingPlanVideoSlot()
+
                         Eyebrow(text: L.string("Your formation track", table: "Onboarding"))
                         Text("A short plan, starting today", tableName: "Onboarding")
                             .font(MissaleFont.display(27))
@@ -21,14 +23,15 @@ struct OnboardingSynthesisView: View {
                             .foregroundStyle(Palette.ink.opacity(0.65))
 
                         VStack(spacing: 10) {
-                            ForEach(Array(OnboardingStory.plan(missing: viewModel.lifeAnswers["life-3"] ?? []).enumerated()), id: \.offset) { index, planStep in
-                                let step = (number: index + 1,
-                                            title: OnboardingStory.text(planStep.title),
-                                            subtitle: OnboardingStory.text(planStep.subtitle))
+                            ForEach(Array(OnboardingStory.plan(missing: viewModel.lifeAnswers["life-3"] ?? []).enumerated()), id: \.offset) { _, planStep in
+                                let step = (title: OnboardingStory.text(planStep.title),
+                                            subtitle: OnboardingStory.text(planStep.subtitle),
+                                            icon: planStep.icon)
                                 HStack(alignment: .top, spacing: 12) {
-                                    Text("\(step.number)")
-                                        .font(MissaleFont.display(20, weight: .medium))
+                                    Image(systemName: step.icon)
+                                        .font(.system(size: 18, weight: .medium))
                                         .foregroundStyle(Palette.goldMuted)
+                                        .frame(width: 22)
                                     VStack(alignment: .leading, spacing: 2) {
                                         Text(step.title)
                                             .font(MissaleFont.body(17, weight: .medium))

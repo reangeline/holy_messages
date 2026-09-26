@@ -127,8 +127,11 @@ final class PersonalizedWordOfDay: ObservableObject {
     /// - the day's word is recorded as shown, for the 30-day exclusion;
     /// - with recent text and Jev not yet asked today, Jev is asked once.
     ///   Nil from the picker (off, no subscription) leaves the day open, so a
-    ///   later subscription can still pick; any answer, even an unsure one,
-    ///   closes it.
+    ///   later subscription can still pick. A non-nil result only closes the
+    ///   day when Jev actually answered (`answered`, confident or not); every
+    ///   call failing (offline, the server, the daily limit) leaves the day
+    ///   open too, so the next refresh tries again — still at most once per
+    ///   refresh, never a loop.
     static func resolve(log: [String: ShownWord], day: String, language: String, pool: [WordOfDay],
                         drawn: WordOfDay, text: String?, enabled: Bool, excludingVerseID: String? = nil,
                         ask: Ask) async -> [String: ShownWord] {
@@ -143,8 +146,8 @@ final class PersonalizedWordOfDay: ObservableObject {
 
         let candidates = self.candidates(pool: pool, log: log, today: day, excluding: excludingVerseID)
         guard let result = await ask(text, [pick(candidates)]) else { return log }
-        entry.asked = true
         entry.showCrisisFirst = result.showCrisisFirst
+        if result.answered { entry.asked = true }
         if let id = result[pickName], candidates.contains(where: { $0.id == id }) {
             entry = ShownWord(id: id, language: language, chosen: true, asked: true,
                               showCrisisFirst: result.showCrisisFirst)

@@ -1434,6 +1434,28 @@
         }
       }
     },
+    "Video coming soon": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Video coming soon"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Video próximamente"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vídeo em breve"
+          }
+        }
+      }
+    },
     "View all plans": {
       "extractionState": "manual",
       "localizations": {

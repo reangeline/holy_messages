@@ -36,14 +36,23 @@ struct IntentionVerseSection: View {
     @ObservedObject private var routine = DailyRoutineStore.shared
 
     var body: some View {
-        if routine.intention() != nil {
-            if routine.showsCrisisForIntention() {
-                GlassCard { CrisisSupportCard() }
-            }
-            if let id = routine.intentionVerseID(), let verse = IntentionVerse.verse(id: id) {
-                GlassCard {
-                    IntentionVerseText(verse: verse, title: L.string("Para a sua intenção de hoje", table: "Today"))
+        if let intention = routine.intention() {
+            Group {
+                if routine.showsCrisisForIntention() {
+                    GlassCard { CrisisSupportCard() }
                 }
+                if let id = routine.intentionVerseID(), let verse = IntentionVerse.verse(id: id) {
+                    GlassCard {
+                        IntentionVerseText(verse: verse, title: L.string("Para a sua intenção de hoje", table: "Today"))
+                    }
+                }
+            }
+            // A failed pick (offline, the server, the daily limit) stores no
+            // verse without marking the intention as answered: try again
+            // whenever the app comes back, instead of staying silent all day.
+            .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
+                guard routine.intentionVerseID() == nil else { return }
+                IntentionVerse.request(for: intention)
             }
         }
     }

@@ -142,6 +142,24 @@ final class PersonalizedWordOfDayTests: XCTestCase {
         XCTAssertEqual(log[day], ShownWord(id: "w5", language: language, chosen: false, asked: true, showCrisisFirst: true))
     }
 
+    /// Every call failing (offline, the server, the daily limit) is not the
+    /// same as an unsure answer: the day stays open, so the next chance —
+    /// here, a later refresh that reaches Jev — still picks a word.
+    func testAFailedAttemptLeavesTheDayOpenAndAFollowingAnswerFixesIt() async {
+        let failed = await PersonalizedWordOfDay.resolve(log: [:], day: day, language: language, pool: pool, drawn: pool[5],
+                                                          text: "text", enabled: true) { _, _ in
+            JevPicker.Result(choices: [:], showCrisisFirst: false, answered: false)
+        }
+        XCTAssertEqual(failed[day], ShownWord(id: "w5", language: language),
+                       "sem resposta de Jev, o dia continua aberto para tentar de novo")
+
+        let fake = FakeJev()
+        fake.wanted = "w42"
+        let fixed = await resolve(failed, fake)
+        XCTAssertEqual(fixed[day], ShownWord(id: "w42", language: language, chosen: true, asked: true),
+                       "a tentativa seguinte, com resposta, fecha o dia")
+    }
+
     // MARK: - Free users and personalization off
 
     func testFreeUsersSendNothingAndKeepTheDateDraw() async {

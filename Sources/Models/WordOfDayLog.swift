@@ -12,8 +12,11 @@ struct ShownWord: Codable, Equatable {
     let language: String
     /// Chosen by Jev from what the reader wrote, instead of drawn by date.
     var chosen: Bool = false
-    /// Jev was already asked today, whatever it answered: never again until
-    /// tomorrow, so the word can't change twice.
+    /// Jev already answered today (confident or not): never asked again until
+    /// tomorrow, so the word can't change twice. Left false when every call
+    /// so far failed (offline, the server, the daily limit), so the next
+    /// chance — the app becomes active, Today appears, a note or intention is
+    /// saved — tries again.
     var asked: Bool = false
     /// What the reader wrote carried a sign of risk: the crisis card stays
     /// beside the word for the rest of the day.

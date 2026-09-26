@@ -67,6 +67,7 @@ final class IntentionVerseUITests: XCTestCase {
     }
 
     func testPersonalizationOffShowsNoVerse() {
+        let intention = "For patience \(Int(Date().timeIntervalSince1970) % 100_000)"
         let app = XCUIApplication()
         app.launchArguments = base + ["-openScreen", "morning-intention", "-fakeJevPick", "off"]
         app.launch()
@@ -77,7 +78,12 @@ final class IntentionVerseUITests: XCTestCase {
         let box = app.textViews.firstMatch
         XCTAssertTrue(box.waitForExistence(timeout: 5))
         box.tap()
-        box.typeText(" again")
+        box.press(forDuration: 1.0)
+        if app.menuItems["Select All"].waitForExistence(timeout: 1) {
+            app.menuItems["Select All"].tap()
+            box.typeText(XCUIKeyboardKey.delete.rawValue)
+        }
+        box.typeText(intention)
         app.buttons["Save"].tap()
         let done = app.buttons["Done"]
         XCTAssertTrue(done.waitForExistence(timeout: 5))
@@ -86,5 +92,23 @@ final class IntentionVerseUITests: XCTestCase {
         XCTAssertTrue(morning.waitForExistence(timeout: 5), "o Hoje não voltou")
         XCTAssertFalse(text("Chosen from your intention", in: app).waitForExistence(timeout: 3),
                        "sem Jev, nenhum versículo deveria aparecer")
+
+        // Compline still recalls the intention on its own — personalization
+        // being off, or Jev never having answered, is not a reason to hide it.
+        app.terminate()
+        app.launchArguments = base + ["-openScreen", "examen", "-fakeJevPick", "off"]
+        app.launch()
+        let link = app.buttons.matching(NSPredicate(format: "label CONTAINS[c] 'straight to Compline'")).firstMatch
+        for _ in 0..<5 where !link.exists || !link.isHittable { app.swipeUp() }
+        XCTAssertTrue(link.waitForExistence(timeout: 10), "a intro do Exame não oferece as Completas")
+        link.tap()
+
+        let recall = text("This morning you asked for:", in: app)
+        for _ in 0..<6 where !recall.exists { app.swipeUp() }
+        XCTAssertTrue(recall.waitForExistence(timeout: 5),
+                      "sem versículo, as Completas ainda deveriam lembrar a intenção")
+        XCTAssertTrue(text(intention, in: app).exists, "a intenção não saiu com as palavras da pessoa")
+        XCTAssertFalse(text("Chosen from your intention", in: app).exists,
+                       "sem versículo, o rótulo do versículo não deveria aparecer")
     }
 }

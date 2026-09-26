@@ -82,12 +82,12 @@ struct ComplineView: View {
     }
 
     /// Before closing the day, what the reader asked for this morning — in
-    /// their own words, exactly — and the verse Jev chose for it. Only when
-    /// both exist.
+    /// their own words, exactly. The verse Jev chose for it joins in when
+    /// there is one; personalization off, or Jev not having answered yet,
+    /// still shows the intention on its own.
     @ViewBuilder
     private var morningRecall: some View {
-        if let intention = routine.intention(), let id = routine.intentionVerseID(),
-           let verse = IntentionVerse.verse(id: id) {
+        if let intention = routine.intention() {
             VStack(alignment: .leading, spacing: 10) {
                 if routine.showsCrisisForIntention() {
                     CrisisSupportCard()
@@ -100,8 +100,10 @@ struct ComplineView: View {
                 Text("\u{201C}\(intention)\u{201D}")
                     .font(MissaleFont.display(19, italic: true))
                     .foregroundStyle(.white.opacity(0.9))
-                IntentionVerseText(verse: verse, ink: .white.opacity(0.88), accent: Palette.goldBright)
-                    .padding(.top, 4)
+                if let id = routine.intentionVerseID(), let verse = IntentionVerse.verse(id: id) {
+                    IntentionVerseText(verse: verse, ink: .white.opacity(0.88), accent: Palette.goldBright)
+                        .padding(.top, 4)
+                }
                 Text(L.string("Entregue a Deus o que o dia trouxe.", table: "Today"))
                     .font(MissaleFont.body(15))
                     .foregroundStyle(.white.opacity(0.55))

@@ -18,9 +18,9 @@ enum OnboardingStory {
         [.en: "It's the rush of the day that keeps us from hearing.",
          .pt: "A rotina é que não deixa a gente ouvir.",
          .es: "Es la rutina la que no nos deja escuchar."],
-        [.en: "A few minutes a day, in the rhythm of the Church.",
-         .pt: "Poucos minutos por dia, no ritmo da Igreja.",
-         .es: "Unos minutos al día, al ritmo de la Iglesia."],
+        [.en: "A few minutes a day can change your whole day.",
+         .pt: "Poucos minutos por dia mudam o seu dia.",
+         .es: "Unos minutos al día cambian tu día."],
     ]
 
     static let promiseLead: [AppLanguage: String] = [
@@ -178,7 +178,9 @@ enum OnboardingStory {
 
     // MARK: - Plan (synthesis)
 
-    typealias PlanStep = (title: [AppLanguage: String], subtitle: [AppLanguage: String])
+    /// `icon` is an SF Symbol name, used on the synthesis screen to make each
+    /// row read as a distinct app feature rather than a plain numbered list.
+    typealias PlanStep = (title: [AppLanguage: String], subtitle: [AppLanguage: String], icon: String)
 
     /// Three steps: the daily routine, the one the reader asked for in
     /// "what's missing most" (life-3), and the free daily word and saint. It
@@ -192,12 +194,14 @@ enum OnboardingStory {
         [.pt: "Seu dia com Deus", .en: "Your day with God", .es: "Tu día con Dios"],
         [.pt: "Cinco momentos, da manhã à noite: oferecimento, oração, como vai o dia, um capítulo do Novo Testamento e o Exame.",
          .en: "Five moments, from morning to night: the offering, a prayer, how the day is going, a New Testament chapter and the Examen.",
-         .es: "Cinco momentos, de la mañana a la noche: ofrecimiento, oración, cómo va el día, un capítulo del Nuevo Testamento y el Examen."]
+         .es: "Cinco momentos, de la mañana a la noche: ofrecimiento, oración, cómo va el día, un capítulo del Nuevo Testamento y el Examen."],
+        "sunrise.fill"
     )
 
     private static let freeStep: PlanStep = (
         [.pt: "A palavra e o santo do dia", .en: "The daily verse and saint", .es: "El versículo y el santo del día"],
-        [.pt: "Grátis, todo dia, para sempre.", .en: "Free, every day, forever.", .es: "Gratis, todos los días, para siempre."]
+        [.pt: "Grátis, todo dia, para sempre.", .en: "Free, every day, forever.", .es: "Gratis, todos los días, para siempre."],
+        "sparkles"
     )
 
     private static let byMissing: [String: PlanStep] = [
@@ -205,25 +209,29 @@ enum OnboardingStory {
             [.pt: "A Missa, parte por parte", .en: "The Mass, part by part", .es: "La Misa, parte por parte"],
             [.pt: "Uma parte curta por dia, para entender o que acontece no altar.",
              .en: "One short part a day, to understand what happens at the altar.",
-             .es: "Una parte corta al día, para entender lo que sucede en el altar."]
+             .es: "Una parte corta al día, para entender lo que sucede en el altar."],
+            "building.columns.fill"
         ),
         "consistency": (
             [.pt: "Um capítulo por dia", .en: "One chapter a day", .es: "Un capítulo al día"],
             [.pt: "O Novo Testamento inteiro, sem pressa: constância se faz com passos pequenos.",
              .en: "The whole New Testament, without hurry: consistency is built in small steps.",
-             .es: "Todo el Nuevo Testamento, sin prisa: la constancia se hace con pasos pequeños."]
+             .es: "Todo el Nuevo Testamento, sin prisa: la constancia se hace con pasos pequeños."],
+            "book.fill"
         ),
         "peace": (
             [.pt: "Hoje eu estou…", .en: "Today I am…", .es: "Hoy estoy…"],
             [.pt: "Quando o dia pesar, um salmo, um santo e um passo concreto.",
              .en: "When the day weighs heavy, a psalm, a saint and one concrete step.",
-             .es: "Cuando el día pese, un salmo, un santo y un paso concreto."]
+             .es: "Cuando el día pese, un salmo, un santo y un paso concreto."],
+            "heart.fill"
         ),
         "community": (
             [.pt: "O calendário da Igreja", .en: "The Church's calendar", .es: "El calendario de la Iglesia"],
             [.pt: "O mesmo dia que a Igreja inteira celebra, com o santo e a cor de cada dia.",
              .en: "The same day the whole Church is celebrating, with each day's saint and colour.",
-             .es: "El mismo día que celebra toda la Iglesia, con el santo y el color de cada día."]
+             .es: "El mismo día que celebra toda la Iglesia, con el santo y el color de cada día."],
+            "calendar"
         ),
     ]
 }
