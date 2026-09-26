@@ -171,10 +171,35 @@ final class SubscriptionStore: ObservableObject {
         }
     }
 
+    enum RestoreResult: Equatable {
+        case restored
+        /// The App Store answered, and this Apple ID has no active subscription.
+        case nothingFound
+        /// The reader closed the Apple ID password sheet. Not an error.
+        case cancelled
+        case failed
+    }
+
     /// App Store guideline 3.1.1 requires a restore path in the app itself.
-    func restore() async {
-        try? await AppStore.sync()
+    ///
+    /// This used to be `try? await AppStore.sync()` returning nothing: after the
+    /// password sheet, a failed sync and an Apple ID with nothing to restore
+    /// both ended in silence, and the screen stayed exactly as it was.
+    func restore() async -> RestoreResult {
+        var erro: Error?
+        do { try await AppStore.sync() } catch { erro = error }
         await refreshEntitlement()
+        return Self.restoreResult(syncError: erro, entitled: isSubscribed)
+    }
+
+    /// Separate from `restore()` so the decision can be tested without an App Store.
+    nonisolated static func restoreResult(syncError: Error?, entitled: Bool) -> RestoreResult {
+        // A sync that failed can still leave a valid entitlement on the device.
+        if entitled { return .restored }
+        guard let syncError else { return .nothingFound }
+        if case StoreKitError.userCancelled = syncError { return .cancelled }
+        if (syncError as? SKError)?.code == .paymentCancelled { return .cancelled }
+        return .failed
     }
 
     private func refreshEntitlement() async {

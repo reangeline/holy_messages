@@ -19,7 +19,7 @@ struct OnboardingPrayerView: View {
             switch phase {
             case .intro: intro
             case .praying:
-                GuidedPrayerSequence(phrases: phrases) {
+                GuidedPrayerSequence(phrases: phrases, holdAdjustment: -1) {
                     phase = .prayed
                     withAnimation(.spring(duration: 0.8, bounce: 0.3).delay(0.4)) { checkVisible = true }
                 }

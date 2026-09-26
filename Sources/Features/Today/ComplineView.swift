@@ -54,9 +54,6 @@ struct ComplineView: View {
                         Text(texts.note)
                             .font(MissaleFont.body(15))
                             .foregroundStyle(.white.opacity(0.55))
-                        Text(texts.source)
-                            .font(MissaleFont.body(12))
-                            .foregroundStyle(.white.opacity(0.4))
                     }
                     .padding(.top, 16)
                     .padding(.bottom, 24)

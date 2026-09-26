@@ -1,6 +1,138 @@
 {
   "sourceLanguage": "en",
   "strings": {
+    "Subscription restored": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Subscription restored"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Suscripción restaurada"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Assinatura restaurada"
+          }
+        }
+      }
+    },
+    "Your subscription is active on this device.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your subscription is active on this device."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tu suscripción está activa en este dispositivo."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sua assinatura está ativa neste aparelho."
+          }
+        }
+      }
+    },
+    "No active subscription found": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No active subscription found"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No se encontró ninguna suscripción activa"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nenhuma assinatura ativa encontrada"
+          }
+        }
+      }
+    },
+    "This Apple ID has no active Missale subscription. If you subscribed with another Apple ID, sign in with it in the App Store and try again.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This Apple ID has no active Missale subscription. If you subscribed with another Apple ID, sign in with it in the App Store and try again."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Este Apple ID no tiene una suscripción activa de Missale. Si te suscribiste con otro Apple ID, inicia sesión con él en la App Store y vuelve a intentarlo."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Este Apple ID não tem uma assinatura ativa do Missale. Se você assinou com outro Apple ID, entre com ele na App Store e tente de novo."
+          }
+        }
+      }
+    },
+    "Couldn't restore": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Couldn't restore"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No se pudo restaurar"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Não foi possível restaurar"
+          }
+        }
+      }
+    },
+    "The App Store couldn't be reached. Check your connection and try again.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The App Store couldn't be reached. Check your connection and try again."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No se pudo contactar con la App Store. Revisa tu conexión y vuelve a intentarlo."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Não foi possível falar com a App Store. Verifique sua conexão e tente de novo."
+          }
+        }
+      }
+    },
     "A place to receive the word of the day, get to know the saint of the day, understand the rites, and pray with the Church. When you log how you're doing, it offers what the tradition already has for that state: a psalm, someone who went through it, and one concrete step. Nothing beyond that.": {
       "localizations": {
         "en": {

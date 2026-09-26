@@ -23,6 +23,8 @@ struct OnboardingPaywallView: View {
     @ObservedObject private var store = SubscriptionStore.shared
     @State private var selectedProductID = SubscriptionStore.ProductID.annual
     @State private var comprando = false
+    @State private var restaurando = false
+    @State private var resultadoDaRestauracao: SubscriptionStore.RestoreResult?
     @State private var falhaNaCompra = false
     @State private var mostrandoPlanos = false
     /// Guardado para rolar até os planos quando eles aparecem: abertos abaixo
@@ -73,6 +75,7 @@ struct OnboardingPaywallView: View {
         } message: {
             Text("Nothing was charged. You can try again, or keep using the app free.", tableName: "Onboarding")
         }
+        .restoreResultAlert($resultadoDaRestauracao)
     }
 
     // MARK: - Topo
@@ -289,10 +292,10 @@ struct OnboardingPaywallView: View {
                     .textCase(.uppercase)
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 17)
-                    .background(Palette.wine.opacity(comprando ? 0.4 : 1), in: Capsule())
+                    .background(Palette.wine.opacity(comprando || restaurando ? 0.4 : 1), in: Capsule())
                     .foregroundStyle(.white)
             }
-            .disabled(comprando)
+            .disabled(comprando || restaurando)
 
             if let selecionado {
                 Text(rodape(for: selecionado))
@@ -326,11 +329,15 @@ struct OnboardingPaywallView: View {
                 // Exigido pela diretriz 3.1.1: restaurar tem de existir dentro
                 // do app, não só nos Ajustes do iPhone.
                 Button(action: restaurar) {
-                    Text("Restore purchases", tableName: "Onboarding")
-                        .font(MissaleFont.body(14))
-                        .foregroundStyle(Palette.ink.opacity(0.55))
+                    if restaurando {
+                        ProgressView()
+                    } else {
+                        Text("Restore purchases", tableName: "Onboarding")
+                            .font(MissaleFont.body(14))
+                            .foregroundStyle(Palette.ink.opacity(0.55))
+                    }
                 }
-                .disabled(comprando)
+                .disabled(comprando || restaurando)
             }
         }
         .padding(.horizontal, 24)
@@ -398,11 +405,13 @@ struct OnboardingPaywallView: View {
     }
 
     private func restaurar() {
-        comprando = true
+        restaurando = true
         Task {
-            await store.restore()
-            comprando = false
-            if store.isSubscribed { onFinish() }
+            let resultado = await store.restore()
+            restaurando = false
+            // Restaurado, a tela some e o app já abre liberado; os outros
+            // casos precisam ser ditos, senão parece que nada aconteceu.
+            if resultado == .restored { onFinish() } else { resultadoDaRestauracao = resultado }
         }
     }
 }

@@ -23,8 +23,8 @@ import sys
 
 
 ROOT = pathlib.Path("/Users/reangeline")
-INPUT = ROOT / "Documents/Missale-pesquisa/entregas/aparicoes-marianas-primeiro-lote"
-OUTPUT = ROOT / "Projects/holy_messages/Sources/MockData/Generated/GeneratedMarianApparitions.swift"
+INPUT = ROOT / "Projects/Missale/Missale-pesquisa/entregas/aparicoes-marianas-primeiro-lote"
+OUTPUT = ROOT / "Projects/Missale/holy_messages/Sources/MockData/Generated/GeneratedMarianApparitions.swift"
 LANGUAGES = ("pt", "en", "es")
 REQUIRED = ("id", "name", "place", "year", "visionaries", "summary", "recognition", "fonte")
 

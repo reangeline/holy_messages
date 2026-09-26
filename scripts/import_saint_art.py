@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Importa a arte dos santos e as fichas correspondentes.
 
-Imagens: ~/Documents/Missale-pesquisa/<Nome do Santo>/<id>-hero-1600x860.png
+Imagens: ~/Projects/Missale/Missale-pesquisa/<Nome do Santo>/<id>-hero-1600x860.png
 O id vem do próprio nome do arquivo, não da pasta.
 
 Entra só o hero: o app usa 1600x860 na ficha e recorta o quadrado central para a
@@ -13,8 +13,8 @@ fica na casa dos 6 MB no total.
 """
 import json, glob, pathlib, re, subprocess, collections
 
-PESQUISA = pathlib.Path("/Users/reangeline/Documents/Missale-pesquisa")
-APP = pathlib.Path("/Users/reangeline/Projects/holy_messages")
+PESQUISA = pathlib.Path("/Users/reangeline/Projects/Missale/Missale-pesquisa")
+APP = pathlib.Path("/Users/reangeline/Projects/Missale/holy_messages")
 ASSETS = APP / "Sources/Assets.xcassets/Saints"
 OUT = APP / "Sources/MockData/Generated"
 PRAYERS = PESQUISA / "entregas/santos-oracoes"
@@ -141,7 +141,7 @@ def main():
     print(f"arte: {len(art)} santos, {total/1e6:.1f} MB em JPEG")
 
     out = ['''// GERADO — não editar à mão.
-// Origem: ~/Documents/Missale-pesquisa, importado por scripts/import_saint_art.py.
+// Origem: ~/Projects/Missale/Missale-pesquisa, importado por scripts/import_saint_art.py.
 //
 // Fichas de santo com a arte em domínio público do lote de pesquisa. Lotes ricos
 // preservam todos os parágrafos factuais, sua relevância atual e oração publicada.

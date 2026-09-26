@@ -10,6 +10,8 @@ struct TodayRootView: View {
     @ObservedObject private var routine = DailyRoutineStore.shared
     @ObservedObject private var moodHistory = MoodHistoryStore.shared
     @ObservedObject private var examenHistory = ExamenHistoryStore.shared.list
+    /// Redraws the saint and the word of the day once published content lands.
+    @ObservedObject private var content = RemoteContentUpdater.Revision.shared
     /// The reader's Bible, decoded off the main thread; nil until loaded, and
     /// nil after it when the app has no Bible in this language.
     @State private var bible: Bible?
@@ -22,7 +24,9 @@ struct TodayRootView: View {
     /// on the Examen screen.
     @AppStorage(ExamenSchedule.storageKey) private var examenMinutes = ExamenSchedule.defaultMinutes
 
-    private let day = MockLiturgical.today
+    /// Read on every render, not kept from init: open overnight, the header
+    /// stayed on yesterday while the routine had already moved on.
+    private var day: LiturgicalDay { MockLiturgical.today }
 
     /// Real device time, not the app's fixed demo date — this is about the
     /// actual moment someone opens the app, so it should change through the day.

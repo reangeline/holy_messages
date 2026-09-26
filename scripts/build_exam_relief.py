@@ -30,8 +30,8 @@ import re
 import sys
 from collections import Counter, defaultdict
 
-FONTES = pathlib.Path("/Users/reangeline/Documents/Missale-pesquisa/fontes/catholic-bible-v2")
-SAIDA = pathlib.Path("/Users/reangeline/Documents/Missale-pesquisa/entregas/exame-revisado")
+FONTES = pathlib.Path("/Users/reangeline/Projects/Missale/Missale-pesquisa/fontes/catholic-bible-v2")
+SAIDA = pathlib.Path("/Users/reangeline/Projects/Missale/Missale-pesquisa/entregas/exame-revisado")
 CONTENT_PKG = pathlib.Path(__file__).parent / "exam_relief_content"
 
 EDICOES = {

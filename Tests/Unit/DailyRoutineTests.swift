@@ -30,6 +30,49 @@ final class DailyRoutineTests: XCTestCase {
         XCTAssertEqual(reopened.chapterIndex(on: day(2), total: 260), 1, "a posição não foi salva")
     }
 
+    /// A day without reading keeps the same chapter; it moves on only after
+    /// it's read, once, whatever day that is.
+    func testUnreadChapterWaitsForTheReader() {
+        let store = DailyRoutineStore(defaults: defaults)
+        store.markDone(.reading, on: day(1))
+        XCTAssertEqual(store.chapterIndex(on: day(2), total: 260), 1)
+        XCTAssertEqual(store.chapterIndex(on: day(3), total: 260), 1, "avançou sem ter lido")
+        XCTAssertEqual(store.chapterIndex(on: day(9), total: 260), 1)
+
+        store.markDone(.reading, on: day(9))
+        XCTAssertEqual(store.chapterIndex(on: day(9), total: 260), 1)
+        XCTAssertEqual(store.chapterIndex(on: day(10), total: 260), 2)
+    }
+
+    /// After Revelation's last chapter the plan starts over at Matthew 1.
+    func testReadingWrapsFromRevelationToMatthew() throws {
+        let bible = try XCTUnwrap(BibleCatalog.all.first { $0.language == "pt" })
+        let plan = NewTestamentPlan(bible: bible)
+        let total = plan.chapters.count
+        defaults.set(total - 1, forKey: DailyRoutineStore.positionKey)
+        let store = DailyRoutineStore(defaults: defaults)
+
+        let last = plan.chapters[store.chapterIndex(on: day(1), total: total)]
+        XCTAssertEqual(last.book.id, "REV")
+        XCTAssertEqual(last.chapter, 22)
+
+        store.markDone(.reading, on: day(1))
+        XCTAssertEqual(plan.chapters[store.chapterIndex(on: day(1), total: total)].book.id, "REV")
+        let next = plan.chapters[store.chapterIndex(on: day(2), total: total)]
+        XCTAssertEqual(next.book.id, "MAT")
+        XCTAssertEqual(next.chapter, 1)
+    }
+
+    /// The Bible reader recognises today's chapter by its place in the plan.
+    func testPlanFindsAChapterAcrossBooks() throws {
+        let bible = try XCTUnwrap(BibleCatalog.all.first { $0.language == "pt" })
+        let plan = NewTestamentPlan(bible: bible)
+        XCTAssertEqual(plan.index(of: "MAT", chapter: 1), 0)
+        XCTAssertEqual(plan.index(of: "MRK", chapter: 1), 28, "Marcos 1 vem depois dos 28 capítulos de Mateus")
+        XCTAssertEqual(plan.index(of: "REV", chapter: 22), plan.chapters.count - 1)
+        XCTAssertNil(plan.index(of: "GEN", chapter: 1), "o Antigo Testamento não está no plano")
+    }
+
     func testPrayerDoesNotMoveTheReading() {
         let store = DailyRoutineStore(defaults: defaults)
         store.markDone(.prayer, on: day(3))

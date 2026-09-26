@@ -1,13 +1,15 @@
 import SwiftUI
 
 /// t4 screen 9 — detail for a specific day. Push/detail screen, no tab bar.
-/// Genuinely functional, not a mockup: only "today" (the one real-interactive
-/// day this fixed-date calendar has) can ever show a registro, and it shows the
-/// real one from MoodHistoryStore or an honest "nothing registered" state —
-/// never a canned example. See spec §1.5.
+/// Genuinely functional, not a mockup: what the reader did and wrote that day
+/// (see DayRecord), or an honest "nothing registered" state — never a canned
+/// example. See spec §1.5.
 struct CalendarDayDetailView: View {
     let mark: CalendarDayMark
     @ObservedObject private var moodHistory = MoodHistoryStore.shared
+    @ObservedObject private var examenHistory = ExamenHistoryStore.shared.list
+    @ObservedObject private var rosaryHistory = RosaryHistoryStore.shared.list
+    @ObservedObject private var routine = DailyRoutineStore.shared
 
     private var isToday: Bool { mark.dateKey == MockLiturgical.today.dateKey }
     private var feastInfo: (feastName: String, note: String?)? { MockLiturgical.dayFeastInfo(for: mark.dateKey) }
@@ -20,19 +22,15 @@ struct CalendarDayDetailView: View {
         MockLiturgical.date(fromKey: mark.dateKey).map(LiturgicalEngine.day(for:))
     }
 
-    /// The last check-in logged on this civil day. Only today could show one
-    /// while the calendar was fixed on a demo September; now any day can.
-    private var latestOnThisDay: MoodEntry? {
-        moodHistory.entries.last { entry in
-            let c = Calendar.current.dateComponents([.year, .month, .day], from: entry.date)
-            return String(format: "%04d-%02d-%02d", c.year!, c.month!, c.day!) == mark.dateKey
-        }
+    private var record: DayRecord {
+        DayRecord(dateKey: mark.dateKey, moods: moodHistory.entries, examens: examenHistory.items,
+                  rosaries: rosaryHistory.items, routine: routine)
     }
 
     private var saintsOfTheDay: [Saint] { MockSaints.saints(on: String(mark.dateKey.suffix(5))) }
 
     private var detail: DayDetail {
-        let latest = latestOnThisDay
+        let latest = record.moods.last
         let relief = latest.map { MockMood.relief(for: $0.stateID).content }
         return DayDetail(
             dateLabel: DateKeyLabel.dayMonth(fromKey: mark.dateKey),
@@ -64,15 +62,29 @@ struct CalendarDayDetailView: View {
                     Text(detail.feastName)
                         .font(MissaleFont.display(29))
 
-                    if let title = detail.loggedStateTitle {
-                        GlassCard {
-                            VStack(alignment: .leading, spacing: 6) {
-                                Eyebrow(text: L.string("You logged", table: "CalendarSaints"))
-                                Text(title).font(MissaleFont.body(19, weight: .medium))
-                                if let note = detail.loggedNote {
-                                    Text("\u{201C}\(note)\u{201D}")
-                                        .font(MissaleFont.body(15))
-                                        .foregroundStyle(Palette.ink.opacity(0.72))
+                    let record = record
+                    if !record.isEmpty {
+                        if !record.moods.isEmpty {
+                            GlassCard {
+                                VStack(alignment: .leading, spacing: 6) {
+                                    Eyebrow(text: L.string("You logged", table: "CalendarSaints"))
+                                    ForEach(record.moods) { entry in
+                                        Text(entry.stateLabel).font(MissaleFont.body(19, weight: .medium))
+                                        if let note = entry.note {
+                                            quote(note)
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        routineCard(record)
+                        ForEach(record.examens) { examenCard($0) }
+                        ForEach(record.rosaries) { entry in
+                            GlassCard {
+                                VStack(alignment: .leading, spacing: 6) {
+                                    Eyebrow(text: L.string("Rosary", table: "Prayers"))
+                                    Text(entry.mysterySet.displayName).font(MissaleFont.body(19, weight: .medium))
+                                    if let intention = entry.intention { quote(intention) }
                                 }
                             }
                         }
@@ -171,6 +183,65 @@ struct CalendarDayDetailView: View {
             ToolbarItem(placement: .principal) {
                 // Era "Setembro" fixo, mesmo abrindo um dia de dezembro.
                 Text(DateKeyLabel.month(fromKey: mark.dateKey)).font(MissaleFont.body(15, weight: .medium))
+            }
+        }
+    }
+    private func quote(_ text: String) -> some View {
+        Text("\u{201C}\(text)\u{201D}")
+            .font(MissaleFont.body(15))
+            .foregroundStyle(Palette.ink.opacity(0.72))
+    }
+
+    /// "Seu dia com Deus" as it went that day: what was done, and the line
+    /// written at the morning offering. The check-in and the Examen have
+    /// their own cards.
+    @ViewBuilder
+    private func routineCard(_ record: DayRecord) -> some View {
+        if !record.routineDone.isEmpty || record.intention != nil {
+            GlassCard {
+                VStack(alignment: .leading, spacing: 6) {
+                    Eyebrow(text: L.string("SEU DIA COM DEUS", table: "Today"))
+                    ForEach(record.routineDone, id: \.self) { item in
+                        Label(routineTitle(item), systemImage: "checkmark")
+                            .font(MissaleFont.body(17))
+                    }
+                    if let intention = record.intention {
+                        Text(L.string("O que você espera do seu dia?", table: "Today"))
+                            .font(MissaleFont.body(14))
+                            .foregroundStyle(Palette.ink.opacity(0.6))
+                            .padding(.top, 4)
+                        quote(intention)
+                    }
+                }
+            }
+        }
+    }
+
+    private func routineTitle(_ item: DailyRoutineStore.Item) -> String {
+        switch item {
+        case .morning: L.string("Oferecimento do dia", table: "Today")
+        case .prayer: L.string("Oração", table: "Today")
+        case .reading: L.string("Novo Testamento", table: "Today")
+        }
+    }
+
+    /// The four answers, under the step titles the Examen itself uses.
+    private func examenCard(_ entry: ExamenEntry) -> some View {
+        GlassCard {
+            VStack(alignment: .leading, spacing: 8) {
+                Eyebrow(text: L.string("Exame do dia", table: "Today"))
+                let answers = [entry.gratitude, entry.lightRequest, entry.review, entry.response]
+                ForEach(Array(zip(MockRosary.examenSteps, answers)), id: \.0.id) { step, answer in
+                    if !answer.isEmpty {
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text(step.title.uppercased())
+                                .font(MissaleFont.body(11, weight: .semibold))
+                                .tracking(1.0)
+                                .foregroundStyle(Palette.ink.opacity(0.5))
+                            Text(answer).font(MissaleFont.body(16))
+                        }
+                    }
+                }
             }
         }
     }

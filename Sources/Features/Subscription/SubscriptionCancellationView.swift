@@ -1,11 +1,17 @@
 import SwiftUI
-import UIKit
+import StoreKit
 
 /// t5 screen 9 (fIs9) — cancellation detail: what happens, what stays yours
 /// forever, what pauses, and the hardship policy — no retention discount anywhere.
 /// Reached from Settings › Assinatura › "Cancelar a renovação".
+///
+/// The button used to open `UIApplication.openSettingsURLString`, which is the
+/// app's own page in the iPhone Settings (notifications, language) — no
+/// subscription anywhere on it. It now opens Apple's subscription sheet over
+/// the app, where the renewal is actually cancelled.
 struct SubscriptionCancellationView: View {
     @Environment(\.dismiss) private var dismiss
+    @State private var gerenciando = false
 
     var body: some View {
         ZStack {
@@ -67,11 +73,9 @@ struct SubscriptionCancellationView: View {
 
                     VStack(spacing: 10) {
                         Button {
-                            if let url = URL(string: UIApplication.openSettingsURLString) {
-                                UIApplication.shared.open(url)
-                            }
+                            gerenciando = true
                         } label: {
-                            Text("Cancelar nos ajustes do iPhone", tableName: "Today")
+                            Text("Cancelar a renovação", tableName: "Today")
                                 .font(MissaleFont.body(17))
                                 .frame(maxWidth: .infinity)
                                 .padding(16)
@@ -100,6 +104,12 @@ struct SubscriptionCancellationView: View {
         }
         .navigationTitle("")
         .navigationBarTitleDisplayMode(.inline)
+        .manageSubscriptionsSheet(isPresented: $gerenciando)
+        // Ao fechar a folha, relê o direito: o que mudou lá já aparece nos Ajustes.
+        .onChange(of: gerenciando) { _, aberta in
+            guard !aberta else { return }
+            Task { await SubscriptionStore.shared.refreshOnForeground() }
+        }
     }
 }
 

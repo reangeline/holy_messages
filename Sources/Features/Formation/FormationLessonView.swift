@@ -9,6 +9,7 @@ struct FormationLessonView: View {
     @ObservedObject private var progressStore = FormationProgressStore.shared
     @State private var activeTerm: LocalGlossaryTerm?
     @State private var showEndOfSession = false
+    @AppStorage(ReadingTextSize.storageKey) private var textSize = ReadingTextSize.defaultStep
 
     /// Where the reader is in the lesson's pages — see `pages`.
     @State private var page = 0
@@ -59,6 +60,11 @@ struct FormationLessonView: View {
         }
         .navigationTitle(MockFormation.track(withID: lesson.trackID)?.title ?? "")
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                ReadingTextSizeButton()
+            }
+        }
         .navigationDestination(isPresented: $showEndOfSession) {
             EndOfSessionView(lesson: lesson, onBackToTracks: onBackToTracks)
         }
@@ -108,7 +114,7 @@ struct FormationLessonView: View {
             .padding(.top, 40)
         case .paragraph(let indice):
             Text(attributedParagraph(lesson.bodyParagraphs[indice]))
-                .font(MissaleFont.body(20))
+                .font(MissaleFont.body(20 * ReadingTextSize.scale(textSize)))
                 .foregroundStyle(Palette.ink.opacity(0.9))
                 .lineSpacing(6)
                 .environment(\.openURL, OpenURLAction { url in
@@ -127,13 +133,8 @@ struct FormationLessonView: View {
                 LiturgicalGradientCard(color: .red) {
                     VStack(alignment: .leading, spacing: 10) {
                         Text(quote)
-                            .font(MissaleFont.display(23, italic: true))
+                            .font(MissaleFont.display(23 * ReadingTextSize.scale(textSize), italic: true))
                             .foregroundStyle(.white)
-                        if let attribution = lesson.quoteAttribution {
-                            Text(attribution)
-                                .font(MissaleFont.body(14))
-                                .foregroundStyle(.white.opacity(0.75))
-                        }
                     }
                 }
                 .padding(.top, 40)

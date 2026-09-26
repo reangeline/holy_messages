@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Importa um lote de santos do dia, revisado, para um arquivo Swift próprio.
 
-Os lotes antigos vêm de ~/Documents/Missale-pesquisa por import_saint_art.py.
+Os lotes antigos vêm de ~/Projects/Missale/Missale-pesquisa por import_saint_art.py.
 Um lote novo fica no repositório e gera o seu próprio arquivo, para que
 reimportar um não apague o outro:
 

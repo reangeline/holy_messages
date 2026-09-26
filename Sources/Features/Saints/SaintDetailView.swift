@@ -5,6 +5,9 @@ import SwiftUI
 /// push it directly once wired up: `SaintDetailView(saint: MockSaints.notburga)`.
 struct SaintDetailView: View {
     let saint: Saint
+    @AppStorage(ReadingTextSize.storageKey) private var textSize = ReadingTextSize.defaultStep
+
+    private var scale: CGFloat { ReadingTextSize.scale(textSize) }
 
     var body: some View {
         ZStack {
@@ -30,7 +33,7 @@ struct SaintDetailView: View {
                     VStack(alignment: .leading, spacing: 10) {
                         ForEach(saint.bioParagraphs, id: \.self) { paragraph in
                             Text(paragraph)
-                                .font(MissaleFont.body(17))
+                                .font(MissaleFont.body(17 * scale))
                                 .foregroundStyle(Palette.ink.opacity(0.85))
                         }
                     }
@@ -42,13 +45,10 @@ struct SaintDetailView: View {
                                 GlassCard {
                                     VStack(alignment: .leading, spacing: 6) {
                                         Text(story.title)
-                                            .font(MissaleFont.display(20, weight: .medium))
+                                            .font(MissaleFont.display(20 * scale, weight: .medium))
                                         Text(story.body)
-                                            .font(MissaleFont.body(16))
+                                            .font(MissaleFont.body(16 * scale))
                                             .foregroundStyle(Palette.ink.opacity(0.82))
-                                        Text(story.source)
-                                            .font(MissaleFont.body(12))
-                                            .foregroundStyle(Palette.ink.opacity(0.45))
                                     }
                                 }
                             }
@@ -64,7 +64,7 @@ struct SaintDetailView: View {
                             VStack(alignment: .leading, spacing: 6) {
                                 Eyebrow(text: L.string("Why it matters today", table: "CalendarSaints"))
                                 Text(saint.whyItMattersToday)
-                                    .font(MissaleFont.body(16))
+                                    .font(MissaleFont.body(16 * scale))
                                     .foregroundStyle(Palette.ink.opacity(0.78))
                             }
                         }
@@ -75,7 +75,7 @@ struct SaintDetailView: View {
                             VStack(alignment: .leading, spacing: 8) {
                                 Eyebrow(text: L.string( "Prayer", table: "CalendarSaints"), color: Palette.goldBright)
                                 Text(saint.prayer)
-                                    .font(MissaleFont.display(20, italic: true))
+                                    .font(MissaleFont.display(20 * scale, italic: true))
                                     .foregroundStyle(.white)
                             }
                         }
@@ -102,6 +102,9 @@ struct SaintDetailView: View {
         }
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                ReadingTextSizeButton()
+            }
             ToolbarItem(placement: .topBarTrailing) {
                 NavigationLink(L.string( "Archive ›", table: "CalendarSaints")) {
                     SaintsArchiveView()

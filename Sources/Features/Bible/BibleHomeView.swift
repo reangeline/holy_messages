@@ -97,14 +97,8 @@ struct BibleBookList: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 14) {
-                VStack(alignment: .leading, spacing: 5) {
-                    Eyebrow(text: bible.abbreviation)
-                    Text("Holy Bible", tableName: "Bible")
-                        .font(MissaleFont.display(28))
-                    Text(bible.name)
-                        .font(MissaleFont.body(14))
-                        .foregroundStyle(Palette.ink.opacity(0.65))
-                }
+                Text("Holy Bible", tableName: "Bible")
+                    .font(MissaleFont.display(28))
 
                 searchField
 
@@ -116,11 +110,6 @@ struct BibleBookList: View {
                 } else {
                     results
                 }
-
-                Text(bible.source)
-                    .font(MissaleFont.body(12))
-                    .foregroundStyle(Palette.ink.opacity(0.45))
-                    .padding(.top, 8)
             }
             .padding(.horizontal, 24)
             .padding(.top, 12)

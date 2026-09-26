@@ -58,9 +58,11 @@ final class ComplineRouteUITests: XCTestCase {
             app.staticTexts.matching(NSPredicate(format: "label CONTAINS[c] 'Conviértenos'")).firstMatch.waitForExistence(timeout: 5),
             "a abertura não saiu na edição espanhola"
         )
-        XCTAssertTrue(
+        // A edição fica no registro, não na tela: o dono pediu que as
+        // referências saíssem do conteúdo.
+        XCTAssertFalse(
             app.staticTexts.matching(NSPredicate(format: "label CONTAINS[c] 'Torres Amat'")).firstMatch.exists,
-            "a tela não declara a edição citada"
+            "a tela voltou a citar a edição"
         )
     }
 
@@ -71,9 +73,11 @@ final class ComplineRouteUITests: XCTestCase {
             app.staticTexts.matching(NSPredicate(format: "label CONTAINS[c] 'Convert us, O God'")).firstMatch.waitForExistence(timeout: 5),
             "a abertura não saiu na edição inglesa"
         )
-        XCTAssertTrue(
+        // A edição fica no registro, não na tela: o dono pediu que as
+        // referências saíssem do conteúdo.
+        XCTAssertFalse(
             app.staticTexts.matching(NSPredicate(format: "label CONTAINS[c] 'Douay-Rheims'")).firstMatch.exists,
-            "a tela não declara a edição citada"
+            "a tela voltou a citar a edição"
         )
     }
 }
