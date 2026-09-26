@@ -155,6 +155,50 @@
         }
       }
     },
+    "Antes de tudo": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Before anything else"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Antes que nada"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Antes de tudo"
+          }
+        }
+      }
+    },
+    "Ao tocar, o que você escreveu vai para o servidor do Missale e para a IA que escolhe a resposta no nosso acervo. Não guardamos o texto.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "When you tap, what you wrote goes to the Missale server and to the AI that chooses the reply from our collection. We don't keep the text."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Al tocar, lo que escribiste va al servidor de Missale y a la IA que elige la respuesta en nuestro acervo. No guardamos el texto."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ao tocar, o que você escreveu vai para o servidor do Missale e para a IA que escolhe a resposta no nosso acervo. Não guardamos o texto."
+          }
+        }
+      }
+    },
     "Apoio no luto, escuta e ajuda material pela Caritas local.": {
       "localizations": {
         "en": {
@@ -179,12 +223,6 @@
     },
     "Boa noite!": {
       "localizations": {
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Boa noite!"
-          }
-        },
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -196,17 +234,17 @@
             "state": "translated",
             "value": "¡Buenas noches!"
           }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Boa noite!"
+          }
         }
       }
     },
     "Boa noite, {name}": {
       "localizations": {
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Boa noite, {name}"
-          }
-        },
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -218,17 +256,17 @@
             "state": "translated",
             "value": "Buenas noches, {name}"
           }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Boa noite, {name}"
+          }
         }
       }
     },
     "Boa tarde!": {
       "localizations": {
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Boa tarde!"
-          }
-        },
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -240,17 +278,17 @@
             "state": "translated",
             "value": "¡Buenas tardes!"
           }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Boa tarde!"
+          }
         }
       }
     },
     "Boa tarde, {name}": {
       "localizations": {
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Boa tarde, {name}"
-          }
-        },
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -262,17 +300,17 @@
             "state": "translated",
             "value": "Buenas tardes, {name}"
           }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Boa tarde, {name}"
+          }
         }
       }
     },
     "Bom dia!": {
       "localizations": {
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bom dia!"
-          }
-        },
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -284,17 +322,17 @@
             "state": "translated",
             "value": "¡Buenos días!"
           }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bom dia!"
+          }
         }
       }
     },
     "Bom dia, {name}": {
       "localizations": {
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bom dia, {name}"
-          }
-        },
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -305,6 +343,34 @@
           "stringUnit": {
             "state": "translated",
             "value": "Buenos días, {name}"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bom dia, {name}"
+          }
+        }
+      }
+    },
+    "Buscando nas Escrituras e nos santos uma palavra para você…": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Searching Scripture and the saints for a word for you…"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buscando en las Escrituras y en los santos una palabra para ti…"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buscando nas Escrituras e nos santos uma palavra para você…"
           }
         }
       }
@@ -317,16 +383,16 @@
             "value": "Call {number}"
           }
         },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ligar {number}"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Llamar {number}"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ligar {number}"
           }
         }
       }
@@ -397,6 +463,28 @@
         }
       }
     },
+    "Com as suas palavras, do jeito que vier.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "In your own words, however they come."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Con tus palabras, como te salgan."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Com as suas palavras, do jeito que vier."
+          }
+        }
+      }
+    },
     "Com raiva": {
       "localizations": {
         "en": {
@@ -441,6 +529,29 @@
         }
       }
     },
+    "Como está sendo meu dia?": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "How is my day going?"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Cómo va mi día?"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Como está sendo meu dia?"
+          }
+        }
+      }
+    },
     "Como foi o seu dia diante de Deus?": {
       "localizations": {
         "en": {
@@ -481,6 +592,52 @@
           "stringUnit": {
             "state": "translated",
             "value": "Completas · oração da noite"
+          }
+        }
+      }
+    },
+    "Concluir": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Done"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Listo"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Concluir"
+          }
+        }
+      }
+    },
+    "Concluir leitura": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Finish reading"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Terminar la lectura"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Concluir leitura"
           }
         }
       }
@@ -573,6 +730,28 @@
         }
       }
     },
+    "Continuar para a palavra de hoje": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Continue to today's word"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Continuar a la palabra de hoy"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Continuar para a palavra de hoje"
+          }
+        }
+      }
+    },
     "Culpado": {
       "localizations": {
         "en": {
@@ -591,6 +770,29 @@
           "stringUnit": {
             "state": "translated",
             "value": "Culpado"
+          }
+        }
+      }
+    },
+    "DE MANHÃ VOCÊ ESCREVEU": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "THIS MORNING YOU WROTE"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ESTA MAÑANA ESCRIBISTE"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "DE MANHÃ VOCÊ ESCREVEU"
           }
         }
       }
@@ -661,15 +863,32 @@
         }
       }
     },
-    "Encerrar": {
+    "Em poucas palavras, para você e para Deus.": {
       "extractionState": "manual",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "In a few words, for you and for God."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "En pocas palabras, para ti y para Dios."
+          }
+        },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Encerrar"
+            "value": "Em poucas palavras, para você e para Deus."
           }
-        },
+        }
+      }
+    },
+    "Encerrar": {
+      "extractionState": "manual",
+      "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -680,6 +899,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Terminar"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Encerrar"
           }
         }
       }
@@ -772,6 +997,73 @@
         }
       }
     },
+    "Entregue a Deus o que o dia trouxe.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Give to God what the day has brought."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Entrega a Dios lo que trajo el día."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Entregue a Deus o que o dia trouxe."
+          }
+        }
+      }
+    },
+    "Escolhido a partir da sua intenção": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chosen from your intention"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Elegido a partir de tu intención"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Escolhido a partir da sua intenção"
+          }
+        }
+      }
+    },
+    "Escolhido a partir do seu Exame": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chosen from your Examen"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Elegido a partir de tu Examen"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Escolhido a partir do seu Exame"
+          }
+        }
+      }
+    },
     "Escolhidos para o que você acabou de registrar. Vêm com o Missale Premium.": {
       "extractionState": "manual",
       "localizations": {
@@ -791,6 +1083,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "Escolhidos para o que você acabou de registrar. Vêm com o Missale Premium."
+          }
+        }
+      }
+    },
+    "Escreva o que você está sentindo": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Write what you are feeling"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Escribe lo que estás sintiendo"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Escreva o que você está sentindo"
           }
         }
       }
@@ -883,6 +1197,52 @@
         }
       }
     },
+    "Este registro entra no seu calendário. Pode ir ao Jev para escolher a palavra do dia, sem ser guardado. Dá para desligar em Ajustes.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This entry goes into your calendar. It may go to Jev to choose the Word of the Day, and isn't kept. You can turn this off in Settings."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Este registro entra en tu calendario. Puede ir a Jev para elegir la Palabra del día, sin guardarse. Puedes desactivarlo en Ajustes."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Este registro entra no seu calendário. Pode ir ao Jev para escolher a palavra do dia, sem ser guardado. Dá para desligar em Ajustes."
+          }
+        }
+      }
+    },
+    "Exame do dia": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Daily Examen"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Examen del día"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Exame do dia"
+          }
+        }
+      }
+    },
     "Exame do dia e Completas": {
       "localizations": {
         "en": {
@@ -901,6 +1261,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "Exame do dia e Completas"
+          }
+        }
+      }
+    },
+    "Examen time": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Examen time"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hora del Examen"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hora do Exame"
           }
         }
       }
@@ -952,12 +1334,6 @@
     "Feche o aplicativo agora. O que começou aqui continua em silêncio — a conversa com Deus não precisa de mais tela, só do seu íntimo.": {
       "extractionState": "manual",
       "localizations": {
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Feche o aplicativo agora. O que começou aqui continua em silêncio — a conversa com Deus não precisa de mais tela, só do seu íntimo."
-          }
-        },
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -968,6 +1344,35 @@
           "stringUnit": {
             "state": "translated",
             "value": "Cierra la aplicación ahora. Lo que empezó aquí continúa en silencio — la conversación con Dios no necesita más pantalla, solo tu interior."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Feche o aplicativo agora. O que começou aqui continua em silêncio — a conversa com Deus não precisa de mais tela, só do seu íntimo."
+          }
+        }
+      }
+    },
+    "Feito": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Done"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hecho"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Feito"
           }
         }
       }
@@ -990,6 +1395,52 @@
           "stringUnit": {
             "state": "translated",
             "value": "Fica em pausa"
+          }
+        }
+      }
+    },
+    "Fica neste aparelho. Ao concluir, o texto vai ao Jev só para escolher um santo e uma oração, sem ser guardado. Dá para desligar em Ajustes.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "It stays on this device. When you finish, the text goes to Jev only to choose a saint and a prayer, and isn't kept. You can turn this off in Settings."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se queda en este dispositivo. Al terminar, el texto va a Jev solo para elegir un santo y una oración, sin guardarse. Puedes desactivarlo en Ajustes."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fica neste aparelho. Ao concluir, o texto vai ao Jev só para escolher um santo e uma oração, sem ser guardado. Dá para desligar em Ajustes."
+          }
+        }
+      }
+    },
+    "Fica neste aparelho. Pode ir ao Jev para escolher a palavra do dia, sem ser guardado. Dá para desligar em Ajustes.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "It stays on this device. It may go to Jev to choose the Word of the Day, and isn't kept. You can turn this off in Settings."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se queda en este dispositivo. Puede ir a Jev para elegir la Palabra del día, sin guardarse. Puedes desactivarlo en Ajustes."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fica neste aparelho. Pode ir ao Jev para escolher a palavra do dia, sem ser guardado. Dá para desligar em Ajustes."
           }
         }
       }
@@ -1078,6 +1529,51 @@
           "stringUnit": {
             "state": "translated",
             "value": "Grato"
+          }
+        }
+      }
+    },
+    "Guardar": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Save"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Guardar"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Guardar"
+          }
+        }
+      }
+    },
+    "Hoje de manhã você pediu por:": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This morning you asked for:"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esta mañana pediste por:"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hoje de manhã você pediu por:"
           }
         }
       }
@@ -1192,6 +1688,52 @@
         }
       }
     },
+    "Ler": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Read"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Leer"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ler"
+          }
+        }
+      }
+    },
+    "MANHÃ": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "MORNING"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "MAÑANA"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "MANHÃ"
+          }
+        }
+      }
+    },
     "Manter minha assinatura": {
       "localizations": {
         "en": {
@@ -1238,12 +1780,6 @@
     },
     "Nada escrito neste passo.": {
       "localizations": {
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nada escrito neste passo."
-          }
-        },
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -1255,18 +1791,18 @@
             "state": "translated",
             "value": "Nada escrito en este paso."
           }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nada escrito neste passo."
+          }
         }
       }
     },
     "Nenhum Exame registrado ainda. Ele aparece aqui assim que você concluir um.": {
       "extractionState": "manual",
       "localizations": {
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nenhum Exame registrado ainda. Ele aparece aqui assim que você concluir um."
-          }
-        },
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -1277,6 +1813,102 @@
           "stringUnit": {
             "state": "translated",
             "value": "Ningún Examen registrado todavía. Aparece aquí en cuanto completes uno."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nenhum Exame registrado ainda. Ele aparece aqui assim que você concluir um."
+          }
+        }
+      }
+    },
+    "Novo Testamento": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "New Testament"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nuevo Testamento"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Novo Testamento"
+          }
+        }
+      }
+    },
+    "Novo Testamento · {n} de {total}": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "New Testament · {n} of {total}"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nuevo Testamento · {n} de {total}"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Novo Testamento · {n} de {total}"
+          }
+        }
+      }
+    },
+    "Não consegui buscar a orientação agora. Escolha abaixo como você está — o que você escreveu vai junto.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "I couldn't get the guidance right now. Choose below how you are — what you wrote goes with it."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No pude buscar la orientación ahora. Elige abajo cómo estás: lo que escribiste va junto."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Não consegui buscar a orientação agora. Escolha abaixo como você está — o que você escreveu vai junto."
+          }
+        }
+      }
+    },
+    "Não consegui entender bem como você está. Escolha abaixo — o que você escreveu vai junto.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "I couldn't quite tell how you are. Choose below — what you wrote goes with it."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No logré entender bien cómo estás. Elige abajo: lo que escribiste va junto."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Não consegui entender bem como você está. Escolha abaixo — o que você escreveu vai junto."
           }
         }
       }
@@ -1436,15 +2068,54 @@
         }
       }
     },
-    "O que você já escreveu": {
-      "extractionState": "manual",
+    "O que você escreveu pede cuidado": {
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "What you wrote calls for care"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lo que escribiste pide cuidado"
+          }
+        },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "O que você já escreveu"
+            "value": "O que você escreveu pede cuidado"
+          }
+        }
+      }
+    },
+    "O que você espera do seu dia?": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "What do you hope for today?"
           }
         },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Qué esperas de tu día?"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O que você espera do seu dia?"
+          }
+        }
+      }
+    },
+    "O que você já escreveu": {
+      "extractionState": "manual",
+      "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -1455,6 +2126,58 @@
           "stringUnit": {
             "state": "translated",
             "value": "Lo que has escrito"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O que você já escreveu"
+          }
+        }
+      }
+    },
+    "Oferecimento do dia": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Morning Offering"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ofrecimiento del día"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Oferecimento do dia"
+          }
+        }
+      }
+    },
+    "Ofereça o dia a Deus antes de começar. Depois, escreva o que você espera dele.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Offer the day to God before it begins. Then write what you hope for it."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ofrece el día a Dios antes de empezar. Después, escribe lo que esperas de él."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ofereça o dia a Deus antes de começar. Depois, escreva o que você espera dele."
           }
         }
       }
@@ -1481,14 +2204,122 @@
         }
       }
     },
-    "PASSO {n} DE {total}": {
+    "Oração": {
+      "extractionState": "manual",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prayer"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Oración"
+          }
+        },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "PASSO {n} DE {total}"
+            "value": "Oração"
+          }
+        }
+      }
+    },
+    "Oração concluída": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prayer complete"
           }
         },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Oración completada"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Oração concluída"
+          }
+        }
+      }
+    },
+    "Oração do dia": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prayer of the day"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Oración del día"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Oração do dia"
+          }
+        }
+      }
+    },
+    "Oração e o que espero do dia": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A prayer, and what I hope for today"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Oración y lo que espero del día"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Oração e o que espero do dia"
+          }
+        }
+      }
+    },
+    "Orientação": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Guidance"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Orientación"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Orientação"
+          }
+        }
+      }
+    },
+    "PASSO {n} DE {total}": {
+      "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -1499,6 +2330,34 @@
           "stringUnit": {
             "state": "translated",
             "value": "PASO {n} DE {total}"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PASSO {n} DE {total}"
+          }
+        }
+      }
+    },
+    "Padre, diocese e outros caminhos de apoio": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A priest, the diocese, and other ways to find support"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sacerdote, diócesis y otros caminos de apoyo"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Padre, diocese e outros caminhos de apoio"
           }
         }
       }
@@ -1521,6 +2380,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "Palavra de hoje"
+          }
+        }
+      }
+    },
+    "Para a sua intenção de hoje": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "For your intention today"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Para tu intención de hoy"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Para a sua intenção de hoje"
           }
         }
       }
@@ -1572,12 +2453,6 @@
     "Por hoje, é só isso.": {
       "extractionState": "manual",
       "localizations": {
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Por hoje, é só isso."
-          }
-        },
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -1588,6 +2463,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Por hoy, esto es todo."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Por hoje, é só isso."
           }
         }
       }
@@ -1614,6 +2495,29 @@
         }
       }
     },
+    "Pular": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Skip"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Omitir"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pular"
+          }
+        }
+      }
+    },
     "Pular, sem escrever nada": {
       "localizations": {
         "en": {
@@ -1632,6 +2536,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "Pular, sem escrever nada"
+          }
+        }
+      }
+    },
+    "Receber orientação": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Receive guidance"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recibir orientación"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Receber orientação"
           }
         }
       }
@@ -1724,6 +2650,29 @@
         }
       }
     },
+    "Rezar agora": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pray now"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rezar ahora"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rezar agora"
+          }
+        }
+      }
+    },
     "Rezar o Angelus": {
       "localizations": {
         "en": {
@@ -1746,14 +2695,31 @@
         }
       }
     },
-    "SUA TRILHA · PARTE {n} DE {total}": {
+    "SEU DIA COM DEUS": {
+      "extractionState": "manual",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "YOUR DAY WITH GOD"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "TU DÍA CON DIOS"
+          }
+        },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "SUA TRILHA · PARTE {n} DE {total}"
+            "value": "SEU DIA COM DEUS"
           }
-        },
+        }
+      }
+    },
+    "SUA TRILHA · PARTE {n} DE {total}": {
+      "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -1764,6 +2730,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "TU RECORRIDO · PARTE {n} DE {total}"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "SUA TRILHA · PARTE {n} DE {total}"
           }
         }
       }
@@ -1856,6 +2828,29 @@
         }
       }
     },
+    "Seu dia está oferecido.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your day is offered."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tu día está ofrecido."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seu dia está oferecido."
+          }
+        }
+      }
+    },
     "Sozinho": {
       "localizations": {
         "en": {
@@ -1900,14 +2895,31 @@
         }
       }
     },
-    "TRILHA CONCLUÍDA": {
+    "TARDE": {
+      "extractionState": "manual",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AFTERNOON"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "TARDE"
+          }
+        },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "TRILHA CONCLUÍDA"
+            "value": "TARDE"
           }
-        },
+        }
+      }
+    },
+    "TRILHA CONCLUÍDA": {
+      "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -1918,6 +2930,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "RECORRIDO COMPLETADO"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "TRILHA CONCLUÍDA"
           }
         }
       }
@@ -2018,16 +3036,16 @@
             "value": "Text {number}"
           }
         },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mensagem {number}"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Mensaje {number}"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mensagem {number}"
           }
         }
       }
@@ -2143,24 +3161,47 @@
         }
       }
     },
-    "Um toque. Fica no aparelho, e pode ficar em branco.": {
+    "Um santo para conhecer": {
+      "extractionState": "manual",
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "One tap. It stays on this device, and it's fine to leave blank."
+            "value": "A saint to know"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Un toque. Queda en el dispositivo, y puede quedar en blanco."
+            "value": "Un santo para conocer"
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Um toque. Fica no aparelho, e pode ficar em branco."
+            "value": "Um santo para conhecer"
+          }
+        }
+      }
+    },
+    "Um toque, e pode ficar em branco.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "One tap, and it's fine to leave blank."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Un toque, y puede quedar en blanco."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Um toque, e pode ficar em branco."
           }
         }
       }
@@ -2183,6 +3224,29 @@
           "stringUnit": {
             "state": "translated",
             "value": "Uma nota, sem alarme"
+          }
+        }
+      }
+    },
+    "Uma oração para encerrar o dia": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A prayer to close the day"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Una oración para cerrar el día"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uma oração para encerrar o dia"
           }
         }
       }
@@ -2212,12 +3276,6 @@
     "Ver Exames anteriores ›": {
       "extractionState": "manual",
       "localizations": {
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ver Exames anteriores ›"
-          }
-        },
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -2228,6 +3286,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Ver Exámenes anteriores ›"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ver Exames anteriores ›"
           }
         }
       }
@@ -2254,6 +3318,28 @@
         }
       }
     },
+    "Você já recebeu muitas orientações hoje. Escolha abaixo como você está — o que você escreveu vai junto.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You've received a lot of guidance today. Choose below how you are — what you wrote goes with it."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ya recibiste muchas orientaciones hoy. Elige abajo cómo estás: lo que escribiste va junto."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Você já recebeu muitas orientações hoje. Escolha abaixo como você está — o que você escreveu vai junto."
+          }
+        }
+      }
+    },
     "Você já trouxe isso três vezes": {
       "localizations": {
         "en": {
@@ -2272,6 +3358,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "Você já trouxe isso três vezes"
+          }
+        }
+      }
+    },
+    "Você não precisa atravessar isso sozinho. Falar com alguém agora pode ser o passo mais importante do dia.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You don't have to go through this alone. Talking to someone now may be the most important step of the day."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No tienes que atravesar esto solo. Hablar con alguien ahora puede ser el paso más importante del día."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Você não precisa atravessar isso sozinho. Falar com alguém agora pode ser o passo mais importante do dia."
           }
         }
       }
@@ -2298,14 +3406,54 @@
         }
       }
     },
-    "À NOITE, ÀS {time}": {
+    "{done} de {total}": {
+      "extractionState": "manual",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "{done} of {total}"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "{done} de {total}"
+          }
+        },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "À NOITE, ÀS {time}"
+            "value": "{done} de {total}"
+          }
+        }
+      }
+    },
+    "{n} min": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "{n} min"
           }
         },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "{n} min"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "{n} min"
+          }
+        }
+      }
+    },
+    "À NOITE, ÀS {time}": {
+      "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -2316,6 +3464,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "POR LA NOCHE, A LAS {time}"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "À NOITE, ÀS {time}"
           }
         }
       }
@@ -2382,957 +3536,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "‹ Voltar"
-          }
-        }
-      }
-    },
-    "Examen time": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Examen time"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Hora del Examen"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Hora do Exame"
-          }
-        }
-      }
-    },
-    "SEU DIA COM DEUS": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "YOUR DAY WITH GOD"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "TU DÍA CON DIOS"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "SEU DIA COM DEUS"
-          }
-        }
-      }
-    },
-    "{done} de {total}": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "{done} of {total}"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "{done} de {total}"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "{done} de {total}"
-          }
-        }
-      }
-    },
-    "Oração": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Prayer"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Oración"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Oração"
-          }
-        }
-      }
-    },
-    "Exame do dia": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Daily Examen"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Examen del día"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Exame do dia"
-          }
-        }
-      }
-    },
-    "Novo Testamento · {n} de {total}": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "New Testament · {n} of {total}"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nuevo Testamento · {n} de {total}"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Novo Testamento · {n} de {total}"
-          }
-        }
-      }
-    },
-    "Novo Testamento": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "New Testament"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nuevo Testamento"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Novo Testamento"
-          }
-        }
-      }
-    },
-    "Ler": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Read"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Leer"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ler"
-          }
-        }
-      }
-    },
-    "Feito": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Done"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Hecho"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Feito"
-          }
-        }
-      }
-    },
-    "{n} min": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "{n} min"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "{n} min"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "{n} min"
-          }
-        }
-      }
-    },
-    "Oração do dia": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Prayer of the day"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Oración del día"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Oração do dia"
-          }
-        }
-      }
-    },
-    "Rezar agora": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pray now"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Rezar ahora"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Rezar agora"
-          }
-        }
-      }
-    },
-    "Oração concluída": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Prayer complete"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Oración completada"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Oração concluída"
-          }
-        }
-      }
-    },
-    "Concluir": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Done"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Listo"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Concluir"
-          }
-        }
-      }
-    },
-    "Concluir leitura": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Finish reading"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Terminar la lectura"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Concluir leitura"
-          }
-        }
-      }
-    },
-    "Um santo para conhecer": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "A saint to know"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Un santo para conocer"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Um santo para conhecer"
-          }
-        }
-      }
-    },
-    "MANHÃ": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "MORNING"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "MAÑANA"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "MANHÃ"
-          }
-        }
-      }
-    },
-    "TARDE": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "AFTERNOON"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "TARDE"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "TARDE"
-          }
-        }
-      }
-    },
-    "Oferecimento do dia": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Morning Offering"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ofrecimiento del día"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Oferecimento do dia"
-          }
-        }
-      }
-    },
-    "Oração e o que espero do dia": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "A prayer, and what I hope for today"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Oración y lo que espero del día"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Oração e o que espero do dia"
-          }
-        }
-      }
-    },
-    "Como está sendo meu dia?": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "How is my day going?"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "¿Cómo va mi día?"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Como está sendo meu dia?"
-          }
-        }
-      }
-    },
-    "Ofereça o dia a Deus antes de começar. Depois, escreva o que você espera dele.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Offer the day to God before it begins. Then write what you hope for it."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ofrece el día a Dios antes de empezar. Después, escribe lo que esperas de él."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ofereça o dia a Deus antes de começar. Depois, escreva o que você espera dele."
-          }
-        }
-      }
-    },
-    "O que você espera do seu dia?": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "What do you hope for today?"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "¿Qué esperas de tu día?"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "O que você espera do seu dia?"
-          }
-        }
-      }
-    },
-    "Em poucas palavras, para você e para Deus.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "In a few words, for you and for God."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "En pocas palabras, para ti y para Dios."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Em poucas palavras, para você e para Deus."
-          }
-        }
-      }
-    },
-    "Guardar": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Save"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Guardar"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Guardar"
-          }
-        }
-      }
-    },
-    "Pular": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Skip"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Omitir"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pular"
-          }
-        }
-      }
-    },
-    "Seu dia está oferecido.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Your day is offered."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tu día está ofrecido."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Seu dia está oferecido."
-          }
-        }
-      }
-    },
-    "DE MANHÃ VOCÊ ESCREVEU": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "THIS MORNING YOU WROTE"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ESTA MAÑANA ESCRIBISTE"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "DE MANHÃ VOCÊ ESCREVEU"
-          }
-        }
-      }
-    },
-    "Antes de tudo": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Before anything else"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Antes que nada"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Antes de tudo"
-          }
-        }
-      }
-    },
-    "O que você escreveu pede cuidado": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "What you wrote calls for care"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lo que escribiste pide cuidado"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "O que você escreveu pede cuidado"
-          }
-        }
-      }
-    },
-    "Você não precisa atravessar isso sozinho. Falar com alguém agora pode ser o passo mais importante do dia.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "You don't have to go through this alone. Talking to someone now may be the most important step of the day."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "No tienes que atravesar esto solo. Hablar con alguien ahora puede ser el paso más importante del día."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Você não precisa atravessar isso sozinho. Falar com alguém agora pode ser o passo mais importante do dia."
-          }
-        }
-      }
-    },
-    "Padre, diocese e outros caminhos de apoio": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "A priest, the diocese, and other ways to find support"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sacerdote, diócesis y otros caminos de apoyo"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Padre, diocese e outros caminhos de apoio"
-          }
-        }
-      }
-    },
-    "Continuar para a palavra de hoje": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Continue to today's word"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Continuar a la palabra de hoy"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Continuar para a palavra de hoje"
-          }
-        }
-      }
-    },
-    "Não consegui entender bem como você está. Escolha abaixo — o que você escreveu vai junto.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "I couldn't quite tell how you are. Choose below — what you wrote goes with it."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "No logré entender bien cómo estás. Elige abajo: lo que escribiste va junto."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Não consegui entender bem como você está. Escolha abaixo — o que você escreveu vai junto."
-          }
-        }
-      }
-    },
-    "Você já recebeu muitas orientações hoje. Escolha abaixo como você está — o que você escreveu vai junto.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "You've received a lot of guidance today. Choose below how you are — what you wrote goes with it."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ya recibiste muchas orientaciones hoy. Elige abajo cómo estás: lo que escribiste va junto."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Você já recebeu muitas orientações hoje. Escolha abaixo como você está — o que você escreveu vai junto."
-          }
-        }
-      }
-    },
-    "Não consegui buscar a orientação agora. Escolha abaixo como você está — o que você escreveu vai junto.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "I couldn't get the guidance right now. Choose below how you are — what you wrote goes with it."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "No pude buscar la orientación ahora. Elige abajo cómo estás: lo que escribiste va junto."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Não consegui buscar a orientação agora. Escolha abaixo como você está — o que você escreveu vai junto."
-          }
-        }
-      }
-    },
-    "Buscando nas Escrituras e nos santos uma palavra para você…": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Searching Scripture and the saints for a word for you…"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Buscando en las Escrituras y en los santos una palabra para ti…"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Buscando nas Escrituras e nos santos uma palavra para você…"
-          }
-        }
-      }
-    },
-    "Orientação": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Guidance"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Orientación"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Orientação"
-          }
-        }
-      }
-    },
-    "Escreva o que você está sentindo": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Write what you are feeling"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Escribe lo que estás sintiendo"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Escreva o que você está sentindo"
-          }
-        }
-      }
-    },
-    "Com as suas palavras, do jeito que vier.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "In your own words, however they come."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Con tus palabras, como te salgan."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Com as suas palavras, do jeito que vier."
-          }
-        }
-      }
-    },
-    "Receber orientação": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Receive guidance"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Recibir orientación"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Receber orientação"
-          }
-        }
-      }
-    },
-    "Ao tocar, o que você escreveu vai para o servidor do Missale e para a IA que escolhe a resposta no nosso acervo. Não guardamos o texto.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "When you tap, what you wrote goes to the Missale server and to the AI that chooses the reply from our collection. We don't keep the text."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Al tocar, lo que escribiste va al servidor de Missale y a la IA que elige la respuesta en nuestro acervo. No guardamos el texto."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ao tocar, o que você escreveu vai para o servidor do Missale e para a IA que escolhe a resposta no nosso acervo. Não guardamos o texto."
           }
         }
       }

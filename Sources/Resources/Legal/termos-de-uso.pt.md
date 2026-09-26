@@ -1,6 +1,6 @@
 # Termos de Uso do Missale
 
-**Última atualização: 25 de setembro de 2026**
+**Última atualização: 26 de setembro de 2026**
 
 Ao usar o aplicativo Missale você concorda com estes termos. Leia-os: eles são
 curtos e dizem exatamente o que o aplicativo é e o que ele não é.
@@ -94,12 +94,20 @@ Se o custo for um impedimento real, escreva para acesso@missale.app.
 
 ## 5. Os seus dados
 
-O Missale não coleta nem recebe dados seus. O que você escreve fica no seu
-aparelho. Os detalhes estão na Política de Privacidade, que faz parte destes
-termos.
+O Missale não guarda o que você escreve: fica no seu aparelho. Há duas
+exceções, em que o texto passa pelo nosso servidor até o Jev sem ser guardado
+nem registrado: a orientação, quando você pede, e, se você for assinante com
+"Personalizar com o que escrevo" ligado, a intenção do Terço, as respostas do
+Exame, a intenção da manhã e o último registro de como você está, usados para
+escolher conteúdo do acervo revisado. Você pode desligar a personalização em
+Configurações. Os detalhes estão na Política de Privacidade, que faz parte
+destes termos.
 
-Como nada é copiado para fora do aparelho, **fazer backup é responsabilidade
-sua**. Se você apagar o aplicativo ou trocar de aparelho, as suas anotações vão
+O que o Jev escolhe é uma sugestão tirada do acervo a partir do seu texto, não
+uma palavra dirigida a você por Deus nem direção espiritual.
+
+Como nada do que você escreve fica guardado fora do aparelho, **fazer backup é
+responsabilidade sua**. Se você apagar o aplicativo ou trocar de aparelho, as suas anotações vão
 embora e não temos cópia para devolver. Para guardar uma cópia, use
 Configurações › Seus dados › Exportar meus dados.
 

@@ -12,6 +12,8 @@ struct TodayRootView: View {
     @ObservedObject private var examenHistory = ExamenHistoryStore.shared.list
     /// Redraws the saint and the word of the day once published content lands.
     @ObservedObject private var content = RemoteContentUpdater.Revision.shared
+    /// Today's word chosen from what the reader wrote, when it is.
+    @ObservedObject private var personalWord = PersonalizedWordOfDay.shared
     /// The reader's Bible, decoded off the main thread; nil until loaded, and
     /// nil after it when the app has no Bible in this language.
     @State private var bible: Bible?
@@ -56,7 +58,11 @@ struct TodayRootView: View {
                         header
                         routineSection
                         formationTeaserCard
+                        if personalWord.showCrisisFirst {
+                            CrisisSupportCard()
+                        }
                         wordOfDayTeaserCard
+                            .task { await personalWord.refresh() }
                         saintTeaserCard
                         rosaryTeaserCard
                     }
@@ -180,14 +186,24 @@ struct TodayRootView: View {
             GlassCard {
                 VStack(alignment: .leading, spacing: 6) {
                     Eyebrow(text: L.string("Palavra de hoje", table: "Today"))
-                    Text("\u{201C}\(word.quote)\u{201D}")
-                        .font(MissaleFont.display(21, italic: true))
-                        .foregroundStyle(Palette.ink)
-                        .lineLimit(3)
-                    Text(word.reference)
-                        .font(MissaleFont.body(14))
-                        .foregroundStyle(Palette.ink.opacity(0.65))
+                    // A pick that lands after the date draw was shown swaps
+                    // in place, with a crossfade and the label: one word on
+                    // screen, the same as the widget's.
+                    VStack(alignment: .leading, spacing: 6) {
+                        if personalWord.isChosen { WordChosenLabel() }
+                        Text("\u{201C}\(word.quote)\u{201D}")
+                            .font(MissaleFont.display(21, italic: true))
+                            .foregroundStyle(Palette.ink)
+                            .lineLimit(3)
+                        Text(word.reference)
+                            .font(MissaleFont.body(14))
+                            .foregroundStyle(Palette.ink.opacity(0.65))
+                    }
+                    .id(word.id)
+                    .transition(.opacity)
                 }
+                .accessibilityElement(children: .contain)
+                .accessibilityIdentifier("todayWordOfDayCard")
             }
         }
         .buttonStyle(.plain)
@@ -292,6 +308,8 @@ struct TodayRootView: View {
                            trailing: minutes(2), isDone: routine.isDone(.morning))
             }
             .buttonStyle(.plain)
+
+            IntentionVerseSection()
 
             NavigationLink {
                 DailyPrayerView()

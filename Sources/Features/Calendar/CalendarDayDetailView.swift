@@ -211,6 +211,10 @@ struct CalendarDayDetailView: View {
                             .foregroundStyle(Palette.ink.opacity(0.6))
                             .padding(.top, 4)
                         quote(intention)
+                        if let id = record.intentionVerseID, let verse = IntentionVerse.verse(id: id) {
+                            IntentionVerseText(verse: verse)
+                                .padding(.top, 6)
+                        }
                     }
                 }
             }
@@ -241,6 +245,11 @@ struct CalendarDayDetailView: View {
                             Text(answer).font(MissaleFont.body(16))
                         }
                     }
+                }
+                // The saint and prayer Jev chose from these answers.
+                if let suggestion = entry.suggestion {
+                    ExamenSuggestionCard(suggestion: suggestion, onDark: false)
+                        .padding(.top, 4)
                 }
             }
         }

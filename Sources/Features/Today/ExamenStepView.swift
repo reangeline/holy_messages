@@ -24,7 +24,7 @@ struct ExamenStepView: View {
                             startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
 
-            VStack(alignment: .leading, spacing: 16) {
+            VStack(alignment: .leading, spacing: 0) {
                 HStack {
                     Button(L.string("‹ Voltar", table: "Today"), action: onBack)
                         .foregroundStyle(Palette.goldBright)
@@ -36,46 +36,62 @@ struct ExamenStepView: View {
                         .tracking(1.4)
                         .foregroundStyle(.white.opacity(0.5))
                 }
+                .padding(.horizontal, 24)
                 .padding(.top, 8)
 
-                Eyebrow(text: step.title, color: Palette.goldBright)
-                Text(step.subtitle)
-                    .font(MissaleFont.display(26, weight: .semibold))
-                    .foregroundStyle(.white)
-                    .fixedSize(horizontal: false, vertical: true)
-
-                if let morningIntention {
-                    VStack(alignment: .leading, spacing: 4) {
-                        Eyebrow(text: L.string("DE MANHÃ VOCÊ ESCREVEU", table: "Today"), color: .white.opacity(0.5))
-                        Text("\u{201C}\(morningIntention)\u{201D}")
-                            .font(MissaleFont.display(19, italic: true))
-                            .foregroundStyle(Palette.goldBright)
+                ScrollView {
+                    VStack(alignment: .leading, spacing: 16) {
+                        Eyebrow(text: step.title, color: Palette.goldBright)
+                        Text(step.subtitle)
+                            .font(MissaleFont.display(26, weight: .semibold))
+                            .foregroundStyle(.white)
                             .fixedSize(horizontal: false, vertical: true)
+
+                        if let morningIntention {
+                            VStack(alignment: .leading, spacing: 4) {
+                                Eyebrow(text: L.string("DE MANHÃ VOCÊ ESCREVEU", table: "Today"), color: .white.opacity(0.5))
+                                Text("\u{201C}\(morningIntention)\u{201D}")
+                                    .font(MissaleFont.display(19, italic: true))
+                                    .foregroundStyle(Palette.goldBright)
+                                    .fixedSize(horizontal: false, vertical: true)
+                            }
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(14)
+                            .overlay(alignment: .leading) {
+                                Capsule().fill(Palette.goldBright.opacity(0.6)).frame(width: 2).padding(.vertical, 12)
+                            }
+                            .background(Color.white.opacity(0.05), in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+                        }
+
+                        TextEditor(text: $text)
+                            .focused($isFocused)
+                            .font(MissaleFont.body(17))
+                            .foregroundStyle(.white)
+                            .scrollContentBackground(.hidden)
+                            .padding(12)
+                            .frame(minHeight: 160)
+                            .background(Color.white.opacity(0.08), in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+                            .overlay(RoundedRectangle(cornerRadius: 16, style: .continuous).strokeBorder(Color.white.opacity(0.16), lineWidth: 1))
+
+                        // With "Personalizar com o que escrevo" on, the answers go to Jev
+                        // when the Examen ends (ExamenSuggestion) — "only on this
+                        // device" would no longer be true.
+                        Text(JevPicker.isEnabled
+                             ? L.string("Fica neste aparelho. Ao concluir, o texto vai ao Jev só para escolher um santo e uma oração, sem ser guardado. Dá para desligar em Ajustes.", table: "Today")
+                             : L.string("Fica só neste aparelho. Ninguém além de você vê isto.", table: "Today"))
+                            .font(MissaleFont.body(13))
+                            .foregroundStyle(.white.opacity(0.5))
                     }
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(14)
-                    .overlay(alignment: .leading) {
-                        Capsule().fill(Palette.goldBright.opacity(0.6)).frame(width: 2).padding(.vertical, 12)
-                    }
-                    .background(Color.white.opacity(0.05), in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+                    .padding(.horizontal, 24)
+                    .padding(.top, 12)
                 }
-
-                TextEditor(text: $text)
-                    .focused($isFocused)
-                    .font(MissaleFont.body(17))
-                    .foregroundStyle(.white)
-                    .scrollContentBackground(.hidden)
-                    .padding(12)
-                    .frame(minHeight: 160)
-                    .background(Color.white.opacity(0.08), in: RoundedRectangle(cornerRadius: 16, style: .continuous))
-                    .overlay(RoundedRectangle(cornerRadius: 16, style: .continuous).strokeBorder(Color.white.opacity(0.16), lineWidth: 1))
-
-                Text("Fica só neste aparelho. Ninguém além de você vê isto.", tableName: "Today")
-                    .font(MissaleFont.body(13))
-                    .foregroundStyle(.white.opacity(0.5))
-
-                Spacer()
-
+            }
+        }
+        // Pinned above the keyboard instead of at the end of the VStack: the
+        // text field autofocuses shortly after the step appears, and the
+        // keyboard used to cover Continuar/Pular (ExamenSuggestionUITests).
+        .safeAreaInset(edge: .bottom) {
+            VStack(spacing: 12) {
                 Button {
                     onContinue(text.trimmingCharacters(in: .whitespacesAndNewlines))
                 } label: {
@@ -94,10 +110,10 @@ struct ExamenStepView: View {
                         .foregroundStyle(.white.opacity(0.55))
                 }
                 .frame(maxWidth: .infinity)
-                .padding(.bottom, 8)
             }
             .padding(.horizontal, 24)
             .padding(.top, 12)
+            .padding(.bottom, 8)
         }
         .navigationBarBackButtonHidden(true)
         .onAppear {

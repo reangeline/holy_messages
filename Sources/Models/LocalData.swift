@@ -23,7 +23,7 @@ enum LocalData {
     static let personalKeys = [
         "mood_history_entries",          // registro de humor: estado, data e a nota opcional
         "mood_last_relief_index",        // qual alívio foi mostrado por último, por estado
-        "examen_entries",                // as quatro respostas escritas no Exame
+        "examen_entries",                // as quatro respostas escritas no Exame, e o santo e a oração que o Jev escolheu delas
         "rosary_history_entries",        // terços rezados
         "formation_completed_lesson_ids",
         "formation_completed_lesson_order",
@@ -31,9 +31,11 @@ enum LocalData {
         "routine_completions",           // o que do "Seu dia com Deus" foi feito em cada dia (últimos 60)
         "routine_nt_position",           // quantos capítulos do Novo Testamento já foram lidos
         "routine_intentions",            // o que a pessoa escreveu que espera do dia, no oferecimento (últimos 60)
+        "routine_intention_verses",      // o versículo escolhido pelo Jev para a intenção de cada dia (id do acervo, últimos 60)
         "bible_highlights",              // versículos marcados na Bíblia
         "bible_bookmarks",               // o capítulo marcado como "onde parei", por Bíblia
         "review_routine_days",           // dias com o "Seu dia com Deus" completo, para o pedido de avaliação
+        "word_of_day_shown",             // no grupo do app: a palavra de cada dia (últimos 30) e se foi escolhida pelo Jev a partir do que a pessoa escreveu
     ]
 
     /// Choices about how the app behaves, as opposed to what the reader wrote.
@@ -49,6 +51,7 @@ enum LocalData {
         "reading_reminder_minutes",      // os horários escolhidos para o aviso da leitura do dia
         "review_prompt_asked",           // se o pedido de avaliação já foi feito
         "reading_text_size",             // o tamanho escolhido para o texto da Bíblia, dos santos e da formação
+        "jev_personalization_enabled",   // "Personalizar com o que escrevo": se o texto pode ir ao Jev (ligado por padrão)
     ]
 
     // MARK: - Export and erase
@@ -59,7 +62,11 @@ enum LocalData {
     static func exportJSON(from defaults: UserDefaults = .standard, now: Date = Date()) -> Data {
         var records: [String: Any] = [:]
         for key in personalKeys {
-            guard let value = defaults.object(forKey: key) else { continue }
+            // `word_of_day_shown` lives in the app group (WordOfDayLog), not in
+            // `defaults`, so the widget can read it too — the export has to
+            // look there instead, or the key comes back empty.
+            let source = key == WordOfDayLog.storageKey ? WordOfDayLog.defaults : defaults
+            guard let value = source.object(forKey: key) else { continue }
             if let data = value as? Data, let json = try? JSONSerialization.jsonObject(with: data) {
                 records[key] = readableDates(json)
             } else if JSONSerialization.isValidJSONObject([value]) {
@@ -85,6 +92,9 @@ enum LocalData {
         FormationProgressStore.shared.reload()
         DailyRoutineStore.shared.reload()
         BibleNotesStore.shared.reload()
+        // Kept in the app group, for the widget, so outside `defaults`.
+        WordOfDayLog.defaults.removeObject(forKey: WordOfDayLog.storageKey)
+        PersonalizedWordOfDay.shared.sync()
     }
 
     private static func readableDates(_ value: Any) -> Any {

@@ -8,6 +8,8 @@ struct SettingsView: View {
     @AppStorage(AppLanguagePreference.storageKey, store: AppLanguagePreference.store) private var languageOverride = AppLanguagePreference.systemValue
     @AppStorage(UserProfile.nameStorageKey) private var userDisplayName = ""
     @AppStorage(UserProfile.calendarRegionKey) private var storedRegionID = ""
+    /// On by default; off, nothing the reader writes is sent to Jev — see JevPicker.
+    @AppStorage(JevPicker.storageKey) private var personalization = true
     private let day = MockLiturgical.today
 
     private var resolvedLanguageName: String {
@@ -24,6 +26,9 @@ struct SettingsView: View {
                         pastoralNoteCard
                         ForEach(MockSettings.groups) { group in
                             groupSection(group)
+                            if group.id == "privacy" {
+                                personalizationToggle
+                            }
                         }
                         AccountSettingsCard()
                         Text(L.string(MockSettings.buildLine, table: "SettingsDetail"))
@@ -112,6 +117,26 @@ struct SettingsView: View {
             .overlay(RoundedRectangle(cornerRadius: 18, style: .continuous).strokeBorder(Palette.wine.opacity(0.24), lineWidth: 1))
         }
         .buttonStyle(.plain)
+    }
+
+    /// Whether what the reader writes (the Rosary intention, the Examen, the
+    /// morning intention, the check-in) may be sent to Jev to choose content.
+    private var personalizationToggle: some View {
+        VStack(alignment: .leading, spacing: 6) {
+            Toggle(L.string("Personalize with what I write", table: "SettingsDetail"), isOn: $personalization)
+                .font(MissaleFont.body(17))
+                .foregroundStyle(Palette.ink)
+                .tint(Palette.wine)
+                .accessibilityIdentifier("jevPersonalizationToggle")
+            Text(L.string("With a subscription, what you write in the Rosary, the Examen, the morning intention and when you log how you are is used to choose texts from the reviewed collection, and is not stored. When off, none of it is sent.", table: "SettingsDetail"))
+                .font(MissaleFont.body(14))
+                .foregroundStyle(Palette.ink.opacity(0.64))
+        }
+        .padding(.vertical, 14)
+        .padding(.horizontal, 16)
+        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
+        .background(Color.white.opacity(0.22), in: RoundedRectangle(cornerRadius: 18, style: .continuous))
+        .overlay(RoundedRectangle(cornerRadius: 18, style: .continuous).strokeBorder(Color.white.opacity(0.6), lineWidth: 1))
     }
 
     /// Rows whose trailing value is a live preference rather than mock copy. A

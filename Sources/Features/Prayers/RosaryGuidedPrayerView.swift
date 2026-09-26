@@ -7,6 +7,10 @@ struct RosaryGuidedPrayerView: View {
     /// Reads each bead aloud and advances when it finishes — see RosaryVoiceGuide.
     var voiceGuiding: Bool = false
     var intention: String = ""
+    /// The decade Jev suggested for the intention, when the reader accepted it
+    /// (see RosarySuggestion): its beads get a gold ring, its announcement a
+    /// short line. Nil for the ordinary rosary.
+    var highlightedDecade: Int? = nil
 
     @StateObject private var voice = RosaryVoiceGuide()
     @State private var index = 0
@@ -37,7 +41,7 @@ struct RosaryGuidedPrayerView: View {
                             } else {
                                 let bead = beads[index]
                                 let step = MockRosary.step(for: bead, mystery: mystery)
-                                mainCard(step: step)
+                                mainCard(step: step, highlighted: bead.kind == .announcement && bead.mysteryIndex != nil && bead.mysteryIndex == highlightedDecade)
                             }
                             Spacer(minLength: 0)
                         }
@@ -149,17 +153,19 @@ struct RosaryGuidedPrayerView: View {
         case .glory: 9
         case .hailMary: 7
         }
+        let isHighlighted = highlightedDecade != nil && bead.mysteryIndex == highlightedDecade
         return Circle()
             .fill(isPast ? Palette.wine : Palette.ink.opacity(0.18))
             .frame(width: size, height: size)
+            .overlay(Circle().strokeBorder(Palette.goldBright, lineWidth: isHighlighted ? 1.5 : 0).padding(-2))
     }
 
     @ViewBuilder
-    private func mainCard(step: RosaryPrayerStep) -> some View {
+    private func mainCard(step: RosaryPrayerStep, highlighted: Bool) -> some View {
         if let items = step.promptItems {
             promptCard(step: step, items: items)
         } else {
-            prayerCard(step: step)
+            prayerCard(step: step, highlighted: highlighted)
         }
     }
 
@@ -205,8 +211,14 @@ struct RosaryGuidedPrayerView: View {
         .padding(.horizontal, 24)
     }
 
-    private func prayerCard(step: RosaryPrayerStep) -> some View {
+    private func prayerCard(step: RosaryPrayerStep, highlighted: Bool) -> some View {
         VStack(spacing: 14) {
+            if highlighted {
+                Label(L.string("For your intention", table: "Prayers"), systemImage: "sparkle")
+                    .font(MissaleFont.body(12, weight: .medium))
+                    .foregroundStyle(Palette.goldBright)
+                    .accessibilityIdentifier("rosaryHighlightMarker")
+            }
             Text(step.kicker)
                 .font(MissaleFont.body(11, weight: .semibold))
                 .tracking(1.4)

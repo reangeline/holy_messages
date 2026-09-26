@@ -4,7 +4,10 @@ import SwiftUI
 /// `NavigationLink { WordOfDayView() }` from within an existing `NavigationStack`
 /// (e.g. from Today), or wrap it in your own `NavigationStack` to present as a sheet.
 struct WordOfDayView: View {
-    private let word = MockWordOfDay.today
+    /// Read on every render, so a word chosen for the reader while the
+    /// screen is open crossfades in, and matches Today and the widget.
+    @ObservedObject private var personalWord = PersonalizedWordOfDay.shared
+    private var word: WordOfDay { MockWordOfDay.today }
     private let day = MockLiturgical.today
 
     /// The real day, from the engine — `MockLiturgical.today` is the demo day
@@ -30,12 +33,19 @@ struct WordOfDayView: View {
                                 .frame(maxWidth: .infinity, alignment: .trailing)
                         }
 
+                        if personalWord.showCrisisFirst {
+                            CrisisSupportCard()
+                        }
+
                         LiturgicalGradientCard(color: day.color) {
                             VStack(alignment: .leading, spacing: 10) {
                                 Text("WORD OF THE DAY", tableName: "FormationWordOfDay")
                                     .font(MissaleFont.body(11, weight: .semibold))
                                     .tracking(1.6)
                                     .foregroundStyle(Palette.goldBright)
+                                if personalWord.isChosen {
+                                    WordChosenLabel(color: .white.opacity(0.85))
+                                }
                                 Text(word.quote)
                                     .font(MissaleFont.display(24, italic: true))
                                     .foregroundStyle(.white)
@@ -44,6 +54,8 @@ struct WordOfDayView: View {
                                     .font(MissaleFont.body(14))
                                     .foregroundStyle(.white.opacity(0.85))
                             }
+                            .id(word.id)
+                            .transition(.opacity)
                         }
 
                         GlassCard {

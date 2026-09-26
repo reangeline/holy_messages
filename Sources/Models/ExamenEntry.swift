@@ -8,6 +8,11 @@ struct ExamenEntry: Identifiable, Codable {
     let lightRequest: String
     let review: String
     let response: String
+    /// The saint and the prayer Jev chose from these answers (see
+    /// ExamenSuggestion), attached once the answer arrives. Optional, so the
+    /// entries stored before them still decode.
+    var saintID: String? = nil
+    var prayerID: String? = nil
 
     init(id: UUID = UUID(), date: Date = Date(), gratitude: String, lightRequest: String, review: String, response: String) {
         self.id = id

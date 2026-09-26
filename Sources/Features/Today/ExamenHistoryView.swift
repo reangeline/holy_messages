@@ -61,6 +61,10 @@ struct ExamenHistoryView: View {
             ForEach(Array(zip(steps, [entry.gratitude, entry.lightRequest, entry.review, entry.response])), id: \.0.id) { step, answer in
                 answerBlock(title: step.title, text: answer)
             }
+
+            if let suggestion = entry.suggestion {
+                ExamenSuggestionCard(suggestion: suggestion)
+            }
         }
         .padding(16)
         .frame(maxWidth: .infinity, alignment: .leading)

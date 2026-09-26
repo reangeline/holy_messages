@@ -14,6 +14,10 @@ struct ExamenFlowView: View {
     @State private var answers: [String]
     @State private var goingForward = true
     @State private var finished = false
+    /// Jev's saint and prayer from the answers, when it answers — the closing
+    /// screen shows at once and the card joins it later.
+    @State private var suggestion: ExamenSuggestion?
+    @State private var showCrisis = false
 
     init(onFinished: @escaping () -> Void) {
         self.onFinished = onFinished
@@ -23,7 +27,7 @@ struct ExamenFlowView: View {
     var body: some View {
         ZStack {
             if finished {
-                ExamenClosingView(onFinished: onFinished)
+                ExamenClosingView(onFinished: onFinished, suggestion: suggestion, showCrisis: showCrisis)
                     .transition(transition)
             } else {
                 ExamenStepView(
@@ -49,13 +53,22 @@ struct ExamenFlowView: View {
         if stepIndex < MockRosary.examenSteps.count - 1 {
             withAnimation(.easeInOut(duration: 0.3)) { stepIndex += 1 }
         } else {
-            ExamenHistoryStore.shared.record(
+            let entry = ExamenHistoryStore.shared.record(
                 gratitude: answers[0],
                 lightRequest: answers[1],
                 review: answers[2],
                 response: answers[3]
             )
             withAnimation(.easeInOut(duration: 0.3)) { finished = true }
+            // Not tied to the view: if the person closes first, the choice is
+            // still kept with the entry for the history.
+            Task {
+                guard let outcome = await ExamenSuggestion.suggest(for: entry) else { return }
+                withAnimation {
+                    suggestion = outcome.suggestion
+                    showCrisis = outcome.showCrisisFirst
+                }
+            }
         }
     }
 

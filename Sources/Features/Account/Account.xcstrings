@@ -45,28 +45,6 @@
         }
       }
     },
-    "What you write and log stays on your iPhone, as before.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "What you write and log stays on your iPhone, as before."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lo que escribes y registras sigue en tu iPhone, como siempre."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "O que você escreve e registra continua no seu iPhone, como sempre."
-          }
-        }
-      }
-    },
     "Apple lets you hide your email. There is no password to create.": {
       "localizations": {
         "en": {
@@ -327,6 +305,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "Entendi"
+          }
+        }
+      }
+    },
+    "What you write stays on your iPhone. It's sent, never stored, only for the guidance you ask for and, with a subscription, for personalization you can turn off.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "What you write stays on your iPhone. It's sent, never stored, only for the guidance you ask for and, with a subscription, for personalization you can turn off."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lo que escribes queda en tu iPhone. Solo se envía, sin guardarse, para la orientación que pides y, con la suscripción, para la personalización, que puedes desactivar."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O que você escreve fica no seu iPhone. Só é enviado, sem ser guardado, para a orientação que você pede e, com a assinatura, para a personalização, que dá para desligar."
           }
         }
       }

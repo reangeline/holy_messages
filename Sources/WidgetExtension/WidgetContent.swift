@@ -17,8 +17,9 @@ enum WidgetContent {
     static let todayColor: LiturgicalColor = .red
 
     /// Resolves through the shared catalog, so widget and app always show the
-    /// same verse, in the language the reader chose.
-    static var wordOfDay: WordOfDay { MockWordOfDay.wordOfDay(for: todayDateKey) }
+    /// same verse, in the language the reader chose — including the one chosen
+    /// for the reader today, which the app keeps in the app group.
+    static var wordOfDay: WordOfDay { MockWordOfDay.word(for: todayDateKey) }
 
     /// Likewise the saint — including the per-language record and, where the
     /// sanctoral has none for this date, the same fallback the app uses.

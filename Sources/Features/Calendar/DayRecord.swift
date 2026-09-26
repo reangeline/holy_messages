@@ -14,6 +14,8 @@ struct DayRecord {
     /// The routine's own items done that day (morning offering, prayer, reading).
     let routineDone: [DailyRoutineStore.Item]
     let intention: String?
+    /// Id of the verse Jev chose for that intention (see IntentionVerse).
+    let intentionVerseID: String?
 
     var isEmpty: Bool {
         moods.isEmpty && examens.isEmpty && rosaries.isEmpty && routineDone.isEmpty && intention == nil
@@ -29,5 +31,6 @@ struct DayRecord {
         let done = routine.completions[dateKey] ?? []
         routineDone = [.morning, .prayer, .reading].filter { done.contains($0.rawValue) }
         intention = routine.intentions[dateKey]
+        intentionVerseID = routine.intentionVerses[dateKey]
     }
 }

@@ -30,7 +30,7 @@ struct SignInView: View {
                     .padding(.bottom, 22)
 
                 VStack(alignment: .leading, spacing: 12) {
-                    point("lock", Text("What you write and log stays on your iPhone, as before.", tableName: "Account"))
+                    point("lock", Text("What you write stays on your iPhone. It's sent, never stored, only for the guidance you ask for and, with a subscription, for personalization you can turn off.", tableName: "Account"))
                     point("envelope", Text("Apple lets you hide your email. There is no password to create.", tableName: "Account"))
                     point("trash", Text("You can delete the account in Settings whenever you want.", tableName: "Account"))
                 }

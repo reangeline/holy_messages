@@ -43,7 +43,15 @@ struct MoodReflectionView: View {
                     .background(Color.white.opacity(0.5), in: RoundedRectangle(cornerRadius: 16, style: .continuous))
                     .overlay(RoundedRectangle(cornerRadius: 16, style: .continuous).strokeBorder(Color.white.opacity(0.7), lineWidth: 1))
 
-                Text("Fica só neste aparelho. Ninguém além de você vê isto.", tableName: "Today")
+                // With a subscription and "Personalizar com o que escrevo" on,
+                // this note may be the text used to choose the Word of the Day
+                // (PersonalizedWordOfDay) — "only on this device" would no
+                // longer be true. `JevPicker.isActive` folds in the
+                // subscription check without naming it here, so this file
+                // stays off SubscriptionGateTests' support-path list.
+                Text(JevPicker.isActive
+                     ? L.string("Fica neste aparelho. Pode ir ao Jev para escolher a palavra do dia, sem ser guardado. Dá para desligar em Ajustes.", table: "Today")
+                     : L.string("Fica só neste aparelho. Ninguém além de você vê isto.", table: "Today"))
                     .font(MissaleFont.body(13))
                     .foregroundStyle(Palette.ink.opacity(0.5))
 

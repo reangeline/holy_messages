@@ -1,6 +1,6 @@
 # Política de Privacidade do Missale
 
-**Última atualização: 25 de setembro de 2026**
+**Última atualização: 26 de setembro de 2026**
 
 Esta política descreve o aplicativo Missale para iPhone e iPad. Ela foi escrita
 a partir do código do aplicativo, não de um modelo: a lista de tudo o que é
@@ -16,9 +16,13 @@ endereço de encaminhamento da Apple).
 
 **O que você escreve e registra fica no seu aparelho.** As anotações, o
 Exame, o registro do "Hoje eu estou…", os terços e o progresso ficam só no seu
-iPhone. **A única exceção é a orientação:** o texto que você escrever na caixa
-"Escreva o que você está sentindo" sai do aparelho quando, e só quando, você
-toca em "Receber orientação". Veja "A orientação" abaixo.
+iPhone. **Há duas exceções, e nas duas o texto só serve para o Jev escolher
+algo no acervo revisado:** o texto que você escrever na caixa "Escreva o que
+você está sentindo" sai do aparelho quando, e só quando, você toca em "Receber
+orientação"; e, se você for assinante e a personalização estiver ligada,
+alguns textos que você escreve (a intenção do Terço, o Exame, a intenção da
+manhã) saem para escolher o que mostrar. Veja "A orientação" e "A
+personalização" abaixo.
 
 ## O que fica guardado no seu aparelho
 
@@ -48,6 +52,7 @@ Tudo abaixo fica no armazenamento local do aplicativo, no seu aparelho.
 - O idioma escolhido para o aplicativo.
 - O calendário litúrgico regional escolhido.
 - Se o modo iniciante do Terço está ligado.
+- Se "Personalizar com o que escrevo" está ligado.
 - Se você já concluiu a apresentação inicial.
 - Os horários escolhidos para o aviso da leitura do dia.
 
@@ -58,7 +63,9 @@ local, no seu aparelho.
 ## O que o aplicativo não faz
 
 - **Não envia o que você escreve**, exceto o texto da orientação, quando você
-  pede. Anotações, Exame, registros e progresso ficam no seu aparelho.
+  pede, e os textos da personalização, se você for assinante e ela estiver
+  ligada. Nada disso é guardado por nós: anotações, Exame, registros e
+  progresso ficam no seu aparelho.
 - **Não tem sincronização.** Nada é copiado para outro aparelho por nós.
 - **Não tem analytics, telemetria nem rastreadores de terceiros.** Nenhum SDK
   de análise, publicidade ou atribuição está incluído.
@@ -94,7 +101,7 @@ pediu.
 publicidade, não os vendemos e não os cruzamos com nada.
 
 **O aplicativo só se comunica com o servidor do Missale**, e só para entrar,
-manter a sessão, apagar a conta e pedir a orientação. Além disso, ele baixa do
+manter a sessão, apagar a conta, pedir a orientação e a personalização. Além disso, ele baixa do
 nosso servidor de arquivos os textos do próprio aplicativo (santos, palavra do
 dia e outros) quando publicamos correções ou novidades. Nesse download nada seu
 é enviado: o aplicativo só pede os arquivos, como qualquer página da web. Um teste automatizado falha se código de rede
@@ -121,6 +128,31 @@ tocar em **"Receber orientação"**:
   sensíveis, ele só é enviado com o seu toque no botão, em cada vez, e o aviso
   está logo abaixo da caixa. Você pode sempre registrar como está só com os
   botões, sem enviar nada.
+
+## A personalização
+
+Se você é assinante, o Missale pode escolher, a partir do que você escreve, o
+que mostrar em alguns momentos do dia. Isso acontece enquanto **"Personalizar
+com o que escrevo"** estiver ligado em **Configurações**. Vem ligado, e você
+pode desligar a qualquer momento.
+
+- **O que é enviado:** a intenção que você escreve para o Terço; as respostas
+  escritas do Exame do dia; a intenção da manhã, no oferecimento; e, para a
+  palavra do dia, o último registro do "Hoje eu estou…" ou a última intenção da
+  manhã que você escreveu.
+- **Quando:** só se você for assinante e a personalização estiver ligada. Sem
+  assinatura, ou com ela desligada, nada disso sai do aparelho, e o aplicativo
+  funciona como sempre, sem personalizar.
+- **Para quê:** o texto vai para o servidor do Missale, que o repassa ao
+  **Jev**, como na orientação. O Jev não escreve nada: ele só **escolhe**, no
+  acervo revisado do Missale, o que combina com o que você escreveu (por
+  exemplo, os mistérios do Terço), e indica se o texto traz sinal de risco à
+  vida, para mostrarmos primeiro a orientação de crise. O que aparece assim é
+  sempre marcado como escolhido a partir do que você escreveu.
+- **Nós não guardamos esse texto** e ele não entra nos registros do servidor.
+  O servidor guarda apenas quantas escolhas a sua conta pediu em cada dia, para
+  um limite diário. A OpenRouter e a TypeSafe processam o texto para responder,
+  conforme as políticas delas.
 
 ## Notificações
 
@@ -186,8 +218,10 @@ o GDPR e a CCPA dão a você direitos de acesso, correção, exclusão e
 portabilidade sobre eles. Você pode apagar a conta a qualquer momento no
 aplicativo, e pode pedir acesso, correção ou exclusão pelo contato abaixo.
 
-O que você escreve e registra não chega até nós: fica sob o seu próprio
-controle, no seu aparelho, e sai com o aplicativo quando você o apaga.
+O que você escreve e registra não fica conosco: o texto que passa pelo
+servidor na orientação e na personalização não é guardado, e todo o resto fica
+sob o seu próprio controle, no seu aparelho, e sai com o aplicativo quando você
+o apaga.
 
 ## Mudanças nesta política
 

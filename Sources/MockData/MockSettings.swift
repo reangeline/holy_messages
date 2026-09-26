@@ -6,7 +6,7 @@ import Foundation
 /// Portuguese in English and Spanish. (That table's other keys are English —
 /// mixed, but the alternative was translating the data itself.)
 enum MockSettings {
-    static let buildLine = "Missale 1.0 (build 214) · o que você registra fica neste aparelho."
+    static let buildLine = "Missale 1.0 (build 214) · veja o que fica neste aparelho em Seus dados."
 
     static let groups: [SettingsGroup] = [
         .init(id: "account", label: "Conta", items: [
@@ -20,7 +20,7 @@ enum MockSettings {
             .init(id: "language", title: "Idioma", subtitle: "Interface do app", value: nil, destination: .language),
         ]),
         .init(id: "privacy", label: "Privacidade", items: [
-            .init(id: "data", title: "Seus dados", subtitle: "Sincronização, exportar, apagar", value: nil, destination: .data),
+            .init(id: "data", title: "Seus dados", subtitle: "Exportar, apagar", value: nil, destination: .data),
         ]),
         .init(id: "about", label: "Sobre", items: [
             .init(id: "support", title: "Suporte", subtitle: "Gente responde, não um formulário", value: nil, destination: .support),
@@ -33,9 +33,6 @@ enum MockSettings {
         ("6", "6h"), ("7", "7h"), ("8", "8h"), ("12", "12h"), ("20", "20h"),
     ]
     static let selectedDailyReadingHourID = "7"
-
-
-    static let quietHoursNote = "Durante a Missa de domingo e entre 22h e 6h, nada é enviado. Não há como este app te interromper na Missa."
 
     static let regions: [RegionOption] = [
         .init(id: "us", name: "Estados Unidos", subtitle: "Calendário próprio da USCCB", isSelected: true),
@@ -70,12 +67,6 @@ enum MockSettings {
     static let regionalEffectNote = "A Ascensão cai no domingo, a Epifania no domingo seguinte a 1º de janeiro, e o dia de hoje mostra também os santos do próprio país."
     static let riteFormNote = "Forma do rito: ordinária e 1962. A trilha da Missa segue a forma escolhida no início, e pode ser trocada na trilha."
 
-    static let dataSyncNote = "Mesmo ligada, o registro de estado e as anotações do Exame não sobem: eles nunca saem deste aparelho. Sincronizam a assinatura, o progresso das trilhas e os terços rezados."
-    static let dataExportNote = "Seu calendário, os registros, as intenções e o progresso, em um arquivo legível. Sem conta e sem nuvem no meio."
-    static let dataDeleteNote = "Apaga o calendário, os registros, as anotações e o progresso deste aparelho. É imediato e não tem volta — exporte antes, se quiser guardar."
-    static let dataPrivacyNote = "Não vendemos dados, não há rastreadores de terceiros e não há anúncios. A analítica é anônima e pode ser desligada abaixo."
-
-
     static let contentProcessNote = "Os textos explicativos são autorais e passam por revisão antes de publicar. Citações litúrgicas aparecem como apoio, com a fonte. Encontrou um erro doutrinal? Escreva — corrigimos e registramos a correção."
     static let errorsEmail = "erros@missale.app"
     static let licensingNote = "As traduções litúrgicas usadas neste app estão licenciadas junto à conferência episcopal correspondente. As bíblicas são de domínio público, com a versão indicada em cada texto."
@@ -85,7 +76,7 @@ enum MockSettings {
 
     static let faq: [FAQItem] = [
         .init(id: "1", question: "Por que o app tem cor diferente todo dia?", answer: "A cor segue a liturgia do dia — vermelho para mártires e a Cruz, roxo no Advento e na Quaresma, branco nas solenidades, verde no Tempo Comum. Não é personalização, é o calendário da Igreja."),
-        .init(id: "2", question: "Meus registros de humor ficam salvos onde?", answer: "Só neste aparelho. Não sobem nem com a sincronização ligada — veja Seus dados."),
+        .init(id: "2", question: "Meus registros de humor ficam salvos onde?", answer: "Neste aparelho. Duas exceções: o texto vai ao Jev quando você pede a orientação e, se você for assinante e a personalização estiver ligada, o registro mais recente pode ajudar a escolher a palavra do dia — sem ser guardado. Veja Seus dados."),
         .init(id: "3", question: "O app substitui a confissão?", answer: "Não, de jeito nenhum. Veja a Nota pastoral para as três declarações completas sobre o que este app é e não é."),
         .init(id: "4", question: "Posso usar sem pagar?", answer: "Sim — palavra do dia, santo do dia, o Terço completo e a rede pastoral são grátis para sempre. E se o preço for o problema para o resto, escreva para nós."),
         .init(id: "5", question: "Como funciona o calendário do meu país?", answer: "Cada conferência episcopal tem um calendário próprio sobre o romano geral, com datas e santos específicos. Escolha o seu em Calendário litúrgico."),

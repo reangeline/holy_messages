@@ -1,6 +1,6 @@
 # Missale Privacy Policy
 
-**Last updated: 25 September 2026**
+**Last updated: 26 September 2026**
 
 This policy describes the Missale app for iPhone and iPad. It was written from
 the app's source code rather than from a template: everything the app stores is
@@ -16,9 +16,12 @@ address).
 
 **What you write and log stays on your device.** Your notes, the Examen, your
 "Today I am…" log, your rosaries and your progress stay only on your iPhone.
-**The one exception is the guidance:** the text you write in the "Write what
-you are feeling" box leaves the device when, and only when, you tap "Receive
-guidance". See "The guidance" below.
+**There are two exceptions, and in both the text only serves for Jev to choose
+something from the reviewed collection:** the text you write in the "Write
+what you are feeling" box leaves the device when, and only when, you tap
+"Receive guidance"; and, if you subscribe and personalization is on, some of
+what you write (the Rosary intention, the Examen, the morning intention) is
+sent to choose what to show. See "The guidance" and "Personalization" below.
 
 ## What is stored on your device
 
@@ -47,6 +50,7 @@ Everything below stays in the app's local storage, on your device.
 - The language you chose for the app.
 - The regional liturgical calendar you chose.
 - Whether the Rosary's beginner mode is on.
+- Whether "Personalize with what I write" is on.
 - Whether you have finished the introduction.
 - The times you chose for the daily reading notice.
 
@@ -57,7 +61,9 @@ device.
 ## What the app does not do
 
 - **It does not send what you write**, except the guidance text, when you ask
-  for it. Notes, the Examen, your log and your progress stay on your device.
+  for it, and the personalization texts, if you subscribe and it is on. We
+  keep none of it: notes, the Examen, your log and your progress stay on your
+  device.
 - **No sync.** Nothing is copied to another device by us.
 - **No analytics, telemetry, or third-party trackers.** No analytics,
   advertising, or attribution SDK is included.
@@ -92,7 +98,7 @@ for.
 advertising, do not sell it and do not combine it with anything.
 
 **The app only talks to the Missale server**, and only to sign in, keep the
-session, delete the account and ask for guidance. Besides that, it downloads
+session, delete the account, and ask for guidance and personalization. Besides that, it downloads
 from our file server the app's own texts (saints, the word of the day and
 others) when we publish corrections or new content. Nothing of yours is sent
 in that download: the app only asks for the files, like any web page. An automated test fails if networking code
@@ -119,6 +125,30 @@ tap **"Receive guidance"**:
   sensitive data, it is only sent by your tap on the button, each time, and the
   notice sits right below the box. You can always log how you are with the
   buttons alone, sending nothing.
+
+## Personalization
+
+If you subscribe, Missale can choose, from what you write, what to show at some
+moments of the day. This happens while **"Personalize with what I write"** is
+on in **Settings**. It comes on, and you can turn it off at any time.
+
+- **What is sent:** the intention you write for the Rosary; your written
+  answers in the daily Examen; the morning intention, in the Morning Offering;
+  and, for the word of the day, your latest "Today I am…" entry or the latest
+  morning intention you wrote.
+- **When:** only if you subscribe and personalization is on. Without a
+  subscription, or with it off, none of this leaves the device, and the app
+  works as always, without personalizing.
+- **What for:** the text goes to the Missale server, which passes it to
+  **Jev**, as with the guidance. Jev writes nothing: it only **chooses**, from
+  Missale's reviewed collection, what fits what you wrote (for example, the
+  Rosary mysteries), and indicates whether the text carries a sign of risk to
+  life, so the crisis guidance comes first. What appears this way is always
+  labeled as chosen from what you wrote.
+- **We do not keep this text**, and it does not go into the server's logs. The
+  server keeps only how many choices your account asked for each day, for a
+  daily limit. OpenRouter and TypeSafe process the text to answer, under their
+  own policies.
 
 ## Notifications
 
@@ -182,8 +212,10 @@ and LGPD give you rights of access, correction, deletion and portability over
 it. You can delete the account at any time in the app, and ask for access,
 correction or deletion through the contact below.
 
-What you write and log never reaches us: it stays under your own control, on
-your device, and goes with the app when you delete it.
+What you write and log does not stay with us: the text that passes through
+the server for guidance and personalization is not kept, and everything else
+stays under your own control, on your device, and goes with the app when you
+delete it.
 
 ## Changes to this policy
 

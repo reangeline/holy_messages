@@ -6,6 +6,8 @@ import SwiftUI
 /// looking at a screen and continue the conversation with God in silence.
 struct ExamenClosingView: View {
     let onFinished: () -> Void
+    var suggestion: ExamenSuggestion? = nil
+    var showCrisis = false
 
     var body: some View {
         ZStack {
@@ -14,19 +16,25 @@ struct ExamenClosingView: View {
                 .ignoresSafeArea()
 
             VStack(spacing: 18) {
-                Spacer()
-                CrossGlyph(size: 30, color: Palette.goldBright)
-                Text("Por hoje, é só isso.", tableName: "Today")
-                    .font(MissaleFont.display(28, weight: .semibold))
-                    .foregroundStyle(.white)
-                    .multilineTextAlignment(.center)
-                Text("Feche o aplicativo agora. O que começou aqui continua em silêncio — a conversa com Deus não precisa de mais tela, só do seu íntimo.", tableName: "Today")
-                    .font(MissaleFont.body(16))
-                    .foregroundStyle(.white.opacity(0.7))
-                    .multilineTextAlignment(.center)
-
-                Spacer()
-                Spacer()
+                if showCrisis {
+                    // A risk sign in what was written: the support comes
+                    // before anything else, including "close the app now".
+                    ScrollView {
+                        VStack(spacing: 18) {
+                            CrisisSupportCard()
+                                .padding(16)
+                                .background(Color.white.opacity(0.92), in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+                            closing
+                        }
+                        .padding(.top, 12)
+                    }
+                    .scrollIndicators(.hidden)
+                } else {
+                    Spacer()
+                    closing
+                    Spacer()
+                    Spacer()
+                }
 
                 Button {
                     onFinished()
@@ -44,6 +52,23 @@ struct ExamenClosingView: View {
             .padding(.horizontal, 32)
         }
         .navigationBarBackButtonHidden(true)
+    }
+
+    @ViewBuilder private var closing: some View {
+        CrossGlyph(size: 30, color: Palette.goldBright)
+        Text("Por hoje, é só isso.", tableName: "Today")
+            .font(MissaleFont.display(28, weight: .semibold))
+            .foregroundStyle(.white)
+            .multilineTextAlignment(.center)
+        Text("Feche o aplicativo agora. O que começou aqui continua em silêncio — a conversa com Deus não precisa de mais tela, só do seu íntimo.", tableName: "Today")
+            .font(MissaleFont.body(16))
+            .foregroundStyle(.white.opacity(0.7))
+            .multilineTextAlignment(.center)
+        // Jev's saint and prayer, whenever they arrive; nothing waits on them.
+        if let suggestion {
+            ExamenSuggestionCard(suggestion: suggestion)
+                .padding(.top, 8)
+        }
     }
 }
 

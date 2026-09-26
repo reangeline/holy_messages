@@ -246,7 +246,7 @@ struct MoodCheckInSheet: View {
                 .font(MissaleFont.display(27, weight: .semibold))
                 .foregroundStyle(Palette.ink)
                 .padding(.top, 14)
-            Text("Um toque. Fica no aparelho, e pode ficar em branco.", tableName: "Today")
+            Text("Um toque, e pode ficar em branco.", tableName: "Today")
                 .font(MissaleFont.body(15))
                 .foregroundStyle(Palette.ink.opacity(0.65))
                 .padding(.bottom, 8)

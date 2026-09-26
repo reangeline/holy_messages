@@ -13,10 +13,10 @@ import SwiftUI
 /// back, now for real: both work over LocalData's list, so the file carries
 /// and the button removes exactly what the privacy policy names.
 ///
-/// Analytics is coming (anonymous usage only), so the screen no longer
-/// promises "no analytics": it says what will be collected and what never is.
-/// When the SDK lands, the privacy policy in Legal/ and the App Store privacy
-/// answers have to change with it.
+/// The intro paragraph used to say "no account" and "we may collect anonymous
+/// usage data" — both wrong once Sign in with Apple shipped (Ajustes › Conta):
+/// there is an account, and there has never been analytics. Rewritten to
+/// match Legal/ (26/09).
 struct DataSettingsView: View {
     @State private var confirmingErase = false
     @State private var erased = false
@@ -34,7 +34,7 @@ struct DataSettingsView: View {
                             .foregroundStyle(Palette.ink.opacity(0.68))
                     }
 
-                    Text("What you write stays on this device and is never sent anywhere. To keep improving the app, we may collect anonymous usage data — which screens are opened and how often — never what you write, and never linked to you. No account, no ads, no third-party trackers.", tableName: "SettingsDetail")
+                    Text("What you write is kept only on this device. It is sent, without being stored, only for the guidance you ask for and, with a subscription, for the personalization you can turn off in Settings. You have an account, created with Sign in with Apple. No analytics, no ads, no third-party trackers.", tableName: "SettingsDetail")
                         .font(MissaleFont.body(15))
                         .foregroundStyle(Palette.ink.opacity(0.8))
 
