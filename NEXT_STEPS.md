@@ -153,9 +153,16 @@ Do 2.0 (3), o que depende de conteúdo:
   Keychain; Ajustes › Conta com sair e apagar conta; políticas e termos nos 3
   idiomas atualizados (25/09). Backend em `../missale-backend` (Go,
   ports & adapters, Cognito + Aurora DSQL, ambiente dev no ar).
+- **Ambientes (26/09):** `MissaleAPI` agora tem dev e prod lado a lado, um
+  `#if DEBUG`/`#else` — Release (TestFlight e App Store) fala com produção,
+  Debug (rodar local, testes unitários e de UI) continua em dev. Prod:
+  `https://d64r4fekcj.execute-api.us-east-1.amazonaws.com` (API) e
+  `https://d1fie9m5bh3i4a.cloudfront.net` (conteúdo — ainda dá 403 no
+  `manifest.json` porque nada foi publicado lá; o app cai no conteúdo
+  embutido em silêncio, como já fazia offline).
 - **Falta:** a tela da orientação (escrever o que sente → Jev escolhe estado,
   risco e a resposta revisada), com volta para os botões sem internet ou sem
-  assinatura; ambiente prod e a URL de produção no `MissaleAPI`; revogar o
+  assinatura; publicar o conteúdo no CDN de prod; revogar o
   token da Apple ao apagar a conta (precisa de uma chave .p8 de Sign in with
   Apple); respostas de privacidade na App Store Connect (agora há "Identificadores
   › ID do usuário" e "Informações de contato › E-mail", ligados à conta).
