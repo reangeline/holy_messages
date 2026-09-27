@@ -129,16 +129,22 @@ tap **"Receive guidance"**:
 ## Personalization
 
 If you subscribe, Missale can choose, from what you write, what to show at some
-moments of the day. This happens while **"Personalize with what I write"** is
-on in **Settings**. It comes on, and you can turn it off at any time.
+moments of the day. This only happens once you allow it: the first time
+personalization would send something, a prompt asks whether it can continue,
+with a link to this policy; while you don't answer, or if you tap "Not now",
+nothing is sent. Tapping "Allow" there, or turning on **"Personalize with what
+I write"** in **Settings** (the explanation is right there too), holds until
+you change your mind. Turning the switch off only pauses sending; erasing your
+data also erases that permission, and it asks again next time. The switch is
+on by default, but nothing leaves the device before the permission.
 
 - **What is sent:** the intention you write for the Rosary; your written
   answers in the daily Examen; the morning intention, in the Morning Offering;
   and, for the word of the day, your latest "Today I am…" entry or the latest
   morning intention you wrote.
-- **When:** only if you subscribe and personalization is on. Without a
-  subscription, or with it off, none of this leaves the device, and the app
-  works as always, without personalizing.
+- **When:** only if you subscribe, personalization is on, and you have already
+  allowed it in the prompt. Missing any of those three, none of this leaves
+  the device, and the app works as always, without personalizing.
 - **What for:** the text goes to the Missale server, which passes it to
   **Jev**, as with the guidance. Jev writes nothing: it only **chooses**, from
   Missale's reviewed collection, what fits what you wrote (for example, the
