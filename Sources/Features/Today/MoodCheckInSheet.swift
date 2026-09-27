@@ -14,6 +14,12 @@ struct MoodCheckInSheet: View {
     @State private var goingForward = true
     @State private var showPastoralCare = false
     @State private var showPaywall = false
+    /// The one-time "send what I write to Jev?" prompt (`JevConsent`): saving a
+    /// check-in note can trigger `PersonalizedWordOfDay` while this sheet is
+    /// still open, so it has to be able to show the prompt itself — see the
+    /// same coordinator in `TodayRootView`.
+    @State private var showConsentPrompt = false
+    @ObservedObject private var jevConsent = JevConsentCoordinator.shared
 
     /// O único ponto deste fluxo que olha para a assinatura, e olha para um
     /// passo só: o Salmo, o santo e o passo do dia. Registrar como se está,
@@ -99,6 +105,14 @@ struct MoodCheckInSheet: View {
                     .transition(transition)
                 }
             }
+        }
+        .onChange(of: jevConsent.isPending, initial: true) { _, pending in
+            showConsentPrompt = pending
+        }
+        .sheet(isPresented: $showConsentPrompt, onDismiss: { jevConsent.answerIfStillPending() }) {
+            JevConsentPromptView(onAllow: { jevConsent.answer(granted: true) },
+                                 onDecline: { jevConsent.answer(granted: false) })
+                .appLanguageLocale()
         }
     }
 

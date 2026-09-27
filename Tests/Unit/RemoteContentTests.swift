@@ -53,6 +53,25 @@ final class RemoteContentTests: XCTestCase {
                        "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad")
     }
 
+    /// A 403 or 404 on `manifest.json` — nothing published yet, as prod is
+    /// today — must read as "no remote content", the same silent fallback as
+    /// an unreachable host, never wiping what a previous, successful refresh
+    /// already downloaded.
+    func testAForbiddenOrMissingManifestFallsBackSilentlyWithoutWipingDownloadedContent() async throws {
+        URLProtocol.registerClass(StubManifestURLProtocol.self)
+        defer { URLProtocol.unregisterClass(StubManifestURLProtocol.self) }
+
+        let jaBaixada = WordOfDay(id: "ja-baixada", quote: "Q", reference: "Mt 1, 1", translationNote: "N", context: "C")
+        try publish(JSONEncoder().encode([jaBaixada]))
+
+        for status in [403, 404] {
+            StubManifestURLProtocol.statusCode = status
+            await RemoteContentUpdater.refresh()
+            XCTAssertEqual(MockWordOfDay.pool, [jaBaixada],
+                           "manifest \(status) não deveria apagar o que já tinha sido baixado")
+        }
+    }
+
     // MARK: - Santos
 
     /// Every bundled saint survives the trip through the published format —
@@ -267,4 +286,23 @@ final class RemoteContentTests: XCTestCase {
         XCTAssertEqual(nome, "remote:teste-unitario.png", "depois de baixar: a arte enviada")
         XCTAssertNotNil(DownloadedImages.image(named: "teste-unitario.png"), "o retrato carrega o arquivo baixado")
     }
+}
+
+/// Answers every request with `statusCode` and no body, so a test can force
+/// the manifest fetch to see a 403 or 404 without touching the network.
+/// `MissaleAPI`'s session doesn't set `protocolClasses`, so registering this
+/// globally for the test is enough to intercept it.
+private final class StubManifestURLProtocol: URLProtocol {
+    static var statusCode = 403
+
+    override class func canInit(with request: URLRequest) -> Bool { true }
+    override class func canonicalRequest(for request: URLRequest) -> URLRequest { request }
+
+    override func startLoading() {
+        let response = HTTPURLResponse(url: request.url!, statusCode: Self.statusCode, httpVersion: nil, headerFields: nil)!
+        client?.urlProtocol(self, didReceive: response, cacheStoragePolicy: .notAllowed)
+        client?.urlProtocolDidFinishLoading(self)
+    }
+
+    override func stopLoading() {}
 }

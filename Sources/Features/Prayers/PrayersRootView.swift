@@ -2,6 +2,12 @@ import SwiftUI
 
 /// t4 screen 22 — Prayers hub. Hub screen (shows the floating tab bar).
 struct PrayersRootView: View {
+    /// The one-time "send what I write to Jev?" prompt (`JevConsent`), for the
+    /// Rosary intention written from this tab — see the same coordinator in
+    /// `TodayRootView`, which covers the Rosary teaser reached from Today.
+    @State private var showConsentPrompt = false
+    @ObservedObject private var jevConsent = JevConsentCoordinator.shared
+
     var body: some View {
         NavigationStack {
             ZStack {
@@ -40,6 +46,14 @@ struct PrayersRootView: View {
                 case .apparition(let apparition):
                     MarianApparitionDetailView(apparition: apparition)
                 }
+            }
+            .onChange(of: jevConsent.isPending, initial: true) { _, pending in
+                showConsentPrompt = pending
+            }
+            .sheet(isPresented: $showConsentPrompt, onDismiss: { jevConsent.answerIfStillPending() }) {
+                JevConsentPromptView(onAllow: { jevConsent.answer(granted: true) },
+                                     onDecline: { jevConsent.answer(granted: false) })
+                    .appLanguageLocale()
             }
         }
     }

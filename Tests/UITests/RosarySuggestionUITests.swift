@@ -14,7 +14,8 @@ final class RosarySuggestionUITests: XCTestCase {
     private func launch(_ extra: [String]) -> XCUIApplication {
         let app = XCUIApplication()
         app.launchArguments = ["-signedIn", "1", "-demoDate", "2026-09-14", "-subscribed", "1",
-                               "-hasCompletedOnboarding", "1", "-appLanguageOverride", "en"] + extra
+                               "-hasCompletedOnboarding", "1", "-appLanguageOverride", "en",
+                               "-jev_consent", "granted"] + extra
         app.launch()
         return app
     }

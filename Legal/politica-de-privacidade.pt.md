@@ -132,17 +132,24 @@ tocar em **"Receber orientação"**:
 ## A personalização
 
 Se você é assinante, o Missale pode escolher, a partir do que você escreve, o
-que mostrar em alguns momentos do dia. Isso acontece enquanto **"Personalizar
-com o que escrevo"** estiver ligado em **Configurações**. Vem ligado, e você
-pode desligar a qualquer momento.
+que mostrar em alguns momentos do dia. Isso só acontece depois que você
+permitir: na primeira vez que a personalização enviaria algo, aparece um aviso
+perguntando se pode continuar, com um link para esta política; enquanto você
+não responder, ou se tocar em "Agora não", nada é enviado. Tocar em
+"Permitir", ali, ou ligar **"Personalizar com o que escrevo"** nos
+**Ajustes** (a explicação já está ali), vale até você mudar de ideia.
+Desligar o interruptor só pausa o envio; apagar os seus dados apaga também
+essa permissão, e a próxima vez volta a perguntar. O interruptor vem ligado
+por padrão, mas nada sai do aparelho antes da permissão.
 
 - **O que é enviado:** a intenção que você escreve para o Terço; as respostas
   escritas do Exame do dia; a intenção da manhã, no oferecimento; e, para a
   palavra do dia, o último registro do "Hoje eu estou…" ou a última intenção da
   manhã que você escreveu.
-- **Quando:** só se você for assinante e a personalização estiver ligada. Sem
-  assinatura, ou com ela desligada, nada disso sai do aparelho, e o aplicativo
-  funciona como sempre, sem personalizar.
+- **Quando:** só se você for assinante, a personalização estiver ligada e você
+  já tiver permitido no aviso. Faltando qualquer uma dessas três coisas, nada
+  disso sai do aparelho, e o aplicativo funciona como sempre, sem
+  personalizar.
 - **Para quê:** o texto vai para o servidor do Missale, que o repassa ao
   **Jev**, como na orientação. O Jev não escreve nada: ele só **escolhe**, no
   acervo revisado do Missale, o que combina com o que você escreveu (por

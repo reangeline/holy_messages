@@ -153,15 +153,36 @@ Do 2.0 (3), o que depende de conteúdo:
   Keychain; Ajustes › Conta com sair e apagar conta; políticas e termos nos 3
   idiomas atualizados (25/09). Backend em `../missale-backend` (Go,
   ports & adapters, Cognito + Aurora DSQL, ambiente dev no ar).
-- **Falta:** a tela da orientação (escrever o que sente → Jev escolhe estado,
-  risco e a resposta revisada), com volta para os botões sem internet ou sem
-  assinatura; ambiente prod e a URL de produção no `MissaleAPI`; revogar o
-  token da Apple ao apagar a conta (precisa de uma chave .p8 de Sign in with
-  Apple); respostas de privacidade na App Store Connect (agora há "Identificadores
-  › ID do usuário" e "Informações de contato › E-mail", ligados à conta).
+- **Ambientes (26/09):** `MissaleAPI` tem dev e prod lado a lado, num
+  `#if DEBUG`/`#else` — Release (TestFlight e App Store) fala com produção,
+  Debug (rodar local, testes unitários e de UI) continua em dev. Prod:
+  `https://d64r4fekcj.execute-api.us-east-1.amazonaws.com` (API) e
+  `https://d1fie9m5bh3i4a.cloudfront.net` (conteúdo). Em 27/09 o conteúdo
+  publicado no dev (v6, 2.184 itens, com as 28 imagens de santos) foi copiado
+  para prod e publicado como v1. O painel `missale-admin.vercel.app` aponta
+  para prod; as prévias da Vercel continuam no dev.
+- **Revogar o token da Apple ao apagar a conta — implementado em 27/09**
+  (backend e app, branch `feat/apple-revoke`). Ao apagar a conta, o app pede
+  uma confirmação extra com "Entrar com a Apple" (`AppleReauthorization`) só
+  para conseguir um `authorizationCode` fresco; cancelar o pedido cancela a
+  exclusão, e um erro da Apple oferece apagar mesmo assim, sem revogar. O
+  `DELETE /v1/account` manda `{"authorizationCode": "..."}`; o backend troca o
+  código com a Apple (`POST /auth/token`), revoga o refresh token
+  (`POST /auth/revoke`) — cliente assinado em ES256 com a chave de Sign in
+  with Apple — e apaga a conta de qualquer forma, mesmo se a Apple falhar. Sem
+  `authorizationCode` (versões antigas do app), o comportamento continua o de
+  hoje. A chave está no Secrets Manager (`missale/dev/apple-signin-key` e
+  `missale/prod/apple-signin-key`, us-east-1).
+- **Falta:** validar a revogação de ponta a ponta num aparelho (apagar uma
+  conta de teste e conferir que o Missale sai de "Apps que usam o ID Apple");
+  respostas de privacidade na App Store Connect (agora há "Identificadores ›
+  ID do usuário", "Informações de contato › E-mail", ligados à conta, e o
+  texto enviado ao Jev, um serviço de IA de terceiros, com consentimento).
 - **Assinatura no TestFlight:** Ajustes › Assinatura mostra, só no TestFlight,
   o que a App Store responde. O TestFlight renova todo dia e para depois de 6
   renovações, e o teste grátis nunca volta para o mesmo Apple ID.
+- **Consentimento para a personalização (guideline 5.1.2(i), 27/09):** feito —
+  ver §5 para o desenho completo (`JevConsent`, `JevConsentPromptView`).
 
 ### 2.5c Rodada de feedback do TestFlight de 26/09 — no branch, sem commit
 
@@ -289,18 +310,33 @@ publicação é seu.**
 
 ## 4. Como o dinheiro está montado
 
-Decisão desta versão: **só a palavra do dia é gratuita.**
+Decisão em 26/09: **a palavra do dia e o santo do dia são gratuitos** (antes,
+só a palavra). O paywall já prometia os dois — "a palavra do dia, o santo e a
+rede de apoio continuam grátis para sempre" — e o santo ficou de fora até
+agora; `TodayRootView.saintTeaserCard` deixou de usar `GatedLink` e virou um
+`NavigationLink` comum.
 
 | grátis | pede assinatura |
 |---|---|
 | Palavra do dia | Calendário |
-| Check-in de humor → alívio → tela pastoral → linha de crise | Formação |
-| Ajustes, idioma, os dois documentos legais | Orações e Terço |
-| | Santo do dia, Exame, Completas |
+| Santo do dia (a partir do Hoje) | Formação |
+| Check-in de humor → alívio → tela pastoral → linha de crise | Orações e Terço |
+| Ajustes, idioma, os dois documentos legais | Exame, Completas |
+| | Arquivo de santos e "Santos para o que você carrega" |
 
-**As duas exceções não são comerciais, e estão travadas por teste.**
-`SubscriptionGateTests` lê as fontes e falha se um portão aparecer em qualquer
-arquivo do caminho do apoio, ou nas telas de Ajustes e legais.
+A ficha do santo (`SaintDetailView`) é a mesma tela em todo lugar, e agora
+abre de graça a partir do Hoje. Mas o que ela leva adiante — o arquivo
+completo e "Santos para o que você carrega" — continua comercial: são os dois
+`NavigationLink` que viraram `GatedLink` dentro do próprio `SaintDetailView`,
+para não bastar chegar pelo santo do dia para navegar o acervo inteiro de
+graça. Sugestões de santo no Exame continuam pagas, porque o Exame é pago.
+
+**A palavra e o santo do dia são gratuitos por decisão comercial; o caminho
+do apoio, por Ajustes e pelos documentos legais, não é — e as três estão
+travadas por teste.** `SubscriptionGateTests` lê as fontes e falha se um
+portão aparecer em qualquer arquivo do caminho do apoio, nas telas de Ajustes
+e legais, ou no cartão do santo do dia em `TodayRootView`; e falha também se
+o portão *sumir* de `SaintDetailView` nos dois links para o arquivo.
 
 Produtos: `mensal` e `anual` (Product IDs, não os Apple IDs 6814659756 e
 6814660801, que o `Product.products(for:)` ignora em silêncio). Preços R$ 19,90
@@ -329,9 +365,12 @@ só local com a conta (25/09) e o conteúdo remoto.
   sessão e, só quando a pessoa toca "Receber orientação", o texto daquela
   caixa, que o servidor repassa ao Jev e, segundo a política, não guarda.
   Além disso, para assinantes com "Personalizar com o que escrevo" ligado
-  (chave `jev_personalization_enabled`, ligada por padrão), o texto passa por
-  `JevPicker`, sempre com a pergunta de risco, em quatro pontos — todos
-  construídos em 26/09:
+  (chave `jev_personalization_enabled`, ligada por padrão) **e que já
+  permitiram o envio** (chave `jev_consent`: `notAsked`/`granted`/`declined`,
+  guideline 5.1.2(i) da Apple desde nov/2025 — divulgar e pedir permissão
+  explícita antes de mandar dado pessoal para uma IA de terceiro), o texto
+  passa por `JevPicker`, sempre com a pergunta de risco, em quatro pontos —
+  todos construídos em 26/09:
   - a intenção do Terço, para sugerir o mistério e a dezena (`RosarySuggestion`);
   - as quatro respostas do Exame do dia, para sugerir um santo e uma oração de
     fechamento (`ExamenSuggestion`);
@@ -343,10 +382,27 @@ só local com a conta (25/09) e o conteúdo remoto.
     candidatas o versículo que `IntentionVerse` já escolheu para o dia, para
     os dois cartões do Hoje nunca mostrarem a mesma passagem).
 
-  Desligado ou sem assinatura, nada é enviado (`JevPickerTests`). Nenhuma
-  chave de `LocalData` (humor, Exame, notas, Bíblia, rotina) é enviada além
-  do texto que passa, ponto a ponto, por `JevPicker` como descrito acima. Que
-  o servidor não guarda o texto é do backend; nenhum teste do app cobre isso.
+  Desligado, sem assinatura, ou sem o consentimento, nada é enviado
+  (`JevPickerTests`, `JevConsentTests`). Nenhuma chave de `LocalData` (humor,
+  Exame, notas, Bíblia, rotina) é enviada além do texto que passa, ponto a
+  ponto, por `JevPicker` como descrito acima. Que o servidor não guarda o
+  texto é do backend; nenhum teste do app cobre isso.
+
+  **O pedido de consentimento** (`JevConsentPromptView`) aparece uma vez, na
+  primeira vez que um desses quatro pontos for enviar algo com `jev_consent`
+  ainda `notAsked` — inclusive para quem já usava o app no TestFlight com o
+  interruptor ligado, porque nada migra `notAsked` para `granted`. "Permitir"
+  grava `granted` e deixa o pedido pendente seguir; "Agora não" grava
+  `declined` e não pergunta de novo sozinho. Ligar o interruptor de
+  Ajustes quando o consentimento não é `granted` conta como permissão — a
+  explicação já está ali, ao lado do interruptor (decisão tomada em 27/09,
+  não há um segundo pedido em cima do interruptor). Apagar os dados
+  (`LocalData.erasePersonalData`) volta `jev_consent` para `notAsked`. A tela
+  é uma só, reaproveitada pelas três telas que podem estar na frente quando o
+  pedido acontece: `TodayRootView`, `PrayersRootView` (a intenção do Terço,
+  quando escrita pela aba Orações) e `MoodCheckInSheet` (a nota do "Hoje eu
+  estou…", que dispara `PersonalizedWordOfDay` enquanto a folha ainda está
+  aberta).
 
   **Para revisar, não código:** os pisos de confiança abaixo dos quais uma
   resposta do Jev é descartada (`JevPicker.minimumConfidence` e as

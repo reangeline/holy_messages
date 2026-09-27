@@ -330,6 +330,94 @@
           }
         }
       }
+    },
+    "To disconnect Missale from your Apple ID, confirm with Apple.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "To disconnect Missale from your Apple ID, confirm with Apple."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Para desconectar Missale de tu ID de Apple, confirma con Apple."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Para desligar o Missale do seu ID Apple, confirme com a Apple."
+          }
+        }
+      }
+    },
+    "We couldn't confirm with Apple.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "We couldn't confirm with Apple."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No pudimos confirmar con Apple."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Não conseguimos confirmar com a Apple."
+          }
+        }
+      }
+    },
+    "Delete anyway": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Delete anyway"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Eliminar de todas formas"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apagar mesmo assim"
+          }
+        }
+      }
+    },
+    "Your account will be deleted, but the Apple sign-in link may remain active. You can remove it later in Settings › Apple ID › Sign in with Apple.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your account will be deleted, but the Apple sign-in link may remain active. You can remove it later in Settings › Apple ID › Sign in with Apple."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tu cuenta será eliminada, pero el acceso con tu ID de Apple puede seguir activo. Puedes quitarlo después en Ajustes › ID de Apple › Iniciar sesión con Apple."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A sua conta será apagada, mas o acesso com o seu ID Apple pode continuar ativo. Você pode removê-lo depois em Ajustes › ID Apple › Entrar com a Apple."
+          }
+        }
+      }
     }
   },
   "version": "1.0"

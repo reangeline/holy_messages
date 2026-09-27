@@ -4,11 +4,12 @@ import XCTest
 /// Where the subscription gate is, and — the point of the file — where it must
 /// never be.
 ///
-/// The decision for this version: only the word of the day is free. But two
-/// carve-outs are not commercial, and a UI test cannot cover the whole of the
-/// first one (the keyboard on the note screen pushes the buttons out of the
-/// accessibility tree). So this reads the sources instead, which is also a
-/// stronger claim: the gate cannot appear in these files at all.
+/// The decision for this version: the word of the day and the saint of the
+/// day are free. But two carve-outs are not commercial, and a UI test cannot
+/// cover the whole of the first one (the keyboard on the note screen pushes
+/// the buttons out of the accessibility tree). So this reads the sources
+/// instead, which is also a stronger claim: the gate cannot appear in these
+/// files at all.
 final class SubscriptionGateTests: XCTestCase {
 
     private var raiz: URL {
@@ -126,8 +127,35 @@ final class SubscriptionGateTests: XCTestCase {
         }
         let hoje = try fonte("Sources/Features/Today/TodayRootView.swift")
         XCTAssertGreaterThanOrEqual(
-            hoje.components(separatedBy: "GatedLink").count - 1, 4,
-            "os cartões pagos do Hoje (santo, formação, terço, exame) deixaram de pedir assinatura"
+            hoje.components(separatedBy: "GatedLink").count - 1, 3,
+            "os cartões pagos do Hoje (formação, terço, exame) deixaram de pedir assinatura"
+        )
+    }
+
+    /// The saint of the day joined the word of the day as free in this
+    /// version. Checked against `saintTeaserCard`'s own body — not the whole
+    /// file, which still gates the formation, rosary and Examen cards a few
+    /// lines away.
+    func testTheSaintOfTheDayHasNoGate() throws {
+        let hoje = try fonte("Sources/Features/Today/TodayRootView.swift")
+        guard let inicio = hoje.range(of: "private var saintTeaserCard: some View {") else {
+            return XCTFail("saintTeaserCard sumiu do Hoje")
+        }
+        let resto = hoje[inicio.upperBound...]
+        let fim = resto.range(of: "\n    private var rosaryTeaserCard")?.lowerBound ?? resto.endIndex
+        let corpo = resto[..<fim]
+        XCTAssertFalse(corpo.contains("GatedLink"), "o santo do dia voltou a pedir assinatura")
+        XCTAssertTrue(corpo.contains("NavigationLink"), "o cartão do santo do dia deixou de abrir a ficha")
+    }
+
+    /// The saint's own screen is free to open from Today, but what it links
+    /// onward to — the archive, and "saints for what you carry" — is not:
+    /// that is still commercial content, browsed beyond today's saint.
+    func testBrowsingSaintsBeyondTodayStillGates() throws {
+        let ficha = try fonte("Sources/Features/Saints/SaintDetailView.swift")
+        XCTAssertTrue(
+            ficha.contains("GatedLink") && ficha.contains("SaintsArchiveView") && ficha.contains("SaintsForYouView"),
+            "a ficha do santo deixou de pedir assinatura para o arquivo ou para \"santos para o que você carrega\""
         )
     }
 }

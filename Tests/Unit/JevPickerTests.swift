@@ -165,6 +165,26 @@ final class JevPickerTests: XCTestCase {
         XCTAssertTrue(fake.calls.isEmpty, "nada pode sair do aparelho nesses casos")
     }
 
+    /// Requirement: not asked or declined, nothing is sent — even with the
+    /// toggle on and a subscription (`enabled`/`subscribed` both true here).
+    func testNotAskedOrDeclinedConsentMakesNoCall() async {
+        let fake = FakeJev()
+        let notAsked = await JevPicker.pick(from: "texto", [pick("a", 4)], enabled: true, subscribed: true,
+                                            consent: .notAsked, decide: fake.decide)
+        let declined = await JevPicker.pick(from: "texto", [pick("a", 4)], enabled: true, subscribed: true,
+                                            consent: .declined, decide: fake.decide)
+        XCTAssertNil(notAsked)
+        XCTAssertNil(declined)
+        XCTAssertTrue(fake.calls.isEmpty, "sem consentimento, nada pode sair do aparelho")
+    }
+
+    func testGrantedConsentIsTheDefaultTestsRelyOn() async {
+        let fake = FakeJev()
+        fake.wanted = ["a0"]
+        let result = await run("texto", [pick("a", 4)], fake)
+        XCTAssertNotNil(result, "os outros testes deste arquivo assumem consentimento concedido por padrão")
+    }
+
     func testRiskFromJevOrFromThePhrasesEvenOffline() async {
         let fake = FakeJev()
         fake.risk = 0.5

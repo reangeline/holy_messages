@@ -8,10 +8,11 @@ import Foundation
 /// local `CrisisPhrases` into `showCrisisFirst`, as the orientação does.
 ///
 /// Returns nil — and sends nothing — when personalization is off in Settings,
-/// when there is no subscription, or when there is no text. On any failure
-/// (offline, the server, the daily limit) it returns a result with no choices,
-/// so callers only ever fall back to what they did before: never throw, never
-/// block the flow waiting on this.
+/// when there is no subscription, when there is no text, or when the reader
+/// hasn't allowed it yet (`JevConsent`) and declines the one-time prompt. On
+/// any failure (offline, the server, the daily limit) it returns a result with
+/// no choices, so callers only ever fall back to what they did before: never
+/// throw, never block the flow waiting on this.
 ///
 /// How the calls are planned, within the server's limits (missale-backend,
 /// core/domain/decision.go: ≤ 3 questions, ≤ 32 criteria of ≤ 400 characters,
@@ -82,14 +83,25 @@ enum JevPicker {
 
     typealias Decide = (_ state: String, _ questions: [String: [String: Any]]) async throws -> [String: Any]
 
-    /// The entry point for features. Nil means "behave as without Jev".
+    /// The entry point for features. Nil means "behave as without Jev". Before
+    /// anything is sent, this also requires the one-time consent Apple's
+    /// guideline 5.1.2(i) calls for (`JevConsent`) — granted once already, or
+    /// asked for now, which is the only part of this that can take a while
+    /// (the reader answering a prompt): callers already treat this whole
+    /// function as "may take a moment", so nothing here needs to change for
+    /// that wait to be safe.
     @MainActor
     static func pick(from text: String, _ picks: [Pick]) async -> Result? {
         guard isEnabled else { return nil }
 #if DEBUG
-        if let fake = debugFakeResult(for: text, picks) { return fake }
+        if let wanted = fakeJevPickFlags {
+            guard !wanted.contains("off") else { return nil }
+            guard await JevConsent.ensureGranted() else { return nil }
+            return debugFakeResult(wanted: wanted, for: text, picks)
+        }
 #endif
         guard let jws = await SubscriptionStore.shared.activeSubscriptionJWS() else { return nil }
+        guard await JevConsent.ensureGranted() else { return nil }
         return await pick(from: text, picks, enabled: true, subscribed: true) { state, questions in
             let token = try await AccountStore.shared.validAccessToken()
             return try await MissaleAPI.decide(state: state, questions: questions,
@@ -97,11 +109,13 @@ enum JevPicker {
         }
     }
 
-    /// The same, with the network injected — what the tests drive.
+    /// The same, with the network injected — what the tests drive. `consent`
+    /// defaults to granted so the existing planning/fallback tests, which
+    /// aren't about consent, don't have to pass it.
     static func pick(from text: String, _ picks: [Pick], enabled: Bool, subscribed: Bool,
-                     decide: Decide) async -> Result? {
+                     consent: JevConsent = .granted, decide: Decide) async -> Result? {
         let state = clip(text.trimmingCharacters(in: .whitespacesAndNewlines), to: maxStateChars)
-        guard enabled, subscribed, !state.isEmpty else { return nil }
+        guard enabled, subscribed, consent == .granted, !state.isEmpty else { return nil }
         let picks = picks.map(normalized)
         var risk = CrisisPhrases.matches(text)
         var choices: [String: String] = [:]
@@ -257,18 +271,21 @@ enum JevPicker {
     }
 
 #if DEBUG
+    /// The `-fakeJevPick` launch argument's flags, or nil when it wasn't passed.
+    private static var fakeJevPickFlags: Set<String>? {
+        guard let fake = UserDefaults.standard
+            .volatileDomain(forName: UserDefaults.argumentDomain)["fakeJevPick"] as? String
+        else { return nil }
+        return Set(fake.split(separator: ",").map(String.init))
+    }
+
     /// `-fakeJevPick sorrowful,sorrowful.0` answers without the network, so UI
     /// tests and previews work offline: each pick chooses the first candidate
     /// whose id is in the list, or its first candidate. `crisis` adds the risk
     /// flag; `unsure` answers with no choices (still `answered`); `fail`
     /// simulates every call failing (`answered` false, as offline); `off`
-    /// behaves as unsubscribed.
-    private static func debugFakeResult(for text: String, _ picks: [Pick]) -> Result? {
-        guard let fake = UserDefaults.standard
-            .volatileDomain(forName: UserDefaults.argumentDomain)["fakeJevPick"] as? String
-        else { return nil }
-        let wanted = Set(fake.split(separator: ",").map(String.init))
-        if wanted.contains("off") { return nil }
+    /// behaves as unsubscribed (checked by the caller, before consent).
+    private static func debugFakeResult(wanted: Set<String>, for text: String, _ picks: [Pick]) -> Result {
         let risk = wanted.contains("crisis") || CrisisPhrases.matches(text)
         if wanted.contains("fail") { return Result(choices: [:], showCrisisFirst: risk, answered: false) }
         if wanted.contains("unsure") { return Result(choices: [:], showCrisisFirst: risk) }

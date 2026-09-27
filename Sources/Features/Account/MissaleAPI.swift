@@ -11,13 +11,20 @@ import Foundation
 /// tokens, and — only when the reader taps "Receber orientação" — the text
 /// they wrote in that box, which the server passes to Jev and does not keep.
 enum MissaleAPI {
-    /// Dev stack for now (TestFlight). Production gets its own URL before the
-    /// App Store release.
+    // Debug (local runs, unit and UI tests) talks to the dev stack; Release
+    // (TestFlight and the App Store, see .github/workflows/testflight.yml)
+    // talks to production. This is the one place to change either URL —
+    // there's no scheme or Info.plist setting involved, just this flag.
+#if DEBUG
     static let baseURL = URL(string: "https://ule22ss715.execute-api.us-east-1.amazonaws.com")!
+    static let contentBaseURL = URL(string: "https://dbwbh4btw116j.cloudfront.net")!
+#else
+    static let baseURL = URL(string: "https://d64r4fekcj.execute-api.us-east-1.amazonaws.com")!
 
     /// Where the admin page publishes the app's content (CloudFront). Only
     /// files are fetched from here, never anything of the reader's sent.
-    static let contentBaseURL = URL(string: "https://dbwbh4btw116j.cloudfront.net")!
+    static let contentBaseURL = URL(string: "https://d1fie9m5bh3i4a.cloudfront.net")!
+#endif
 
     /// A published content file (`manifest.json`, `v3/word_of_day/pt.json`…).
     static func contentFile(_ path: String) async throws -> Data {
@@ -54,8 +61,17 @@ enum MissaleAPI {
         try await send("POST", "/v1/auth/refresh", body: ["refreshToken": refreshToken])
     }
 
-    static func deleteAccount(accessToken: String) async throws {
-        let _: Empty = try await send("DELETE", "/v1/account", bearer: accessToken)
+    /// `authorizationCode`, when present, is a fresh Sign in with Apple code
+    /// (asked for right before this call) the server exchanges to revoke the
+    /// Apple token (guideline 5.1.1(v)). `nil` deletes without it, as before.
+    static func deleteAccount(accessToken: String, authorizationCode: String? = nil) async throws {
+        let _: Empty = try await send("DELETE", "/v1/account", body: deleteAccountBody(authorizationCode: authorizationCode), bearer: accessToken)
+    }
+
+    /// The body `deleteAccount` sends — split out so a unit test can check it
+    /// without a network call.
+    static func deleteAccountBody(authorizationCode: String?) -> [String: String]? {
+        authorizationCode.map { ["authorizationCode": $0] }
     }
 
     /// Asks Jev, through the Missale API, typed questions about `state` (what

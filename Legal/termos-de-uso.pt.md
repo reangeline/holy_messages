@@ -96,12 +96,13 @@ Se o custo for um impedimento real, escreva para acesso@missale.app.
 
 O Missale não guarda o que você escreve: fica no seu aparelho. Há duas
 exceções, em que o texto passa pelo nosso servidor até o Jev sem ser guardado
-nem registrado: a orientação, quando você pede, e, se você for assinante com
-"Personalizar com o que escrevo" ligado, a intenção do Terço, as respostas do
-Exame, a intenção da manhã e o último registro de como você está, usados para
-escolher conteúdo do acervo revisado. Você pode desligar a personalização em
-Configurações. Os detalhes estão na Política de Privacidade, que faz parte
-destes termos.
+nem registrado: a orientação, quando você pede, e, se você for assinante, com
+"Personalizar com o que escrevo" ligado e já tiver permitido isso no aviso que
+aparece na primeira vez, a intenção do Terço, as respostas do Exame, a
+intenção da manhã e o último registro de como você está, usados para escolher
+conteúdo do acervo revisado. Você pode desligar a personalização em
+Configurações, e apagar os seus dados apaga também essa permissão. Os
+detalhes estão na Política de Privacidade, que faz parte destes termos.
 
 O que o Jev escolhe é uma sugestão tirada do acervo a partir do seu texto, não
 uma palavra dirigida a você por Deus nem direção espiritual.

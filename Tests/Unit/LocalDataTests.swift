@@ -93,6 +93,11 @@ final class LocalDataTests: XCTestCase {
         )
     }
 
+    /// `MissaleAPI` hardcodes a dev pair (`#if DEBUG`) and a prod pair
+    /// (`#else`) of hosts. Both are read straight from the file — the whole
+    /// point is to catch a stray third host, whichever branch the compiler
+    /// took — and whichever pair this test binary actually compiled with
+    /// (Debug → dev, Release → prod) must match its own constants exactly.
     func testTheAPIClientTalksToOneHost() throws {
         let fonte = try String(contentsOf: URL(fileURLWithPath: #filePath)
             .deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent()
@@ -100,10 +105,20 @@ final class LocalDataTests: XCTestCase {
         let hosts = try NSRegularExpression(pattern: #"https://[^"/]+"#)
             .matches(in: fonte, range: NSRange(fonte.startIndex..., in: fonte))
             .map { (fonte as NSString).substring(with: $0.range) }
-        let permitidos = [MissaleAPI.baseURL, MissaleAPI.contentBaseURL]
-            .map { $0.absoluteString.trimmingCharacters(in: CharacterSet(charactersIn: "/")) }
-        XCTAssertEqual(Set(hosts), Set(permitidos),
-                       "o cliente da API só pode falar com a API do Missale e com os arquivos de conteúdo")
+        let dev = Set(["https://ule22ss715.execute-api.us-east-1.amazonaws.com",
+                       "https://dbwbh4btw116j.cloudfront.net"])
+        let prod = Set(["https://d64r4fekcj.execute-api.us-east-1.amazonaws.com",
+                        "https://d1fie9m5bh3i4a.cloudfront.net"])
+        XCTAssertEqual(Set(hosts), dev.union(prod),
+                       "o cliente da API só pode falar com a API do Missale e com os arquivos de conteúdo, em dev e em produção")
+
+        let compilados = Set([MissaleAPI.baseURL, MissaleAPI.contentBaseURL]
+            .map { $0.absoluteString.trimmingCharacters(in: CharacterSet(charactersIn: "/")) })
+#if DEBUG
+        XCTAssertEqual(compilados, dev, "build Debug deve falar com o stack de dev")
+#else
+        XCTAssertEqual(compilados, prod, "build Release deve falar com produção")
+#endif
     }
 }
 

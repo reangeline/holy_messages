@@ -94,12 +94,13 @@ If the cost is a genuine obstacle, write to acesso@missale.app.
 
 Missale does not keep what you write: it stays on your device. There are two
 exceptions, where the text passes through our server to Jev without being kept
-or logged: the guidance, when you ask for it, and, if you subscribe with
-"Personalize with what I write" on, the Rosary intention, the Examen answers,
-the morning intention and your latest log of how you are, used to choose
-content from the reviewed collection. You can turn personalization off in
-Settings. The details are in the Privacy Policy, which forms part of these
-terms.
+or logged: the guidance, when you ask for it, and, if you subscribe, have
+"Personalize with what I write" on, and have already allowed it in the prompt
+that appears the first time, the Rosary intention, the Examen answers, the
+morning intention and your latest log of how you are, used to choose content
+from the reviewed collection. You can turn personalization off in Settings,
+and erasing your data also erases that permission. The details are in the
+Privacy Policy, which forms part of these terms.
 
 What Jev chooses is a suggestion drawn from the collection based on your text,
 not a word addressed to you by God, nor spiritual direction.

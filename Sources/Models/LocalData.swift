@@ -36,6 +36,7 @@ enum LocalData {
         "bible_bookmarks",               // o capítulo marcado como "onde parei", por Bíblia
         "review_routine_days",           // dias com o "Seu dia com Deus" completo, para o pedido de avaliação
         "word_of_day_shown",             // no grupo do app: a palavra de cada dia (últimos 30) e se foi escolhida pelo Jev a partir do que a pessoa escreveu
+        "jev_consent",                   // se a pessoa já foi perguntada e o que respondeu (ainda não perguntado, permitiu, recusou) — some ao apagar os dados, para perguntar de novo
     ]
 
     /// Choices about how the app behaves, as opposed to what the reader wrote.
