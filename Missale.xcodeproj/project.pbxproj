@@ -143,6 +143,7 @@
 		7E3EF01FC5D8F84C9B1AED32 /* EBGaramond-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9C01A17065A57D4F5AA0CF3C /* EBGaramond-SemiBold.ttf */; };
 		7E4DCB008C2683576F75ADC6 /* OnboardingPromiseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68115259B777A4A79406687 /* OnboardingPromiseView.swift */; };
 		7F99C95958529CCCB1CB9FA5 /* RosarySuggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07952CB6862CC33239F4FE3E /* RosarySuggestion.swift */; };
+		7FCDD0ADD808DA39B528FED7 /* AppleReauthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3D1967C4E6379936CBF4A6 /* AppleReauthorization.swift */; };
 		7FD436ED38C47B9F1D8D54F2 /* MassBulletin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9812D40F8D0CDE32FCB5B036 /* MassBulletin.swift */; };
 		804EF89D6BDA39DCC6FC9B9C /* MockLiturgical.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E91CC0AD2FE3315BFBAC7C6 /* MockLiturgical.swift */; };
 		807B208F88678CB09D76DC98 /* GeneratedSanctoral.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F7D20CB070FF9B9EF8B3F2 /* GeneratedSanctoral.swift */; };
@@ -177,6 +178,7 @@
 		98314B21FC79F3349D93FC3C /* ExamenHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154186E66CC235421132887F /* ExamenHistoryView.swift */; };
 		98EEED06A83E9B4958797523 /* ComplineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78FF5E1F7D1C6EA9A891218 /* ComplineView.swift */; };
 		9A948AD32DF3B211B6584F0A /* AppLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99F88CC334F965A61006194 /* AppLanguage.swift */; };
+		9AF6613FA2131811E0A9EB95 /* DeleteAccountRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B618E94E36B99CC62CADA16 /* DeleteAccountRequestTests.swift */; };
 		9B4C6F62559A9D57E3817E34 /* LocalizedCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE8B6F79570C98E79ACE2B4 /* LocalizedCatalog.swift */; };
 		9B4EC9B045620BD7773D050C /* Account.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = B4CEB41E73D2C98D3B2DAC90 /* Account.xcstrings */; };
 		9B7038F36D7513D665A04F96 /* SeasonRetrospectiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94540CC43D048D2AFB1B15 /* SeasonRetrospectiveView.swift */; };
@@ -403,6 +405,7 @@
 		4B6CA3A65E9825B3305170B9 /* SubscriptionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionStore.swift; sourceTree = "<group>"; };
 		4BE7A1785F8D77047D6754CC /* CormorantGaramond-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CormorantGaramond-Italic.ttf"; sourceTree = "<group>"; };
 		4BE8B6F79570C98E79ACE2B4 /* LocalizedCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedCatalog.swift; sourceTree = "<group>"; };
+		4C3D1967C4E6379936CBF4A6 /* AppleReauthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleReauthorization.swift; sourceTree = "<group>"; };
 		4D21D7750D0A008E3F3EA031 /* ExamenSuggestionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamenSuggestionUITests.swift; sourceTree = "<group>"; };
 		4D6494C870F0202D155720C4 /* CormorantGaramond-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CormorantGaramond-Medium.ttf"; sourceTree = "<group>"; };
 		4E1D7E8BE03C5B2E229F71AB /* SeasonJourney.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonJourney.swift; sourceTree = "<group>"; };
@@ -449,6 +452,7 @@
 		77C3626D399D1EC11A15F85B /* ComplineTextTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplineTextTests.swift; sourceTree = "<group>"; };
 		77E92BEE657D5E83B9780A7A /* CalendarRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarRootView.swift; sourceTree = "<group>"; };
 		79FCEC47D5D8B918B1990285 /* ExamenClosingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamenClosingView.swift; sourceTree = "<group>"; };
+		7B618E94E36B99CC62CADA16 /* DeleteAccountRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountRequestTests.swift; sourceTree = "<group>"; };
 		7C6ADEA369380F1376D1E0D7 /* LiturgicalNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiturgicalNames.swift; sourceTree = "<group>"; };
 		7C851FE5FCA96354F60A6EB5 /* OnboardingNotificationTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingNotificationTimeView.swift; sourceTree = "<group>"; };
 		7E6E87D1F1CEDE35DA03FF66 /* AccountStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountStore.swift; sourceTree = "<group>"; };
@@ -757,6 +761,7 @@
 				B4CEB41E73D2C98D3B2DAC90 /* Account.xcstrings */,
 				2A011E5EF79659C739170E40 /* AccountSettingsCard.swift */,
 				7E6E87D1F1CEDE35DA03FF66 /* AccountStore.swift */,
+				4C3D1967C4E6379936CBF4A6 /* AppleReauthorization.swift */,
 				9ACFB5A4DE99A88B1EE27C71 /* MissaleAPI.swift */,
 				EB4D02FE9EE567C8C063D85D /* SessionKeychain.swift */,
 				2F593A7CC26BF7DDB3CA7F68 /* SignInView.swift */,
@@ -784,6 +789,7 @@
 				77C3626D399D1EC11A15F85B /* ComplineTextTests.swift */,
 				5FD5FF7D818E0AF988D6B595 /* ContentSeedExport.swift */,
 				08ED0A85B603CF5F2FB65F9C /* DailyRoutineTests.swift */,
+				7B618E94E36B99CC62CADA16 /* DeleteAccountRequestTests.swift */,
 				47C83ED634B8BF38AFCE4A75 /* ExamenSuggestionTests.swift */,
 				AD64DCE38CDEEFFEA58B2B81 /* IntentionVerseTests.swift */,
 				A8B848ADC460849AB9805E09 /* JevConsentTests.swift */,
@@ -1256,6 +1262,7 @@
 				959063EE805B6366EF9C3B7D /* AngelusScheduler.swift in Sources */,
 				9A948AD32DF3B211B6584F0A /* AppLanguage.swift in Sources */,
 				F00DA00E38C750A45E28C69F /* AppRootView.swift in Sources */,
+				7FCDD0ADD808DA39B528FED7 /* AppleReauthorization.swift in Sources */,
 				69430D0ADAF92F9F5C14D8BB /* Bible.swift in Sources */,
 				3F0F2BF66575C29953C59F24 /* BibleChapterView.swift in Sources */,
 				8E726FF412867E0E280D69FC /* BibleHomeView.swift in Sources */,
@@ -1490,6 +1497,7 @@
 				38A737FB42319919A83E8D24 /* ComplineTextTests.swift in Sources */,
 				31D543FF9607F51D5833A8AC /* ContentSeedExport.swift in Sources */,
 				19745E4CC44E72CF26F4A57E /* DailyRoutineTests.swift in Sources */,
+				9AF6613FA2131811E0A9EB95 /* DeleteAccountRequestTests.swift in Sources */,
 				B877404C562222285A57349F /* ExamenSuggestionTests.swift in Sources */,
 				78A91F6F19970EBFCBF08CDB /* IntentionVerseTests.swift in Sources */,
 				AEDBDDB9696F15815F8A29D1 /* JevConsentTests.swift in Sources */,

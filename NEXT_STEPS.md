@@ -153,19 +153,31 @@ Do 2.0 (3), o que depende de conteúdo:
   Keychain; Ajustes › Conta com sair e apagar conta; políticas e termos nos 3
   idiomas atualizados (25/09). Backend em `../missale-backend` (Go,
   ports & adapters, Cognito + Aurora DSQL, ambiente dev no ar).
-- **Ambientes (26/09):** `MissaleAPI` agora tem dev e prod lado a lado, um
+- **Ambientes (26/09):** `MissaleAPI` tem dev e prod lado a lado, num
   `#if DEBUG`/`#else` — Release (TestFlight e App Store) fala com produção,
   Debug (rodar local, testes unitários e de UI) continua em dev. Prod:
   `https://d64r4fekcj.execute-api.us-east-1.amazonaws.com` (API) e
-  `https://d1fie9m5bh3i4a.cloudfront.net` (conteúdo — ainda dá 403 no
-  `manifest.json` porque nada foi publicado lá; o app cai no conteúdo
-  embutido em silêncio, como já fazia offline).
-- **Falta:** a tela da orientação (escrever o que sente → Jev escolhe estado,
-  risco e a resposta revisada), com volta para os botões sem internet ou sem
-  assinatura; publicar o conteúdo no CDN de prod; revogar o
-  token da Apple ao apagar a conta (precisa de uma chave .p8 de Sign in with
-  Apple); respostas de privacidade na App Store Connect (agora há "Identificadores
-  › ID do usuário" e "Informações de contato › E-mail", ligados à conta).
+  `https://d1fie9m5bh3i4a.cloudfront.net` (conteúdo). Em 27/09 o conteúdo
+  publicado no dev (v6, 2.184 itens, com as 28 imagens de santos) foi copiado
+  para prod e publicado como v1. O painel `missale-admin.vercel.app` aponta
+  para prod; as prévias da Vercel continuam no dev.
+- **Revogar o token da Apple ao apagar a conta — implementado em 27/09**
+  (backend e app, branch `feat/apple-revoke`). Ao apagar a conta, o app pede
+  uma confirmação extra com "Entrar com a Apple" (`AppleReauthorization`) só
+  para conseguir um `authorizationCode` fresco; cancelar o pedido cancela a
+  exclusão, e um erro da Apple oferece apagar mesmo assim, sem revogar. O
+  `DELETE /v1/account` manda `{"authorizationCode": "..."}`; o backend troca o
+  código com a Apple (`POST /auth/token`), revoga o refresh token
+  (`POST /auth/revoke`) — cliente assinado em ES256 com a chave de Sign in
+  with Apple — e apaga a conta de qualquer forma, mesmo se a Apple falhar. Sem
+  `authorizationCode` (versões antigas do app), o comportamento continua o de
+  hoje. A chave está no Secrets Manager (`missale/dev/apple-signin-key` e
+  `missale/prod/apple-signin-key`, us-east-1).
+- **Falta:** validar a revogação de ponta a ponta num aparelho (apagar uma
+  conta de teste e conferir que o Missale sai de "Apps que usam o ID Apple");
+  respostas de privacidade na App Store Connect (agora há "Identificadores ›
+  ID do usuário", "Informações de contato › E-mail", ligados à conta, e o
+  texto enviado ao Jev, um serviço de IA de terceiros, com consentimento).
 - **Assinatura no TestFlight:** Ajustes › Assinatura mostra, só no TestFlight,
   o que a App Store responde. O TestFlight renova todo dia e para depois de 6
   renovações, e o teste grátis nunca volta para o mesmo Apple ID.
