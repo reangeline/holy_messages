@@ -67,6 +67,28 @@
         }
       }
     },
+    "Agora não": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Not now"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ahora no"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Agora não"
+          }
+        }
+      }
+    },
     "Alegre": {
       "localizations": {
         "en": {
@@ -2406,6 +2428,28 @@
         }
       }
     },
+    "Para escolher textos do acervo para você, o Missale envia o que você escreve ao Jev, um serviço de IA de outra empresa. O texto não é guardado. Você pode mudar isso nos Ajustes.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "To choose texts from the collection for you, Missale sends what you write to Jev, an AI service from another company. The text isn't stored. You can change this in Settings."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Para elegir textos del acervo para ti, Missale envía lo que escribes a Jev, un servicio de IA de otra empresa. El texto no se guarda. Puedes cambiar esto en Ajustes."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Para escolher textos do acervo para você, o Missale envia o que você escreve ao Jev, um serviço de IA de outra empresa. O texto não é guardado. Você pode mudar isso nos Ajustes."
+          }
+        }
+      }
+    },
     "Paróquias perto de você com horário regular de confissão e direção espiritual.": {
       "localizations": {
         "en": {
@@ -2446,6 +2490,50 @@
           "stringUnit": {
             "state": "translated",
             "value": "Perdoado"
+          }
+        }
+      }
+    },
+    "Permitir": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Allow"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Permitir"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Permitir"
+          }
+        }
+      }
+    },
+    "Personalizar com o que você escreve?": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Personalize with what you write?"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Personalizar con lo que escribes?"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Personalizar com o que você escreve?"
           }
         }
       }

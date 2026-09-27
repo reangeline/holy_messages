@@ -12,7 +12,8 @@ final class IntentionVerseUITests: XCTestCase {
     }
 
     private let base = ["-signedIn", "1", "-demoDate", "2026-09-14", "-subscribed", "1",
-                        "-hasCompletedOnboarding", "1", "-appLanguageOverride", "en"]
+                        "-hasCompletedOnboarding", "1", "-appLanguageOverride", "en",
+                        "-jev_consent", "granted"]
 
     private func text(_ fragment: String, in app: XCUIApplication) -> XCUIElement {
         app.staticTexts.matching(NSPredicate(format: "label CONTAINS[c] %@", fragment)).firstMatch

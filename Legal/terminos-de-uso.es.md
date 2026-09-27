@@ -96,11 +96,13 @@ Si el costo es un obstáculo real, escribe a acesso@missale.app.
 Missale no guarda lo que escribes: se queda en tu dispositivo. Hay dos
 excepciones, en las que el texto pasa por nuestro servidor hasta Jev sin
 guardarse ni registrarse: la orientación, cuando la pides, y, si eres
-suscriptor con "Personalizar con lo que escribo" activado, la intención del
-Rosario, las respuestas del Examen, la intención de la mañana y tu último
-registro de cómo estás, usados para elegir contenido del acervo revisado.
-Puedes desactivar la personalización en Ajustes. Los detalles están en la
-Política de Privacidad, que forma parte de estos términos.
+suscriptor, tienes "Personalizar con lo que escribo" activado y ya lo
+permitiste en el aviso que aparece la primera vez, la intención del Rosario,
+las respuestas del Examen, la intención de la mañana y tu último registro de
+cómo estás, usados para elegir contenido del acervo revisado. Puedes
+desactivar la personalización en Ajustes, y borrar tus datos también borra
+ese permiso. Los detalles están en la Política de Privacidad, que forma parte
+de estos términos.
 
 Lo que Jev elige es una sugerencia tomada del acervo a partir de tu texto, no
 una palabra que Dios te dirige ni dirección espiritual.

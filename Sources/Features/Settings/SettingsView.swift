@@ -10,6 +10,22 @@ struct SettingsView: View {
     @AppStorage(UserProfile.calendarRegionKey) private var storedRegionID = ""
     /// On by default; off, nothing the reader writes is sent to Jev — see JevPicker.
     @AppStorage(JevPicker.storageKey) private var personalization = true
+
+    /// Turning this on is itself the explicit permission Apple's guideline
+    /// 5.1.2(i) calls for: the explanation is right here, in `personalizationToggle`
+    /// below, so switching it on counts as granting `JevConsent` — no separate
+    /// prompt on top of a toggle that already says what happens. Switching it
+    /// off only pauses sending; it doesn't withdraw a consent already given,
+    /// so turning it back on later doesn't ask again.
+    private var personalizationBinding: Binding<Bool> {
+        Binding(
+            get: { personalization },
+            set: { newValue in
+                personalization = newValue
+                if newValue, JevConsent.state != .granted { JevConsent.state = .granted }
+            }
+        )
+    }
     private let day = MockLiturgical.today
 
     private var resolvedLanguageName: String {
@@ -123,7 +139,7 @@ struct SettingsView: View {
     /// morning intention, the check-in) may be sent to Jev to choose content.
     private var personalizationToggle: some View {
         VStack(alignment: .leading, spacing: 6) {
-            Toggle(L.string("Personalize with what I write", table: "SettingsDetail"), isOn: $personalization)
+            Toggle(L.string("Personalize with what I write", table: "SettingsDetail"), isOn: personalizationBinding)
                 .font(MissaleFont.body(17))
                 .foregroundStyle(Palette.ink)
                 .tint(Palette.wine)

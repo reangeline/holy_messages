@@ -162,6 +162,8 @@ Do 2.0 (3), o que depende de conteúdo:
 - **Assinatura no TestFlight:** Ajustes › Assinatura mostra, só no TestFlight,
   o que a App Store responde. O TestFlight renova todo dia e para depois de 6
   renovações, e o teste grátis nunca volta para o mesmo Apple ID.
+- **Consentimento para a personalização (guideline 5.1.2(i), 27/09):** feito —
+  ver §5 para o desenho completo (`JevConsent`, `JevConsentPromptView`).
 
 ### 2.5c Rodada de feedback do TestFlight de 26/09 — no branch, sem commit
 
@@ -329,9 +331,12 @@ só local com a conta (25/09) e o conteúdo remoto.
   sessão e, só quando a pessoa toca "Receber orientação", o texto daquela
   caixa, que o servidor repassa ao Jev e, segundo a política, não guarda.
   Além disso, para assinantes com "Personalizar com o que escrevo" ligado
-  (chave `jev_personalization_enabled`, ligada por padrão), o texto passa por
-  `JevPicker`, sempre com a pergunta de risco, em quatro pontos — todos
-  construídos em 26/09:
+  (chave `jev_personalization_enabled`, ligada por padrão) **e que já
+  permitiram o envio** (chave `jev_consent`: `notAsked`/`granted`/`declined`,
+  guideline 5.1.2(i) da Apple desde nov/2025 — divulgar e pedir permissão
+  explícita antes de mandar dado pessoal para uma IA de terceiro), o texto
+  passa por `JevPicker`, sempre com a pergunta de risco, em quatro pontos —
+  todos construídos em 26/09:
   - a intenção do Terço, para sugerir o mistério e a dezena (`RosarySuggestion`);
   - as quatro respostas do Exame do dia, para sugerir um santo e uma oração de
     fechamento (`ExamenSuggestion`);
@@ -343,10 +348,27 @@ só local com a conta (25/09) e o conteúdo remoto.
     candidatas o versículo que `IntentionVerse` já escolheu para o dia, para
     os dois cartões do Hoje nunca mostrarem a mesma passagem).
 
-  Desligado ou sem assinatura, nada é enviado (`JevPickerTests`). Nenhuma
-  chave de `LocalData` (humor, Exame, notas, Bíblia, rotina) é enviada além
-  do texto que passa, ponto a ponto, por `JevPicker` como descrito acima. Que
-  o servidor não guarda o texto é do backend; nenhum teste do app cobre isso.
+  Desligado, sem assinatura, ou sem o consentimento, nada é enviado
+  (`JevPickerTests`, `JevConsentTests`). Nenhuma chave de `LocalData` (humor,
+  Exame, notas, Bíblia, rotina) é enviada além do texto que passa, ponto a
+  ponto, por `JevPicker` como descrito acima. Que o servidor não guarda o
+  texto é do backend; nenhum teste do app cobre isso.
+
+  **O pedido de consentimento** (`JevConsentPromptView`) aparece uma vez, na
+  primeira vez que um desses quatro pontos for enviar algo com `jev_consent`
+  ainda `notAsked` — inclusive para quem já usava o app no TestFlight com o
+  interruptor ligado, porque nada migra `notAsked` para `granted`. "Permitir"
+  grava `granted` e deixa o pedido pendente seguir; "Agora não" grava
+  `declined` e não pergunta de novo sozinho. Ligar o interruptor de
+  Ajustes quando o consentimento não é `granted` conta como permissão — a
+  explicação já está ali, ao lado do interruptor (decisão tomada em 27/09,
+  não há um segundo pedido em cima do interruptor). Apagar os dados
+  (`LocalData.erasePersonalData`) volta `jev_consent` para `notAsked`. A tela
+  é uma só, reaproveitada pelas três telas que podem estar na frente quando o
+  pedido acontece: `TodayRootView`, `PrayersRootView` (a intenção do Terço,
+  quando escrita pela aba Orações) e `MoodCheckInSheet` (a nota do "Hoje eu
+  estou…", que dispara `PersonalizedWordOfDay` enquanto a folha ainda está
+  aberta).
 
   **Para revisar, não código:** os pisos de confiança abaixo dos quais uma
   resposta do Jev é descartada (`JevPicker.minimumConfidence` e as

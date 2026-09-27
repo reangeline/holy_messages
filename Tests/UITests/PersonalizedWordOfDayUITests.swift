@@ -19,7 +19,7 @@ final class PersonalizedWordOfDayUITests: XCTestCase {
     private func launch(_ extra: [String]) -> XCUIApplication {
         let app = XCUIApplication()
         app.launchArguments = ["-signedIn", "1", "-subscribed", "1", "-hasCompletedOnboarding", "1",
-                               "-appLanguageOverride", "en", "-resetWordOfDay", "1",
+                               "-appLanguageOverride", "en", "-resetWordOfDay", "1", "-jev_consent", "granted",
                                "-routine_intentions", "{\"\(todayKey)\" = \"Patience with my family today\";}"] + extra
         app.launch()
         return app

@@ -6,6 +6,11 @@ import SwiftUI
 struct TodayRootView: View {
     @State private var showMoodSheet = false
     @State private var navigateToExamen = false
+    /// The one-time "send what I write to Jev?" prompt (`JevConsent`). Deferred
+    /// to `MoodCheckInSheet` while it's the one on screen — see the guard on
+    /// `onChange` below — so the two never both try to present it.
+    @State private var showConsentPrompt = false
+    @ObservedObject private var jevConsent = JevConsentCoordinator.shared
     @ObservedObject private var progressStore = FormationProgressStore.shared
     @ObservedObject private var routine = DailyRoutineStore.shared
     @ObservedObject private var moodHistory = MoodHistoryStore.shared
@@ -102,6 +107,17 @@ struct TodayRootView: View {
             }
             .sheet(isPresented: $showMoodSheet) {
                 MoodCheckInSheet()
+                    .appLanguageLocale()
+            }
+            // The check-in note asks for consent from inside its own sheet
+            // (MoodCheckInSheet) instead — two sheets can't both try to present
+            // from here at once.
+            .onChange(of: jevConsent.isPending, initial: true) { _, pending in
+                showConsentPrompt = pending && !showMoodSheet
+            }
+            .sheet(isPresented: $showConsentPrompt, onDismiss: { jevConsent.answerIfStillPending() }) {
+                JevConsentPromptView(onAllow: { jevConsent.answer(granted: true) },
+                                     onDecline: { jevConsent.answer(granted: false) })
                     .appLanguageLocale()
             }
         }
