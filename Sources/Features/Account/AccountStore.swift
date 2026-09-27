@@ -93,9 +93,18 @@ final class AccountStore: ObservableObject {
 
     /// Deletes the account on the server, then signs out. What the reader
     /// wrote is on the device and is not touched — Settings › Your data erases it.
-    func deleteAccount() async throws {
+    ///
+    /// `revokeApple` (the default) asks the person to confirm with Apple
+    /// again first, to get a fresh authorization code the server uses to
+    /// revoke Missale's Sign in with Apple grant (guideline 5.1.1(v)). That
+    /// request throws `AppleReauthorization.Failure.cancelled` if the person
+    /// dismisses the Apple sheet — the deletion is cancelled, nothing is
+    /// sent. Pass `false` to delete without asking Apple again, once the
+    /// person chose that after Apple itself failed.
+    func deleteAccount(revokeApple: Bool = true) async throws {
         let token = try await validAccessToken()
-        try await MissaleAPI.deleteAccount(accessToken: token)
+        let authorizationCode = revokeApple ? try await AppleReauthorization.authorizationCode() : nil
+        try await MissaleAPI.deleteAccount(accessToken: token, authorizationCode: authorizationCode)
         signOut()
     }
 

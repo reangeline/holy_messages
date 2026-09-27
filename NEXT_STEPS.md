@@ -153,12 +153,27 @@ Do 2.0 (3), o que depende de conteúdo:
   Keychain; Ajustes › Conta com sair e apagar conta; políticas e termos nos 3
   idiomas atualizados (25/09). Backend em `../missale-backend` (Go,
   ports & adapters, Cognito + Aurora DSQL, ambiente dev no ar).
+- **Revogar o token da Apple ao apagar a conta — implementado, 27/09, no
+  branch `feat/apple-revoke` dos dois repositórios (backend e app), sem
+  commit.** Ao apagar a conta, o app pede uma confirmação extra com
+  "Entrar com a Apple" (`AppleReauthorization`, novo pedido do
+  `ASAuthorizationAppleIDProvider`) só para conseguir um `authorizationCode`
+  fresco; cancelar o pedido cancela a exclusão, e um erro da Apple oferece
+  apagar mesmo assim, sem revogar. O `DELETE /v1/account` manda
+  `{"authorizationCode": "..."}`; o backend troca o código com a Apple
+  (`POST /auth/token`), revoga o refresh token (`POST /auth/revoke`) — cliente
+  assinado em ES256 com a chave de Sign in with Apple — e apaga a conta de
+  qualquer forma, mesmo se a Apple falhar. Sem `authorizationCode` (versões
+  antigas do app), o comportamento continua o de hoje. A chave (`missale/dev/apple-signin-key`
+  e `missale/prod/apple-signin-key` no Secrets Manager, us-east-1) já foi
+  criada pelo dono nos dois ambientes. **Falta:** revisar e commitar os dois
+  branches, subir o backend (dev e depois prod) e validar a revogação de
+  ponta a ponta antes do próximo envio ao TestFlight/App Store.
 - **Falta:** a tela da orientação (escrever o que sente → Jev escolhe estado,
   risco e a resposta revisada), com volta para os botões sem internet ou sem
-  assinatura; ambiente prod e a URL de produção no `MissaleAPI`; revogar o
-  token da Apple ao apagar a conta (precisa de uma chave .p8 de Sign in with
-  Apple); respostas de privacidade na App Store Connect (agora há "Identificadores
-  › ID do usuário" e "Informações de contato › E-mail", ligados à conta).
+  assinatura; ambiente prod e a URL de produção no `MissaleAPI`; respostas de
+  privacidade na App Store Connect (agora há "Identificadores › ID do
+  usuário" e "Informações de contato › E-mail", ligados à conta).
 - **Assinatura no TestFlight:** Ajustes › Assinatura mostra, só no TestFlight,
   o que a App Store responde. O TestFlight renova todo dia e para depois de 6
   renovações, e o teste grátis nunca volta para o mesmo Apple ID.

@@ -7,6 +7,9 @@ struct AccountSettingsCard: View {
     @State private var confirmDelete = false
     @State private var deleting = false
     @State private var deleteFailed = false
+    /// Apple couldn't confirm the reader's identity (not a cancel): offers to
+    /// delete anyway, without revoking the Sign in with Apple grant.
+    @State private var appleReauthFailed = false
 
     var body: some View {
         GlassCard {
@@ -54,18 +57,30 @@ struct AccountSettingsCard: View {
             Button(L.string("Cancel", table: "Account"), role: .cancel) {}
         } message: {
             Text("Your account is erased from our server. What you wrote stays on this iPhone — erase it in Your data. A subscription is not cancelled by this: cancel it in the App Store.", tableName: "Account")
+                + Text("\n\n")
+                + Text("To disconnect Missale from your Apple ID, confirm with Apple.", tableName: "Account")
         }
         .alert(L.string("We couldn't delete the account. Check your connection and try again.", table: "Account"),
                isPresented: $deleteFailed) {
             Button(L.string("Got it", table: "Account"), role: .cancel) {}
         }
+        .alert(L.string("We couldn't confirm with Apple.", table: "Account"), isPresented: $appleReauthFailed) {
+            Button(L.string("Delete anyway", table: "Account"), role: .destructive) { delete(revokeApple: false) }
+            Button(L.string("Cancel", table: "Account"), role: .cancel) {}
+        } message: {
+            Text("Your account will be deleted, but the Apple sign-in link may remain active. You can remove it later in Settings › Apple ID › Sign in with Apple.", tableName: "Account")
+        }
     }
 
-    private func delete() {
+    private func delete(revokeApple: Bool = true) {
         deleting = true
         Task {
             do {
-                try await account.deleteAccount()
+                try await account.deleteAccount(revokeApple: revokeApple)
+            } catch AppleReauthorization.Failure.cancelled {
+                // Closing the Apple sheet cancels the deletion; nothing was sent.
+            } catch AppleReauthorization.Failure.failed {
+                appleReauthFailed = true
             } catch {
                 deleteFailed = true
             }

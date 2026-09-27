@@ -54,8 +54,17 @@ enum MissaleAPI {
         try await send("POST", "/v1/auth/refresh", body: ["refreshToken": refreshToken])
     }
 
-    static func deleteAccount(accessToken: String) async throws {
-        let _: Empty = try await send("DELETE", "/v1/account", bearer: accessToken)
+    /// `authorizationCode`, when present, is a fresh Sign in with Apple code
+    /// (asked for right before this call) the server exchanges to revoke the
+    /// Apple token (guideline 5.1.1(v)). `nil` deletes without it, as before.
+    static func deleteAccount(accessToken: String, authorizationCode: String? = nil) async throws {
+        let _: Empty = try await send("DELETE", "/v1/account", body: deleteAccountBody(authorizationCode: authorizationCode), bearer: accessToken)
+    }
+
+    /// The body `deleteAccount` sends — split out so a unit test can check it
+    /// without a network call.
+    static func deleteAccountBody(authorizationCode: String?) -> [String: String]? {
+        authorizationCode.map { ["authorizationCode": $0] }
     }
 
     /// Asks Jev, through the Missale API, typed questions about `state` (what
