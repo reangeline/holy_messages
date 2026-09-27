@@ -4,10 +4,14 @@ import SwiftUI
 ///
 /// Two shapes: `GatedLink` for one row or card, `GatedTab` for a whole tab.
 ///
-/// What stays free was decided deliberately, and two of the three reasons are
+/// What stays free was decided deliberately, and two of the four reasons are
 /// not commercial:
 ///
-/// - **The word of the day** — the choice made for this version.
+/// - **The word of the day, and the saint of the day.** The saint joined the
+///   word as free in this version — its teaser card on Today is a plain
+///   `NavigationLink`, not a `GatedLink`. What its own screen links onward to
+///   (`SaintsArchiveView`, `SaintsForYouView`) still asks for a subscription:
+///   `SaintDetailView` gates those two links itself.
 /// - **The mood check-in, the relief it leads to, and the pastoral and crisis
 ///   screens behind it.** This is the path a reader takes when they log
 ///   "guilty", "grief" or "lonely", and it ends at a phone number for their
@@ -18,8 +22,9 @@ import SwiftUI
 ///   reader must be able to reach to cancel, to read what is stored, and to
 ///   delete the app knowing what it kept.
 ///
-/// Everything else — the saint of the day, the calendar, Formation, the
-/// Rosary and the prayers, the Examen and Compline — asks for a subscription.
+/// Everything else — the calendar, Formation, the Rosary and the prayers, the
+/// Examen and Compline, and browsing saints beyond the one for today — asks
+/// for a subscription.
 ///
 /// The gate reads `SubscriptionStore.isSubscribed`, which comes from
 /// `Transaction.currentEntitlements` and is never stored on the device.
@@ -121,7 +126,7 @@ struct GatedTab<Content: View>: View {
                     .padding(.top, 6)
 
                     // Sempre visível, assine ou não: é o caminho de apoio.
-                    Text("The word of the day, and the support screens if you need them, are free — and always will be.", tableName: "Onboarding")
+                    Text("The word of the day, the saint, and the support screens if you need them, are free — and always will be.", tableName: "Onboarding")
                         .font(MissaleFont.body(13))
                         .foregroundStyle(Palette.ink.opacity(0.55))
                         .multilineTextAlignment(.center)

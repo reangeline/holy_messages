@@ -1210,25 +1210,25 @@
         }
       }
     },
-    "The word of the day, and the support screens if you need them, are free — and always will be.": {
+    "The word of the day, the saint, and the support screens if you need them, are free — and always will be.": {
       "extractionState": "manual",
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The word of the day, and the support screens if you need them, are free — and always will be."
+            "value": "The word of the day, the saint, and the support screens if you need them, are free — and always will be."
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "A palavra do dia, e as telas de apoio se você precisar delas, são grátis — e vão continuar."
+            "value": "A palavra do dia, o santo, e as telas de apoio se você precisar delas, são grátis — e vão continuar."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "La palabra del día, y las pantallas de apoyo si las necesitas, son gratis — y lo seguirán siendo."
+            "value": "La palabra del día, el santo, y las pantallas de apoyo si las necesitas, son gratis — y lo seguirán siendo."
           }
         }
       }

@@ -81,7 +81,11 @@ struct SaintDetailView: View {
                         }
                     }
 
-                    NavigationLink {
+                    // Since the saint of the day became free, this screen is
+                    // reachable without a subscription (from Today) — but
+                    // browsing other saints still isn't, so the two links
+                    // onward gate here rather than at the entry point.
+                    GatedLink {
                         SaintsForYouView()
                     } label: {
                         GlassCard {
@@ -94,7 +98,6 @@ struct SaintDetailView: View {
                             }
                         }
                     }
-                    .buttonStyle(.plain)
                 }
                 .padding(20)
                 .padding(.top, 8)
@@ -106,8 +109,10 @@ struct SaintDetailView: View {
                 ReadingTextSizeButton()
             }
             ToolbarItem(placement: .topBarTrailing) {
-                NavigationLink(L.string( "Archive ›", table: "CalendarSaints")) {
+                GatedLink {
                     SaintsArchiveView()
+                } label: {
+                    Text(L.string("Archive ›", table: "CalendarSaints"))
                 }
                 .font(MissaleFont.body(15))
                 .foregroundStyle(Palette.wine)
