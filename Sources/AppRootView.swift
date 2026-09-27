@@ -137,9 +137,10 @@ struct MainTabView: View {
         Group {
             switch selection {
             case .today:
-                // Fica aberta: é onde está a palavra do dia e o caminho para o
-                // apoio em momento de crise. Os cartões pagos do Hoje têm o
-                // portão em cada um — ver TodayRootView.
+                // Fica aberta: é onde estão a palavra e o santo do dia, e o
+                // caminho para o apoio em momento de crise. Os cartões pagos
+                // do Hoje (formação, terço, exame) têm o portão em cada um —
+                // ver TodayRootView.
                 TodayRootView()
             case .calendar:
                 GatedTab(content: { CalendarRootView() },

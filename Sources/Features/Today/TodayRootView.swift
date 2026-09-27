@@ -210,7 +210,12 @@ struct TodayRootView: View {
     }
 
     private var saintTeaserCard: some View {
-        GatedLink {
+        // Free since the saint of the day joined the word of the day and the
+        // support path as always-free — see SubscriptionGate.swift. What the
+        // saint's own screen links onward to (the archive, "saints for what
+        // you carry") still asks for a subscription, gated inside
+        // SaintDetailView itself.
+        NavigationLink {
             SaintDetailView(saint: saintOfDay)
         } label: {
             GlassCard {
@@ -233,6 +238,7 @@ struct TodayRootView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
         }
+        .buttonStyle(.plain)
     }
 
     private var rosaryTeaserCard: some View {

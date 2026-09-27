@@ -3,9 +3,9 @@ import XCTest
 /// What the subscription gates, and — more important — what it must never
 /// gate.
 ///
-/// The decision for this version was that only the word of the day stays free.
-/// Two carve-outs are not commercial and are asserted here so a later change
-/// cannot quietly remove them:
+/// The decision for this version was that the word of the day and the saint
+/// of the day stay free. Two carve-outs are not commercial and are asserted
+/// here so a later change cannot quietly remove them:
 ///
 /// - **The support path.** Logging a state like "culpado" or "sozinho" leads to
 ///   relief and, when the pattern repeats, to a pastoral screen that ends at
@@ -84,6 +84,43 @@ final class SubscriptionGateUITests: XCTestCase {
         XCTAssertFalse(
             app.buttons.matching(NSPredicate(format: "label CONTAINS[c] 'Ver os planos'")).firstMatch.exists,
             "a palavra do dia abriu um paywall"
+        )
+    }
+
+    /// The saint of the day joined the word of the day as free in this
+    /// version — same shape as `testTheWordOfTheDayIsFree`.
+    func testTheSaintOfTheDayIsFree() {
+        let app = launch()
+        let cartao = app.buttons.matching(NSPredicate(format: "label CONTAINS[c] 'Notburga'")).firstMatch
+        XCTAssertTrue(cartao.waitForExistence(timeout: 15), "o cartão do santo do dia desapareceu")
+        cartao.tap()
+        XCTAssertTrue(
+            app.staticTexts.matching(NSPredicate(format: "label CONTAINS[c] 'Notburga'")).firstMatch.waitForExistence(timeout: 5),
+            "o santo do dia ficou atrás da assinatura"
+        )
+        XCTAssertFalse(
+            app.buttons.matching(NSPredicate(format: "label CONTAINS[c] 'Ver os planos'")).firstMatch.exists,
+            "o santo do dia abriu um paywall"
+        )
+    }
+
+    /// The saint's screen is free, but what it links onward to — every other
+    /// saint — still isn't: that stays commercial content. Unlike the three
+    /// locked tabs, a `GatedLink` opens the paywall sheet directly rather
+    /// than a locked screen with "Ver os planos", so the check here is for
+    /// the sheet itself (its title, and the close button that only exists on it).
+    func testBrowsingSaintsBeyondTodayStillPaywalls() {
+        let app = launch()
+        let cartao = app.buttons.matching(NSPredicate(format: "label CONTAINS[c] 'Notburga'")).firstMatch
+        XCTAssertTrue(cartao.waitForExistence(timeout: 15), "o cartão do santo do dia desapareceu")
+        cartao.tap()
+
+        let arquivo = app.buttons.matching(NSPredicate(format: "label CONTAINS[c] 'Arquivo' OR label CONTAINS[c] 'Archive'")).firstMatch
+        XCTAssertTrue(arquivo.waitForExistence(timeout: 5), "não achei o link do arquivo na ficha do santo")
+        arquivo.tap()
+        XCTAssertTrue(
+            app.staticTexts.matching(NSPredicate(format: "label CONTAINS[c] 'conteúdo liberado'")).firstMatch.waitForExistence(timeout: 5),
+            "o arquivo de santos deixou de pedir assinatura"
         )
     }
 

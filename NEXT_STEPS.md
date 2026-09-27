@@ -296,18 +296,33 @@ publicação é seu.**
 
 ## 4. Como o dinheiro está montado
 
-Decisão desta versão: **só a palavra do dia é gratuita.**
+Decisão em 26/09: **a palavra do dia e o santo do dia são gratuitos** (antes,
+só a palavra). O paywall já prometia os dois — "a palavra do dia, o santo e a
+rede de apoio continuam grátis para sempre" — e o santo ficou de fora até
+agora; `TodayRootView.saintTeaserCard` deixou de usar `GatedLink` e virou um
+`NavigationLink` comum.
 
 | grátis | pede assinatura |
 |---|---|
 | Palavra do dia | Calendário |
-| Check-in de humor → alívio → tela pastoral → linha de crise | Formação |
-| Ajustes, idioma, os dois documentos legais | Orações e Terço |
-| | Santo do dia, Exame, Completas |
+| Santo do dia (a partir do Hoje) | Formação |
+| Check-in de humor → alívio → tela pastoral → linha de crise | Orações e Terço |
+| Ajustes, idioma, os dois documentos legais | Exame, Completas |
+| | Arquivo de santos e "Santos para o que você carrega" |
 
-**As duas exceções não são comerciais, e estão travadas por teste.**
-`SubscriptionGateTests` lê as fontes e falha se um portão aparecer em qualquer
-arquivo do caminho do apoio, ou nas telas de Ajustes e legais.
+A ficha do santo (`SaintDetailView`) é a mesma tela em todo lugar, e agora
+abre de graça a partir do Hoje. Mas o que ela leva adiante — o arquivo
+completo e "Santos para o que você carrega" — continua comercial: são os dois
+`NavigationLink` que viraram `GatedLink` dentro do próprio `SaintDetailView`,
+para não bastar chegar pelo santo do dia para navegar o acervo inteiro de
+graça. Sugestões de santo no Exame continuam pagas, porque o Exame é pago.
+
+**A palavra e o santo do dia são gratuitos por decisão comercial; o caminho
+do apoio, por Ajustes e pelos documentos legais, não é — e as três estão
+travadas por teste.** `SubscriptionGateTests` lê as fontes e falha se um
+portão aparecer em qualquer arquivo do caminho do apoio, nas telas de Ajustes
+e legais, ou no cartão do santo do dia em `TodayRootView`; e falha também se
+o portão *sumir* de `SaintDetailView` nos dois links para o arquivo.
 
 Produtos: `mensal` e `anual` (Product IDs, não os Apple IDs 6814659756 e
 6814660801, que o `Product.products(for:)` ignora em silêncio). Preços R$ 19,90
