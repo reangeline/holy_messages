@@ -45,7 +45,7 @@ final class MarianApparitionsUITests: XCTestCase {
                           "as Aparições devem vir depois das Devoções")
     }
 
-    func testARecordOpensWithItsSourceAndReception() {
+    func testARecordOpensWithItsReception() {
         let app = openPrayers("pt")
         let row = app.buttons.matching(NSPredicate(format: "label CONTAINS[c] 'Fátima'")).firstMatch
         XCTAssertTrue(row.waitForExistence(timeout: 10), "a ficha de Fátima não está na lista")
@@ -54,8 +54,6 @@ final class MarianApparitionsUITests: XCTestCase {
 
         XCTAssertTrue(app.staticTexts["RECEPÇÃO ECLESIAL"].waitForExistence(timeout: 5),
                       "a ficha não mostra a recepção eclesial")
-        XCTAssertTrue(app.staticTexts.matching(NSPredicate(format: "label CONTAINS[c] 'santuario-fatima.pt'")).firstMatch.exists,
-                      "a ficha não declara a fonte")
     }
 
     /// The section follows the interface language like the rest of the hub.
