@@ -86,6 +86,10 @@ struct BibleBookList: View {
         BibleSearch.reference(query, in: bible)
     }
 
+    private var bookHits: [BibleBook] {
+        BibleSearch.books(matching: query, in: bible)
+    }
+
     private var oldTestament: [BibleBook] {
         Array(bible.books.prefix { $0.id != BibleBook.firstNewTestamentBook })
     }
@@ -156,45 +160,66 @@ struct BibleBookList: View {
 
     @ViewBuilder
     private var results: some View {
-        if let reference {
+        ForEach(bookHits) { book in
             NavigationLink {
-                BibleChapterView(bible: bible, book: reference.book, chapter: reference.chapter, focusVerse: reference.verse)
+                BibleChapterPicker(bible: bible, book: book)
             } label: {
                 GlassCard(padding: 14) {
                     HStack {
-                        Image(systemName: "arrow.right.circle").foregroundStyle(Palette.wine)
-                        Text(L.string("Go to {reference}", table: "Bible")
-                            .replacingOccurrences(of: "{reference}", with: label(reference.book, reference.chapter, reference.verse)))
+                        Image(systemName: "book.closed").foregroundStyle(Palette.wine)
+                        Text(book.name)
                             .font(MissaleFont.body(17, weight: .medium))
                             .foregroundStyle(Palette.ink)
                         Spacer()
+                        Image(systemName: "chevron.right").foregroundStyle(Palette.wine)
                     }
                 }
             }
             .buttonStyle(.plain)
+            .accessibilityIdentifier("BibleSearchBook-\(book.id)")
         }
 
-        if searching && hits.isEmpty {
-            ProgressView().frame(maxWidth: .infinity).padding(.top, 12)
-        } else if query.trimmingCharacters(in: .whitespaces).count >= 3, !(hits.isEmpty && reference != nil) {
-            // A reference that matched already answers "Jo 3,16"; "no results"
-            // under it would read as a contradiction.
-            Text(hits.isEmpty
-                 ? L.string("No results", table: "Bible")
-                 : (hits.count == Self.hitLimit
-                    ? L.string("Showing the first {n}.", table: "Bible")
-                    : L.string("{n} results", table: "Bible"))
-                    .replacingOccurrences(of: "{n}", with: "\(hits.count)"))
-                .font(MissaleFont.body(13, weight: .semibold))
-                .foregroundStyle(Palette.ink.opacity(0.5))
-                .padding(.top, 4)
-            ForEach(hits) { hit in
+        if !BibleSearch.suppressesVerseResults(for: query, in: bible) {
+            if let reference {
                 NavigationLink {
-                    BibleChapterView(bible: bible, book: hit.book, chapter: hit.chapter, focusVerse: hit.verse.n)
+                    BibleChapterView(bible: bible, book: reference.book, chapter: reference.chapter, focusVerse: reference.verse)
                 } label: {
-                    verseCard(label(hit.book, hit.chapter, hit.verse.n), hit.verse.t)
+                    GlassCard(padding: 14) {
+                        HStack {
+                            Image(systemName: "arrow.right.circle").foregroundStyle(Palette.wine)
+                            Text(L.string("Go to {reference}", table: "Bible")
+                                .replacingOccurrences(of: "{reference}", with: label(reference.book, reference.chapter, reference.verse)))
+                                .font(MissaleFont.body(17, weight: .medium))
+                                .foregroundStyle(Palette.ink)
+                            Spacer()
+                        }
+                    }
                 }
                 .buttonStyle(.plain)
+            }
+
+            if searching && hits.isEmpty {
+                ProgressView().frame(maxWidth: .infinity).padding(.top, 12)
+            } else if query.trimmingCharacters(in: .whitespaces).count >= 3, !(hits.isEmpty && reference != nil) {
+                // A reference that matched already answers "Jo 3,16"; "no results"
+                // under it would read as a contradiction.
+                Text(hits.isEmpty
+                     ? L.string("No results", table: "Bible")
+                     : (hits.count == Self.hitLimit
+                        ? L.string("Showing the first {n}.", table: "Bible")
+                        : L.string("{n} results", table: "Bible"))
+                        .replacingOccurrences(of: "{n}", with: "\(hits.count)"))
+                    .font(MissaleFont.body(13, weight: .semibold))
+                    .foregroundStyle(Palette.ink.opacity(0.5))
+                    .padding(.top, 4)
+                ForEach(hits) { hit in
+                    NavigationLink {
+                        BibleChapterView(bible: bible, book: hit.book, chapter: hit.chapter, focusVerse: hit.verse.n)
+                    } label: {
+                        verseCard(label(hit.book, hit.chapter, hit.verse.n), hit.verse.t)
+                    }
+                    .buttonStyle(.plain)
+                }
             }
         }
     }

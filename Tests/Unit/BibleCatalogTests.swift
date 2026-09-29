@@ -77,6 +77,26 @@ final class BibleCatalogTests: XCTestCase {
         XCTAssertEqual(PsalmNumbering.label(vulgate: 114), "114 (116:1–9)")
     }
 
+    func testBookSearchFindsMatthewByPortugueseName() throws {
+        let bible = try XCTUnwrap(BibleCatalog.bible(for: .pt))
+
+        XCTAssertEqual(BibleSearch.books(matching: "Mateus", in: bible).map(\.id), ["MAT"])
+    }
+
+    func testBookSearchFindsOrdinalCorinthiansWithoutAccent() throws {
+        let bible = try XCTUnwrap(BibleCatalog.bible(for: .pt))
+
+        XCTAssertEqual(BibleSearch.books(matching: "corintios", in: bible).map(\.id), ["1CO", "2CO"])
+    }
+
+    func testBookQuerySuppressesVerseResultsButReferencesAndTextDoNot() throws {
+        let bible = try XCTUnwrap(BibleCatalog.bible(for: .pt))
+
+        XCTAssertTrue(BibleSearch.suppressesVerseResults(for: "Mateus", in: bible))
+        XCTAssertFalse(BibleSearch.suppressesVerseResults(for: "Mateus 3", in: bible))
+        XCTAssertFalse(BibleSearch.suppressesVerseResults(for: "misericórdia", in: bible))
+    }
+
     /// Release gate: a Bible whose rights are unconfirmed, or with verses
     /// still missing, may go to TestFlight but never to the store.
     func testBiblesReadyForRelease() throws {
