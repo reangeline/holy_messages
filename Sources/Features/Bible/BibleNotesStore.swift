@@ -144,6 +144,21 @@ enum BibleSearch {
         return Reference(book: book, chapter: chapter, verse: verse)
     }
 
+    /// Books whose displayed name starts with the query, ignoring case and accents.
+    /// An initial ordinal is optional, so "corintios" finds "1 Coríntios" and "2 Coríntios".
+    static func books(matching query: String, in bible: Bible) -> [BibleBook] {
+        let typed = key(query)
+        guard typed.count >= 3 else { return [] }
+        return bible.books.filter {
+            let name = key($0.name)
+            return name.hasPrefix(typed) || name.drop(while: { $0.isNumber }).hasPrefix(typed)
+        }
+    }
+
+    static func suppressesVerseResults(for query: String, in bible: Bible) -> Bool {
+        !books(matching: query, in: bible).isEmpty
+    }
+
     /// Verses containing every word of the query, ignoring case and accents,
     /// in canonical order. Stops at `limit`.
     nonisolated static func verses(matching query: String, in bible: Bible, limit: Int = 200) -> [Hit] {

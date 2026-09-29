@@ -124,4 +124,40 @@ final class BibleUITests: XCTestCase {
         )
         screenshot("bible-search-words", app)
     }
+
+    func testSearchesForABookInPortuguese() {
+        let app = launch("pt")
+        openBible("Orações", "Ler a Bíblia", in: app)
+
+        let search = app.textFields.firstMatch
+        XCTAssertTrue(search.waitForExistence(timeout: 15), "a busca da Bíblia não apareceu")
+        search.tap()
+        search.typeText("Mateus")
+
+        let matthew = app.buttons["BibleSearchBook-MAT"]
+        XCTAssertTrue(matthew.waitForExistence(timeout: 10), "a busca pelo livro Mateus não trouxe um resultado navegável")
+        XCTAssertFalse(app.staticTexts["0 resultados"].waitForExistence(timeout: 5),
+                       "uma busca que encontrou um livro não deve renderizar resultados de versículos")
+        matthew.tap()
+        XCTAssertTrue(app.buttons["1"].waitForExistence(timeout: 5), "o resultado do livro não abriu seus capítulos")
+    }
+
+    func testSearchesForOrdinalBooksWithoutAccent() {
+        let app = launch("pt")
+        openBible("Orações", "Ler a Bíblia", in: app)
+
+        let search = app.textFields.firstMatch
+        XCTAssertTrue(search.waitForExistence(timeout: 15), "a busca da Bíblia não apareceu")
+        search.tap()
+        search.typeText("corintios")
+
+        let firstCorinthians = app.buttons["BibleSearchBook-1CO"]
+        let secondCorinthians = app.buttons["BibleSearchBook-2CO"]
+        XCTAssertTrue(firstCorinthians.waitForExistence(timeout: 10), "corintios não encontrou 1 Coríntios")
+        XCTAssertTrue(secondCorinthians.exists, "corintios não encontrou 2 Coríntios")
+        XCTAssertFalse(app.staticTexts["0 resultados"].waitForExistence(timeout: 5),
+                       "uma busca que encontrou livros não deve renderizar resultados de versículos")
+        firstCorinthians.tap()
+        XCTAssertTrue(app.buttons["1"].waitForExistence(timeout: 5), "o resultado do livro não abriu seus capítulos")
+    }
 }
