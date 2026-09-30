@@ -1,5 +1,38 @@
 import SwiftUI
 
+/// Mantém no telefone o hero compacto de 190 pt e, quando há espaço, cresce na
+/// proporção das gravuras do acervo. O limite também evita uma coluna larga
+/// demais no iPad em paisagem.
+struct SaintDetailHeroLayout: Layout {
+    static let maximumWidth: CGFloat = 760
+    static let minimumHeight: CGFloat = 190
+    static let artworkAspectRatio: CGFloat = 1206.0 / 648.0
+    static let artworkContentMode: ContentMode = .fit
+
+    static func frame(availableWidth: CGFloat) -> CGSize {
+        let width = min(availableWidth, maximumWidth)
+        return CGSize(width: width, height: max(minimumHeight, width / artworkAspectRatio))
+    }
+
+    func sizeThatFits(
+        proposal: ProposedViewSize,
+        subviews: Subviews,
+        cache: inout ()
+    ) -> CGSize {
+        Self.frame(availableWidth: proposal.width ?? Self.maximumWidth)
+    }
+
+    func placeSubviews(
+        in bounds: CGRect,
+        proposal: ProposedViewSize,
+        subviews: Subviews,
+        cache: inout ()
+    ) {
+        guard let portrait = subviews.first else { return }
+        portrait.place(at: bounds.origin, proposal: ProposedViewSize(bounds.size))
+    }
+}
+
 /// t4 screen 12 — full saint detail page. Standalone and independently navigable
 /// (public initializer) so other feature areas (e.g. Today's saint teaser card) can
 /// push it directly once wired up: `SaintDetailView(saint: MockSaints.notburga)`.
@@ -14,9 +47,16 @@ struct SaintDetailView: View {
             LiturgicalColor.red.pageBackground
             ScrollView {
                 VStack(alignment: .leading, spacing: 14) {
-                    SaintPortrait(artworkName: saint.artworkName, cornerRadius: 18)
-                        .frame(maxWidth: .infinity)
-                        .frame(height: 190)
+                    SaintDetailHeroLayout {
+                        SaintPortrait(
+                            artworkName: saint.artworkName,
+                            cornerRadius: 18,
+                            contentMode: SaintDetailHeroLayout.artworkContentMode
+                        )
+                    }
+                    .accessibilityElement(children: .ignore)
+                    .accessibilityIdentifier("saintDetailHero")
+                    .frame(maxWidth: .infinity)
 
                     HStack(spacing: 8) {
                         pill(saint.displayRank, tinted: true)
