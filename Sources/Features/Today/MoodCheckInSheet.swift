@@ -47,6 +47,8 @@ struct MoodCheckInSheet: View {
     /// Why the chips are being asked for after the reader wrote.
     @State private var orientationMessage: String?
 
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+
     /// Normally the picker. `-openScreen mood-write` starts on the writing
     /// screen instead, which is otherwise two taps deep and so unreachable for
     /// a screenshot — the same reason `-openScreen examen` and `paywall` exist
@@ -265,50 +267,72 @@ struct MoodCheckInSheet: View {
                 .foregroundStyle(Palette.ink.opacity(0.65))
                 .padding(.bottom, 8)
 
-            ScrollView {
-                VStack(alignment: .leading, spacing: 16) {
-                    // Static, always here — not gated behind detecting a pattern.
-                    Button {
-                        showPastoralCare = true
-                    } label: {
-                        HStack {
-                            Text("Precisa de mais do que isto? Padre, diocese, ou uma crise", tableName: "Today")
-                                .font(MissaleFont.body(13))
-                                .foregroundStyle(Palette.ink.opacity(0.6))
-                            Spacer()
-                            Image(systemName: "chevron.right")
-                                .font(.system(size: 11))
-                                .foregroundStyle(Palette.ink.opacity(0.4))
+            ScrollViewReader { proxy in
+                ScrollView {
+                    VStack(alignment: .leading, spacing: 16) {
+                        // Static, always here — not gated behind detecting a pattern.
+                        Button {
+                            showPastoralCare = true
+                        } label: {
+                            HStack {
+                                Text("Precisa de mais do que isto? Padre, diocese, ou uma crise", tableName: "Today")
+                                    .font(MissaleFont.body(13))
+                                    .foregroundStyle(Palette.ink.opacity(0.6))
+                                Spacer()
+                                Image(systemName: "chevron.right")
+                                    .font(.system(size: 11))
+                                    .foregroundStyle(Palette.ink.opacity(0.4))
+                            }
                         }
-                    }
-                    .buttonStyle(.plain)
+                        .buttonStyle(.plain)
 
-                    OrientationWritingCard(text: $writtenText,
-                                           onSend: requestOrientation,
-                                           onLocked: { showPaywall = true })
+                        OrientationWritingCard(text: $writtenText,
+                                               onSend: requestOrientation,
+                                               onLocked: { showPaywall = true })
 
-                    if let orientationMessage {
-                        Text(orientationMessage)
-                            .font(MissaleFont.body(15))
-                            .foregroundStyle(Palette.wine)
-                            .accessibilityIdentifier("orientationMessage")
-                    }
+                        if let orientationMessage {
+                            Text(orientationMessage)
+                                .font(MissaleFont.body(15))
+                                .foregroundStyle(Palette.wine)
+                                .id("orientationMessage")
+                                .accessibilityIdentifier("orientationMessage")
+                        }
 
-                    ForEach(MockMood.stateGroups) { group in
-                        VStack(alignment: .leading, spacing: 8) {
-                            Eyebrow(text: group.label)
-                            FlowChips(items: group.items) { option in
-                                if let note = pendingNote {
-                                    finalize(option, note: note)
-                                } else {
-                                    advance(to: .reflection(option))
+                        ForEach(MockMood.stateGroups) { group in
+                            VStack(alignment: .leading, spacing: 8) {
+                                Eyebrow(text: group.label)
+                                FlowChips(items: group.items) { option in
+                                    if let note = pendingNote {
+                                        finalize(option, note: note)
+                                    } else {
+                                        advance(to: .reflection(option))
+                                    }
                                 }
                             }
                         }
                     }
                 }
+                .scrollDismissesKeyboard(.interactively)
+                // A mensagem (estado "unsure", limite diário, …) empurra os
+                // grupos de estado para baixo e a última linha não cabe mais
+                // na área visível. Em vez de cortar a linha ou escondê-la sob
+                // um esmaecimento, rola até a mensagem ficar no topo — o
+                // cartão de escrita sobe e a lista de chips, incluindo a
+                // última linha, aparece inteira. `initial: true` porque a
+                // mensagem já vem definida quando este ScrollView é montado
+                // (é escrita antes de `retreat(to: .picker)` trazer a tela de
+                // volta), não muda depois de montado.
+                .onChange(of: orientationMessage, initial: true) { _, message in
+                    guard message != nil else { return }
+                    if reduceMotion {
+                        proxy.scrollTo("orientationMessage", anchor: .top)
+                    } else {
+                        withAnimation(.easeInOut(duration: 0.3)) {
+                            proxy.scrollTo("orientationMessage", anchor: .top)
+                        }
+                    }
+                }
             }
-            .scrollDismissesKeyboard(.interactively)
         }
         .padding(.horizontal, 22)
         .padding(.bottom, 24)
