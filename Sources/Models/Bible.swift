@@ -15,6 +15,16 @@ struct Bible: Codable, Identifiable {
     /// The three Bibles planned for the app follow the Vulgate, where the
     /// psalms run one behind the Hebrew numbering most readers know.
     var usesVulgatePsalms: Bool { versification.hasPrefix("vulgate") }
+
+    /// True when the edition ships with verses still missing. This is the
+    /// one place that decides both things that must always move together:
+    /// whether the app owes the reader a discreet notice (see
+    /// `BibleBookList.incompleteNotice`), and whether the release gate may
+    /// let `missingVerses` stay above zero for this edition (see
+    /// `BibleCatalogTests.testBiblesReadyForRelease`). No Bible is ever
+    /// exempted by id — only by actually declaring missing verses in its
+    /// own JSON and, from there, showing the reader why.
+    var hasIncompleteNotice: Bool { (missingVerses ?? 0) > 0 }
 }
 
 struct BibleBook: Codable, Identifiable, Hashable {

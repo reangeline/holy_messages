@@ -97,14 +97,54 @@ final class BibleCatalogTests: XCTestCase {
         XCTAssertFalse(BibleSearch.suppressesVerseResults(for: "misericórdia", in: bible))
     }
 
-    /// Release gate: a Bible whose rights are unconfirmed, or with verses
-    /// still missing, may go to TestFlight but never to the store.
+    /// Release gate: a Bible whose rights are unconfirmed may never go to
+    /// the store. One with verses still missing may, but only once it
+    /// declares that in the model (`hasIncompleteNotice`) — which is also
+    /// what makes the app show the reader a notice. No other exception.
     func testBiblesReadyForRelease() throws {
         #if !DEBUG
         for bible in try BibleCatalog.loadAll() {
             XCTAssertNotEqual(bible.license, "unverified", "\(bible.id): direitos não confirmados")
-            XCTAssertEqual(bible.missingVerses ?? 0, 0, "\(bible.id): versículos faltando")
+            if !bible.hasIncompleteNotice {
+                XCTAssertEqual(bible.missingVerses ?? 0, 0, "\(bible.id): versículos faltando")
+            }
         }
         #endif
+    }
+
+    /// The release-gate rule itself, exercised in DEBUG (the `#if !DEBUG`
+    /// block above never runs here): only an edition that declares missing
+    /// verses via `hasIncompleteNotice` may keep `missingVerses > 0`; every
+    /// other edition still needs it at zero.
+    func testReleaseGateOnlyExemptsBiblesThatDeclareIncompleteness() throws {
+        func makeBible(missingVerses: Int?) -> Bible {
+            Bible(id: "test", language: "es", name: "Test", abbreviation: "TB", canon: "catholic-73",
+                  versification: "vulgate", license: "public-domain", source: "s", notes: nil,
+                  missingVerses: missingVerses, supplements: nil, books: [])
+        }
+
+        XCTAssertFalse(makeBible(missingVerses: nil).hasIncompleteNotice)
+        XCTAssertFalse(makeBible(missingVerses: 0).hasIncompleteNotice)
+        XCTAssertTrue(makeBible(missingVerses: 463).hasIncompleteNotice)
+
+        // The bundled Torres Amat is exactly the case this exists for.
+        let torresAmat = try XCTUnwrap(BibleCatalog.bible(for: .es))
+        XCTAssertTrue(torresAmat.hasIncompleteNotice, "torres-amat: deveria declarar aviso de incompletude")
+
+        // The other bundled Bibles are not exempted by id or by accident.
+        let douayRheims = try XCTUnwrap(BibleCatalog.all.first { $0.id == "douay-rheims-challoner" })
+        XCTAssertFalse(douayRheims.hasIncompleteNotice)
+        let matosSoares = try XCTUnwrap(BibleCatalog.bible(for: .pt))
+        XCTAssertFalse(matosSoares.hasIncompleteNotice)
+    }
+
+    /// The number shown to the reader always comes from the bundled JSON,
+    /// never a number written into the code.
+    func testIncompleteNoticeShowsTheMissingVersesCountFromTheJSON() throws {
+        let torresAmat = try XCTUnwrap(BibleCatalog.bible(for: .es))
+        let notice = L.string("This edition is still incomplete: {n} verses are missing and are being transcribed from the originals.", table: "Bible")
+            .replacingOccurrences(of: "{n}", with: "\(torresAmat.missingVerses ?? 0)")
+        XCTAssertTrue(notice.contains("\(torresAmat.missingVerses ?? 0)"))
+        XCTAssertFalse(notice.contains("{n}"))
     }
 }
