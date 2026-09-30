@@ -6,6 +6,7 @@ import SwiftUI
 struct SaintPortrait: View {
     let artworkName: String?
     var cornerRadius: CGFloat = 12
+    var contentMode: ContentMode = .fill
 
     var body: some View {
         if let artworkName, artworkName.hasPrefix(RemoteContent.localImagePrefix),
@@ -31,10 +32,10 @@ struct SaintPortrait: View {
             // for one) should keep the top and lose the bottom, not crop evenly
             // from both edges and cut through the face.
             Color.clear
-                .overlay(alignment: .top) {
+                .overlay(alignment: contentMode == .fill ? .top : .center) {
                     image
                         .resizable()
-                        .aspectRatio(contentMode: .fill)
+                        .aspectRatio(contentMode: contentMode)
                 }
                 .clipShape(RoundedRectangle(cornerRadius: cornerRadius, style: .continuous))
                 .overlay(

@@ -11,8 +11,15 @@ final class SaintArtUITests: XCTestCase {
     }
 
     private func launch() -> XCUIApplication {
+        launch(language: nil)
+    }
+
+    private func launch(language: String?) -> XCUIApplication {
         let app = XCUIApplication()
         app.launchArguments = ["-signedIn", "1", "-demoDate", "2026-09-14", "-subscribed", "1", "-hasCompletedOnboarding", "1"]
+        if let language {
+            app.launchArguments += ["-appLanguageOverride", language]
+        }
         app.launch()
         return app
     }
@@ -21,11 +28,94 @@ final class SaintArtUITests: XCTestCase {
         element.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
     }
 
+    /// `tapMiddle` taps raw screen coordinates without checking hittability,
+    /// so a card the Today ScrollView hasn't scrolled into view yet (its
+    /// accessibility frame can sit below the window, e.g. y > app.frame.height)
+    /// gets tapped off-window: the touch lands wherever the simulator resolves
+    /// that point instead of on the intended card, opening a different screen.
+    /// Scroll until the element is actually on screen and hittable before
+    /// tapping it.
+    private func scrollIntoView(_ element: XCUIElement, in app: XCUIApplication, maxAttempts: Int = 6) {
+        guard !element.isHittable else { return }
+        let scrollView = app.scrollViews.firstMatch
+        guard scrollView.waitForExistence(timeout: 5) else { return }
+        var attempts = 0
+        // A drag confined to the scroll view's own bounds (25%–75% of its
+        // height) instead of `swipeUp()`, whose default start/end points can
+        // land near the real screen edge and get read as the system's
+        // swipe-to-home gesture — that backgrounds/kills the app mid-test
+        // (seen as "is not running") or leaves the gesture invalidated by
+        // interruption handling ("no longer valid after interruption").
+        while !element.isHittable && attempts < maxAttempts {
+            let start = scrollView.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.75))
+            let end = scrollView.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.25))
+            start.press(forDuration: 0.05, thenDragTo: end)
+            attempts += 1
+        }
+        XCTAssertTrue(element.isHittable, "não foi possível rolar até o elemento ficar visível/tocável")
+    }
+
+    private func keepScreenshot(_ name: String, app: XCUIApplication) {
+        let attachment = XCTAttachment(screenshot: app.screenshot())
+        attachment.name = name
+        attachment.lifetime = .keepAlways
+        add(attachment)
+    }
+
+    private func keepScreenScreenshot(_ name: String) {
+        let attachment = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+        attachment.name = name
+        attachment.lifetime = .keepAlways
+        add(attachment)
+    }
+
+    private func openSaintDetail(_ app: XCUIApplication, language: String) -> XCUIElement {
+        let card = app.buttons.matching(NSPredicate(format: "label CONTAINS[c] 'Notburga'")).firstMatch
+        XCTAssertTrue(card.waitForExistence(timeout: 10), "o card de Notburga não apareceu em \(language)")
+        scrollIntoView(card, in: app)
+        tapMiddle(card)
+
+        let hero = app.descendants(matching: .any)["saintDetailHero"]
+        XCTAssertTrue(hero.waitForExistence(timeout: 5), "o hero adaptativo não apareceu em \(language)")
+        return hero
+    }
+
+    func testIPadHeroPreservesTheArtworkInEveryLanguageAndLandscape() throws {
+        // The 761pt cap and the landscape rotation this test drives are the
+        // iPad's adaptive hero; on the phone, `XCUIDevice.shared.orientation`
+        // doesn't actually rotate the app (`app.frame` stays portrait), so
+        // this would fail on an assertion that was never about the phone.
+        try XCTSkipUnless(UIDevice.current.userInterfaceIdiom == .pad,
+                           "hero adaptativo é específico do iPad")
+        XCUIDevice.shared.orientation = .portrait
+        for language in ["pt", "en", "es"] {
+            let app = launch(language: language)
+            let hero = openSaintDetail(app, language: language)
+            XCTAssertLessThanOrEqual(hero.frame.width, 761)
+            XCTAssertEqual(hero.frame.width / hero.frame.height, 1206.0 / 648.0, accuracy: 0.02)
+            sleep(1)
+            keepScreenshot("ipad-portrait-\(language)-saint-detail", app: app)
+            app.terminate()
+        }
+
+        XCUIDevice.shared.orientation = .landscapeLeft
+        let app = launch(language: "pt")
+        let hero = openSaintDetail(app, language: "pt-landscape")
+        XCTAssertGreaterThan(app.frame.width, app.frame.height)
+        XCTAssertLessThanOrEqual(hero.frame.width, 761)
+        XCTAssertEqual(hero.frame.width / hero.frame.height, 1206.0 / 648.0, accuracy: 0.02)
+        sleep(1)
+        keepScreenScreenshot("ipad-landscape-pt-saint-detail")
+        app.terminate()
+        XCUIDevice.shared.orientation = .portrait
+    }
+
     /// Saint of the day on the home screen opens a real record.
     func testSaintOfTheDayOpensItsRecord() {
         let app = launch()
         let card = app.buttons.matching(NSPredicate(format: "label CONTAINS[c] 'Notburga'")).firstMatch
         XCTAssertTrue(card.waitForExistence(timeout: 10), "o card do santo do dia não apareceu")
+        scrollIntoView(card, in: app)
         tapMiddle(card)
 
         XCTAssertTrue(
@@ -47,6 +137,7 @@ final class SaintArtUITests: XCTestCase {
 
         let saintCard = app.buttons.matching(NSPredicate(format: "label CONTAINS[c] 'Notburga'")).firstMatch
         XCTAssertTrue(saintCard.waitForExistence(timeout: 10))
+        scrollIntoView(saintCard, in: app)
         tapMiddle(saintCard)
 
         let archive = app.buttons.matching(NSPredicate(format: "label CONTAINS[c] 'Arquivo' OR label CONTAINS[c] 'Archive'")).firstMatch
@@ -55,6 +146,7 @@ final class SaintArtUITests: XCTestCase {
             // behaviour is still covered by the detail assertions above.
             return
         }
+        scrollIntoView(archive, in: app)
         tapMiddle(archive)
 
         // Any row that isn't the hand-written saint. Matched by structure (a row
@@ -67,6 +159,7 @@ final class SaintArtUITests: XCTestCase {
 
         let picked = rows[0]
         let expectedName = picked.label.split(separator: ",").first.map(String.init) ?? picked.label
+        scrollIntoView(picked, in: app)
         tapMiddle(picked)
 
         XCTAssertTrue(
