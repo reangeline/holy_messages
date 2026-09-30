@@ -116,7 +116,7 @@ struct OnboardingOrientationView: View {
                 if CrisisPhrases.matches(written) {
                     phase = .crisis(nil, nil)
                 } else {
-                    phase = .notice(L.string("I couldn't get the guidance right now. You'll find it in the app, in \"Today I am…\".", table: "Onboarding"))
+                    phase = .notice(OrientationFailureMessage(error).text)
                 }
             }
         }
@@ -124,5 +124,35 @@ struct OnboardingOrientationView: View {
 
     private func show(_ option: MoodStateOption, _ index: Int?) {
         phase = .reply(option, index)
+    }
+}
+
+/// The notice shown when `send()`'s request fails. Pulled out of `send()` so
+/// the mapping from error to text is testable without a network call.
+///
+/// `subscriptionRequired` (402: the account's free orientação is already
+/// spent) and `dailyLimit` (429) aren't a connection problem — trying again
+/// does nothing — so they get their own wording pointing at "Hoje eu
+/// estou…" instead of the generic one, which reads as worth retrying.
+enum OrientationFailureMessage: Equatable {
+    case limitReached
+    case unavailable
+
+    init(_ error: Error) {
+        switch error {
+        case MissaleAPI.Failure.subscriptionRequired, MissaleAPI.Failure.dailyLimit:
+            self = .limitReached
+        default:
+            self = .unavailable
+        }
+    }
+
+    var text: String {
+        switch self {
+        case .limitReached:
+            return L.string("Written guidance isn't available on this account right now. In the app, \"Today I am…\" lets you choose how you are with one tap.", table: "Onboarding")
+        case .unavailable:
+            return L.string("I couldn't get the guidance right now. You'll find it in the app, in \"Today I am…\".", table: "Onboarding")
+        }
     }
 }
