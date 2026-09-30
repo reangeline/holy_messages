@@ -76,20 +76,24 @@ final class OnboardingStoryUITests: XCTestCase {
         sleep(2) // Aguarda o curtain terminar o fade para a captura não sair escura.
         snapshot(app, "3-oracao-intro")
         let emphasis = app.staticTexts["onboardingPrayerEmphasis"]
-        let emphasisStartedAt = Date()
-        pray.tap()
-        XCTAssertTrue(emphasis.waitForExistence(timeout: 1), "o destaque do Pai-Nosso não apareceu após o CTA")
+        XCTAssertTrue(emphasis.exists, "o corpo do convite ao Pai-Nosso precisa estar na tela antes do zoom")
         XCTAssertEqual(
             emphasis.label,
             "Vamos rezar o Pai-Nosso devagar, com atenção, meditando cada palavra.",
             "o destaque precisa usar o convite completo"
         )
-        usleep(500_000) // Deixa o fade terminar antes da captura, ainda dentro dos 2 segundos.
-        snapshot(app, "3a-pai-nosso-destaque")
-        XCTAssertTrue(emphasis.waitForNonExistence(timeout: 2.5), "o destaque não terminou após os 2 segundos")
+        let emphasisStartedAt = Date()
+        pray.tap()
+        usleep(200_000)
+        snapshot(app, "3a-pai-nosso-zoom-inicio")
+        usleep(700_000)
+        snapshot(app, "3b-pai-nosso-zoom-meio")
+        usleep(900_000)
+        snapshot(app, "3c-pai-nosso-zoom-fim")
+        XCTAssertTrue(emphasis.waitForNonExistence(timeout: 2.5), "o zoom no Pai-Nosso não terminou após os 2 segundos")
         XCTAssertGreaterThanOrEqual(
             Date().timeIntervalSince(emphasisStartedAt), 1.8,
-            "o destaque permaneceu menos de 2 segundos"
+            "o zoom permaneceu na tela por menos de 2 segundos"
         )
 
         sleep(6)
