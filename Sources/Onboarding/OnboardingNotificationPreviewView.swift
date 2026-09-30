@@ -49,7 +49,7 @@ struct OnboardingNotificationPreviewView: View {
                                 Text(L.string("Palavra de hoje", table: "Today"))
                                     .font(.system(size: 14, weight: .semibold))
                                     .foregroundStyle(Palette.ink)
-                                Text("\u{201C}\(MockWordOfDay.today.quote)\u{201D} \(MockWordOfDay.today.reference)")
+                                Text("\u{201C}\(MockWordOfDay.onboardingPreview.quote)\u{201D} \(MockWordOfDay.onboardingPreview.reference)")
                                     .lineLimit(3)
                                     .font(.system(size: 14))
                                     .foregroundStyle(Palette.ink.opacity(0.8))

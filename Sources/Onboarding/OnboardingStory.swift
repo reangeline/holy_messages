@@ -84,9 +84,9 @@ enum OnboardingStory {
         .en: "Before we go on", .pt: "Antes de continuar", .es: "Antes de seguir",
     ]
     static let prayerTitle: [AppLanguage: String] = [
-        .en: "Let's pray together, now.",
-        .pt: "Vamos rezar juntos, agora.",
-        .es: "Recemos juntos, ahora.",
+        .en: "It's time to pray.",
+        .pt: "É hora de rezar.",
+        .es: "Es hora de rezar.",
     ]
     static let prayerBody: [AppLanguage: String] = [
         .en: "Let's pray the Our Father slowly, with attention, meditating on each word.",

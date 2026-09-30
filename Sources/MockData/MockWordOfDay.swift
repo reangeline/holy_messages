@@ -289,4 +289,14 @@ enum MockWordOfDay {
         let index = Int(stableHash(dateKey) % UInt64(pool.count))
         return pool[index]
     }
+
+    /// Versículo fixo da prévia de notificação do onboarding — não usa o
+    /// rotativo `.today`, para a primeira impressão não depender da data do
+    /// calendário. Reaproveita uma entrada já revisada do catálogo (não
+    /// inventar texto novo).
+    static var onboardingPreview: WordOfDay {
+        let language = AppLanguagePreference.resolveCurrent()
+        let id = "mateus-5-3-\(language.rawValue)"
+        return catalog[language].first(where: { $0.id == id }) ?? catalog[language][0]
+    }
 }
