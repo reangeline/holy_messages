@@ -14,9 +14,13 @@ final class JevPickerTests: XCTestCase {
         var probability = 0.9
         var risk = 0.0
         var fails = false
+        /// Set to `.subscriptionRequired` or `.dailyLimit` to check the plan
+        /// stops instead of trying the next call.
+        var failsWith: MissaleAPI.Failure?
 
         func decide(_ state: String, _ questions: [String: [String: Any]]) async throws -> [String: Any] {
             calls.append((state, questions))
+            if let failsWith { throw failsWith }
             if fails { throw MissaleAPI.Failure.unavailable }
             var answers: [String: Any] = [:]
             for (key, question) in questions {
@@ -201,6 +205,26 @@ final class JevPickerTests: XCTestCase {
         let calm = FakeJev()
         let ordinary = await run("Rezo pela minha família", [pick("a", 4)], calm)
         XCTAssertEqual(ordinary?.showCrisisFirst, false)
+    }
+
+    /// Without a subscription (or past the daily limit), every remaining call
+    /// of the plan would fail the same way — no point spending them. A
+    /// 65-candidate pick needs two calls (a chunk round and a final); the
+    /// first 402 must stop the plan before the second.
+    func testStopsAtTheFirstSubscriptionRequiredInsteadOfTryingTheNextCall() async {
+        let fake = FakeJev()
+        fake.failsWith = .subscriptionRequired
+        let result = await run("texto", [pick("saint", 65)], fake)
+        XCTAssertEqual(fake.calls.count, 1, "a segunda chamada do plano não deveria acontecer")
+        XCTAssertEqual(result, JevPicker.Result(choices: [:], showCrisisFirst: false, answered: false))
+    }
+
+    func testStopsAtTheFirstDailyLimitInsteadOfTryingTheNextCall() async {
+        let fake = FakeJev()
+        fake.failsWith = .dailyLimit
+        let result = await run("texto", [pick("saint", 65)], fake)
+        XCTAssertEqual(fake.calls.count, 1)
+        XCTAssertEqual(result, JevPicker.Result(choices: [:], showCrisisFirst: false, answered: false))
     }
 
     func testPersonalizationIsOnByDefault() {

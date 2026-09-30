@@ -77,18 +77,29 @@ enum MissaleAPI {
     /// Asks Jev, through the Missale API, typed questions about `state` (what
     /// the reader wrote). Returns Jev's answers object, keyed like `questions`.
     /// `questions` values are `["type": ..., "instructions": ..., "criteria": ...]`.
+    ///
+    /// `free`: only the onboarding's orientação is allowed to spend the
+    /// account's lifetime free allowance. No default, so every call site has
+    /// to decide — see `decideBody`.
     static func decide(
-        state: String, questions: [String: [String: Any]], accessToken: String, subscriptionJWS: String?
+        state: String, questions: [String: [String: Any]], accessToken: String, subscriptionJWS: String?, free: Bool
     ) async throws -> [String: Any] {
-        let body = try JSONSerialization.data(withJSONObject: ["state": state, "questions": questions])
-        // Without a subscription the server spends the account's free
-        // allowance (the onboarding's orientação), or answers 402.
+        let body = try JSONSerialization.data(withJSONObject: decideBody(state: state, questions: questions, free: free))
+        // Without a subscription, `free: true` spends the account's free
+        // allowance (the onboarding's orientação); `free: false` answers 402
+        // without spending anything.
         let data = try await sendRaw("POST", "/v1/decisions", body: body, bearer: accessToken,
                                      headers: subscriptionJWS.map { ["X-Subscription": $0] } ?? [:])
         guard let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
               let answers = json["answers"] as? [String: Any]
         else { throw Failure.unavailable }
         return answers
+    }
+
+    /// The body `decide` sends — split out so a unit test can check `free`
+    /// reaches it without a network call.
+    static func decideBody(state: String, questions: [String: [String: Any]], free: Bool) -> [String: Any] {
+        ["state": state, "questions": questions, "free": free]
     }
 
     // MARK: - Transport
