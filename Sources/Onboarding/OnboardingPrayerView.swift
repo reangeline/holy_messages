@@ -5,10 +5,17 @@ import SwiftUI
 struct OnboardingPrayerView: View {
     let onNext: () -> Void
 
-    private enum Phase: Equatable { case intro, emphasis, praying, prayed }
+    private enum Phase: Equatable { case intro, praying, prayed }
 
     @State private var phase = Phase.intro
     @State private var checkVisible = false
+    /// True once "Vamos rezar juntos" is pressed: the intro chrome fades out
+    /// and the prayer body zooms in, in place, before `.praying` begins.
+    @State private var isEmphasizing = false
+    /// Natural (unscaled) width of the prayer body text, measured live so the
+    /// zoom never scales the text past the screen edges.
+    @State private var bodyNaturalWidth: CGFloat = 0
+    @State private var screenWidth: CGFloat = 0
 
     private let phrases = OnboardingStory.ourFather[AppLanguagePreference.resolveCurrent()] ?? OnboardingStory.ourFather[.en]!
 
@@ -18,7 +25,6 @@ struct OnboardingPrayerView: View {
 
             switch phase {
             case .intro: intro
-            case .emphasis: emphasis
             case .praying:
                 GuidedPrayerSequence(phrases: phrases, holdAdjustment: -1) {
                     phase = .prayed
@@ -30,49 +36,62 @@ struct OnboardingPrayerView: View {
         .animation(.easeInOut(duration: 0.8), value: phase)
     }
 
-    private var intro: some View {
-        VStack(spacing: 0) {
-            Spacer()
-            VStack(spacing: 14) {
-                Eyebrow(text: OnboardingStory.text(OnboardingStory.prayerEyebrow), color: Palette.goldBright)
-                Text(OnboardingStory.text(OnboardingStory.prayerTitle))
-                    .font(MissaleFont.display(34))
-                    .foregroundStyle(.white)
-                Text(OnboardingStory.text(OnboardingStory.prayerBody))
-                    .font(MissaleFont.body(17))
-                    .foregroundStyle(.white.opacity(0.7))
-            }
-            .multilineTextAlignment(.center)
-            .padding(.horizontal, 32)
-            Spacer()
-            lightButton(OnboardingStory.text(OnboardingStory.prayerStart)) {
-                phase = .emphasis
-            }
-            Button(action: onNext) {
-                Text(OnboardingStory.text(OnboardingStory.prayerSkip))
-                    .font(MissaleFont.body(15))
-                    .foregroundStyle(.white.opacity(0.5))
-                    .padding(.vertical, 14)
-            }
-            .padding(.bottom, 10)
-        }
-        .transition(.opacity)
+    /// How much room the zoomed body has to grow into without running past
+    /// the screen edges, measured live so long translations don't overflow.
+    private var maxBodyZoom: CGFloat {
+        guard bodyNaturalWidth > 0, screenWidth > 0 else { return 1 }
+        let safeWidth = screenWidth - 24
+        return max(1, min(1.6, safeWidth / bodyNaturalWidth))
     }
 
-    private var emphasis: some View {
-        Text(OnboardingStory.text(OnboardingStory.prayerBody))
-            .font(MissaleFont.display(40))
-            .foregroundStyle(.white)
-            .multilineTextAlignment(.center)
-            .padding(.horizontal, 32)
-            .accessibilityIdentifier("onboardingPrayerEmphasis")
-            .transition(.opacity)
-            .task {
-                do {
-                    try await Task.sleep(for: .seconds(2))
-                    phase = .praying
-                } catch {}
+    private var intro: some View {
+        GeometryReader { proxy in
+            VStack(spacing: 0) {
+                Spacer()
+                VStack(spacing: 14) {
+                    Eyebrow(text: OnboardingStory.text(OnboardingStory.prayerEyebrow), color: Palette.goldBright)
+                        .opacity(isEmphasizing ? 0 : 1)
+                    Text(OnboardingStory.text(OnboardingStory.prayerTitle))
+                        .font(MissaleFont.display(34))
+                        .foregroundStyle(.white)
+                        .opacity(isEmphasizing ? 0 : 1)
+                    Text(OnboardingStory.text(OnboardingStory.prayerBody))
+                        .font(MissaleFont.body(17))
+                        .foregroundStyle(.white.opacity(0.7))
+                        .accessibilityIdentifier("onboardingPrayerEmphasis")
+                        .onGeometryChange(for: CGFloat.self) { $0.size.width } action: { bodyNaturalWidth = $0 }
+                        .scaleEffect(isEmphasizing ? maxBodyZoom : 1)
+                        .animation(.spring(duration: 0.9, bounce: 0.25), value: isEmphasizing)
+                }
+                .multilineTextAlignment(.center)
+                .padding(.horizontal, 32)
+                .animation(.easeInOut(duration: 0.4), value: isEmphasizing)
+                Spacer()
+                lightButton(OnboardingStory.text(OnboardingStory.prayerStart)) {
+                    isEmphasizing = true
+                    Task {
+                        do {
+                            try await Task.sleep(for: .seconds(2))
+                            phase = .praying
+                        } catch {}
+                    }
+                }
+                .opacity(isEmphasizing ? 0 : 1)
+                .animation(.easeInOut(duration: 0.4), value: isEmphasizing)
+                Button(action: onNext) {
+                    Text(OnboardingStory.text(OnboardingStory.prayerSkip))
+                        .font(MissaleFont.body(15))
+                        .foregroundStyle(.white.opacity(0.5))
+                        .padding(.vertical, 14)
+                }
+                .padding(.bottom, 10)
+                .opacity(isEmphasizing ? 0 : 1)
+                .animation(.easeInOut(duration: 0.4), value: isEmphasizing)
             }
+            .onAppear { screenWidth = proxy.size.width }
+            .onChange(of: proxy.size.width) { _, width in screenWidth = width }
+        }
+        .transition(.opacity)
     }
 
     private var prayed: some View {
