@@ -54,3 +54,22 @@ final class MarianApparitionArtTests: XCTestCase {
         }
     }
 }
+
+/// O hero da ficha precisa continuar compacto no telefone, mas não pode esticar
+/// a mesma altura de 190 pt por toda a largura de um iPad e recortar a gravura.
+final class SaintDetailHeroLayoutTests: XCTestCase {
+
+    func testHeroAdaptsFromPhoneToIPadWithoutCroppingTheArtwork() {
+        let phone = SaintDetailHeroLayout.frame(availableWidth: 350)
+        XCTAssertEqual(phone.width, 350, accuracy: 0.01)
+        XCTAssertEqual(phone.height, 190, accuracy: 0.01)
+
+        let portraitIPad = SaintDetailHeroLayout.frame(availableWidth: 992)
+        XCTAssertEqual(portraitIPad.width, 760, accuracy: 0.01)
+        XCTAssertEqual(portraitIPad.height, 760 / (1206.0 / 648.0), accuracy: 0.01)
+
+        let landscapeIPad = SaintDetailHeroLayout.frame(availableWidth: 1326)
+        XCTAssertEqual(landscapeIPad, portraitIPad)
+        XCTAssertEqual(SaintDetailHeroLayout.artworkContentMode, .fit)
+    }
+}
