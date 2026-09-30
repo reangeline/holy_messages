@@ -72,11 +72,18 @@ final class OrientationUITests: XCTestCase {
         // The keyboard must not come back and cover the chips.
         XCTAssertFalse(app.keyboards.firstMatch.exists, "o teclado voltou e cobre os estados")
         let chip = app.buttons.matching(NSPredicate(format: "label == 'Cansado'")).firstMatch
-        for _ in 0..<4 where !chip.isHittable { app.swipeUp() }
         XCTAssertTrue(chip.waitForExistence(timeout: 5))
+        // `isHittable` is true while the chip is only partly visible at the
+        // bottom of the list, and the center tap below then lands under the
+        // list, on nothing: scroll until the center is inside the list.
+        let lista = app.scrollViews.containing(NSPredicate(format: "label == 'Cansado'")).firstMatch
+        for _ in 0..<4 where !lista.frame.contains(CGPoint(x: chip.frame.midX, y: chip.frame.midY)) { lista.swipeUp() }
+        XCTAssertTrue(lista.frame.contains(CGPoint(x: chip.frame.midX, y: chip.frame.midY)), "o estado Cansado não ficou visível para o toque")
         chip.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
         // Straight to the reply: the note was already written.
         XCTAssertTrue(respostaApareceu(app), "o estado escolhido não levou à resposta")
+        XCTAssertTrue(app.staticTexts.matching(NSPredicate(format: "label CONTAINS[c] 'cansado'")).firstMatch.exists,
+                      "a resposta não é do estado escolhido")
     }
 
     func testWithoutASubscriptionTheBoxOpensThePlans() {
