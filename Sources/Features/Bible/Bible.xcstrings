@@ -608,6 +608,29 @@
           }
         }
       }
+    },
+    "This edition is still incomplete: {n} verses are missing and are being transcribed from the originals.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This edition is still incomplete: {n} verses are missing and are being transcribed from the originals."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esta edición todavía está incompleta: faltan {n} versículos, que estamos transcribiendo de los originales."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esta edição ainda está incompleta: faltam {n} versículos, que estamos transcrevendo dos originais."
+          }
+        }
+      }
     }
   }
 }
