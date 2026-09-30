@@ -7,6 +7,7 @@ struct AppRootView: View {
 #if DEBUG
     @State private var showExamen = false
     @State private var showPaywall = false
+    @State private var showPrayer = false
 #endif
     @AppStorage(AppLanguagePreference.storageKey, store: AppLanguagePreference.store) private var languageOverride = AppLanguagePreference.systemValue
     @Environment(\.scenePhase) private var scenePhase
@@ -37,6 +38,11 @@ struct AppRootView: View {
     /// "paywall" opens the subscription screen. App Store Connect requires a
     /// screenshot of it for subscription review, and it is otherwise only
     /// reachable at the end of onboarding, after eighteen screens.
+    ///
+    /// "prayer" opens the Our Father zoom moment of the onboarding directly.
+    /// It's the only reliable way to screenshot that zoom in a given language
+    /// — reaching it by walking the ~9 onboarding screens by hand for every
+    /// language would be slow and brittle to automate from scratch.
     private var debugOpenScreen: String? {
         UserDefaults.standard.string(forKey: "openScreen")
     }
@@ -93,6 +99,10 @@ struct AppRootView: View {
             }
             .appLanguageLocale()
         }
+        .fullScreenCover(isPresented: $showPrayer) {
+            OnboardingPrayerView(onNext: { showPrayer = false })
+                .appLanguageLocale()
+        }
 #endif
         .sheet(isPresented: $showSettings) {
             // The locale has to be applied to the sheet's own content: a sheet is
@@ -107,6 +117,7 @@ struct AppRootView: View {
             if debugOpensSettings { showSettings = true }
             if debugOpenScreen == "examen" { showExamen = true }
             if debugOpenScreen == "paywall" { showPaywall = true }
+            if debugOpenScreen == "prayer" { showPrayer = true }
 #endif
         }
         // Rolling-window notifications need refreshing on every foreground, not just

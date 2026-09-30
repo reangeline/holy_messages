@@ -9,15 +9,21 @@ struct OnboardingPrayerView: View {
 
     @State private var phase = Phase.intro
     @State private var checkVisible = false
-    /// True once "Vamos rezar juntos" is pressed: the intro chrome fades out
-    /// and the prayer body zooms in, in place, before `.praying` begins.
+    /// True once the prayer-start button is pressed: the intro chrome fades
+    /// out and the prayer body grows to a larger point size, reflowing in
+    /// place, before `.praying` begins.
     @State private var isEmphasizing = false
-    /// Natural (unscaled) width of the prayer body text, measured live so the
-    /// zoom never scales the text past the screen edges.
-    @State private var bodyNaturalWidth: CGFloat = 0
-    @State private var screenWidth: CGFloat = 0
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    /// Shared exit for the intro chrome (eyebrow, title, prayer-start and
+    /// skip buttons): fades out over the same 0.4 s wherever it's used.
+    private let chromeExitTransition: AnyTransition = .opacity.animation(.easeInOut(duration: 0.4))
 
     private let phrases = OnboardingStory.ourFather[AppLanguagePreference.resolveCurrent()] ?? OnboardingStory.ourFather[.en]!
+    /// Final point size of the zoomed prayer body: at least 1.5x the resting
+    /// size (17), picked to still fit in 3 lines on the smallest simulator.
+    private let emphasisFontSize: CGFloat = 27
+    /// How long the zoomed body holds on screen before `.praying` begins.
+    private let emphasisHoldDuration: Duration = .seconds(4.5)
 
     var body: some View {
         ZStack {
@@ -36,48 +42,49 @@ struct OnboardingPrayerView: View {
         .animation(.easeInOut(duration: 0.8), value: phase)
     }
 
-    /// How much room the zoomed body has to grow into without running past
-    /// the screen edges, measured live so long translations don't overflow.
-    private var maxBodyZoom: CGFloat {
-        guard bodyNaturalWidth > 0, screenWidth > 0 else { return 1 }
-        let safeWidth = screenWidth - 24
-        return max(1, min(1.6, safeWidth / bodyNaturalWidth))
-    }
-
     private var intro: some View {
-        GeometryReader { proxy in
-            VStack(spacing: 0) {
-                Spacer()
-                VStack(spacing: 14) {
+        // The body text grows by a real point-size change when isEmphasizing
+        // flips, reflowing from ~2 lines to ~3 inside the existing horizontal
+        // padding — no GeometryReader or layout change needed.
+        VStack(spacing: 0) {
+            Spacer()
+            VStack(spacing: 14) {
+                if !isEmphasizing {
                     Eyebrow(text: OnboardingStory.text(OnboardingStory.prayerEyebrow), color: Palette.goldBright)
-                        .opacity(isEmphasizing ? 0 : 1)
+                        .transition(chromeExitTransition)
                     Text(OnboardingStory.text(OnboardingStory.prayerTitle))
                         .font(MissaleFont.display(34))
                         .foregroundStyle(.white)
-                        .opacity(isEmphasizing ? 0 : 1)
-                    Text(OnboardingStory.text(OnboardingStory.prayerBody))
-                        .font(MissaleFont.body(17))
-                        .foregroundStyle(.white.opacity(0.7))
-                        .accessibilityIdentifier("onboardingPrayerEmphasis")
-                        .onGeometryChange(for: CGFloat.self) { $0.size.width } action: { bodyNaturalWidth = $0 }
-                        .scaleEffect(isEmphasizing ? maxBodyZoom : 1)
-                        .animation(.spring(duration: 0.9, bounce: 0.25), value: isEmphasizing)
+                        .transition(chromeExitTransition)
                 }
-                .multilineTextAlignment(.center)
-                .padding(.horizontal, 32)
-                .animation(.easeInOut(duration: 0.4), value: isEmphasizing)
-                Spacer()
+                Text(OnboardingStory.text(OnboardingStory.prayerBody))
+                    .animatableFont(size: isEmphasizing ? emphasisFontSize : 17) { MissaleFont.body($0) }
+                    .foregroundStyle(.white.opacity(0.7))
+                    .accessibilityIdentifier("onboardingPrayerEmphasis")
+                    .animation(reduceMotion ? nil : .spring(duration: 0.9, bounce: 0), value: isEmphasizing)
+                    // Caps Dynamic Type so the zoomed ~27pt phrase doesn't
+                    // balloon toward ~84pt at the largest accessibility sizes
+                    // and truncate; minimumScaleFactor is the safety net that
+                    // shrinks it instead of clipping the tail of the sentence,
+                    // the same pattern used for tight text elsewhere in the
+                    // app (WordOfDayWidget, SaintOfDayWidget, ShareCardView).
+                    .dynamicTypeSize(...DynamicTypeSize.accessibility1)
+                    .minimumScaleFactor(0.5)
+            }
+            .multilineTextAlignment(.center)
+            .padding(.horizontal, 32)
+            Spacer()
+            if !isEmphasizing {
                 lightButton(OnboardingStory.text(OnboardingStory.prayerStart)) {
                     isEmphasizing = true
                     Task {
                         do {
-                            try await Task.sleep(for: .seconds(2))
+                            try await Task.sleep(for: emphasisHoldDuration)
                             phase = .praying
                         } catch {}
                     }
                 }
-                .opacity(isEmphasizing ? 0 : 1)
-                .animation(.easeInOut(duration: 0.4), value: isEmphasizing)
+                .transition(chromeExitTransition)
                 Button(action: onNext) {
                     Text(OnboardingStory.text(OnboardingStory.prayerSkip))
                         .font(MissaleFont.body(15))
@@ -85,11 +92,8 @@ struct OnboardingPrayerView: View {
                         .padding(.vertical, 14)
                 }
                 .padding(.bottom, 10)
-                .opacity(isEmphasizing ? 0 : 1)
-                .animation(.easeInOut(duration: 0.4), value: isEmphasizing)
+                .transition(chromeExitTransition)
             }
-            .onAppear { screenWidth = proxy.size.width }
-            .onChange(of: proxy.size.width) { _, width in screenWidth = width }
         }
         .transition(.opacity)
     }
@@ -140,5 +144,28 @@ struct OnboardingPrayerView: View {
                 .background(.white, in: Capsule())
         }
         .padding(.horizontal, 24)
+    }
+}
+
+/// Grows text through a real point-size change instead of `scaleEffect`, so a
+/// longer, larger phrase gets the chance to reflow onto a new line as it
+/// animates rather than being stretched past the screen edges.
+private struct AnimatableFontSize: Animatable, ViewModifier {
+    var size: CGFloat
+    let font: (CGFloat) -> Font
+
+    var animatableData: CGFloat {
+        get { size }
+        set { size = newValue }
+    }
+
+    func body(content: Content) -> some View {
+        content.font(font(size))
+    }
+}
+
+private extension View {
+    func animatableFont(size: CGFloat, _ font: @escaping (CGFloat) -> Font) -> some View {
+        modifier(AnimatableFontSize(size: size, font: font))
     }
 }

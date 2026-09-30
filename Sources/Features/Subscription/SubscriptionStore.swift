@@ -95,6 +95,15 @@ final class SubscriptionStore: ObservableObject {
         UserDefaults.standard
             .volatileDomain(forName: UserDefaults.argumentDomain)["noStore"] as? String == "1"
     }
+
+    /// Holds the store in `.loading`, as a slow connection would, so the
+    /// paywall's waiting state can be looked at and captured on purpose.
+    ///
+    ///     app.launchArguments = ["-loadingStore", "1"]
+    private var debugLoadingStore: Bool {
+        UserDefaults.standard
+            .volatileDomain(forName: UserDefaults.argumentDomain)["loadingStore"] as? String == "1"
+    }
 #endif
 
     private var updates: Task<Void, Never>?
@@ -120,6 +129,7 @@ final class SubscriptionStore: ObservableObject {
         state = .loading
 #if DEBUG
         if debugNoStore { return state = .failed }
+        if debugLoadingStore { return }
 #endif
         do {
             let products = try await Product.products(for: ProductID.all)
