@@ -32,6 +32,16 @@ final class PaywallUITests: XCTestCase {
         return app
     }
 
+    /// Like `abrir`, but holds the store in `.loading` instead of failing it
+    /// outright — see the doc on `debugLoadingStore` in SubscriptionStore.
+    private func abrirComLojaCarregando(_ language: String) -> XCUIApplication {
+        let app = XCUIApplication()
+        app.launchArguments = ["-signedIn", "1", "-demoDate", "2026-09-14", "-hasCompletedOnboarding", "1", "-appLanguageOverride", language,
+                               "-openScreen", "paywall", "-loadingStore", "1"]
+        app.launch()
+        return app
+    }
+
     func testWithNoStoreItSaysSoInsteadOfShowingAPrice() {
         let app = abrir("pt")
         XCTAssertTrue(
@@ -72,6 +82,21 @@ final class PaywallUITests: XCTestCase {
         XCTAssertTrue(
             app.buttons.matching(NSPredicate(format: "label CONTAINS[c] 'Restaurar compras'")).firstMatch.exists,
             "restaurar compras desapareceu (diretriz 3.1.1)"
+        )
+    }
+
+    /// While the store hasn't answered yet, the button must stay disabled and
+    /// must never offer to close the paywall for free — that was exactly the
+    /// bug: a slow connection looked like "nothing to buy" and a tap closed
+    /// onboarding without showing a single plan.
+    func testWhileTheStoreIsLoadingTheButtonIsDisabled() {
+        let app = abrirComLojaCarregando("pt")
+        let botao = app.buttons["paywallPrimaryButton"]
+        XCTAssertTrue(botao.waitForExistence(timeout: 15), "o botão principal não apareceu")
+        XCTAssertFalse(botao.isEnabled, "o botão não pode agir antes de a loja responder")
+        XCTAssertFalse(
+            app.buttons.matching(NSPredicate(format: "label CONTAINS[c] 'Continuar de graça'")).firstMatch.exists,
+            "o botão ofereceu continuar de graça antes de a loja responder"
         )
     }
 

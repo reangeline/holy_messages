@@ -247,6 +247,29 @@
         }
       }
     },
+    "Loading plans": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Loading plans"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Carregando os planos"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cargando los planes"
+          }
+        }
+      }
+    },
     "Every day of the year with its season, its colour and its feast, and the Sunday readings.": {
       "extractionState": "manual",
       "localizations": {

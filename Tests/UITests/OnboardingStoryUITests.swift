@@ -6,6 +6,19 @@ import XCTest
 /// onboarding tests.
 final class OnboardingStoryUITests: XCTestCase {
 
+    /// The emphasized text is animated from 17pt to 27pt — a real 1.588x
+    /// point-size increase, plus a reflow from 2 to 3 lines — but layout/font
+    /// rendering can vary a little across simulators; 1.4 gives margin below
+    /// the measured ~2.37x (44.67pt resting → 106pt emphasized) without
+    /// being so loose it'd miss a regression that stops the text from
+    /// growing.
+    private let minGrowthRatio: CGFloat = 1.4
+    /// Height of 3 lines at 27pt (MissaleFont.body) plus ~15% slack; a 4th
+    /// line (~141pt) clears this by a wide margin. Measured at exactly
+    /// 106pt with `OnboardingPrayerZoomUITests` across both simulators
+    /// (iPhone 17 and iPhone 17e) and all three languages.
+    private let maxEmphasisHeight: CGFloat = 122
+
     override func setUp() {
         continueAfterFailure = false
     }
@@ -82,18 +95,44 @@ final class OnboardingStoryUITests: XCTestCase {
             "Vamos rezar o Pai-Nosso devagar, com atenção, meditando cada palavra.",
             "o destaque precisa usar o convite completo"
         )
+        let restingHeight = emphasis.frame.height
         let emphasisStartedAt = Date()
         pray.tap()
-        usleep(200_000)
-        snapshot(app, "3a-pai-nosso-zoom-inicio")
-        usleep(700_000)
-        snapshot(app, "3b-pai-nosso-zoom-meio")
-        usleep(900_000)
-        snapshot(app, "3c-pai-nosso-zoom-fim")
-        XCTAssertTrue(emphasis.waitForNonExistence(timeout: 2.5), "o zoom no Pai-Nosso não terminou após os 2 segundos")
+
+        // Espera por prazo, não por soma de usleep: o tempo real gasto nas
+        // capturas (abaixo) não deve atrasar a checagem de que o texto ainda
+        // está lá aos ~3 s desde o toque.
+        let elapsedBeforeCheck = Date().timeIntervalSince(emphasisStartedAt)
+        let remainingBeforeCheck = 3.0 - elapsedBeforeCheck
+        if remainingBeforeCheck > 0 { usleep(UInt32(remainingBeforeCheck * 1_000_000)) }
+
+        // ~3 s depois do toque, o texto ampliado ainda está na tela, inteiro
+        // dentro dos limites da janela (sem cortar nas bordas), e cresceu de
+        // verdade (não só permaneceu do mesmo tamanho).
+        XCTAssertTrue(emphasis.exists, "o texto ampliado sumiu antes da hora")
+        let windowFrame = app.windows.firstMatch.frame
+        let emphasizedFrame = emphasis.frame
+        XCTAssertTrue(windowFrame.contains(emphasizedFrame), "o texto ampliado saiu dos limites da janela")
         XCTAssertGreaterThanOrEqual(
-            Date().timeIntervalSince(emphasisStartedAt), 1.8,
-            "o zoom permaneceu na tela por menos de 2 segundos"
+            emphasizedFrame.height, restingHeight * minGrowthRatio,
+            "o texto não cresceu o suficiente (repouso: \(restingHeight), ampliado: \(emphasizedFrame.height))"
+        )
+        XCTAssertLessThanOrEqual(
+            emphasizedFrame.height, maxEmphasisHeight,
+            "o texto ampliado passou do teto de 3 linhas (altura: \(emphasizedFrame.height))"
+        )
+
+        // As capturas (que chamam app.screenshot(), uma operação que pode
+        // levar um tempo não desprezível) só acontecem depois de já termos
+        // lido e validado exists/frame acima.
+        snapshot(app, "3a-pai-nosso-zoom-inicio")
+        snapshot(app, "3b-pai-nosso-zoom-meio")
+        snapshot(app, "3c-pai-nosso-zoom-fim")
+
+        XCTAssertTrue(emphasis.waitForNonExistence(timeout: 3), "o zoom no Pai-Nosso não terminou depois de segurar o texto ampliado")
+        XCTAssertGreaterThanOrEqual(
+            Date().timeIntervalSince(emphasisStartedAt), 4.3,
+            "o texto ampliado ficou na tela por menos dos ~4,5 s esperados"
         )
 
         sleep(6)
