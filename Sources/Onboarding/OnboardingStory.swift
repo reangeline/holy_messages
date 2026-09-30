@@ -89,11 +89,11 @@ enum OnboardingStory {
         .es: "Recemos juntos, ahora.",
     ]
     static let prayerBody: [AppLanguage: String] = [
-        .en: "One Our Father, slowly. A breath first, then follow each phrase.",
-        .pt: "Um Pai-Nosso, devagar. Primeiro uma respiração, depois acompanhe cada frase.",
-        .es: "Un Padre Nuestro, despacio. Primero una respiración, después sigue cada frase.",
+        .en: "Let's pray the Our Father slowly, with attention, meditating on each word.",
+        .pt: "Vamos rezar o Pai-Nosso devagar, com atenção, meditando cada palavra.",
+        .es: "Recemos el Padre Nuestro despacio, con atención, meditando cada palabra.",
     ]
-    static let prayerStart: [AppLanguage: String] = [.en: "Pray now", .pt: "Rezar agora", .es: "Rezar ahora"]
+    static let prayerStart: [AppLanguage: String] = [.en: "Let's pray together", .pt: "Vamos rezar juntos", .es: "Recemos juntos"]
     static let prayerSkip: [AppLanguage: String] = [.en: "Not now", .pt: "Agora não", .es: "Ahora no"]
 
     /// Wording follows the Compendium text the prayer catalog already uses.

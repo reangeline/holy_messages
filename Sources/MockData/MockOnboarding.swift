@@ -41,8 +41,8 @@ enum MockOnboarding {
                       subtitle: "So we don't assume.",
                       options: [
                         .init(id: "single", text: "Single"),
-                        .init(id: "married", text: "Married"),
-                        .init(id: "religious", text: "Consecrated / religious life"),
+                        .init(id: "civil-marriage", text: "Civil marriage"),
+                        .init(id: "religious-marriage", text: "Religious marriage"),
                         .init(id: "prefer-not", text: "I'd rather not say"),
                       ], multiSelect: false, skippable: true),
             ]
@@ -76,8 +76,8 @@ enum MockOnboarding {
                       subtitle: "Pra não presumirmos nada.",
                       options: [
                         .init(id: "single", text: "Solteiro(a)"),
-                        .init(id: "married", text: "Casado(a)"),
-                        .init(id: "religious", text: "Vida consagrada / religiosa"),
+                        .init(id: "civil-marriage", text: "Casamento civil"),
+                        .init(id: "religious-marriage", text: "Casamento religioso"),
                         .init(id: "prefer-not", text: "Prefiro não dizer"),
                       ], multiSelect: false, skippable: true),
             ]
@@ -111,8 +111,8 @@ enum MockOnboarding {
                       subtitle: "Para no asumir nada.",
                       options: [
                         .init(id: "single", text: "Soltero/a"),
-                        .init(id: "married", text: "Casado/a"),
-                        .init(id: "religious", text: "Vida consagrada / religiosa"),
+                        .init(id: "civil-marriage", text: "Matrimonio civil"),
+                        .init(id: "religious-marriage", text: "Matrimonio religioso"),
                         .init(id: "prefer-not", text: "Prefiero no decirlo"),
                       ], multiSelect: false, skippable: true),
             ]
@@ -128,7 +128,7 @@ enum MockOnboarding {
                 .init(id: "spirit-1", title: "How has prayer been going lately?",
                       subtitle: "Not a test. Just naming it.",
                       options: [
-                        .init(id: "alive", text: "Alive, I feel it"),
+                        .init(id: "alive", text: "I pray from the heart"),
                         .init(id: "dry", text: "Dry, but I keep showing up"),
                         .init(id: "absent", text: "Almost nonexistent"),
                         .init(id: "doubtful", text: "Full of doubts"),
@@ -163,7 +163,7 @@ enum MockOnboarding {
                 .init(id: "spirit-1", title: "Como tem sido sua oração ultimamente?",
                       subtitle: "Não é um teste. É só nomear.",
                       options: [
-                        .init(id: "alive", text: "Viva, eu sinto"),
+                        .init(id: "alive", text: "Eu oro com o coração"),
                         .init(id: "dry", text: "Seca, mas eu continuo aparecendo"),
                         .init(id: "absent", text: "Quase inexistente"),
                         .init(id: "doubtful", text: "Cheia de dúvidas"),
@@ -198,7 +198,7 @@ enum MockOnboarding {
                 .init(id: "spirit-1", title: "¿Cómo ha estado tu oración últimamente?",
                       subtitle: "No es una prueba. Solo nombrarlo.",
                       options: [
-                        .init(id: "alive", text: "Viva, la siento"),
+                        .init(id: "alive", text: "Rezo con el corazón"),
                         .init(id: "dry", text: "Seca, pero sigo presentándome"),
                         .init(id: "absent", text: "Casi inexistente"),
                         .init(id: "doubtful", text: "Llena de dudas"),

@@ -5,7 +5,7 @@ import SwiftUI
 struct OnboardingPrayerView: View {
     let onNext: () -> Void
 
-    private enum Phase: Equatable { case intro, praying, prayed }
+    private enum Phase: Equatable { case intro, emphasis, praying, prayed }
 
     @State private var phase = Phase.intro
     @State private var checkVisible = false
@@ -18,6 +18,7 @@ struct OnboardingPrayerView: View {
 
             switch phase {
             case .intro: intro
+            case .emphasis: emphasis
             case .praying:
                 GuidedPrayerSequence(phrases: phrases, holdAdjustment: -1) {
                     phase = .prayed
@@ -45,7 +46,7 @@ struct OnboardingPrayerView: View {
             .padding(.horizontal, 32)
             Spacer()
             lightButton(OnboardingStory.text(OnboardingStory.prayerStart)) {
-                phase = .praying
+                phase = .emphasis
             }
             Button(action: onNext) {
                 Text(OnboardingStory.text(OnboardingStory.prayerSkip))
@@ -56,6 +57,22 @@ struct OnboardingPrayerView: View {
             .padding(.bottom, 10)
         }
         .transition(.opacity)
+    }
+
+    private var emphasis: some View {
+        Text(OnboardingStory.text(OnboardingStory.prayerBody))
+            .font(MissaleFont.display(40))
+            .foregroundStyle(.white)
+            .multilineTextAlignment(.center)
+            .padding(.horizontal, 32)
+            .accessibilityIdentifier("onboardingPrayerEmphasis")
+            .transition(.opacity)
+            .task {
+                do {
+                    try await Task.sleep(for: .seconds(2))
+                    phase = .praying
+                } catch {}
+            }
     }
 
     private var prayed: some View {
