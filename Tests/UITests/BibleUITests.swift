@@ -84,6 +84,26 @@ final class BibleUITests: XCTestCase {
         screenshot("bible-psalm-es", app)
     }
 
+    /// The Torres Amat still has verses missing; the front page must say so,
+    /// with the real count from the bundled JSON, never a number written
+    /// into the code. Also saves a plain PNG for manual review, outside the
+    /// xcresult bundle.
+    func testShowsIncompleteNoticeInSpanish() {
+        let app = launch("es")
+        openBible("Oraciones", "Leer la Biblia", in: app)
+
+        let notice = app.staticTexts["BibleIncompleteNotice"]
+        XCTAssertTrue(notice.waitForExistence(timeout: 15), "el aviso de edición incompleta no apareció")
+        XCTAssertTrue(notice.label.contains("463"), "el aviso no muestra el número real de versículos faltantes: \(notice.label)")
+        XCTAssertTrue(notice.label.contains("incompleta"), "el aviso no suena a lo que se pidió: \(notice.label)")
+
+        let shot = app.screenshot()
+        screenshot("bible-incomplete-notice-es", app)
+        let dir = URL(fileURLWithPath: "/Users/reangeline/.hermes/cache/scratch/missale-torres-aviso", isDirectory: true)
+        try? FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
+        try? shot.pngRepresentation.write(to: dir.appendingPathComponent("bible-incomplete-notice-es.png"))
+    }
+
     /// Find a passage by reference, highlight a verse, mark where I stopped,
     /// and find both back on the Bible's front page; then a word search.
     func testSearchHighlightAndBookmarkInPortuguese() {

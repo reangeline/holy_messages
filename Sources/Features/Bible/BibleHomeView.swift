@@ -104,6 +104,10 @@ struct BibleBookList: View {
                 Text("Holy Bible", tableName: "Bible")
                     .font(MissaleFont.display(28))
 
+                if bible.hasIncompleteNotice {
+                    incompleteNotice
+                }
+
                 searchField
 
                 if query.trimmingCharacters(in: .whitespaces).isEmpty {
@@ -120,6 +124,23 @@ struct BibleBookList: View {
             .padding(.bottom, 40)
         }
         .scrollDismissesKeyboard(.interactively)
+    }
+
+    // MARK: - Incomplete edition notice
+
+    /// Discreet, honest: the count always comes from the bundled JSON, and
+    /// this only ever shows for an edition that `hasIncompleteNotice`
+    /// (which is also the one thing the release gate checks — see
+    /// `BibleCatalogTests.testBiblesReadyForRelease`).
+    private var incompleteNotice: some View {
+        Text(L.string("This edition is still incomplete: {n} verses are missing and are being transcribed from the originals.", table: "Bible")
+            .replacingOccurrences(of: "{n}", with: "\(bible.missingVerses ?? 0)"))
+            .font(MissaleFont.body(13))
+            .foregroundStyle(Palette.ink.opacity(0.65))
+            .padding(10)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background(Color.white.opacity(0.35), in: RoundedRectangle(cornerRadius: 10, style: .continuous))
+            .accessibilityIdentifier("BibleIncompleteNotice")
     }
 
     // MARK: - Search

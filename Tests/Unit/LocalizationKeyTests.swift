@@ -1,4 +1,6 @@
+import AVFoundation
 import XCTest
+@testable import Missale
 
 /// A key passed to `Text(_:tableName:)` with no entry in its table does not
 /// fail the build and does not fall back to Portuguese by design — SwiftUI
@@ -94,5 +96,71 @@ final class LocalizationKeyTests: XCTestCase {
             }
         }
         XCTAssertTrue(suspeitas.isEmpty, "\(suspeitas.count) entradas com pt e es idênticos:\n" + suspeitas.sorted().joined(separator: "\n"))
+    }
+
+    func testPresentationVideoIsPortraitAndUsesAPortraitCard() async throws {
+        let componente = try String(contentsOf: raiz.appendingPathComponent("Sources/Onboarding/OnboardingComponents.swift"))
+        XCTAssertTrue(componente.contains(".frame(width: 220, height: 391)"), "o vídeo precisa ficar em um card estreito de proporção 9:16")
+
+        let asset = AVURLAsset(url: raiz.appendingPathComponent("Sources/Resources/onboarding-plano.mp4"))
+        let trilhas = try await asset.loadTracks(withMediaType: .video)
+        guard let trilha = trilhas.first else {
+            return XCTFail("não encontrei a trilha de vídeo da apresentação")
+        }
+        let tamanho = try await trilha.load(.naturalSize)
+        XCTAssertGreaterThan(tamanho.height, tamanho.width, "a filmagem de apresentação precisa ser vertical")
+    }
+
+    func testLifeStateDistinguishesCivilAndReligiousMarriageInEveryLanguage() {
+        let esperados: [AppLanguage: [String]] = [
+            .pt: ["Casamento civil", "Casamento religioso"],
+            .en: ["Civil marriage", "Religious marriage"],
+            .es: ["Matrimonio civil", "Matrimonio religioso"],
+        ]
+
+        for (idioma, opcoesEsperadas) in esperados {
+            let opcoes = MockOnboarding.lifeQuestions(for: idioma)[3].options
+                .filter { ["civil-marriage", "religious-marriage"].contains($0.id) }
+                .map(\.text)
+            XCTAssertEqual(opcoes, opcoesEsperadas, "estado de vida em \(idioma)")
+        }
+    }
+
+    func testLifeStateDoesNotOfferConsecratedReligiousLifeInAnyLanguage() {
+        for idioma in AppLanguage.allCases {
+            let opcoes = MockOnboarding.lifeQuestions(for: idioma)[3].options
+            XCTAssertFalse(opcoes.contains { $0.id == "religious" }, "estado de vida ainda oferece vida consagrada em \(idioma)")
+        }
+    }
+
+    func testPrayerFromTheHeartIsLocalizedInEveryLanguage() {
+        let esperados: [AppLanguage: String] = [
+            .pt: "Eu oro com o coração",
+            .en: "I pray from the heart",
+            .es: "Rezo con el corazón",
+        ]
+
+        for (idioma, esperado) in esperados {
+            let opcao = MockOnboarding.spiritualQuestions(for: idioma)[0].options.first { $0.id == "alive" }
+            XCTAssertEqual(opcao?.text, esperado, "oração viva em \(idioma)")
+        }
+    }
+
+    func testPrayerInvitationInvitesAnAttentiveMeditatedOurFatherInEveryLanguage() {
+        let ctas: [AppLanguage: String] = [
+            .pt: "Vamos rezar juntos",
+            .en: "Let's pray together",
+            .es: "Recemos juntos",
+        ]
+        let convites: [AppLanguage: String] = [
+            .pt: "Vamos rezar o Pai-Nosso devagar, com atenção, meditando cada palavra.",
+            .en: "Let's pray the Our Father slowly, with attention, meditating on each word.",
+            .es: "Recemos el Padre Nuestro despacio, con atención, meditando cada palabra.",
+        ]
+
+        for idioma in AppLanguage.allCases {
+            XCTAssertEqual(OnboardingStory.prayerStart[idioma], ctas[idioma], "CTA de oração em \(idioma)")
+            XCTAssertEqual(OnboardingStory.prayerBody[idioma], convites[idioma], "convite de oração em \(idioma)")
+        }
     }
 }

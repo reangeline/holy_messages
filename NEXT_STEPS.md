@@ -118,6 +118,11 @@ chegou ao limite.
 Os scripts para refazer tudo (conversão, preenchimento com a RV, Wikisource,
 OCR das edições) estão na mesma pasta `../missale-biblias-revisao/`.
 
+**Decisão provisória 29/set/2026: publicar com aviso no app.** Pendente:
+Renato pesquisar novamente os 463 versículos (lista em
+`../missale-biblias-revisao/restantes-torres-amat.csv`); ao chegar a 0, o
+aviso some e o gate volta a ser estrito.
+
 ---
 
 ### 2.5 Feedbacks do TestFlight ainda abertos
