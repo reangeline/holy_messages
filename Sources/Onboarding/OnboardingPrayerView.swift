@@ -10,20 +10,37 @@ struct OnboardingPrayerView: View {
     @State private var phase = Phase.intro
     @State private var checkVisible = false
     /// True once the prayer-start button is pressed: the intro chrome fades
-    /// out and the prayer body grows to a larger point size, reflowing in
-    /// place, before `.praying` begins.
+    /// out in place and, a beat later, the prayer body grows to its
+    /// emphasized size — two separate, sequenced movements instead of one.
     @State private var isEmphasizing = false
+    /// True during the short fade that closes the emphasized body before
+    /// `.praying` begins, so the handoff to the breathing circle isn't a
+    /// cross-dissolve straight from the giant text — the screen goes quiet
+    /// first.
+    @State private var isEmphasisExiting = false
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
-    /// Shared exit for the intro chrome (eyebrow, title, prayer-start and
-    /// skip buttons): fades out over the same 0.4 s wherever it's used.
-    private let chromeExitTransition: AnyTransition = .opacity.animation(.easeInOut(duration: 0.4))
 
     private let phrases = OnboardingStory.ourFather[AppLanguagePreference.resolveCurrent()] ?? OnboardingStory.ourFather[.en]!
-    /// Final point size of the zoomed prayer body: at least 1.5x the resting
-    /// size (17), picked to still fit in 3 lines on the smallest simulator.
+    /// Final point size of the emphasized prayer body: at least 1.5x the
+    /// resting size (17), picked to still fit in 3 lines on the smallest
+    /// simulator.
     private let emphasisFontSize: CGFloat = 27
-    /// How long the zoomed body holds on screen before `.praying` begins.
+    /// How long the emphasized body holds on screen, fully grown, before it
+    /// starts fading out toward `.praying`.
     private let emphasisHoldDuration: Duration = .seconds(4.5)
+    /// How long the intro chrome (eyebrow, title, buttons) takes to fade out
+    /// in place once "Rezar agora" is tapped — it runs before the body text
+    /// starts growing, so the two movements read as separate beats.
+    private let chromeFadeDuration: Double = 1.1
+    /// How long the body text waits, after the tap, before it starts
+    /// growing — long enough for the chrome fade to already be underway.
+    private let bodyGrowDelay: Double = 0.35
+    /// How long the body text's grow (point-size change from 17 to
+    /// `emphasisFontSize`) takes to settle.
+    private let bodyGrowDuration: Double = 1.15
+    /// How long the emphasized text takes to fade out before `.praying`
+    /// begins.
+    private let emphasisExitDuration: Double = 0.6
 
     var body: some View {
         ZStack {
@@ -43,59 +60,79 @@ struct OnboardingPrayerView: View {
     }
 
     private var intro: some View {
-        // The body text grows by a real point-size change when isEmphasizing
-        // flips, reflowing from ~2 lines to ~3 inside the existing horizontal
-        // padding — no GeometryReader or layout change needed.
+        // Chrome elements stay in the hierarchy and just fade to 0 in place
+        // (instead of being removed with `if`), so their layout space stays
+        // reserved and the body text below never gets recentred mid-growth —
+        // that recentring, happening at the same time as the font grew, was
+        // what made the old transition feel abrupt.
         VStack(spacing: 0) {
             Spacer()
             VStack(spacing: 14) {
-                if !isEmphasizing {
-                    Eyebrow(text: OnboardingStory.text(OnboardingStory.prayerEyebrow), color: Palette.goldBright)
-                        .transition(chromeExitTransition)
-                    Text(OnboardingStory.text(OnboardingStory.prayerTitle))
-                        .font(MissaleFont.display(34))
-                        .foregroundStyle(.white)
-                        .transition(chromeExitTransition)
-                }
-                Text(OnboardingStory.text(OnboardingStory.prayerBody))
-                    .animatableFont(size: isEmphasizing ? emphasisFontSize : 17) { MissaleFont.body($0) }
-                    .foregroundStyle(.white.opacity(0.7))
-                    .accessibilityIdentifier("onboardingPrayerEmphasis")
-                    .animation(reduceMotion ? nil : .spring(duration: 0.9, bounce: 0), value: isEmphasizing)
-                    // Caps Dynamic Type so the zoomed ~27pt phrase doesn't
-                    // balloon toward ~84pt at the largest accessibility sizes
-                    // and truncate; minimumScaleFactor is the safety net that
-                    // shrinks it instead of clipping the tail of the sentence,
-                    // the same pattern used for tight text elsewhere in the
-                    // app (WordOfDayWidget, SaintOfDayWidget, ShareCardView).
-                    .dynamicTypeSize(...DynamicTypeSize.accessibility1)
-                    .minimumScaleFactor(0.5)
+                Eyebrow(text: OnboardingStory.text(OnboardingStory.prayerEyebrow), color: Palette.goldBright)
+                    .chromeFade(hidden: isEmphasizing, duration: chromeFadeDuration)
+                Text(OnboardingStory.text(OnboardingStory.prayerTitle))
+                    .font(MissaleFont.display(34))
+                    .foregroundStyle(.white)
+                    .chromeFade(hidden: isEmphasizing, duration: chromeFadeDuration)
+                emphasizedBody
             }
             .multilineTextAlignment(.center)
             .padding(.horizontal, 32)
             Spacer()
-            if !isEmphasizing {
-                lightButton(OnboardingStory.text(OnboardingStory.prayerStart)) {
-                    isEmphasizing = true
-                    Task {
-                        do {
-                            try await Task.sleep(for: emphasisHoldDuration)
-                            phase = .praying
-                        } catch {}
-                    }
-                }
-                .transition(chromeExitTransition)
-                Button(action: onNext) {
-                    Text(OnboardingStory.text(OnboardingStory.prayerSkip))
-                        .font(MissaleFont.body(15))
-                        .foregroundStyle(.white.opacity(0.5))
-                        .padding(.vertical, 14)
-                }
-                .padding(.bottom, 10)
-                .transition(chromeExitTransition)
+            lightButton(OnboardingStory.text(OnboardingStory.prayerStart)) {
+                beginEmphasis()
             }
+            .chromeFade(hidden: isEmphasizing, duration: chromeFadeDuration)
+            Button(action: onNext) {
+                Text(OnboardingStory.text(OnboardingStory.prayerSkip))
+                    .font(MissaleFont.body(15))
+                    .foregroundStyle(.white.opacity(0.5))
+                    .padding(.vertical, 14)
+            }
+            .padding(.bottom, 10)
+            .chromeFade(hidden: isEmphasizing, duration: chromeFadeDuration)
         }
         .transition(.opacity)
+    }
+
+    /// The prayer body grows by a real point-size change (not `scaleEffect`),
+    /// so the longer, larger phrase gets to reflow onto a third line as it
+    /// animates rather than being stretched past the screen edges. The grow
+    /// itself is delayed (`bodyGrowDelay`) until the chrome fade above is
+    /// already underway, and slowed down (`bodyGrowDuration`), so growing
+    /// reads as its own deliberate beat instead of happening at the same
+    /// moment as — and competing with — the chrome disappearing.
+    private var emphasizedBody: some View {
+        Text(OnboardingStory.text(OnboardingStory.prayerBody))
+            .animatableFont(size: isEmphasizing ? emphasisFontSize : 17) { MissaleFont.body($0) }
+            .foregroundStyle(.white.opacity(0.7))
+            .opacity(isEmphasisExiting ? 0 : 1)
+            .accessibilityIdentifier("onboardingPrayerEmphasis")
+            .animation(
+                reduceMotion ? nil : .spring(duration: bodyGrowDuration, bounce: 0).delay(bodyGrowDelay),
+                value: isEmphasizing
+            )
+            .animation(.easeInOut(duration: emphasisExitDuration), value: isEmphasisExiting)
+            // Caps Dynamic Type so the emphasized ~27pt phrase doesn't
+            // balloon toward ~84pt at the largest accessibility sizes
+            // and truncate; minimumScaleFactor is the safety net that
+            // shrinks it instead of clipping the tail of the sentence,
+            // the same pattern used for tight text elsewhere in the
+            // app (WordOfDayWidget, SaintOfDayWidget, ShareCardView).
+            .dynamicTypeSize(...DynamicTypeSize.accessibility1)
+            .minimumScaleFactor(0.5)
+    }
+
+    private func beginEmphasis() {
+        isEmphasizing = true
+        Task {
+            do {
+                try await Task.sleep(for: emphasisHoldDuration)
+                isEmphasisExiting = true
+                try await Task.sleep(for: .seconds(emphasisExitDuration))
+                phase = .praying
+            } catch {}
+        }
     }
 
     private var prayed: some View {
@@ -167,5 +204,17 @@ private struct AnimatableFontSize: Animatable, ViewModifier {
 private extension View {
     func animatableFont(size: CGFloat, _ font: @escaping (CGFloat) -> Font) -> some View {
         modifier(AnimatableFontSize(size: size, font: font))
+    }
+
+    /// Fades a chrome element (eyebrow, title, prayer-start/skip buttons)
+    /// out in place — opacity only, staying in the hierarchy — so its
+    /// layout space stays reserved and nothing around it (namely the
+    /// emphasized body text) gets recentred when it disappears.
+    func chromeFade(hidden: Bool, duration: Double) -> some View {
+        self
+            .opacity(hidden ? 0 : 1)
+            .allowsHitTesting(!hidden)
+            .accessibilityHidden(hidden)
+            .animation(.easeInOut(duration: duration), value: hidden)
     }
 }
