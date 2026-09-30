@@ -2158,6 +2158,29 @@
           }
         }
       }
+    },
+    "Written guidance isn't available on this account right now. In the app, \"Today I am…\" lets you choose how you are with one tap.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Written guidance isn't available on this account right now. In the app, \"Today I am…\" lets you choose how you are with one tap."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La orientación por escrito no está disponible en esta cuenta ahora. En la app, en \"Hoy estoy…\", eliges cómo estás con un toque."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A orientação por texto não está disponível nesta conta agora. No app, em \"Hoje eu estou…\", você escolhe como está com um toque."
+          }
+        }
+      }
     }
   },
   "version": "1.0"
