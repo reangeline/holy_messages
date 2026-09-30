@@ -286,16 +286,24 @@ struct OnboardingPaywallView: View {
     private var barraDeDecisao: some View {
         VStack(spacing: 10) {
             Button(action: aoTocarNoBotao) {
-                Text(tituloDoBotao)
+                // Sem título (loja ainda carregando), um espaço segura a altura
+                // da cápsula e o indicador entra por cima: o botão não pula
+                // quando o título chega.
+                Text(botaoPrincipal.titulo ?? " ")
                     .font(MissaleFont.body(16, weight: .semibold))
                     .tracking(1.1)
                     .textCase(.uppercase)
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 17)
-                    .background(Palette.wine.opacity(comprando || restaurando ? 0.4 : 1), in: Capsule())
+                    .overlay {
+                        if botaoPrincipal == .carregando { ProgressView().tint(.white) }
+                    }
+                    .background(Palette.wine.opacity(botaoDesabilitado ? 0.4 : 1), in: Capsule())
                     .foregroundStyle(.white)
             }
-            .disabled(comprando || restaurando)
+            .disabled(botaoDesabilitado)
+            .accessibilityLabel(botaoPrincipal.titulo ?? L.string("Loading plans", table: "Onboarding"))
+            .accessibilityIdentifier("paywallPrimaryButton")
 
             if let selecionado {
                 Text(rodape(for: selecionado))
@@ -359,14 +367,16 @@ struct OnboardingPaywallView: View {
         return products.first { $0.id == selectedProductID } ?? products.first
     }
 
-    /// Reads the trial from the product instead of promising thirty days.
-    private var tituloDoBotao: String {
-        guard let selecionado else { return L.string("Continue free", table: "Onboarding") }
-        if let dias = diasDeTeste(selecionado) {
-            return L.string("Try free for {n} days", table: "Onboarding")
-                .replacingOccurrences(of: "{n}", with: "\(dias)")
-        }
-        return L.string("Subscribe", table: "Onboarding")
+    private var botaoPrincipal: PaywallPrimaryButton {
+        PaywallPrimaryButton(
+            estado: store.state,
+            temProduto: selecionado != nil,
+            diasDeTeste: selecionado.flatMap(diasDeTeste)
+        )
+    }
+
+    private var botaoDesabilitado: Bool {
+        !botaoPrincipal.habilitado || comprando || restaurando
     }
 
     private func rodape(for product: Product) -> String {
@@ -389,7 +399,17 @@ struct OnboardingPaywallView: View {
     }
 
     private func aoTocarNoBotao() {
-        guard let produto = selecionado else { return onFinish() }
+        switch botaoPrincipal {
+        case .carregando:
+            // O botão já está desabilitado; isto é a segunda tranca. Sair daqui
+            // sem ter visto plano nenhum era exatamente o defeito.
+            return
+        case .continuarDeGraca:
+            return onFinish()
+        case .testarGratis, .assinar:
+            break
+        }
+        guard let produto = selecionado else { return }
         comprando = true
         Task {
             do {
@@ -412,6 +432,62 @@ struct OnboardingPaywallView: View {
             // Restaurado, a tela some e o app já abre liberado; os outros
             // casos precisam ser ditos, senão parece que nada aconteceu.
             if resultado == .restored { onFinish() } else { resultadoDaRestauracao = resultado }
+        }
+    }
+}
+
+/// O que o botão principal do paywall é em cada estado da loja.
+///
+/// Fora da view para poder ser testado: enquanto a App Store não respondia
+/// (`idle`, `loading`) não havia produto selecionado, e "sem produto" era lido
+/// como "não há o que comprar" — o botão dizia "Continuar de graça", ativo, e
+/// um toque fechava o paywall antes de qualquer plano aparecer. Só `failed`
+/// quer dizer isso.
+///
+/// Recebe "há produto?" e os dias de teste em vez do `Product`, que o StoreKit
+/// não deixa criar num teste unitário.
+enum PaywallPrimaryButton: Equatable {
+    /// A loja ainda não respondeu: desabilitado, só o indicador, sem texto.
+    case carregando
+    /// A loja não respondeu com nada (`failed`): fecha o paywall.
+    case continuarDeGraca
+    /// Reads the trial from the product instead of promising thirty days.
+    case testarGratis(dias: Int)
+    case assinar
+
+    init(estado: SubscriptionStore.State, temProduto: Bool, diasDeTeste: Int?) {
+        switch estado {
+        case .idle, .loading:
+            self = .carregando
+        case .failed:
+            self = .continuarDeGraca
+        case .loaded:
+            // `load()` nunca publica uma lista vazia. Se um dia publicar, o
+            // botão fica parado em vez de prometer ou fechar o que não pode.
+            guard temProduto else { self = .carregando; return }
+            if let diasDeTeste {
+                self = .testarGratis(dias: diasDeTeste)
+            } else {
+                self = .assinar
+            }
+        }
+    }
+
+    var habilitado: Bool { self != .carregando }
+
+    /// Nil enquanto carrega: nem "grátis" nem "assinar" antes de a loja dizer
+    /// o que existe.
+    var titulo: String? {
+        switch self {
+        case .carregando:
+            return nil
+        case .continuarDeGraca:
+            return L.string("Continue free", table: "Onboarding")
+        case .testarGratis(let dias):
+            return L.string("Try free for {n} days", table: "Onboarding")
+                .replacingOccurrences(of: "{n}", with: "\(dias)")
+        case .assinar:
+            return L.string("Subscribe", table: "Onboarding")
         }
     }
 }
