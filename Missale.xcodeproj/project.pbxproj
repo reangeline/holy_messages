@@ -61,6 +61,7 @@
 		313CA19CE3ED8B71E9015A24 /* Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF026ED1AE79D8B6C5A3B51 /* Typography.swift */; };
 		3140FC814167B4E767196940 /* Saint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A92ABBE467814F0124A8AA9 /* Saint.swift */; };
 		31D543FF9607F51D5833A8AC /* ContentSeedExport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD5FF7D818E0AF988D6B595 /* ContentSeedExport.swift */; };
+		3225DF339177FBF10249F5DF /* OrientationFailureMessageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF8832405A6B15DBFDA1FBC /* OrientationFailureMessageTests.swift */; };
 		335396A3117EFE969596CCCB /* PersonalizedWordOfDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3286DC90312ED47B203384E /* PersonalizedWordOfDay.swift */; };
 		338318EF34EBADB84592B619 /* ExamenFlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654FEAEAD8CCE01EF0AD057E /* ExamenFlowView.swift */; };
 		353F83334C8CE7C5FBE4CB08 /* FormationTrackDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9445BD38B8F8F1820F8DE6 /* FormationTrackDetailView.swift */; };
@@ -268,6 +269,7 @@
 		E55073C8A14E84F653E63388 /* RemoteContentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E219A0573C8710A8F29AC6F /* RemoteContentTests.swift */; };
 		E563B6A5D9B768F462485460 /* SubscriptionStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F8E78CA6DFFF7C6B55B765 /* SubscriptionStoreTests.swift */; };
 		E625C6488EFCFF958A45B71B /* Formation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227E67920FE2449FD6170F46 /* Formation.swift */; };
+		E64F79540CD0F3E0AF46A96C /* DecideRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFB5A83A10201FBCC4A5D9D /* DecideRequestTests.swift */; };
 		E7D7484084F4ECC07753720D /* BibleNotesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16324CC90C21AA4FBB4710BA /* BibleNotesTests.swift */; };
 		E83077B9CC3B13F17AE8AEC9 /* GeneratedMarianApparitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF7D2F3849F22A0A5D60717 /* GeneratedMarianApparitions.swift */; };
 		E8D13F777FC5DCEE3060B87D /* JevConsent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27248FFEC253DE0D69DF0C9A /* JevConsent.swift */; };
@@ -395,6 +397,7 @@
 		3ADDDE6FF3F9EB0734E58603 /* GuidedPrayerSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidedPrayerSequence.swift; sourceTree = "<group>"; };
 		3AE002AEFCF86FBB99104C91 /* SettingsContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsContent.swift; sourceTree = "<group>"; };
 		3AFC05BE6C24F562358E157A /* PersonalizedWordOfDayUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalizedWordOfDayUITests.swift; sourceTree = "<group>"; };
+		3BFB5A83A10201FBCC4A5D9D /* DecideRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecideRequestTests.swift; sourceTree = "<group>"; };
 		3CE9F3683EF3627BE5651398 /* DayRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayRecord.swift; sourceTree = "<group>"; };
 		3D5AA47AEE9BBB51F1D34EA6 /* SubscriptionGateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionGateTests.swift; sourceTree = "<group>"; };
 		3D6FCC38A633B81C3703AE63 /* OnboardingModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingModels.swift; sourceTree = "<group>"; };
@@ -569,6 +572,7 @@
 		E75F69D72E41B33F85A10F6F /* WordOfDayWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordOfDayWidget.swift; sourceTree = "<group>"; };
 		E82BDE0FAA3B75C60AC2BFD9 /* GeneratedSaintsSecondBatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedSaintsSecondBatch.swift; sourceTree = "<group>"; };
 		E99F88CC334F965A61006194 /* AppLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLanguage.swift; sourceTree = "<group>"; };
+		EAF8832405A6B15DBFDA1FBC /* OrientationFailureMessageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrientationFailureMessageTests.swift; sourceTree = "<group>"; };
 		EB4D02FE9EE567C8C063D85D /* SessionKeychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionKeychain.swift; sourceTree = "<group>"; };
 		ECEFC3FB69F33F6ADDAC88D4 /* ExamenStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamenStep.swift; sourceTree = "<group>"; };
 		EDDFE0F30B9C078762FA190F /* RemoteContentUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteContentUpdater.swift; sourceTree = "<group>"; };
@@ -796,6 +800,7 @@
 				77C3626D399D1EC11A15F85B /* ComplineTextTests.swift */,
 				5FD5FF7D818E0AF988D6B595 /* ContentSeedExport.swift */,
 				08ED0A85B603CF5F2FB65F9C /* DailyRoutineTests.swift */,
+				3BFB5A83A10201FBCC4A5D9D /* DecideRequestTests.swift */,
 				7B618E94E36B99CC62CADA16 /* DeleteAccountRequestTests.swift */,
 				47C83ED634B8BF38AFCE4A75 /* ExamenSuggestionTests.swift */,
 				AD64DCE38CDEEFFEA58B2B81 /* IntentionVerseTests.swift */,
@@ -807,6 +812,7 @@
 				1912584971BD9F27516EA80C /* LocalDataTests.swift */,
 				C8662EED745A768F6D88EB3F /* LocalizationKeyTests.swift */,
 				5BCCCDE258D8AFA7BF6F3440 /* MarianApparitionArtTests.swift */,
+				EAF8832405A6B15DBFDA1FBC /* OrientationFailureMessageTests.swift */,
 				758E9E14596E1DDA8311D7D3 /* OrientationTests.swift */,
 				369C9250274CFFD5770FF3E5 /* PaywallPrimaryButtonTests.swift */,
 				70C4588BFB1555349187B15F /* PersonalizedWordOfDayTests.swift */,
@@ -1508,6 +1514,7 @@
 				38A737FB42319919A83E8D24 /* ComplineTextTests.swift in Sources */,
 				31D543FF9607F51D5833A8AC /* ContentSeedExport.swift in Sources */,
 				19745E4CC44E72CF26F4A57E /* DailyRoutineTests.swift in Sources */,
+				E64F79540CD0F3E0AF46A96C /* DecideRequestTests.swift in Sources */,
 				9AF6613FA2131811E0A9EB95 /* DeleteAccountRequestTests.swift in Sources */,
 				B877404C562222285A57349F /* ExamenSuggestionTests.swift in Sources */,
 				78A91F6F19970EBFCBF08CDB /* IntentionVerseTests.swift in Sources */,
@@ -1519,6 +1526,7 @@
 				0678B4AF8EF34828E453610F /* LocalDataTests.swift in Sources */,
 				76F71429247C64065B0940E0 /* LocalizationKeyTests.swift in Sources */,
 				DA53C2F9E59E75B09E3BC6BB /* MarianApparitionArtTests.swift in Sources */,
+				3225DF339177FBF10249F5DF /* OrientationFailureMessageTests.swift in Sources */,
 				2A66C4360F90BFCCD6DBD4D0 /* OrientationTests.swift in Sources */,
 				90391EFC4995E5B3F1FCA794 /* PaywallPrimaryButtonTests.swift in Sources */,
 				B60EE1534E693ACB7BBBB10C /* PersonalizedWordOfDayTests.swift in Sources */,

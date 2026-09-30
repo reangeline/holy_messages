@@ -42,7 +42,7 @@ enum OrientationService {
                           "criteria": stateCriteria],
                 "risk": ["type": "noul", "instructions": "Does the person express a wish, thought or plan to end their own life or harm themselves?"],
             ],
-            accessToken: token, subscriptionJWS: jws)
+            accessToken: token, subscriptionJWS: jws, free: free)
 
         let risk = ((first["risk"] as? [String: Any])?["noul"] as? Double) ?? 0
         let showCrisisFirst = localRisk || risk >= riskThreshold
@@ -67,7 +67,7 @@ enum OrientationService {
                 questions: ["reply": ["type": "choice",
                                       "instructions": "Which of these reflections would help this person most right now?",
                                       "criteria": criteria]],
-                accessToken: token, subscriptionJWS: jws),
+                accessToken: token, subscriptionJWS: jws, free: free),
                let choice = (second["reply"] as? [String: Any])?["choice"] as? String {
                 reliefIndex = Int(choice)
             }

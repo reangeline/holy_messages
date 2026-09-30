@@ -104,8 +104,10 @@ enum JevPicker {
         guard await JevConsent.ensureGranted() else { return nil }
         return await pick(from: text, picks, enabled: true, subscribed: true) { state, questions in
             let token = try await AccountStore.shared.validAccessToken()
+            // Never the onboarding's free allowance: a lapsed subscription
+            // must answer 402, not quietly spend it.
             return try await MissaleAPI.decide(state: state, questions: questions,
-                                               accessToken: token, subscriptionJWS: jws)
+                                               accessToken: token, subscriptionJWS: jws, free: false)
         }
     }
 
@@ -145,7 +147,18 @@ enum JevPicker {
                         }
                     }
                 }
-                guard !asked.isEmpty, let answers = try? await decide(state, questions) else { continue }
+                guard !asked.isEmpty else { continue }
+                let answers: [String: Any]
+                do {
+                    answers = try await decide(state, questions)
+                } catch MissaleAPI.Failure.subscriptionRequired, MissaleAPI.Failure.dailyLimit {
+                    // Without a subscription (or past the daily limit), every
+                    // remaining call in the plan would fail the same way: stop
+                    // instead of spending them one by one on a foregone 402/429.
+                    return Result(choices: choices, showCrisisFirst: risk, answered: answered)
+                } catch {
+                    continue
+                }
                 answered = true
 
                 let riskProbability = ((answers["risk"] as? [String: Any])?["noul"] as? Double) ?? 0
