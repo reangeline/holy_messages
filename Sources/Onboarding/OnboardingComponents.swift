@@ -196,14 +196,14 @@ struct OnboardingPlanVideoSlot: View {
                 }
             }
         }
-        .frame(maxWidth: .infinity)
-        .frame(height: 190)
+        .frame(width: 220, height: 391)
         .background(Palette.ink.opacity(0.05))
         .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
         .overlay(
             RoundedRectangle(cornerRadius: 18, style: .continuous)
                 .strokeBorder(Color.black.opacity(0.06))
         )
+        .frame(maxWidth: .infinity)
     }
 }
 
@@ -219,7 +219,7 @@ private struct LoopingSilentVideo: UIViewRepresentable {
         context.coordinator.looper = AVPlayerLooper(player: player, templateItem: item)
         let view = PlayerLayerView()
         view.playerLayer.player = player
-        view.playerLayer.videoGravity = .resizeAspectFill
+        view.playerLayer.videoGravity = .resizeAspect
         player.play()
         return view
     }

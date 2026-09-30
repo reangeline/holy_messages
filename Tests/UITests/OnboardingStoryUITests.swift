@@ -45,6 +45,12 @@ final class OnboardingStoryUITests: XCTestCase {
         app.buttons["Continuar"].tap()
 
         for option in ["Algumas vezes por mês", "Constância", "Prefiro não dizer"] {
+            if option == "Prefiro não dizer" {
+                XCTAssertTrue(app.buttons["Casamento civil"].waitForExistence(timeout: 5), "falta casamento civil")
+                XCTAssertTrue(app.buttons["Casamento religioso"].exists, "falta casamento religioso")
+                XCTAssertFalse(app.buttons["Vida consagrada / religiosa"].exists, "vida consagrada ainda aparece no estado de vida")
+                snapshot(app, "2a-estado-de-vida")
+            }
             let chip = app.buttons.matching(NSPredicate(format: "label CONTAINS %@", option)).firstMatch
             XCTAssertTrue(chip.waitForExistence(timeout: 5), "não achei a opção \(option)")
             chip.tap()
@@ -54,7 +60,10 @@ final class OnboardingStoryUITests: XCTestCase {
         let skipSpiritual = app.buttons["Pular as quatro"]
         XCTAssertTrue(skipSpiritual.waitForExistence(timeout: 5))
         snapshot(app, "2b-intro-espiritual")
-        skipSpiritual.tap()
+        app.buttons["Vou responder"].tap()
+        XCTAssertTrue(app.buttons["Eu oro com o coração"].waitForExistence(timeout: 5), "a nova opção de oração não apareceu")
+        snapshot(app, "2b-oracao-com-o-coracao")
+        app.buttons["Pular as quatro"].tap()
 
         // Relief, then the guided prayer.
         let reliefContinue = app.buttons["Continuar"]
@@ -62,10 +71,26 @@ final class OnboardingStoryUITests: XCTestCase {
         snapshot(app, "2c-alivio")
         reliefContinue.tap()
 
-        let pray = app.buttons["Rezar agora"]
+        let pray = app.buttons["Vamos rezar juntos"]
         XCTAssertTrue(pray.waitForExistence(timeout: 10), "o momento de oração não apareceu")
+        sleep(2) // Aguarda o curtain terminar o fade para a captura não sair escura.
         snapshot(app, "3-oracao-intro")
+        let emphasis = app.staticTexts["onboardingPrayerEmphasis"]
+        let emphasisStartedAt = Date()
         pray.tap()
+        XCTAssertTrue(emphasis.waitForExistence(timeout: 1), "o destaque do Pai-Nosso não apareceu após o CTA")
+        XCTAssertEqual(
+            emphasis.label,
+            "Vamos rezar o Pai-Nosso devagar, com atenção, meditando cada palavra.",
+            "o destaque precisa usar o convite completo"
+        )
+        usleep(500_000) // Deixa o fade terminar antes da captura, ainda dentro dos 2 segundos.
+        snapshot(app, "3a-pai-nosso-destaque")
+        XCTAssertTrue(emphasis.waitForNonExistence(timeout: 2.5), "o destaque não terminou após os 2 segundos")
+        XCTAssertGreaterThanOrEqual(
+            Date().timeIntervalSince(emphasisStartedAt), 1.8,
+            "o destaque permaneceu menos de 2 segundos"
+        )
 
         sleep(6)
         snapshot(app, "4-respiracao")
