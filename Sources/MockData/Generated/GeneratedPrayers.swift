@@ -1,5 +1,5 @@
 // GERADO — não editar à mão.
-// Origem: ~/Documents/Missale-pesquisa/entregas, importado por
+// Origem: ~/Projects/Missale/Missale-pesquisa/entregas, importado por
 // scripts/import_acervo.py. Reimportar em vez de corrigir aqui.
 //
 // Orações devocionais por idioma. Quando o mesmo título aparece no lote
@@ -150,6 +150,13 @@ extension MockDevotionalPrayers {
             ),
         ],
         "protection-combat": [
+            .init(
+                id: "ora-o-a-s-o-miguel-arcanjo-pt",
+                title: "Oração a São Miguel Arcanjo",
+                attribution: "Papa Leão XIII (1886); texto conforme publicado pela Santa Sé",
+                focus: "Oração de proteção contra o mal, atribuída a Leão XIII",
+                fullText: "São Miguel Arcanjo, defendei-nos no combate. Sede o nosso refúgio contra as maldades e ciladas do demônio. Que Deus manifeste o seu poder sobre ele. Eis a nossa humilde súplica. E vós, Príncipe da Milícia Celeste, com o poder que Deus vos conferiu, precipitai no inferno Satanás e os outros espíritos malignos, que andam pelo mundo tentando as almas. Amém."
+            ),
             .init(
                 id: "ao-anjo-da-guarda-pt",
                 title: "Ao Anjo da Guarda",
@@ -374,6 +381,13 @@ extension MockDevotionalPrayers {
         ],
         "protection-combat": [
             .init(
+                id: "saint-michael-the-archangel-en",
+                title: "Saint Michael the Archangel",
+                attribution: "Pope Leo XIII (1886); text as published by the Holy See",
+                focus: "Prayer for protection against evil, attributed to Leo XIII",
+                fullText: "Saint Michael Archangel, defend us in battle, be our protection against the wickedness and snares of the devil; may God rebuke him, we humbly pray; and do thou, O Prince of the heavenly host, by the power of God, cast into hell Satan and all the evil spirits who prowl through the world seeking the ruin of souls. Amen."
+            ),
+            .init(
                 id: "angel-of-god-en",
                 title: "Angel of God",
                 attribution: "Compendium of the Catechism of the Catholic Church",
@@ -469,34 +483,6 @@ extension MockDevotionalPrayers {
                 focus: "Profesión de fe litúrgica",
                 fullText: "Creo en un solo Dios, Padre Todopoderoso, Creador del cielo y de la tierra, de todo lo visible y lo invisible. Creo en un solo Señor, Jesucristo, Hijo único de Dios, nacido del Padre antes de todos los siglos: Dios de Dios, Luz de Luz, Dios verdadero de Dios verdadero, engendrado, no creado, de la misma naturaleza del Padre, por quien todo fue hecho; que por nosotros, los hombres, y por nuestra salvación bajó del cielo, y por obra del Espíritu Santo se encarnó de María, la Virgen, y se hizo hombre; y por nuestra causa fue crucificado en tiempos de Poncio Pilato; padeció y fue sepultado, y resucitó al tercer día, según las Escrituras, y subió al cielo, y está sentado a la derecha del Padre; y de nuevo vendrá con gloria para juzgar a vivos y muertos, y su reino no tendrá fin. Creo en el Espíritu Santo, Señor y dador de vida, que procede del Padre y del Hijo, que con el Padre y el Hijo recibe una misma adoración y gloria, y que habló por los profetas. Creo en la Iglesia, que es una, santa, católica y apostólica. Confieso que hay un solo Bautismo para el perdón de los pecados. Espero la resurrección de los muertos y la vida del mundo futuro. Amén."
             ),
-            .init(
-                id: "the-jesus-prayer-es",
-                title: "The Jesus Prayer",
-                attribution: "Eastern Christian tradition",
-                focus: "Simple invocation of Jesus’ mercy",
-                fullText: "Señor Jesucristo, Hijo de Dios, ten misericordia de mí, pecador."
-            ),
-            .init(
-                id: "come-holy-spirit-es",
-                title: "Come, Holy Spirit",
-                attribution: "Traditional Catholic hymn",
-                focus: "Invocation of the Holy Spirit",
-                fullText: "Ven, Espíritu Creador, visita las almas de tus fieles y llena de la divina gracia los corazones que tú mismo creaste. Tú, llamado Consolador, don del Dios Altísimo, fuente viva, fuego, caridad y espiritual unción."
-            ),
-            .init(
-                id: "nunc-dimittis-es",
-                title: "Nunc Dimittis",
-                attribution: "Gospel prayer, Luke 2:29–32",
-                focus: "Peaceful recognition of Christ",
-                fullText: "Ahora, Señor, según tu promesa, puedes dejar a tu siervo irse en paz, porque mis ojos han visto a tu Salvador, a quien has presentado ante todos los pueblos: luz para alumbrar a las naciones y gloria de tu pueblo Israel."
-            ),
-            .init(
-                id: "te-deum-es",
-                title: "Te Deum",
-                attribution: "Ancient Christian hymn",
-                focus: "Praise of the Trinity and the Church",
-                fullText: "Tú eres Dios: te alabamos; tú eres el Señor: te aclamamos; tú eres el Padre eterno: toda la creación te adora. A ti todos los ángeles, las potencias del cielo, los querubines y serafines te cantan sin cesar."
-            ),
         ],
         "healing-liberation": [
             .init(
@@ -505,42 +491,6 @@ extension MockDevotionalPrayers {
                 attribution: "Compendio del Catecismo de la Iglesia Católica",
                 focus: "Súplica por los difuntos",
                 fullText: "Dale Señor el descanso eterno. Brille para él la luz perpetua. Descanse en paz. Amén."
-            ),
-            .init(
-                id: "act-of-contrition-es",
-                title: "Act of Contrition",
-                attribution: "Traditional sacramental prayer",
-                focus: "Repentance and return to God",
-                fullText: "Dios mío, me arrepiento de todo corazón de haberte ofendido y detesto todos mis pecados, porque temo perder el cielo y merecer el infierno, pero sobre todo porque te ofenden a ti, que eres tan bueno y digno de todo mi amor. Propongo firmemente, con la ayuda de tu gracia, no pecar más y evitar las ocasiones próximas de pecado. Amén."
-            ),
-            .init(
-                id: "prayer-to-our-lady-of-lourdes-es",
-                title: "Prayer to Our Lady of Lourdes",
-                attribution: "Traditional Catholic devotion",
-                focus: "Petition for healing under Mary’s care",
-                fullText: "Madre bendita de Lourdes, te apareciste a Bernardita como la Inmaculada Concepción. Alcánzanos un corazón purificado por la conversión, fortaleza en la enfermedad y confianza en la misericordia de tu Hijo. Ruega por los enfermos y condúcenos a la sanación que Dios quiere. Amén."
-            ),
-            .init(
-                id: "prayer-to-the-sacred-heart-es",
-                title: "Prayer to the Sacred Heart",
-                attribution: "Traditional Catholic devotion",
-                focus: "Healing through Christ’s merciful Heart",
-                fullText: "Sacratísimo Corazón de Jesús, pongo toda mi confianza en ti. Cuando tenga miedo, haz que acuda a ti; cuando esté herido, haz que permanezca cerca de ti; cuando haya pecado, haz que vuelva a tu misericordia. Haz mi corazón semejante al tuyo, paciente y humilde. Amén."
-            ),
-            .init(
-                id: "prayer-of-st-augustine-es",
-                title: "Prayer of St Augustine",
-                attribution: "St Augustine",
-                focus: "Purification of thought and desire",
-                saintID: "agostinho",
-                fullText: "Respira en mí, oh Espíritu Santo, para que mis pensamientos sean santos. Actúa en mí, oh Espíritu Santo, para que también mi trabajo sea santo. Atrae mi corazón, oh Espíritu Santo, para que ame solamente lo santo. Fortaléceme, oh Espíritu Santo, para defender lo santo. Guárdame, pues, oh Espíritu Santo, para que sea siempre santo. Amén."
-            ),
-            .init(
-                id: "prayer-for-the-sick-es",
-                title: "Prayer for the Sick",
-                attribution: "Traditional Catholic petition",
-                focus: "Compassion and strength in illness",
-                fullText: "Señor Jesucristo, médico de las almas y de los cuerpos, permanece cerca de los enfermos. Dales paciencia, fortalece a quienes los cuidan, guía las manos de quienes los tratan y permite que la Iglesia los acompañe con oración y caridad. Que tu misericordia se conozca en todo lugar de sufrimiento. Amén."
             ),
         ],
         "peace-surrender": [
@@ -579,44 +529,15 @@ extension MockDevotionalPrayers {
                 focus: "Antífona mariana tradicional",
                 fullText: "Dios te salve, Reina y Madre de misericordia, vida, dulzura y esperanza nuestra; Dios te salve. A ti llamamos los desterrados hijos de Eva; a ti suspiramos, gimiendo y llorando en este valle de lágrimas. Ea, pues, Señora, abogada nuestra, vuelve a nosotros esos tus ojos misericordiosos; y después de este destierro, muéstranos a Jesús, fruto bendito de tu vientre. ¡Oh, clementísima, oh piadosa, oh dulce Virgen María!"
             ),
-            .init(
-                id: "memorare-es",
-                title: "Memorare",
-                attribution: "St Bernard tradition",
-                focus: "Trustful petition to Mary in distress",
-                fullText: "Remember, oh piadosísima Virgen María, que jamás se ha oído decir que ninguno de cuantos han acudido a tu protección, implorando tu auxilio, haya sido abandonado. Animado por esta confianza, a ti acudo, oh Virgen de las vírgenes y Madre mía; a ti vengo, y ante ti me presento, pecador y afligido. No desprecies mis súplicas, oh Madre del Verbo encarnado, antes bien, escúchalas y acógelas benignamente. Amén."
-            ),
-            .init(
-                id: "sub-tuum-praesidium-es",
-                title: "Sub Tuum Praesidium",
-                attribution: "Ancient Marian antiphon",
-                focus: "Refuge under Mary’s protection",
-                fullText: "Bajo tu amparo nos acogemos, santa Madre de Dios; no desprecies las súplicas que te dirigimos en nuestras necesidades; antes bien, líbranos siempre de todo peligro, oh Virgen gloriosa y bendita. Amén."
-            ),
-            .init(
-                id: "prayer-of-trust-es",
-                title: "Prayer of Trust",
-                attribution: "Charles de Foucauld",
-                focus: "Abandonment in God’s hands",
-                fullText: "Padre mío, me abandono a ti: haz de mí lo que quieras. Sea lo que sea, te doy las gracias: estoy dispuesto a todo, lo acepto todo. Con tal de que tu voluntad se cumpla en mí y en todas tus criaturas, no deseo nada más, Dios mío. Pongo mi alma en tus manos; te la doy, Dios mío, con todo el amor de mi corazón, porque te amo y necesito entregarme a ti, ponerme en tus manos sin medida, con infinita confianza, porque tú eres mi Padre."
-            ),
-            .init(
-                id: "suscipe-es",
-                title: "Suscipe",
-                attribution: "St Ignatius of Loyola",
-                focus: "Offering one’s freedom and life to God",
-                saintID: "inacio-loyola",
-                fullText: "Toma, Señor, y recibe toda mi libertad, mi memoria, mi entendimiento y toda mi voluntad, todo mi haber y mi poseer. Tú me lo diste; a ti, Señor, lo devuelvo. Todo es tuyo: dispón de ello según tu voluntad. Dame tu amor y gracia, que esto me basta."
-            ),
-            .init(
-                id: "prayer-of-st-thomas-more-es",
-                title: "Prayer of St Thomas More",
-                attribution: "St Thomas More",
-                focus: "Peaceful fidelity under pressure",
-                fullText: "Dame, buen Señor, deseo de estar contigo, no por miedo a los dolores de este mundo, ni por miedo a los del purgatorio, ni siquiera por las alegrías del cielo, sino simplemente por amor a ti. Dame la gracia de trabajar por tu gloria, por el bien de los demás y por mi salvación. Amén."
-            ),
         ],
         "protection-combat": [
+            .init(
+                id: "san-miguel-arc-ngel-es",
+                title: "San Miguel Arcángel",
+                attribution: "Papa León XIII (1886); texto según lo publica la Santa Sede",
+                focus: "Oración de protección contra el mal, atribuida a León XIII",
+                fullText: "San Miguel Arcángel, defiéndenos en la lucha. Sé nuestro amparo contra la perversidad y asechanzas del demonio. Que Dios manifieste sobre él su poder, es nuestra humilde súplica. Y tú, oh Príncipe de la Milicia Celestial, con el poder que Dios te ha conferido, arroja al infierno a Satanás, y a los demás espíritus malignos que vagan por el mundo para la perdición de las almas. Amén."
+            ),
             .init(
                 id: "ngel-de-dios-es",
                 title: "Ángel de Dios",
@@ -630,41 +551,6 @@ extension MockDevotionalPrayers {
                 attribution: "Compendio del Catecismo de la Iglesia Católica",
                 focus: "Antífona mariana de protección",
                 fullText: "Bajo tu amparo nos acogemos, Santa Madre de Dios; no deseches las súplicas que te dirigimos en nuestras necesidades; antes bien, líbranos siempre de todo peligro, ¡Oh Virgen gloriosa y bendita!"
-            ),
-            .init(
-                id: "st-patrick-s-breastplate-es",
-                title: "St Patrick’s Breastplate",
-                attribution: "Traditional Lorica of St Patrick",
-                focus: "Protection and steadfastness in Christ",
-                fullText: "Cristo conmigo, Cristo delante de mí, Cristo detrás de mí, Cristo en mí, Cristo bajo mí, Cristo sobre mí, Cristo a mi derecha, Cristo a mi izquierda, Cristo donde me acuesto, Cristo donde me siento, Cristo donde me levanto. Cristo en el corazón de todo el que piensa en mí, Cristo en la boca de todo el que habla de mí, Cristo en cada ojo que me ve, Cristo en cada oído que me escucha. La salvación es del Señor."
-            ),
-            .init(
-                id: "prayer-to-the-holy-cross-es",
-                title: "Prayer to the Holy Cross",
-                attribution: "Traditional Christian prayer",
-                focus: "Protection beneath the Cross",
-                fullText: "Que la Santa Cruz sea mi luz; que el dragón no sea mi guía. ¡Apártate, Satanás! No me aconsejes tus vanidades. Es malo lo que ofreces; bebe tú mismo tu veneno."
-            ),
-            .init(
-                id: "prayer-to-st-raphael-es",
-                title: "Prayer to St Raphael",
-                attribution: "Traditional Catholic devotion",
-                focus: "Protection on a journey and healing",
-                fullText: "Bendito san Rafael Arcángel, amigo y compañero en el camino de la vida, acompáñame en mis viajes y protégeme de todo peligro. Guía mis pasos hacia el bien y llévame al cuidado de Dios. Amén."
-            ),
-            .init(
-                id: "prayer-to-the-guardian-angel-es",
-                title: "Prayer to the Guardian Angel",
-                attribution: "Traditional Catholic prayer",
-                focus: "Daily protection and guidance",
-                fullText: "Ángel de Dios, que eres mi custodio, pues la bondad divina me ha encomendado a ti, ilumíname, guárdame, gobiérname y guíame. Amén."
-            ),
-            .init(
-                id: "the-leonine-prayer-es",
-                title: "The Leonine Prayer",
-                attribution: "Pope Leo XIII",
-                focus: "Prayer for the Church’s protection",
-                fullText: "San Miguel Arcángel, defiéndenos en la batalla; sé nuestro amparo contra la perversidad y las asechanzas del demonio. Que Dios manifieste sobre él su poder, es nuestra humilde súplica; y tú, oh Príncipe de la milicia celestial, con el poder que Dios te ha conferido, arroja al infierno a Satanás y a los demás espíritus malignos que vagan por el mundo para la perdición de las almas. Amén."
             ),
         ],
     ]
