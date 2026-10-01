@@ -37,7 +37,7 @@ struct AppRootView: View {
     ///
     /// "paywall" opens the subscription screen. App Store Connect requires a
     /// screenshot of it for subscription review, and it is otherwise only
-    /// reachable at the end of onboarding, after eighteen screens.
+    /// reachable at the end of onboarding, after more than a dozen screens.
     ///
     /// "prayer" opens the Our Father zoom moment of the onboarding directly.
     /// It's the only reliable way to screenshot that zoom in a given language

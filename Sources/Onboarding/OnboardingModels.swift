@@ -6,17 +6,19 @@ enum OnboardingStep: Equatable {
     case life(Int)
     case spiritualIntro
     case spiritual(Int)
-    case relief
+    case signIn
+    case orientation
     case prayer
     case loader
     case synthesis
-    case signIn
-    case orientation
     case notificationTime
     case notificationPreview
     case paywall
 }
 
+/// No longer an onboarding screen: the Spanish bridge in MockMood.relief(for:)
+/// still reads it while that language has no reviewed catalog.
+///
 /// Now trilingual (en/pt/es), keyed first by spirit-2 answer id then by
 /// language, since the app unifies onboarding under one interface language.
 /// Portuguese psalm renderings reuse the exact wording already used for the

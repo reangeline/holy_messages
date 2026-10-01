@@ -78,7 +78,7 @@ enum OnboardingStory {
         ],
     ]
 
-    // MARK: - Guided prayer (after the relief screen)
+    // MARK: - Guided prayer (after the orientação)
 
     static let prayerEyebrow: [AppLanguage: String] = [
         .en: "Before we go on", .pt: "Antes de continuar", .es: "Antes de seguir",
