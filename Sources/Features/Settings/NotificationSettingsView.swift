@@ -42,15 +42,19 @@ struct ReadingReminderTimes: Equatable {
 
     /// Changes one time. A value another row already has is refused, so a
     /// wheel passing over it never merges the two rows.
-    mutating func replace(_ id: UUID, with new: Int) {
+    @discardableResult
+    mutating func replace(_ id: UUID, with new: Int) -> Bool {
         guard let index = slots.firstIndex(where: { $0.id == id }),
-              !slots.contains(where: { $0.id != id && $0.minutes == new }) else { return }
+              !slots.contains(where: { $0.id != id && $0.minutes == new }) else { return false }
         slots[index].minutes = new
+        return true
     }
 }
 
 struct NotificationSettingsView: View {
     @State private var times = ReadingReminderTimes(ReadingReminderScheduler.times)
+    /// Bumped when a time is refused, so the picker snaps back to the kept one.
+    @State private var refusals = 0
     @State private var status: UNAuthorizationStatus = .authorized
     @Environment(\.scenePhase) private var scenePhase
 
@@ -101,6 +105,7 @@ struct NotificationSettingsView: View {
         HStack {
             DatePicker("", selection: binding(for: slot), displayedComponents: .hourAndMinute)
                 .labelsHidden()
+                .id("\(slot.id)-\(refusals)")
                 .environment(\.locale, AppLanguagePreference.resolveCurrent().locale)
             Spacer(minLength: 8)
             if times.canRemove {
@@ -125,7 +130,7 @@ struct NotificationSettingsView: View {
             },
             set: { date in
                 let c = Calendar.current.dateComponents([.hour, .minute], from: date)
-                times.replace(slot.id, with: (c.hour ?? 0) * 60 + (c.minute ?? 0))
+                if !times.replace(slot.id, with: (c.hour ?? 0) * 60 + (c.minute ?? 0)) { refusals += 1 }
                 save()
             }
         )
