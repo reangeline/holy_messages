@@ -9,6 +9,13 @@ struct MoodReliefView: View {
     /// the "‹ Voltar" at the top gives way to this button at the bottom.
     var continueTitle: String? = nil
     private let relief: ReliefContent
+    /// What the reader wrote, when a reflection may be asked for it: only
+    /// after Jev chose this reply and the orientação did not open the crisis
+    /// flow. Nil asks nothing. The reflection stays in memory, never saved.
+    private let reflectionText: String?
+    private let reflectionFree: Bool
+    @State private var reflection: String?
+    @State private var isReflecting = false
 
     // Picked once, at init, rather than as a computed property — a computed
     // property would re-roll a new (possibly different) variation on every
@@ -16,16 +23,20 @@ struct MoodReliefView: View {
     // shown" index for the anti-repetition check.
     /// `chosenIndex` is the variation the orientação picked for what the
     /// reader wrote; without it, one is drawn avoiding the last shown.
-    init(state: MoodStateOption, chosenIndex: Int? = nil, continueTitle: String? = nil, onDone: @escaping () -> Void) {
+    init(state: MoodStateOption, chosenIndex: Int? = nil, continueTitle: String? = nil,
+         reflectionText: String? = nil, reflectionFree: Bool = false, onDone: @escaping () -> Void) {
         self.state = state
         self.onDone = onDone
         self.continueTitle = continueTitle
+        self.reflectionFree = reflectionFree
         if let chosenIndex, let variants = MockMood.reliefVariants(for: state.id),
            variants.indices.contains(chosenIndex) {
             self.relief = variants[chosenIndex]
+            self.reflectionText = reflectionText
             MoodHistoryStore.shared.recordReliefShown(stateID: state.id, index: chosenIndex)
             return
         }
+        self.reflectionText = nil   // Jev made no choice: nothing to reflect on
         let lastIndex = MoodHistoryStore.shared.lastReliefIndex(for: state.id)
         let (content, index) = MockMood.relief(for: state.id, excluding: lastIndex)
         self.relief = content
@@ -71,6 +82,8 @@ struct MoodReliefView: View {
 
                     saintCard
 
+                    reflectionCard
+
                     GlassCard {
                         VStack(alignment: .leading, spacing: 6) {
                             // O próprio registro já traz o rótulo no idioma do
@@ -108,6 +121,34 @@ struct MoodReliefView: View {
                 .padding(.horizontal, 24)
                 .padding(.bottom, 30)
             }
+        }
+        .task {
+            guard let reflectionText else { return }
+            isReflecting = true
+            let result = await OrientationService.reflect(on: reflectionText, relief: relief, free: reflectionFree)
+            withAnimation(.easeInOut(duration: 0.25)) { reflection = result }
+            isReflecting = false
+        }
+    }
+
+    /// Absent until the reflection arrives, and for good if it never does.
+    @ViewBuilder
+    private var reflectionCard: some View {
+        if let reflection {
+            GlassCard {
+                VStack(alignment: .leading, spacing: 6) {
+                    Eyebrow(text: L.string("Uma palavra para você", table: "Today"))
+                    Text(reflection)
+                        .font(MissaleFont.body(15))
+                        .foregroundStyle(Palette.ink.opacity(0.75))
+                }
+            }
+            .transition(.opacity)
+            .accessibilityIdentifier("orientationReflection")
+        } else if isReflecting {
+            ProgressView().tint(Palette.wine)
+                .frame(maxWidth: .infinity)
+                .accessibilityIdentifier("orientationReflectionLoading")
         }
     }
 

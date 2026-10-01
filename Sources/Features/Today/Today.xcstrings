@@ -3627,6 +3627,28 @@
           }
         }
       }
+    },
+    "Uma palavra para você": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A word for you"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Una palabra para ti"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uma palavra para você"
+          }
+        }
+      }
     }
   },
   "version": "1.0"
