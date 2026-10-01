@@ -1,7 +1,10 @@
 import SwiftUI
 
-/// Root of the onboarding flow (t3/option 3a — 17 valid screens; the design's own
-/// screen 19 "home" is superseded by the main app's Today tab, so it's skipped).
+/// Root of the onboarding flow (t3/option 3a; the design's own screen 19 "home"
+/// is superseded by the main app's Today tab, so it's skipped). Order: verse,
+/// promise, life questions, spiritual questions (or skip them all), account
+/// (skipped when already signed in), the free orientação, the guided prayer,
+/// loader, synthesis, notification time and preview, paywall.
 struct OnboardingFlow: View {
     var onFinished: () -> Void
 
@@ -43,8 +46,11 @@ struct OnboardingFlow: View {
                     onSkipAll: viewModel.skipAllSpiritual
                 )
 
-            case .relief:
-                OnboardingReliefView(viewModel: viewModel, onBack: viewModel.back, onNext: { dip(viewModel.advanceFromRelief) })
+            case .signIn:
+                SignInView(onSignedIn: viewModel.advanceFromSignIn)
+
+            case .orientation:
+                OnboardingOrientationView(onBack: viewModel.back, onNext: { dip(viewModel.advanceFromOrientation) })
 
             case .prayer:
                 OnboardingPrayerView(onNext: { dip(viewModel.advanceFromPrayer) })
@@ -54,12 +60,6 @@ struct OnboardingFlow: View {
 
             case .synthesis:
                 OnboardingSynthesisView(viewModel: viewModel, onNext: viewModel.advanceFromSynthesis)
-
-            case .signIn:
-                SignInView(onSignedIn: viewModel.advanceFromSignIn)
-
-            case .orientation:
-                OnboardingOrientationView(onBack: viewModel.back, onNext: viewModel.advanceFromOrientation)
 
             case .notificationTime:
                 OnboardingNotificationTimeView(viewModel: viewModel, onBack: viewModel.back, onNext: viewModel.advanceFromNotificationTime)
@@ -77,12 +77,16 @@ struct OnboardingFlow: View {
             }
         }
         .animation(.easeInOut(duration: 0.2), value: isStepChanging)
+        .allowsHitTesting(curtain == 0)
         .overlay {
             Color.black.opacity(curtain).ignoresSafeArea().allowsHitTesting(false)
         }
     }
 
     private func dip(_ advance: @escaping () -> Void) {
+        // The screen under the curtain stays tappable; a second tap (or a
+        // Back) mid-dip would push the next step twice or onto the wrong one.
+        guard curtain == 0 else { return }
         withAnimation(.easeIn(duration: 0.6)) { curtain = 1 }
         Task {
             try? await Task.sleep(for: .milliseconds(650))

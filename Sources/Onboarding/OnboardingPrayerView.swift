@@ -1,6 +1,6 @@
 import SwiftUI
 
-/// The climax: after reading the relief, the reader actually prays — one breath,
+/// The climax: after the orientação, the reader actually prays — one breath,
 /// then the Our Father phrase by phrase — and lands on a first milestone.
 struct OnboardingPrayerView: View {
     let onNext: () -> Void
@@ -35,7 +35,7 @@ struct OnboardingPrayerView: View {
     /// How long the body text waits, after the tap, before it starts
     /// growing — long enough for the chrome fade to already be underway.
     private let bodyGrowDelay: Double = 0.35
-    /// How long the body text's grow (point-size change from 17 to
+    /// How long the body text's grow (from the resting 17pt look to
     /// `emphasisFontSize`) takes to settle.
     private let bodyGrowDuration: Double = 1.15
     /// How long the emphasized text takes to fade out before `.praying`
@@ -95,16 +95,17 @@ struct OnboardingPrayerView: View {
         .transition(.opacity)
     }
 
-    /// The prayer body grows by a real point-size change (not `scaleEffect`),
-    /// so the longer, larger phrase gets to reflow onto a third line as it
-    /// animates rather than being stretched past the screen edges. The grow
-    /// itself is delayed (`bodyGrowDelay`) until the chrome fade above is
-    /// already underway, and slowed down (`bodyGrowDuration`), so growing
-    /// reads as its own deliberate beat instead of happening at the same
-    /// moment as — and competing with — the chrome disappearing.
+    /// The prayer body is laid out once, at its emphasized size — already on
+    /// the three lines it ends on — and grows only by `scaleEffect`, starting
+    /// at the resting 17pt look. Animating the point size instead re-laid the
+    /// text out on every frame and jumped from two lines to three halfway
+    /// through, which is what made the zoom stutter. The grow is delayed
+    /// (`bodyGrowDelay`) until the chrome fade above is already underway, and
+    /// slowed down (`bodyGrowDuration`), so it reads as its own beat.
     private var emphasizedBody: some View {
         Text(OnboardingStory.text(OnboardingStory.prayerBody))
-            .animatableFont(size: isEmphasizing ? emphasisFontSize : 17) { MissaleFont.body($0) }
+            .font(MissaleFont.body(emphasisFontSize))
+            .scaleEffect(isEmphasizing ? 1 : 17 / emphasisFontSize)
             .foregroundStyle(.white.opacity(0.7))
             .opacity(isEmphasisExiting ? 0 : 1)
             .accessibilityIdentifier("onboardingPrayerEmphasis")
@@ -184,28 +185,7 @@ struct OnboardingPrayerView: View {
     }
 }
 
-/// Grows text through a real point-size change instead of `scaleEffect`, so a
-/// longer, larger phrase gets the chance to reflow onto a new line as it
-/// animates rather than being stretched past the screen edges.
-private struct AnimatableFontSize: Animatable, ViewModifier {
-    var size: CGFloat
-    let font: (CGFloat) -> Font
-
-    var animatableData: CGFloat {
-        get { size }
-        set { size = newValue }
-    }
-
-    func body(content: Content) -> some View {
-        content.font(font(size))
-    }
-}
-
 private extension View {
-    func animatableFont(size: CGFloat, _ font: @escaping (CGFloat) -> Font) -> some View {
-        modifier(AnimatableFontSize(size: size, font: font))
-    }
-
     /// Fades a chrome element (eyebrow, title, prayer-start/skip buttons)
     /// out in place — opacity only, staying in the hierarchy — so its
     /// layout space stays reserved and nothing around it (namely the

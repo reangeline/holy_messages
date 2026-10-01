@@ -1,7 +1,7 @@
 import SwiftUI
 
-/// The orientação offered in the onboarding, free: right after the account,
-/// before the notice times and the plans, the reader writes what they feel and
+/// The orientação offered in the onboarding, free: right after the questions
+/// and the account, before the guided prayer, the reader writes what they feel and
 /// receives a reviewed reply chosen for it. The server allows each account one
 /// orientação without a subscription; after that it lives in "Hoje eu estou…"
 /// for subscribers.

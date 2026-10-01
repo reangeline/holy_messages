@@ -113,28 +113,6 @@
         }
       }
     },
-    "Before anything else": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Before anything else"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Antes que nada"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Antes de mais nada"
-          }
-        }
-      }
-    },
     "Building your first track…": {
       "localizations": {
         "en": {
@@ -941,28 +919,6 @@
         }
       }
     },
-    "Someone who went through it": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Someone who went through it"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Alguien que pasó por esto"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Alguém que passou por isso"
-          }
-        }
-      }
-    },
     "Stay with it through the whole year": {
       "localizations": {
         "en": {
@@ -1588,28 +1544,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Sua trilha de formação"
-          }
-        }
-      }
-    },
-    "Yours to keep, free, whether or not you ever pay.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Yours to keep, free, whether or not you ever pay."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tuyo para siempre, gratis, pagues o no."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Seu para sempre, grátis, pague ou não."
           }
         }
       }
