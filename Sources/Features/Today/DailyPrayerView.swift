@@ -102,7 +102,10 @@ enum DailyPrayer {
     /// prayers short enough to pray phrase by phrase in a minute or two, and
     /// none of the responsorial ones (the Angelus' V./R.), which are said in
     /// two voices and read oddly one phrase at a time.
-    static func today(on date: Date = Date()) -> DevotionalPrayer? {
+    ///
+    /// Without a date it follows the liturgical calendar's "today", which honors
+    /// `-demoDate` in Debug and is the real date in Release.
+    static func today(on date: Date? = nil) -> DevotionalPrayer? {
         var seen = Set<String>()
         let pool = MockDevotionalPrayers.categories
             .flatMap(\.prayers)
@@ -111,7 +114,13 @@ enum DailyPrayer {
             .filter { seen.insert($0.id).inserted }
             .sorted { $0.id < $1.id }
         guard !pool.isEmpty else { return nil }
-        let day = Calendar.current.ordinality(of: .day, in: .era, for: date) ?? 0
+        let ordinal: Int?
+        if let date {
+            ordinal = Calendar.current.ordinality(of: .day, in: .era, for: date)
+        } else {
+            ordinal = Calendar.gregorianUTC.ordinality(of: .day, in: .era, for: MockLiturgical.currentDate)
+        }
+        let day = ordinal ?? 0
         return pool[day % pool.count]
     }
 
