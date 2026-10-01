@@ -49,10 +49,12 @@ struct RosaryMysteriesPickerView: View {
                             Toggle(L.string( "Beginner mode", table: "Prayers"), isOn: $beginnerMode)
                                 .font(MissaleFont.body(16, weight: .medium))
                                 .tint(Palette.wine)
-                            Divider()
-                            Toggle(L.string("Voice reading the prayers", table: "Prayers"), isOn: $voiceGuiding)
-                                .font(MissaleFont.body(16, weight: .medium))
-                                .tint(Palette.wine)
+                            if RosaryVoiceGuide.voiceGuideAvailable {
+                                Divider()
+                                Toggle(L.string("Voice reading the prayers", table: "Prayers"), isOn: $voiceGuiding)
+                                    .font(MissaleFont.body(16, weight: .medium))
+                                    .tint(Palette.wine)
+                            }
                         }
                     }
 
