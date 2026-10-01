@@ -61,7 +61,7 @@ struct OrientationWritingCard: View {
 
                 // O consentimento, no ponto de uso: é a única coisa escrita
                 // que sai do aparelho, e só neste toque.
-                Text("Ao tocar, o que você escreveu vai para o servidor do Missale e para a IA que escolhe a resposta no nosso acervo. Não guardamos o texto.", tableName: "Today")
+                Text("Ao tocar, o que você escreveu vai para o servidor do Missale, para a IA que escolhe a resposta no nosso acervo e para a IA da Anthropic que escreve uma reflexão. Não guardamos o texto.", tableName: "Today")
                     .font(MissaleFont.body(12))
                     .foregroundStyle(Palette.ink.opacity(0.55))
             }

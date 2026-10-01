@@ -117,10 +117,12 @@ struct MoodReliefView: View {
             }
         }
         .task {
-            guard let reflectionText else { return }
+            // Runs again on the way back from the saint's page: ask once, and
+            // never let a later failure wipe a reflection already shown.
+            guard let reflectionText, reflection == nil, !isReflecting else { return }
             isReflecting = true
             let result = await OrientationService.reflect(on: reflectionText, relief: relief, free: reflectionFree)
-            withAnimation(.easeInOut(duration: 0.25)) { reflection = result }
+            if let result { withAnimation(.easeInOut(duration: 0.25)) { reflection = result } }
             isReflecting = false
         }
         // Off the main thread: the first touch decodes the whole Bible.
@@ -145,6 +147,9 @@ struct MoodReliefView: View {
                     Text(reflection)
                         .font(MissaleFont.body(15))
                         .foregroundStyle(Palette.ink.opacity(0.75))
+                    Text("Escrita por IA a partir da passagem e do santo.", tableName: "Today")
+                        .font(MissaleFont.body(12))
+                        .foregroundStyle(Palette.ink.opacity(0.45))
                 }
             }
             .transition(.opacity)
