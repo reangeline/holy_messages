@@ -9,6 +9,8 @@ import SwiftUI
 /// Skippable, and it never blocks the onboarding: any failure turns into a
 /// short note and "Continuar".
 struct OnboardingOrientationView: View {
+    /// The questionnaire answers: context for Jev and for the reflection.
+    var context: OnboardingContext = .empty
     let onBack: () -> Void
     let onNext: () -> Void
 
@@ -49,6 +51,7 @@ struct OnboardingOrientationView: View {
                     MoodReliefView(state: option, chosenIndex: index, chosenPassage: passage,
                                    continueTitle: L.string("Continue", table: "Onboarding"),
                                    reflectionText: reflectionText, reflectionFree: true,
+                                   reflectionContext: context.reflectionContext,
                                    onDone: onNext)
                 case .notice(let message):
                     VStack(alignment: .leading, spacing: 16) {
@@ -102,7 +105,7 @@ struct OnboardingOrientationView: View {
         phase = .guiding
         Task {
             do {
-                let result = try await OrientationService.orient(written, free: true)
+                let result = try await OrientationService.orient(written, free: true, context: context)
                 let option = result.stateID.flatMap { id in MockMood.stateGroups.flatMap(\.items).first { $0.id == id } }
                 if let option {
                     _ = MoodHistoryStore.shared.record(state: option, note: written)

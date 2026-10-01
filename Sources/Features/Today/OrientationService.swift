@@ -36,7 +36,9 @@ enum OrientationService {
 
     /// `free`: the onboarding's orientação, which runs on the account's
     /// lifetime allowance when there is no subscription.
-    static func orient(_ text: String, free: Bool = false) async throws -> Result {
+    /// `context`: the onboarding's questionnaire answers. Only Jev's `state`
+    /// carries them; the local crisis check stays on what the reader wrote.
+    static func orient(_ text: String, free: Bool = false, context: OnboardingContext = .empty) async throws -> Result {
 #if DEBUG
         if let fake = debugFakeResult(for: text) { return fake }
 #endif
@@ -46,7 +48,7 @@ enum OrientationService {
         let localRisk = CrisisPhrases.matches(text)
 
         let first = try await MissaleAPI.decide(
-            state: text,
+            state: context.jevState(for: text),
             questions: [
                 "state": ["type": "choice", "instructions": "Which spiritual and emotional state does the person describe?",
                           "criteria": stateCriteria],
@@ -166,7 +168,7 @@ enum OrientationService {
     /// the reflection is an extra, so callers only ever show it or don't. It is
     /// never saved; the screen keeps it in memory while it is open.
     static func reflect(on text: String, relief: ReliefContent, passage: OrientationPassage? = nil,
-                        showCrisisFirst: Bool, free: Bool,
+                        showCrisisFirst: Bool, free: Bool, context: String? = nil,
                         language: AppLanguage = AppLanguagePreference.resolveCurrent(),
                         send: Reflect) async -> String? {
         let state = text.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -174,7 +176,8 @@ enum OrientationService {
         let shown = passage ?? OrientationPassage(psalmOf: relief)
         let body = MissaleAPI.reflectionBody(
             state: state, reference: shown.reference, passage: shown.text,
-            saint: relief.saintName, summary: relief.saintWhy, language: language.rawValue, free: free)
+            saint: relief.saintName, summary: relief.saintWhy, language: language.rawValue, free: free,
+            context: context)
         guard let reflection = try? await send(body) else { return nil }
         let trimmed = reflection.trimmingCharacters(in: .whitespacesAndNewlines)
         return trimmed.isEmpty ? nil : trimmed
@@ -182,14 +185,15 @@ enum OrientationService {
 
     /// The same, through the Missale API. Callers only get here outside the
     /// crisis flow (the screen is given no text otherwise).
-    static func reflect(on text: String, relief: ReliefContent, passage: OrientationPassage? = nil, free: Bool) async -> String? {
+    static func reflect(on text: String, relief: ReliefContent, passage: OrientationPassage? = nil, free: Bool,
+                        context: String? = nil) async -> String? {
 #if DEBUG
         if let fake = debugFakeReflection { return fake.isEmpty ? nil : fake }
 #endif
         guard let token = try? await AccountStore.shared.validAccessToken() else { return nil }
         let jws = await SubscriptionStore.shared.activeSubscriptionJWS()
         if jws == nil && !free { return nil }
-        return await reflect(on: text, relief: relief, passage: passage, showCrisisFirst: false, free: free) { body in
+        return await reflect(on: text, relief: relief, passage: passage, showCrisisFirst: false, free: free, context: context) { body in
             try await MissaleAPI.reflect(body: body, accessToken: token, subscriptionJWS: jws)
         }
     }

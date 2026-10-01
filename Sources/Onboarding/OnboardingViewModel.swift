@@ -22,6 +22,12 @@ final class OnboardingViewModel: ObservableObject {
     @Published var notificationTimes: [String: Int] = ["morning": 7 * 60]
     @Published var notificationPermissionRequested = false
 
+    /// The questionnaire answers as text for the AI, used by the orientação
+    /// and its reflection (see `OnboardingContext`).
+    var context: OnboardingContext {
+        OnboardingContext(life: lifeAnswers, spiritual: spiritualAnswers, language: AppLanguagePreference.resolveCurrent())
+    }
+
     var current: OnboardingStep { path.last ?? .verseIntro }
 
     // MARK: - Navigation
