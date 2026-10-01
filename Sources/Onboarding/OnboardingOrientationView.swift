@@ -75,7 +75,7 @@ struct OnboardingOrientationView: View {
                         .font(MissaleFont.display(27))
                         .foregroundStyle(Palette.ink)
                         .padding(.top, 16)
-                    Text("Your first guidance is a gift: a word from Scripture and the saints, chosen for what you write.", tableName: "Onboarding")
+                    Text("From what you write, we'll look in the Bible for a passage connected to that feeling, to guide you in the Word of the Lord, and a saint who went through the same.", tableName: "Onboarding")
                         .font(MissaleFont.body(16))
                         .foregroundStyle(Palette.ink.opacity(0.7))
                     OrientationWritingCard(text: $text, onSend: send, onLocked: {}, isFree: true)
