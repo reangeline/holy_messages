@@ -2,8 +2,9 @@ import Foundation
 
 /// The orientação: what the reader wrote goes to Jev (through the Missale API)
 /// and comes back as a choice from the reviewed collection; only the short
-/// reflection under it is written (by Claude, see `reflect`). Two questions, as measured in the laya-spike (47/48 states right,
-/// 7/8 risk phrases caught, with English instructions over Portuguese text):
+/// reflection under it is written (by Claude, see `reflect`). Two questions,
+/// as measured in the laya-spike (47/48 states right, 7/8 risk phrases
+/// caught, with English instructions over Portuguese text):
 ///
 /// 1. which mood state the text describes, and whether it signals a risk to
 ///    the reader's life;
