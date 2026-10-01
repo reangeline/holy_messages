@@ -2,37 +2,50 @@ import SwiftUI
 import UserNotifications
 
 /// The editable list of daily-reading times, apart from the UI so the rules
-/// (at most 3, at least 1, no duplicates, sorted) can be tested.
+/// (at most 3, at least 1, no duplicates) can be tested. Each row keeps a
+/// stable id while it is edited and stays where it is: keyed by its value, a
+/// row was rebuilt (closing the picker) and could jump or merge into another
+/// time on every tick of the wheel.
 struct ReadingReminderTimes: Equatable {
+    struct Slot: Identifiable, Equatable {
+        let id: UUID
+        var minutes: Int
+    }
+
     static let maxCount = 3
     static let newTimeDefault = 12 * 60
 
-    private(set) var minutes: [Int]
+    private(set) var slots: [Slot]
 
     init(_ minutes: [Int]) {
         let clean = Array(Set(minutes.map { min(max($0, 0), 24 * 60 - 1) })).sorted()
-        self.minutes = clean.isEmpty ? ReadingReminderScheduler.defaultMinutes : Array(clean.prefix(Self.maxCount))
+        slots = (clean.isEmpty ? ReadingReminderScheduler.defaultMinutes : Array(clean.prefix(Self.maxCount)))
+            .map { Slot(id: UUID(), minutes: $0) }
     }
 
-    var canAdd: Bool { minutes.count < Self.maxCount }
-    var canRemove: Bool { minutes.count > 1 }
+    var minutes: [Int] { slots.map(\.minutes) }
+    var canAdd: Bool { slots.count < Self.maxCount }
+    var canRemove: Bool { slots.count > 1 }
 
     /// Adds the first free time starting at midday, stepping an hour.
     mutating func add() {
         guard canAdd else { return }
         var candidate = Self.newTimeDefault
         while minutes.contains(candidate) { candidate = (candidate + 60) % (24 * 60) }
-        minutes = Self(minutes + [candidate]).minutes
+        slots.append(Slot(id: UUID(), minutes: candidate))
     }
 
-    mutating func remove(_ value: Int) {
+    mutating func remove(_ id: UUID) {
         guard canRemove else { return }
-        minutes = Self(minutes.filter { $0 != value }).minutes
+        slots.removeAll { $0.id == id }
     }
 
-    /// Changes one time; if it lands on another, the two merge (never below 1).
-    mutating func replace(_ old: Int, with new: Int) {
-        minutes = Self(minutes.map { $0 == old ? new : $0 }).minutes
+    /// Changes one time. A value another row already has is refused, so a
+    /// wheel passing over it never merges the two rows.
+    mutating func replace(_ id: UUID, with new: Int) {
+        guard let index = slots.firstIndex(where: { $0.id == id }),
+              !slots.contains(where: { $0.id != id && $0.minutes == new }) else { return }
+        slots[index].minutes = new
     }
 }
 
@@ -51,9 +64,9 @@ struct NotificationSettingsView: View {
                 VStack(alignment: .leading, spacing: 8) {
                     Eyebrow(text: L.string("Reading times", table: "SettingsDetail"))
                     card {
-                        ForEach(Array(times.minutes.enumerated()), id: \.element) { index, minutes in
-                            if index > 0 { Divider().opacity(0.5) }
-                            timeRow(minutes)
+                        ForEach(times.slots) { slot in
+                            if slot.id != times.slots.first?.id { Divider().opacity(0.5) }
+                            timeRow(slot)
                         }
                         if times.canAdd {
                             Divider().opacity(0.5)
@@ -84,15 +97,15 @@ struct NotificationSettingsView: View {
         .task(id: scenePhase) { await loadStatus() }
     }
 
-    private func timeRow(_ minutes: Int) -> some View {
+    private func timeRow(_ slot: ReadingReminderTimes.Slot) -> some View {
         HStack {
-            DatePicker("", selection: binding(for: minutes), displayedComponents: .hourAndMinute)
+            DatePicker("", selection: binding(for: slot), displayedComponents: .hourAndMinute)
                 .labelsHidden()
                 .environment(\.locale, AppLanguagePreference.resolveCurrent().locale)
             Spacer(minLength: 8)
             if times.canRemove {
                 Button {
-                    times.remove(minutes)
+                    times.remove(slot.id)
                     save()
                 } label: {
                     Image(systemName: "minus.circle")
@@ -105,14 +118,14 @@ struct NotificationSettingsView: View {
         .padding(.horizontal, 16)
     }
 
-    private func binding(for minutes: Int) -> Binding<Date> {
+    private func binding(for slot: ReadingReminderTimes.Slot) -> Binding<Date> {
         Binding(
             get: {
-                Calendar.current.date(bySettingHour: minutes / 60, minute: minutes % 60, second: 0, of: Date()) ?? Date()
+                Calendar.current.date(bySettingHour: slot.minutes / 60, minute: slot.minutes % 60, second: 0, of: Date()) ?? Date()
             },
             set: { date in
                 let c = Calendar.current.dateComponents([.hour, .minute], from: date)
-                times.replace(minutes, with: (c.hour ?? 0) * 60 + (c.minute ?? 0))
+                times.replace(slot.id, with: (c.hour ?? 0) * 60 + (c.minute ?? 0))
                 save()
             }
         )

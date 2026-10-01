@@ -98,7 +98,7 @@ final class OnboardingContextTests: XCTestCase {
         XCTAssertEqual(sent.first?["context"] as? String, "Q: A")
     }
 
-    func testLocalCrisisCheckStaysOnTheReadersTextOnly() {
+    func testCrisisPhrasesSeeTheTextWhileJevGetsTheContextToo() {
         // `orient` runs CrisisPhrases on the text it is given, never on the
         // state built with the context: a benign text with every answer in
         // the context stays benign, and a risky text stays risky.
@@ -106,5 +106,13 @@ final class OnboardingContextTests: XCTestCase {
         XCTAssertFalse(CrisisPhrases.matches("Estou cansado"))
         XCTAssertTrue(CrisisPhrases.matches("quero morrer"))
         XCTAssertNotEqual(context.jevState(for: "Estou cansado"), "Estou cansado")
+    }
+
+    func testRiskQuestionIsTheMeasuredOneWithoutContextAndScopedWithIt() {
+        XCTAssertEqual(OrientationService.riskInstructions(withContext: false), OrientationService.riskQuestion)
+        let scoped = OrientationService.riskInstructions(withContext: true)
+        XCTAssertTrue(scoped.hasSuffix(OrientationService.riskQuestion))
+        XCTAssertTrue(scoped.contains(OnboardingContext.jevHeader.trimmingCharacters(in: .whitespacesAndNewlines).dropLast()))
+        XCTAssertLessThanOrEqual(scoped.count, 300)
     }
 }

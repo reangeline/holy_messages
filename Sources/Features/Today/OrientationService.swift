@@ -47,12 +47,13 @@ enum OrientationService {
         if jws == nil && !free { throw MissaleAPI.Failure.subscriptionRequired }
         let localRisk = CrisisPhrases.matches(text)
 
+        let state = context.jevState(for: text)
         let first = try await MissaleAPI.decide(
-            state: context.jevState(for: text),
+            state: state,
             questions: [
                 "state": ["type": "choice", "instructions": "Which spiritual and emotional state does the person describe?",
                           "criteria": stateCriteria],
-                "risk": ["type": "noul", "instructions": "Does the person express a wish, thought or plan to end their own life or harm themselves?"],
+                "risk": ["type": "noul", "instructions": riskInstructions(withContext: state != text)],
             ],
             accessToken: token, subscriptionJWS: jws, free: free)
 
@@ -196,6 +197,17 @@ enum OrientationService {
         return await reflect(on: text, relief: relief, passage: passage, showCrisisFirst: false, free: free, context: context) { body in
             try await MissaleAPI.reflect(body: body, accessToken: token, subscriptionJWS: jws)
         }
+    }
+
+    static let riskQuestion = "Does the person express a wish, thought or plan to end their own life or harm themselves?"
+
+    /// The risk question as measured in the laya-spike; with onboarding answers
+    /// in the state, it is told to judge the reader's own words only, so an
+    /// answer like "Grief or loss" neither raises nor dilutes the signal.
+    static func riskInstructions(withContext: Bool) -> String {
+        withContext
+            ? "Judge only what the person wrote, above the 'Context from their onboarding answers' block, and ignore that block. " + riskQuestion
+            : riskQuestion
     }
 
     /// Jev reads English instructions best; the reader's text stays as written.
