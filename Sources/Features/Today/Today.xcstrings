@@ -1353,6 +1353,28 @@
         }
       }
     },
+    "Fechar": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Close"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cerrar"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fechar"
+          }
+        }
+      }
+    },
     "Feche o aplicativo agora. O que começou aqui continua em silêncio — a conversa com Deus não precisa de mais tela, só do seu íntimo.": {
       "extractionState": "manual",
       "localizations": {
@@ -3156,6 +3178,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "Texto completo, offline. Rolagem lenta e nenhuma notificação enquanto esta tela está aberta."
+          }
+        }
+      }
+    },
+    "Toque para ler o capítulo inteiro": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tap to read the whole chapter"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toca para leer el capítulo entero"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toque para ler o capítulo inteiro"
           }
         }
       }

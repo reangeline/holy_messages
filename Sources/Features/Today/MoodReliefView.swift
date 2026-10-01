@@ -16,6 +16,10 @@ struct MoodReliefView: View {
     private let reflectionFree: Bool
     @State private var reflection: String?
     @State private var isReflecting = false
+    /// The Bible and the chapter behind `relief.psalmRef`, once found. While
+    /// nil (or when the reference can't be placed) the block is just text.
+    @State private var passage: (bible: Bible, passage: ReliefPassage)?
+    @State private var showPassage = false
 
     // Picked once, at init, rather than as a computed property — a computed
     // property would re-roll a new (possibly different) variation on every
@@ -68,17 +72,7 @@ struct MoodReliefView: View {
                         .font(MissaleFont.display(28, weight: .semibold))
                         .foregroundStyle(Palette.ink)
 
-                    LiturgicalGradientCard(color: .red) {
-                        VStack(alignment: .leading, spacing: 8) {
-                            Eyebrow(text: relief.psalmRef, color: Palette.goldBright)
-                            Text(relief.psalmText)
-                                .font(MissaleFont.display(21, italic: true))
-                                .foregroundStyle(.white)
-                            Text(relief.psalmWhy)
-                                .font(MissaleFont.body(14))
-                                .foregroundStyle(.white.opacity(0.85))
-                        }
-                    }
+                    passageBlock
 
                     saintCard
 
@@ -129,6 +123,16 @@ struct MoodReliefView: View {
             withAnimation(.easeInOut(duration: 0.25)) { reflection = result }
             isReflecting = false
         }
+        // Off the main thread: the first touch decodes the whole Bible.
+        .task {
+            let reference = relief.psalmRef
+            let language = AppLanguagePreference.resolveCurrent()
+            passage = await Task.detached(priority: .userInitiated) {
+                guard let bible = BibleCatalog.bible(for: language),
+                      let found = ReliefPassage.resolve(reference, in: bible) else { return nil }
+                return (bible, found)
+            }.value
+        }
     }
 
     /// Absent until the reflection arrives, and for good if it never does.
@@ -149,6 +153,47 @@ struct MoodReliefView: View {
             ProgressView().tint(Palette.wine)
                 .frame(maxWidth: .infinity)
                 .accessibilityIdentifier("orientationReflectionLoading")
+        }
+    }
+
+    private var passageCard: some View {
+        LiturgicalGradientCard(color: .red) {
+            VStack(alignment: .leading, spacing: 8) {
+                Eyebrow(text: relief.psalmRef, color: Palette.goldBright)
+                Text(relief.psalmText)
+                    .font(MissaleFont.display(21, italic: true))
+                    .foregroundStyle(.white)
+                Text(relief.psalmWhy)
+                    .font(MissaleFont.body(14))
+                    .foregroundStyle(.white.opacity(0.85))
+            }
+        }
+    }
+
+    /// Tap opens the whole chapter, with the quoted verses marked. Without a
+    /// chapter to open it stays the plain card it was.
+    @ViewBuilder
+    private var passageBlock: some View {
+        if let passage {
+            Button { showPassage = true } label: { passageCard }
+                .buttonStyle(.plain)
+                .accessibilityHint(L.string("Toque para ler o capítulo inteiro", table: "Today"))
+                .sheet(isPresented: $showPassage) {
+                    NavigationStack {
+                        BibleChapterView(bible: passage.bible, book: passage.passage.book,
+                                         chapter: passage.passage.chapter,
+                                         focusVerse: passage.passage.verses?.lowerBound,
+                                         passage: passage.passage.verses)
+                            .toolbar {
+                                ToolbarItem(placement: .topBarLeading) {
+                                    Button(L.string("Fechar", table: "Today")) { showPassage = false }
+                                        .foregroundStyle(Palette.wine)
+                                }
+                            }
+                    }
+                }
+        } else {
+            passageCard
         }
     }
 

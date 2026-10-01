@@ -9,6 +9,9 @@ struct BibleChapterView: View {
     var onFinished: (() -> Void)? = nil
     /// Scrolled to on open — from a search hit or a highlighted verse.
     var focusVerse: Int? = nil
+    /// Verses marked as the passage being read (the relief's psalm), apart
+    /// from the reader's own highlights, which are theirs to toggle.
+    var passage: ClosedRange<Int>? = nil
     @Environment(\.dismiss) private var dismiss
     @ObservedObject private var notes = BibleNotesStore.shared
     @ObservedObject private var routine = DailyRoutineStore.shared
@@ -16,9 +19,11 @@ struct BibleChapterView: View {
     @State private var book: BibleBook
     @State private var chapter: Int
 
-    init(bible: Bible, book: BibleBook, chapter: Int, focusVerse: Int? = nil, onFinished: (() -> Void)? = nil) {
+    init(bible: Bible, book: BibleBook, chapter: Int, focusVerse: Int? = nil, passage: ClosedRange<Int>? = nil,
+         onFinished: (() -> Void)? = nil) {
         self.bible = bible
         self.focusVerse = focusVerse
+        self.passage = passage
         self.onFinished = onFinished
         _book = State(initialValue: book)
         _chapter = State(initialValue: chapter)
@@ -70,6 +75,7 @@ struct BibleChapterView: View {
 
                         ForEach(verses, id: \.n) { verse in
                             let marked = notes.isHighlighted(bible, book.id, chapter, verse.n)
+                            let inPassage = passage?.contains(verse.n) ?? false
                             (Text(verse.s == nil ? "\(verse.n)  " : "\(verse.n)† ")
                                 .font(MissaleFont.body(12 * ReadingTextSize.scale(textSize), weight: .semibold))
                                 .foregroundColor(Palette.wine)
@@ -80,7 +86,7 @@ struct BibleChapterView: View {
                                 .fixedSize(horizontal: false, vertical: true)
                                 .padding(.vertical, 2)
                                 .padding(.horizontal, 6)
-                                .background(marked ? Palette.goldBright.opacity(0.45) : .clear,
+                                .background(marked || inPassage ? Palette.goldBright.opacity(0.45) : .clear,
                                             in: RoundedRectangle(cornerRadius: 6, style: .continuous))
                                 .padding(.horizontal, -6)
                                 .contentShape(Rectangle())
