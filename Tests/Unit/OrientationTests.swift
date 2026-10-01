@@ -165,4 +165,15 @@ final class OrientationTests: XCTestCase {
         let guilty = Set(MockWordOfDay.moodStatesByEnglishReference.filter { $0.value.contains("guilty") }.keys)
         XCTAssertEqual(guilty, ["Psalm 130:1-2", "Isaiah 55:6", "Hebrews 4:16", "Acts 3:19", "Acts 15:11"])
     }
+
+    /// The Sermon on the Mount's warnings read as condemnation to someone who
+    /// writes how they feel: they stay out of the orientação for every state.
+    func testWarningsAreNeverOffered() {
+        let warnings = ["Matthew 5:20", "Matthew 5:21", "Matthew 5:22", "Matthew 5:25", "Matthew 5:26",
+                        "Matthew 5:27", "Matthew 5:28", "Matthew 5:29", "Matthew 5:30", "Matthew 7:3",
+                        "Matthew 7:4", "Matthew 7:5", "Matthew 7:15", "Matthew 7:19", "Matthew 7:21", "Matthew 7:23"]
+        for reference in warnings {
+            XCTAssertNil(MockWordOfDay.moodStatesByEnglishReference[reference], reference)
+        }
+    }
 }
