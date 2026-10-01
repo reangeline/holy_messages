@@ -18,6 +18,7 @@ enum MockSettings {
         .init(id: "preferences", label: "Preferências", items: [
             .init(id: "calendar", title: "Calendário litúrgico", subtitle: "Região e forma do rito", value: nil, destination: .regionalCalendar),
             .init(id: "language", title: "Idioma", subtitle: "Interface do app", value: nil, destination: .language),
+            .init(id: "notifications", title: "Notificações", subtitle: "Horários da palavra do dia", value: nil, destination: .notifications),
         ]),
         .init(id: "privacy", label: "Privacidade", items: [
             .init(id: "data", title: "Seus dados", subtitle: "Exportar, apagar", value: nil, destination: .data),

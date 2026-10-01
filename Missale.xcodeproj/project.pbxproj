@@ -57,6 +57,7 @@
 		2A66C4360F90BFCCD6DBD4D0 /* OrientationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758E9E14596E1DDA8311D7D3 /* OrientationTests.swift */; };
 		2ADAEA16A39BC742EABA7B4B /* OnboardingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654A71A868B97303E2B95A59 /* OnboardingContext.swift */; };
 		2B0C2DCCD20E13FEFC772A71 /* GeneratedSaintsFourthBatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5211941EAEBC21CE95B3E29 /* GeneratedSaintsFourthBatch.swift */; };
+		2C6EE0688B4880043A120B77 /* NotificationSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D796748D3295F4DC3A1BD9D8 /* NotificationSettingsView.swift */; };
 		2EA1309C5A653C1A5AE2EA15 /* EBGaramond-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A5E469A2668E22E83B8E4BF2 /* EBGaramond-Italic.ttf */; };
 		30359DFA44407554ADAFC958 /* GeneratedSaintsThirdBatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E20DA0E0CC324280743744 /* GeneratedSaintsThirdBatch.swift */; };
 		30AB0317AFFDD1BE6541A2E3 /* WordOfDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E416E5A20CB92AE084D9E048 /* WordOfDayView.swift */; };
@@ -166,6 +167,7 @@
 		87382A10F1D5E9694420BFF5 /* MassReadingsLinkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F85F696283D2E7A80005495 /* MassReadingsLinkUITests.swift */; };
 		896988DAE7A226324647D018 /* SignInGateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961536518A917884C32533EA /* SignInGateUITests.swift */; };
 		8A753E45A3FB9157AFE8C1B5 /* MockCompline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815AF8878E526A8E12790A3B /* MockCompline.swift */; };
+		8B0582B18BB8B7DCA4D49516 /* ReadingReminderTimesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F23481B658E34636038191 /* ReadingReminderTimesTests.swift */; };
 		8B268C3E5F3E5A6E12B7F652 /* OrientationCrisisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725871116FA45053C66C42B0 /* OrientationCrisisView.swift */; };
 		8B66205B743766D93343D695 /* OnboardingLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13370349962A1A01A269F8B3 /* OnboardingLoaderView.swift */; };
 		8D88F7FB8181F3344CC03AAD /* terms-of-use.en.md in Resources */ = {isa = PBXBuildFile; fileRef = 1668B3A356BECD3D877B21B0 /* terms-of-use.en.md */; };
@@ -548,6 +550,7 @@
 		C12D79BF4B3E4C6ABC19C5B0 /* AppRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRootView.swift; sourceTree = "<group>"; };
 		C1F1120FACBAEA93D53F219E /* psalm-numbering-vulgate-hebrew.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "psalm-numbering-vulgate-hebrew.json"; sourceTree = "<group>"; };
 		C56F6238D04D8924CF1AC227 /* PrayerCategoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerCategoryDetailView.swift; sourceTree = "<group>"; };
+		C5F23481B658E34636038191 /* ReadingReminderTimesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingReminderTimesTests.swift; sourceTree = "<group>"; };
 		C60A08EF026DFCA2A8DA453B /* GeneratedPrayers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedPrayers.swift; sourceTree = "<group>"; };
 		C68115259B777A4A79406687 /* OnboardingPromiseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPromiseView.swift; sourceTree = "<group>"; };
 		C71D8A40535C473A77DED782 /* DailyPrayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyPrayerView.swift; sourceTree = "<group>"; };
@@ -568,6 +571,7 @@
 		D5F7D20CB070FF9B9EF8B3F2 /* GeneratedSanctoral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedSanctoral.swift; sourceTree = "<group>"; };
 		D6BE36B3A66F6F0DED7E4B0D /* OnboardingSpiritualIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSpiritualIntroView.swift; sourceTree = "<group>"; };
 		D6DECEE18CD43B47224FA77A /* RegionalCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionalCalendarView.swift; sourceTree = "<group>"; };
+		D796748D3295F4DC3A1BD9D8 /* NotificationSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingsView.swift; sourceTree = "<group>"; };
 		D7ED6DF20F1E0D622BE3B4FE /* MockWordOfDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockWordOfDay.swift; sourceTree = "<group>"; };
 		D7F592E55A220D9003088DFF /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		D9FD7378FC8351DB12FA8162 /* CormorantGaramond-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CormorantGaramond-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -836,6 +840,7 @@
 				758E9E14596E1DDA8311D7D3 /* OrientationTests.swift */,
 				369C9250274CFFD5770FF3E5 /* PaywallPrimaryButtonTests.swift */,
 				70C4588BFB1555349187B15F /* PersonalizedWordOfDayTests.swift */,
+				C5F23481B658E34636038191 /* ReadingReminderTimesTests.swift */,
 				8535EE2167CEA5E707757A1B /* ReflectionTests.swift */,
 				B9CAC989FC27DEC7A619FE1F /* ReliefPassageTests.swift */,
 				2E219A0573C8710A8F29AC6F /* RemoteContentTests.swift */,
@@ -912,6 +917,7 @@
 				2B7872156F75002D39C7BF46 /* FAQView.swift */,
 				3A50F9F0AFBC6CB0690A6352 /* LanguageSettingsView.swift */,
 				FF3C44EB128314900887881D /* LegalDocumentView.swift */,
+				D796748D3295F4DC3A1BD9D8 /* NotificationSettingsView.swift */,
 				89B15BE7FE79DA0EE43CDFB9 /* PastoralNoteDetailView.swift */,
 				D6DECEE18CD43B47224FA77A /* RegionalCalendarView.swift */,
 				BD1EDFAD664396CF342F0318 /* SettingsDetail.xcstrings */,
@@ -1403,6 +1409,7 @@
 				9C11C7E943DCA5B1227CDF3E /* MoodReliefView.swift in Sources */,
 				31003D72563CA5BEED79DED9 /* MoodState.swift in Sources */,
 				BF7248F07CBBADB37E32F6E0 /* MorningOfferingView.swift in Sources */,
+				2C6EE0688B4880043A120B77 /* NotificationSettingsView.swift in Sources */,
 				7865268C9D3B434B7972F7E1 /* OnboardingComponents.swift in Sources */,
 				833FBFF924BB59D7D7DF1CD2 /* OnboardingContent.swift in Sources */,
 				2ADAEA16A39BC742EABA7B4B /* OnboardingContext.swift in Sources */,
@@ -1560,6 +1567,7 @@
 				2A66C4360F90BFCCD6DBD4D0 /* OrientationTests.swift in Sources */,
 				90391EFC4995E5B3F1FCA794 /* PaywallPrimaryButtonTests.swift in Sources */,
 				B60EE1534E693ACB7BBBB10C /* PersonalizedWordOfDayTests.swift in Sources */,
+				8B0582B18BB8B7DCA4D49516 /* ReadingReminderTimesTests.swift in Sources */,
 				1489550DDDEACCF1EDA7B311 /* ReflectionTests.swift in Sources */,
 				5D19A396A4DD54C1872F74F3 /* ReliefPassageTests.swift in Sources */,
 				E55073C8A14E84F653E63388 /* RemoteContentTests.swift in Sources */,
