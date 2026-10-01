@@ -6,7 +6,7 @@ import SwiftUI
 /// reader decides, and a false alarm costs only this screen.
 ///
 /// `reflect` asks for the crisis reflection (about God, support and a priest
-/// at a nearby parish): shown in a card under the first text, a discreet
+/// at a nearby parish): shown in a card below the support, a discreet
 /// indicator while it loads, and no card at all if it fails. Asked once, and
 /// never saved; nil asks nothing.
 struct OrientationCrisisView: View {
