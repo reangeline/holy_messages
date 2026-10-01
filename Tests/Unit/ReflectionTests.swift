@@ -83,4 +83,77 @@ final class ReflectionTests: XCTestCase {
         XCTAssertEqual(sent?["reference"], "Mateus 5, 4")
         XCTAssertEqual(sent?["text"], "Bem-aventurados os que choram.")
     }
+
+    // MARK: - Crisis
+
+    func testCrisisBodyOmitsPassageAndSaintWhenThereAreNone() {
+        let body = MissaleAPI.reflectionBody(state: "x", reference: nil, passage: nil, saint: nil, summary: nil,
+                                             language: "pt", free: true, context: "Q: A", crisis: true)
+        XCTAssertEqual(body["crisis"] as? Bool, true)
+        XCTAssertNil(body["passage"])
+        XCTAssertNil(body["saint"])
+        XCTAssertEqual(body["state"] as? String, "x")
+        XCTAssertEqual(body["context"] as? String, "Q: A")
+        XCTAssertEqual(body["free"] as? Bool, true)
+    }
+
+    func testCrisisBodyKeepsPassageAndSaintWhenThereAreSome() {
+        let body = MissaleAPI.reflectionBody(state: "x", reference: "Salmo 139", passage: "p", saint: "Teresa", summary: "s",
+                                             language: "pt", free: false, crisis: true)
+        XCTAssertEqual(body["crisis"] as? Bool, true)
+        XCTAssertEqual((body["passage"] as? [String: String])?["reference"], "Salmo 139")
+        XCTAssertEqual((body["saint"] as? [String: String])?["name"], "Teresa")
+    }
+
+    func testOrdinaryBodyHasNoCrisisField() {
+        let body = MissaleAPI.reflectionBody(state: "x", reference: "r", passage: "p", saint: "n", summary: "s",
+                                             language: "pt", free: false)
+        XCTAssertNil(body["crisis"])
+    }
+
+    func testCrisisReflectionIsAskedWithCrisisAndNoPassageWhenStateUnknown() async {
+        let api = FakeAPI()
+        let reflection = await OrientationService.reflectInCrisis(
+            on: " quero morrer ", free: true, context: "Q: A", language: .pt, send: api.send)
+        XCTAssertEqual(reflection, "Deus está perto de você.")
+        XCTAssertEqual(api.bodies.count, 1)
+        let body = api.bodies[0]
+        XCTAssertEqual(body["crisis"] as? Bool, true)
+        XCTAssertEqual(body["state"] as? String, "quero morrer")
+        XCTAssertEqual(body["free"] as? Bool, true)
+        XCTAssertEqual(body["context"] as? String, "Q: A")
+        XCTAssertNil(body["passage"])
+        XCTAssertNil(body["saint"])
+    }
+
+    func testCrisisReflectionSendsPassageAndSaintWhenTheStateIsKnown() async throws {
+        let api = FakeAPI()
+        let variants = try XCTUnwrap(MockMood.reliefVariants(for: "grief"))
+        _ = await OrientationService.reflectInCrisis(
+            on: "quero morrer", stateID: "grief", reliefIndex: 0, free: false, language: .pt, send: api.send)
+        let body = api.bodies[0]
+        XCTAssertEqual(body["crisis"] as? Bool, true)
+        XCTAssertEqual((body["passage"] as? [String: String])?["reference"], variants[0].psalmRef)
+        XCTAssertEqual((body["saint"] as? [String: String])?["name"], variants[0].saintName)
+    }
+
+    func testCrisisReflectionFailureOrEmptyTextLeavesItEmpty() async {
+        let api = FakeAPI()
+        api.result = .failure(MissaleAPI.Failure.unavailable)
+        let failed = await OrientationService.reflectInCrisis(on: "quero morrer", free: false, send: api.send)
+        XCTAssertNil(failed)
+        let empty = await OrientationService.reflectInCrisis(on: "  ", free: false, send: api.send)
+        XCTAssertNil(empty)
+        XCTAssertEqual(api.bodies.count, 1, "texto vazio não pede nada")
+    }
+
+    func testThePassageScreenAfterTheCrisisAsksNothingAgain() async {
+        // MoodReliefView asks through `reflect(... showCrisisFirst:)`; the
+        // crisis flow continues with showCrisisFirst true and no text.
+        let api = FakeAPI()
+        let again = await OrientationService.reflect(
+            on: "quero morrer", relief: relief(), showCrisisFirst: true, free: true, send: api.send)
+        XCTAssertNil(again)
+        XCTAssertTrue(api.bodies.isEmpty)
+    }
 }

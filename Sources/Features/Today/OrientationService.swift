@@ -36,8 +36,9 @@ enum OrientationService {
 
     /// `free`: the onboarding's orientação, which runs on the account's
     /// lifetime allowance when there is no subscription.
-    /// `context`: the onboarding's questionnaire answers. Only Jev's `state`
-    /// carries them; the local crisis check stays on what the reader wrote.
+    /// `context`: the onboarding's questionnaire answers. Jev's `state` carries
+    /// them, risk question included (an answer like "Grief or loss" can help
+    /// spot a risk); the local crisis check stays on what the reader wrote.
     static func orient(_ text: String, free: Bool = false, context: OnboardingContext = .empty) async throws -> Result {
 #if DEBUG
         if let fake = debugFakeResult(for: text) { return fake }
@@ -53,7 +54,7 @@ enum OrientationService {
             questions: [
                 "state": ["type": "choice", "instructions": "Which spiritual and emotional state does the person describe?",
                           "criteria": stateCriteria],
-                "risk": ["type": "noul", "instructions": riskInstructions(withContext: state != text)],
+                "risk": ["type": "noul", "instructions": riskQuestion],
             ],
             accessToken: token, subscriptionJWS: jws, free: free)
 
@@ -165,7 +166,8 @@ enum OrientationService {
 
     /// The short reflection, in the voice of a priest, about the passage shown
     /// (`passage`, else the psalm of `relief`) and the saint of `relief`. Nil —
-    /// and nothing sent — when the orientação fell into the crisis flow, and on any failure (offline, 402, 429, 502, 503):
+    /// and nothing sent — when the orientação fell into the crisis flow (that
+    /// one has its own, `reflectInCrisis`), and on any failure (offline, 402, 429, 502, 503):
     /// the reflection is an extra, so callers only ever show it or don't. It is
     /// never saved; the screen keeps it in memory while it is open.
     static func reflect(on text: String, relief: ReliefContent, passage: OrientationPassage? = nil,
@@ -185,7 +187,7 @@ enum OrientationService {
     }
 
     /// The same, through the Missale API. Callers only get here outside the
-    /// crisis flow (the screen is given no text otherwise).
+    /// crisis flow.
     static func reflect(on text: String, relief: ReliefContent, passage: OrientationPassage? = nil, free: Bool,
                         context: String? = nil) async -> String? {
 #if DEBUG
@@ -199,16 +201,46 @@ enum OrientationService {
         }
     }
 
-    static let riskQuestion = "Does the person express a wish, thought or plan to end their own life or harm themselves?"
-
-    /// The risk question as measured in the laya-spike; with onboarding answers
-    /// in the state, it is told to judge the reader's own words only, so an
-    /// answer like "Grief or loss" neither raises nor dilutes the signal.
-    static func riskInstructions(withContext: Bool) -> String {
-        withContext
-            ? "Judge only what the person wrote, above the 'Context from their onboarding answers' block, and ignore that block. " + riskQuestion
-            : riskQuestion
+    /// The reflection of the crisis flow: about God, support and a priest at a
+    /// nearby parish. `passage` and `saint` go along only when there are some:
+    /// `stateID` and `reliefIndex` (what Jev chose) give the saint and, unless
+    /// `passage` is given, the psalm. Nil on any failure or empty answer; the
+    /// crisis screen then simply has no card. Never saved.
+    static func reflectInCrisis(on text: String, stateID: String? = nil, reliefIndex: Int? = nil,
+                                passage: OrientationPassage? = nil, free: Bool, context: String? = nil,
+                                language: AppLanguage = AppLanguagePreference.resolveCurrent(),
+                                send: Reflect) async -> String? {
+        let state = text.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !state.isEmpty else { return nil }
+        let relief = stateID.flatMap { MockMood.reliefVariants(for: $0) }
+            .flatMap { variants in reliefIndex.flatMap { variants.indices.contains($0) ? variants[$0] : nil } }
+        let shown = passage ?? relief.map { OrientationPassage(psalmOf: $0) }
+        let body = MissaleAPI.reflectionBody(
+            state: state, reference: shown?.reference, passage: shown?.text,
+            saint: relief?.saintName, summary: relief?.saintWhy,
+            language: language.rawValue, free: free, context: context, crisis: true)
+        guard let reflection = try? await send(body) else { return nil }
+        let trimmed = reflection.trimmingCharacters(in: .whitespacesAndNewlines)
+        return trimmed.isEmpty ? nil : trimmed
     }
+
+    /// The same, through the Missale API.
+    static func reflectInCrisis(on text: String, stateID: String?, reliefIndex: Int?, passage: OrientationPassage?,
+                                free: Bool, context: String? = nil) async -> String? {
+#if DEBUG
+        if let fake = debugFakeReflection { return fake.isEmpty ? nil : fake }
+#endif
+        guard let token = try? await AccountStore.shared.validAccessToken() else { return nil }
+        let jws = await SubscriptionStore.shared.activeSubscriptionJWS()
+        if jws == nil && !free { return nil }
+        return await reflectInCrisis(on: text, stateID: stateID, reliefIndex: reliefIndex, passage: passage,
+                                     free: free, context: context) { body in
+            try await MissaleAPI.reflect(body: body, accessToken: token, subscriptionJWS: jws)
+        }
+    }
+
+    /// The risk question as measured in the laya-spike; always asked as is.
+    static let riskQuestion = "Does the person express a wish, thought or plan to end their own life or harm themselves?"
 
     /// Jev reads English instructions best; the reader's text stays as written.
     static let stateCriteria: [String: String] = [

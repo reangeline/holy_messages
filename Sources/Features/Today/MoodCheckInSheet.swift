@@ -100,7 +100,10 @@ struct MoodCheckInSheet: View {
                     guidingBody
                         .transition(transition)
                 case .crisis(let option, let chosenIndex, let chosenPassage):
-                    OrientationCrisisView {
+                    OrientationCrisisView(reflect: pendingNote.map { note in
+                        { await OrientationService.reflectInCrisis(
+                            on: note, stateID: option?.id, reliefIndex: chosenIndex, passage: chosenPassage, free: false) }
+                    }) {
                         if let option, let note = pendingNote {
                             complete(option, note: note, chosenIndex: chosenIndex, passage: chosenPassage)
                         } else {

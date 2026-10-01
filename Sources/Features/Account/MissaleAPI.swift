@@ -123,18 +123,25 @@ enum MissaleAPI {
     /// The body `reflect` sends, cut to the server's limits (state ≤ 2000,
     /// reference and name ≤ 200, passage text ≤ 4000, summary ≤ 2000, context ≤ 1500) — split
     /// out so a unit test can check it without a network call. The server
-    /// counts Unicode scalars, so the cut is by scalar.
+    /// counts Unicode scalars, so the cut is by scalar. With `crisis` the
+    /// server writes the crisis reflection and `passage` and `saint` are
+    /// optional: pass nil to leave them out of the body.
     static func reflectionBody(
-        state: String, reference: String, passage: String, saint: String, summary: String,
-        language: String, free: Bool, context: String? = nil
+        state: String, reference: String?, passage: String?, saint: String?, summary: String?,
+        language: String, free: Bool, context: String? = nil, crisis: Bool = false
     ) -> [String: Any] {
         var body: [String: Any] = [
             "state": JevPicker.clip(state, to: 2000),
-            "passage": ["reference": JevPicker.clip(reference, to: 200), "text": JevPicker.clip(passage, to: 4000)],
-            "saint": ["name": JevPicker.clip(saint, to: 200), "summary": JevPicker.clip(summary, to: 2000)],
             "language": language,
             "free": free,
         ]
+        if let reference, let passage {
+            body["passage"] = ["reference": JevPicker.clip(reference, to: 200), "text": JevPicker.clip(passage, to: 4000)]
+        }
+        if let saint, let summary {
+            body["saint"] = ["name": JevPicker.clip(saint, to: 200), "summary": JevPicker.clip(summary, to: 2000)]
+        }
+        if crisis { body["crisis"] = true }
         // Optional, onboarding only: the questionnaire answers (<= 1500).
         if let context, !context.isEmpty { body["context"] = JevPicker.clip(context, to: 1500) }
         return body
