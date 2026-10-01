@@ -124,7 +124,10 @@ tocar em **"Receber orientação"**:
   passagem bíblica e o santo escolhidos à **Anthropic, PBC** (modelo
   **Claude**), que escreve uma reflexão curta a partir deles. A Anthropic é um
   segundo destinatário do texto, além do Jev, e o tratamento por ela segue os
-  termos da Anthropic para a API.
+  termos da Anthropic para a API. Quando o texto traz sinal de risco à vida, o
+  servidor também avisa a Anthropic disso, para que a reflexão fale de Deus e
+  oriente você a buscar apoio e um padre; nesse caso a passagem e o santo podem
+  não ir.
 - Na orientação do onboarding, as respostas que você deu ao questionário (as
   perguntas sobre a sua vida e a sua vida espiritual) vão junto com o texto,
   para o Jev e para a Anthropic, com a mesma finalidade: escolher a passagem e

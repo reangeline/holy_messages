@@ -227,9 +227,11 @@ struct MoodCheckInSheet: View {
                 }
             } catch MissaleAPI.Failure.subscriptionRequired {
                 askForState(nil)
-                showPaywall = true
+                // A sign of risk comes before any offer to subscribe.
+                if CrisisPhrases.matches(text) { advance(to: .crisis(nil, nil, nil)) } else { showPaywall = true }
             } catch MissaleAPI.Failure.dailyLimit {
                 askForState(L.string("Você já recebeu muitas orientações hoje. Escolha abaixo como você está — o que você escreveu vai junto.", table: "Today"))
+                if CrisisPhrases.matches(text) { advance(to: .crisis(nil, nil, nil)) }
             } catch {
                 // Offline, the server, or a session that ended (the account
                 // store signs out, and the app shows the sign-in screen).

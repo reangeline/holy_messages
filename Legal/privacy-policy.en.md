@@ -122,6 +122,9 @@ tap **"Receive guidance"**:
   the saint chosen to **Anthropic, PBC** (the **Claude** model), which writes a
   short reflection from them. Anthropic is a second recipient of the text,
   besides Jev, and its handling follows Anthropic's terms for the API.
+  When the text carries a sign of risk to life, the server also tells
+  Anthropic so, for the reflection to speak of God and guide you to seek
+  support and a priest; in that case the passage and the saint may not go.
 - In the onboarding guidance, the answers you gave to the questionnaire (the
   questions about your life and your spiritual life) go along with the text,
   to Jev and to Anthropic, for the same purpose: choosing the passage and the

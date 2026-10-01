@@ -127,6 +127,9 @@ tocar **"Recibir orientación"**:
   escribe una reflexión breve a partir de ellos. Anthropic es un segundo
   destinatario del texto, además de Jev, y su tratamiento sigue los términos de
   Anthropic para la API.
+  Cuando el texto trae una señal de riesgo para la vida, el servidor también
+  se lo indica a Anthropic, para que la reflexión hable de Dios y te oriente a
+  buscar apoyo y a un sacerdote; en ese caso el pasaje y el santo pueden no ir.
 - En la orientación del onboarding, las respuestas que diste al cuestionario
   (las preguntas sobre tu vida y tu vida espiritual) van junto con el texto,
   a Jev y a Anthropic, con la misma finalidad: elegir el pasaje y el santo y

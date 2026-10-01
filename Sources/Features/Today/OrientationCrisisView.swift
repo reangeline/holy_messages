@@ -29,8 +29,6 @@ struct OrientationCrisisView: View {
                         .font(MissaleFont.body(16))
                         .foregroundStyle(Palette.ink.opacity(0.75))
 
-                    reflectionCard
-
                     LiturgicalGradientCard(color: .red) {
                         VStack(alignment: .leading, spacing: 6) {
                             Text(CrisisLines.current.title)
@@ -52,6 +50,11 @@ struct OrientationCrisisView: View {
                             .underline()
                     }
                     .buttonStyle(.plain)
+
+                    // Below the support, never above it: a ~150-word
+                    // reflection arriving seconds later must not push the
+                    // ways to get help off the screen.
+                    reflectionCard
 
                     Button(action: onContinue) {
                         Text("Continuar para a palavra de hoje", tableName: "Today")
