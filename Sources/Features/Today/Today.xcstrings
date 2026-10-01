@@ -1219,25 +1219,25 @@
         }
       }
     },
-    "Este registro entra no seu calendário. Pode ir ao Jev para escolher a palavra do dia, sem ser guardado. Dá para desligar em Ajustes.": {
+    "Este registro entra no seu calendário. Pode ir a um serviço de IA de outra empresa para escolher a palavra do dia, sem ser guardado. Dá para desligar em Ajustes.": {
       "extractionState": "manual",
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "This entry goes into your calendar. It may go to Jev to choose the Word of the Day, and isn't kept. You can turn this off in Settings."
+            "value": "This entry goes into your calendar. It may go to a third-party AI service to choose the Word of the Day, and isn't kept. You can turn this off in Settings."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Este registro entra en tu calendario. Puede ir a Jev para elegir la Palabra del día, sin guardarse. Puedes desactivarlo en Ajustes."
+            "value": "Este registro entra en tu calendario. Puede ir a un servicio de IA de otra empresa para elegir la Palabra del día, sin guardarse. Puedes desactivarlo en Ajustes."
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Este registro entra no seu calendário. Pode ir ao Jev para escolher a palavra do dia, sem ser guardado. Dá para desligar em Ajustes."
+            "value": "Este registro entra no seu calendário. Pode ir a um serviço de IA de outra empresa para escolher a palavra do dia, sem ser guardado. Dá para desligar em Ajustes."
           }
         }
       }
@@ -1443,48 +1443,48 @@
         }
       }
     },
-    "Fica neste aparelho. Ao concluir, o texto vai ao Jev só para escolher um santo e uma oração, sem ser guardado. Dá para desligar em Ajustes.": {
+    "Fica neste aparelho. Ao concluir, o texto vai a um serviço de IA de outra empresa só para escolher um santo e uma oração, sem ser guardado. Dá para desligar em Ajustes.": {
       "extractionState": "manual",
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "It stays on this device. When you finish, the text goes to Jev only to choose a saint and a prayer, and isn't kept. You can turn this off in Settings."
+            "value": "It stays on this device. When you finish, the text goes to a third-party AI service only to choose a saint and a prayer, and isn't kept. You can turn this off in Settings."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Se queda en este dispositivo. Al terminar, el texto va a Jev solo para elegir un santo y una oración, sin guardarse. Puedes desactivarlo en Ajustes."
+            "value": "Se queda en este dispositivo. Al terminar, el texto va a un servicio de IA de otra empresa solo para elegir un santo y una oración, sin guardarse. Puedes desactivarlo en Ajustes."
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Fica neste aparelho. Ao concluir, o texto vai ao Jev só para escolher um santo e uma oração, sem ser guardado. Dá para desligar em Ajustes."
+            "value": "Fica neste aparelho. Ao concluir, o texto vai a um serviço de IA de outra empresa só para escolher um santo e uma oração, sem ser guardado. Dá para desligar em Ajustes."
           }
         }
       }
     },
-    "Fica neste aparelho. Pode ir ao Jev para escolher a palavra do dia, sem ser guardado. Dá para desligar em Ajustes.": {
+    "Fica neste aparelho. Pode ir a um serviço de IA de outra empresa para escolher a palavra do dia, sem ser guardado. Dá para desligar em Ajustes.": {
       "extractionState": "manual",
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "It stays on this device. It may go to Jev to choose the Word of the Day, and isn't kept. You can turn this off in Settings."
+            "value": "It stays on this device. It may go to a third-party AI service to choose the Word of the Day, and isn't kept. You can turn this off in Settings."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Se queda en este dispositivo. Puede ir a Jev para elegir la Palabra del día, sin guardarse. Puedes desactivarlo en Ajustes."
+            "value": "Se queda en este dispositivo. Puede ir a un servicio de IA de otra empresa para elegir la Palabra del día, sin guardarse. Puedes desactivarlo en Ajustes."
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Fica neste aparelho. Pode ir ao Jev para escolher a palavra do dia, sem ser guardado. Dá para desligar em Ajustes."
+            "value": "Fica neste aparelho. Pode ir a um serviço de IA de outra empresa para escolher a palavra do dia, sem ser guardado. Dá para desligar em Ajustes."
           }
         }
       }
@@ -2450,24 +2450,24 @@
         }
       }
     },
-    "Para escolher textos do acervo para você, o Missale envia o que você escreve ao Jev, um serviço de IA de outra empresa. O texto não é guardado. Você pode mudar isso nos Ajustes.": {
+    "Para escolher textos do acervo para você, o Missale envia o que você escreve a serviços de IA de outras empresas. O texto não é guardado. Você pode mudar isso nos Ajustes.": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "To choose texts from the collection for you, Missale sends what you write to Jev, an AI service from another company. The text isn't stored. You can change this in Settings."
+            "value": "To choose texts from the collection for you, Missale sends what you write to third-party AI services. The text isn't stored. You can change this in Settings."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Para elegir textos del acervo para ti, Missale envía lo que escribes a Jev, un servicio de IA de otra empresa. El texto no se guarda. Puedes cambiar esto en Ajustes."
+            "value": "Para elegir textos del acervo para ti, Missale envía lo que escribes a servicios de IA de otras empresas. El texto no se guarda. Puedes cambiar esto en Ajustes."
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Para escolher textos do acervo para você, o Missale envia o que você escreve ao Jev, um serviço de IA de outra empresa. O texto não é guardado. Você pode mudar isso nos Ajustes."
+            "value": "Para escolher textos do acervo para você, o Missale envia o que você escreve a serviços de IA de outras empresas. O texto não é guardado. Você pode mudar isso nos Ajustes."
           }
         }
       }
