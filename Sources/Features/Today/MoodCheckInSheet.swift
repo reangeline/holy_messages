@@ -32,11 +32,12 @@ struct MoodCheckInSheet: View {
         case reflection(MoodStateOption)
         /// `Int?`: the reply the orientação chose, when it chose one.
         /// `String?`: what the reader wrote, when a reflection may be asked.
-        case relief(MoodStateOption, Int?, String?)
+        /// `OrientationPassage?`: the passage the orientação chose to show.
+        case relief(MoodStateOption, Int?, String?, OrientationPassage?)
         case scrupulosity
         case guiding
         /// Crisis guidance first; the state and reply wait behind "continue".
-        case crisis(MoodStateOption?, Int?)
+        case crisis(MoodStateOption?, Int?, OrientationPassage?)
     }
 
     /// What the reader wrote for the orientação.
@@ -80,9 +81,10 @@ struct MoodCheckInSheet: View {
                         onContinue: { note in finalize(option, note: note) }
                     )
                     .transition(transition)
-                case .relief(let option, let chosenIndex, let reflectionText):
+                case .relief(let option, let chosenIndex, let reflectionText, let chosenPassage):
                     if store.isSubscribed {
-                        MoodReliefView(state: option, chosenIndex: chosenIndex, reflectionText: reflectionText) { dismiss() }
+                        MoodReliefView(state: option, chosenIndex: chosenIndex, chosenPassage: chosenPassage,
+                                       reflectionText: reflectionText) { dismiss() }
                             .transition(transition)
                     } else {
                         reliefBloqueado
@@ -97,10 +99,10 @@ struct MoodCheckInSheet: View {
                 case .guiding:
                     guidingBody
                         .transition(transition)
-                case .crisis(let option, let chosenIndex):
+                case .crisis(let option, let chosenIndex, let chosenPassage):
                     OrientationCrisisView {
                         if let option, let note = pendingNote {
-                            complete(option, note: note, chosenIndex: chosenIndex)
+                            complete(option, note: note, chosenIndex: chosenIndex, passage: chosenPassage)
                         } else {
                             retreat(to: .picker)
                         }
@@ -192,11 +194,12 @@ struct MoodCheckInSheet: View {
 
     /// `reflect`: the orientação chose this reply and did not open the crisis
     /// flow, so a reflection on `note` may be asked.
-    private func complete(_ option: MoodStateOption, note: String, chosenIndex: Int?, reflect: Bool = false) {
+    private func complete(_ option: MoodStateOption, note: String, chosenIndex: Int?,
+                          passage: OrientationPassage? = nil, reflect: Bool = false) {
         pendingNote = nil
         orientationMessage = nil
         let count = MoodHistoryStore.shared.record(state: option, note: note.isEmpty ? nil : note)
-        let next: Step = (option.isScrupulosityTrigger && count >= 3) ? .scrupulosity : .relief(option, chosenIndex, reflect && chosenIndex != nil ? note : nil)
+        let next: Step = (option.isScrupulosityTrigger && count >= 3) ? .scrupulosity : .relief(option, chosenIndex, reflect && chosenIndex != nil ? note : nil, passage)
         advance(to: next)
     }
 
@@ -213,9 +216,9 @@ struct MoodCheckInSheet: View {
                 let result = try await OrientationService.orient(text)
                 let option = result.stateID.flatMap(Self.option(forID:))
                 if result.showCrisisFirst {
-                    advance(to: .crisis(option, result.reliefIndex))
+                    advance(to: .crisis(option, result.reliefIndex, result.passage))
                 } else if let option {
-                    complete(option, note: text, chosenIndex: result.reliefIndex, reflect: true)
+                    complete(option, note: text, chosenIndex: result.reliefIndex, passage: result.passage, reflect: true)
                 } else {
                     askForState(L.string("Não consegui entender bem como você está. Escolha abaixo — o que você escreveu vai junto.", table: "Today"))
                 }
@@ -229,7 +232,7 @@ struct MoodCheckInSheet: View {
                 // store signs out, and the app shows the sign-in screen).
                 let crisis = CrisisPhrases.matches(text)
                 askForState(L.string("Não consegui buscar a orientação agora. Escolha abaixo como você está — o que você escreveu vai junto.", table: "Today"))
-                if crisis { advance(to: .crisis(nil, nil)) }
+                if crisis { advance(to: .crisis(nil, nil, nil)) }
             }
         }
     }

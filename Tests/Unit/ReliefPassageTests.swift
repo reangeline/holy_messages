@@ -59,4 +59,16 @@ final class ReliefPassageTests: XCTestCase {
             if let found { XCTAssertEqual(found.book.id, "PSA"); XCTAssertEqual(PsalmNumbering.vulgateToHebrew[found.chapter], ["\(n)"]) }
         }
     }
+
+    /// Word of the Day verses open their chapter too, in each language.
+    func testNewTestamentReferenceResolvesInEveryLanguage() throws {
+        for (language, reference) in [(AppLanguage.pt, "Mateus 6, 6"), (.en, "Matthew 6:6"), (.es, "Mateo 6, 6")] {
+            let found = try XCTUnwrap(ReliefPassage.resolve(reference, in: bible(language)), reference)
+            XCTAssertEqual(found.book.id, "MAT", reference)
+            XCTAssertEqual(found.chapter, 6, reference)
+            XCTAssertEqual(found.verses, 6...6, reference)
+        }
+        let range = try XCTUnwrap(ReliefPassage.resolve("Matthew 5:3", in: bible(.en)))
+        XCTAssertEqual(range.chapter, 5)
+    }
 }
