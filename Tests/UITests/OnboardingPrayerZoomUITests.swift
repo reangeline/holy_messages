@@ -14,11 +14,10 @@ import XCTest
 final class OnboardingPrayerZoomUITests: XCTestCase {
 
     /// The emphasized text is laid out at 27pt on its final three lines and
-    /// grows by scale from the resting 17pt look (1.588x) — but layout/font
-    /// rendering can vary a little across simulators; 1.4 gives margin below
-    /// the measured ~2.37x (44.67pt resting → 106pt emphasized, both
-    /// devices, all three languages) without being so loose it'd miss a
-    /// regression that stops the text from growing.
+    /// grows by scale from the resting 17pt look: 1.588x in theory, measured
+    /// ~66.7pt resting → 106pt emphasized on the iPhone 17 Pro Max. 1.4 leaves
+    /// room for rendering differences across simulators while still catching
+    /// a regression that stops the text from growing.
     private let minGrowthRatio: CGFloat = 1.4
     /// Height of 3 lines at 27pt (MissaleFont.body) plus ~15% slack.
     /// Measured at exactly 106pt on both iPhone 17 (C99CC429) and iPhone 17e
