@@ -79,6 +79,7 @@ final class LocalizationKeyTests: XCTestCase {
         "part {n} of {total}",          // "parte {n} de {total}" nos dois
         "Missale Premium · yearly",     // "Missale Premium · anual" nos dois
         "Sunday · Cycle {c}",           // "Domingo · Ciclo {c}" nos dois
+        "Continue: Part {n}: {title}",  // "Continuar: Parte {n}: {title}" nos dois
     ]
 
     /// And a long text identical in Portuguese and Spanish is an entry that was
