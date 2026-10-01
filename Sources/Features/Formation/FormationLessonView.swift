@@ -48,7 +48,6 @@ struct FormationLessonView: View {
                     ForEach(Array(pages.enumerated()), id: \.offset) { indice, item in
                         ScrollView {
                             pageContent(item)
-                                .id(lesson.id)
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .padding(.horizontal, 24)
                                 .padding(.top, 28)
@@ -60,6 +59,9 @@ struct FormationLessonView: View {
                 }
                 .tabViewStyle(.page(indexDisplayMode: .never))
                 .animation(.easeInOut(duration: 0.25), value: page)
+                // A new lesson gets a new pager, on its first page and at the
+                // top, instead of scrolling back from the last one's end.
+                .id(lesson.id)
 
                 footer
                     .padding(.horizontal, 24)
