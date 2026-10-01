@@ -16,7 +16,8 @@ struct OnboardingOrientationView: View {
         case writing
         case guiding
         case crisis(MoodStateOption?, Int?)
-        case reply(MoodStateOption, Int?)
+        /// `String?`: what the reader wrote, when a reflection may be asked.
+        case reply(MoodStateOption, Int?, String?)
         case notice(String)
     }
 
@@ -42,11 +43,12 @@ struct OnboardingOrientationView: View {
                     .padding(.horizontal, 36)
                 case .crisis(let option, let index):
                     OrientationCrisisView {
-                        if let option { show(option, index) } else { onNext() }
+                        if let option { show(option, index, reflectionText: nil) } else { onNext() }
                     }
-                case .reply(let option, let index):
+                case .reply(let option, let index, let reflectionText):
                     MoodReliefView(state: option, chosenIndex: index,
                                    continueTitle: L.string("Continue", table: "Onboarding"),
+                                   reflectionText: reflectionText, reflectionFree: true,
                                    onDone: onNext)
                 case .notice(let message):
                     VStack(alignment: .leading, spacing: 16) {
@@ -75,7 +77,7 @@ struct OnboardingOrientationView: View {
                         .font(MissaleFont.display(27))
                         .foregroundStyle(Palette.ink)
                         .padding(.top, 16)
-                    Text("Your first guidance is a gift: a word from Scripture and the saints, chosen for what you write.", tableName: "Onboarding")
+                    Text("From what you write, we'll look in the Bible for a passage connected to that feeling, to guide you in the Word of the Lord, and a saint who went through the same.", tableName: "Onboarding")
                         .font(MissaleFont.body(16))
                         .foregroundStyle(Palette.ink.opacity(0.7))
                     OrientationWritingCard(text: $text, onSend: send, onLocked: {}, isFree: true)
@@ -108,7 +110,7 @@ struct OnboardingOrientationView: View {
                 if result.showCrisisFirst {
                     phase = .crisis(option, result.reliefIndex)
                 } else if let option {
-                    show(option, result.reliefIndex)
+                    show(option, result.reliefIndex, reflectionText: written)
                 } else {
                     phase = .notice(L.string("I couldn't quite tell how you are. In the app, \"Today I am…\" lets you choose it with one tap.", table: "Onboarding"))
                 }
@@ -122,8 +124,8 @@ struct OnboardingOrientationView: View {
         }
     }
 
-    private func show(_ option: MoodStateOption, _ index: Int?) {
-        phase = .reply(option, index)
+    private func show(_ option: MoodStateOption, _ index: Int?, reflectionText: String?) {
+        phase = .reply(option, index, reflectionText)
     }
 }
 

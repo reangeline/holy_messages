@@ -9,6 +9,11 @@ import AVFoundation
 /// downloaded and nothing leaves the phone.
 @MainActor
 final class RosaryVoiceGuide: NSObject, ObservableObject, AVSpeechSynthesizerDelegate {
+    /// Whether voice guiding is available. Set to false until we have recorded
+    /// audio files. When true, the toggle reappears in the Rosary picker.
+    static let voiceGuideAvailable = false
+
+
     private let synthesizer = AVSpeechSynthesizer()
     private var onFinish: (() -> Void)?
 

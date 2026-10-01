@@ -105,7 +105,7 @@ struct RosaryGuidedPrayerView: View {
     /// With the voice on, reads the bead on screen and moves to the next one
     /// when it finishes. A tap still advances at once and cuts the voice.
     private func speakCurrentBead() {
-        guard voiceGuiding, !navigateToDark else { return voice.stop() }
+        guard RosaryVoiceGuide.voiceGuideAvailable, voiceGuiding, !navigateToDark else { return voice.stop() }
         guard !isFinished else { return voice.finish() }
         let step = MockRosary.step(for: beads[index], mystery: mystery)
         let atual = index

@@ -9,6 +9,17 @@ struct MoodReliefView: View {
     /// the "‹ Voltar" at the top gives way to this button at the bottom.
     var continueTitle: String? = nil
     private let relief: ReliefContent
+    /// What the reader wrote, when a reflection may be asked for it: only
+    /// after Jev chose this reply and the orientação did not open the crisis
+    /// flow. Nil asks nothing. The reflection stays in memory, never saved.
+    private let reflectionText: String?
+    private let reflectionFree: Bool
+    @State private var reflection: String?
+    @State private var isReflecting = false
+    /// The Bible and the chapter behind `relief.psalmRef`, once found. While
+    /// nil (or when the reference can't be placed) the block is just text.
+    @State private var passage: (bible: Bible, passage: ReliefPassage)?
+    @State private var showPassage = false
 
     // Picked once, at init, rather than as a computed property — a computed
     // property would re-roll a new (possibly different) variation on every
@@ -16,16 +27,20 @@ struct MoodReliefView: View {
     // shown" index for the anti-repetition check.
     /// `chosenIndex` is the variation the orientação picked for what the
     /// reader wrote; without it, one is drawn avoiding the last shown.
-    init(state: MoodStateOption, chosenIndex: Int? = nil, continueTitle: String? = nil, onDone: @escaping () -> Void) {
+    init(state: MoodStateOption, chosenIndex: Int? = nil, continueTitle: String? = nil,
+         reflectionText: String? = nil, reflectionFree: Bool = false, onDone: @escaping () -> Void) {
         self.state = state
         self.onDone = onDone
         self.continueTitle = continueTitle
+        self.reflectionFree = reflectionFree
         if let chosenIndex, let variants = MockMood.reliefVariants(for: state.id),
            variants.indices.contains(chosenIndex) {
             self.relief = variants[chosenIndex]
+            self.reflectionText = reflectionText
             MoodHistoryStore.shared.recordReliefShown(stateID: state.id, index: chosenIndex)
             return
         }
+        self.reflectionText = nil   // Jev made no choice: nothing to reflect on
         let lastIndex = MoodHistoryStore.shared.lastReliefIndex(for: state.id)
         let (content, index) = MockMood.relief(for: state.id, excluding: lastIndex)
         self.relief = content
@@ -57,19 +72,11 @@ struct MoodReliefView: View {
                         .font(MissaleFont.display(28, weight: .semibold))
                         .foregroundStyle(Palette.ink)
 
-                    LiturgicalGradientCard(color: .red) {
-                        VStack(alignment: .leading, spacing: 8) {
-                            Eyebrow(text: relief.psalmRef, color: Palette.goldBright)
-                            Text(relief.psalmText)
-                                .font(MissaleFont.display(21, italic: true))
-                                .foregroundStyle(.white)
-                            Text(relief.psalmWhy)
-                                .font(MissaleFont.body(14))
-                                .foregroundStyle(.white.opacity(0.85))
-                        }
-                    }
+                    passageBlock
 
                     saintCard
+
+                    reflectionCard
 
                     GlassCard {
                         VStack(alignment: .leading, spacing: 6) {
@@ -108,6 +115,90 @@ struct MoodReliefView: View {
                 .padding(.horizontal, 24)
                 .padding(.bottom, 30)
             }
+        }
+        .task {
+            // Runs again on the way back from the saint's page: ask once, and
+            // never let a later failure wipe a reflection already shown.
+            guard let reflectionText, reflection == nil, !isReflecting else { return }
+            isReflecting = true
+            let result = await OrientationService.reflect(on: reflectionText, relief: relief, free: reflectionFree)
+            if let result { withAnimation(.easeInOut(duration: 0.25)) { reflection = result } }
+            isReflecting = false
+        }
+        // Off the main thread: the first touch decodes the whole Bible.
+        .task {
+            let reference = relief.psalmRef
+            let language = AppLanguagePreference.resolveCurrent()
+            passage = await Task.detached(priority: .userInitiated) {
+                guard let bible = BibleCatalog.bible(for: language),
+                      let found = ReliefPassage.resolve(reference, in: bible) else { return nil }
+                return (bible, found)
+            }.value
+        }
+    }
+
+    /// Absent until the reflection arrives, and for good if it never does.
+    @ViewBuilder
+    private var reflectionCard: some View {
+        if let reflection {
+            GlassCard {
+                VStack(alignment: .leading, spacing: 6) {
+                    Eyebrow(text: L.string("Uma palavra para você", table: "Today"))
+                    Text(reflection)
+                        .font(MissaleFont.body(15))
+                        .foregroundStyle(Palette.ink.opacity(0.75))
+                    Text("Escrita por IA a partir da passagem e do santo.", tableName: "Today")
+                        .font(MissaleFont.body(12))
+                        .foregroundStyle(Palette.ink.opacity(0.45))
+                }
+            }
+            .transition(.opacity)
+            .accessibilityIdentifier("orientationReflection")
+        } else if isReflecting {
+            ProgressView().tint(Palette.wine)
+                .frame(maxWidth: .infinity)
+                .accessibilityIdentifier("orientationReflectionLoading")
+        }
+    }
+
+    private var passageCard: some View {
+        LiturgicalGradientCard(color: .red) {
+            VStack(alignment: .leading, spacing: 8) {
+                Eyebrow(text: relief.psalmRef, color: Palette.goldBright)
+                Text(relief.psalmText)
+                    .font(MissaleFont.display(21, italic: true))
+                    .foregroundStyle(.white)
+                Text(relief.psalmWhy)
+                    .font(MissaleFont.body(14))
+                    .foregroundStyle(.white.opacity(0.85))
+            }
+        }
+    }
+
+    /// Tap opens the whole chapter, with the quoted verses marked. Without a
+    /// chapter to open it stays the plain card it was.
+    @ViewBuilder
+    private var passageBlock: some View {
+        if let passage {
+            Button { showPassage = true } label: { passageCard }
+                .buttonStyle(.plain)
+                .accessibilityHint(L.string("Toque para ler o capítulo inteiro", table: "Today"))
+                .sheet(isPresented: $showPassage) {
+                    NavigationStack {
+                        BibleChapterView(bible: passage.bible, book: passage.passage.book,
+                                         chapter: passage.passage.chapter,
+                                         focusVerse: passage.passage.verses?.lowerBound,
+                                         passage: passage.passage.verses)
+                            .toolbar {
+                                ToolbarItem(placement: .topBarLeading) {
+                                    Button(L.string("Fechar", table: "Today")) { showPassage = false }
+                                        .foregroundStyle(Palette.wine)
+                                }
+                            }
+                    }
+                }
+        } else {
+            passageCard
         }
     }
 

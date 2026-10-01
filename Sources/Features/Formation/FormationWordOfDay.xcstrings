@@ -793,6 +793,248 @@
           }
         }
       }
+    },
+    "Why is today green?": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Why is today green?"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Por qué hoy es verde?"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Por que hoje é verde?"
+          }
+        }
+      }
+    },
+    "Why is today purple?": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Why is today purple?"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Por qué hoy es morado?"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Por que hoje é roxo?"
+          }
+        }
+      }
+    },
+    "Why is today white?": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Why is today white?"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Por qué hoy es blanco?"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Por que hoje é branco?"
+          }
+        }
+      }
+    },
+    "Why is today rose?": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Why is today rose?"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Por qué hoy es rosa?"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Por que hoje é rosa?"
+          }
+        }
+      }
+    },
+    "Why is today black?": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Why is today black?"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Por qué hoy es negro?"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Por que hoje é preto?"
+          }
+        }
+      }
+    },
+    "Red day explanation": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Red is the color of blood and fire. The Church wears it for the Lord's Passion, Pentecost, the Apostles and the martyrs, who gave their lives for Christ."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El rojo es el color de la sangre y del fuego. La Iglesia lo viste en la Pasión del Señor, en Pentecostés, en las fiestas de los Apóstoles y de los mártires, que dieron la vida por Cristo."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O vermelho é a cor do sangue e do fogo. A Igreja o veste na Paixão do Senhor, em Pentecostes, nas festas dos Apóstolos e dos mártires, que deram a vida por Cristo."
+          }
+        }
+      }
+    },
+    "Green day explanation": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Green is the color of Ordinary Time, the ordinary life of the Church. Like leaves that keep growing, it speaks of hope and of the steady growth of faith."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El verde es el color del Tiempo Ordinario, la vida ordinaria de la Iglesia. Como las hojas que siguen creciendo, habla de esperanza y del crecimiento constante de la fe."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O verde é a cor do Tempo Comum, a vida ordinária da Igreja. Como as folhas que continuam crescendo, fala de esperança e do crescimento constante da fé."
+          }
+        }
+      }
+    },
+    "Purple day explanation": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Purple marks Advent and Lent: seasons of penance, conversion and preparation, to welcome Christ at Christmas and at Easter."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El morado marca el Adviento y la Cuaresma: tiempos de penitencia, conversión y preparación para acoger a Cristo en la Navidad y en la Pascua."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O roxo marca o Advento e a Quaresma: tempos de penitência, conversão e preparação para acolher Cristo no Natal e na Páscoa."
+          }
+        }
+      }
+    },
+    "White day explanation": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "White (or gold) is the color of joy and light. It is used at Easter and Christmas, on solemnities and feasts of the Lord and of Our Lady, and for saints who were not martyrs."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El blanco (o dorado) es el color de la alegría y de la luz. Se usa en la Pascua y la Navidad, en las solemnidades y fiestas del Señor y de Nuestra Señora, y en los santos que no fueron mártires."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O branco (ou dourado) é a cor da alegria e da luz. Usa-se na Páscoa e no Natal, nas solenidades e festas do Senhor e de Nossa Senhora, e nos santos que não foram mártires."
+          }
+        }
+      }
+    },
+    "Rose day explanation": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rose is worn only twice a year: Gaudete Sunday in Advent and Laetare Sunday in Lent. It is a brief note of joy, because the feast is already near."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El rosa solo aparece dos veces al año: el domingo Gaudete, en Adviento, y el domingo Laetare, en Cuaresma. Es un breve toque de alegría, porque la fiesta ya está cerca."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O rosa só aparece duas vezes por ano: no domingo Gaudete, no Advento, e no domingo Laetare, na Quaresma. É um breve toque de alegria, porque a festa já está perto."
+          }
+        }
+      }
+    },
+    "Black day explanation": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Black is the color of mourning, used for the dead. It is rare today, since white or purple may be used instead."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El negro es el color del luto, usado por los fieles difuntos. Hoy es raro, pues se puede usar blanco o morado en su lugar."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O preto é a cor do luto, usado pelos fiéis defuntos. Hoje é raro, pois pode-se usar branco ou roxo no lugar."
+          }
+        }
+      }
     }
   },
   "version": "1.0"

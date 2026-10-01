@@ -31,7 +31,8 @@ struct MoodCheckInSheet: View {
         case picker
         case reflection(MoodStateOption)
         /// `Int?`: the reply the orientação chose, when it chose one.
-        case relief(MoodStateOption, Int?)
+        /// `String?`: what the reader wrote, when a reflection may be asked.
+        case relief(MoodStateOption, Int?, String?)
         case scrupulosity
         case guiding
         /// Crisis guidance first; the state and reply wait behind "continue".
@@ -79,9 +80,9 @@ struct MoodCheckInSheet: View {
                         onContinue: { note in finalize(option, note: note) }
                     )
                     .transition(transition)
-                case .relief(let option, let chosenIndex):
+                case .relief(let option, let chosenIndex, let reflectionText):
                     if store.isSubscribed {
-                        MoodReliefView(state: option, chosenIndex: chosenIndex) { dismiss() }
+                        MoodReliefView(state: option, chosenIndex: chosenIndex, reflectionText: reflectionText) { dismiss() }
                             .transition(transition)
                     } else {
                         reliefBloqueado
@@ -189,11 +190,13 @@ struct MoodCheckInSheet: View {
         complete(option, note: note, chosenIndex: nil)
     }
 
-    private func complete(_ option: MoodStateOption, note: String, chosenIndex: Int?) {
+    /// `reflect`: the orientação chose this reply and did not open the crisis
+    /// flow, so a reflection on `note` may be asked.
+    private func complete(_ option: MoodStateOption, note: String, chosenIndex: Int?, reflect: Bool = false) {
         pendingNote = nil
         orientationMessage = nil
         let count = MoodHistoryStore.shared.record(state: option, note: note.isEmpty ? nil : note)
-        let next: Step = (option.isScrupulosityTrigger && count >= 3) ? .scrupulosity : .relief(option, chosenIndex)
+        let next: Step = (option.isScrupulosityTrigger && count >= 3) ? .scrupulosity : .relief(option, chosenIndex, reflect && chosenIndex != nil ? note : nil)
         advance(to: next)
     }
 
@@ -212,7 +215,7 @@ struct MoodCheckInSheet: View {
                 if result.showCrisisFirst {
                     advance(to: .crisis(option, result.reliefIndex))
                 } else if let option {
-                    complete(option, note: text, chosenIndex: result.reliefIndex)
+                    complete(option, note: text, chosenIndex: result.reliefIndex, reflect: true)
                 } else {
                     askForState(L.string("Não consegui entender bem como você está. Escolha abaixo — o que você escreveu vai junto.", table: "Today"))
                 }

@@ -1,9 +1,10 @@
 import Foundation
 
 /// The orientação: what the reader wrote goes to Jev (through the Missale API)
-/// and comes back as a choice from the reviewed collection — never generated
-/// text. Two questions, as measured in the laya-spike (47/48 states right,
-/// 7/8 risk phrases caught, with English instructions over Portuguese text):
+/// and comes back as a choice from the reviewed collection; only the short
+/// reflection under it is written (by Claude, see `reflect`). Two questions,
+/// as measured in the laya-spike (47/48 states right, 7/8 risk phrases
+/// caught, with English instructions over Portuguese text):
 ///
 /// 1. which mood state the text describes, and whether it signals a risk to
 ///    the reader's life;
@@ -75,6 +76,40 @@ enum OrientationService {
         return Result(stateID: stateID, reliefIndex: reliefIndex, showCrisisFirst: showCrisisFirst)
     }
 
+    typealias Reflect = (_ body: [String: Any]) async throws -> String
+
+    /// The short reflection, in the voice of a priest, about the passage and
+    /// the saint of `relief`. Nil — and nothing sent — when the orientação fell
+    /// into the crisis flow, and on any failure (offline, 402, 429, 502, 503):
+    /// the reflection is an extra, so callers only ever show it or don't. It is
+    /// never saved; the screen keeps it in memory while it is open.
+    static func reflect(on text: String, relief: ReliefContent, showCrisisFirst: Bool, free: Bool,
+                        language: AppLanguage = AppLanguagePreference.resolveCurrent(),
+                        send: Reflect) async -> String? {
+        let state = text.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !showCrisisFirst, !state.isEmpty else { return nil }
+        let body = MissaleAPI.reflectionBody(
+            state: state, reference: relief.psalmRef, passage: relief.psalmText,
+            saint: relief.saintName, summary: relief.saintWhy, language: language.rawValue, free: free)
+        guard let reflection = try? await send(body) else { return nil }
+        let trimmed = reflection.trimmingCharacters(in: .whitespacesAndNewlines)
+        return trimmed.isEmpty ? nil : trimmed
+    }
+
+    /// The same, through the Missale API. Callers only get here outside the
+    /// crisis flow (the screen is given no text otherwise).
+    static func reflect(on text: String, relief: ReliefContent, free: Bool) async -> String? {
+#if DEBUG
+        if let fake = debugFakeReflection { return fake.isEmpty ? nil : fake }
+#endif
+        guard let token = try? await AccountStore.shared.validAccessToken() else { return nil }
+        let jws = await SubscriptionStore.shared.activeSubscriptionJWS()
+        if jws == nil && !free { return nil }
+        return await reflect(on: text, relief: relief, showCrisisFirst: false, free: free) { body in
+            try await MissaleAPI.reflect(body: body, accessToken: token, subscriptionJWS: jws)
+        }
+    }
+
     /// Jev reads English instructions best; the reader's text stays as written.
     static let stateCriteria: [String: String] = [
         "peace": "At peace: inner calm, serenity",
@@ -96,6 +131,12 @@ enum OrientationService {
     ]
 
 #if DEBUG
+    /// `-fakeReflection "texto"` answers the reflection without the network;
+    /// an empty value behaves as a failure.
+    private static var debugFakeReflection: String? {
+        UserDefaults.standard.volatileDomain(forName: UserDefaults.argumentDomain)["fakeReflection"] as? String
+    }
+
     /// `-fakeOrientation grief` answers without the network, so the UI suite
     /// can walk the whole flow. `crisis` answers with the risk flag up;
     /// `unsure` with no confident state; `offline` fails like no connection.

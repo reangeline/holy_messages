@@ -1,6 +1,6 @@
 # Missale Privacy Policy
 
-**Last updated: 26 September 2026**
+**Last updated: 1 October 2026**
 
 This policy describes the Missale app for iPhone and iPad. It was written from
 the app's source code rather than from a template: everything the app stores is
@@ -16,8 +16,9 @@ address).
 
 **What you write and log stays on your device.** Your notes, the Examen, your
 "Today I am…" log, your rosaries and your progress stay only on your iPhone.
-**There are two exceptions, and in both the text only serves for Jev to choose
-something from the reviewed collection:** the text you write in the "Write
+**There are two exceptions, and in both the text serves for Jev to choose
+something from the reviewed collection (in the guidance, also for Anthropic to
+write a short reflection):** the text you write in the "Write
 what you are feeling" box leaves the device when, and only when, you tap
 "Receive guidance"; and, if you subscribe and personalization is on, some of
 what you write (the Rosary intention, the Examen, the morning intention) is
@@ -115,10 +116,15 @@ tap **"Receive guidance"**:
   Missale's reviewed collection, the state the text describes and the reply
   (the Psalm, the saint and the step) that fits it best, and indicates whether
   the text carries a sign of risk to life, so the crisis guidance comes first.
-- **We do not keep the text**, and it does not go into the server's logs. The
-  server keeps only how many guidance requests your account made each day, for
-  a daily limit, and how many it used without a subscription. OpenRouter and
-  TypeSafe process the text to answer, under their own policies.
+- After Jev chooses, the Missale server sends your text, the Bible passage and
+  the saint chosen to **Anthropic, PBC** (the **Claude** model), which writes a
+  short reflection from them. Anthropic is a second recipient of the text,
+  besides Jev, and its handling follows Anthropic's terms for the API.
+- **We do not keep the text** or the reflection, and they do not go into the
+  server's logs. The server keeps only how many guidance requests your account
+  made each day, for a daily limit, and how many it used without a
+  subscription. OpenRouter and TypeSafe process the text to answer, under their
+  own policies.
 - On your device, the text is saved as the note of that "Today I am…" entry,
   like any note of yours.
 - Because the text may speak of your faith and your emotional health, which are
