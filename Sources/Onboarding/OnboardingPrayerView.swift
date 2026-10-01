@@ -1,6 +1,6 @@
 import SwiftUI
 
-/// The climax: after reading the relief, the reader actually prays — one breath,
+/// The climax: after the orientação, the reader actually prays — one breath,
 /// then the Our Father phrase by phrase — and lands on a first milestone.
 struct OnboardingPrayerView: View {
     let onNext: () -> Void
