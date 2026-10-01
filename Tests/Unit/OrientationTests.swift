@@ -60,4 +60,78 @@ final class OrientationTests: XCTestCase {
             }
         }
     }
+
+    // MARK: - The passage question
+
+    private func grief(_ language: AppLanguage = .pt) throws -> (variants: [ReliefContent], pool: [WordOfDay], english: [WordOfDay]) {
+        (try XCTUnwrap(MockMood.reliefVariants(for: "grief", language: language)),
+         MockWordOfDay.catalog[language], MockWordOfDay.catalog[.en])
+    }
+
+    func testPassageCandidatesMixPsalmsAndTheStatesVerses() throws {
+        let (variants, pool, english) = try grief()
+        let found = try XCTUnwrap(OrientationService.passageCandidates(
+            stateID: "grief", variants: variants, pool: pool, english: english))
+        XCTAssertLessThanOrEqual(found.criteria.count, 32)
+        XCTAssertTrue(found.criteria.keys.contains { $0.hasPrefix("p") })
+        XCTAssertFalse(found.verses.isEmpty)
+        let linked = Set(MockWordOfDay.moodStatesByEnglishReference.filter { $0.value.contains("grief") }
+            .compactMap { IntentionVerse.signature($0.key) })
+        for (key, text) in found.criteria {
+            XCTAssertLessThanOrEqual(text.count, 400, key)
+            guard key.hasPrefix("v") else { continue }
+            let word = try XCTUnwrap(found.verses[String(key.dropFirst())], key)
+            XCTAssertTrue(pool.contains { $0.id == word.id }, "id fora do idioma atual: \(key)")
+            XCTAssertTrue(linked.contains(IntentionVerse.signature(word.reference) ?? ""), "versículo de outro estado: \(key)")
+            // Described in English, though the id is the Portuguese one.
+            XCTAssertTrue(text.hasPrefix(english.first { IntentionVerse.signature($0.reference) == IntentionVerse.signature(word.reference) }!.reference))
+        }
+        let psalms = found.criteria.keys.filter { $0.hasPrefix("p") }
+        XCTAssertEqual(psalms.count, Set(variants.map(\.psalmRef)).count, "salmos duplicados")
+    }
+
+    func testPassageCandidatesCutVersesFirstAndNeedTwo() throws {
+        let (variants, pool, english) = try grief()
+        let many = (0..<32).map { _ in variants[0] }.enumerated().map { index, relief in
+            ReliefContent(title: "t", psalmRef: "Salmo \(index + 1)", psalmText: "x", psalmWhy: "w",
+                          saintName: "s", saintWhy: "w", stepTitle: "s", stepBody: "b")
+        }
+        let full = try XCTUnwrap(OrientationService.passageCandidates(stateID: "grief", variants: many, pool: pool, english: english))
+        XCTAssertEqual(full.criteria.count, 32)
+        XCTAssertTrue(full.verses.isEmpty)
+        XCTAssertNil(OrientationService.passageCandidates(stateID: "grief", variants: [variants[0]], pool: [], english: []))
+    }
+
+    func testChosenVerseShowsTheVerseWithItsContext() throws {
+        let (variants, pool, english) = try grief()
+        let found = try XCTUnwrap(OrientationService.passageCandidates(stateID: "grief", variants: variants, pool: pool, english: english))
+        let (id, word) = try XCTUnwrap(found.verses.first)
+        let answer: [String: Any] = ["choice": "v\(id)", "probabilities": ["v\(id)": 0.6]]
+        let shown = OrientationService.chosenPassage(from: answer, verses: found.verses, variants: variants, replyIndex: 1)
+        XCTAssertEqual(shown, OrientationPassage(reference: word.reference, text: word.quote, why: word.context))
+    }
+
+    func testChosenPsalmShowsThatReflectionsPsalm() throws {
+        let (variants, _, _) = try grief()
+        let answer: [String: Any] = ["choice": "p3", "probabilities": ["p3": 0.5]]
+        let shown = OrientationService.chosenPassage(from: answer, verses: [:], variants: variants, replyIndex: 1)
+        XCTAssertEqual(shown, OrientationPassage(psalmOf: variants[3]))
+    }
+
+    func testLowMissingOrBrokenAnswerFallsBackToTheRepliesPsalm() throws {
+        let (variants, pool, english) = try grief()
+        let found = try XCTUnwrap(OrientationService.passageCandidates(stateID: "grief", variants: variants, pool: pool, english: english))
+        let id = try XCTUnwrap(found.verses.keys.first)
+        let fallback = OrientationPassage(psalmOf: variants[1])
+        let answers: [[String: Any]?] = [
+            ["choice": "v\(id)", "probabilities": ["v\(id)": 0.05]],
+            ["choice": "v\(id)"],
+            ["choice": "vnao-existe", "probabilities": ["vnao-existe": 0.9]],
+            ["choice": "p99", "probabilities": ["p99": 0.9]],
+            nil,
+        ]
+        for answer in answers {
+            XCTAssertEqual(OrientationService.chosenPassage(from: answer, verses: found.verses, variants: variants, replyIndex: 1), fallback)
+        }
+    }
 }

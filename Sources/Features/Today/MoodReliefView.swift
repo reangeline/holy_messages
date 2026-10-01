@@ -1,7 +1,7 @@
 import SwiftUI
 
 /// Screen 3 (eIs3) — tailored relief content shown right after logging a state:
-/// a psalm, a saint who carried something similar, and one concrete step.
+/// a passage (a psalm or a Word of the Day verse), a saint who carried something similar, and one concrete step.
 struct MoodReliefView: View {
     let state: MoodStateOption
     var onDone: () -> Void
@@ -9,6 +9,8 @@ struct MoodReliefView: View {
     /// the "‹ Voltar" at the top gives way to this button at the bottom.
     var continueTitle: String? = nil
     private let relief: ReliefContent
+    /// The red block: the passage the orientação chose, else the relief's psalm.
+    private let shown: OrientationPassage
     /// What the reader wrote, when a reflection may be asked for it: only
     /// after Jev chose this reply and the orientação did not open the crisis
     /// flow. Nil asks nothing. The reflection stays in memory, never saved.
@@ -16,7 +18,7 @@ struct MoodReliefView: View {
     private let reflectionFree: Bool
     @State private var reflection: String?
     @State private var isReflecting = false
-    /// The Bible and the chapter behind `relief.psalmRef`, once found. While
+    /// The Bible and the chapter behind `shown.reference`, once found. While
     /// nil (or when the reference can't be placed) the block is just text.
     @State private var passage: (bible: Bible, passage: ReliefPassage)?
     @State private var showPassage = false
@@ -27,7 +29,7 @@ struct MoodReliefView: View {
     // shown" index for the anti-repetition check.
     /// `chosenIndex` is the variation the orientação picked for what the
     /// reader wrote; without it, one is drawn avoiding the last shown.
-    init(state: MoodStateOption, chosenIndex: Int? = nil, continueTitle: String? = nil,
+    init(state: MoodStateOption, chosenIndex: Int? = nil, chosenPassage: OrientationPassage? = nil, continueTitle: String? = nil,
          reflectionText: String? = nil, reflectionFree: Bool = false, onDone: @escaping () -> Void) {
         self.state = state
         self.onDone = onDone
@@ -36,6 +38,7 @@ struct MoodReliefView: View {
         if let chosenIndex, let variants = MockMood.reliefVariants(for: state.id),
            variants.indices.contains(chosenIndex) {
             self.relief = variants[chosenIndex]
+            self.shown = chosenPassage ?? OrientationPassage(psalmOf: variants[chosenIndex])
             self.reflectionText = reflectionText
             MoodHistoryStore.shared.recordReliefShown(stateID: state.id, index: chosenIndex)
             return
@@ -44,6 +47,7 @@ struct MoodReliefView: View {
         let lastIndex = MoodHistoryStore.shared.lastReliefIndex(for: state.id)
         let (content, index) = MockMood.relief(for: state.id, excluding: lastIndex)
         self.relief = content
+        self.shown = OrientationPassage(psalmOf: content)
         MoodHistoryStore.shared.recordReliefShown(stateID: state.id, index: index)
     }
 
@@ -121,13 +125,13 @@ struct MoodReliefView: View {
             // never let a later failure wipe a reflection already shown.
             guard let reflectionText, reflection == nil, !isReflecting else { return }
             isReflecting = true
-            let result = await OrientationService.reflect(on: reflectionText, relief: relief, free: reflectionFree)
+            let result = await OrientationService.reflect(on: reflectionText, relief: relief, passage: shown, free: reflectionFree)
             if let result { withAnimation(.easeInOut(duration: 0.25)) { reflection = result } }
             isReflecting = false
         }
         // Off the main thread: the first touch decodes the whole Bible.
         .task {
-            let reference = relief.psalmRef
+            let reference = shown.reference
             let language = AppLanguagePreference.resolveCurrent()
             passage = await Task.detached(priority: .userInitiated) {
                 guard let bible = BibleCatalog.bible(for: language),
@@ -164,11 +168,11 @@ struct MoodReliefView: View {
     private var passageCard: some View {
         LiturgicalGradientCard(color: .red) {
             VStack(alignment: .leading, spacing: 8) {
-                Eyebrow(text: relief.psalmRef, color: Palette.goldBright)
-                Text(relief.psalmText)
+                Eyebrow(text: shown.reference, color: Palette.goldBright)
+                Text(shown.text)
                     .font(MissaleFont.display(21, italic: true))
                     .foregroundStyle(.white)
-                Text(relief.psalmWhy)
+                Text(shown.why)
                     .font(MissaleFont.body(14))
                     .foregroundStyle(.white.opacity(0.85))
             }

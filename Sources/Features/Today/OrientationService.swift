@@ -8,13 +8,18 @@ import Foundation
 ///
 /// 1. which mood state the text describes, and whether it signals a risk to
 ///    the reader's life;
-/// 2. which of that state's reviewed replies fits the text best.
+/// 2. in one call with two questions: which of that state's reviewed replies
+///    fits the text best ("reply"), and which passage speaks to the reader
+///    most ("passage"): a psalm from those replies or a Word of the Day verse
+///    linked to the state. One call because each call spends one use.
 enum OrientationService {
 
     struct Result: Equatable {
         /// Nil when Jev wasn't confident: the reader picks the state.
         let stateID: String?
         let reliefIndex: Int?
+        /// What the red block shows; nil when the reply wasn't chosen either.
+        var passage: OrientationPassage? = nil
         let showCrisisFirst: Bool
     }
 
@@ -24,6 +29,10 @@ enum OrientationService {
     /// pass; a missed one could cost much more. None of the 48 ordinary test
     /// phrases reached it.
     static let riskThreshold = 0.3
+    /// The passage is chosen among up to 32 candidates, so even a clear winner
+    /// has a thin share (same reasoning as `IntentionVerse.minimumConfidence`).
+    /// Below this the reply's own psalm is shown, as before the mix.
+    static let minimumPassageConfidence = 0.2
 
     /// `free`: the onboarding's orientação, which runs on the account's
     /// lifetime allowance when there is no subscription.
@@ -59,37 +68,108 @@ enum OrientationService {
         // The reply is a nice-to-have on top of the state: if this second call
         // fails, the relief screen falls back to its usual draw.
         var reliefIndex: Int?
+        var passage: OrientationPassage?
         if let variants = MockMood.reliefVariants(for: stateID), variants.count > 1 {
             let criteria = Dictionary(uniqueKeysWithValues: variants.prefix(32).enumerated().map { index, relief in
                 (String(index), String("\(relief.title): \(relief.psalmWhy) \(relief.stepBody)".prefix(390)))
             })
+            var questions: [String: [String: Any]] = [
+                "reply": ["type": "choice",
+                          "instructions": "Which of these reflections would help this person most right now?",
+                          "criteria": criteria]]
+            let (pool, english) = await MainActor.run { (MockWordOfDay.pool, IntentionVerse.englishPool) }
+            let candidates = passageCandidates(stateID: stateID, variants: variants, pool: pool, english: english)
+            if let candidates {
+                questions["passage"] = ["type": "choice",
+                                        "instructions": "Which of these Bible passages would speak most to this person right now?",
+                                        "criteria": candidates.criteria]
+            }
             if let second = try? await MissaleAPI.decide(
-                state: text,
-                questions: ["reply": ["type": "choice",
-                                      "instructions": "Which of these reflections would help this person most right now?",
-                                      "criteria": criteria]],
+                state: text, questions: questions,
                 accessToken: token, subscriptionJWS: jws, free: free),
                let choice = (second["reply"] as? [String: Any])?["choice"] as? String {
                 reliefIndex = Int(choice)
+                if let reliefIndex, variants.indices.contains(reliefIndex) {
+                    passage = chosenPassage(from: second["passage"] as? [String: Any],
+                                            verses: candidates?.verses ?? [:], variants: variants, replyIndex: reliefIndex)
+                }
             }
         }
-        return Result(stateID: stateID, reliefIndex: reliefIndex, showCrisisFirst: showCrisisFirst)
+        return Result(stateID: stateID, reliefIndex: reliefIndex, passage: passage, showCrisisFirst: showCrisisFirst)
+    }
+
+    // MARK: - The passage question
+
+    struct PassageCandidates {
+        /// Sent as the question's criteria: "p<reflection index>" and "v<word id>".
+        let criteria: [String: String]
+        /// The Word of the Day behind each "v…" key.
+        let verses: [String: WordOfDay]
+    }
+
+    /// The psalms of the state's reflections (one per distinct reference) plus
+    /// the Word of the Day verses linked to the state. Nil with fewer than two
+    /// candidates: there would be nothing to choose between. At most 32, as
+    /// the server accepts; verses are the ones cut.
+    static func passageCandidates(stateID: String, variants: [ReliefContent],
+                                  pool: [WordOfDay], english: [WordOfDay]) -> PassageCandidates? {
+        var criteria: [String: String] = [:]
+        var seen = Set<String>()
+        for (index, relief) in variants.prefix(32).enumerated() where seen.insert(relief.psalmRef).inserted {
+            criteria["p\(index)"] = JevPicker.clip("\(relief.psalmRef): \(relief.psalmText)", to: 390)
+        }
+
+        // The mapping is keyed by the English reference; the ids are the
+        // current language's pool, whose references differ.
+        let wanted = Set(MockWordOfDay.moodStatesByEnglishReference
+            .filter { $0.value.contains(stateID) }
+            .compactMap { IntentionVerse.signature($0.key) })
+        let englishBySignature = Dictionary(english.compactMap { word in IntentionVerse.signature(word.reference).map { ($0, word) } },
+                                            uniquingKeysWith: { first, _ in first })
+        var verses: [String: WordOfDay] = [:]
+        for word in pool {
+            guard criteria.count < 32, let signature = IntentionVerse.signature(word.reference),
+                  wanted.contains(signature) else { continue }
+            let described = englishBySignature[signature] ?? word
+            criteria["v\(word.id)"] = JevPicker.clip("\(described.reference): \(described.quote)", to: 390)
+            verses[word.id] = word
+        }
+        return criteria.count >= 2 ? PassageCandidates(criteria: criteria, verses: verses) : nil
+    }
+
+    /// The passage to show: the verse or psalm Jev chose when it was confident
+    /// enough, otherwise the psalm of the reply's own reflection. `verses` is
+    /// keyed by word id (the "v" is dropped from the choice).
+    static func chosenPassage(from answer: [String: Any]?, verses: [String: WordOfDay],
+                              variants: [ReliefContent], replyIndex: Int) -> OrientationPassage? {
+        if let choice = answer?["choice"] as? String,
+           ((answer?["probabilities"] as? [String: Double])?[choice] ?? 0) >= minimumPassageConfidence {
+            if choice.hasPrefix("v"), let word = verses[String(choice.dropFirst())] {
+                return OrientationPassage(verse: word)
+            }
+            if choice.hasPrefix("p"), let index = Int(choice.dropFirst()), variants.indices.contains(index) {
+                return OrientationPassage(psalmOf: variants[index])
+            }
+        }
+        return variants.indices.contains(replyIndex) ? OrientationPassage(psalmOf: variants[replyIndex]) : nil
     }
 
     typealias Reflect = (_ body: [String: Any]) async throws -> String
 
-    /// The short reflection, in the voice of a priest, about the passage and
-    /// the saint of `relief`. Nil — and nothing sent — when the orientação fell
+    /// The short reflection, in the voice of a priest, about the passage shown
+    /// (`passage`, else the psalm of `relief`) and the saint of `relief`. Nil — and nothing sent — when the orientação fell
     /// into the crisis flow, and on any failure (offline, 402, 429, 502, 503):
     /// the reflection is an extra, so callers only ever show it or don't. It is
     /// never saved; the screen keeps it in memory while it is open.
-    static func reflect(on text: String, relief: ReliefContent, showCrisisFirst: Bool, free: Bool,
+    static func reflect(on text: String, relief: ReliefContent, passage: OrientationPassage? = nil,
+                        showCrisisFirst: Bool, free: Bool,
                         language: AppLanguage = AppLanguagePreference.resolveCurrent(),
                         send: Reflect) async -> String? {
         let state = text.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !showCrisisFirst, !state.isEmpty else { return nil }
+        let shown = passage ?? OrientationPassage(psalmOf: relief)
         let body = MissaleAPI.reflectionBody(
-            state: state, reference: relief.psalmRef, passage: relief.psalmText,
+            state: state, reference: shown.reference, passage: shown.text,
             saint: relief.saintName, summary: relief.saintWhy, language: language.rawValue, free: free)
         guard let reflection = try? await send(body) else { return nil }
         let trimmed = reflection.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -98,14 +178,14 @@ enum OrientationService {
 
     /// The same, through the Missale API. Callers only get here outside the
     /// crisis flow (the screen is given no text otherwise).
-    static func reflect(on text: String, relief: ReliefContent, free: Bool) async -> String? {
+    static func reflect(on text: String, relief: ReliefContent, passage: OrientationPassage? = nil, free: Bool) async -> String? {
 #if DEBUG
         if let fake = debugFakeReflection { return fake.isEmpty ? nil : fake }
 #endif
         guard let token = try? await AccountStore.shared.validAccessToken() else { return nil }
         let jws = await SubscriptionStore.shared.activeSubscriptionJWS()
         if jws == nil && !free { return nil }
-        return await reflect(on: text, relief: relief, showCrisisFirst: false, free: free) { body in
+        return await reflect(on: text, relief: relief, passage: passage, showCrisisFirst: false, free: free) { body in
             try await MissaleAPI.reflect(body: body, accessToken: token, subscriptionJWS: jws)
         }
     }
@@ -140,17 +220,41 @@ enum OrientationService {
     /// `-fakeOrientation grief` answers without the network, so the UI suite
     /// can walk the whole flow. `crisis` answers with the risk flag up;
     /// `unsure` with no confident state; `offline` fails like no connection.
+    /// `-fakePassage <word id>` also shows that Word of the Day verse.
     private static func debugFakeResult(for text: String) -> Result? {
         guard let fake = UserDefaults.standard
             .volatileDomain(forName: UserDefaults.argumentDomain)["fakeOrientation"] as? String
         else { return nil }
+        let verseID = UserDefaults.standard.volatileDomain(forName: UserDefaults.argumentDomain)["fakePassage"] as? String
+        let verse = verseID.flatMap { id in MockWordOfDay.pool.first { $0.id == id } }.map(OrientationPassage.init(verse:))
         switch fake {
-        case "crisis": return Result(stateID: "grief", reliefIndex: 0, showCrisisFirst: true)
+        case "crisis": return Result(stateID: "grief", reliefIndex: 0, passage: verse, showCrisisFirst: true)
         case "unsure": return Result(stateID: nil, reliefIndex: nil, showCrisisFirst: CrisisPhrases.matches(text))
-        default: return Result(stateID: fake, reliefIndex: 0, showCrisisFirst: CrisisPhrases.matches(text))
+        default: return Result(stateID: fake, reliefIndex: 0, passage: verse, showCrisisFirst: CrisisPhrases.matches(text))
         }
     }
 #endif
+}
+
+/// What the red block of the relief shows: a psalm from one of the state's
+/// reflections, or a Word of the Day verse. Never saved; it lives as long as
+/// the screen (only the reflection's index goes to the mood history).
+struct OrientationPassage: Equatable {
+    let reference: String
+    let text: String
+    let why: String
+
+    init(reference: String, text: String, why: String) {
+        self.reference = reference; self.text = text; self.why = why
+    }
+
+    init(psalmOf relief: ReliefContent) {
+        self.init(reference: relief.psalmRef, text: relief.psalmText, why: relief.psalmWhy)
+    }
+
+    init(verse: WordOfDay) {
+        self.init(reference: verse.reference, text: verse.quote, why: verse.context)
+    }
 }
 
 /// A reviewed list of expressions that open the crisis guidance by themselves,

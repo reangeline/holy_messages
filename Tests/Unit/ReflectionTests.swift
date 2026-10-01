@@ -73,4 +73,14 @@ final class ReflectionTests: XCTestCase {
         XCTAssertEqual(((body2["passage"] as? [String: String])?["reference"])?.count, 200)
         XCTAssertEqual(((body2["saint"] as? [String: String])?["name"])?.count, 200)
     }
+
+    func testReflectionGetsTheShownPassageNotThePsalm() async {
+        let api = FakeAPI()
+        let verse = OrientationPassage(reference: "Mateus 5, 4", text: "Bem-aventurados os que choram.", why: "c")
+        _ = await OrientationService.reflect(
+            on: "texto", relief: relief(), passage: verse, showCrisisFirst: false, free: false, send: api.send)
+        let sent = api.bodies[0]["passage"] as? [String: String]
+        XCTAssertEqual(sent?["reference"], "Mateus 5, 4")
+        XCTAssertEqual(sent?["text"], "Bem-aventurados os que choram.")
+    }
 }

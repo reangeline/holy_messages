@@ -15,9 +15,9 @@ struct OnboardingOrientationView: View {
     private enum Phase: Equatable {
         case writing
         case guiding
-        case crisis(MoodStateOption?, Int?)
+        case crisis(MoodStateOption?, Int?, OrientationPassage?)
         /// `String?`: what the reader wrote, when a reflection may be asked.
-        case reply(MoodStateOption, Int?, String?)
+        case reply(MoodStateOption, Int?, OrientationPassage?, String?)
         case notice(String)
     }
 
@@ -41,12 +41,12 @@ struct OnboardingOrientationView: View {
                             .multilineTextAlignment(.center)
                     }
                     .padding(.horizontal, 36)
-                case .crisis(let option, let index):
+                case .crisis(let option, let index, let passage):
                     OrientationCrisisView {
-                        if let option { show(option, index, reflectionText: nil) } else { onNext() }
+                        if let option { show(option, index, passage, reflectionText: nil) } else { onNext() }
                     }
-                case .reply(let option, let index, let reflectionText):
-                    MoodReliefView(state: option, chosenIndex: index,
+                case .reply(let option, let index, let passage, let reflectionText):
+                    MoodReliefView(state: option, chosenIndex: index, chosenPassage: passage,
                                    continueTitle: L.string("Continue", table: "Onboarding"),
                                    reflectionText: reflectionText, reflectionFree: true,
                                    onDone: onNext)
@@ -108,15 +108,15 @@ struct OnboardingOrientationView: View {
                     _ = MoodHistoryStore.shared.record(state: option, note: written)
                 }
                 if result.showCrisisFirst {
-                    phase = .crisis(option, result.reliefIndex)
+                    phase = .crisis(option, result.reliefIndex, result.passage)
                 } else if let option {
-                    show(option, result.reliefIndex, reflectionText: written)
+                    show(option, result.reliefIndex, result.passage, reflectionText: written)
                 } else {
                     phase = .notice(L.string("I couldn't quite tell how you are. In the app, \"Today I am…\" lets you choose it with one tap.", table: "Onboarding"))
                 }
             } catch {
                 if CrisisPhrases.matches(written) {
-                    phase = .crisis(nil, nil)
+                    phase = .crisis(nil, nil, nil)
                 } else {
                     phase = .notice(OrientationFailureMessage(error).text)
                 }
@@ -124,8 +124,8 @@ struct OnboardingOrientationView: View {
         }
     }
 
-    private func show(_ option: MoodStateOption, _ index: Int?, reflectionText: String?) {
-        phase = .reply(option, index, reflectionText)
+    private func show(_ option: MoodStateOption, _ index: Int?, _ passage: OrientationPassage?, reflectionText: String?) {
+        phase = .reply(option, index, passage, reflectionText)
     }
 }
 
