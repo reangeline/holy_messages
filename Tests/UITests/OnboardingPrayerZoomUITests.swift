@@ -13,8 +13,8 @@ import XCTest
 /// assertions.
 final class OnboardingPrayerZoomUITests: XCTestCase {
 
-    /// The emphasized text is animated from 17pt to 27pt — a real 1.588x
-    /// point-size increase, plus a reflow from 2 to 3 lines — but layout/font
+    /// The emphasized text is laid out at 27pt on its final three lines and
+    /// grows by scale from the resting 17pt look (1.588x) — but layout/font
     /// rendering can vary a little across simulators; 1.4 gives margin below
     /// the measured ~2.37x (44.67pt resting → 106pt emphasized, both
     /// devices, all three languages) without being so loose it'd miss a
