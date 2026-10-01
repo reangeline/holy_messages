@@ -22,7 +22,9 @@ write a short reflection):** the text you write in the "Write
 what you are feeling" box leaves the device when, and only when, you tap
 "Receive guidance"; and, if you subscribe and personalization is on, some of
 what you write (the Rosary intention, the Examen, the morning intention) is
-sent to choose what to show. See "The guidance" and "Personalization" below.
+sent to choose what to show. In the onboarding guidance, the answers you gave
+to the questionnaire go along with the text. See "The guidance" and
+"Personalization" below.
 
 ## What is stored on your device
 
@@ -61,8 +63,8 @@ device.
 
 ## What the app does not do
 
-- **It does not send what you write**, except the guidance text, when you ask
-  for it, and the personalization texts, if you subscribe and it is on. We
+- **It does not send what you write**, except the guidance text (in onboarding, along with the questionnaire
+  answers), when you ask for it, and the personalization texts, if you subscribe and it is on. We
   keep none of it: notes, the Examen, your log and your progress stay on your
   device.
 - **No sync.** Nothing is copied to another device by us.
@@ -120,10 +122,14 @@ tap **"Receive guidance"**:
   the saint chosen to **Anthropic, PBC** (the **Claude** model), which writes a
   short reflection from them. Anthropic is a second recipient of the text,
   besides Jev, and its handling follows Anthropic's terms for the API.
-- **We do not keep the text** or the reflection, and they do not go into the
-  server's logs. The server keeps only how many guidance requests your account
+- In the onboarding guidance, the answers you gave to the questionnaire (the
+  questions about your life and your spiritual life) go along with the text,
+  to Jev and to Anthropic, for the same purpose: choosing the passage and the
+  saint and writing the reflection. Missale does not keep these answers either.
+- **We do not keep the text**, the questionnaire answers or the reflection,
+  and none of it goes into the server's logs. The server keeps only how many guidance requests your account
   made each day, for a daily limit, and how many it used without a
-  subscription. OpenRouter and TypeSafe process the text to answer, under their
+  subscription. OpenRouter and TypeSafe process the text and the answers to answer, under their
   own policies.
 - On your device, the text is saved as the note of that "Today I am…" entry,
   like any note of yours.
