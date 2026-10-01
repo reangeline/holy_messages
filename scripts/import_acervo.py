@@ -15,13 +15,18 @@ def lang_of(path):
     m = re.search(r'\.(pt|en|es)\.', os.path.basename(str(path)))
     return m.group(1) if m else None
 
-def load(coll):
+# Lotes retidos: (pasta do lote, idioma) que não entram na importação de orações.
+# oracoes-21-en-es em es tem títulos em inglês e texto sem `fonte` (ver T12 no
+# TASKS.md). Sai desta lista quando a pesquisa reentregar o lote verificado.
+RETIDOS = {("oracoes-21-en-es", "es")}
+
+def load(coll, retidos=()):
     """Todos os registros de uma coleção, agrupados por idioma (do nome do arquivo)."""
     rows = collections.defaultdict(list)
     for f in sorted(ENTREGAS.glob("**/*.json")):
         if os.path.basename(f).startswith(coll):
             lang = lang_of(f)
-            if lang:
+            if lang and (f.parent.name, lang) not in retidos:
                 rows[lang].extend(json.load(open(f)))
     return rows
 
@@ -203,7 +208,7 @@ def saint_id_for_prayer(prayer):
     return None
 
 def gen_prayers():
-    rows = load("prayer_item_additions")
+    rows = load("prayer_item_additions", RETIDOS)
     # o lote oficial (Compêndio) tem precedência sobre os anteriores
     official = set()
     for f in ENTREGAS.glob("oracoes-14-trilingue-oficiais/prayer_item_additions.*.json"):
