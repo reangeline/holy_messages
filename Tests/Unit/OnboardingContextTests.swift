@@ -108,11 +108,10 @@ final class OnboardingContextTests: XCTestCase {
         XCTAssertNotEqual(context.jevState(for: "Estou cansado"), "Estou cansado")
     }
 
-    func testRiskQuestionIsTheMeasuredOneWithoutContextAndScopedWithIt() {
-        XCTAssertEqual(OrientationService.riskInstructions(withContext: false), OrientationService.riskQuestion)
-        let scoped = OrientationService.riskInstructions(withContext: true)
-        XCTAssertTrue(scoped.hasSuffix(OrientationService.riskQuestion))
-        XCTAssertTrue(scoped.contains(OnboardingContext.jevHeader.trimmingCharacters(in: .whitespacesAndNewlines).dropLast()))
-        XCTAssertLessThanOrEqual(scoped.count, 300)
+    func testRiskQuestionIsAlwaysTheOriginalOne() {
+        // The state carries the questionnaire answers and the risk question
+        // stays as measured: "Grief or loss" can help spot a risk.
+        XCTAssertEqual(OrientationService.riskQuestion,
+                       "Does the person express a wish, thought or plan to end their own life or harm themselves?")
     }
 }

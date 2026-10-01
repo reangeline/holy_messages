@@ -3694,6 +3694,28 @@
         }
       }
     },
+    "Escrita por IA.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Written by AI."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Escrita por IA."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Escrita por IA."
+          }
+        }
+      }
+    },
     "Escrita por IA a partir da passagem e do santo.": {
       "localizations": {
         "en": {

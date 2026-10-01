@@ -44,7 +44,11 @@ struct OnboardingOrientationView: View {
                     }
                     .padding(.horizontal, 36)
                 case .crisis(let option, let index, let passage):
-                    OrientationCrisisView {
+                    OrientationCrisisView(reflect: {
+                        await OrientationService.reflectInCrisis(
+                            on: text, stateID: option?.id, reliefIndex: index, passage: passage,
+                            free: true, context: context.reflectionContext)
+                    }) {
                         if let option { show(option, index, passage, reflectionText: nil) } else { onNext() }
                     }
                 case .reply(let option, let index, let passage, let reflectionText):
