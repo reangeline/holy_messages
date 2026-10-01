@@ -118,6 +118,7 @@
 		61CCB142CA0E0386439B1324 /* MissaleWidgetsBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62F7E1BD0B7CD468C18F3C7 /* MissaleWidgetsBundle.swift */; };
 		624094097CFE57414537AF94 /* ReadingReminderScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE37220CB1CC3FDB46CC565 /* ReadingReminderScheduler.swift */; };
 		6586429E77DA6FE18A64CF0C /* OrientationWritingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25914C1620D421FBBBB7BD58 /* OrientationWritingCard.swift */; };
+		6729AF07BA8D193CFA058090 /* NextLessonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB076553E5EA9AE2A19BA34B /* NextLessonTests.swift */; };
 		678F840463719615D0C2C7D8 /* LiturgicalSanctoral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCE63842C986A2F595CA8D4 /* LiturgicalSanctoral.swift */; };
 		67DF463317F1F1E5DB602AC3 /* Date+RelativeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB960CD92A24E48F2535010 /* Date+RelativeLabel.swift */; };
 		69430D0ADAF92F9F5C14D8BB /* Bible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3258005EE5459C46E5E92982 /* Bible.swift */; };
@@ -543,6 +544,7 @@
 		B9CAC989FC27DEC7A619FE1F /* ReliefPassageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReliefPassageTests.swift; sourceTree = "<group>"; };
 		BA0E3AB88B371DB92BF36D63 /* MockRosary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRosary.swift; sourceTree = "<group>"; };
 		BAB960CD92A24E48F2535010 /* Date+RelativeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+RelativeLabel.swift"; sourceTree = "<group>"; };
+		BB076553E5EA9AE2A19BA34B /* NextLessonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextLessonTests.swift; sourceTree = "<group>"; };
 		BC8F32F2FCD50971645A1A66 /* CalendarDayRecordTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDayRecordTests.swift; sourceTree = "<group>"; };
 		BD1EDFAD664396CF342F0318 /* SettingsDetail.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = SettingsDetail.xcstrings; sourceTree = "<group>"; };
 		BEB47D8C7630F48A815D1D65 /* GeneratedMarianApparitionsSecondBatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedMarianApparitionsSecondBatch.swift; sourceTree = "<group>"; };
@@ -835,6 +837,7 @@
 				1912584971BD9F27516EA80C /* LocalDataTests.swift */,
 				C8662EED745A768F6D88EB3F /* LocalizationKeyTests.swift */,
 				5BCCCDE258D8AFA7BF6F3440 /* MarianApparitionArtTests.swift */,
+				BB076553E5EA9AE2A19BA34B /* NextLessonTests.swift */,
 				259D7A23FE3B6D7F0573AC22 /* OnboardingContextTests.swift */,
 				EAF8832405A6B15DBFDA1FBC /* OrientationFailureMessageTests.swift */,
 				758E9E14596E1DDA8311D7D3 /* OrientationTests.swift */,
@@ -1562,6 +1565,7 @@
 				0678B4AF8EF34828E453610F /* LocalDataTests.swift in Sources */,
 				76F71429247C64065B0940E0 /* LocalizationKeyTests.swift in Sources */,
 				DA53C2F9E59E75B09E3BC6BB /* MarianApparitionArtTests.swift in Sources */,
+				6729AF07BA8D193CFA058090 /* NextLessonTests.swift in Sources */,
 				C254A094386A561F95D3C18C /* OnboardingContextTests.swift in Sources */,
 				3225DF339177FBF10249F5DF /* OrientationFailureMessageTests.swift in Sources */,
 				2A66C4360F90BFCCD6DBD4D0 /* OrientationTests.swift in Sources */,

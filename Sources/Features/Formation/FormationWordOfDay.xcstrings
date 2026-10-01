@@ -1035,6 +1035,50 @@
           }
         }
       }
+    },
+    "Continue: Part {n}: {title}": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Continue: Part {n}: {title}"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Continuar: Parte {n}: {title}"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Continuar: Parte {n}: {title}"
+          }
+        }
+      }
+    },
+    "You finished the track “{track}”.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You finished the track “{track}”."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Você concluiu a trilha “{track}”."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Has completado el recorrido “{track}”."
+          }
+        }
+      }
     }
   },
   "version": "1.0"

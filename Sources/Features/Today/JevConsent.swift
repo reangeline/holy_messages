@@ -111,7 +111,7 @@ struct JevConsentPromptView: View {
                         .font(MissaleFont.display(25, weight: .semibold))
                         .foregroundStyle(Palette.ink)
                         .multilineTextAlignment(.center)
-                    Text("Para escolher textos do acervo para você, o Missale envia o que você escreve ao Jev, um serviço de IA de outra empresa. O texto não é guardado. Você pode mudar isso nos Ajustes.", tableName: "Today")
+                    Text("Para escolher textos do acervo para você, o Missale envia o que você escreve a serviços de IA de outras empresas. O texto não é guardado. Você pode mudar isso nos Ajustes.", tableName: "Today")
                         .font(MissaleFont.body(16))
                         .foregroundStyle(Palette.ink.opacity(0.72))
                         .multilineTextAlignment(.center)
