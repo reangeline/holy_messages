@@ -27,13 +27,21 @@ struct SettingsView: View {
         )
     }
     private let day = MockLiturgical.today
+    @State private var path: [SettingsDestination]
+    /// Bumped on appear so the notifications row rereads the times after the editor.
+    @State private var timesTick = 0
+
+    /// `initialPath` only serves the debug `-openScreen notifications`.
+    init(initialPath: [SettingsDestination] = []) {
+        _path = State(initialValue: initialPath)
+    }
 
     private var resolvedLanguageName: String {
         AppLanguagePreference.resolve(override: languageOverride).displayName
     }
 
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $path) {
             ZStack {
                 day.color.pageBackground
                 ScrollView {
@@ -57,6 +65,7 @@ struct SettingsView: View {
                     .padding(.bottom, 30)
                 }
             }
+            .onAppear { timesTick += 1 }
             .navigationTitle(L.string("Ajustes", table: "SettingsDetail"))
             .navigationBarTitleDisplayMode(.inline)
             .navigationDestination(for: SettingsDestination.self) { destination in
@@ -65,6 +74,7 @@ struct SettingsView: View {
                 case .editName: EditNameView()
                 case .regionalCalendar: RegionalCalendarView()
                 case .language: LanguageSettingsView()
+                case .notifications: NotificationSettingsView()
                 case .data: DataSettingsView()
                 case .support: SupportView()
                 case .faq: FAQView()
@@ -167,6 +177,8 @@ struct SettingsView: View {
                 stored: storedRegionID,
                 language: AppLanguagePreference.resolve(override: languageOverride)
             )?.name
+        case .notifications:
+            timesTick >= 0 ? ReadingReminderScheduler.times.map { ReadingReminderScheduler.label($0) }.joined(separator: " · ") : nil
         default:
             nil
         }

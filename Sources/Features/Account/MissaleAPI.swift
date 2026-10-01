@@ -12,6 +12,9 @@ import Foundation
 /// they wrote in that box. The server passes it to Jev and does not keep it;
 /// for the short reflection, it also goes (with the passage and the saint Jev
 /// chose) to Anthropic's Claude, which writes it, and is not kept either.
+/// In the onboarding's orientação, the answers to the questionnaire (the
+/// questions and the options chosen, as text) go along with what the reader
+/// wrote: to Jev and to the reflection, with the same treatment, never kept.
 enum MissaleAPI {
     // Debug (local runs, unit and UI tests) talks to the dev stack; Release
     // (TestFlight and the App Store, see .github/workflows/testflight.yml)
@@ -118,20 +121,23 @@ enum MissaleAPI {
     }
 
     /// The body `reflect` sends, cut to the server's limits (state ≤ 2000,
-    /// reference and name ≤ 200, passage text ≤ 4000, summary ≤ 2000) — split
+    /// reference and name ≤ 200, passage text ≤ 4000, summary ≤ 2000, context ≤ 1500) — split
     /// out so a unit test can check it without a network call. The server
     /// counts Unicode scalars, so the cut is by scalar.
     static func reflectionBody(
         state: String, reference: String, passage: String, saint: String, summary: String,
-        language: String, free: Bool
+        language: String, free: Bool, context: String? = nil
     ) -> [String: Any] {
-        [
+        var body: [String: Any] = [
             "state": JevPicker.clip(state, to: 2000),
             "passage": ["reference": JevPicker.clip(reference, to: 200), "text": JevPicker.clip(passage, to: 4000)],
             "saint": ["name": JevPicker.clip(saint, to: 200), "summary": JevPicker.clip(summary, to: 2000)],
             "language": language,
             "free": free,
         ]
+        // Optional, onboarding only: the questionnaire answers (<= 1500).
+        if let context, !context.isEmpty { body["context"] = JevPicker.clip(context, to: 1500) }
+        return body
     }
 
     // MARK: - Transport

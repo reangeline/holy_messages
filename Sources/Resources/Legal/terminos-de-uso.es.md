@@ -101,7 +101,9 @@ permitiste en el aviso que aparece la primera vez, la intención del Rosario,
 las respuestas del Examen, la intención de la mañana y tu último registro de
 cómo estás, usados para elegir contenido del acervo revisado. En la
 orientación, el texto, el pasaje y el santo elegidos van también a Anthropic
-(Claude), que escribe una reflexión breve. Puedes
+(Claude), que escribe una reflexión breve.
+En la orientación del onboarding, las respuestas que diste al cuestionario van
+junto con el texto, con la misma finalidad y sin guardarse. Puedes
 desactivar la personalización en Ajustes, y borrar tus datos también borra
 ese permiso. Los detalles están en la Política de Privacidad, que forma parte
 de estos términos.

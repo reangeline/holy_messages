@@ -102,6 +102,8 @@ aparece na primeira vez, a intenção do Terço, as respostas do Exame, a
 intenção da manhã e o último registro de como você está, usados para escolher
 conteúdo do acervo revisado. Na orientação, o texto, a passagem e o santo
 escolhidos vão também à Anthropic (Claude), que escreve uma reflexão curta.
+Na orientação do onboarding, as respostas que você deu ao questionário vão
+junto com o texto, com a mesma finalidade e sem serem guardadas.
 Você pode desligar a personalização em
 Configurações, e apagar os seus dados apaga também essa permissão. Os
 detalhes estão na Política de Privacidade, que faz parte destes termos.

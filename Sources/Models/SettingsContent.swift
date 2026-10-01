@@ -19,6 +19,7 @@ enum SettingsDestination: Hashable {
     case editName
     case regionalCalendar
     case language
+    case notifications
     case data
     case support
     case faq

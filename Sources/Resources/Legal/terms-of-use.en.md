@@ -100,6 +100,8 @@ that appears the first time, the Rosary intention, the Examen answers, the
 morning intention and your latest log of how you are, used to choose content
 from the reviewed collection. In the guidance, the text and the passage and
 saint chosen also go to Anthropic (Claude), which writes a short reflection.
+In the onboarding guidance, the answers you gave to the questionnaire go along
+with the text, for the same purpose and without being kept.
 You can turn personalization off in Settings,
 and erasing your data also erases that permission. The details are in the
 Privacy Policy, which forms part of these terms.

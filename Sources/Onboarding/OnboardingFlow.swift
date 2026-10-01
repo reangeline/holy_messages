@@ -50,7 +50,7 @@ struct OnboardingFlow: View {
                 SignInView(onSignedIn: viewModel.advanceFromSignIn)
 
             case .orientation:
-                OnboardingOrientationView(onBack: viewModel.back, onNext: { dip(viewModel.advanceFromOrientation) })
+                OnboardingOrientationView(context: viewModel.context, onBack: viewModel.back, onNext: { dip(viewModel.advanceFromOrientation) })
 
             case .prayer:
                 OnboardingPrayerView(onNext: { dip(viewModel.advanceFromPrayer) })

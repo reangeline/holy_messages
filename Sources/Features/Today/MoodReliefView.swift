@@ -16,6 +16,8 @@ struct MoodReliefView: View {
     /// flow. Nil asks nothing. The reflection stays in memory, never saved.
     private let reflectionText: String?
     private let reflectionFree: Bool
+    /// The onboarding's questionnaire answers, sent along with the reflection.
+    private let reflectionContext: String?
     @State private var reflection: String?
     @State private var isReflecting = false
     /// The Bible and the chapter behind `shown.reference`, once found. While
@@ -30,11 +32,13 @@ struct MoodReliefView: View {
     /// `chosenIndex` is the variation the orientação picked for what the
     /// reader wrote; without it, one is drawn avoiding the last shown.
     init(state: MoodStateOption, chosenIndex: Int? = nil, chosenPassage: OrientationPassage? = nil, continueTitle: String? = nil,
-         reflectionText: String? = nil, reflectionFree: Bool = false, onDone: @escaping () -> Void) {
+         reflectionText: String? = nil, reflectionFree: Bool = false,
+         reflectionContext: String? = nil, onDone: @escaping () -> Void) {
         self.state = state
         self.onDone = onDone
         self.continueTitle = continueTitle
         self.reflectionFree = reflectionFree
+        self.reflectionContext = reflectionContext
         if let chosenIndex, let variants = MockMood.reliefVariants(for: state.id),
            variants.indices.contains(chosenIndex) {
             self.relief = variants[chosenIndex]
@@ -129,7 +133,8 @@ struct MoodReliefView: View {
             // never let a later failure wipe a reflection already shown.
             guard let reflectionText, reflection == nil, !isReflecting else { return }
             isReflecting = true
-            let result = await OrientationService.reflect(on: reflectionText, relief: relief, passage: shown, free: reflectionFree)
+            let result = await OrientationService.reflect(on: reflectionText, relief: relief, passage: shown, free: reflectionFree,
+                                                          context: reflectionContext)
             if let result { withAnimation(.easeInOut(duration: 0.25)) { reflection = result } }
             isReflecting = false
         }
