@@ -98,6 +98,23 @@ final class DailyRoutineTests: XCTestCase {
         XCTAssertNotNil(DailyPrayer.today(on: day(1)))
     }
 
+#if DEBUG
+    /// Without a date, the prayer follows `-demoDate` like the liturgical calendar.
+    func testDailyPrayerFollowsDemoDate() throws {
+        let key = "demoDate"
+        let old = UserDefaults.standard.string(forKey: key)
+        defer { UserDefaults.standard.set(old, forKey: key) }
+        var seen = Set<String>()
+        for n in 1...14 {
+            UserDefaults.standard.set(String(format: "2026-09-%02d", n), forKey: key)
+            let expected = try XCTUnwrap(DailyPrayer.today(on: day(n)))
+            XCTAssertEqual(DailyPrayer.today()?.id, expected.id, "dia \(n)")
+            seen.insert(expected.id)
+        }
+        XCTAssertGreaterThan(seen.count, 1)
+    }
+#endif
+
     /// The morning's line is kept per day and doesn't carry into the next.
     func testMorningIntentionIsKeptPerDay() {
         let store = DailyRoutineStore(defaults: defaults)
