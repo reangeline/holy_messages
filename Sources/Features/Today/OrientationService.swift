@@ -148,7 +148,11 @@ enum OrientationService {
                 return OrientationPassage(verse: word)
             }
             if choice.hasPrefix("p"), let index = Int(choice.dropFirst()), variants.indices.contains(index) {
-                return OrientationPassage(psalmOf: variants[index])
+                // Candidates are deduplicated by psalm: when the reply quotes the
+                // same one, its own "why" is the one written for this reply.
+                let sameAsReply = variants.indices.contains(replyIndex)
+                    && variants[replyIndex].psalmRef == variants[index].psalmRef
+                return OrientationPassage(psalmOf: variants[sameAsReply ? replyIndex : index])
             }
         }
         return variants.indices.contains(replyIndex) ? OrientationPassage(psalmOf: variants[replyIndex]) : nil
@@ -157,8 +161,8 @@ enum OrientationService {
     typealias Reflect = (_ body: [String: Any]) async throws -> String
 
     /// The short reflection, in the voice of a priest, about the passage shown
-    /// (`passage`, else the psalm of `relief`) and the saint of `relief`. Nil — and nothing sent — when the orientação fell
-    /// into the crisis flow, and on any failure (offline, 402, 429, 502, 503):
+    /// (`passage`, else the psalm of `relief`) and the saint of `relief`. Nil —
+    /// and nothing sent — when the orientação fell into the crisis flow, and on any failure (offline, 402, 429, 502, 503):
     /// the reflection is an extra, so callers only ever show it or don't. It is
     /// never saved; the screen keeps it in memory while it is open.
     static func reflect(on text: String, relief: ReliefContent, passage: OrientationPassage? = nil,

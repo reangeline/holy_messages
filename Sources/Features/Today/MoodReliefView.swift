@@ -72,9 +72,13 @@ struct MoodReliefView: View {
 
                     Eyebrow(text: L.string("Hoje você está {state}", table: "Today")
                         .replacingOccurrences(of: "{state}", with: state.label.lowercased()))
-                    Text(relief.title)
-                        .font(MissaleFont.display(28, weight: .semibold))
-                        .foregroundStyle(Palette.ink)
+                    // The title quotes the reply's own psalm: over another
+                    // passage it would read as a non sequitur, so it steps aside.
+                    if shown.reference == relief.psalmRef {
+                        Text(relief.title)
+                            .font(MissaleFont.display(28, weight: .semibold))
+                            .foregroundStyle(Palette.ink)
+                    }
 
                     passageBlock
 

@@ -134,4 +134,35 @@ final class OrientationTests: XCTestCase {
             XCTAssertEqual(OrientationService.chosenPassage(from: answer, verses: found.verses, variants: variants, replyIndex: 1), fallback)
         }
     }
+
+    func testPassageQuestionFitsTheServerForEveryStateAndLanguage() throws {
+        for language in AppLanguage.allCases {
+            for stateID in OrientationService.stateCriteria.keys {
+                let variants = try XCTUnwrap(MockMood.reliefVariants(for: stateID, language: language), "\(language) \(stateID)")
+                let found = try XCTUnwrap(OrientationService.passageCandidates(
+                    stateID: stateID, variants: variants, pool: MockWordOfDay.catalog[language],
+                    english: MockWordOfDay.catalog[.en]), "\(language) \(stateID)")
+                XCTAssertLessThanOrEqual(found.criteria.count, 32, "\(language) \(stateID)")
+                XCTAssertTrue(found.criteria.values.allSatisfy { $0.count <= 400 }, "\(language) \(stateID)")
+                XCTAssertTrue(found.verses.values.allSatisfy { word in MockWordOfDay.catalog[language].contains { $0.id == word.id } })
+            }
+        }
+    }
+
+    func testSamePsalmAsTheReplyKeepsTheRepliesOwnWhy() {
+        func relief(_ ref: String, why: String) -> ReliefContent {
+            ReliefContent(title: "t", psalmRef: ref, psalmText: "x", psalmWhy: why,
+                          saintName: "s", saintWhy: "w", stepTitle: "s", stepBody: "b")
+        }
+        let variants = [relief("Salmo 4, 9", why: "primeira"), relief("Salmo 23, 1", why: "outra"), relief("Salmo 4, 9", why: "da resposta")]
+        let answer: [String: Any] = ["choice": "p0", "probabilities": ["p0": 0.7]]
+        let shown = OrientationService.chosenPassage(from: answer, verses: [:], variants: variants, replyIndex: 2)
+        XCTAssertEqual(shown?.why, "da resposta")
+    }
+
+    /// Guilt is a scrupulosity trigger: only passages of mercy are offered to it.
+    func testGuiltIsOnlyOfferedMercy() {
+        let guilty = Set(MockWordOfDay.moodStatesByEnglishReference.filter { $0.value.contains("guilty") }.keys)
+        XCTAssertEqual(guilty, ["Psalm 130:1-2", "Isaiah 55:6", "Hebrews 4:16", "Acts 3:19", "Acts 15:11"])
+    }
 }
