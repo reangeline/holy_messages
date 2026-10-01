@@ -20,7 +20,6 @@ final class OnboardingContextTests: XCTestCase {
             "What's missing most right now?: Consistency, Peace of mind",   // catalog order, not Set order
             "What's weighing on you most right now?: Fear about the future",
         ])
-        print("CONTEXT-EN:\n" + lines.joined(separator: "\n"))
     }
 
     func testNothingAnsweredMeansNoContext() {
@@ -39,8 +38,6 @@ final class OnboardingContextTests: XCTestCase {
         let reflection = context.reflectionContext
         XCTAssertTrue(reflection?.hasPrefix("Onde você está na sua caminhada de fé?: Voltando depois de um tempo afastado") ?? false)
         XCTAssertEqual(reflection?.components(separatedBy: "\n").count, 3)
-        print("CONTEXT-PT:\n" + (reflection ?? ""))
-        print("JEV-STATE:\n" + state)
     }
 
     func testStateIsCutAt2000WithTheTextFirstAndWholeLines() {
