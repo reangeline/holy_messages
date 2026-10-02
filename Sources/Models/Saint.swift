@@ -14,11 +14,35 @@ struct Saint: Identifiable, Codable, Hashable {
     /// for this saint. Nil falls back to SaintPortraitPlaceholder — most saints
     /// have no art yet, and a striped placeholder is honest about that.
     var artworkName: String? = nil
+    /// The wide image for the top of the saint's page, when one was uploaded
+    /// in the admin page; `heroArtworkName` falls back to `artworkName`.
+    var wideArtworkName: String? = nil
     /// Miracles and well-known episodes — Francis and the wolf of Gubbio, Rita
     /// and the rose in winter — each with its source. Empty until the research
     /// batch carries a `stories` list for the record; the screen hides the
     /// section when there is none.
     var stories: [SaintStory] = []
+}
+
+extension Saint {
+    /// What the top of the saint's page shows.
+    var heroArtworkName: String? { wideArtworkName ?? artworkName }
+}
+
+/// Which image goes where, for saints and apparitions alike. Each record can
+/// carry two uploads from the admin page — a wide one for the top of its page
+/// and a square one for thumbnails — besides the art that ships in the app.
+/// Each place prefers its own shape, then the other upload, then the bundled
+/// art. An upload that hasn't been downloaded yet is nil here, so the next one
+/// in line shows meanwhile.
+enum ArtworkChoice {
+    static func thumbnail(square: String?, wide: String?, bundled: String?) -> String? {
+        square ?? wide ?? bundled.flatMap { $0.isEmpty ? nil : $0 }
+    }
+
+    static func hero(square: String?, wide: String?, bundled: String?) -> String? {
+        wide ?? square ?? bundled.flatMap { $0.isEmpty ? nil : $0 }
+    }
 }
 
 struct SaintStory: Codable, Hashable {
@@ -91,9 +115,11 @@ struct PublishedSaint: Codable, Hashable {
     let whyItMattersToday: String
     let prayer: String
     var artworkName: String? = nil
-    /// An image uploaded in the admin page; wins over `artworkName` once the
-    /// app has downloaded it.
+    /// The square image uploaded in the admin page (thumbnails); wins over
+    /// `artworkName` once the app has downloaded it.
     var artworkURL: String? = nil
+    /// The wide image uploaded in the admin page (the top of the page).
+    var wideArtworkURL: String? = nil
     var stories: [SaintStory]? = nil
 
     init(_ entry: SaintOfDay) {
@@ -113,11 +139,15 @@ struct PublishedSaint: Codable, Hashable {
     }
 
     var saintOfDay: SaintOfDay {
-        SaintOfDay(dateKey: dateKey, region: .general, saint: Saint(
+        let square = RemoteContent.artworkName(forURL: artworkURL)
+        let wide = RemoteContent.artworkName(forURL: wideArtworkURL)
+        return SaintOfDay(dateKey: dateKey, region: .general, saint: Saint(
             id: id, name: name, lifespan: lifespan, role: role, rank: rank, calendarNote: calendarNote,
             bioParagraphs: bioParagraphs, whyItMattersToday: whyItMattersToday, prayer: prayer,
-            artworkName: RemoteContent.artworkName(forURL: artworkURL)
-                ?? ((artworkName?.isEmpty ?? true) ? nil : artworkName),
+            artworkName: ArtworkChoice.thumbnail(square: square, wide: wide, bundled: artworkName),
+            // Only an upload goes here: without one, `heroArtworkName` already
+            // falls back to `artworkName`, and a bundled saint round-trips intact.
+            wideArtworkName: ArtworkChoice.hero(square: square, wide: wide, bundled: nil),
             stories: stories ?? []))
     }
 }
