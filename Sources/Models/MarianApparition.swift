@@ -14,13 +14,26 @@ struct MarianApparition: Identifiable, Codable, Hashable {
     let ecclesialRecognition: String
     let source: String
 
-    /// Asset name of the shrine's image, when the art catalog has one. Nil for
-    /// a record whose art hasn't been produced — `SaintPortrait` then draws the
-    /// striped placeholder rather than borrowing another shrine's picture.
-    ///
-    /// Derived from the id rather than stored per language: the artwork is the
-    /// same in all three, and `apparitionArtwork` keeps the mapping in one place.
-    var artworkName: String? { MarianApparitionArt.artwork(forID: id) }
+    /// Square and wide images uploaded in the admin page, when there are any.
+    var artworkURL: String? = nil
+    var wideArtworkURL: String? = nil
+
+    /// The thumbnail: the square upload, else the wide one, else the art that
+    /// ships in the app for this id. Nil for a record with none of them —
+    /// `SaintPortrait` then draws the striped placeholder rather than
+    /// borrowing another shrine's picture.
+    var artworkName: String? {
+        ArtworkChoice.thumbnail(square: RemoteContent.artworkName(forURL: artworkURL),
+                                wide: RemoteContent.artworkName(forURL: wideArtworkURL),
+                                bundled: MarianApparitionArt.artwork(forID: id))
+    }
+
+    /// The top of the apparition's page: the wide upload first.
+    var heroArtworkName: String? {
+        ArtworkChoice.hero(square: RemoteContent.artworkName(forURL: artworkURL),
+                           wide: RemoteContent.artworkName(forURL: wideArtworkURL),
+                           bundled: MarianApparitionArt.artwork(forID: id))
+    }
 }
 
 /// Which apparitions have art in `Assets.xcassets/Saints`.

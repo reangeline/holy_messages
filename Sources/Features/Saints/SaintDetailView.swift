@@ -53,7 +53,7 @@ struct SaintDetailView: View {
                 VStack(alignment: .leading, spacing: 14) {
                     SaintDetailHeroLayout {
                         SaintPortrait(
-                            artworkName: saint.artworkName,
+                            artworkName: saint.heroArtworkName,
                             cornerRadius: 18,
                             contentMode: SaintDetailHeroLayout.artworkContentMode
                         )
