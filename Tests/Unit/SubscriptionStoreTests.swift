@@ -189,4 +189,20 @@ final class SubscriptionStoreTests: XCTestCase {
         XCTAssertEqual(Set(ids), Set(SubscriptionStore.ProductID.all),
                        "a configuração local do StoreKit não bate com os identificadores do app")
     }
+
+    /// The cancellation screen said "full access until 14 October 2026" to
+    /// everyone. The date is now the end of the period this reader paid for —
+    /// for an annual plan cancelled mid-year, the end of that year.
+    @MainActor
+    func testAccessLineUsesTheStoreDateNotAWrittenOne() {
+        let fimDoAno = DateComponents(calendar: .init(identifier: .gregorian), year: 2027, month: 3, day: 9).date!
+        let comData = SubscriptionCancellationView.acessoAte(fimDoAno)
+        XCTAssertTrue(comData.contains("2027"), comData)
+        XCTAssertFalse(comData.contains("%@"), comData)
+        XCTAssertFalse(comData.contains("2026"), comData)
+
+        let semData = SubscriptionCancellationView.acessoAte(nil)
+        XCTAssertFalse(semData.isEmpty)
+        XCTAssertFalse(semData.contains("%@"), semData)
+    }
 }

@@ -17,6 +17,10 @@ struct SubscriptionDetailView: View {
     @State private var resultadoDaRestauracao: SubscriptionStore.RestoreResult?
     @State private var diagnostico: [String]?
 
+    private var renovacaoCancelada: Bool {
+        store.isSubscribed && store.renewal?.willAutoRenew == false
+    }
+
     var body: some View {
         ZStack {
             LiturgicalColor.red.pageBackground
@@ -28,7 +32,7 @@ struct SubscriptionDetailView: View {
                     if store.isSubscribed {
                         LiturgicalGradientCard(color: .red) {
                             VStack(alignment: .leading, spacing: 6) {
-                                Text("ACTIVE", tableName: "SettingsDetail")
+                                Text(renovacaoCancelada ? "RENEWAL CANCELED" : "ACTIVE", tableName: "SettingsDetail")
                                     .font(MissaleFont.body(11, weight: .semibold))
                                     .tracking(1.4)
                                     .foregroundStyle(Palette.goldBright)
@@ -38,9 +42,18 @@ struct SubscriptionDetailView: View {
                                 // O valor, a data de renovação e o plano ficam
                                 // na App Store, que é quem cobra. Repeti-los
                                 // aqui foi o que produziu a declaração falsa.
-                                Text("Managed in the App Store, where you can see the renewal date and the amount, and cancel.", tableName: "SettingsDetail")
-                                    .font(MissaleFont.body(15))
-                                    .foregroundStyle(.white.opacity(0.88))
+                                // A data de fim, depois de cancelado, vem do
+                                // próprio StoreKit — e é a resposta que o leitor
+                                // procura ao voltar aqui.
+                                Group {
+                                    if renovacaoCancelada {
+                                        Text(SubscriptionCancellationView.acessoAte(store.renewal?.expirationDate))
+                                    } else {
+                                        Text("Managed in the App Store, where you can see the renewal date and the amount, and cancel.", tableName: "SettingsDetail")
+                                    }
+                                }
+                                .font(MissaleFont.body(15))
+                                .foregroundStyle(.white.opacity(0.88))
                             }
                         }
                     } else {
@@ -126,6 +139,9 @@ struct SubscriptionDetailView: View {
                     // A tela de cancelamento explica o que acontece; o
                     // cancelamento em si é da Apple, na folha de assinaturas
                     // que ela abre por cima do app.
+                    // Com a renovação já desligada, não há o que cancelar:
+                    // oferecer de novo fazia parecer que não tinha funcionado.
+                    if !renovacaoCancelada {
                     NavigationLink {
                         SubscriptionCancellationView()
                     } label: {
@@ -147,6 +163,7 @@ struct SubscriptionDetailView: View {
                     .background(Color.white.opacity(0.36))
                     .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
                     .overlay(RoundedRectangle(cornerRadius: 18, style: .continuous).strokeBorder(style: StrokeStyle(lineWidth: 1, dash: [5, 4])).foregroundStyle(Palette.ink.opacity(0.22)))
+                    }
 
                     HStack(spacing: 16) {
                         NavigationLink(value: SettingsDestination.legal(.terms)) {

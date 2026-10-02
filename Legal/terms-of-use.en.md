@@ -62,7 +62,7 @@ Images of saints and shrines come from public-domain works or from art produced
 for this app, with the credit recorded in the content archive.
 
 If you find an error of reference, transcription, or attribution, write to
-erros@missale.app. We correct it, and we credit you.
+hi@missaleapp.com. We correct it, and we credit you.
 
 ## 4. Subscription
 
@@ -88,7 +88,7 @@ The rest is offered by **optional subscription, monthly or yearly**.
 - **Refunds** are granted by Apple, under Apple's rules. We cannot grant or
   refuse a refund.
 
-If the cost is a genuine obstacle, write to acesso@missale.app.
+If the cost is a genuine obstacle, write to hi@missaleapp.com.
 
 ## 5. Your data
 
@@ -154,4 +154,4 @@ consumer law gives you.
 These terms are governed by the laws of Brazil. Nothing here removes the
 rights granted to you by the consumer law of your own country.
 
-Questions: ola@missale.app
+Questions: hi@missaleapp.com

@@ -2817,6 +2817,29 @@
           }
         }
       }
+    },
+    "RENEWAL CANCELED": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "RENEWAL CANCELED"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "RENOVACIÓN CANCELADA"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "RENOVAÇÃO CANCELADA"
+          }
+        }
+      }
     }
   },
   "version": "1.0"

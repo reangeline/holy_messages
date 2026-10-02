@@ -253,4 +253,4 @@ mudará.
 
 ## Contato
 
-ola@missale.app
+hi@missaleapp.com
