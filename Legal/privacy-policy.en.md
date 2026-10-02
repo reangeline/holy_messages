@@ -1,6 +1,6 @@
 # Missale Privacy Policy
 
-**Last updated: 1 October 2026**
+**Last updated: 2 October 2026**
 
 This policy describes the Missale app for iPhone and iPad. It was written from
 the app's source code rather than from a template: everything the app stores is
@@ -100,6 +100,12 @@ for.
 **For how long.** Until you delete the account. We do not use this data for
 advertising, do not sell it and do not combine it with anything.
 
+**Technical logs.** To find failures, the server notes each guidance,
+reflection and personalization request: your account identifier, the time,
+whether it worked (or the kind of error), whether a subscription was sent and
+how long it took. These logs never contain what you wrote or the answer, and
+they are deleted automatically after 14 days.
+
 **The app only talks to the Missale server**, and only to sign in, keep the
 session, delete the account, and ask for guidance and personalization. Besides that, it downloads
 from our file server the app's own texts (saints, the word of the day and
@@ -130,7 +136,7 @@ tap **"Receive guidance"**:
   to Jev and to Anthropic, for the same purpose: choosing the passage and the
   saint and writing the reflection. Missale does not keep these answers either.
 - **We do not keep the text**, the questionnaire answers or the reflection,
-  and none of it goes into the server's logs. The server keeps only how many guidance requests your account
+  and none of it goes into the server's logs. Besides the technical logs (without the text, deleted after 14 days), the server keeps only how many guidance requests your account
   made each day, for a daily limit, and how many it used without a
   subscription. OpenRouter and TypeSafe process the text and the answers to answer, under their
   own policies.
@@ -167,7 +173,7 @@ on by default, but nothing leaves the device before the permission.
   life, so the crisis guidance comes first. What appears this way is always
   labeled as chosen from what you wrote.
 - **We do not keep this text**, and it does not go into the server's logs. The
-  server keeps only how many choices your account asked for each day, for a
+  server, besides the technical logs (without the text, deleted after 14 days), keeps only how many choices your account asked for each day, for a
   daily limit. OpenRouter and TypeSafe process the text to answer, under their
   own policies.
 
