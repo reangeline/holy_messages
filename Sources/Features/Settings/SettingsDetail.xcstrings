@@ -244,28 +244,6 @@
         }
       }
     },
-    "Bulk licenses for groups, OCIA catechumens, and pastoral teams, also free. Talk to us.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bulk licenses for groups, OCIA catechumens, and pastoral teams, also free. Talk to us."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Licencias en bloque para grupos, catecúmenos de OCIA y equipos pastorales, también gratis. Habla con nosotros."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Licenças em bloco para grupos, catecúmenos de OCIA e pastorais, também gratuitas. Fale com a gente."
-          }
-        }
-      }
-    },
     "Calendário litúrgico": {
       "localizations": {
         "en": {
@@ -1529,28 +1507,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Abrir Ajustes"
-          }
-        }
-      }
-    },
-    "Parishes and catechesis": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Parishes and catechesis"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Parroquias y catequesis"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Paróquias e catequese"
           }
         }
       }
