@@ -46,7 +46,7 @@ targets:
       path: App/Info.plist
       properties:
         CFBundleDisplayName: Missale
-        CFBundleShortVersionString: "2.0"
+        CFBundleShortVersionString: "2.0.1"
         CFBundleVersion: $(CURRENT_PROJECT_VERSION)
         # O app não usa criptografia própria: só HTTPS do sistema (a API do
         # Missale), que é isento, e a compra é do StoreKit. Declarado aqui, o
@@ -147,7 +147,7 @@ targets:
       path: WidgetExtension/Info.plist
       properties:
         CFBundleDisplayName: Missale Widgets
-        CFBundleShortVersionString: "2.0"
+        CFBundleShortVersionString: "2.0.1"
         CFBundleVersion: $(CURRENT_PROJECT_VERSION)
         NSExtension:
           NSExtensionPointIdentifier: com.apple.widgetkit-extension
