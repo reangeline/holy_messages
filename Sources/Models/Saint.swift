@@ -51,7 +51,10 @@ enum SaintCalendarRegion: String, CaseIterable, Identifiable, Codable {
 /// year-independent, since the sanctoral cycle (unlike movable feasts) repeats on
 /// the same civil date every year.
 struct SaintOfDay: Identifiable, Codable, Hashable {
-    var id: String { "\(region.rawValue)-\(dateKey)" }
+    /// The saint's id is part of it: several saints share a date (four on
+    /// 19 October in the published sanctoral), and a list keyed on the date
+    /// alone drew the first of them once per row.
+    var id: String { "\(region.rawValue)-\(dateKey)-\(saint.id)" }
     let dateKey: String
     let region: SaintCalendarRegion
     let saint: Saint

@@ -70,6 +70,28 @@ final class SaintDetailHeroLayoutTests: XCTestCase {
 
         let landscapeIPad = SaintDetailHeroLayout.frame(availableWidth: 1326)
         XCTAssertEqual(landscapeIPad, portraitIPad)
-        XCTAssertEqual(SaintDetailHeroLayout.artworkContentMode, .fit)
+        // Fill: same result as fit for the bundled 1206:648 art, and a square
+        // upload covers the band instead of sitting small in the middle.
+        XCTAssertEqual(SaintDetailHeroLayout.artworkContentMode, .fill)
+    }
+}
+
+/// O arquivo de santos lista um registro por linha; com o id só de região e
+/// data, os vários santos de um mesmo dia viravam cópias do primeiro.
+final class SaintArchiveIdentityTests: XCTestCase {
+
+    func testSaintsSharingADateHaveDistinctRowIDs() {
+        func saint(_ id: String) -> Saint {
+            Saint(id: id, name: id, lifespan: "", role: "", rank: "", calendarNote: "",
+                  bioParagraphs: [], whyItMattersToday: "", prayer: "")
+        }
+        let dia = ["paulo-da-cruz", "isaac-jogues", "joao-lalande", "jerzy-popieluszko"]
+            .map { SaintOfDay(dateKey: "10-19", region: .general, saint: saint($0)) }
+        XCTAssertEqual(Set(dia.map(\.id)).count, dia.count)
+    }
+
+    func testTheShippedArchiveHasNoRepeatedRowIDs() {
+        let ids = MockSaints.archive.map(\.id)
+        XCTAssertEqual(Set(ids).count, ids.count)
     }
 }
