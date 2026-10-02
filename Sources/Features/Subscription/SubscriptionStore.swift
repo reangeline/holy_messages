@@ -56,6 +56,20 @@ final class SubscriptionStore: ObservableObject {
     /// it took StoreKit to answer.
     @Published private(set) var hasResolvedEntitlement = false
 
+    /// Whether the active subscription will renew, and when the paid period
+    /// ends. Cancelling in the App Store only turns renewal off: the reader
+    /// keeps what they paid for — the rest of the month, or of the year — and
+    /// `currentEntitlements` keeps reporting the subscription until then. Without
+    /// this the app went on saying "active" and offering to cancel again, as if
+    /// the cancellation had not happened. Nil when there is no subscription or
+    /// the App Store has not said.
+    struct Renewal: Equatable {
+        let willAutoRenew: Bool
+        let expirationDate: Date?
+    }
+
+    @Published private(set) var renewal: Renewal?
+
     /// Whether the gates can decide yet. Always true when forced in DEBUG.
     var isEntitlementKnown: Bool {
 #if DEBUG
@@ -214,6 +228,7 @@ final class SubscriptionStore: ObservableObject {
 
     private func refreshEntitlement() async {
         var ativa = false
+        var renovacao: Renewal?
         for await result in Transaction.currentEntitlements {
             guard let transaction = try? result.payloadValue,
                   ProductID.all.contains(transaction.productID),
@@ -225,8 +240,13 @@ final class SubscriptionStore: ObservableObject {
             // whose `expirationDate` is in the past. Checking it here took the
             // app away from a subscriber whose card was merely being retried.
             ativa = true
+            if let status = await transaction.subscriptionStatus,
+               let info = try? status.renewalInfo.payloadValue {
+                renovacao = Renewal(willAutoRenew: info.willAutoRenew, expirationDate: transaction.expirationDate)
+            }
         }
         entitledByStore = ativa
+        renewal = renovacao
         hasResolvedEntitlement = true
     }
 

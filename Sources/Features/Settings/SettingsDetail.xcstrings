@@ -244,28 +244,6 @@
         }
       }
     },
-    "Bulk licenses for groups, OCIA catechumens, and pastoral teams, also free. Talk to us.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bulk licenses for groups, OCIA catechumens, and pastoral teams, also free. Talk to us."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Licencias en bloque para grupos, catecúmenos de OCIA y equipos pastorales, también gratis. Habla con nosotros."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Licenças em bloco para grupos, catecúmenos de OCIA e pastorais, também gratuitas. Fale com a gente."
-          }
-        }
-      }
-    },
     "Calendário litúrgico": {
       "localizations": {
         "en": {
@@ -1533,28 +1511,6 @@
         }
       }
     },
-    "Parishes and catechesis": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Parishes and catechesis"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Parroquias y catequesis"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Paróquias e catequese"
-          }
-        }
-      }
-    },
     "Pastoral note": {
       "localizations": {
         "en": {
@@ -2814,6 +2770,29 @@
           "stringUnit": {
             "state": "translated",
             "value": "Sua assinatura está ativa neste aparelho."
+          }
+        }
+      }
+    },
+    "RENEWAL CANCELED": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "RENEWAL CANCELED"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "RENOVACIÓN CANCELADA"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "RENOVAÇÃO CANCELADA"
           }
         }
       }
