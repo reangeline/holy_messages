@@ -1,6 +1,6 @@
 # Política de Privacidade do Missale
 
-**Última atualização: 1 de outubro de 2026**
+**Última atualização: 2 de outubro de 2026**
 
 Esta política descreve o aplicativo Missale para iPhone e iPad. Ela foi escrita
 a partir do código do aplicativo, não de um modelo: a lista de tudo o que é
@@ -102,6 +102,12 @@ pediu.
 **Por quanto tempo.** Até você apagar a conta. Não usamos esses dados para
 publicidade, não os vendemos e não os cruzamos com nada.
 
+**Registros técnicos.** Para encontrar falhas, o servidor anota cada pedido de
+orientação, de reflexão e de personalização: o identificador da sua conta, a
+hora, se deu certo (ou o tipo de erro), se havia assinatura e quanto tempo
+levou. Esses registros nunca contêm o que você escreveu nem a resposta, e são
+apagados automaticamente depois de 14 dias.
+
 **O aplicativo só se comunica com o servidor do Missale**, e só para entrar,
 manter a sessão, apagar a conta, pedir a orientação e a personalização. Além disso, ele baixa do
 nosso servidor de arquivos os textos do próprio aplicativo (santos, palavra do
@@ -133,7 +139,7 @@ tocar em **"Receber orientação"**:
   para o Jev e para a Anthropic, com a mesma finalidade: escolher a passagem e
   o santo e escrever a reflexão. O Missale também não guarda essas respostas.
 - **Nós não guardamos o texto**, as respostas do questionário nem a reflexão,
-  e nada disso entra nos registros do servidor. O servidor guarda apenas quantas orientações a sua
+  e nada disso entra nos registros do servidor. Além dos registros técnicos (sem o texto, apagados em 14 dias), o servidor guarda apenas quantas orientações a sua
   conta pediu em cada dia, para um limite diário, e quantas usou sem
   assinatura. A OpenRouter e a TypeSafe processam o texto e as respostas para responder,
   conforme as políticas delas.
@@ -172,7 +178,7 @@ por padrão, mas nada sai do aparelho antes da permissão.
   vida, para mostrarmos primeiro a orientação de crise. O que aparece assim é
   sempre marcado como escolhido a partir do que você escreveu.
 - **Nós não guardamos esse texto** e ele não entra nos registros do servidor.
-  O servidor guarda apenas quantas escolhas a sua conta pediu em cada dia, para
+  Além dos registros técnicos (sem o texto, apagados em 14 dias), o servidor guarda apenas quantas escolhas a sua conta pediu em cada dia, para
   um limite diário. A OpenRouter e a TypeSafe processam o texto para responder,
   conforme as políticas delas.
 

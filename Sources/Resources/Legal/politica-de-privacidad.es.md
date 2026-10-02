@@ -1,6 +1,6 @@
 # Política de Privacidad de Missale
 
-**Última actualización: 1 de octubre de 2026**
+**Última actualización: 2 de octubre de 2026**
 
 Esta política describe la aplicación Missale para iPhone y iPad. Fue escrita a
 partir del código de la aplicación, no de una plantilla: todo lo que la
@@ -101,6 +101,12 @@ esta transferencia internacional, hecha para prestar el servicio que pediste.
 **Durante cuánto tiempo.** Hasta que borres la cuenta. No usamos estos datos
 para publicidad, no los vendemos y no los cruzamos con nada.
 
+**Registros técnicos.** Para encontrar fallas, el servidor anota cada pedido de
+orientación, de reflexión y de personalización: el identificador de tu cuenta,
+la hora, si funcionó (o el tipo de error), si había suscripción y cuánto tardó.
+Estos registros nunca contienen lo que escribiste ni la respuesta, y se borran
+automáticamente después de 14 días.
+
 **La aplicación solo se comunica con el servidor de Missale**, y solo para
 iniciar sesión, mantenerla, borrar la cuenta, y pedir la orientación y la
 personalización. Además,
@@ -135,7 +141,7 @@ tocar **"Recibir orientación"**:
   a Jev y a Anthropic, con la misma finalidad: elegir el pasaje y el santo y
   escribir la reflexión. Missale tampoco guarda esas respuestas.
 - **No guardamos el texto**, las respuestas del cuestionario ni la reflexión,
-  y nada de eso entra en los registros del servidor. El servidor guarda solo cuántas orientaciones pidió tu cuenta cada
+  y nada de eso entra en los registros del servidor. Además de los registros técnicos (sin el texto, borrados a los 14 días), el servidor guarda solo cuántas orientaciones pidió tu cuenta cada
   día, para un límite diario, y cuántas usó sin suscripción. OpenRouter y
   TypeSafe procesan el texto y las respuestas para responder, según sus propias políticas.
 - En tu dispositivo, el texto queda guardado como la nota de ese registro de
@@ -173,7 +179,7 @@ sale del dispositivo antes del permiso.
   vida, para mostrar primero la orientación de crisis. Lo que aparece así
   siempre va marcado como elegido a partir de lo que escribiste.
 - **No guardamos ese texto** y no entra en los registros del servidor. El
-  servidor guarda solo cuántas elecciones pidió tu cuenta cada día, para un
+  servidor, además de los registros técnicos (sin el texto, borrados a los 14 días), guarda solo cuántas elecciones pidió tu cuenta cada día, para un
   límite diario. OpenRouter y TypeSafe procesan el texto para responder, según
   sus propias políticas.
 
