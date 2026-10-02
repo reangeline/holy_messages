@@ -1,6 +1,6 @@
 # Missale Terms of Use
 
-**Last updated: 26 September 2026**
+**Last updated: 1 October 2026**
 
 By using the Missale app you agree to these terms. Please read them: they are
 short, and they say exactly what the app is and what it is not.
@@ -98,12 +98,17 @@ or logged: the guidance, when you ask for it, and, if you subscribe, have
 "Personalize with what I write" on, and have already allowed it in the prompt
 that appears the first time, the Rosary intention, the Examen answers, the
 morning intention and your latest log of how you are, used to choose content
-from the reviewed collection. You can turn personalization off in Settings,
+from the reviewed collection. In the guidance, the text and the passage and
+saint chosen also go to Anthropic (Claude), which writes a short reflection.
+In the onboarding guidance, the answers you gave to the questionnaire go along
+with the text, for the same purpose and without being kept.
+You can turn personalization off in Settings,
 and erasing your data also erases that permission. The details are in the
 Privacy Policy, which forms part of these terms.
 
 What Jev chooses is a suggestion drawn from the collection based on your text,
-not a word addressed to you by God, nor spiritual direction.
+and the reflection that comes with the guidance is written by AI from it.
+Neither is a word addressed to you by God, nor spiritual direction.
 
 Because nothing you write is kept off the device, **backing up is your
 responsibility**. If you delete the app or change devices, your notes are gone

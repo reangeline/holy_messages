@@ -4,7 +4,9 @@ import Foundation
 /// t4 screen 19 — Formation lesson detail ("O Ato Penitencial"). Body paragraphs
 /// support tappable, dotted-underlined inline glossary terms (e.g. "mea culpa").
 struct FormationLessonView: View {
-    let lesson: FormationLesson
+    /// The part on screen. State rather than a plain `let` so "Continue" on the
+    /// end screen can swap in the next part without pushing another screen.
+    @State private var lesson: FormationLesson
     let onBackToTracks: () -> Void
     @ObservedObject private var progressStore = FormationProgressStore.shared
     @State private var activeTerm: LocalGlossaryTerm?
@@ -17,6 +19,11 @@ struct FormationLessonView: View {
     /// One idea per screen, the way onboarding reads: the opening, each
     /// paragraph, the quote, and the close. The lesson used to be one long
     /// scroll of text, which the testers found heavy for a daily part.
+    init(lesson: FormationLesson, onBackToTracks: @escaping () -> Void) {
+        _lesson = State(initialValue: lesson)
+        self.onBackToTracks = onBackToTracks
+    }
+
     private enum Page: Hashable {
         case opening
         case paragraph(Int)
@@ -52,6 +59,9 @@ struct FormationLessonView: View {
                 }
                 .tabViewStyle(.page(indexDisplayMode: .never))
                 .animation(.easeInOut(duration: 0.25), value: page)
+                // A new lesson gets a new pager, on its first page and at the
+                // top, instead of scrolling back from the last one's end.
+                .id(lesson.id)
 
                 footer
                     .padding(.horizontal, 24)
@@ -66,7 +76,13 @@ struct FormationLessonView: View {
             }
         }
         .navigationDestination(isPresented: $showEndOfSession) {
-            EndOfSessionView(lesson: lesson, onBackToTracks: onBackToTracks)
+            EndOfSessionView(lesson: lesson, onBackToTracks: onBackToTracks, onContinue: { next in
+                // Replace the part in place and pop the end screen: the stack
+                // stays Track -> Lesson, so Back always returns to the track.
+                lesson = next
+                page = 0
+                showEndOfSession = false
+            })
         }
         .sheet(item: $activeTerm) { term in
             VStack(alignment: .leading, spacing: 10) {

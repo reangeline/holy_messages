@@ -1,6 +1,6 @@
 # Política de Privacidad de Missale
 
-**Última actualización: 26 de septiembre de 2026**
+**Última actualización: 1 de octubre de 2026**
 
 Esta política describe la aplicación Missale para iPhone y iPad. Fue escrita a
 partir del código de la aplicación, no de una plantilla: todo lo que la
@@ -17,13 +17,14 @@ reenvío de Apple).
 
 **Lo que escribes y registras queda en tu dispositivo.** Tus notas, el Examen,
 el registro de "Hoy estoy…", los rosarios y tu progreso quedan solo en tu
-iPhone. **Hay dos excepciones, y en las dos el texto solo sirve para que Jev
-elija algo del acervo revisado:** el texto que escribas en el cuadro "Escribe
+iPhone. **Hay dos excepciones, y en las dos el texto sirve para que Jev
+elija algo del acervo revisado (en la orientación, también para que Anthropic
+escriba una reflexión breve):** el texto que escribas en el cuadro "Escribe
 lo que estás sintiendo" sale del dispositivo cuando, y solo cuando, tocas
 "Recibir orientación"; y, si eres suscriptor y la personalización está
 activada, algunos textos que escribes (la intención del Rosario, el Examen, la
-intención de la mañana) salen para elegir qué mostrar. Mira "La orientación" y
-"La personalización" más abajo.
+intención de la mañana) salen para elegir qué mostrar. En la orientación del onboarding, las respuestas que diste al cuestionario van
+junto con el texto. Mira "La orientación" y "La personalización" más abajo.
 
 ## Qué se guarda en tu dispositivo
 
@@ -64,8 +65,8 @@ local, en tu dispositivo.
 
 ## Qué no hace la aplicación
 
-- **No envía lo que escribes**, salvo el texto de la orientación, cuando la
-  pides, y los textos de la personalización, si eres suscriptor y está
+- **No envía lo que escribes**, salvo el texto de la orientación (en el onboarding, junto con las respuestas
+  del cuestionario), cuando la pides, y los textos de la personalización, si eres suscriptor y está
   activada. No guardamos nada de eso: notas, Examen, registros y progreso
   quedan en tu dispositivo.
 - **No tiene sincronización.** Nosotros no copiamos nada a otro dispositivo.
@@ -121,10 +122,22 @@ tocar **"Recibir orientación"**:
   Salmo, el santo y el paso) que mejor le corresponde, e indica si el texto
   trae señales de riesgo para la vida, para mostrar primero la orientación de
   crisis.
-- **No guardamos el texto** y no entra en los registros del servidor. El
-  servidor guarda solo cuántas orientaciones pidió tu cuenta cada día, para un
-  límite diario, y cuántas usó sin suscripción. OpenRouter y TypeSafe procesan
-  el texto para responder, según sus propias políticas.
+- Después de que Jev elige, el servidor de Missale envía tu texto, el pasaje
+  bíblico y el santo elegidos a **Anthropic, PBC** (modelo **Claude**), que
+  escribe una reflexión breve a partir de ellos. Anthropic es un segundo
+  destinatario del texto, además de Jev, y su tratamiento sigue los términos de
+  Anthropic para la API.
+  Cuando el texto trae una señal de riesgo para la vida, el servidor también
+  se lo indica a Anthropic, para que la reflexión hable de Dios y te oriente a
+  buscar apoyo y a un sacerdote; en ese caso el pasaje y el santo pueden no ir.
+- En la orientación del onboarding, las respuestas que diste al cuestionario
+  (las preguntas sobre tu vida y tu vida espiritual) van junto con el texto,
+  a Jev y a Anthropic, con la misma finalidad: elegir el pasaje y el santo y
+  escribir la reflexión. Missale tampoco guarda esas respuestas.
+- **No guardamos el texto**, las respuestas del cuestionario ni la reflexión,
+  y nada de eso entra en los registros del servidor. El servidor guarda solo cuántas orientaciones pidió tu cuenta cada
+  día, para un límite diario, y cuántas usó sin suscripción. OpenRouter y
+  TypeSafe procesan el texto y las respuestas para responder, según sus propias políticas.
 - En tu dispositivo, el texto queda guardado como la nota de ese registro de
   "Hoy estoy…", como cualquier nota tuya.
 - Como el texto puede hablar de tu fe y de tu salud emocional, que son datos

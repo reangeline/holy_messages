@@ -77,7 +77,7 @@ struct ExamenStepView: View {
                         // when the Examen ends (ExamenSuggestion) — "only on this
                         // device" would no longer be true.
                         Text(JevPicker.isEnabled
-                             ? L.string("Fica neste aparelho. Ao concluir, o texto vai ao Jev só para escolher um santo e uma oração, sem ser guardado. Dá para desligar em Ajustes.", table: "Today")
+                             ? L.string("Fica neste aparelho. Ao concluir, o texto vai a um serviço de IA de outra empresa só para escolher um santo e uma oração, sem ser guardado. Dá para desligar em Ajustes.", table: "Today")
                              : L.string("Fica só neste aparelho. Ninguém além de você vê isto.", table: "Today"))
                             .font(MissaleFont.body(13))
                             .foregroundStyle(.white.opacity(0.5))

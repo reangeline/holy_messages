@@ -46,7 +46,7 @@ enum IntentionVerse {
     }
 
     @MainActor
-    private static var englishPool: [WordOfDay] {
+    static var englishPool: [WordOfDay] {
         RemoteContent.items("word_of_day", language: .en, as: WordOfDay.self) ?? MockWordOfDay.catalog[.en]
     }
 

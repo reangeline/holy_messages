@@ -1,6 +1,6 @@
 # Termos de Uso do Missale
 
-**Última atualização: 26 de setembro de 2026**
+**Última atualização: 1 de outubro de 2026**
 
 Ao usar o aplicativo Missale você concorda com estes termos. Leia-os: eles são
 curtos e dizem exatamente o que o aplicativo é e o que ele não é.
@@ -100,12 +100,17 @@ nem registrado: a orientação, quando você pede, e, se você for assinante, co
 "Personalizar com o que escrevo" ligado e já tiver permitido isso no aviso que
 aparece na primeira vez, a intenção do Terço, as respostas do Exame, a
 intenção da manhã e o último registro de como você está, usados para escolher
-conteúdo do acervo revisado. Você pode desligar a personalização em
+conteúdo do acervo revisado. Na orientação, o texto, a passagem e o santo
+escolhidos vão também à Anthropic (Claude), que escreve uma reflexão curta.
+Na orientação do onboarding, as respostas que você deu ao questionário vão
+junto com o texto, com a mesma finalidade e sem serem guardadas.
+Você pode desligar a personalização em
 Configurações, e apagar os seus dados apaga também essa permissão. Os
 detalhes estão na Política de Privacidade, que faz parte destes termos.
 
-O que o Jev escolhe é uma sugestão tirada do acervo a partir do seu texto, não
-uma palavra dirigida a você por Deus nem direção espiritual.
+O que o Jev escolhe é uma sugestão tirada do acervo a partir do seu texto, e a
+reflexão que acompanha a orientação é escrita por IA a partir dela. Nenhuma
+das duas é uma palavra dirigida a você por Deus nem direção espiritual.
 
 Como nada do que você escreve fica guardado fora do aparelho, **fazer backup é
 responsabilidade sua**. Se você apagar o aplicativo ou trocar de aparelho, as suas anotações vão

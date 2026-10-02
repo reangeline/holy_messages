@@ -78,11 +78,12 @@ final class OnboardingStoryUITests: XCTestCase {
         snapshot(app, "2b-oracao-com-o-coracao")
         app.buttons["Pular as quatro"].tap()
 
-        // Relief, then the guided prayer.
-        let reliefContinue = app.buttons["Continuar"]
-        XCTAssertTrue(reliefContinue.waitForExistence(timeout: 5))
-        snapshot(app, "2c-alivio")
-        reliefContinue.tap()
+        // The free orientação comes right after the questions (-signedIn skips
+        // the sign-in step); this story skips it, then the guided prayer.
+        let pular = app.buttons["onboardingOrientationSkip"]
+        XCTAssertTrue(pular.waitForExistence(timeout: 10), "a orientação grátis não apareceu depois das perguntas")
+        snapshot(app, "2c-orientacao")
+        pular.tap()
 
         let pray = app.buttons["Vamos rezar juntos"]
         XCTAssertTrue(pray.waitForExistence(timeout: 10), "o momento de oração não apareceu")
@@ -152,13 +153,6 @@ final class OnboardingStoryUITests: XCTestCase {
         XCTAssertTrue(commitment.waitForExistence(timeout: 20), "a frase de compromisso não veio da resposta")
         snapshot(app, "7-compromisso")
         app.buttons["Segure para se comprometer"].press(forDuration: 2)
-
-        // The free orientação comes right after the account (-signedIn skips
-        // the sign-in step); this story skips it.
-        let pular = app.buttons["onboardingOrientationSkip"]
-        XCTAssertTrue(pular.waitForExistence(timeout: 10), "a orientação grátis não apareceu depois do compromisso")
-        snapshot(app, "8a-orientacao")
-        pular.tap()
 
         XCTAssertTrue(
             app.buttons["Ver como fica"].waitForExistence(timeout: 10),

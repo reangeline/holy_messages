@@ -36,6 +36,9 @@ targets:
           - "WidgetExtension/**"
           # Notas internas de importação, não conteúdo do app.
           - "MockData/Generated/IMPORTACAO.md"
+      # Manifesto de privacidade exigido pela App Store; o widget tem o seu.
+      - path: App/PrivacyInfo.xcprivacy
+        buildPhase: resources
     dependencies:
       - target: MissaleWidgetsExtension
         embed: true
@@ -138,6 +141,8 @@ targets:
       - path: Sources/MockData/Generated/GeneratedSaintsThirdBatch.swift
       - path: Sources/MockData/Generated/GeneratedSaintsFourthBatch.swift
       - path: Sources/Fonts
+      - path: WidgetExtension/PrivacyInfo.xcprivacy
+        buildPhase: resources
     info:
       path: WidgetExtension/Info.plist
       properties:

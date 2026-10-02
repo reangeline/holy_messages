@@ -115,6 +115,13 @@ enum PsalmNumbering {
         return Dictionary(uniqueKeysWithValues: table.psalms.map { ($0.vulgate, $0.hebrew) })
     }()
 
+    /// The Vulgate psalm that is, whole, the Hebrew psalm `n` ("Salmo 23" -> 22).
+    /// Nil where the two numberings split or join psalms (9–10, 114–115,
+    /// 116, 147): the verses don't line up there, so no guess is made.
+    static func vulgate(forHebrew n: Int) -> Int? {
+        vulgateToHebrew.first { $0.value == ["\(n)"] }?.key
+    }
+
     /// "22 (23)", "9 (9–10)", "114 (116:1–9)", or just "1" when both agree.
     static func label(vulgate n: Int) -> String {
         guard let hebrew = vulgateToHebrew[n], hebrew != ["\(n)"] else { return "\(n)" }

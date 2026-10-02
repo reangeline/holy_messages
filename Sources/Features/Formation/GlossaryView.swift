@@ -1,21 +1,23 @@
 import SwiftUI
 
-/// t4 screen 21 — "Why is today red?" liturgical color explainer + glossary.
+/// t4 screen 21 — "Why is today <color>?" liturgical color explainer + glossary.
 struct GlossaryView: View {
-    private let day = MockLiturgical.today
+    /// The same civil day the Today tab reads (`MockLiturgical.currentDate`),
+    /// read on every render so it never freezes on the day the app opened.
+    private var day: LiturgicalDay { MockLiturgical.day(for: MockLiturgical.currentDate) }
 
     var body: some View {
         ZStack {
-            LiturgicalColor.red.pageBackground
+            day.color.pageBackground
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
-                    Text("Why is today red?", tableName: "FormationWordOfDay")
+                    Text(GlossaryColorExplainer.title(for: day.color))
                         .font(MissaleFont.display(28, weight: .semibold))
-                    Text("\(day.dayMonthLabel) · \(day.rank.displayName.lowercased()) · \(day.feastName)")
+                    Text("\(day.dayMonthLabel) · \(day.seasonName) · \(day.rank.displayName.lowercased()) · \(day.feastName)")
                         .font(MissaleFont.body(15))
                         .foregroundStyle(Palette.ink.opacity(0.65))
 
-                    Text(day.explanation)
+                    Text(GlossaryColorExplainer.explanation(for: day.color))
                         .font(MissaleFont.body(17))
                         .foregroundStyle(Palette.ink.opacity(0.85))
                         .lineSpacing(3)

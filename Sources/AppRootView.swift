@@ -25,7 +25,7 @@ struct AppRootView: View {
     ///
     /// Debug-only and off unless the argument is passed.
     private var debugOpensSettings: Bool {
-        debugOpenScreen == "settings"
+        debugOpenScreen == "settings" || debugOpenScreen == "notifications"
     }
 
     /// Which screen the launch argument asks for, if any.
@@ -37,7 +37,9 @@ struct AppRootView: View {
     ///
     /// "paywall" opens the subscription screen. App Store Connect requires a
     /// screenshot of it for subscription review, and it is otherwise only
-    /// reachable at the end of onboarding, after eighteen screens.
+    /// reachable at the end of onboarding, after more than a dozen screens.
+    ///
+    /// "notifications" opens Settings already on the reading-times screen.
     ///
     /// "prayer" opens the Our Father zoom moment of the onboarding directly.
     /// It's the only reliable way to screenshot that zoom in a given language
@@ -109,8 +111,13 @@ struct AppRootView: View {
             // hosted outside the presenting view's tree, so `Text(_:tableName:)`
             // inside it was resolving against the device language instead of the
             // app's — the Settings sheet showed "Close" in an app set to Portuguese.
+#if DEBUG
+            SettingsView(initialPath: debugOpenScreen == "notifications" ? [.notifications] : [])
+                .appLanguageLocale()
+#else
             SettingsView()
                 .appLanguageLocale()
+#endif
         }
         .task {
 #if DEBUG

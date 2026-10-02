@@ -68,6 +68,28 @@
         }
       }
     },
+    "Add a time": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add a time"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Añadir horario"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Adicionar horário"
+          }
+        }
+      }
+    },
     "Adicionar seu nome": {
       "localizations": {
         "en": {
@@ -130,6 +152,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "Todas as trilhas de formação, e as novas conforme saem"
+          }
+        }
+      }
+    },
+    "Allow notifications": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Allow notifications"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Permitir notificaciones"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Permitir notificações"
           }
         }
       }
@@ -600,6 +644,28 @@
         }
       }
     },
+    "Each notification brings the word of the day.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Each notification brings the word of the day."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cada notificación trae la palabra del día."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cada notificação traz a palavra do dia."
+          }
+        }
+      }
+    },
     "Everything in the app is available without one. If you subscribed with another Apple ID, restore below.": {
       "extractionState": "manual",
       "localizations": {
@@ -840,6 +906,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "Terço guiado com voz, modo iniciante e tela apagada"
+          }
+        }
+      }
+    },
+    "Horários da palavra do dia": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Times for the word of the day"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Horarios de la palabra del día"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Horários da palavra do dia"
           }
         }
       }
@@ -1268,6 +1356,72 @@
         }
       }
     },
+    "Notifications": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Notifications"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Notificaciones"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Notificações"
+          }
+        }
+      }
+    },
+    "Notifications are off for Missale, so these times won't ring.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Notifications are off for Missale, so these times won't ring."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Las notificaciones están desactivadas para Missale; estos horarios no sonarán."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "As notificações estão desligadas para o Missale; estes horários não vão tocar."
+          }
+        }
+      }
+    },
+    "Notificações": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Notifications"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Notificaciones"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Notificações"
+          }
+        }
+      }
+    },
     "Não é confissão, direção espiritual nem terapia": {
       "localizations": {
         "en": {
@@ -1353,6 +1507,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "Usado só para te chamar pelo nome no Hoje e aqui nas Configurações."
+          }
+        }
+      }
+    },
+    "Open Settings": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open Settings"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abrir Ajustes"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abrir Ajustes"
           }
         }
       }
@@ -1533,6 +1709,28 @@
         }
       }
     },
+    "Reading times": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "READING TIMES"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "HORARIOS DE LA LECTURA"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "HORÁRIOS DA LEITURA"
+          }
+        }
+      }
+    },
     "Região e forma do rito": {
       "localizations": {
         "en": {
@@ -1551,6 +1749,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "Região e forma do rito"
+          }
+        }
+      }
+    },
+    "Remove time": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Remove time"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quitar horario"
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Remover horário"
           }
         }
       }

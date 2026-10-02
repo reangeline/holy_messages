@@ -103,7 +103,7 @@ struct RosaryDarkModeView: View {
     }
 
     private func speakCurrentBead() {
-        guard voiceGuiding else { return }
+        guard RosaryVoiceGuide.voiceGuideAvailable, voiceGuiding else { return }
         guard !isFinished else { return voice.finish() }
         let step = MockRosary.step(for: beads[index], mystery: mystery)
         let atual = index

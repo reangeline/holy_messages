@@ -1,6 +1,6 @@
 # Términos de Uso de Missale
 
-**Última actualización: 26 de septiembre de 2026**
+**Última actualización: 1 de octubre de 2026**
 
 Al usar la aplicación Missale aceptas estos términos. Léelos: son cortos y
 dicen exactamente qué es la aplicación y qué no es.
@@ -99,13 +99,18 @@ guardarse ni registrarse: la orientación, cuando la pides, y, si eres
 suscriptor, tienes "Personalizar con lo que escribo" activado y ya lo
 permitiste en el aviso que aparece la primera vez, la intención del Rosario,
 las respuestas del Examen, la intención de la mañana y tu último registro de
-cómo estás, usados para elegir contenido del acervo revisado. Puedes
+cómo estás, usados para elegir contenido del acervo revisado. En la
+orientación, el texto, el pasaje y el santo elegidos van también a Anthropic
+(Claude), que escribe una reflexión breve.
+En la orientación del onboarding, las respuestas que diste al cuestionario van
+junto con el texto, con la misma finalidad y sin guardarse. Puedes
 desactivar la personalización en Ajustes, y borrar tus datos también borra
 ese permiso. Los detalles están en la Política de Privacidad, que forma parte
 de estos términos.
 
-Lo que Jev elige es una sugerencia tomada del acervo a partir de tu texto, no
-una palabra que Dios te dirige ni dirección espiritual.
+Lo que Jev elige es una sugerencia tomada del acervo a partir de tu texto, y la
+reflexión que acompaña la orientación la escribe una IA a partir de ella.
+Ninguna de las dos es una palabra que Dios te dirige ni dirección espiritual.
 
 Como nada de lo que escribes se guarda fuera del dispositivo, **hacer copias de
 seguridad es tu responsabilidad**. Si borras la aplicación o cambias de dispositivo, tus notas

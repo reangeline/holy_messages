@@ -100,6 +100,19 @@ final class PaywallUITests: XCTestCase {
         )
     }
 
+    /// Guideline 3.1.2: Terms and Privacy open from the paywall itself.
+    func testTermsAndPrivacyOpenFromThePaywall() {
+        let app = abrir("pt")
+        let termos = app.buttons["paywall.terms"]
+        XCTAssertTrue(termos.waitForExistence(timeout: 15), "o paywall não tem o link de Termos de Uso")
+        XCTAssertTrue(app.buttons["paywall.privacy"].exists, "o paywall não tem o link de Política de Privacidade")
+        termos.tap()
+        XCTAssertTrue(
+            app.staticTexts.matching(NSPredicate(format: "label CONTAINS[c] 'Termos de Uso do Missale'")).firstMatch.waitForExistence(timeout: 10),
+            "o link de Termos não abriu o documento"
+        )
+    }
+
     /// Settings must not claim a subscription nobody bought.
     func testSettingsReportsNoSubscription() {
         let app = XCUIApplication()

@@ -50,7 +50,7 @@ struct MoodReflectionView: View {
                 // subscription check without naming it here, so this file
                 // stays off SubscriptionGateTests' support-path list.
                 Text(JevPicker.isActive
-                     ? L.string("Fica neste aparelho. Pode ir ao Jev para escolher a palavra do dia, sem ser guardado. Dá para desligar em Ajustes.", table: "Today")
+                     ? L.string("Fica neste aparelho. Pode ir a um serviço de IA de outra empresa para escolher a palavra do dia, sem ser guardado. Dá para desligar em Ajustes.", table: "Today")
                      : L.string("Fica só neste aparelho. Ninguém além de você vê isto.", table: "Today"))
                     .font(MissaleFont.body(13))
                     .foregroundStyle(Palette.ink.opacity(0.5))

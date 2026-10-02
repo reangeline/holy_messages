@@ -113,28 +113,6 @@
         }
       }
     },
-    "Before anything else": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Before anything else"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Antes que nada"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Antes de mais nada"
-          }
-        }
-      }
-    },
     "Building your first track…": {
       "localizations": {
         "en": {
@@ -941,28 +919,6 @@
         }
       }
     },
-    "Someone who went through it": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Someone who went through it"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Alguien que pasó por esto"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Alguém que passou por isso"
-          }
-        }
-      }
-    },
     "Stay with it through the whole year": {
       "localizations": {
         "en": {
@@ -1592,28 +1548,6 @@
         }
       }
     },
-    "Yours to keep, free, whether or not you ever pay.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Yours to keep, free, whether or not you ever pay."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tuyo para siempre, gratis, pagues o no."
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Seu para sempre, grátis, pague ou não."
-          }
-        }
-      }
-    },
     "day": {
       "extractionState": "manual",
       "localizations": {
@@ -2071,24 +2005,24 @@
         }
       }
     },
-    "Your first guidance is a gift: a word from Scripture and the saints, chosen for what you write.": {
+    "From what you write, we'll look in the Bible for a passage connected to that feeling, to guide you in the Word of the Lord, and a saint who went through the same.": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Your first guidance is a gift: a word from Scripture and the saints, chosen for what you write."
+            "value": "From what you write, we'll look in the Bible for a passage connected to that feeling, to guide you in the Word of the Lord, and a saint who went through the same."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tu primera orientación es un regalo: una palabra de las Escrituras y de los santos, elegida para lo que escribas."
+            "value": "A partir de lo que escribas, buscaremos en la Biblia un pasaje ligado a ese sentimiento, para que te orientes en la Palabra del Señor, y un santo que pasó por lo mismo."
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "A sua primeira orientação é um presente: uma palavra das Escrituras e dos santos, escolhida para o que você escrever."
+            "value": "A partir do que você escrever, vamos buscar na Bíblia uma passagem ligada a esse sentimento, para você se orientar na Palavra do Senhor, e um santo que passou pelo mesmo."
           }
         }
       }

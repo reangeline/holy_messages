@@ -18,6 +18,7 @@ enum MockSettings {
         .init(id: "preferences", label: "Preferências", items: [
             .init(id: "calendar", title: "Calendário litúrgico", subtitle: "Região e forma do rito", value: nil, destination: .regionalCalendar),
             .init(id: "language", title: "Idioma", subtitle: "Interface do app", value: nil, destination: .language),
+            .init(id: "notifications", title: "Notificações", subtitle: "Horários da palavra do dia", value: nil, destination: .notifications),
         ]),
         .init(id: "privacy", label: "Privacidade", items: [
             .init(id: "data", title: "Seus dados", subtitle: "Exportar, apagar", value: nil, destination: .data),
@@ -76,7 +77,7 @@ enum MockSettings {
 
     static let faq: [FAQItem] = [
         .init(id: "1", question: "Por que o app tem cor diferente todo dia?", answer: "A cor segue a liturgia do dia — vermelho para mártires e a Cruz, roxo no Advento e na Quaresma, branco nas solenidades, verde no Tempo Comum. Não é personalização, é o calendário da Igreja."),
-        .init(id: "2", question: "Meus registros de humor ficam salvos onde?", answer: "Neste aparelho. Duas exceções: o texto vai ao Jev quando você pede a orientação e, se você for assinante e a personalização estiver ligada, o registro mais recente pode ajudar a escolher a palavra do dia — sem ser guardado. Veja Seus dados."),
+        .init(id: "2", question: "Meus registros de humor ficam salvos onde?", answer: "Neste aparelho. Duas exceções: o texto vai a serviços de IA de outras empresas quando você pede a orientação e, se você for assinante e a personalização estiver ligada, o registro mais recente pode ajudar a escolher a palavra do dia — sem ser guardado. Veja Seus dados."),
         .init(id: "3", question: "O app substitui a confissão?", answer: "Não, de jeito nenhum. Veja a Nota pastoral para as três declarações completas sobre o que este app é e não é."),
         .init(id: "4", question: "Posso usar sem pagar?", answer: "Sim — palavra do dia, santo do dia, o Terço completo e a rede pastoral são grátis para sempre. E se o preço for o problema para o resto, escreva para nós."),
         .init(id: "5", question: "Como funciona o calendário do meu país?", answer: "Cada conferência episcopal tem um calendário próprio sobre o romano geral, com datas e santos específicos. Escolha o seu em Calendário litúrgico."),

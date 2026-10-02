@@ -57,6 +57,23 @@ final class OrientationUITests: XCTestCase {
         XCTAssertTrue(respostaApareceu(app), "depois da crise, a palavra não veio")
     }
 
+    func testTheCrisisScreenShowsTheReflectionInACard() {
+        let app = XCUIApplication()
+        app.launchArguments = ["-signedIn", "1", "-demoDate", "2026-09-14", "-hasCompletedOnboarding", "1", "-appLanguageOverride", "pt",
+                               "-subscribed", "1", "-fakeOrientation", "crisis",
+                               "-fakeReflection", "Deus está perto de quem sofre. Procure apoio agora e um padre numa paróquia perto de você."]
+        app.launch()
+        let checkIn = app.buttons.matching(NSPredicate(format: "label CONTAINS[c] 'Como está sendo meu dia'")).firstMatch
+        XCTAssertTrue(checkIn.waitForExistence(timeout: 15))
+        checkIn.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
+        escrever(app, "Nao vejo saida")
+        XCTAssertTrue(app.descendants(matching: .any)["orientationCrisisReflection"].firstMatch.waitForExistence(timeout: 10), "a reflexão da crise não apareceu")
+        XCTAssertTrue(app.descendants(matching: .any)["orientationCrisis"].firstMatch.exists, "o card de apoio sumiu")
+        app.buttons["orientationContinue"].tap()
+        XCTAssertTrue(respostaApareceu(app))
+        XCTAssertFalse(app.descendants(matching: .any)["orientationReflection"].firstMatch.exists, "a tela da passagem não pede outra reflexão")
+    }
+
     /// A reviewed phrase opens the crisis guidance even when the server said nothing.
     func testACrisisPhraseIsCaughtOnTheDevice() {
         let app = abrirCheckIn(fake: "tired")

@@ -4,9 +4,17 @@ import SwiftUI
 /// their life (Jev's risk answer, or a reviewed phrase). Text only, with no
 /// number of our own — see CrisisLines. The reply is still one tap away: the
 /// reader decides, and a false alarm costs only this screen.
+///
+/// `reflect` asks for the crisis reflection (about God, support and a priest
+/// at a nearby parish): shown in a card below the support, a discreet
+/// indicator while it loads, and no card at all if it fails. Asked once, and
+/// never saved; nil asks nothing.
 struct OrientationCrisisView: View {
+    var reflect: (() async -> String?)? = nil
     var onContinue: () -> Void
     @State private var showPastoralCare = false
+    @State private var reflection: String?
+    @State private var isReflecting = false
 
     var body: some View {
         ZStack {
@@ -43,6 +51,11 @@ struct OrientationCrisisView: View {
                     }
                     .buttonStyle(.plain)
 
+                    // Below the support, never above it: a ~150-word
+                    // reflection arriving seconds later must not push the
+                    // ways to get help off the screen.
+                    reflectionCard
+
                     Button(action: onContinue) {
                         Text("Continuar para a palavra de hoje", tableName: "Today")
                             .font(MissaleFont.body(17))
@@ -59,9 +72,40 @@ struct OrientationCrisisView: View {
                 .padding(.vertical, 24)
             }
         }
+        .task {
+            // Ask once; a later failure never wipes what is already shown.
+            guard let reflect, reflection == nil, !isReflecting else { return }
+            isReflecting = true
+            let result = await reflect()
+            if let result { withAnimation(.easeInOut(duration: 0.25)) { reflection = result } }
+            isReflecting = false
+        }
         .sheet(isPresented: $showPastoralCare) {
             PastoralCareNudgeView()
                 .appLanguageLocale()
+        }
+    }
+
+    /// Absent until the reflection arrives, and for good if it never does.
+    @ViewBuilder
+    private var reflectionCard: some View {
+        if let reflection {
+            GlassCard {
+                VStack(alignment: .leading, spacing: 6) {
+                    Text(reflection)
+                        .font(MissaleFont.body(15))
+                        .foregroundStyle(Palette.ink.opacity(0.75))
+                    Text("Escrita por IA.", tableName: "Today")
+                        .font(MissaleFont.body(12))
+                        .foregroundStyle(Palette.ink.opacity(0.45))
+                }
+            }
+            .transition(.opacity)
+            .accessibilityIdentifier("orientationCrisisReflection")
+        } else if isReflecting {
+            ProgressView().tint(Palette.wine)
+                .frame(maxWidth: .infinity)
+                .accessibilityIdentifier("orientationCrisisReflectionLoading")
         }
     }
 }

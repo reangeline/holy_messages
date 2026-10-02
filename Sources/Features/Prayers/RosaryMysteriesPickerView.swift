@@ -49,10 +49,12 @@ struct RosaryMysteriesPickerView: View {
                             Toggle(L.string( "Beginner mode", table: "Prayers"), isOn: $beginnerMode)
                                 .font(MissaleFont.body(16, weight: .medium))
                                 .tint(Palette.wine)
-                            Divider()
-                            Toggle(L.string("Voice reading the prayers", table: "Prayers"), isOn: $voiceGuiding)
-                                .font(MissaleFont.body(16, weight: .medium))
-                                .tint(Palette.wine)
+                            if RosaryVoiceGuide.voiceGuideAvailable {
+                                Divider()
+                                Toggle(L.string("Voice reading the prayers", table: "Prayers"), isOn: $voiceGuiding)
+                                    .font(MissaleFont.body(16, weight: .medium))
+                                    .tint(Palette.wine)
+                            }
                         }
                     }
 
@@ -73,7 +75,7 @@ struct RosaryMysteriesPickerView: View {
 
                     VStack(spacing: 12) {
                         NavigationLink {
-                            RosaryGuidedPrayerView(mystery: selected, beginnerMode: beginnerMode, voiceGuiding: voiceGuiding, intention: intention, highlightedDecade: highlightedDecade)
+                            RosaryGuidedPrayerView(mystery: selected, beginnerMode: beginnerMode, voiceGuiding: RosaryVoiceGuide.voiceGuideAvailable && voiceGuiding, intention: intention, highlightedDecade: highlightedDecade)
                         } label: {
                             Text("Start", tableName: "Prayers")
                                 .font(MissaleFont.body(17, weight: .medium))
@@ -83,7 +85,7 @@ struct RosaryMysteriesPickerView: View {
                                 .foregroundStyle(.white)
                         }
                         NavigationLink {
-                            RosaryDarkModeView(mystery: selected, startIndex: 0, voiceGuiding: voiceGuiding, intention: intention)
+                            RosaryDarkModeView(mystery: selected, startIndex: 0, voiceGuiding: RosaryVoiceGuide.voiceGuideAvailable && voiceGuiding, intention: intention)
                         } label: {
                             Text("Start with the screen off", tableName: "Prayers")
                                 .font(MissaleFont.body(16))

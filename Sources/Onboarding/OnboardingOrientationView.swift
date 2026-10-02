@@ -1,7 +1,7 @@
 import SwiftUI
 
-/// The orientação offered in the onboarding, free: right after the account,
-/// before the notice times and the plans, the reader writes what they feel and
+/// The orientação offered in the onboarding, free: right after the questions
+/// and the account, before the guided prayer, the reader writes what they feel and
 /// receives a reviewed reply chosen for it. The server allows each account one
 /// orientação without a subscription; after that it lives in "Hoje eu estou…"
 /// for subscribers.
@@ -9,14 +9,17 @@ import SwiftUI
 /// Skippable, and it never blocks the onboarding: any failure turns into a
 /// short note and "Continuar".
 struct OnboardingOrientationView: View {
+    /// The questionnaire answers: context for Jev and for the reflection.
+    var context: OnboardingContext = .empty
     let onBack: () -> Void
     let onNext: () -> Void
 
     private enum Phase: Equatable {
         case writing
         case guiding
-        case crisis(MoodStateOption?, Int?)
-        case reply(MoodStateOption, Int?)
+        case crisis(MoodStateOption?, Int?, OrientationPassage?)
+        /// `String?`: what the reader wrote, when a reflection may be asked.
+        case reply(MoodStateOption, Int?, OrientationPassage?, String?)
         case notice(String)
     }
 
@@ -40,13 +43,19 @@ struct OnboardingOrientationView: View {
                             .multilineTextAlignment(.center)
                     }
                     .padding(.horizontal, 36)
-                case .crisis(let option, let index):
-                    OrientationCrisisView {
-                        if let option { show(option, index) } else { onNext() }
+                case .crisis(let option, let index, let passage):
+                    OrientationCrisisView(reflect: {
+                        await OrientationService.reflectInCrisis(
+                            on: text, stateID: option?.id, reliefIndex: index, passage: passage,
+                            free: true, context: context.reflectionContext)
+                    }) {
+                        if let option { show(option, index, passage, reflectionText: nil) } else { onNext() }
                     }
-                case .reply(let option, let index):
-                    MoodReliefView(state: option, chosenIndex: index,
+                case .reply(let option, let index, let passage, let reflectionText):
+                    MoodReliefView(state: option, chosenIndex: index, chosenPassage: passage,
                                    continueTitle: L.string("Continue", table: "Onboarding"),
+                                   reflectionText: reflectionText, reflectionFree: true,
+                                   reflectionContext: context.reflectionContext,
                                    onDone: onNext)
                 case .notice(let message):
                     VStack(alignment: .leading, spacing: 16) {
@@ -75,7 +84,7 @@ struct OnboardingOrientationView: View {
                         .font(MissaleFont.display(27))
                         .foregroundStyle(Palette.ink)
                         .padding(.top, 16)
-                    Text("Your first guidance is a gift: a word from Scripture and the saints, chosen for what you write.", tableName: "Onboarding")
+                    Text("From what you write, we'll look in the Bible for a passage connected to that feeling, to guide you in the Word of the Lord, and a saint who went through the same.", tableName: "Onboarding")
                         .font(MissaleFont.body(16))
                         .foregroundStyle(Palette.ink.opacity(0.7))
                     OrientationWritingCard(text: $text, onSend: send, onLocked: {}, isFree: true)
@@ -100,21 +109,21 @@ struct OnboardingOrientationView: View {
         phase = .guiding
         Task {
             do {
-                let result = try await OrientationService.orient(written, free: true)
+                let result = try await OrientationService.orient(written, free: true, context: context)
                 let option = result.stateID.flatMap { id in MockMood.stateGroups.flatMap(\.items).first { $0.id == id } }
                 if let option {
                     _ = MoodHistoryStore.shared.record(state: option, note: written)
                 }
                 if result.showCrisisFirst {
-                    phase = .crisis(option, result.reliefIndex)
+                    phase = .crisis(option, result.reliefIndex, result.passage)
                 } else if let option {
-                    show(option, result.reliefIndex)
+                    show(option, result.reliefIndex, result.passage, reflectionText: written)
                 } else {
                     phase = .notice(L.string("I couldn't quite tell how you are. In the app, \"Today I am…\" lets you choose it with one tap.", table: "Onboarding"))
                 }
             } catch {
                 if CrisisPhrases.matches(written) {
-                    phase = .crisis(nil, nil)
+                    phase = .crisis(nil, nil, nil)
                 } else {
                     phase = .notice(OrientationFailureMessage(error).text)
                 }
@@ -122,8 +131,8 @@ struct OnboardingOrientationView: View {
         }
     }
 
-    private func show(_ option: MoodStateOption, _ index: Int?) {
-        phase = .reply(option, index)
+    private func show(_ option: MoodStateOption, _ index: Int?, _ passage: OrientationPassage?, reflectionText: String?) {
+        phase = .reply(option, index, passage, reflectionText)
     }
 }
 

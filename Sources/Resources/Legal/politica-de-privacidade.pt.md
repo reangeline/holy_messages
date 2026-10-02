@@ -1,6 +1,6 @@
 # Política de Privacidade do Missale
 
-**Última atualização: 26 de setembro de 2026**
+**Última atualização: 1 de outubro de 2026**
 
 Esta política descreve o aplicativo Missale para iPhone e iPad. Ela foi escrita
 a partir do código do aplicativo, não de um modelo: a lista de tudo o que é
@@ -16,13 +16,15 @@ endereço de encaminhamento da Apple).
 
 **O que você escreve e registra fica no seu aparelho.** As anotações, o
 Exame, o registro do "Hoje eu estou…", os terços e o progresso ficam só no seu
-iPhone. **Há duas exceções, e nas duas o texto só serve para o Jev escolher
-algo no acervo revisado:** o texto que você escrever na caixa "Escreva o que
+iPhone. **Há duas exceções, e nas duas o texto serve para o Jev escolher
+algo no acervo revisado (na orientação, também para a Anthropic escrever uma
+reflexão curta):** o texto que você escrever na caixa "Escreva o que
 você está sentindo" sai do aparelho quando, e só quando, você toca em "Receber
 orientação"; e, se você for assinante e a personalização estiver ligada,
 alguns textos que você escreve (a intenção do Terço, o Exame, a intenção da
-manhã) saem para escolher o que mostrar. Veja "A orientação" e "A
-personalização" abaixo.
+manhã) saem para escolher o que mostrar. Na orientação do onboarding, as
+respostas que você deu ao questionário vão junto com o texto. Veja "A
+orientação" e "A personalização" abaixo.
 
 ## O que fica guardado no seu aparelho
 
@@ -62,8 +64,8 @@ local, no seu aparelho.
 
 ## O que o aplicativo não faz
 
-- **Não envia o que você escreve**, exceto o texto da orientação, quando você
-  pede, e os textos da personalização, se você for assinante e ela estiver
+- **Não envia o que você escreve**, exceto o texto da orientação (no onboarding, junto com as respostas do
+  questionário), quando você pede, e os textos da personalização, se você for assinante e ela estiver
   ligada. Nada disso é guardado por nós: anotações, Exame, registros e
   progresso ficam no seu aparelho.
 - **Não tem sincronização.** Nada é copiado para outro aparelho por nós.
@@ -118,10 +120,23 @@ tocar em **"Receber orientação"**:
   acervo revisado do Missale, o estado que o texto descreve e a resposta (o
   Salmo, o santo e o passo) que mais combina, e indica se o texto traz sinal
   de risco à vida, para mostrarmos primeiro a orientação de crise.
-- **Nós não guardamos o texto** e ele não entra nos registros do servidor. O
-  servidor guarda apenas quantas orientações a sua conta pediu em cada dia,
-  para um limite diário, e quantas usou sem assinatura. A OpenRouter e a
-  TypeSafe processam o texto para responder, conforme as políticas delas.
+- Depois que o Jev escolhe, o servidor do Missale envia o seu texto, a
+  passagem bíblica e o santo escolhidos à **Anthropic, PBC** (modelo
+  **Claude**), que escreve uma reflexão curta a partir deles. A Anthropic é um
+  segundo destinatário do texto, além do Jev, e o tratamento por ela segue os
+  termos da Anthropic para a API. Quando o texto traz sinal de risco à vida, o
+  servidor também avisa a Anthropic disso, para que a reflexão fale de Deus e
+  oriente você a buscar apoio e um padre; nesse caso a passagem e o santo podem
+  não ir.
+- Na orientação do onboarding, as respostas que você deu ao questionário (as
+  perguntas sobre a sua vida e a sua vida espiritual) vão junto com o texto,
+  para o Jev e para a Anthropic, com a mesma finalidade: escolher a passagem e
+  o santo e escrever a reflexão. O Missale também não guarda essas respostas.
+- **Nós não guardamos o texto**, as respostas do questionário nem a reflexão,
+  e nada disso entra nos registros do servidor. O servidor guarda apenas quantas orientações a sua
+  conta pediu em cada dia, para um limite diário, e quantas usou sem
+  assinatura. A OpenRouter e a TypeSafe processam o texto e as respostas para responder,
+  conforme as políticas delas.
 - No seu aparelho, o texto fica salvo como a anotação daquele registro do
   "Hoje eu estou…", como qualquer anotação sua.
 - Como o texto pode falar da sua fé e da sua saúde emocional, que são dados

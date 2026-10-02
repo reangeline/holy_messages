@@ -6,7 +6,7 @@ final class OnboardingViewModel: ObservableObject {
     @Published private(set) var path: [OnboardingStep] = OnboardingViewModel.initialPath
 
     /// `-openScreen onboarding-orientation` starts on the free orientação, which
-    /// is otherwise eighteen screens deep — the same reason the other
+    /// is otherwise a dozen screens deep — the same reason the other
     /// `openScreen` values exist (see `AppRootView.debugOpenScreen`).
     private static var initialPath: [OnboardingStep] {
 #if DEBUG
@@ -22,11 +22,13 @@ final class OnboardingViewModel: ObservableObject {
     @Published var notificationTimes: [String: Int] = ["morning": 7 * 60]
     @Published var notificationPermissionRequested = false
 
-    var current: OnboardingStep { path.last ?? .verseIntro }
-
-    func reliefContent(for language: AppLanguage) -> ReliefContent {
-        OnboardingRelief.content(spirit2: spiritualAnswers["spirit-2"], language: language)
+    /// The questionnaire answers as text for the AI, used by the orientação
+    /// and its reflection (see `OnboardingContext`).
+    var context: OnboardingContext {
+        OnboardingContext(life: lifeAnswers, spiritual: spiritualAnswers, language: AppLanguagePreference.resolveCurrent())
     }
+
+    var current: OnboardingStep { path.last ?? .verseIntro }
 
     // MARK: - Navigation
 
@@ -53,39 +55,39 @@ final class OnboardingViewModel: ObservableObject {
 
     func advanceFromSpiritualIntro() { push(.spiritual(0)) }
 
-    func skipAllSpiritual() { push(.relief) }
+    /// The account comes right after the questions: the orientação, next, goes
+    /// to the server. Already signed in, the step is skipped.
+    func skipAllSpiritual() { pushAccountOrOrientation() }
 
     func advanceFromSpiritual(index: Int) {
         if index < MockOnboarding.spiritualQuestions(for: .en).count - 1 {
             push(.spiritual(index + 1))
         } else {
-            push(.relief)
+            pushAccountOrOrientation()
         }
     }
 
-    func advanceFromRelief() { push(.prayer) }
+    private func pushAccountOrOrientation() {
+        push(AccountStore.shared.isSignedIn ? .orientation : .signIn)
+    }
+
+    /// The free orientação (written, or skipped) leads to the guided prayer.
+    func advanceFromOrientation() { push(.prayer) }
 
     func advanceFromPrayer() { push(.loader) }
 
     func advanceFromLoader() { push(.synthesis) }
 
-    /// The account comes right after the reader commits, before the
-    /// notification times and the paywall. Already signed in (a reader who
-    /// went back through the story), the step is skipped.
-    func advanceFromSynthesis() {
-        push(AccountStore.shared.isSignedIn ? .orientation : .signIn)
-    }
+    /// The synthesis leads straight to the notice times.
+    func advanceFromSynthesis() { push(.notificationTime) }
 
     /// Replaces the sign-in step rather than stacking on it, so "back" from
-    /// the next step returns to the synthesis, not to a sign-in that already
-    /// happened.
+    /// the orientação returns to the spiritual questions, not to a sign-in
+    /// that already happened.
     func advanceFromSignIn() {
         if current == .signIn { path.removeLast() }
         push(.orientation)
     }
-
-    /// The free orientação (written, or skipped) leads to the notice times.
-    func advanceFromOrientation() { push(.notificationTime) }
 
     func advanceFromNotificationTime() { push(.notificationPreview) }
 
