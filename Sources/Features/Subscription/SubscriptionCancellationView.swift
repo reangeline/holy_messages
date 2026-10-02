@@ -12,6 +12,20 @@ import StoreKit
 struct SubscriptionCancellationView: View {
     @Environment(\.dismiss) private var dismiss
     @State private var gerenciando = false
+    @ObservedObject private var store = SubscriptionStore.shared
+
+    /// "Você mantém o acesso completo até 14 de outubro de 2026." A data é a
+    /// do fim do período já pago, lida do StoreKit; esta linha trazia uma data
+    /// escrita no código, igual para todo mundo. Quem assinou o anual e cancela
+    /// no meio mantém o acesso até o fim do ano pago.
+    static func acessoAte(_ data: Date?) -> String {
+        guard let data else {
+            return L.string("Você mantém o acesso completo até o fim do período já pago.", table: "Today")
+        }
+        let idioma = AppLanguagePreference.resolveCurrent().rawValue
+        let texto = data.formatted(Date.FormatStyle(date: .long, time: .omitted).locale(Locale(identifier: idioma)))
+        return String(format: L.string("Você mantém o acesso completo até %@.", table: "Today"), texto)
+    }
 
     var body: some View {
         ZStack {
@@ -29,11 +43,13 @@ struct SubscriptionCancellationView: View {
                     GlassCard {
                         VStack(alignment: .leading, spacing: 9) {
                             Eyebrow(text: L.string("O que acontece", table: "Today"))
-                            ForEach(MockSubscription.cancelWhatHappens, id: \.self) { line in
-                                Text(line)
-                                    .font(MissaleFont.body(16))
-                                    .foregroundStyle(Palette.ink.opacity(0.84))
+                            Group {
+                                Text(Self.acessoAte(store.renewal?.expirationDate))
+                                Text("Nada é cobrado depois disso.", tableName: "Today")
+                                Text("Nenhum dado é apagado, e nada fica trancado atrás de um aviso.", tableName: "Today")
                             }
+                            .font(MissaleFont.body(16))
+                            .foregroundStyle(Palette.ink.opacity(0.84))
                         }
                     }
 

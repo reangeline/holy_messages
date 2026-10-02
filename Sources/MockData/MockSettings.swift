@@ -69,11 +69,11 @@ enum MockSettings {
     static let riteFormNote = "Forma do rito: ordinária e 1962. A trilha da Missa segue a forma escolhida no início, e pode ser trocada na trilha."
 
     static let contentProcessNote = "Os textos explicativos são autorais e passam por revisão antes de publicar. Citações litúrgicas aparecem como apoio, com a fonte. Encontrou um erro doutrinal? Escreva — corrigimos e registramos a correção."
-    static let errorsEmail = "erros@missale.app"
+    static let errorsEmail = "hi@missaleapp.com"
     static let licensingNote = "As traduções litúrgicas usadas neste app estão licenciadas junto à conferência episcopal correspondente. As bíblicas são de domínio público, com a versão indicada em cada texto."
 
-    static let supportEmail = "ola@missale.app"
-    static let accessEmail = "acesso@missale.app"
+    static let supportEmail = "hi@missaleapp.com"
+    static let accessEmail = "hi@missaleapp.com"
 
     static let faq: [FAQItem] = [
         .init(id: "1", question: "Por que o app tem cor diferente todo dia?", answer: "A cor segue a liturgia do dia — vermelho para mártires e a Cruz, roxo no Advento e na Quaresma, branco nas solenidades, verde no Tempo Comum. Não é personalização, é o calendário da Igreja."),

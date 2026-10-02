@@ -246,4 +246,4 @@ the top will change.
 
 ## Contact
 
-ola@missale.app
+hi@missaleapp.com

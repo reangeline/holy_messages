@@ -7,7 +7,11 @@ struct SaintDetailHeroLayout: Layout {
     static let maximumWidth: CGFloat = 760
     static let minimumHeight: CGFloat = 190
     static let artworkAspectRatio: CGFloat = 1206.0 / 648.0
-    static let artworkContentMode: ContentMode = .fit
+    /// Fill, top-aligned (see `SaintPortrait`). The bundled engravings have
+    /// the hero's own proportion, so fill shows them whole; the portraits
+    /// uploaded through the admin page are square, and fit drew them as a
+    /// small square in the middle of the band.
+    static let artworkContentMode: ContentMode = .fill
 
     static func frame(availableWidth: CGFloat) -> CGSize {
         let width = min(availableWidth, maximumWidth)
@@ -49,7 +53,7 @@ struct SaintDetailView: View {
                 VStack(alignment: .leading, spacing: 14) {
                     SaintDetailHeroLayout {
                         SaintPortrait(
-                            artworkName: saint.artworkName,
+                            artworkName: saint.heroArtworkName,
                             cornerRadius: 18,
                             contentMode: SaintDetailHeroLayout.artworkContentMode
                         )

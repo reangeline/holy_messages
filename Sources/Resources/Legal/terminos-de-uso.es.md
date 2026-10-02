@@ -63,7 +63,7 @@ Las imágenes de santos y santuarios provienen de obras en dominio público o de
 arte producido para esta aplicación, con el crédito registrado en el acervo.
 
 Si encuentras un error de referencia, transcripción o atribución, escribe a
-erros@missale.app. Lo corregimos y te damos crédito.
+hi@missaleapp.com. Lo corregimos y te damos crédito.
 
 ## 4. Suscripción
 
@@ -89,7 +89,7 @@ El resto se ofrece mediante **suscripción opcional, mensual o anual**.
 - Los **reembolsos** los concede Apple, según sus reglas. No podemos concederlos
   ni denegarlos.
 
-Si el costo es un obstáculo real, escribe a acesso@missale.app.
+Si el costo es un obstáculo real, escribe a hi@missaleapp.com.
 
 ## 5. Tus datos
 
@@ -157,4 +157,4 @@ suprime los derechos que te otorga la ley de consumo.
 Estos términos se rigen por la ley brasileña. Nada aquí suprime los derechos
 que te otorga la ley de consumo de tu propio país.
 
-Dudas: ola@missale.app
+Dudas: hi@missaleapp.com

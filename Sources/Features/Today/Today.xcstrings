@@ -3737,6 +3737,98 @@
           }
         }
       }
+    },
+    "Você mantém o acesso completo até %@.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You keep full access until %@."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mantienes el acceso completo hasta el %@."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Você mantém o acesso completo até %@."
+          }
+        }
+      }
+    },
+    "Você mantém o acesso completo até o fim do período já pago.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You keep full access until the end of the period you've already paid for."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mantienes el acceso completo hasta el final del período ya pagado."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Você mantém o acesso completo até o fim do período já pago."
+          }
+        }
+      }
+    },
+    "Nada é cobrado depois disso.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nothing is charged after that."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No se cobra nada después de eso."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nada é cobrado depois disso."
+          }
+        }
+      }
+    },
+    "Nenhum dado é apagado, e nada fica trancado atrás de um aviso.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No data is deleted, and nothing gets locked behind a notice."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No se borra ningún dato, y nada queda bloqueado detrás de un aviso."
+          }
+        },
+        "pt": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nenhum dado é apagado, e nada fica trancado atrás de um aviso."
+          }
+        }
+      }
     }
   },
   "version": "1.0"

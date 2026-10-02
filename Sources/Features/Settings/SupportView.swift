@@ -46,15 +46,6 @@ struct SupportView: View {
                         }
                     }
 
-                    GlassCard {
-                        VStack(alignment: .leading, spacing: 6) {
-                            Text("Parishes and catechesis", tableName: "SettingsDetail").font(MissaleFont.body(18, weight: .medium))
-                            Text("Bulk licenses for groups, OCIA catechumens, and pastoral teams, also free. Talk to us.", tableName: "SettingsDetail")
-                                .font(MissaleFont.body(15))
-                                .foregroundStyle(Palette.ink.opacity(0.74))
-                        }
-                    }
-
                     VStack(spacing: 0) {
                         linkRow(L.string( "Frequently asked questions", table: "SettingsDetail"), destination: .faq)
                         Divider().opacity(0.5)

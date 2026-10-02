@@ -64,7 +64,7 @@ As imagens de santos e santuários vêm de obras em domínio público ou de arte
 produzida para este aplicativo, com o crédito registrado no acervo.
 
 Se você identificar um erro de referência, de transcrição ou de atribuição,
-escreva para erros@missale.app. Corrigimos e creditamos.
+escreva para hi@missaleapp.com. Corrigimos e creditamos.
 
 ## 4. Assinatura
 
@@ -90,7 +90,7 @@ O restante é oferecido por **assinatura opcional, mensal ou anual**.
 - **Reembolsos** são concedidos pela Apple, segundo as regras dela. Não temos
   como conceder ou recusar um reembolso.
 
-Se o custo for um impedimento real, escreva para acesso@missale.app.
+Se o custo for um impedimento real, escreva para hi@missaleapp.com.
 
 ## 5. Os seus dados
 
@@ -156,4 +156,4 @@ nestes termos afasta os direitos que a lei do consumidor lhe garante.
 Estes termos são regidos pela lei brasileira. Nada aqui afasta os direitos
 previstos no Código de Defesa do Consumidor.
 
-Dúvidas: ola@missale.app
+Dúvidas: hi@missaleapp.com

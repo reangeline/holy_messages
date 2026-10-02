@@ -15,8 +15,8 @@ struct MarianApparitionDetailView: View {
             LiturgicalColor.white.pageBackground
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
-                    if apparition.artworkName != nil {
-                        SaintPortrait(artworkName: apparition.artworkName, cornerRadius: 16)
+                    if let hero = apparition.heroArtworkName {
+                        SaintPortrait(artworkName: hero, cornerRadius: 16)
                             .frame(height: 200)
                     }
 

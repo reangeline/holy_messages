@@ -254,4 +254,4 @@ cambiará la fecha de arriba.
 
 ## Contacto
 
-ola@missale.app
+hi@missaleapp.com
