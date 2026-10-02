@@ -59,18 +59,19 @@ telas de apoio. Nada mais a conferir aqui.
 
 ## 2. Decisões pendentes
 
-### 2.1 Teste gratuito de 7 dias — feito
+### 2.1 Teste gratuito de 14 dias — feito
 
 O app lê do produto (`introductoryOffer`) e só mostra o teste a quem a Apple
 diz que tem direito (`isEligibleForIntroOffer`).
 
-- Em 24/09 as ofertas de 2 semanas (desde 22/09) foram apagadas e trocadas por
-  **Grátis na primeira semana**, na Mensal e na Anual, nos mesmos 175 países,
-  sem data final. Quem já estava no teste de 2 semanas continua nele.
-- A configuração local (`Tests/Support/Missale.storekit`) também está com 1
-  semana.
+- Desde 01/10/2026, a oferta é de **2 semanas (14 dias) grátis** nas duas
+  assinaturas (Mensal e Anual), tanto na App Store Connect quanto na
+  configuração local (`Tests/Support/Missale.storekit`, `P2W`). A oferta de 1
+  semana de 24/09 foi substituída.
+- Nenhum prazo está escrito no app: os dias vêm do produto, e um teste proíbe
+  cravá-los no código.
 - Uma conta que já assinou não tem mais direito ao teste: é o caso da conta
-  usada no TestFlight. Para ver o botão de 7 dias, teste com uma conta Sandbox
+  usada no TestFlight. Para ver o botão de 14 dias, teste com uma conta Sandbox
   nova.
 
 ### 2.2 O que fazer com os 111 santos e as 111 festas que faltam — pendente
