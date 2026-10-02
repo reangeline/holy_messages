@@ -9,7 +9,9 @@ import SwiftUI
 ///
 /// One file per language: they are our own prose, not liturgical text, so each
 /// is written rather than machine-translated, and the three say the same thing.
-enum LegalDocument: Hashable {
+enum LegalDocument: Hashable, Identifiable {
+    var id: Self { self }
+
     case privacy
     case terms
 

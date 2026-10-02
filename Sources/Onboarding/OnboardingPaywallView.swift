@@ -27,6 +27,9 @@ struct OnboardingPaywallView: View {
     @State private var resultadoDaRestauracao: SubscriptionStore.RestoreResult?
     @State private var falhaNaCompra = false
     @State private var mostrandoPlanos = false
+    /// Termos e Privacidade abrem em sheet por cima do paywall, no mesmo
+    /// leitor dos Ajustes (`LegalDocumentView`).
+    @State private var documentoLegal: LegalDocument?
     /// Guardado para rolar até os planos quando eles aparecem: abertos abaixo
     /// da dobra, o toque em "Ver todos os planos" só trocava o rótulo do botão
     /// e parecia não ter feito nada.
@@ -76,6 +79,16 @@ struct OnboardingPaywallView: View {
             Text("Nothing was charged. You can try again, or keep using the app free.", tableName: "Onboarding")
         }
         .restoreResultAlert($resultadoDaRestauracao)
+        .sheet(item: $documentoLegal) { documento in
+            NavigationStack {
+                LegalDocumentView(document: documento)
+                    .toolbar {
+                        ToolbarItem(placement: .cancellationAction) {
+                            Button(L.string("Close", table: "Onboarding")) { documentoLegal = nil }
+                        }
+                    }
+            }
+        }
     }
 
     // MARK: - Topo
@@ -347,11 +360,33 @@ struct OnboardingPaywallView: View {
                 }
                 .disabled(comprando || restaurando)
             }
+
+            // Diretriz 3.1.2: Termos de Uso e Política de Privacidade têm de
+            // estar onde a assinatura é oferecida. Sublinhados para não
+            // depender só da cor; a área de toque tem 44pt de altura.
+            HStack(spacing: 22) {
+                linkLegal(L.string("Terms of Use", table: "SettingsDetail"),
+                          documento: .terms, identificador: "paywall.terms")
+                linkLegal(L.string("Privacy Policy", table: "SettingsDetail"),
+                          documento: .privacy, identificador: "paywall.privacy")
+            }
         }
         .padding(.horizontal, 24)
         .padding(.top, 14)
         .padding(.bottom, 10)
         .background(.ultraThinMaterial)
+    }
+
+    private func linkLegal(_ titulo: String, documento: LegalDocument, identificador: String) -> some View {
+        Button { documentoLegal = documento } label: {
+            Text(titulo)
+                .font(MissaleFont.body(13))
+                .underline()
+                .foregroundStyle(Palette.ink.opacity(0.65))
+                .frame(minHeight: 44)
+                .contentShape(Rectangle())
+        }
+        .accessibilityIdentifier(identificador)
     }
 
     // MARK: - StoreKit

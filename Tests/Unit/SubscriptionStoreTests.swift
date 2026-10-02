@@ -136,6 +136,20 @@ final class SubscriptionStoreTests: XCTestCase {
         }
     }
 
+    /// Guideline 3.1.2: Terms of Use and Privacy Policy must be reachable where
+    /// the subscription is offered. Lê a fonte, como os testes vizinhos.
+    func testPaywallLinksToTermsAndPrivacy() throws {
+        let raiz = URL(fileURLWithPath: #filePath)
+            .deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent()
+        let fonte = try String(
+            contentsOf: raiz.appendingPathComponent("Sources/Onboarding/OnboardingPaywallView.swift"),
+            encoding: .utf8
+        )
+        XCTAssertTrue(fonte.contains("paywall.terms"), "o paywall perdeu o link de Termos de Uso")
+        XCTAssertTrue(fonte.contains("paywall.privacy"), "o paywall perdeu o link de Política de Privacidade")
+        XCTAssertTrue(fonte.contains("LegalDocumentView"), "os links devem abrir o leitor legal dos Ajustes")
+    }
+
     /// Restoring used to end in silence whatever happened. Each outcome now
     /// has its own answer, and closing the password sheet is not an error.
     func testRestoreSaysWhatHappened() {
