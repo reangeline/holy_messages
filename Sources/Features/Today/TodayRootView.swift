@@ -108,6 +108,7 @@ struct TodayRootView: View {
             .sheet(isPresented: $showMoodSheet) {
                 MoodCheckInSheet()
                     .appLanguageLocale()
+                    .folhaAmplaNoIPad()
             }
             // The check-in note asks for consent from inside its own sheet
             // (MoodCheckInSheet) instead — two sheets can't both try to present
