@@ -395,6 +395,19 @@ private struct FlowChips: View {
     }
 }
 
+extension View {
+    /// No iPad (iOS 18+) a folha abre ampla em vez do cartão pequeno, para os
+    /// dois grupos de estados caberem sem rolar. iPhone e iOS 17 ficam como estão.
+    @ViewBuilder
+    func folhaAmplaNoIPad() -> some View {
+        if #available(iOS 18.0, *), UIDevice.current.userInterfaceIdiom == .pad {
+            presentationSizing(.page)
+        } else {
+            self
+        }
+    }
+}
+
 #Preview {
     MoodCheckInSheet()
 }
